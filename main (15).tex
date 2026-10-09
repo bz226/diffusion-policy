@@ -1,0 +1,4951 @@
+\documentclass{article}
+
+\usepackage {tikz}
+\usepackage[utf8]{inputenc}
+\usepackage[mono=false]{libertinus}
+\usepackage[T1]{fontenc}
+\usepackage{sectsty}
+\allsectionsfont{\sffamily}
+\usepackage{tocloft}
+\usepackage{multicol}
+
+\renewcommand{\cftsecfont}{\bfseries\sffamily}
+\usepackage[numbers]{natbib}
+\usepackage{enumitem,lipsum}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{geometry}
+\usepackage{mathtools}
+% \geometry{margin=1in}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{fancyhdr}
+\usepackage{array}
+\usepackage{hyperref}
+\usepackage[breakable]{tcolorbox}
+\usepackage{bbm}
+\usepackage{parskip}
+\usepackage{physics}
+\usepackage[hang,flushmargin]{footmisc}
+\usepackage{mathtools}
+\usepackage{stmaryrd}
+\DeclareSymbolFont{rsfso}{U}{rsfso}{m}{n}
+\DeclareSymbolFontAlphabet{\mathscr}{rsfso}
+\usepackage{tikz}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.15}
+% \usepackage{mathrsfs}
+\usetikzlibrary{arrows}
+\usepackage{comment}
+\usepackage{blkarray}
+% \usepackage{ntheorem}
+\usepackage{multirow}
+\usepackage{amsmath,amssymb,graphicx,amscd}
+\usepackage{mathrsfs}
+% pour les S des spheres
+\usepackage{mathrsfs}
+\usepackage{dsfont}
+\usepackage{stmaryrd}
+\usepackage{wrapfig}
+\usepackage{xcolor}
+\usepackage{pstricks}
+\usepackage{lastpage}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=magenta,
+    filecolor=magenta,      
+    urlcolor=cyan,
+    citecolor = magenta
+}
+
+\urlstyle{same}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{ass}{Assumption}
+
+\theoremstyle{definition}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{remark}
+\newtheorem*{remark}{Remark}
+\newtheorem*{hint}{Hint}
+\newtheorem*{note}{Note}
+
+\def\Xint#1{\mathchoice
+{\XXint\displaystyle\textstyle{#1}}%
+{\XXint\textstyle\scriptstyle{#1}}%
+{\XXint\scriptstyle\scriptscriptstyle{#1}}%
+{\XXint\scriptscriptstyle\scriptscriptstyle{#1}}%
+\!\int}
+\def\XXint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\int}$ }
+\vcenter{\hbox{$#2#3$ }}\kern-.6\wd0}}
+\def\ddashint{\Xint=}
+\def\dashint{\Xint-}
+
+% declare a new theorem style
+\newtheoremstyle{mystyle}%
+{3pt}% Space above
+{3pt}% Space below 
+{\itshape\color{red}}% Body font
+{}% Indent amount
+{\bfseries\color{red}}% Theorem head font
+{.}% Punctuation after theorem head
+{.5em}% Space after theorem head
+{}% Theorem head spec (can be left empty, meaning ‘normal’)
+\theoremstyle{mystyle}
+\newtheorem*{grade}{Comment}
+\newcommand{\borel}{\mathcal{B}}
+\newcommand{\expo}{\mathrm{Exp}\,}
+\newcommand{\ber}{\mathrm{Ber}\,}
+\newcommand{\binomial}{\mathrm{Bin}\,}
+\newcommand{\negbinomial}{\mathrm{NB}\,}
+\newcommand{\Var}{\mathrm{Var}} %variance
+\newcommand{\Geom}{\mathrm{Geom}\,}
+\newcommand{\Pois}{\mathrm{Pois}\,}
+\newcommand{\Erlang}{\mathrm{Erlang}\,}
+\newcommand{\Det}{\mathrm{det}}
+\newcommand{\sgn}{\mathrm{sgn}}
+\newcommand{\Cov}{\mathrm{Cov}}
+\renewcommand{\Pr}{\mathbb{P}}
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\KL}{\mathrm{KL}\,}
+\newcommand{\indep}{\perp \!\!\!\! \perp}
+\newcommand{\1}{\mathbbm{1}}
+\newcommand{\CC}{{\mathbb C}}
+\newcommand{\HH}{{\mathbb H}}
+\newcommand{\R}{\mathbb R}
+\newcommand{\QQ}{{\mathbb{Q}}}
+\newcommand{\NN}{{\mathbb{N}}}
+\newcommand{\ZZ}{{\mathbb{Z}}}
+\renewcommand{\P}{{\mathbb{P}}}
+\newcommand{\rd}{{\mathrm{d}}}
+\newcommand{\Prob}{{\mathbb{P}}}
+
+ \newcommand{\I}{1\!\!1}                   %Indicator function
+
+ \newcommand{\ii}{{\mathrm{i}}}
+  \newcommand{\Id}{{\mathrm{Id}}}
+\newcommand{\law}{\overset{\mbox{\rm \scriptsize law}}{=}}
+\newcommand{\convlaw}{\overset{\mbox{\rm \scriptsize law}}{\longrightarrow}}
+\let\oldproof\proof
+\renewcommand{\proof}{\color{blue}\oldproof}
+
+% \renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+% \renewcommand{\sectionmark}[1]{\markright{#1}}
+\pagestyle{fancy}
+\fancyhf{}
+\renewcommand{\headrulewidth}{0pt}
+\fancyhead[C]{}
+\fancyhead[L]{\textit{\leftmark}}
+% \fancyhead[RE]{\textit{\leftmark}}
+\fancyhead[R]{ \quad \thepage of \pageref{LastPage}}
+\fancypagestyle{plain}{
+    \fancyhead{}
+    \renewcommand{\headrulewidth}{0pt}
+    \fancyfoot[C]{\textbf{\thepage}}
+}
+
+%-----------------------------------------------------------------
+
+\title{Diffusion policy}
+\author{Zhen Bao}
+
+\begin{document}
+
+\maketitle
+% \section{Notations\& Definitions \& previous results}
+% Define $J(\theta)\coloneqq V^{\pi_\theta}(\rho)=\E^\pi_\rho \left[\sum^\infty_{h=0}\gamma^hr(x_h,a_h)\right]$, where $a_h\sim \pi_\theta(\cdot|x_h)$ and $x_{h+1}\sim \P(\cdot|x_h,a_h)$. \\
+% Define $\P^{\theta,x}$ s.t. $\P^{\theta,x}\circ(\bar{a}_T)^{-1}=\P\circ(\bar{a}_T^x)^{-1}$ clear definition by Girsanov. This only for reference.\\
+% Policy gradient $\nabla_\theta J(\theta)=\frac{1}{1-\gamma}\int_\mathcal{X}\E\left[S_\theta(x)Q^{\pi_\theta}(x,\bar{a}^x_t)\right]d^{\pi_\theta}_\rho(dx)$\\
+% $G_H(f)=\sum^{\infty}_{j=0}\gamma^{j}r(X^f_j,A^f_j)$; Truncated: $G_H(f)=\sum^{H-1}_{j=0}\gamma^{j}r(X^f_j,A^f_j)$. With $f$ parametrization with $\theta$, let $G_H(\theta,\xi)=\sum^{H-1}_{j=0}\gamma^{j}r(X^{f_\theta}_j,A^{f_\theta}_j)$. $PG(\theta)=\E_\xi[G(\theta,\xi)]$
+
+% \section{Proof structure}
+% Define $J(\theta)\coloneqq V^{\pi_\theta}(\rho)=\E^\pi_\rho \left[\sum^\infty_{h=0}\gamma^hr(x_h,a_h)\right]$, where $a_h\sim \pi_\theta(\cdot|x_h)$ and $x_{h+1}\sim \P(\cdot|x_h,a_h)$. \\
+% To-dos
+% \begin{enumerate}
+%     \item Translate MDP property assumptions to $J(\theta)$ property.
+%     \item Derive a performance difference $J(\theta)-J(\theta')$; regret lemma Pg36 Argarwal et. al
+%     \item Projected gradient ascent
+%     \item 
+% \end{enumerate}
+% Intended result:
+% \begin{enumerate}
+%     \item $L$-smooth
+%     \item PL-condition on a subspace. Identify a ideal subspace $U$ s.t. $J(\theta)$ satisfies PL-condition. \\
+%     % Try $D_\beta J_K(\theta)=\frac{1}{1-\gamma}\E[S^\beta_\theta(x)Q^{\pi_{\theta}}(x,\bar{a}^x_T)]$, where $S^\beta_\theta(x)=S_\theta(x)^T\beta$\\
+%     Try to prove $$J^* -J(\theta)\geq\|P\|$$
+% \end{enumerate}
+% Assumptions:
+% \begin{enumerate}
+%     \item $\|\nabla_\theta f_\theta\|$
+%     \item $\|\nabla_{\theta\theta} f_\theta\|$
+%     \item $r(x,a)$ Lipschitz continuous in $a$, i.e. $|r(x,a)-r(x,a')|\leq L\|a-a'\|_2$ for all $a,a'\in \mathcal{A}$
+% \end{enumerate}
+
+
+
+% \section{L-smoothness of $J(\theta)$}
+% % \ass For all $\theta\in \R^n$, $\|\nabla_\theta f_\theta-\nabla_\theta f_\theta'\|\leq H\|\theta-\theta'\|$ or equivalently, if $f\in C^2$, $\|\nabla_{\theta\theta}^2 f_\theta\|\leq H$\label{f lip}
+% % % \lem Define $j_x(\theta)\coloneqq\E\left[r(x,\bar{a}_T^x)\right]$ 
+% \lem First with result on 
+% \begin{equation*}
+%     \int_\mathcal{X}\rho(dx)\E\left[r(x,\bar{a}_T^x)\right]
+% \end{equation*}
+% consider 
+% \begin{align*}
+%     \nabla_\theta \int_\mathcal{X}\rho(dx)\E\left[r(x,\bar{a}_T^x)\right]
+% \end{align*}
+% \lem \label{j lsmooth}With \ref{f lip}, we have $J(\theta)$ is $L$-smooth, i.e. 
+% \begin{equation}
+%     J(\theta')\leq J(\theta)+\langle \nabla_\theta J(\theta), \theta'-\theta\rangle+\frac{L}{2}\|\theta'-\theta\|_2^2
+% \end{equation}
+% or equivalently if $f\in C^2$,
+% \begin{equation}
+%     \|\nabla_\theta J(\theta')-\nabla_\theta J(\theta)\|\leq L
+% \end{equation}
+% \begin{proof}
+
+%     Let $S_\theta(x)=\int^T_0 \nabla_\theta f_\theta(t,\bar{a}^{\theta,x}_t,x)\sigma(t,\bar{a}_t^{\theta,x},x)^{-1}dB_t$  For shorthand, write $d^\theta=d^{\pi_\theta}_\rho$, $Q^{\pi_\theta}=Q^\theta$ and $\Psi(\theta,x)=\E[S_\theta(x)Q^{\pi_\theta}(x,\bar{a}_T^{\theta,x})]$
+%     \begin{align}
+%         \nabla_\theta J(\theta')-\nabla_\theta J(\theta)&=\frac{1}{1-\gamma}\left[\int_\mathcal{X}\E\left[S_\theta(x)Q^{\pi_\theta}(x,\bar{a}_T^{\theta,x})\right]d^{\pi_\theta}_\rho(dx)-\int_\mathcal{X}\E\left[S_{\theta'}(x)Q^{\pi_{\theta'}}(x,\bar{a}_T^{\theta,x})\right]d^{\pi_{\theta'}}_\rho(dx)\right]\\
+%         &=\frac{1}{1-\gamma}\left[\int_\mathcal{X}\Psi(\theta,x)d^\theta(dx)-\int_\mathcal{X}\Psi(\theta',x)d^{\theta'}(dx)\right]\\
+%         &=\frac{1}{1-\gamma}\left[\underbrace{\int_\mathcal{X}[\Psi(\theta,x)-\Psi(\theta',x)]d^{\theta}(dx)}_{I}-\underbrace{\int_\mathcal{X}\Psi(\theta',x)[d^{\theta'}-d^\theta](dx)}_{II}\right]\\
+%     \end{align}
+
+%     For $I$, we focus on the $\Psi(\theta,x)-\Psi(\theta',x)$ term. Note that under same Brownian motion coupling
+%     \begin{align*}
+%         \Psi(\theta,x)-\Psi(\theta',x)&=\E[S_\theta(x)Q^{\theta}(x,\bar{a}_T^{\theta,x})]-\E[S_{\theta'}(x)Q^{\theta'}(x,\bar{a}_T^{\theta,x})]\\
+%         &=\E[S_\theta(x)Q^{\theta}(x,\bar{a}_T^{\theta,x})-S_{\theta'}(x)Q^{\theta'}(x,\bar{a}_T^{\theta',x})]\\
+%         &=\E[S_\theta(x)Q^{\theta}(x,\bar{a}_T^{\theta,x})-S_{\theta'}(x)Q^{\theta}(x,\bar{a}_T^{\theta,x})]+\E[S_{\theta'}(x)Q^{\theta}(x,\bar{a}_T^{\theta,x})-S_{\theta'}(x)Q^{\theta'}(x,\bar{a}_T^{\theta',x})]\\
+%         &\leq \|Q^{\theta}(x,\bar{a}_T^{\theta,x})\|_{\infty}E[\|S_\theta(x)-S_{\theta'}(x)\|]+\E[S_{\theta'}(x)(Q^{\theta}(x,\bar{a}_T^{\theta,x})-Q^{\theta'}(x,\bar{a}_T^{\theta',x}))]
+%         % &+\E[S_{\theta'}(x)(Q^{\theta}(x,\bar{a}_T^{\theta',x})-Q^{\theta'}(x,\bar{a}_T^{\theta',x}))]
+%     \end{align*}
+%     \\
+%     For the term 
+%     \begin{align*}
+%         Q^{\theta}(x,\bar{a}_T^{\theta,x})-Q^{\theta'}(x,\bar{a}_T^{\theta',x})&=r(x,\bar{a}_T^{\theta,x})-r(x,\bar{a}_T^{\theta',x})+\gamma\left(\int_\mathcal{X}V^\theta(x')P(dx'|x,\bar{a}_T^{\theta,x})-\int_\mathcal{X}V^{\theta'}(x')P(dx'|x,\bar{a}_T^{\theta',x})\right)
+%     \end{align*}
+%     And 
+%     \begin{align*}
+%         &\int_\mathcal{X}V^\theta(x')P(dx'|x,\bar{a}_T^{\theta,x})-\int_\mathcal{X}V^{\theta'}(x')P(dx'|x,\bar{a}_T^{\theta',x})\\
+%         =&\int_\mathcal{X}V^\theta(x')P(dx'|x,\bar{a}_T^{\theta,x})-\int_\mathcal{X}V^{\theta'}(x')P(dx'|x,\bar{a}_T^{\theta,x})+\int_\mathcal{X}V^{\theta'}(x')P(dx'|x,\bar{a}_T^{\theta,x})-\int_\mathcal{X}V^{\theta'}(x')P(dx'|x,\bar{a}_T^{\theta',x})\\
+%         =&\int_\mathcal{X}(V^\theta(x')-V^{\theta'}(x'))P(dx'|x,\bar{a}_T^{\theta,x})+\int_\mathcal{X}V^{\theta'}(x')(P(dx'|x,\bar{a}_T^{\theta,x})-P(dx'|x,\bar{a}_T^{\theta',x}))\\
+%         \leq&\|V^\theta(x')-V^{\theta'}(x')\|_\infty+\int_\mathcal{X}V^{\theta'}(x')(P(dx'|x,\bar{a}_T^{\theta,x})-P(dx'|x,\bar{a}_T^{\theta',x}))\\
+%         =&\|V^\theta(x')-V^{\theta'}(x')\|_\infty+\E_U\left[V^{\theta'}(\Phi_P(x,\bar{a}_T^{\theta,x},U))-V^{\theta'}(\Phi_P(x,\bar{a}_T^{\theta',x},U))\right]\\
+%         \leq&\|V^\theta(x')-V^{\theta'}(x')\|_\infty+L_V\E_U\left[\|\Phi_P(x,\bar{a}_T^{\theta,x},U)-\Phi_P(x,\bar{a}_T^{\theta',x},U)\|\right]\\
+%         \leq&\|V^\theta(x')-V^{\theta'}(x')\|_\infty+L_{V,x}\E_U\left[(\Phi_P(x,\bar{a}_T^{\theta,x},U)-\Phi_P(x,\bar{a}_T^{\theta',x},U))^2\right]^{1/2}\\
+%         \leq&\|V^\theta(x')-V^{\theta'}(x')\|_\infty+L_{V,x}L^a_P\|\bar{a}_T^{\theta,x}-\bar{a}_T^{\theta',x}\|\\
+%     \end{align*}
+%     Requires stability of $V$ wrt $\theta$ and $x$ (for $\theta$, it should come from $\left\| \tilde{G}^{R}_{H}(f) - \tilde{G}^{R}_{H}(g) \right\|_{L^{2}(P)} \leq C_{3}H(C_{3}L_{K,T})^{H}d_{K,R}(f,g)$ by setting the way of parametrization); for the lipschitz wrt x, still about the same proof just setting $f=g$ but $D_0=\|x-x'\|$\\
+    
+%     For $II$, \\
+%     We follows the similar synchronuous coupling strategy: say $(X^\theta_j,A^\theta_j)$ be the MDP process following the law introduced by $\pi_\theta$, i.e. $d\bar{a}$
+    
+%     , set the exogenous randomness i.i.d $\xi=(X_0,\{\zeta_j,B_j,U_j\}_{j\geq 0})$ and the recursive evolution $X^\theta_{j+1}=\Phi_P(X^\theta_j,A^\theta_j,U_j)$\\
+%     The idea is to do a similar proof from Lemma B.4, with chosen way of parametrization to replace $d_{K,R}(f^\theta,f^{\theta'})$ with $\|\theta-\theta'\|$
+%     \begin{align*}
+%         \int_\mathcal{X}\Psi(\theta',x)[d^{\theta'}-d^\theta](dx)&=\\
+%     \end{align*}
+% \end{proof}
+
+
+% %%--------------------------------------------------
+% % \lem[Smoothness skeleton for diffusion policy gradient]
+% % Let
+% % \[
+% % J(\theta):=V^{\pi_\theta}(\rho).
+% % \]
+% % Assume the policy-gradient identity holds:
+% % \[
+% % \nabla_\theta J(\theta)
+% % =
+% % \frac{1}{1-\gamma}
+% % \int_{\mathcal X}
+% % \Psi_\theta(x)\,d^\theta(dx),
+% % \]
+% % where
+% % \[
+% % d^\theta:=d_\rho^{\pi_\theta},
+% % \]
+% % and
+% % \[
+% % \Psi_\theta(x)
+% % :=
+% % \mathbb E
+% % \left[
+% % S_\theta^x Q_\theta(x,A_\theta^x)
+% % \right].
+% % \]
+% % Here
+% % \[
+% % A_\theta^x:=\bar a_T^{\theta,x},
+% % \]
+% % \[
+% % Q^\theta:=Q^{\pi_\theta},
+% % \]
+% % and
+% % \[
+% % S_\theta^x
+% % :=
+% % \int_0^T
+% % \nabla_\theta f_\theta(t,\bar a_t^{\theta,x},x)
+% % \sigma(t,\bar a_t^{\theta,x},x)^{-1}\,dB_t.
+% % \]
+
+% % Suppose there exist constants \(L_{\Psi,\theta},L_{\Psi,x},C_d<\infty\) such that for all
+% % \(\theta,\theta'\in\Theta\) and all \(x,y\in\mathcal X\),
+
+% % \[
+% % \|\Psi_{\theta'}(x)-\Psi_\theta(x)\|
+% % \le
+% % L_{\Psi,\theta}\|\theta'-\theta\|,
+% % \tag{A1}
+% % \]
+
+% % \[
+% % \|\Psi_{\theta'}(x)-\Psi_{\theta'}(y)\|
+% % \le
+% % L_{\Psi,x}\|x-y\|,
+% % \tag{A2}
+% % \]
+
+% % and the discounted occupancy measures satisfy the synchronous-coupling stability bound
+% % \[
+% % \mathbb E_{\rm sync}
+% % \|X_N^{\theta'}-X_N^\theta\|
+% % \le
+% % C_d\|\theta'-\theta\|,
+% % \tag{A3}
+% % \]
+% % where \(N\sim{\rm Geom}(1-\gamma)\), i.e.
+% % \[
+% % \mathbb P(N=j)=(1-\gamma)\gamma^j,
+% % \]
+% % and the coupled states satisfy
+% % \[
+% % X_N^\theta\sim d^\theta,\qquad X_N^{\theta'}\sim d^{\theta'}.
+% % \]
+
+% % Then \(J\) is \(L\)-smooth with
+% % \[
+% % L
+% % =
+% % \frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}.
+% % \]
+% % That is,
+% % \[
+% % \|\nabla J(\theta')-\nabla J(\theta)\|
+% % \le
+% % L\|\theta'-\theta\|.
+% % \]
+
+
+% % \begin{proof}
+% % By the policy-gradient formula,
+% % \[
+% % \nabla J(\theta')
+% % -
+% % \nabla J(\theta)
+% % =
+% % \frac{1}{1-\gamma}
+% % \left[
+% % \int_{\mathcal X}\Psi_{\theta'}(x)d^{\theta'}(dx)
+% % -
+% % \int_{\mathcal X}\Psi_\theta(x)d^\theta(dx)
+% % \right].
+% % \]
+% % Add and subtract
+% % \[
+% % \int_{\mathcal X}\Psi_{\theta'}(x)d^\theta(dx)
+% % \]
+% % to obtain
+% % \[
+% % \nabla J(\theta')-\nabla J(\theta)
+% % =
+% % \frac{1}{1-\gamma}(I+II),
+% % \]
+% % where
+% % \[
+% % I
+% % :=
+% % \int_{\mathcal X}
+% % \left[
+% % \Psi_{\theta'}(x)-\Psi_\theta(x)
+% % \right]
+% % d^\theta(dx),
+% % \]
+% % and
+% % \[
+% % II
+% % :=
+% % \int_{\mathcal X}
+% % \Psi_{\theta'}(x)
+% % \left[
+% % d^{\theta'}-d^\theta
+% % \right](dx).
+% % \]
+
+% % For \(I\), since \(d^\theta\) is a probability measure and by Assumption \((A1)\),
+% % \[
+% % \begin{aligned}
+% % \|I\|
+% % &\le
+% % \int_{\mathcal X}
+% % \|\Psi_{\theta'}(x)-\Psi_\theta(x)\|
+% % d^\theta(dx)
+% % \\
+% % &\le
+% % L_{\Psi,\theta}\|\theta'-\theta\|.
+% % \end{aligned}
+% % \tag{1}
+% % \]
+
+% % For \(II\), use the synchronous coupling of the discounted state occupancies. Let
+% % \[
+% % N\sim{\rm Geom}(1-\gamma),
+% % \]
+% % and construct coupled trajectories so that
+% % \[
+% % X_N^{\theta'}\sim d^{\theta'},
+% % \qquad
+% % X_N^\theta\sim d^\theta.
+% % \]
+% % Then
+% % \[
+% % II
+% % =
+% % \mathbb E_{\rm sync}
+% % \left[
+% % \Psi_{\theta'}(X_N^{\theta'})
+% % -
+% % \Psi_{\theta'}(X_N^\theta)
+% % \right].
+% % \]
+% % Therefore, by Assumption \((A2)\),
+% % \[
+% % \begin{aligned}
+% % \|II\|
+% % &\le
+% % \mathbb E_{\rm sync}
+% % \left[
+% % \|\Psi_{\theta'}(X_N^{\theta'})
+% % -
+% % \Psi_{\theta'}(X_N^\theta)\|
+% % \right]
+% % \\
+% % &\le
+% % L_{\Psi,x}
+% % \mathbb E_{\rm sync}
+% % \|X_N^{\theta'}-X_N^\theta\|.
+% % \end{aligned}
+% % \]
+% % Using Assumption \((A3)\),
+% % \[
+% % \|II\|
+% % \le
+% % L_{\Psi,x}C_d\|\theta'-\theta\|.
+% % \tag{2}
+% % \]
+
+% % Combining \((1)\) and \((2)\), we get
+% % \[
+% % \begin{aligned}
+% % \|\nabla J(\theta')-\nabla J(\theta)\|
+% % &\le
+% % \frac{1}{1-\gamma}
+% % \left(
+% % \|I\|+\|II\|
+% % \right)
+% % \\
+% % &\le
+% % \frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}
+% % \|\theta'-\theta\|.
+% % \end{aligned}
+% % \]
+% % Thus \(J\) is \(L\)-smooth with
+% % \[
+% % L=
+% % \frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}.
+% % \]
+% % \end{proof}
+
+% % \lem[\(\Psi\)-Lipschitz]
+% % Assume that for all \(x,x'\in\mathcal X\) and \(\theta,\theta'\in\Theta\), under the same-Brownian coupling,
+% % \[
+% % \left(
+% % \mathbb E
+% % \|A_{\theta'}^{x'}-A_\theta^x\|^2
+% % \right)^{1/2}
+% % \le
+% % C_{A,x}\|x'-x\|+C_{A,\theta}\|\theta'-\theta\|,
+% % \tag{B1}
+% % \]
+% % and
+% % \[
+% % \left(
+% % \mathbb E
+% % \|S_{\theta'}^{x'}-S_\theta^x\|^2
+% % \right)^{1/2}
+% % \le
+% % C_{S,x}\|x'-x\|+C_{S,\theta}\|\theta'-\theta\|.
+% % \tag{B2}
+% % \]
+% % Assume also
+% % \[
+% % \left(
+% % \mathbb E\|S_\theta^x\|^2
+% % \right)^{1/2}
+% % \le M_S,
+% % \qquad
+% % \|Q_\theta\|_\infty\le M_Q,
+% % \tag{B3}
+% % \]
+% % and
+% % \[
+% % |Q_{\theta'}(x',a')-Q_\theta(x,a)|
+% % \le
+% % L_Q^x\|x'-x\|
+% % +
+% % L_Q^a\|a'-a\|
+% % +
+% % C_Q^\theta\|\theta'-\theta\|.
+% % \tag{B4}
+% % \]
+% % Then
+% % \[
+% % \|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+% % \le
+% % L_{\Psi,x}\|x'-x\|
+% % +
+% % L_{\Psi,\theta}\|\theta'-\theta\|,
+% % \]
+% % where one may take
+% % \[
+% % L_{\Psi,x}
+% % =
+% % M_QC_{S,x}
+% % +
+% % M_S(L_Q^x+L_Q^aC_{A,x}),
+% % \]
+% % and
+% % \[
+% % L_{\Psi,\theta}
+% % =
+% % M_QC_{S,\theta}
+% % +
+% % M_S(L_Q^aC_{A,\theta}+C_Q^\theta).
+% % \]
+
+
+% % \begin{proof}
+% % Under the same-Brownian coupling,
+% % \[
+% % \begin{aligned}
+% % &\Psi_{\theta'}(x')-\Psi_\theta(x)\\
+% % % &=\Psi_{\theta'}(x')-\Psi_{\theta'}(x)+\Psi_{\theta'}(x)-\Psi_{\theta}(x')\\
+% % &=
+% % \mathbb E
+% % \left[
+% % S_{\theta'}^{x'}Q_{\theta'}(x',A_{\theta'}^{x'})
+% % -
+% % S_\theta^xQ_\theta(x,A_\theta^x)
+% % \right]
+% % \\
+% % &=
+% % \mathbb E
+% % \left[
+% % (S_{\theta'}^{x'}-S_\theta^x)Q_\theta(x,A_\theta^x)
+% % \right]
+% % \\
+% % &\quad+
+% % \mathbb E
+% % \left[
+% % S_{\theta'}^{x'}
+% % \left(
+% % Q_{\theta'}(x',A_{\theta'}^{x'})
+% % -
+% % Q_\theta(x,A_\theta^x)
+% % \right)
+% % \right].
+% % \end{aligned}
+% % \]
+% % Hence, by Cauchy--Schwarz,
+% % \[
+% % \begin{aligned}
+% % \|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+% % &\le
+% % M_Q
+% % \left(
+% % \mathbb E
+% % \|S_{\theta'}^{x'}-S_\theta^x\|^2
+% % \right)^{1/2}
+% % \\
+% % &\quad+
+% % M_S
+% % \left(
+% % \mathbb E
+% % \left|
+% % Q_{\theta'}(x',A_{\theta'}^{x'})
+% % -
+% % Q_\theta(x,A_\theta^x)
+% % \right|^2
+% % \right)^{1/2}.
+% % \end{aligned}
+% % \]
+% % Using \((B1)\), \((B2)\), and \((B4)\) gives
+% % \[
+% % \|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+% % \le
+% % \left[
+% % M_QC_{S,x}
+% % +
+% % M_S(L_Q^x+L_Q^aC_{A,x})
+% % \right]\|x'-x\|
+% % \]
+% % \[
+% % +
+% % \left[
+% % M_QC_{S,\theta}
+% % +
+% % M_S(L_Q^aC_{A,\theta}+C_Q^\theta)
+% % \right]\|\theta'-\theta\|.
+% % \]
+% % This proves the claim.
+% % \end{proof}
+
+% % \lem[Discounted occupancy stability via synchronous coupling]
+% % Assume that the coupled action processes satisfy
+% % \[
+% % E_j
+% % :=
+% % \left(
+% % \mathbb E_{\rm sync}
+% % \|A_j^{\theta'}-A_j^\theta\|^2
+% % \right)^{1/2}
+% % \le
+% % C_A^xD_j+C_A^\theta\|\theta'-\theta\|,
+% % \tag{C1}
+% % \]
+% % where
+% % \[
+% % D_j
+% % :=
+% % \left(
+% % \mathbb E_{\rm sync}
+% % \|X_j^{\theta'}-X_j^\theta\|^2
+% % \right)^{1/2}.
+% % \]
+% % Assume the transition kernel admits a synchronous \(L^2\)-coupling:
+% % \[
+% % \left(
+% % \mathbb E_U
+% % \|\Phi_P(x,a,U)-\Phi_P(x',a',U)\|^2
+% % \right)^{1/2}
+% % \le
+% % L_P^x\|x-x'\|+L_P^a\|a-a'\|.
+% % \tag{C2}
+% % \]
+% % Let
+% % \[
+% % \alpha:=L_P^x+L_P^aC_A^x,
+% % \qquad
+% % \beta:=L_P^aC_A^\theta.
+% % \]
+% % If
+% % \[
+% % \gamma\alpha<1,
+% % \]
+% % then
+% % \[
+% % \mathbb E_{\rm sync}
+% % \|X_N^{\theta'}-X_N^\theta\|
+% % \le
+% % \frac{\gamma\beta}{1-\gamma\alpha}
+% % \|\theta'-\theta\|.
+% % \]
+% % Thus one may take
+% % \[
+% % C_d
+% % =
+% % \frac{\gamma L_P^aC_A^\theta}
+% % {1-\gamma(L_P^x+L_P^aC_A^x)}.
+% % \]
+
+% % \begin{proof}
+% % Construct the coupled trajectories using the same initial state, same Brownian motions, same initial diffusion noises, and same transition seeds:
+% % \[
+% % X_0^{\theta'}=X_0^\theta,
+% % \]
+% % \[
+% % A_j^\theta
+% % =
+% % \bar a_T^{\theta,X_j^\theta},
+% % \qquad
+% % A_j^{\theta'}
+% % =
+% % \bar a_T^{\theta',X_j^{\theta'}},
+% % \]
+% % and
+% % \[
+% % X_{j+1}^\theta
+% % =
+% % \Phi_P(X_j^\theta,A_j^\theta,U_j),
+% % \qquad
+% % X_{j+1}^{\theta'}
+% % =
+% % \Phi_P(X_j^{\theta'},A_j^{\theta'},U_j).
+% % \]
+% % By \((C2)\),
+% % \[
+% % D_{j+1}
+% % \le
+% % L_P^xD_j+L_P^aE_j.
+% % \]
+% % Using \((C1)\),
+% % \[
+% % D_{j+1}
+% % \le
+% % (L_P^x+L_P^aC_A^x)D_j
+% % +
+% % L_P^aC_A^\theta\|\theta'-\theta\|.
+% % \]
+% % Thus
+% % \[
+% % D_{j+1}
+% % \le
+% % \alpha D_j+\beta\|\theta'-\theta\|.
+% % \]
+% % Since \(D_0=0\),
+% % \[
+% % D_j
+% % \le
+% % \beta
+% % \sum_{k=0}^{j-1}\alpha^k
+% % \|\theta'-\theta\|.
+% % \]
+% % Now let \(N\sim{\rm Geom}(1-\gamma)\). Then
+% % \[
+% % \begin{aligned}
+% % \mathbb E_{\rm sync}
+% % \|X_N^{\theta'}-X_N^\theta\|
+% % &=
+% % (1-\gamma)
+% % \sum_{j=0}^\infty
+% % \gamma^j
+% % \mathbb E_{\rm sync}
+% % \|X_j^{\theta'}-X_j^\theta\|
+% % \\
+% % &\le
+% % (1-\gamma)
+% % \sum_{j=0}^\infty
+% % \gamma^jD_j
+% % \\
+% % &\le
+% % (1-\gamma)
+% % \sum_{j=0}^\infty
+% % \gamma^j
+% % \beta
+% % \sum_{k=0}^{j-1}\alpha^k
+% % \|\theta'-\theta\|.
+% % \end{aligned}
+% % \]
+% % Since
+% % \[
+% % (1-\gamma)
+% % \sum_{j=0}^\infty
+% % \gamma^j
+% % \sum_{k=0}^{j-1}\alpha^k
+% % =
+% % \frac{\gamma}{1-\gamma\alpha},
+% % \]
+% % provided \(\gamma\alpha<1\), we obtain
+% % \[
+% % \mathbb E_{\rm sync}
+% % \|X_N^{\theta'}-X_N^\theta\|
+% % \le
+% % \frac{\gamma\beta}{1-\gamma\alpha}
+% % \|\theta'-\theta\|.
+% % \]
+% % \end{proof}
+% %-----------------------------
+\newpage
+\section{Smoothness of the diffusion-policy objective}
+
+Let
+\[
+J(\theta):=V^{\pi_\theta}(\rho).
+\]
+For the discounted occupancy measure, use the paper's notation
+\[
+d_\rho^{\pi_\theta}(dx)
+:=
+\int_{\mathcal X}d^{\pi_\theta}(dx\mid x')\,\rho(dx'),
+\]
+where
+\[
+d^{\pi_\theta}(dx\mid x')
+:=
+(1-\gamma)\sum_{n=0}^{\infty}\gamma^n
+P_{\pi_\theta}^n(dx\mid x').
+\]
+Here
+\[
+P_{\pi_\theta}(dy\mid x)
+:=
+\int_{\mathcal A}P(dy\mid x,a)\pi_\theta(da\mid x)
+\]
+is the policy-induced state transition kernel.
+
+For fixed \(x\), let
+\[
+d\bar a_t^{\theta,x}
+=
+f_\theta(t,\bar a_t^{\theta,x},x)\,dt
++
+\sigma(t,\bar a_t^{\theta,x},x)\,dB_t,
+\qquad
+\bar a_0^{\theta,x}=\zeta\sim\mu_0.
+\]
+Set
+\[
+A_\theta^x:=\bar a_T^{\theta,x}.
+\]
+The Girsanov score is
+\[
+S_\theta^x
+:=
+\int_0^T
+\nabla_\theta f_\theta(t,\bar a_t^{\theta,x},x)
+\sigma(t,\bar a_t^{\theta,x},x)^{-1}\,dB_t.
+\]
+Define
+\[
+Q_\theta:=Q^{\pi_\theta},
+\qquad
+V_\theta:=V^{\pi_\theta},
+\]
+and
+\[
+\Psi_\theta(x)
+:=
+\mathbb E
+\left[
+S_\theta^x Q_\theta(x,A_\theta^x)
+\right].
+\]
+By Proposition 5.2,
+\[
+\nabla J(\theta)
+=
+\frac{1}{1-\gamma}
+\int_{\mathcal X}
+\Psi_\theta(x)\,d_\rho^{\pi_\theta}(dx).
+\tag{PG}
+\]
+
+\subsection{Additional smoothness assumptions}
+
+\begin{ass}[Strong common-noise realization]
+For every \((\theta,x)\), the action SDE admits a unique strong solution. Hence, on one common stochastic basis carrying \((\zeta,B)\), we may realize
+\[
+\bar a_\cdot^{\theta,x}
+=
+\mathcal I_{\theta,x}(\zeta,B)
+\]
+for all relevant \((\theta,x)\).
+\end{ass}
+
+\begin{ass}[Ellipticity requirement]
+For all $t,x,a$, $\sigma(t,x,a)$ is symmetric and 
+\begin{equation}
+     \kappa I \preceq \sigma(t,a,x)\sigma(t,a,x)^T\preceq \Lambda I
+\end{equation}
+\end{ass}
+
+\begin{ass}[moment bound of initial distribution]
+Assume $\E\|\zeta\|^4<\infty$
+\end{ass}
+
+\begin{ass}[Action-SDE Lipschitz regularity]
+% There exist constants \(L_f^a,L_f^x,L_f^\theta,L_\sigma^a,L_\sigma^x<\infty\) such that
+% \[
+% \|f_{\theta'}(t,a',x')-f_\theta(t,a,x)\|
+% \le
+% L_f^a\|a'-a\|
+% +
+% L_f^x\|x'-x\|
+% +
+% L_f^\theta\|\theta'-\theta\|,
+% \]
+% and
+% \[
+% \|\sigma(t,a',x')-\sigma(t,a,x)\|_{\rm HS}
+% \le
+% L_\sigma^a\|a'-a\|
+% +
+% L_\sigma^x\|x'-x\|.
+% \]
+There exist constants \(L_f^a,L_f^x,L_\sigma^a,L_\sigma^x<\infty\) such that
+\[
+\|f_{\theta}(t,a',x')-f_\theta(t,a,x)\|
+\le
+L_f^a\|a'-a\|
++
+L_f^x\|x'-x\|
+,
+\]
+and
+\[
+\|\sigma(t,a',x')-\sigma(t,a,x)\|_{\rm HS}
+\le
+L_\sigma^a\|a'-a\|
++
+L_\sigma^x\|x'-x\|.
+\]
+\end{ass}
+
+
+% \ass[Score-integrand regularity]
+% Define
+% \[
+% G_\theta(t,a,x)
+% :=
+% \nabla_\theta f_\theta(t,a,x)\sigma(t,a,x)^{-1}.
+% \]
+% Assume
+% \[
+% \|G_\theta(t,a,x)\|_{\rm HS}\le M_G,
+% \]
+% and
+% \[
+% \|G_{\theta'}(t,a',x')-G_\theta(t,a,x)\|_{\rm HS}
+% \le
+% L_G^\theta\|\theta'-\theta\|
+% +
+% L_G^a\|a'-a\|
+% +
+% L_G^x\|x'-x\|.
+% \]
+\begin{ass}[$f$ bound]
+Assume uniformly in \((t,\theta,x)\),
+\[
+\|f_\theta(t,a,x)\|
+\le B_f(1+\|a\|),
+\]
+\end{ass}
+\begin{ass}[$\nabla f$ regularity]
+Assume $\nabla f$ satisfies
+\[
+\|\nabla_\theta f_\theta(t,a,x)\|_{HS}\leq B_{\nabla f}*(1+\|a\|)
+\]
+and $\Theta$ convex
+\end{ass}
+% and 
+% \[C^{-1}I_d\prec\sigma(t,a,x)\prec CI_d\]
+% that is $\|\sigma(s,a,x)\|_{\rm op}\leq C$
+\begin{ass}[$\nabla_\theta f$ Lipschitz]
+There exist constants \(L_{\nabla f}^a,L_{\nabla f}^x,L_{\nabla f}^\theta\) $<\infty$ such that
+\[
+\|\nabla_\theta f_{\theta'}(t,a',x')-\nabla_\theta f_\theta(t,a,x)\|_{\rm HS}
+\le
+L_{\nabla f}^a\|a'-a\|
++
+L_{\nabla f}^x\|x'-x\|
++
+L_{\nabla f}^\theta\|\theta'-\theta\|,
+\]
+\end{ass}
+
+% \begin{ass}[\(\mathcal F_{K,s}\)-compatible parametrization] (Replacable by the uniform bound of $\nabla f$?)
+
+% \textcolor{purple}{Let \(\Theta\subset\mathbb R^p\). For every \(\theta\in\Theta\),
+% \[
+% f_\theta\in\mathcal F_{K,s}.
+% \]
+% Moreover, for every localization radius \(R\ge1\), there exists a constant
+% \(L_{\Theta,R}<\infty\) such that
+% \[
+% d_{K,R}(f_\theta,f_{\theta'})
+% \le
+% L_{\Theta,R}\|\theta-\theta'\|,
+% \qquad
+% \forall \theta,\theta'\in\Theta,
+% \]
+% where
+% \[
+% d_{K,R}(f,g)
+% :=
+% \sup_{(t,a,x)\in[0,T]\times B_R^d\times[0,1]^m}
+% \frac{\|f(t,a,x)-g(t,a,x)\|}{K}.
+% \]}
+% \end{ass}
+
+
+\begin{ass}[Environment regularity]
+Assume the reward satisfies the paper's Assumption 4.2:
+\[
+|r(x,a)-r(x',a')|
+\le
+L_r^x\|x-x'\|+L_r^a\|a-a'\|.
+\]
+Assume also \(|r(x,a)|\le r_{\max}\). The transition kernel admits the synchronous generative representation
+\[
+\Phi_P(x,a,U)\sim P(\cdot\mid x,a),
+\qquad
+U\sim{\rm Unif}[0,1],
+\]
+and
+\[
+\left(
+\mathbb E_U
+\|\Phi_P(x,a,U)-\Phi_P(x',a',U)\|^2
+\right)^{1/2}
+\le
+L_P^x\|x-x'\|+L_P^a\|a-a'\|.
+\tag{E}
+\]
+\end{ass}
+
+\subsection{Property lemmas}
+% \begin{lem}[Finite moments of $\bar{a}_t^{\theta,x}$]
+%     Assume $\bar{a}_0^{\theta,x}=\zeta$ with $\E\|\zeta\|^2 <\infty.$ Then we have $\sup_{t,\theta,x}\E\|\bar{a}_t^{\theta,x}\|<\infty$
+
+%     \begin{proof}
+%         By Ito's formula, $\|\bar{a}_t^{\theta,x}\|$
+%     \end{proof}
+% \end{lem}
+\begin{lem}[Uniform second and fourth moments of
+\(\bar a_t^{\theta,x}\)]
+Assume that
+\[
+\bar a_0^{\theta,x}=\zeta,
+\]
+
+If \(\mathbb E\|\zeta\|^2<\infty\), then
+\[
+M_{A,2}
+:=
+\sup_{\theta,x}\sup_{0\le t\le T}
+\mathbb E\|\bar a_t^{\theta,x}\|^2
+<\infty,
+\]
+and
+\[
+M_{A,2}
+\le
+e^{c_2T}\mathbb E\|\zeta\|^2
++
+\frac{b_2}{c_2}\left(e^{c_2T}-1\right),
+\]
+where
+\[
+c_2:=1+2B_f^2,
+\qquad
+b_2:=2B_f^2+d_a\Lambda.
+\]
+
+If, in addition, \(\mathbb E\|\zeta\|^4<\infty\), then
+\[
+M_{A,4}
+:=
+\sup_{\theta,x}\sup_{0\le t\le T}
+\mathbb E\|\bar a_t^{\theta,x}\|^4
+<\infty,
+\]
+and
+\[
+M_{A,4}
+\le
+e^{c_4T}\mathbb E\|\zeta\|^4
++
+\frac{b_4}{c_4}\left(e^{c_4T}-1\right),
+\]
+where
+\[
+c_4:=8B_f+2(d_a+2)\Lambda,
+\qquad
+b_4:=4B_f+2(d_a+2)\Lambda.
+\]
+
+\begin{proof}
+Fix \((\theta,x)\) and write
+\[
+\bar a_t:=\bar a_t^{\theta,x},
+\qquad
+f_t:=f_\theta(t,\bar a_t,x),
+\qquad
+\sigma_t:=\sigma(t,\bar a_t,x).
+\]
+
+We first establish the second-moment estimate. It\^o's
+formula gives
+\[
+\begin{aligned}
+d\|\bar a_t\|^2
+={}&
+\left[
+2\langle\bar a_t,f_t\rangle
++
+\|\sigma_t\|_{\rm HS}^2
+\right]dt
++
+2\langle\bar a_t,\sigma_t\,dB_t\rangle.
+\end{aligned}
+\]
+By Young's inequality and the linear-growth assumption,
+\[
+\begin{aligned}
+2\langle a,f_\theta(t,a,x)\rangle
+&\le
+\|a\|^2+\|f_\theta(t,a,x)\|^2\\
+&\le
+\|a\|^2+B_f^2(1+\|a\|)^2\\
+&\le
+(1+2B_f^2)\|a\|^2+2B_f^2.
+\end{aligned}
+\]
+Moreover,
+\[
+\|\sigma(t,a,x)\|_{\rm HS}^2
+=
+\operatorname{tr}\!\left(
+\sigma(t,a,x)\sigma(t,a,x)^\top
+\right)
+\le d_a\Lambda.
+\]
+After taking expectations (For full rigorous proof, use stopping process $\bar{a}_{t\wedge\tau_n} $ with $\tau_n=\min\{t:\|\bar{a}_t\|\geq n\}$. Pushing $n\to \infty$, Fatou's lemma gives $\int^t_0 \|\sigma_s^T\bar{a}_s\|^2ds<\infty$ and $\int^t_0 \langle\bar{a}_s,\sigma_sdB_s\rangle$ is a martingale), we therefore obtain
+\[
+\frac{d}{dt}\mathbb E\|\bar a_t\|^2
+\le
+c_2\mathbb E\|\bar a_t\|^2+b_2.
+\]
+Gr\"onwall's inequality yields
+\[
+\mathbb E\|\bar a_t\|^2
+\le
+e^{c_2t}\mathbb E\|\zeta\|^2
++
+\frac{b_2}{c_2}\left(e^{c_2t}-1\right).
+\]
+Taking the supremum over \((\theta,x)\) and \(t\in[0,T]\) proves the
+second-moment estimate.
+
+For the fourth moment, apply It\^o's formula to
+\[
+\phi(a):=\|a\|^4.
+›\]
+Since
+\[
+\nabla\phi(a)=4\|a\|^2a,
+\qquad
+\nabla^2\phi(a)
+=
+8aa^\top+4\|a\|^2I_{d_a},
+\]
+we have
+\[
+\begin{aligned}
+d\|\bar a_t\|^4
+={}&
+\Big[
+4\|\bar a_t\|^2\langle\bar a_t,f_t\rangle
++
+4\|\sigma_t^\top\bar a_t\|^2\\
+&\hspace{23mm}
++
+2\|\bar a_t\|^2\|\sigma_t\|_{\rm HS}^2
+\Big]dt\\
+&+
+4\|\bar a_t\|^2
+\langle\bar a_t,\sigma_t\,dB_t\rangle.
+\end{aligned}
+\tag{1}
+\]
+
+For the drift contribution,
+\[
+\begin{aligned}
+4\|a\|^2\langle a,f_\theta(t,a,x)\rangle
+&\le
+4\|a\|^3\|f_\theta(t,a,x)\|\\
+&\le
+4B_f\|a\|^3(1+\|a\|)\\
+&\le
+4B_f+8B_f\|a\|^4,
+\end{aligned}
+\tag{2}
+\]
+where we used \(\|a\|^3\le 1+\|a\|^4\).
+
+The upper ellipticity bound implies
+\[
+\|\sigma_t^\top a\|^2
+\le \Lambda\|a\|^2,
+\qquad
+\|\sigma_t\|_{\rm HS}^2
+\le d_a\Lambda.
+\]
+Consequently,
+\[
+\begin{aligned}
+4\|\sigma_t^\top a\|^2
++
+2\|a\|^2\|\sigma_t\|_{\rm HS}^2
+&\le
+2(d_a+2)\Lambda\|a\|^2\\
+&\le
+2(d_a+2)\Lambda(1+\|a\|^4).
+\end{aligned}
+\tag{3}
+\]
+Combining \((1)\)--\((3)\) and taking expectations gives
+\[
+\frac{d}{dt}\mathbb E\|\bar a_t\|^4
+\le
+c_4\mathbb E\|\bar a_t\|^4+b_4.
+\]
+Another application of Gr\"onwall's inequality yields
+\[
+\mathbb E\|\bar a_t\|^4
+\le
+e^{c_4t}\mathbb E\|\zeta\|^4
++
+\frac{b_4}{c_4}\left(e^{c_4t}-1\right).
+\]
+Taking the supremum over \((\theta,x)\) and \(t\in[0,T]\) proves the
+fourth-moment estimate.
+
+% The preceding calculations can be justified rigorously by first
+% applying It\^o's formula to the stopped process
+% \[
+% \bar a_{t\wedge\tau_n},
+% \qquad
+% \tau_n:=\inf\{t\ge0:\|\bar a_t\|\ge n\},
+% \]
+% and then letting \(n\to\infty\).
+\end{proof}
+\end{lem}
+
+\begin{lem}[Alternative of assumption 1 ]
+Assume $\zeta\sim \mathcal{N}(0,\sigma_\zeta^2)$
+    
+\end{lem}
+\begin{lem}[Lipschitz of $f$ w.r.t. $\theta$]
+Assume $\Theta$ is convex. For $\theta,\theta'\in \Theta$, we have
+\begin{equation}
+    \|f_{\theta'}(t,a,x)-f_\theta(t,a,x)\|\leq B_{\nabla f}(1+\|a\|)\|\theta'-\theta\|
+\end{equation}
+\begin{proof}
+    By the regularity assumption of $\nabla f$, 
+    \[\|f(t,a,x,\theta')-f(t,a,x,\theta)\|=\left\|\int^1_0\nabla_\theta f (t,a,x, (1-s)\theta+s\theta')(\theta'-\theta)ds\right\| \leq B_{\nabla f}(1+\|a\|)\|\theta'-\theta\|\]
+\end{proof}
+\end{lem}
+
+\begin{lem}[Action-path stability]
+Under the same-initial-noise and same-Brownian coupling, there exist
+constants \(C_A^x,C_A^\theta<\infty\) such that
+\[
+\sup_{0\le t\le T}
+\left(
+\mathbb E
+\|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^2
+\right)^{1/2}
+\le
+C_A^x\|x'-x\|
++
+C_A^\theta\|\theta'-\theta\|.
+\tag{A}
+\]
+In particular, since
+\[
+A_\theta^x=\bar a_T^{\theta,x},
+\]
+we have
+\[
+\left(
+\mathbb E
+\|A_{\theta'}^{x'}-A_\theta^x\|^2
+\right)^{1/2}
+\le
+C_A^x\|x'-x\|
++
+C_A^\theta\|\theta'-\theta\|.
+\tag{A'}
+\]
+
+\begin{proof}
+Let
+\[
+Z_t
+:=
+\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}.
+\]
+Because the two processes use the same initial random variable,
+\[
+Z_0=0.
+\]
+
+Under the same-Brownian coupling,
+\[
+\begin{aligned}
+dZ_t
+={}&
+\left[
+f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+f_\theta(t,\bar a_t^{\theta,x},x)
+\right]dt\\
+&+
+\left[
+\sigma(t,\bar a_t^{\theta',x'},x')
+-
+\sigma(t,\bar a_t^{\theta,x},x)
+\right]dB_t.
+\end{aligned}
+\tag{1}
+\]
+
+By the Lipschitz assumptions on \(f_\theta\), convexity of
+\(\Theta\), and the fundamental theorem of calculus,
+\[
+\begin{aligned}
+&
+\left\|
+f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+f_\theta(t,\bar a_t^{\theta,x},x)
+\right\|\\
+&\le
+L_f^a\|Z_t\|
++
+L_f^x\|x'-x\|\\
+&\quad+
+B_{\nabla f}
+\left(1+\|\bar a_t^{\theta,x}\|\right)
+\|\theta'-\theta\|.
+\end{aligned}
+\tag{2}
+\]
+Similarly,
+\[
+\begin{aligned}
+&
+\left\|
+\sigma(t,\bar a_t^{\theta',x'},x')
+-
+\sigma(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}\\
+&\le
+L_\sigma^a\|Z_t\|
++
+L_\sigma^x\|x'-x\|.
+\end{aligned}
+\tag{3}
+\]
+
+Applying It\^o's formula to \(\|Z_t\|^2\) gives
+\[
+\begin{aligned}
+d\|Z_t\|^2
+={}&
+2\left\langle
+Z_t,
+f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+f_\theta(t,\bar a_t^{\theta,x},x)
+\right\rangle dt\\
+&+
+\left\|
+\sigma(t,\bar a_t^{\theta',x'},x')
+-
+\sigma(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}^2dt\\
+&+
+2\left\langle
+Z_t,
+\left[
+\sigma(t,\bar a_t^{\theta',x'},x')
+-
+\sigma(t,\bar a_t^{\theta,x},x)
+\right]dB_t
+\right\rangle.
+\end{aligned}
+\tag{4}
+\]
+
+Using \((2)\) and Young's inequality,
+\[
+\begin{aligned}
+&
+2\left\langle
+Z_t,
+f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+f_\theta(t,\bar a_t^{\theta,x},x)
+\right\rangle\\
+&\le
+2L_f^a\|Z_t\|^2
++
+2L_f^x\|Z_t\|\|x'-x\|\\
+&\quad+
+2B_{\nabla f}
+\left(1+\|\bar a_t^{\theta,x}\|\right)
+\|Z_t\|\|\theta'-\theta\|\\
+&\le
+(2L_f^a+1)\|Z_t\|^2
++
+2(L_f^x)^2\|x'-x\|^2\\
+&\quad+
+2B_{\nabla f}^2
+\left(1+\|\bar a_t^{\theta,x}\|\right)^2
+\|\theta'-\theta\|^2.
+\end{aligned}
+\tag{5}
+\]
+Moreover, \((3)\) implies
+\[
+\begin{aligned}
+&
+\left\|
+\sigma(t,\bar a_t^{\theta',x'},x')
+-
+\sigma(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}^2\\
+&\le
+2(L_\sigma^a)^2\|Z_t\|^2
++
+2(L_\sigma^x)^2\|x'-x\|^2.
+\end{aligned}
+\tag{6}
+\]
+
+Taking expectations in \((4)\), using that the stochastic integral has
+mean zero, and observing that
+\[
+\begin{aligned}
+\mathbb E
+\left(1+\|\bar a_t^{\theta,x}\|\right)^2
+&\le
+2\left(
+1+\mathbb E\|\bar a_t^{\theta,x}\|^2
+\right)\\
+&\le
+2(1+M_{A,2}),
+\end{aligned}
+\]
+we obtain
+\[
+\begin{aligned}
+\frac{d}{dt}\mathbb E\|Z_t\|^2
+\le{}&
+c_{Z,2}\mathbb E\|Z_t\|^2
++
+b_{Z,2}^x\|x'-x\|^2\\
+&+
+b_{Z,2}^\theta\|\theta'-\theta\|^2,
+\end{aligned}
+\tag{7}
+\]
+where
+\[
+\begin{aligned}
+c_{Z,2}
+&:=
+2L_f^a+1+2(L_\sigma^a)^2,\\
+b_{Z,2}^x
+&:=
+2(L_f^x)^2+2(L_\sigma^x)^2,\\
+b_{Z,2}^\theta
+&:=
+4B_{\nabla f}^2(1+M_{A,2}).
+\end{aligned}
+\tag{8}
+\]
+
+Since \(Z_0=0\), Gr\"onwall's inequality yields
+\[
+\begin{aligned}
+\mathbb E\|Z_t\|^2
+\le
+\frac{e^{c_{Z,2}t}-1}{c_{Z,2}}
+\left[
+b_{Z,2}^x\|x'-x\|^2
++
+b_{Z,2}^\theta\|\theta'-\theta\|^2
+\right].
+\end{aligned}
+\]
+Consequently,
+\[
+\begin{aligned}
+\left(\mathbb E\|Z_t\|^2\right)^{1/2}
+\le{}&
+\left[
+\frac{e^{c_{Z,2}t}-1}{c_{Z,2}}
+b_{Z,2}^x
+\right]^{1/2}
+\|x'-x\|\\
+&+
+\left[
+\frac{e^{c_{Z,2}t}-1}{c_{Z,2}}
+b_{Z,2}^\theta
+\right]^{1/2}
+\|\theta'-\theta\|.
+\end{aligned}
+\]
+
+Therefore, setting
+\[
+C_A^x
+:=
+\left[
+\frac{e^{c_{Z,2}T}-1}{c_{Z,2}}
+b_{Z,2}^x
+\right]^{1/2},
+\qquad
+C_A^\theta
+:=
+\left[
+\frac{e^{c_{Z,2}T}-1}{c_{Z,2}}
+b_{Z,2}^\theta
+\right]^{1/2},
+\]
+and taking the supremum over \(t\in[0,T]\) proves \((A)\).
+Evaluating the estimate at \(t=T\) proves \((A')\).
+\end{proof}
+\end{lem}
+
+\begin{lem}[Fourth-moment action-path stability]
+Under the same-initial-noise and same-Brownian coupling, there exist
+constants \(C_{A,4}^x,C_{A,4}^\theta<\infty\) such that
+\[
+\sup_{0\le t\le T}
+\left(
+\mathbb E
+\|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^4
+\right)^{1/4}
+\le
+C_{A,4}^x\|x'-x\|
++
+C_{A,4}^\theta\|\theta'-\theta\|.
+\tag{A4}
+\]
+In particular,
+\[
+\left(
+\mathbb E
+\|A_{\theta'}^{x'}-A_\theta^x\|^4
+\right)^{1/4}
+\le
+C_{A,4}^x\|x'-x\|
++
+C_{A,4}^\theta\|\theta'-\theta\|.
+\tag{A4'}
+\]
+
+\begin{proof}
+Define $Z_t$ similarly to Lemma 1.3
+% Let
+% \[
+% Z_t
+% :=
+% \bar a_t^{\theta',x'}-\bar a_t^{\theta,x}.
+% \]
+% Because the two processes use the same initial random variable,
+% \[
+% Z_0=0.
+% \]
+% Under the same-Brownian coupling,
+% \[
+% \begin{aligned}
+% dZ_t
+% ={}&
+% \left[
+% f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+% -
+% f_\theta(t,\bar a_t^{\theta,x},x)
+% \right]dt\\
+% &+
+% \left[
+% \sigma(t,\bar a_t^{\theta',x'},x')
+% -
+% \sigma(t,\bar a_t^{\theta,x},x)
+% \right]dB_t.
+% \end{aligned}
+% \tag{1}
+% \]
+
+% The drift assumptions, convexity of the parameter domain, and the
+% fundamental theorem of calculus imply
+% \[
+% \begin{aligned}
+% &
+% \left\|
+% f_{\theta'}(t,\bar a_t^{\theta',x'},x')
+% -
+% f_\theta(t,\bar a_t^{\theta,x},x)
+% \right\|\\
+% &\le
+% L_f^a\|Z_t\|
+% +
+% L_f^x\|x'-x\|\\
+% &\quad+
+% B_{\nabla f}
+% \left(1+\|\bar a_t^{\theta,x}\|\right)
+% \|\theta'-\theta\|.
+% \end{aligned}
+% \tag{2}
+% \]
+% Similarly,
+% \[
+% \begin{aligned}
+% &
+% \left\|
+% \sigma(t,\bar a_t^{\theta',x'},x')
+% -
+% \sigma(t,\bar a_t^{\theta,x},x)
+% \right\|_{\rm HS}\\
+% &\le
+% L_\sigma^a\|Z_t\|
+% +
+% L_\sigma^x\|x'-x\|.
+% \end{aligned}
+% \tag{3}
+% \]
+
+For an SDE \(dZ_t=F_tdt+\Sigma_t dB_t\), It\^o's formula gives
+\[
+\begin{aligned}
+d\|Z_t\|^4
+={}&
+\left[
+4\|Z_t\|^2\langle Z_t,F_t\rangle
++
+2\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2
++
+4\|\Sigma_t^\top Z_t\|^2
+\right]dt\\
+&+
+4\|Z_t\|^2
+\langle Z_t,\Sigma_t\,dB_t\rangle.
+\end{aligned}
+\tag{4}
+\]
+Since
+\[
+\|\Sigma_t^\top Z_t\|^2
+\le
+\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2,
+\]
+the two diffusion correction terms satisfy
+\[
+2\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2
++
+4\|\Sigma_t^\top Z_t\|^2
+\le
+6\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2.
+\tag{5}
+\]
+
+By \((2)\),
+\[
+\begin{aligned}
+4\|Z_t\|^2\langle Z_t,F_t\rangle
+\le{}&
+4L_f^a\|Z_t\|^4
++
+4L_f^x\|Z_t\|^3\|x'-x\|\\
+&+
+4B_{\nabla f}
+\left(1+\|\bar a_t^{\theta,x}\|\right)
+\|Z_t\|^3\|\theta'-\theta\|.
+\end{aligned}
+\]
+Using
+\[
+4u^3v\le 3u^4+v^4,
+\qquad u,v\ge0,
+\]
+we obtain
+\[
+\begin{aligned}
+4\|Z_t\|^2\langle Z_t,F_t\rangle
+\le{}&
+(4L_f^a+6)\|Z_t\|^4
++
+(L_f^x)^4\|x'-x\|^4\\
+&+
+B_{\nabla f}^4
+\left(1+\|\bar a_t^{\theta,x}\|\right)^4
+\|\theta'-\theta\|^4.
+\end{aligned}
+\tag{6}
+\]
+
+On the other hand, \((3)\) gives
+\[
+\begin{aligned}
+6\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2
+\le{}&
+12(L_\sigma^a)^2\|Z_t\|^4\\
+&+
+12(L_\sigma^x)^2
+\|Z_t\|^2\|x'-x\|^2.
+\end{aligned}
+\]
+Since
+\[
+2\|Z_t\|^2\|x'-x\|^2
+\le
+\|Z_t\|^4+\|x'-x\|^4,
+\]
+it follows that
+\[
+\begin{aligned}
+6\|Z_t\|^2\|\Sigma_t\|_{\rm HS}^2
+\le{}&
+\left[
+12(L_\sigma^a)^2
++
+6(L_\sigma^x)^2
+\right]\|Z_t\|^4\\
+&+
+6(L_\sigma^x)^2\|x'-x\|^4.
+\end{aligned}
+\tag{7}
+\]
+
+Taking expectations in \((4)\), using that the stochastic integral has
+mean zero, and combining \((5)\)--\((7)\), we obtain
+\[
+\begin{aligned}
+\frac{d}{dt}\mathbb E\|Z_t\|^4
+\le{}&
+c_{Z,4}\mathbb E\|Z_t\|^4
++
+b_{Z,4}^x\|x'-x\|^4\\
+&+
+B_{\nabla f}^4
+\mathbb E
+\left(1+\|\bar a_t^{\theta,x}\|\right)^4
+\|\theta'-\theta\|^4,
+\end{aligned}
+\tag{8}
+\]
+where
+\[
+\begin{aligned}
+c_{Z,4}
+&:=
+4L_f^a+6
++12(L_\sigma^a)^2
++6(L_\sigma^x)^2,\\
+b_{Z,4}^x
+&:=
+(L_f^x)^4+6(L_\sigma^x)^2.
+\end{aligned}
+\tag{9}
+\]
+
+Since
+\[
+(1+r)^4\le 8(1+r^4),
+\qquad r\ge0,
+\]
+we have
+\[
+\begin{aligned}
+\mathbb E
+\left(1+\|\bar a_t^{\theta,x}\|\right)^4
+&\le
+8\left(
+1+\mathbb E\|\bar a_t^{\theta,x}\|^4
+\right)\\
+&\le
+8(1+M_{A,4}).
+\end{aligned}
+\]
+Consequently,
+\[
+\frac{d}{dt}\mathbb E\|Z_t\|^4
+\le
+c_{Z,4}\mathbb E\|Z_t\|^4
++
+b_{Z,4}^x\|x'-x\|^4
++
+b_{Z,4}^\theta\|\theta'-\theta\|^4,
+\tag{10}
+\]
+where
+\[
+b_{Z,4}^\theta
+:=
+8B_{\nabla f}^4(1+M_{A,4}).
+\tag{11}
+\]
+
+Since \(Z_0=0\), Gr\"onwall's inequality yields
+\[
+\mathbb E\|Z_t\|^4
+\le
+\frac{e^{c_{Z,4}t}-1}{c_{Z,4}}
+\left[
+b_{Z,4}^x\|x'-x\|^4
++
+b_{Z,4}^\theta\|\theta'-\theta\|^4
+\right].
+\tag{12}
+\]
+Taking fourth roots and using
+\[
+(u+v)^{1/4}\le u^{1/4}+v^{1/4},
+\qquad u,v\ge0,
+\]
+gives
+\[
+\begin{aligned}
+\left(\mathbb E\|Z_t\|^4\right)^{1/4}
+\le{}&
+\left[
+\frac{e^{c_{Z,4}t}-1}{c_{Z,4}}
+b_{Z,4}^x
+\right]^{1/4}
+\|x'-x\|\\
+&+
+\left[
+\frac{e^{c_{Z,4}t}-1}{c_{Z,4}}
+b_{Z,4}^\theta
+\right]^{1/4}
+\|\theta'-\theta\|.
+\end{aligned}
+\tag{13}
+\]
+
+Therefore, setting
+\[
+C_{A,4}^x
+:=
+\left[
+\frac{e^{c_{Z,4}T}-1}{c_{Z,4}}
+b_{Z,4}^x
+\right]^{1/4},
+\qquad
+C_{A,4}^\theta
+:=
+\left[
+\frac{e^{c_{Z,4}T}-1}{c_{Z,4}}
+b_{Z,4}^\theta
+\right]^{1/4},
+\tag{14}
+\]
+and taking the supremum over \(t\in[0,T]\) proves \((A4)\).
+Evaluating the estimate at \(t=T\) proves \((A4')\).
+
+\end{proof}
+\end{lem}
+
+
+% \begin{remark}
+% In the exact notation of Appendix B, Lemma B.4 gives the corresponding projected estimate for \(f,g\in\mathcal F_{K,s}\):
+% \[
+% \left(
+% \mathbb E\|\widetilde A_T^{f,x}-\widetilde A_T^{g,x'}\|^2
+% \right)^{1/2}
+% \lesssim
+% (1+\ell_2)\sqrt{KT}e^{C_3KT}
+% \left\{\|x-x'\|+d_{K,R}(f,g)\right\}.
+% \]
+% For a parameterized class, if
+% \[
+% d_{K,R}(f_\theta,f_{\theta'})
+% \le
+% L_{\Theta,R}\|\theta-\theta'\|,
+% \]
+% then the above gives \(C_A^x\) and \(C_A^\theta\), up to localization.
+% \end{remark}
+\begin{lem}[Score-integrand regularity]
+Define
+\[
+G_\theta(t,a,x)
+:=
+\nabla_\theta f_\theta(t,a,x)\sigma(t,a,x)^{-1}.
+\]
+Claim
+\[
+\|G_\theta(t,a,x)\|_{\rm HS}\le M_G(1+\|a\|),
+\]
+where $M_G \coloneqq \kappa^{-1/2}B_{\nabla f}$
+and
+\[
+\|G_{\theta'}(t,a',x')-G_\theta (t,a,x)\|_{\rm HS}\leq L_G^\theta\|\theta'-\theta\|
++
+(L_G^{a,1}+L_G^{a,2}(1+\|a\|))\|a'-a\|
++
+(L_G^{x,1}+L_G^{x,2}(1+\|a\|))\|x'-x\|.
+\]
+\begin{proof}
+    For the boundedness, We have 
+\[
+\|G_\theta(t,a,x)\|_{\rm HS}\leq \|\nabla_\theta f_\theta(t,a,x)\|_{\rm HS}\|\sigma(t,a,x)^{-1}\|_{\rm op}\leq B_{\nabla f}(1+\|a\|) \kappa^{-\frac{1}{2}}
+\]
+
+For the L-lipschitzness, note that $\sigma'^{-1}-\sigma^{-1}=\sigma'^{-1}(\sigma-\sigma')\sigma^{-1}$, so $\|\sigma^{-1}(t,a',x')-\sigma^{-1}(t,a,x)\|_{\rm op}\leq\kappa^{-1}\|\sigma(t,a',x')-\sigma(t,a,x)\|_{\rm HS}\leq \kappa^{-1}(L^a_\sigma \|a'-a\|+L^x_\sigma\|x'-x\|)$
+\begin{align}
+    &\|G_{\theta'}(t,a',x')-G_\theta (t,a,x)\|_{\rm HS}\\
+    =&\|[\nabla_\theta f_{\theta'}(t,a',x')-\nabla_\theta f_\theta(t,a,x)]\sigma^{-1}(t,a',x')+\nabla_\theta f_\theta(t,a,x)[\sigma^{-1}(t,a',x')-\sigma^{-1}(t,a,x)]\|_{\rm HS}\\
+    % =&\|[\nabla_\theta f_{\theta'}(t,a',x')-\nabla_\theta f_\theta(t,a,x)]\sigma^{-1}(t,a',x')+\nabla_\theta f_\theta(t,a,x)[\sigma^{-1}(t,a',x')-\sigma^{-1}(t,a,x)]\|_{\rm HS}\\
+    \leq&\|\nabla_\theta f_{\theta'}(t,a',x')-\nabla_\theta f_\theta(t,a,x)\|_{\rm HS}\|\sigma^{-1}(t,a',x')\|_{\rm op}+\|\nabla_\theta f_\theta(t,a,x)\|_{\rm HS}\|\sigma^{-1}(t,a',x')-\sigma^{-1}(t,a,x)\|_{\rm op} \\
+    \leq &L_G^\theta\|\theta'-\theta\|
++
+(L_G^{a,1}+L_G^{a,2}(1+\|a\|))\|a'-a\|
++
+(L_G^{x,1}+L_G^{x,2}(1+\|a\|))\|x'-x\|.
+\end{align}
+
+where $L^\theta_G=\kappa^{-1/2}L^\theta_{\nabla f}$; $L^{a,1}_G=\kappa^{-1/2}L^a_{\nabla f}$;$L^{a,2}_G=\kappa^{-1}B_{\nabla f}L^a_\sigma$; $L^{x,1}_G=\kappa^{-1/2}L^x_{\nabla f}$; $L^{x,2}_G=\kappa^{-1}B_{\nabla f}L^x_\sigma$
+\end{proof}
+\end{lem}
+
+% \begin{lem}[Score moment and score stability]
+% The score satisfies
+% \[
+% \left(
+% \mathbb E\|S_\theta^x\|^2
+% \right)^{1/2}
+% \le
+% M_S,
+% \qquad
+% M_S:=\sqrt{2TM_G^2(1+M_{A,2})}.
+% \tag{S0}
+% \]
+% Moreover,
+% \[
+% \left(
+% \mathbb E
+% \|S_{\theta'}^{x'}-S_\theta^x\|^2
+% \right)^{1/2}
+% \le
+% C_S^x\|x'-x\|
+% +
+% C_S^\theta\|\theta'-\theta\|,
+% \tag{S}
+% \]
+% where one may take
+% \[
+% C_S^x
+% =
+% \sqrt{T}(L_G^x+L_G^aC_A^x),
+% \qquad
+% C_S^\theta
+% =
+% \sqrt{T}(L_G^\theta+L_G^aC_A^\theta).
+% \]
+
+% \begin{proof}
+% By Itô isometry,
+% \[
+% \mathbb E\|S_\theta^x\|^2
+% =
+% \int_0^T
+% \mathbb E
+% \|G_\theta(t,\bar a_t^{\theta,x},x)\|_{\rm HS}^2\,dt
+% \le
+% 2TM_G^2(1+\sup_{\theta,t,x}\E\|\bar{a}_t^{\theta,x}\|^2)=2TM_G^2(1+M_{A,2}).
+% \]
+% This proves \((S0)\).
+
+% For stability, under the same-Brownian coupling,
+% \[
+% S_{\theta'}^{x'}-S_\theta^x
+% =
+% \int_0^T
+% \left[
+% G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+% -
+% G_\theta(t,\bar a_t^{\theta,x},x)
+% \right]dB_t.
+% \]
+% Again by Itô isometry,
+% \[
+% \mathbb E
+% \|S_{\theta'}^{x'}-S_\theta^x\|^2
+% =
+% \int_0^T
+% \mathbb E
+% \left\|
+% G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+% -
+% G_\theta(t,\bar a_t^{\theta,x},x)
+% \right\|_{\rm HS}^2\,dt.
+% \]
+% Using the proven property of \(G_\theta\) and the action-path stability estimate gives
+
+% \begin{align*}
+%     &\mathbb E
+% \|S_{\theta'}^{x'}-S_\theta^x\|^2\\
+% =&\int_0^T
+% \mathbb E
+% \left\|
+% G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+% -
+% G_\theta(t,\bar a_t^{\theta,x},x)
+% \right\|_{\rm HS}^2\,dt\\
+% \leq& \int^T_0\E\left[\left(L_G^\theta\|\theta'-\theta\|
+% +
+% (L_G^{a,1}+L_G^{a,2}(1+\|\bar a_t^{\theta,x}\|))\|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|
+% +
+% (L_G^{x,1}+L_G^{x,2}(1+\|\bar a_t^{\theta,x}\|))\|x'-x\|\right)^2\right]dt\\
+% \leq& 3TL_G^\theta\|\theta'-\theta\|^2
+% +
+% 3T\sup_{t,\theta,x}\E\left[(L_G^{a,1}+L_G^{a,2}(1+\|\bar a_t^{\theta,x}\|))^2\|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^2\right]
+% \\
+% +&
+% 6T[(L_G^{x,1})^2+(L_G^{x,2})^2(1+\sup_{t,\theta,x}\E\|\bar a_t^{\theta,x}\|^2)]\|x'-x\|^2\\
+% \leq& 3TL_G^\theta\|\theta'-\theta\|^2
+% +
+% 6T(L_G^{a,1})^2M_{A,2}+12T(L_G^{a,2})^2M_{A,2}+12T(L_G^{a,2})^2\E\left[\|\bar a_t^{\theta,x}\|^2\|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^2\right]
+% \\
+% +&
+% 6T[(L_G^{x,1})^2+(L_G^{x,2})^2(1+M_{A,2})]\|x'-x\|^2\\
+% \leq& 3TL_G^\theta\|\theta'-\theta\|^2
+% +
+% 6T(L_G^{a,1})^2M_{A,2}+12T(L_G^{a,2})^2M_{A,2}+12T(L_G^{a,2})^2\left(\E\left[\|\bar a_t^{\theta,x}\|^4\right]\right)^{1/2}\left(\E\left[|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^4\right]\right)^{1/2}
+% \\
+% +&
+% 6T[(L_G^{x,1})^2+(L_G^{x,2})^2(1+M_{A,2})]\|x'-x\|^2\\
+% \leq & 3TL_G^\theta\|\theta'-\theta\|^2
+% +
+% 6T(L_G^{a,1})^2M_{A,2}+12T(L_G^{a,2})^2M_{A,2}+12T(L_G^{a,2})^2(M_{A,4})^{1/2}\left(\E\left[|\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}\|^4\right]\right)^{1/2}
+% \\
+% +&
+% 6T[(L_G^{x,1})^2+(L_G^{x,2})^2(1+M_{A,2})]\|x'-x\|^2\\
+% \leq & 3TL_G^\theta\|\theta'-\theta\|^2
+% +
+% 6T(L_G^{a,1})^2M_{A,2}+12T(L_G^{a,2})^2M_{A,2}+24T(L_G^{a,2})^2(M_{A,4})^{1/2}\left((C^x_{A,4})^2\|x'-x\|^2+(C^\theta_{A,4})^2\|\theta'-\theta\|^2\right)
+% \\
+% +&
+% 6T[(L_G^{x,1})^2+(L_G^{x,2})^2(1+M_{A,2})]\|x'-x\|^2\\
+% \end{align*}
+% \[
+% \left(
+% \mathbb E
+% \|S_{\theta'}^{x'}-S_\theta^x\|^2
+% \right)^{1/2}
+% \le
+% \sqrt{T}
+% \left[
+% (L_G^x+L_G^aC_A^x)\|x'-x\|
+% +
+% (L_G^\theta+L_G^aC_A^\theta)\|\theta'-\theta\|
+% \right].
+% \]
+% \end{proof}
+% \end{lem}
+
+\textcolor{purple}{Renyuan take a look; also flow matching}
+\begin{lem}[Score moment and stability]
+Define
+\[
+S_\theta^x
+:=
+\int_0^T
+G_\theta(t,\bar a_t^{\theta,x},x)\,dB_t.
+\]
+Then
+\[
+\sup_{\theta,x}
+\mathbb E\|S_\theta^x\|^2
+\le
+2TM_G^2(1+M_{A,2}).
+\tag{S0}
+\]
+
+Moreover,
+\[
+\left(
+\mathbb E
+\|S_{\theta'}^{x'}-S_\theta^x\|^2
+\right)^{1/2}
+\le
+C_S^x\|x'-x\|
++
+C_S^\theta\|\theta'-\theta\|,
+\tag{S1}
+\]
+where
+\[
+C_S^x:=\sqrt{T}\,C_G^x,
+\qquad
+C_S^\theta:=\sqrt{T}\,C_G^\theta,
+\]
+with
+\[
+\begin{aligned}
+C_G^x
+:={}&
+L_G^{x,1}
++
+m_2L_G^{x,2}
++
+L_G^{a,1}C_A^x
++
+m_4L_G^{a,2}C_{A,4}^x,\\
+C_G^\theta
+:={}&
+L_G^\theta
++
+L_G^{a,1}C_A^\theta
++
+m_4L_G^{a,2}C_{A,4}^\theta,
+\end{aligned}
+\tag{S2}
+\]
+and
+\[
+m_2:=\sqrt{2(1+M_{A,2})},
+\qquad
+m_4:=\left[8(1+M_{A,4})\right]^{1/4}
+,\qquad M_S\coloneqq\sqrt{T}M_Gm_2\]
+
+\begin{proof}
+By It\^o's isometry,
+\[
+\begin{aligned}
+\mathbb E\|S_\theta^x\|^2
+&=
+\int_0^T
+\mathbb E
+\|G_\theta(t,\bar a_t^{\theta,x},x)\|_{\rm HS}^2\,dt\\
+&\le
+M_G^2
+\int_0^T
+\mathbb E
+\left(1+\|\bar a_t^{\theta,x}\|\right)^2dt\\
+&\le
+2TM_G^2
+\left(
+1+
+\sup_{\theta,t,x}
+\mathbb E\|\bar a_t^{\theta,x}\|^2
+\right)\\
+&=
+2TM_G^2(1+M_{A,2}),
+\end{aligned}
+\]
+which proves \((S0)\).
+
+For the stability estimate, set
+\[
+Z_t
+:=
+\bar a_t^{\theta',x'}-\bar a_t^{\theta,x}.
+\]
+Under the same-Brownian coupling,
+\[
+\begin{aligned}
+S_{\theta'}^{x'}-S_\theta^x
+=
+\int_0^T
+\Big[
+&G_{\theta'}(t,\bar a_t^{\theta',x'},x')\\
+&-
+G_\theta(t,\bar a_t^{\theta,x},x)
+\Big]\,dB_t.
+\end{aligned}
+\]
+Therefore, It\^o's isometry gives
+\[
+\begin{aligned}
+&
+\mathbb E
+\|S_{\theta'}^{x'}-S_\theta^x\|^2\\
+&=
+\int_0^T
+\mathbb E
+\left\|
+G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+G_\theta(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}^2dt.
+\end{aligned}
+\tag{1}
+\]
+
+Applying \((A)\) with
+\[
+a'=\bar a_t^{\theta',x'},
+\qquad
+a=\bar a_t^{\theta,x},
+\]
+and then using Minkowski's inequality in \(L^2\), we obtain
+\[
+\begin{aligned}
+&
+\left(
+\mathbb E
+\left\|
+G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+G_\theta(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}^2
+\right)^{1/2}\\
+&\le
+L_G^\theta\|\theta'-\theta\|
++
+L_G^{a,1}
+\left(\mathbb E\|Z_t\|^2\right)^{1/2}\\
+&\quad+
+L_G^{a,2}
+\left(
+\mathbb E
+\left[
+(1+\|\bar a_t^{\theta,x}\|)^2
+\|Z_t\|^2
+\right]
+\right)^{1/2}\\
+&\quad+
+\left[
+L_G^{x,1}
++
+L_G^{x,2}
+\left(
+\mathbb E
+(1+\|\bar a_t^{\theta,x}\|)^2
+\right)^{1/2}
+\right]\|x'-x\|.
+\end{aligned}
+\tag{2}
+\]
+
+We have
+\[
+\begin{aligned}
+\left(
+\mathbb E
+(1+\|\bar a_t^{\theta,x}\|)^2
+\right)^{1/2}
+&\le
+\sqrt{
+2\left(
+1+\mathbb E\|\bar a_t^{\theta,x}\|^2
+\right)
+}\\
+&\le
+m_2.
+\end{aligned}
+\tag{3}
+\]
+Moreover
+\[
+\begin{aligned}
+&
+\left(
+\mathbb E
+\left[
+(1+\|\bar a_t^{\theta,x}\|)^2
+\|Z_t\|^2
+\right]
+\right)^{1/2}\\
+&\le
+\left(
+\mathbb E
+(1+\|\bar a_t^{\theta,x}\|)^4
+\right)^{1/4}
+\left(
+\mathbb E\|Z_t\|^4
+\right)^{1/4}\\
+&\le
+m_4
+\left[
+C_{A,4}^x\|x'-x\|
++
+C_{A,4}^\theta\|\theta'-\theta\|
+\right].
+\end{aligned}
+\tag{4}
+\]
+% Since
+% \[
+% (1+r)^4\le 8(1+r^4),
+% \qquad r\ge0,
+% \]
+% we have
+% \[
+% \left(
+% \mathbb E
+% (1+\|\bar a_t^{\theta,x}\|)^4
+% \right)^{1/4}
+% \le
+% m_4.
+% \]
+% Thus
+% \[
+% \begin{aligned}
+% &
+% \left(
+% \mathbb E
+% \left[
+% (1+\|\bar a_t^{\theta,x}\|)^2
+% \|Z_t\|^2
+% \right]
+% \right)^{1/2}\\
+
+% \end{aligned}
+% \tag{4}
+% \]
+
+Combining \((2)\)--\((4)\) with the \(L^2\) action-path stability
+estimate \((A2)\), we obtain, uniformly in \(t\in[0,T]\),
+\[
+\begin{aligned}
+&
+\left(
+\mathbb E
+\left\|
+G_{\theta'}(t,\bar a_t^{\theta',x'},x')
+-
+G_\theta(t,\bar a_t^{\theta,x},x)
+\right\|_{\rm HS}^2
+\right)^{1/2}\\
+&\le
+C_G^x\|x'-x\|
++
+C_G^\theta\|\theta'-\theta\|.
+\end{aligned}
+\tag{5}
+\]
+
+Finally, substituting \((5)\) into \((1)\) gives
+\[
+\begin{aligned}
+\left(
+\mathbb E
+\|S_{\theta'}^{x'}-S_\theta^x\|^2
+\right)^{1/2}
+&\le
+\sqrt{T}
+\left[
+C_G^x\|x'-x\|
++
+C_G^\theta\|\theta'-\theta\|
+\right]\\
+&=
+C_S^x\|x'-x\|
++
+C_S^\theta\|\theta'-\theta\|.
+\end{aligned}
+\]
+This proves \((S1)\).
+\end{proof}
+\end{lem}
+
+\subsection{Synchronous coupling convention}
+\label{subsec:synchronous-mdp-coupling}
+
+We now fix the common-noise construction used in the value-function and
+discounted-occupancy arguments. Let
+\[
+\left\{(\zeta_j,B^j,U_j)\right\}_{j\ge 0}
+\]
+be independent across MDP time steps \(j\), where
+\(\zeta_j\sim\mu_0\), \(B^j=(B_t^j)_{0\le t\le T}\) is a standard
+Brownian motion, and \(U_j\sim{\rm Unif}[0,1]\). For each \(j\), assume
+that \(\zeta_j\), \(B^j\), and \(U_j\) are mutually independent and
+independent of the coupled initial states.
+
+Fix \(\vartheta_1,\vartheta_2\in\Theta\) and an arbitrary coupling
+\((X_0^1,X_0^2)\) of their initial-state distributions. Define
+\[
+\mathcal F_j
+:=
+\sigma\left(
+X_0^1,X_0^2,
+\left\{(\zeta_k,B^k,U_k):0\le k<j\right\}
+\right).
+\]
+Then \(X_j^1,X_j^2\) are \(\mathcal F_j\)-measurable, whereas
+\((\zeta_j,B^j,U_j)\) is independent of \(\mathcal F_j\).
+
+At MDP time step \(j\), conditionally on \(\mathcal F_j\), define the two
+within-step action diffusions using the same fresh initial action noise
+\(\zeta_j\) and the same fresh Brownian motion \(B^j\):
+\[
+\begin{aligned}
+d\bar a_{j,t}^{\,i}
+&=
+f_{\vartheta_i}
+\bigl(t,\bar a_{j,t}^{\,i},X_j^i\bigr)\,dt
++
+\sigma
+\bigl(t,\bar a_{j,t}^{\,i},X_j^i\bigr)\,dB_t^j,
+\\
+\bar a_{j,0}^{\,i}
+&=\zeta_j,
+\qquad
+A_j^i:=\bar a_{j,T}^{\,i},
+\qquad i\in\{1,2\}.
+\end{aligned}
+\label{eq:mdp-action-coupling}
+\]
+The next states are generated using the same fresh transition seed:
+\[
+X_{j+1}^i
+=
+\Phi_P(X_j^i,A_j^i,U_j),
+\qquad i\in\{1,2\}.
+\label{eq:mdp-transition-coupling}
+\]
+
+Because the randomness is fresh at each MDP time step, each marginal has the
+correct MDP law. More precisely,
+\[
+\operatorname{Law}(A_j^i\mid\mathcal F_j)
+=
+\pi_{\vartheta_i}(\cdot\mid X_j^i).
+\]
+Let
+\[
+\mathcal G_j
+:=
+\mathcal F_j\vee\sigma(\zeta_j,B^j).
+\]
+Then \(X_j^i,A_j^i\) are \(\mathcal G_j\)-measurable and \(U_j\) is
+independent of \(\mathcal G_j\), so
+\[
+\operatorname{Law}(X_{j+1}^i\mid\mathcal G_j)
+=
+P(\cdot\mid X_j^i,A_j^i).
+\]
+Thus each marginal process \(\{(X_j^i,A_j^i)\}_{j\ge0}\) is an MDP
+trajectory generated by \(\pi_{\vartheta_i}\).
+All stability estimates below are derived in their corresponding proofs
+by conditioning first on \(\mathcal F_j\) for the action pair and then
+on \(\mathcal G_j\) for the transition pair.
+
+\begin{lem}[Value stability in state]
+Define
+\[
+\alpha:=L_P^x+L_P^aC_A^x.
+\]
+Assume
+\[
+\gamma\alpha<1.
+\tag{C}
+\]
+Then, uniformly in \(\theta\),
+\[
+|V_\theta(x)-V_\theta(y)|
+\le
+L_V^x\|x-y\|,
+\tag{Vx}
+\]
+where
+\[
+L_V^x
+:=
+\frac{L_r^x+L_r^aC_A^x}{1-\gamma\alpha}.
+\]
+
+\begin{proof}
+Apply the construction in
+Subsection~\ref{subsec:synchronous-mdp-coupling} with
+\[
+\vartheta_1=\vartheta_2=\theta,
+\qquad
+X_0^1=x,
+\qquad
+X_0^2=y,
+\]
+and write
+\[
+(X_j,A_j):=(X_j^1,A_j^1),
+\qquad
+(Y_j,\widetilde A_j):=(X_j^2,A_j^2).
+\]
+
+Let
+\[
+D_j:=\left(\mathbb E\|X_j-Y_j\|^2\right)^{1/2},
+\qquad
+E_j:=\left(\mathbb E\|A_j-\widetilde A_j\|^2\right)^{1/2}.
+\]
+Conditionally on \(\mathcal F_j\), the current states are fixed.
+Applying action-path stability at \(t=T\) therefore gives
+\[
+\left(
+\mathbb E\left[
+\|A_j-\widetilde A_j\|^2
+\mid\mathcal F_j
+\right]
+\right)^{1/2}
+\le
+C_A^x\|X_j-Y_j\|.
+\]
+Taking the outer \(L^2\)-norm gives
+\[
+E_j\le C_A^xD_j.
+\]
+
+Conditionally on \(\mathcal G_j\), the current states and actions are
+fixed while \(U_j\) is fresh. The synchronous transition estimate gives
+\[
+\begin{aligned}
+&\left(
+\mathbb E\left[
+\|X_{j+1}-Y_{j+1}\|^2
+\mid\mathcal G_j
+\right]
+\right)^{1/2}
+\\
+&\qquad\le
+L_P^x\|X_j-Y_j\|
++
+L_P^a\|A_j-\widetilde A_j\|.
+\end{aligned}
+\]
+Taking the outer \(L^2\)-norm and using Minkowski's inequality gives
+\[
+D_{j+1}
+\le
+L_P^xD_j+L_P^aE_j
+\le
+\alpha D_j.
+\]
+Since \(D_0=\|x-y\|\), induction gives
+\[
+D_j\le \alpha^j\|x-y\|,
+\qquad
+E_j\le C_A^x\alpha^j\|x-y\|.
+\]
+Therefore,
+\[
+\begin{aligned}
+|V_\theta(x)-V_\theta(y)|
+&\le
+\sum_{j=0}^{\infty}
+\gamma^j
+\mathbb E
+\left[
+|r(X_j,A_j)-r(Y_j,\widetilde A_j)|
+\right]
+\\
+&\le
+\sum_{j=0}^{\infty}
+\gamma^j
+\left[
+L_r^xD_j+L_r^aE_j
+\right]
+\\
+&\le
+(L_r^x+L_r^aC_A^x)
+\sum_{j=0}^{\infty}
+(\gamma\alpha)^j
+\|x-y\|.
+\end{aligned}
+\]
+Since \(\gamma\alpha<1\), this proves \((Vx)\).
+\end{proof}
+\end{lem}
+
+\begin{lem}[Value stability in parameter]
+Let
+\[
+\alpha:=L_P^x+L_P^aC_A^x,
+\qquad
+\beta:=L_P^aC_A^\theta.
+\]
+Assume \(\gamma\alpha<1\). Then
+\[
+\|V_{\theta'}-V_\theta\|_\infty
+\le
+L_V^\theta\|\theta'-\theta\|,
+\tag{Vtheta}
+\]
+where one may take
+\[
+L_V^\theta
+:=
+\frac{L_r^aC_A^\theta}{1-\gamma}
++
+\frac{(L_r^x+L_r^aC_A^x)\beta\gamma}
+{(1-\gamma)(1-\gamma\alpha)}.
+\]
+
+\begin{proof}
+Fix an initial state \(x\). Apply the construction in
+Subsection~\ref{subsec:synchronous-mdp-coupling} with
+\[
+(\vartheta_1,\vartheta_2)=(\theta,\theta'),
+\qquad
+X_0^1=X_0^2=x.
+\]
+Write \((X_j^\theta,A_j^\theta):=(X_j^1,A_j^1)\) and
+\((X_j^{\theta'},A_j^{\theta'}):=(X_j^2,A_j^2)\).
+
+Define
+\[
+D_j:=
+\left(\mathbb E\|X_j^{\theta'}-X_j^\theta\|^2\right)^{1/2},
+\qquad
+E_j:=
+\left(\mathbb E\|A_j^{\theta'}-A_j^\theta\|^2\right)^{1/2}.
+\]
+Conditionally on \(\mathcal F_j\), action-path stability at \(t=T\)
+gives
+\[
+\begin{aligned}
+&\left(
+\mathbb E\left[
+\|A_j^{\theta'}-A_j^\theta\|^2
+\mid\mathcal F_j
+\right]
+\right)^{1/2}
+\\
+&\qquad\le
+C_A^x\|X_j^{\theta'}-X_j^\theta\|
++
+C_A^\theta\|\theta'-\theta\|.
+\end{aligned}
+\]
+Taking the outer \(L^2\)-norm and using Minkowski's inequality gives
+\[
+E_j
+\le
+C_A^xD_j+C_A^\theta\|\theta'-\theta\|.
+\]
+
+Conditionally on \(\mathcal G_j\), the synchronous transition estimate
+gives
+\[
+\begin{aligned}
+&\left(
+\mathbb E\left[
+\|X_{j+1}^{\theta'}-X_{j+1}^\theta\|^2
+\mid\mathcal G_j
+\right]
+\right)^{1/2}
+\\
+&\qquad\le
+L_P^x\|X_j^{\theta'}-X_j^\theta\|
++
+L_P^a\|A_j^{\theta'}-A_j^\theta\|.
+\end{aligned}
+\]
+Taking the outer \(L^2\)-norm gives
+\[
+D_{j+1}
+\le
+L_P^xD_j+L_P^aE_j
+\le
+\alpha D_j+\beta\|\theta'-\theta\|.
+\]
+Since \(D_0=0\), iteration yields
+\[
+D_j
+\le
+\beta
+\sum_{k=0}^{j-1}\alpha^k
+\|\theta'-\theta\|.
+\]
+Hence
+\[
+\begin{aligned}
+|V_{\theta'}(x)-V_\theta(x)|
+&\le
+\sum_{j=0}^{\infty}
+\gamma^j
+\left[
+L_r^xD_j+L_r^aE_j
+\right]
+\\
+&\le
+\sum_{j=0}^{\infty}
+\gamma^j
+\left[
+(L_r^x+L_r^aC_A^x)D_j
++
+L_r^aC_A^\theta\|\theta'-\theta\|
+\right].
+\end{aligned}
+\]
+Using
+\[
+\sum_{j=0}^{\infty}\gamma^j=\frac{1}{1-\gamma}
+\]
+and
+\[
+\sum_{j=0}^{\infty}
+\gamma^j
+\sum_{k=0}^{j-1}\alpha^k
+=
+\frac{\gamma}{(1-\gamma)(1-\gamma\alpha)},
+\]
+we obtain
+\[
+|V_{\theta'}(x)-V_\theta(x)|
+\le
+L_V^\theta\|\theta'-\theta\|.
+\]
+
+with \[
+L_V^\theta
+:=
+\frac{L_r^aC_A^\theta}{1-\gamma}
++
+\frac{(L_r^x+L_r^aC_A^x)\beta\gamma}
+{(1-\gamma)(1-\gamma\alpha)}.
+\]
+Taking the supremum over \(x\) proves the result.
+\end{proof}
+\end{lem}
+
+
+\begin{lem}[\(Q\)-function bounds]
+The \(Q\)-function satisfies
+\[
+\|Q_\theta\|_\infty
+\le
+M_Q,
+\qquad
+M_Q:=\frac{r_{\max}}{1-\gamma}.
+\tag{Q0}
+\]
+Moreover,
+\[
+|Q_\theta(x,a)-Q_\theta(x',a')|
+\le
+L_Q^x\|x-x'\|+L_Q^a\|a-a'\|,
+\tag{Qx}
+\]
+where
+\[
+L_Q^x:=L_r^x+\gamma L_V^xL_P^x,
+\qquad
+L_Q^a:=L_r^a+\gamma L_V^xL_P^a.
+\]
+Finally,
+\[
+\|Q_{\theta'}-Q_\theta\|_\infty
+\le
+L_Q^\theta\|\theta'-\theta\|,
+\tag{Qtheta}
+\]
+where
+\[
+L_Q^\theta:=\gamma L_V^\theta.
+\]
+Consequently,
+\[
+|Q_{\theta'}(x',a')-Q_\theta(x,a)|
+\le
+L_Q^x\|x'-x\|
++
+L_Q^a\|a'-a\|
++
+L_Q^\theta\|\theta'-\theta\|.
+\tag{Qjoint}
+\]
+
+\begin{proof}
+The uniform bound follows from the boundedness of the reward. For all
+\((x,a)\in\mathcal X\times\mathcal A\),
+\[
+|Q_\theta(x,a)|
+\le
+\sum_{j=0}^{\infty}\gamma^j r_{\max}
+=
+\frac{r_{\max}}{1-\gamma}
+=
+M_Q.
+\]
+
+Next, fix \(x,x'\in\mathcal X\) and \(a,a'\in\mathcal A\). By the
+Bellman representation,
+\[
+Q_\theta(x,a)
+=
+r(x,a)
++
+\gamma
+\int_{\mathcal X}
+V_\theta(z)P(dz\mid x,a).
+\]
+Therefore,
+\[
+\begin{aligned}
+|Q_\theta(x,a)-Q_\theta(x',a')|
+&\le
+|r(x,a)-r(x',a')|
+\\
+&\quad+
+\gamma
+\left|
+\int_{\mathcal X}V_\theta(z)P(dz\mid x,a)
+-
+\int_{\mathcal X}V_\theta(z)P(dz\mid x',a')
+\right|.
+\end{aligned}
+\]
+
+Let \(U\sim{\rm Unif}[0,1]\), and define the synchronously coupled next
+states
+\[
+Z:=\Phi_P(x,a,U),
+\qquad
+Z':=\Phi_P(x',a',U).
+\]
+Then
+\[
+Z\sim P(\cdot\mid x,a),
+\qquad
+Z'\sim P(\cdot\mid x',a'),
+\]
+and hence
+\[
+\begin{aligned}
+&\left|
+\int_{\mathcal X}V_\theta(z)P(dz\mid x,a)
+-
+\int_{\mathcal X}V_\theta(z)P(dz\mid x',a')
+\right|
+\\
+&=
+\left|
+\mathbb E_U
+\left[
+V_\theta(Z)-V_\theta(Z')
+\right]
+\right|
+\\
+&\le
+L_V^x\mathbb E_U\|Z-Z'\|
+\\
+&\le
+L_V^x
+\left(
+\mathbb E_U\|Z-Z'\|^2
+\right)^{1/2}
+\\
+&\le
+L_V^x
+\left(
+L_P^x\|x-x'\|
++
+L_P^a\|a-a'\|
+\right).
+\end{aligned}
+\]
+Together with reward Lipschitzness, this gives
+\[
+|Q_\theta(x,a)-Q_\theta(x',a')|
+\le
+L_Q^x\|x-x'\|
++
+L_Q^a\|a-a'\|,
+\]
+where
+\[
+L_Q^x
+=
+L_r^x+\gamma L_V^xL_P^x,
+\qquad
+L_Q^a
+=
+L_r^a+\gamma L_V^xL_P^a.
+\]
+
+For parameter stability, fix the same state-action pair \((x,a)\).
+Because the reward and transition kernel do not depend directly on
+\(\theta\),
+\[
+\begin{aligned}
+Q_{\theta'}(x,a)-Q_\theta(x,a)
+&=
+\gamma
+\int_{\mathcal X}
+\left[
+V_{\theta'}(z)-V_\theta(z)
+\right]
+P(dz\mid x,a).
+\end{aligned}
+\]
+Consequently,
+\[
+\begin{aligned}
+|Q_{\theta'}(x,a)-Q_\theta(x,a)|
+&\le
+\gamma
+\|V_{\theta'}-V_\theta\|_\infty
+\\
+&\le
+\gamma L_V^\theta\|\theta'-\theta\|.
+\end{aligned}
+\]
+Taking the supremum over \((x,a)\) proves
+\[
+\|Q_{\theta'}-Q_\theta\|_\infty
+\le
+L_Q^\theta\|\theta'-\theta\|,
+\qquad
+L_Q^\theta:=\gamma L_V^\theta.
+\]
+
+Finally,
+\[
+\begin{aligned}
+|Q_{\theta'}(x',a')-Q_\theta(x,a)|
+&\le
+|Q_{\theta'}(x',a')-Q_{\theta'}(x,a)|
+\\
+&\quad+
+|Q_{\theta'}(x,a)-Q_\theta(x,a)|
+\\
+&\le
+L_Q^x\|x'-x\|
++
+L_Q^a\|a'-a\|
++
+L_Q^\theta\|\theta'-\theta\|.
+\end{aligned}
+\]
+This proves \((Qjoint)\).
+\end{proof}
+\end{lem}
+
+\begin{lem}[\(\Psi\)-Lipschitzness]
+The map
+\[
+(\theta,x)\mapsto \Psi_\theta(x)
+\]
+is Lipschitz. More precisely,
+\[
+\|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+\le
+L_{\Psi,x}\|x'-x\|
++
+L_{\Psi,\theta}\|\theta'-\theta\|,
+\tag{Psi}
+\]
+where one may take
+\[
+L_{\Psi,x}
+:=
+M_QC_S^x
++
+M_S(L_Q^x+L_Q^aC_A^x),
+\]
+and
+\[
+L_{\Psi,\theta}
+:=
+M_QC_S^\theta
++
+M_S(L_Q^aC_A^\theta+L_Q^\theta).
+\]
+
+\begin{proof}
+Use the same-Brownian coupling for the two state-conditioned action diffusions. Then
+\[
+\begin{aligned}
+\Psi_{\theta'}(x')-\Psi_\theta(x)
+&=
+\mathbb E
+\left[
+S_{\theta'}^{x'}Q_{\theta'}(x',A_{\theta'}^{x'})
+-
+S_\theta^xQ_\theta(x,A_\theta^x)
+\right]
+\\
+&=
+\mathbb E
+\left[
+(S_{\theta'}^{x'}-S_\theta^x)Q_\theta(x,A_\theta^x)
+\right]
+\\
+&\quad+
+\mathbb E
+\left[
+S_{\theta'}^{x'}
+\left(
+Q_{\theta'}(x',A_{\theta'}^{x'})
+-
+Q_\theta(x,A_\theta^x)
+\right)
+\right].
+\end{aligned}
+\]
+Therefore,
+\[
+\begin{aligned}
+\|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+&\le
+M_Q
+\left(
+\mathbb E
+\|S_{\theta'}^{x'}-S_\theta^x\|^2
+\right)^{1/2}
+\\
+&\quad+
+M_S
+\left(
+\mathbb E
+\left|
+Q_{\theta'}(x',A_{\theta'}^{x'})
+-
+Q_\theta(x,A_\theta^x)
+\right|^2
+\right)^{1/2}.
+\end{aligned}
+\]
+Using score stability, action stability, and the joint \(Q\)-bound, we get
+\[
+\|\Psi_{\theta'}(x')-\Psi_\theta(x)\|
+\le
+\left[
+M_QC_S^x
++
+M_S(L_Q^x+L_Q^aC_A^x)
+\right]\|x'-x\|
+\]
+\[
++
+\left[
+M_QC_S^\theta
++
+M_S(L_Q^aC_A^\theta+L_Q^\theta)
+\right]\|\theta'-\theta\|.
+\]
+This proves the claim.
+\end{proof}
+\end{lem}
+
+\begin{lem}[Discounted occupancy stability]
+\label{lem:discounted-occupancy-stability}
+Let
+\[
+d_\rho^{\pi_\theta}(dx)
+:=
+(1-\gamma)\sum_{j=0}^{\infty}\gamma^j
+\mathbb P_\rho^{\pi_\theta}(X_j^\theta\in dx).
+\]
+Set
+\[
+\alpha:=L_P^x+L_P^aC_A^x,
+\qquad
+\beta:=L_P^aC_A^\theta,
+\qquad
+C_d
+:=
+\frac{\gamma\beta}{1-\gamma\alpha}
+=
+\frac{\gamma L_P^aC_A^\theta}
+{1-\gamma(L_P^x+L_P^aC_A^x)}.
+\]
+If
+\[
+\gamma\alpha<1,
+\tag{4.7-c}
+\]
+then for any bounded vector-valued test function
+\[
+\varphi:\mathcal X\to\mathbb R^p
+\]
+satisfying
+\[
+\|\varphi(x)-\varphi(y)\|
+\le
+L_\varphi\|x-y\|,
+\]
+we have
+\[
+\left\|
+\int_{\mathcal X}\varphi(x)
+\left[
+d_\rho^{\pi_{\theta'}}-d_\rho^{\pi_\theta}
+\right](dx)
+\right\|
+\le
+L_\varphi C_d\|\theta'-\theta\|,
+\tag{4.7}
+\]
+% In particular,
+% \[
+% W_1(d_\rho^{\pi_{\theta'}},d_\rho^{\pi_\theta})
+% \le
+% C_d\|\theta'-\theta\|.
+% \]
+
+
+\begin{proof}
+Apply the coupling convention from
+Subsection~\ref{subsec:synchronous-mdp-coupling} with
+\[
+(\vartheta_1,\vartheta_2)=(\theta,\theta'),
+\qquad
+X_0^1=X_0^2\sim\rho
+\quad\text{almost surely}.
+\]
+Write \((X_j^\theta,A_j^\theta):=(X_j^1,A_j^1)\) and
+\((X_j^{\theta'},A_j^{\theta'}):=(X_j^2,A_j^2)\), and define
+\[
+D_j
+:=
+\left(
+\mathbb E_{\rm sync}
+\|X_j^{\theta'}-X_j^\theta\|^2
+\right)^{1/2},
+\qquad
+E_j
+:=
+\left(
+\mathbb E_{\rm sync}
+\|A_j^{\theta'}-A_j^\theta\|^2
+\right)^{1/2}.
+\]
+
+Conditionally on \(\mathcal F_j\), action-path stability at \(t=T\)
+gives
+\[
+\begin{aligned}
+&\left(
+\mathbb E_{\rm sync}\left[
+\|A_j^{\theta'}-A_j^\theta\|^2
+\mid\mathcal F_j
+\right]
+\right)^{1/2}
+\\
+&\qquad\le
+C_A^x\|X_j^{\theta'}-X_j^\theta\|
++
+C_A^\theta\|\theta'-\theta\|.
+\end{aligned}
+\]
+Taking the outer \(L^2\)-norm gives
+\[
+E_j
+\le
+C_A^xD_j+C_A^\theta\|\theta'-\theta\|.
+\]
+
+Conditionally on \(\mathcal G_j\), the synchronous transition estimate
+gives
+\[
+\begin{aligned}
+&\left(
+\mathbb E_{\rm sync}\left[
+\|X_{j+1}^{\theta'}-X_{j+1}^\theta\|^2
+\mid\mathcal G_j
+\right]
+\right)^{1/2}
+\\
+&\qquad\le
+L_P^x\|X_j^{\theta'}-X_j^\theta\|
++
+L_P^a\|A_j^{\theta'}-A_j^\theta\|.
+\end{aligned}
+\]
+Taking the outer \(L^2\)-norm and using the preceding action estimate
+yields
+\[
+D_{j+1}
+\le
+L_P^xD_j+L_P^aE_j
+\le
+\alpha D_j+\beta\|\theta'-\theta\|.
+\tag{4.8}
+\]
+Since \(D_0=0\), iteration gives
+\[
+D_j
+\le
+\beta
+\sum_{k=0}^{j-1}\alpha^k
+\|\theta'-\theta\|.
+\tag{4.9}
+\]
+
+Now expand the discounted occupancy measures term by term. For any Lipschitz test function \(\varphi\),
+\[
+\begin{aligned}
+&\int_{\mathcal X}\varphi(x)
+\left[
+d_\rho^{\pi_{\theta'}}-d_\rho^{\pi_\theta}
+\right](dx)
+\\
+&=
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\left[
+\mathbb E_{\rm sync}\varphi(X_j^{\theta'})
+-
+\mathbb E_{\rm sync}\varphi(X_j^\theta)
+\right]
+\\
+&=
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\mathbb E_{\rm sync}
+\left[
+\varphi(X_j^{\theta'})
+-
+\varphi(X_j^\theta)
+\right].
+\end{aligned}
+\]
+Therefore,
+\[
+\begin{aligned}
+&\left\|
+\int_{\mathcal X}\varphi(x)
+\left[
+d_\rho^{\pi_{\theta'}}-d_\rho^{\pi_\theta}
+\right](dx)
+\right\|
+\\
+&\le
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\mathbb E_{\rm sync}
+\left[
+\|\varphi(X_j^{\theta'})
+-
+\varphi(X_j^\theta)\|
+\right]
+\\
+&\le
+L_\varphi
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\mathbb E_{\rm sync}
+\|X_j^{\theta'}-X_j^\theta\|
+\\
+&\le
+L_\varphi
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^jD_j.
+\end{aligned}
+\]
+Using \((4.9)\),
+\[
+\begin{aligned}
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^jD_j
+&\le
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\beta
+\sum_{k=0}^{j-1}\alpha^k
+\|\theta'-\theta\|
+\\
+&=
+\beta
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\sum_{k=0}^{j-1}\alpha^k
+\|\theta'-\theta\|.
+\end{aligned}
+\]
+Since
+\[
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^j
+\sum_{k=0}^{j-1}\alpha^k
+=
+\frac{\gamma}{1-\gamma\alpha},
+\]
+provided \(\gamma\alpha<1\), we obtain
+\[
+(1-\gamma)
+\sum_{j=0}^{\infty}
+\gamma^jD_j
+\le
+\frac{\gamma\beta}{1-\gamma\alpha}
+\|\theta'-\theta\|.
+\]
+Thus
+\[
+\left\|
+\int_{\mathcal X}\varphi(x)
+\left[
+d_\rho^{\pi_{\theta'}}-d_\rho^{\pi_\theta}
+\right](dx)
+\right\|
+\le
+L_\varphi
+\frac{\gamma\beta}{1-\gamma\alpha}
+\|\theta'-\theta\|.
+\]
+This proves \((4.7)\).\\
+\textcolor{purple}{Another way of proofing}
+Let $P_\theta(x,dy) \coloneqq \int_\mathcal{A} P(dy|x,a)\pi_\theta(da|x) = \E[P(dy|x,a^{\theta,x}_T)]$. Then 
+\[d^{\pi_\theta}_\rho=(1-\gamma)(I-\gamma P^*_\theta)^{-1}\rho\]
+Define $R_\theta=\sum_{k=0}^\infty\gamma^k (P_\theta)^k=(I-\gamma P_\theta)^{-1}$ and $R^*_\theta=\sum_{k=0}^\infty\gamma^k (P^*_\theta)^k=(I-\gamma P^*_\theta)^{-1}$, we have 
+\begin{align*}
+    d^{\pi_{\theta'}}_\rho-d^{\pi_\theta}_\rho&=(1-\gamma)[R_{\theta'}^*-R^*_\theta]\rho\\
+    &=(1-\gamma)R_{\theta'}^*\gamma[P^*_{\theta'}-P^*_\theta]R_\theta^*\rho\\
+    &=\gamma R^*_{\theta'}[P^*_{\theta'}-P^*_\theta]d^{\pi_\theta}_\rho
+\end{align*}
+Then 
+\[\int_\mathcal{X}\varphi(x)[d^{\pi_{\theta'}}_\rho-d^{\pi_\theta}_\rho](dx)=\gamma\int_\mathcal{X}[(P_{\theta'}-P_\theta)R_{\theta'}\varphi](x)d^{\pi_\theta}_\rho(dx)
+\]
+Note that $\text{Lip}(R_{\theta'}\varphi)\leq \sum^\infty_{k=0}\gamma^k\alpha^kL_{\varphi}=\frac{1}{1-\gamma \alpha}L_\varphi$
+Then
+\[
+\|(P_{\theta'}-P_\theta)R_{\theta'}\varphi (x)\|_\infty\leq \frac{\beta}{1-\gamma \alpha}L_\varphi \|\theta'-\theta\|
+\]
+
+So
+\[
+\int_\mathcal{X}\varphi(x)[d^{\pi_{\theta'}}_\rho-d^{\pi_\theta}_\rho](dx)\leq  \frac{\gamma\beta}{1-\gamma \alpha}L_\varphi \|\theta'-\theta\|
+\]
+% Finally, taking the supremum over scalar \(1\)-Lipschitz test functions gives
+% \[
+% W_1(d_\rho^{\pi_{\theta'}},d_\rho^{\pi_\theta})
+% \le
+% C_d\|\theta'-\theta\|.
+% \]
+
+
+\end{proof}
+\end{lem}
+
+\subsection{Main theorem}
+
+\begin{thm}[\(L\)-smoothness of \(J(\theta)=V^{\pi_\theta}(\rho)\)]
+
+% \thm[\(L\)-smoothness of \(J(\theta)=V^{\pi_\theta}(\rho)\)]
+Assume the preceding assumptions hold, and assume
+\[
+\gamma\alpha<1.
+\tag{C}
+\]
+Then \(J\) is \(L\)-smooth:
+\[
+\|\nabla J(\theta')-\nabla J(\theta)\|
+\le
+L\|\theta'-\theta\|,
+\]
+
+% with
+% \[
+% L
+% =
+% \frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}.
+% \]
+
+\begin{proof}
+By the policy-gradient formula,
+\[
+\nabla J(\theta')
+-
+\nabla J(\theta)
+=
+\frac{1}{1-\gamma}
+\left[
+\int_{\mathcal X}\Psi_{\theta'}(x)d_\rho^{\pi_{\theta'}}(dx)
+-
+\int_{\mathcal X}\Psi_\theta(x)d_\rho^{\pi_\theta}(dx)
+\right].
+\]
+Add and subtract
+\[
+\int_{\mathcal X}\Psi_{\theta'}(x)d_\rho^{\pi_\theta}(dx).
+\]
+Then
+\[
+\nabla J(\theta')-\nabla J(\theta)
+=
+\frac{1}{1-\gamma}(I+II),
+\]
+where
+\[
+I
+:=
+\int_{\mathcal X}
+\left[
+\Psi_{\theta'}(x)-\Psi_\theta(x)
+\right]d_\rho^{\pi_\theta}(dx),
+\]
+and
+\[
+II
+:=
+\int_{\mathcal X}
+\Psi_{\theta'}(x)
+\left[
+d_\rho^{\pi_{\theta'}}-d_\rho^{\pi_\theta}
+\right](dx).
+\]
+
+First, since \(d_\rho^{\pi_\theta}\) is a probability measure and \(\Psi\) is Lipschitz in \(\theta\),
+\[
+\begin{aligned}
+\|I\|
+&\le
+\int_{\mathcal X}
+\|\Psi_{\theta'}(x)-\Psi_\theta(x)\|d_\rho^{\pi_\theta}(dx)
+\\
+&\le
+L_{\Psi,\theta}\|\theta'-\theta\|.
+\end{aligned}
+\tag{1}
+\]
+
+% Next, let \(N\sim{\rm Geom}(1-\gamma)\), and use the synchronous coupling so that
+% \[
+% X_N^{\theta'}\sim d_\rho^{\pi_{\theta'}},
+% \qquad
+% X_N^\theta\sim d_\rho^{\pi_\theta}.
+% \]
+% Then
+% \[
+% II
+% =
+% \mathbb E_{\rm sync}
+% \left[
+% \Psi_{\theta'}(X_N^{\theta'})
+% -
+% \Psi_{\theta'}(X_N^\theta)
+% \right].
+% \]
+% Using Lipschitzness of \(\Psi_{\theta'}\) in \(x\),
+% \[
+% \begin{aligned}
+% \|II\|
+% &\le
+% \mathbb E_{\rm sync}
+% \left[
+% \|\Psi_{\theta'}(X_N^{\theta'})
+% -
+% \Psi_{\theta'}(X_N^\theta)\|
+% \right]
+% \\
+% &\le
+% L_{\Psi,x}
+% \mathbb E_{\rm sync}
+% \|X_N^{\theta'}-X_N^\theta\|.
+% \end{aligned}
+% \]
+% By discounted occupancy stability,
+% \[
+% \|II\|
+% \le
+% L_{\Psi,x}C_d\|\theta'-\theta\|.
+% \tag{2}
+% \]
+Applying Lemma~\ref{lem:discounted-occupancy-stability} with
+\(\varphi=\Psi_{\theta'}\),
+\[
+\|II\|
+\le
+L_{\Psi,x}C_d\|\theta'-\theta\|.
+\tag{2}
+\]
+Combining \((1)\) and \((2)\),
+\[
+\begin{aligned}
+\|\nabla J(\theta')-\nabla J(\theta)\|
+&\le
+\frac{1}{1-\gamma}
+\left(
+\|I\|+\|II\|
+\right)
+\\
+&\le
+\frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}
+\|\theta'-\theta\|.
+\end{aligned}
+\]
+Thus \(J\) is \(L\)-smooth with
+\[
+L
+=
+\frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}.
+\]
+\end{proof}
+\end{thm}
+\section{Sample-based analysis}
+% \begin{lem}[Unbiased gradient sampling]
+%     Define $J_H(\theta)\coloneqq \E[\sum^{H-1}_{t=0}\gamma^tr(X_t,A_t)]$ and 
+%     \\$V^\theta_{k,H}(x)\coloneqq \E_\theta[\sum^{H-1}_{t=k} \gamma^{t-k} r(X_t,A_t)|X_k=x]$.
+%     Define $\hat{g}_H=\sum^{H-1}_{k=1}S_{k,\theta}G_{k,H}$, where $S_{k,\theta}=\int^T_0 \nabla_\theta f_\theta(t,\bar{a}^{\theta,X_k}_{k,t})dB_t^k$ and $G_{k,H}=\sum^{H-1}_{k=0}\gamma^tr(X_t,A_t)$, we claim
+%     \[
+%     \nabla_\theta J_H(\theta)=\E[\hat{g}_H]
+%     \]
+%     \begin{proof}
+%     Using a performance difference lemma for $Q^\theta_{k,H}(x,a)=r(x,a)+\gamma \int_\mathcal{X}V^{\theta}_{k+1,H}P(dy|x,a)$, 
+%     \[
+%     J_H(\theta+\epsilon \beta)-J_H(\theta)=\sum^{H-1}_{k=0} \gamma^k \E_{\theta+\epsilon \beta} [Q^\theta_{k,H}(X_k,a)[\pi_{\theta+\epsilon\beta}-\pi_\theta](da|X_k)]
+%     \]
+%     Follows a similar calculation as in the paper, we have 
+
+%     \begin{align}
+%        \nabla J_H(\theta)&=\sum^{H-1}_{k=0} \gamma^k \E_\theta[S_{k,\theta}Q^\theta_{k,H}(X_k,A_k)]\\
+%        &=\E[\sum^{H-1}_{k=0}\gamma^kS_{k,\theta}\E[G_{k,H}|X_k,A_k]]\\
+%        &=\E[\hat{g_H}]
+%     \end{align}
+%     % \begin{align}
+%     %     \E[\hat{g}_H]&=\E[\sum^{H-1}_{k=1}S_{k,\theta}G_{k,H}]\\
+%     %     &=\\
+%     %     &=\E[\sum^{H-1}_{k=1}S_{k,\theta}Q^{\pi_\theta}(X_k,A_k)]\\
+%     %     &=\nabla_\theta J_H(\theta)
+%     % \end{align}
+        
+%     \end{proof}
+% \end{lem}
+
+\begin{lem}[Unbiased truncated policy-gradient estimator]
+\label{lem:unbiased-truncated-gradient}
+
+Fix \(H\in\mathbb N\), and define the truncated objective
+\[
+J_H(\theta)
+:=
+\mathbb E_\theta
+\left[
+\sum_{t=0}^{H-1}
+\gamma^t r(X_t,A_t)
+\right].
+\]
+
+For \(0\le k\le H\), define
+\[
+V_{k,H}^{\theta}(x)
+:=
+\mathbb E_\theta
+\left[
+\sum_{t=k}^{H-1}
+\gamma^{t-k}r(X_t,A_t)
+\,\middle|\,
+X_k=x
+\right],
+\qquad
+V_{H,H}^{\theta}\equiv 0,
+\]
+and, for \(0\le k\le H-1\),
+\[
+Q_{k,H}^{\theta}(x,a)
+:=
+r(x,a)
++
+\gamma
+\int_{\mathcal X}
+V_{k+1,H}^{\theta}(y)
+P(dy\mid x,a).
+\]
+
+At environment time \(k\), conditionally on \(X_k\), let
+\[
+d\bar a_{k,s}^{\theta,X_k}
+=
+f_\theta
+\bigl(s,\bar a_{k,s}^{\theta,X_k},X_k\bigr)\,ds
++
+\sigma
+\bigl(s,\bar a_{k,s}^{\theta,X_k},X_k\bigr)\,dB_s^k,
+\]
+and set
+\[
+A_k
+:=
+\bar a_{k,T}^{\theta,X_k}.
+\]
+
+Define the corresponding Girsanov score
+\[
+S_{k,\theta}
+:=
+\int_0^T
+\nabla_\theta f_\theta
+\bigl(s,\bar a_{k,s}^{\theta,X_k},X_k\bigr)
+\sigma
+\bigl(s,\bar a_{k,s}^{\theta,X_k},X_k\bigr)^{-1}
+\,dB_s^k,
+\]
+and the truncated return-to-go
+\[
+G_{k,H}
+:=
+\sum_{t=k}^{H-1}
+\gamma^{t-k}r(X_t,A_t).
+\]
+
+% Assume that the hypotheses of the one-action Girsanov derivative
+% formula hold and that, for every \(k,\theta,x\),
+% the map
+% \[
+% a\longmapsto Q_{k,H}^{\theta}(x,a)
+% \]
+% is bounded and continuous. Define
+% \[
+% \widehat g_H(\theta)
+% :=
+% \sum_{k=0}^{H-1}
+% \gamma^kS_{k,\theta}G_{k,H}.
+% \]
+Finally, define the estimator
+\[
+\hat{g}_H\coloneqq\sum^{H-1}_{k=0}\gamma^k S_{k,\theta}G_{k,H}
+\]
+Then
+\[
+\mathbb E_\theta[\widehat g_H(\theta)]
+=
+\nabla_\theta J_H(\theta).
+\]
+In particular, for 
+\[
+\hat{g}_{m,H}\coloneqq \frac{1}{m}\sum^{m}_{i=1}\sum^{H-1}_{k=0}\gamma^k S^{(i)}_{k,\theta}G^{(i)}_{k,H}
+\]
+we have 
+\[
+\E_\theta[\hat{g}_{m,H}]=\nabla_\theta J_H(\theta)
+\]
+\end{lem}
+
+\begin{proof}
+Fix a direction \(\beta\in\mathbb R^p\), and set
+\[
+\theta_\varepsilon
+:=
+\theta+\varepsilon\beta.
+\]
+
+By the finite-horizon performance-difference identity,
+\[
+\begin{aligned}
+J_H(\theta+\epsilon \beta)-J_H(\theta)
+=
+\sum_{k=0}^{H-1}
+\gamma^k
+\mathbb E_{\theta_\varepsilon}
+\left[
+\int_{\mathcal A}
+Q_{k,H}^{\theta}(X_k,a)
+\bigl(
+\pi_{\theta_\varepsilon}
+-
+\pi_\theta
+\bigr)(da\mid X_k)
+\right].
+\end{aligned}
+\tag{1}
+\]
+
+% Here \(Q_{k,H}^{\theta}\) is frozen at the base parameter
+% \(\theta\). For fixed \(k\) and \(x\), define
+% \[
+% F_{k,\varepsilon}(x)
+% :=
+% \frac{1}{\varepsilon}
+% \int_{\mathcal A}
+% Q_{k,H}^{\theta}(x,a)
+% \bigl(
+% \pi_{\theta_\varepsilon}
+% -
+% \pi_\theta
+% \bigr)(da\mid x).
+% \]
+
+% Applying the one-action Girsanov derivative formula with the fixed
+% test function
+% \[
+% \phi(a)=Q_{k,H}^{\theta}(x,a)
+% \]
+% gives
+% \[
+% \begin{aligned}
+% \lim_{\varepsilon\to0}
+% F_{k,\varepsilon}(x)
+% =
+% \mathbb E_\theta
+% \left[
+% \left\langle
+% S_\theta^x,\beta
+% \right\rangle
+% Q_{k,H}^{\theta}(x,A_\theta^x)
+% \right].
+% \end{aligned}
+% \tag{2}
+% \]
+
+% Using the finite-horizon state-law stability and the uniform
+% integrability supplied by the boundedness of
+% \(Q_{k,H}^{\theta}\) and the score moment bounds, we may pass to the
+% limit in (1). Hence
+% \[
+% \begin{aligned}
+% \left\langle
+% \nabla_\theta J_H(\theta),\beta
+% \right\rangle
+% =
+% \sum_{k=0}^{H-1}
+% \gamma^k
+% \mathbb E_\theta
+% \left[
+% \left\langle
+% S_{k,\theta},\beta
+% \right\rangle
+% Q_{k,H}^{\theta}(X_k,A_k)
+% \right].
+% \end{aligned}
+% \]
+
+% Since this holds for every \(\beta\in\mathbb R^p\),
+
+% Using a performance difference lemma for $Q^\theta_{k,H}(x,a)=r(x,a)+\gamma \int_\mathcal{X}V^{\theta}_{k+1,H}P(dy|x,a)$, 
+% \[
+% J_H(\theta+\epsilon \beta)-J_H(\theta)=\sum^{H-1}_{k=0} \gamma^k \E_{\theta+\epsilon \beta} [Q^\theta_{k,H}(X_k,a)[\pi_{\theta+\epsilon\beta}-\pi_\theta](da|X_k)]
+% \]
+Follows a similar calculation as in the paper, we have 
+% \begin{align*}
+%    \nabla J_H(\theta)&=\sum^{H-1}_{k=0} \gamma^k \E_\theta[S_{k,\theta}Q^\theta_{k,H}(X_k,A_k)]\\
+%    &=\E[\sum^{H-1}_{k=0}\gamma^kS_{k,\theta}\E[G_{k,H}|X_k,A_k]]\\
+%    &=\E[\hat{g_H}]
+% \end{align*}
+\[
+\nabla_\theta J_H(\theta)
+=
+\sum_{k=0}^{H-1}
+\gamma^k
+\mathbb E_\theta
+\left[
+S_{k,\theta}
+Q_{k,H}^{\theta}(X_k,A_k)
+\right].
+\tag{3}
+\]
+
+Let \(\mathcal G_k\) be the sigma-field generated by the MDP history
+up to \(X_k\) and by the entire internal action-diffusion path used
+at environment time \(k\). Then
+\[
+X_k,\qquad A_k,\qquad S_{k,\theta}
+\]
+are \(\mathcal G_k\)-measurable. By the Markov property and the
+freshness of the environment and future policy randomness,
+\[
+\mathbb E_\theta
+\left[
+G_{k,H}
+\,\middle|\,
+\mathcal G_k
+\right]
+=
+Q_{k,H}^{\theta}(X_k,A_k).
+\tag{4}
+\]
+
+Therefore,
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+S_{k,\theta}G_{k,H}
+\right]
+&=
+\mathbb E_\theta
+\left[
+S_{k,\theta}
+\mathbb E_\theta
+\left[
+G_{k,H}
+\,\middle|\,
+\mathcal G_k
+\right]
+\right]
+\\
+&=
+\mathbb E_\theta
+\left[
+S_{k,\theta}
+Q_{k,H}^{\theta}(X_k,A_k)
+\right].
+\end{aligned}
+\tag{5}
+\]
+
+Substituting (5) into (3) yields
+\[
+\begin{aligned}
+\nabla_\theta J_H(\theta)
+&=
+\mathbb E_\theta
+\left[
+\sum_{k=0}^{H-1}
+\gamma^kS_{k,\theta}G_{k,H}
+\right]
+\\
+&=
+\mathbb E_\theta[\widehat g_H(\theta)].
+\end{aligned}
+\]
+
+This proves the claim.
+\end{proof}
+\begin{lem}[Variance of the estimator] 
+\label{lem:truncated-gradient-variance}
+
+% Suppose that
+% \[
+% \mathbb E_\theta
+% \left[
+% S_{k,\theta}
+% \,\middle|\,
+% \mathcal F_k
+% \right]
+% =0
+% \]
+% and
+% \[
+% \mathbb E_\theta
+% \left[
+% \|S_{k,\theta}\|^2
+% \,\middle|\,
+% \mathcal F_k
+% \right]
+% \le M_S^2
+% \]
+% almost surely, uniformly over \(k\) and \(\theta\), where
+% \(\mathcal F_k\) is the information available immediately before the
+% action diffusion at environment time \(k\) is sampled. 
+
+% Recall the one-trajectory estimator
+% \[
+% \widehat g_H(\theta)
+% :=
+% \sum_{k=0}^{H-1}
+% \gamma^k S_{k,\theta}G_{k,H},
+% \qquad
+% G_{k,H}
+% :=
+% \sum_{t=k}^{H-1}
+% \gamma^{t-k}r(X_t,A_t),
+% \]
+% and suppose that
+% \[
+% \mathbb E_\theta[\widehat g_H(\theta)]
+% =
+% \nabla_\theta J_H(\theta).
+% \]
+
+% Then
+We have
+\[
+\mathbb E_\theta
+\left[
+\left\|
+\widehat g_H(\theta)
+-
+\nabla_\theta J_H(\theta)
+\right\|^2
+\right]
+\le
+\frac{r_{\max}^2M_S^2}{(1-\gamma)^3}.
+\tag{V}
+\]
+
+Moreover, if
+\[
+\widehat g_{m,H}(\theta)
+:=
+\frac{1}{m}
+\sum_{i=1}^m
+\widehat g_H^{(i)}(\theta),
+\]
+where the \(m\) trajectories are independent, then
+\[
+\mathbb E_\theta
+\left[
+\left\|
+\widehat g_{m,H}(\theta)
+-
+\nabla_\theta J_H(\theta)
+\right\|^2
+\right]
+\le
+\frac{r_{\max}^2M_S^2}
+{m(1-\gamma)^3}.
+\tag{V-m}
+\]
+with $M_S\coloneqq\sqrt{T}M_Gm_2$
+
+\begin{proof}
+
+If \(i<j\), then \(S_{i,\theta}\) is
+\(\mathcal F_j\)-measurable. Therefore,
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+\left\langle
+S_{i,\theta},S_{j,\theta}
+\right\rangle
+\right]
+&=
+\mathbb E_\theta
+\left[
+\left\langle
+S_{i,\theta},
+\mathbb E_\theta
+\left[
+S_{j,\theta}
+\,\middle|\,
+\mathcal F_j
+\right]
+\right\rangle
+\right]
+\\
+&=0.
+\end{aligned}
+\]
+
+Hence,
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+\|\sum_{k=0}^t S_{k,\theta}\|^2
+\right]
+&=
+\sum_{k=0}^t
+\mathbb E_\theta
+\left[
+\|S_{k,\theta}\|^2
+\right]
+\\
+&\le
+(t+1)M_S^2.
+\end{aligned}
+\tag{1}
+\]
+
+Note that
+\[
+\begin{aligned}
+\widehat g_H(\theta)
+&=
+\sum_{k=0}^{H-1}
+S_{k,\theta}
+\sum_{t=k}^{H-1}
+\gamma^t r(X_t,A_t)
+\\
+&=
+\sum_{t=0}^{H-1}
+\gamma^t r(X_t,A_t)\sum_{k=0}^t S_{k,\theta}.
+\end{aligned}
+\tag{2}
+\]
+
+By Cauchy--Schwarz inequality,
+\[
+\begin{aligned}
+\|\widehat g_H(\theta)\|^2
+&\le
+\left(
+\sum_{t=0}^{H-1}\gamma^t
+\right)
+\left(
+\sum_{t=0}^{H-1}
+\gamma^t
+r(X_t,A_t)^2
+\|\sum_{k=0}^t S_{k,\theta}\|^2
+\right).
+\end{aligned}
+\]
+
+Taking expectations and using \((1)\),
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+\|\widehat g_H(\theta)\|^2
+\right]
+&\le
+\frac{r_{\max}^2(1-\gamma^H)}{1-\gamma}
+\sum_{t=0}^{H-1}
+\gamma^t
+\mathbb E_\theta
+\left[
+\|\sum_{k=0}^t S_{k,\theta}\|^2
+\right]
+\\
+&\le
+\frac{r_{\max}^2M_S^2(1-\gamma^H)}{1-\gamma}
+\sum_{t=0}^{H-1}
+(t+1)\gamma^t
+\\
+&\le
+\frac{r_{\max}^2M_S^2(1-\gamma^H)}{(1-\gamma)^3}\left(1-\gamma^H-H\gamma^H(1-\gamma)\right)
+\\
+&\le
+\frac{r_{\max}^2M_S^2}{(1-\gamma)^3},
+\end{aligned}
+\tag{3}
+\]
+% where we used
+% \[
+% \sum_{t=0}^{\infty}(t+1)\gamma^t
+% =
+% \frac{1}{(1-\gamma)^2}.
+% \]
+
+Since
+\[
+\mathbb E_\theta[\widehat g_H(\theta)]
+=
+\nabla_\theta J_H(\theta),
+\]
+we have
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+\left\|
+\widehat g_H(\theta)
+-
+\nabla_\theta J_H(\theta)
+\right\|^2
+\right]
+&\le
+\mathbb E_\theta
+\left[
+\|\widehat g_H(\theta)\|^2
+\right]
+\\
+&\le
+\frac{r_{\max}^2M_S^2}{(1-\gamma)^3}.
+\end{aligned}
+\]
+
+% For the mini-batch estimator, set
+% \[
+% Y_i
+% :=
+% \widehat g_H^{(i)}(\theta)
+% -
+% \nabla_\theta J_H(\theta).
+% \]
+% The \(Y_i\)'s are independent and centered, so
+Then
+\[
+\begin{aligned}
+\mathbb E_\theta
+\left[
+\left\|
+\widehat g_{m,H}(\theta)
+-
+\nabla_\theta J_H(\theta)
+\right\|^2
+\right]
+&=
+\frac{1}{m^2}
+\sum_{i=1}^m
+\mathbb E_\theta[\|\widehat g_H^{(i)}(\theta)
+-
+\nabla_\theta J_H(\theta)\|^2]
+\\
+&\le
+\frac{r_{\max}^2M_S^2}
+{m(1-\gamma)^3}.
+\end{aligned}
+\]
+
+This completes the proof.
+\end{proof}    
+\end{lem}
+\begin{lem}[Truncation Error]
+Claim that
+\[
+\sup_\theta\|\nabla J(\theta)-\nabla J_H(\theta)\|^2\leq B_H
+\]
+with $B_H=\frac{\gamma^{2H}r_{max}^2 M_S^2}{(1-\gamma)^2}\left(H+1+\frac{\gamma}{1-\gamma}\right)$
+\begin{proof}
+    \begin{align*}
+        \|\nabla J(\theta)-\nabla J_H(\theta)\|^2&=\left\|\E\left[\sum^\infty_{t=H} \gamma^t\sum^t_{k=0}r_tS_{k,\theta}\right]\right\|^2\\
+        &\leq\E\left[\left\|\sum^\infty_{t=H} \gamma^t\sum^t_{k=0}r_tS_{k,\theta}\right\|^2\right]\\
+        &\leq \frac{r^2_{max}\gamma^H}{1-\gamma}\E\left[\sum^\infty_{t=H} \gamma^t\left\|\sum^t_{k=0}S_{k,\theta}\right\|^2\right]\\
+        &\leq \frac{\gamma^{2H}r_{max}^2 M_S^2}{(1-\gamma)^2}\left(H+1+\frac{\gamma}{1-\gamma}\right)
+    \end{align*}
+\end{proof}
+\end{lem}
+\begin{lem}[Stationarity]
+    Consider the stochastic gradient ascent
+    \[
+    \theta_{n+1}=\theta_n+\eta \hat{g}_{m,H}(\theta_n)
+    \]
+    with $\eta\leq 1/L$, we claim 
+    \begin{equation*}
+        \frac{1}{N}\sum^{N-1}_{n=0}\E\|\nabla J(\theta_n)\|^2\leq \frac{2\sup_{\theta\in\Theta} (J(\theta)- J(\theta_0))}{\eta N}+B_H+\frac{L\eta}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}
+    \end{equation*}
+    Particularly at $\eta=\frac{1}{L}$, we have    
+    \begin{equation*}
+        \frac{1}{N}\sum^{N-1}_{n=0}\E\|\nabla J(\theta_n)\|^2\leq \frac{2L\sup_{\theta\in\Theta} (J(\theta)- J(\theta_0))}{ N}+B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}
+    \end{equation*}
+    
+\end{lem}
+\begin{proof}
+By the L-smoothness,
+\begin{equation*}
+    J(\theta_{n+1})\geq J(\theta_n)+\langle \eta \hat{g}_{m,H}(\theta_n),\nabla J(\theta_n)\rangle -\frac{L\eta^2}{2}\| \hat{g}_{m,H}\|^2
+\end{equation*}
+Taking conditional expectation on both side, we have
+\begin{equation*}
+    \E[J(\theta_{n+1})|\theta_n]\geq J(\theta_n)+\eta\langle  \nabla J_H(\theta_n),\nabla J(\theta_n)\rangle -\frac{L\eta^2}{2}\left(\|\nabla J_H(\theta_n)\|^2+\frac{r_{\max}^2M_S^2}
+{m(1-\gamma)^3}\right)
+\end{equation*}
+and then with $\eta\leq 1/L$
+\begin{equation*}
+    \|\nabla J(\theta_n)\|^2\leq \frac{2}{\eta}(\E[J(\theta_{n+1})|\theta_n]-J(\theta_n))+B_H+\frac{L\eta}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}
+\end{equation*}
+Telescoping and we get the claimed result
+\end{proof}
+
+% \begin{lem}[Projected update Stationarity]
+%         Consider the stochastic gradient ascent
+%     \[
+%     \theta_{n+1}=\Pi_\Theta(\theta_n+\eta \hat{g}_{m,H}(\theta_n))
+%     \]
+% \end{lem}
+\newpage
+
+
+\subsection{Stationarity of projected stochastic gradient ascent}
+
+Let $\Theta\subseteq\mathbb R^p$ be nonempty, closed, and convex,
+and let $\Pi_\Theta$ denote its Euclidean projection. Define the
+\emph{population gradient mapping} for maximization by
+\begin{equation}
+\mathcal G_\eta(\theta)
+:=\frac{\Pi_\Theta(\theta+\eta\nabla J(\theta))-\theta}{\eta},
+\qquad \theta\in\Theta,\quad \eta>0.
+\label{eq:proj-pg-gradient-mapping}
+\end{equation}
+
+\begin{lem}[One-step projected ascent with gradient error]
+\label{lem:proj-pg-one-step}
+% Suppose $J$ is differentiable on a neighborhood of $\Theta$ and
+% its gradient is $L$-Lipschitz on $\Theta$, with $L>0$.
+For any $\theta\in\Theta$, $\widehat g\in\mathbb R^p$, and
+$0<\eta\le L^{-1}$, set
+\[
+\theta^+:=\Pi_\Theta(\theta+\eta\widehat g),
+\qquad e:=\widehat g-\nabla J(\theta).
+\]
+Then
+\begin{equation}
+J(\theta^+)-J(\theta)
+\ge \frac{\eta}{2}\|\mathcal G_\eta(\theta)\|^2
+     -\frac{\eta}{2}\|e\|^2.
+\label{eq:proj-pg-one-step}
+\end{equation}
+\end{lem}
+
+\begin{proof}
+Write $g:=\nabla J(\theta)$ and introduce the exact-gradient
+projected point
+\[
+\theta^\star:=\Pi_\Theta(\theta+\eta g).
+\]
+Define, for $v\in\Theta$,
+\[
+q(v):=\langle g,v-\theta\rangle
+       -\frac{\|v-\theta\|^2}{2\eta},
+\qquad
+\widehat q(v):=q(v)+\langle e,v-\theta\rangle.
+\]
+The point $\theta^+$ maximizes the $\eta^{-1}$-strongly concave
+function $\widehat q$ over $\Theta$. The projection property gives
+\[
+\widehat q(\theta^+)
+\ge \widehat q(\theta^\star)
+     +\frac{\|\theta^+-\theta^\star\|^2}{2\eta}.
+\]
+Consequently, completing the square yields
+\begin{align*}
+q(\theta^+)
+&\ge q(\theta^\star)
+   +\frac{\|\theta^+-\theta^\star\|^2}{2\eta}
+   -\langle e,\theta^+-\theta^\star\rangle\\
+&\ge q(\theta^\star)-\frac{\eta}{2}\|e\|^2.
+\end{align*}
+
+The projection variational inequality for $\theta^\star$, tested
+against the feasible point $\theta$, gives
+\[
+\langle \theta+\eta g-\theta^\star,
+        \theta-\theta^\star\rangle\le0.
+\]
+Hence
+\[
+\langle g,\theta^\star-\theta\rangle
+\ge\frac{\|\theta^\star-\theta\|^2}{\eta},
+\qquad
+q(\theta^\star)
+\ge\frac{\|\theta^\star-\theta\|^2}{2\eta}
+=\frac{\eta}{2}\|\mathcal G_\eta(\theta)\|^2.
+\]
+Finally, $L$-smoothness along the feasible line segment and
+$\eta\le L^{-1}$ imply
+\begin{align*}
+J(\theta^+)-J(\theta)
+&\ge\langle g,\theta^+-\theta\rangle
+     -\frac L2\|\theta^+-\theta\|^2\\
+&\ge q(\theta^+).
+\end{align*}
+Combining these inequalities proves
+\eqref{eq:proj-pg-one-step}.
+\end{proof}
+
+\begin{thm}[Expected stationarity of projected stochastic ascent]
+\label{thm:proj-pg-stationarity}
+Assume the smoothness hypotheses of Lemma~\ref{lem:proj-pg-one-step}
+and suppose
+\[
+J_\Theta^\star:=\sup_{\theta\in\Theta}J(\theta)<\infty.
+\]
+Fix a deterministic $\theta_0\in\Theta$, integers $N,m,H\ge1$,
+and a constant step size $0<\eta\le L^{-1}$.
+% Let $\mathscr H_n$ be the information available before the batch at
+% iteration $n$ is sampled, and
+let
+\[
+\widehat g_n:=\widehat g_{m,H}^{(n)}(\theta_n)
+\]
+be formed from $m$ fresh, conditionally independent on-policy
+% trajectories under $\pi_{\theta_n}$. Assume that the previously
+% established conditional variance and gradient-truncation bounds hold:
+% \begin{align}
+% \mathbb E[\widehat g_n\mid\mathscr H_n]
+% &=\nabla J_H(\theta_n),
+% \label{eq:proj-pg-unbiased}\\
+% \mathbb E\!\left[
+%  \|\widehat g_n-\nabla J_H(\theta_n)\|^2
+%  \mid\mathscr H_n\right]
+% &\le\frac{\mathcal V}{m},
+% \label{eq:proj-pg-variance}\\
+% \sup_{\theta\in\Theta}
+% \|\nabla J_H(\theta)-\nabla J(\theta)\|^2
+% &\le B_H.
+% \label{eq:proj-pg-bias}
+% \end{align}
+Consider the projected updates
+\begin{equation}
+\theta_{n+1}=\Pi_\Theta(\theta_n+\eta\widehat g_n),
+\qquad n=0,\ldots,N-1.
+\label{eq:proj-pg-update}
+\end{equation}
+Then, with $\Delta_J:=J_\Theta^\star-J(\theta_0)$,
+\begin{equation}
+\frac1N\sum_{n=0}^{N-1}
+\mathbb E\|\mathcal G_\eta(\theta_n)\|^2
+\le \frac{2\Delta_J}{\eta N}+B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}.
+\label{eq:proj-pg-stationarity-bound}
+\end{equation}
+% Equivalently, if $R$ is uniform on $\{0,\ldots,N-1\}$ and independent
+% of all trajectory randomness, then
+% \[
+% \mathbb E\|\mathcal G_\eta(\theta_R)\|^2
+% \le\frac{2\Delta_J}{\eta N}+B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+% {(1-\gamma)^3}.
+% \]
+\end{thm}
+
+\begin{proof}
+Projection ensures $\theta_n\in\Theta$ almost surely for every $n$.
+Define
+\[
+b_n:=\nabla J_H(\theta_n)-\nabla J(\theta_n),
+\qquad
+\xi_n:=\widehat g_n-\nabla J_H(\theta_n).
+\]
+Since $b_n$ is $\mathcal{F}_n$-measurable and
+$\mathbb E[\xi_n\mid\mathcal{F}_n]=0$, the conditional cross term
+vanishes. Thus
+\begin{align*}
+\mathbb E\!\left[
+ \|\widehat g_n-\nabla J(\theta_n)\|^2
+ \mid\mathcal{F}_n\right]
+&=\|b_n\|^2+
+  \mathbb E[\|\xi_n\|^2\mid\mathcal{F}_n]\\
+&\le B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}.
+\end{align*}
+Apply Lemma~\ref{lem:proj-pg-one-step} and take conditional
+expectations to obtain
+\[
+\mathbb E[J(\theta_{n+1})\mid\mathcal{F}_n]
+\ge J(\theta_n)
+  +\frac{\eta}{2}\|\mathcal G_\eta(\theta_n)\|^2
+  -\frac{\eta}{2}\left(B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}\right).
+\]
+Taking total expectations and summing over $n=0,\ldots,N-1$ gives
+\[
+\frac{\eta}{2}\sum_{n=0}^{N-1}
+\mathbb E\|\mathcal G_\eta(\theta_n)\|^2
+\le \mathbb E[J(\theta_N)]-J(\theta_0)
+  +\frac{N\eta}{2}\left(B_H+\frac{1}{m}\frac{r_{\max}^2M_S^2}
+{(1-\gamma)^3}\right).
+\]
+Using $J(\theta_N)\le J_\Theta^\star$ and dividing by $N\eta/2$
+proves \eqref{eq:proj-pg-stationarity-bound}. 
+% The random-iterate
+% statement follows from
+% \[
+% \mathbb E\|\mathcal G_\eta(\theta_R)\|^2
+% =\frac1N\sum_{n=0}^{N-1}
+%   \mathbb E\|\mathcal G_\eta(\theta_n)\|^2.
+% \]
+\end{proof}
+
+% \begin{remark}[Stationarity and comparison with the unprojected result]
+% For every $\eta>0$ and $\theta\in\Theta$,
+% \[
+% \mathcal G_\eta(\theta)=0
+% \quad\Longleftrightarrow\quad
+% \langle\nabla J(\theta),v-\theta\rangle\le0
+% \quad\text{for all }v\in\Theta.
+% \]
+% Thus the conclusion concerns constrained first-order stationarity,
+% not necessarily a vanishing ordinary gradient or global optimality.
+% The mapping in \eqref{eq:proj-pg-gradient-mapping} uses the population
+% gradient, not the sampled displacement
+% $(\theta_{n+1}-\theta_n)/\eta$.
+
+% At $\eta=L^{-1}$, the bound becomes
+% \[
+% \mathbb E\|\mathcal G_{1/L}(\theta_R)\|^2
+% \le\frac{2L\Delta_J}{N}+B_H+\frac{\mathcal V}{m}.
+% \]
+% For smaller $\eta$, the present projected bound retains
+% $\mathcal V/m$; it does not recover the sharper unprojected noise
+% term $L\eta\mathcal V/m$. This is a limitation of this bound,
+% not a claim that reducing the step size cannot help.
+
+% In the exact-gradient case, $\widehat g_n=\nabla J(\theta_n)$,
+% the error terms vanish and
+% \[
+% \frac1N\sum_{n=0}^{N-1}\|\mathcal G_\eta(\theta_n)\|^2
+% \le\frac{2\Delta_J}{\eta N}.
+% \]
+% \end{remark}
+
+% \subsubsection{Projected stationarity via stochastic composite optimization}
+% \label{subsubsec:projected-stationarity-cited}
+
+% We retain the standing assumptions and constants of
+% Theorem~\ref{thm:J-smoothness},
+% Lemmas~\ref{lem:unbiased-truncated-gradient},
+% \ref{lem:truncated-gradient-variance}, and
+% \ref{lem:gradient-truncation}. In particular, the condition
+% $\gamma\alpha<1$ remains in force, and
+% \[
+%  L=\frac{L_{\Psi,\theta}+L_{\Psi,x}C_d}{1-\gamma}>0,
+%  \qquad
+%  \mathcal V=\frac{r_{\max}^2M_S^2}{(1-\gamma)^3},
+%  \qquad
+%  B_H=\mathcal V\gamma^{2H}\bigl(1+(1-\gamma)H\bigr).
+% \]
+% Here $L$ may be any positive upper bound supplied by the smoothness
+% analysis. We take $\Theta\subset\mathbb R^p$ to be nonempty, closed, and
+% convex. Closedness ensures that Euclidean projection is well defined;
+% it imposes no additional regularity condition on the action SDE.
+
+% The population smoothness and gradient-oracle estimates below are
+% consequences of the preceding results, not additional assumptions about
+% individual sampled objectives. To apply an unbiased-oracle theorem
+% literally, we first record the finite-horizon specialization of the
+% existing smoothness argument.
+
+% \begin{lem}[Uniform finite-horizon smoothness]
+% \label{lem:truncated-objective-smoothness}
+% Under the standing hypotheses, for every $H\ge1$ and every
+% $\theta,\theta'\in\Theta$,
+% \begin{equation}
+%  \|\nabla J_H(\theta')-\nabla J_H(\theta)\|
+%  \le L\|\theta'-\theta\|.
+%  \label{eq:uniform-truncated-smoothness}
+% \end{equation}
+% The constant $L$ is independent of $H$ and can be the same constant as
+% in Theorem~\ref{thm:J-smoothness}.
+% \end{lem}
+
+% \begin{proof}
+% For $0\le k<H$, use the finite-horizon value functions from
+% Lemma~\ref{lem:unbiased-truncated-gradient} and define
+% \[
+%  \Psi_{k,H}^{\theta}(x)
+%  :=\mathbb E\!\left[S_\theta^x
+%              Q_{k,H}^{\theta}(x,A_\theta^x)\right].
+% \]
+% The preceding value-stability proofs remain valid with their geometric
+% sums stopped at the remaining horizon: every upper-bounding summand is
+% nonnegative. Hence the constants $L_V^x,L_V^\theta$ still bound
+% $V_{k,H}^{\theta}$ uniformly in $k,H$. The Bellman definition of
+% $Q_{k,H}^{\theta}$ then gives the same constants
+% $M_Q,L_Q^x,L_Q^a,L_Q^\theta$ as in the preceding $Q$-function bounds.
+% Repeating the score--$Q$ product estimate therefore yields
+% \begin{equation}
+%  \|\Psi_{k,H}^{\theta'}(x')-\Psi_{k,H}^{\theta}(x)\|
+%  \le L_{\Psi,\theta}\|\theta'-\theta\|
+%       +L_{\Psi,x}\|x'-x\|,
+%  \label{eq:finite-horizon-Psi-stability}
+% \end{equation}
+% with no dependence on $k$ or $H$.
+
+% The finite-horizon policy-gradient identity gives
+% \[
+%  \nabla J_H(\theta)
+%  =\sum_{k=0}^{H-1}\gamma^k
+%        \mathbb E\!\left[\Psi_{k,H}^{\theta}(X_k^\theta)\right].
+% \]
+% Under the same-initial-state synchronous coupling already used in the
+% occupancy proof, set $\beta=L_P^aC_A^\theta$. Its state estimate is
+% \[
+%  \mathbb E\|X_k^{\theta'}-X_k^\theta\|
+%  \le \beta\sum_{j=0}^{k-1}\alpha^j\|\theta'-\theta\|,
+% \]
+% where the inner sum is zero when $k=0$. Consequently,
+% \begin{align*}
+%  \|\nabla J_H(\theta')-\nabla J_H(\theta)\|
+%  &\le \left[
+%      L_{\Psi,\theta}\sum_{k=0}^{H-1}\gamma^k
+%      +L_{\Psi,x}\beta\sum_{k=0}^{H-1}\gamma^k
+%                          \sum_{j=0}^{k-1}\alpha^j
+%                   \right]\|\theta'-\theta\|\\
+%  &\le \left[
+%        \frac{L_{\Psi,\theta}}{1-\gamma}
+%        +\frac{L_{\Psi,x}\beta\gamma}
+%                    {(1-\gamma)(1-\gamma\alpha)}
+%                   \right]\|\theta'-\theta\|\\
+%  &=L\|\theta'-\theta\|.
+% \end{align*}
+% The last equality uses $C_d=\gamma\beta/(1-\gamma\alpha)$.
+% \end{proof}
+
+% \begin{prop}[Projected stochastic policy-gradient stationarity]
+% \label{prop:projected-stochastic-pg-stationarity}
+% Work under the preceding standing hypotheses. Fix integers $N,m,H\ge1$
+% and a deterministic initial parameter $\theta_0\in\Theta$. At every
+% iteration, use the fresh on-policy batch in
+% \eqref{eq:stationarity-batch}, and update
+% \begin{equation}
+%  \theta_{n+1}
+%  =\Pi_\Theta\!\left(\theta_n+\eta\widehat g_{m,H}^{(n)}(\theta_n)\right),
+%  \qquad n=0,\ldots,N-1,
+%  \qquad \eta=\frac1{2L}.
+%  \label{eq:projected-pg-update-cited}
+% \end{equation}
+% Define the two population gradient mappings
+% \begin{equation}
+%  \mathcal G_\eta^{H}(\theta)
+%  :=\frac{\Pi_\Theta(\theta+\eta\nabla J_H(\theta))-\theta}{\eta},
+%  \qquad
+%  \mathcal G_\eta^{J}(\theta)
+%  :=\frac{\Pi_\Theta(\theta+\eta\nabla J(\theta))-\theta}{\eta},
+%  \label{eq:projected-population-mappings-cited}
+% \end{equation}
+% and set
+% \[
+%  \Delta_{J,H}:=\sup_{\vartheta\in\Theta}J_H(\vartheta)-J_H(\theta_0).
+% \]
+% Let $R$ be uniform on $\{0,\ldots,N-1\}$, independently of all trajectory
+% randomness. Then
+% \begin{equation}
+%  \mathbb E\|\mathcal G_\eta^{H}(\theta_R)\|^2
+%  =\frac1N\sum_{n=0}^{N-1}
+%            \mathbb E\|\mathcal G_\eta^{H}(\theta_n)\|^2
+%  \le \underbrace{\frac{8L\Delta_{J,H}}N
+%                          +\frac{6\mathcal V}{m}}_{=:A_{N,m,H}}.
+%  \label{eq:projected-truncated-GLZ-bound}
+% \end{equation}
+% Moreover, for the original infinite-horizon objective,
+% \begin{align}
+%  \mathbb E\|\mathcal G_\eta^{J}(\theta_R)\|^2
+%  &=\frac1N\sum_{n=0}^{N-1}
+%            \mathbb E\|\mathcal G_\eta^{J}(\theta_n)\|^2
+%  \notag\\
+%  &\le \left(\sqrt{A_{N,m,H}}+\sqrt{B_H}\right)^2
+%  \notag\\
+%  &\le \frac{16L\Delta_{J,H}}N
+%                    +\frac{12\mathcal V}{m}+2B_H.
+%  \label{eq:projected-stationarity-bound}
+% \end{align}
+% The supremum defining $\Delta_{J,H}$ need not be attained. Bounded
+% rewards give
+% \begin{equation}
+%  0\le\Delta_{J,H}
+%  \le\frac{2r_{\max}(1-\gamma^H)}{1-\gamma}
+%  \le\frac{2r_{\max}}{1-\gamma}.
+%  \label{eq:projected-gap-upper-bound}
+% \end{equation}
+% \end{prop}
+
+% \begin{proof}
+% Conditioning on $\mathscr H_n$, the parameter $\theta_n$ is fixed and
+% the batch has the on-policy law used in the preceding estimator lemmas.
+% Thus Lemma~\ref{lem:conditional-gradient-error} supplies, almost surely,
+% \[
+%  \mathbb E[\widehat g_n\mid\mathscr H_n]=\nabla J_H(\theta_n),
+%  \qquad
+%  \mathbb E\!\left[
+%   \|\widehat g_n-\nabla J_H(\theta_n)\|^2
+%   \mid\mathscr H_n\right]\le\frac{\mathcal V}{m}.
+% \]
+
+% Apply \citet[Corollary~3, Eq.~(44), in the arXiv version]
+% {GhadimiLanZhang2016} to the minimization problem
+% \[
+%  \min_{\theta\in\Theta} f(\theta),\qquad f=-J_H,
+% \]
+% with zero nonsmooth objective term and Euclidean distance generator
+% $\omega(\theta)=\|\theta\|^2/2$. Its strong-convexity modulus is one.
+% A single-trajectory stochastic oracle is
+% $-\widehat g_H(\theta)$; the cited oracle variance constant can be set
+% to $\sigma_{\mathrm{oracle}}^2=\mathcal V$, and the batch size is $m$.
+% Lemma~\ref{lem:truncated-objective-smoothness} verifies the required
+% $L$-smoothness, and \eqref{eq:projected-gap-upper-bound} verifies the
+% finite objective gap. In the cited notation,
+% $D_\Psi^2=\Delta_{J,H}/L$. The constant step
+% $\eta=1/(2L)$ makes the cited output distribution uniform.
+% Its population projected gradient is $-\mathcal G_\eta^{H}$, whose
+% norm is unchanged. Substitution into Eq.~(44) proves
+% \eqref{eq:projected-truncated-GLZ-bound}.
+
+% Next, nonexpansiveness of Euclidean projection (equivalently,
+% \citealp[Proposition~1]{GhadimiLanZhang2016}) and
+% Lemma~\ref{lem:gradient-truncation} imply, pointwise on $\Theta$,
+% \begin{align*}
+%  \|\mathcal G_\eta^{J}(\theta)-\mathcal G_\eta^{H}(\theta)\|
+%  &\le \|\nabla J(\theta)-\nabla J_H(\theta)\|\\
+%  &\le\sqrt{B_H}.
+% \end{align*}
+% The triangle inequality in $L^2$ gives
+% \[
+%  \left(\mathbb E\|\mathcal G_\eta^{J}(\theta_R)\|^2\right)^{1/2}
+%  \le
+%  \left(\mathbb E\|\mathcal G_\eta^{H}(\theta_R)\|^2\right)^{1/2}
+%  +\sqrt{B_H}.
+% \]
+% This proves the first bound in \eqref{eq:projected-stationarity-bound};
+% using $(a+b)^2\le2a^2+2b^2$ proves the separated bound. The stated
+% averages equal the random-output expectations by independence and
+% uniformity of $R$.
+% \end{proof}
+
+% \begin{prop}[A priori projected $\varepsilon$-stationarity]
+% \label{prop:projected-stationarity-complexity-cited}
+% Under Proposition~\ref{prop:projected-stochastic-pg-stationarity}, fix
+% $\varepsilon>0$ and retain $\eta=1/(2L)$. It is sufficient to choose
+% positive integers satisfying
+% \begin{align}
+%  N&\ge\max\!\left\{1,
+%        \left\lceil\frac{96Lr_{\max}}{(1-\gamma)\varepsilon^2}
+%                         \right\rceil\right\},
+%  &
+%  m&\ge\max\!\left\{1,
+%        \left\lceil\frac{36\mathcal V}{\varepsilon^2}\right\rceil
+%                        \right\},
+%  \label{eq:projected-N-m-cited}\\
+%  H&\ge\max\!\left\{1,
+%        \left\lceil
+%        \frac{\log(\max\{1,6\mathcal V/\varepsilon^2\})}
+%             {\log(1/\gamma)}
+%        \right\rceil\right\}.
+%  \label{eq:projected-H-cited}
+% \end{align}
+% Then
+% \[
+%  \mathbb E\|\mathcal G_{1/(2L)}^{J}(\theta_R)\|^2
+%  \le\varepsilon^2.
+% \]
+% If an upper bound on $\Delta_{J,H}$ is available, the first prescription
+% may instead use $N\ge\max\{1,\lceil48L\Delta_{J,H}/\varepsilon^2\rceil\}$.
+% \end{prop}
+
+% \begin{proof}
+% The first two prescriptions and
+% \eqref{eq:projected-gap-upper-bound} make the optimization and sampling
+% terms in \eqref{eq:projected-stationarity-bound} at most
+% $\varepsilon^2/3$ each. Since
+% \[
+%  1+(1-\gamma)H\le e^{(1-\gamma)H}\le\gamma^{-H},
+% \]
+% we have $B_H\le\mathcal V\gamma^H$.
+% The horizon prescription gives $B_H\le\varepsilon^2/6$, including the
+% case $\mathcal V=0$, so the truncation term is also at most
+% $\varepsilon^2/3$.
+% \end{proof}
+\newpage
+% \section{Other route toards $S_1$}
+% \subsection{Proving for piecewise affine function as multi-layer ReLU}
+% \paragraph{Scope and notation.}
+
+
+% Fix $T>0$, $K>0$, $\mathcal X=[0,1]^m$, a finite ReLU architecture with
+% parameter vector $\theta\in\R^p$, and a bounded convex parameter set
+% $\Theta$. All representations and coefficient maps below are defined on an
+% open neighborhood of $\Theta$; the stated uniform bounds are required on
+% $\Theta$. Let $y=(t,a,x)$ and $\widetilde y=(t,a^\top,x^\top,1)^\top$.
+
+% \paragraph{Affine-region representation.}
+% Assume a finite, consistently labelled collection $\mathscr S$ of branch
+% templates such that
+% \begin{equation}
+%  \NN_\theta(t,a,x)
+%  =M^1_{\theta,S}t+M^2_{\theta,S}a+M^3_{\theta,S}x+b_{\theta,S}
+%  =\mathsf C_{\theta,S}\widetilde y,
+%  \qquad S=\iota_\theta(t,a,x),
+%  \label{eq:affine}
+% \end{equation}
+% where $\mathsf C_{\theta,S}=[M^1_{\theta,S}\ M^2_{\theta,S}\ M^3_{\theta,S}\ b_{\theta,S}]$.
+% The branch labels are fixed, but their active regions may depend on $\theta$
+% and may be empty. Affine templates are extended to all inputs, including
+% points outside their active regions. Assume $\NN_\theta$ is continuous.
+
+% \paragraph{Assumption A: drift and volatility.}
+% Set $f_\theta=K\NN_\theta$. Assume constants $B_f,L_f^a,L_f^x,L_f^\theta$
+% such that
+% \begin{align}
+%  \|f_\theta(t,a,x)\|&\le B_f(1+\|a\|),\\
+%  \|f_\theta(t,a',x')-f_\theta(t,a,x)\|
+%  &\le L_f^a\|a'-a\|+L_f^x\|x'-x\|,\\
+%  \|f_{\theta'}(t,a,x)-f_\theta(t,a,x)\|
+%  &\le L_f^\theta(1+\|a\|)\|\theta'-\theta\|.
+%  \label{eq:drift-stability}
+% \end{align}
+% For the original class, the first two inequalities follow from its slope
+% and origin bounds; the last is the fixed-architecture parameter perturbation
+% estimate. Let $\sigma$ be measurable, symmetric, independent of $\theta$,
+% and satisfy
+% \begin{align}
+%  \kappa I_d&\preceq\sigma(t,a,x)\sigma(t,a,x)^\top\preceq\Lambda I_d,
+%  \qquad 0<\kappa\le\Lambda<\infty,\\
+%  \|\sigma(t,a',x')-\sigma(t,a,x)\|_{\HS}
+%  &\le L_\sigma^a\|a'-a\|+L_\sigma^x\|x'-x\|.
+% \end{align}
+% Let $\zeta$ be independent of the Brownian motion $B$, with
+% $\E\|\zeta\|^4<\infty$. All comparisons use the same $(\zeta,B)$ in
+% \begin{equation}
+%  dA_t^{\theta,x}=f_\theta(t,A_t^{\theta,x},x)\,dt
+%  +\sigma(t,A_t^{\theta,x},x)\,dB_t,
+%  \qquad A_0^{\theta,x}=\zeta.
+%  \label{eq:sde}
+% \end{equation}
+
+% \paragraph{Assumption B: regularity of affine templates.}
+% Assume each $\mathsf C_{\theta,S}$ is $C^{1,1}$ in $\theta$, with
+% \begin{align}
+%  \sup_{\theta,S}\bigl(\|\mathsf C_{\theta,S}\|
+%        +\|D_\theta\mathsf C_{\theta,S}\|\bigr)&\le B_C,\\
+%  \|D_\theta\mathsf C_{\theta',S}
+%        -D_\theta\mathsf C_{\theta,S}\|
+%  &\le L_C\|\theta'-\theta\|.
+%  \label{eq:branch-regularity}
+% \end{align}
+% Tensor norms are the Euclidean norms of the corresponding coefficient
+% arrays. The bounds include templates that are inactive at one of the
+% parameters. In a fixed ReLU architecture, activation-labelled affine
+% coefficients are polynomial functions of the weights, so this assumption
+% is available on bounded parameter boxes using an appropriate refinement.
+
+% \paragraph{Assumption C: stable action-transverse switching description.}
+% Suppose there are finitely many consistently indexed affine functions
+% \begin{equation}
+%  \ell_{\theta,j}(t,a,x)
+%  =n_{\theta,j}^\top a+\alpha_{\theta,j}t
+%        +\beta_{\theta,j}^\top x+c_{\theta,j},\qquad j=1,\ldots,J,
+%  \label{eq:interfaces}
+% \end{equation}
+% with unit action normals $\|n_{\theta,j}\|=1$ and coefficient vectors
+% $q_{\theta,j}=(n_{\theta,j},\alpha_{\theta,j},\beta_{\theta,j},c_{\theta,j})$
+% satisfying
+% \begin{equation}
+%  \|q_{\theta,j}\|\le B_\Gamma,\qquad
+%  \|q_{\theta',j}-q_{\theta,j}\|
+%        \le L_\Gamma\|\theta'-\theta\|.
+%  \label{eq:interface-regularity}
+% \end{equation}
+% There is a single map $\mathfrak r:\{0,1\}^J\to\mathscr S$, independent of
+% $\theta$, such that off the switching hyperplanes
+% \begin{equation}
+%  \iota_\theta(t,a,x)
+%  =\mathfrak r\bigl(\1_{\{\ell_{\theta,1}(t,a,x)>0\}},\ldots,
+%             \1_{\{\ell_{\theta,J}(t,a,x)>0\}}\bigr).
+%  \label{eq:selection}
+% \end{equation}
+% The hyperplanes may refine the actual region boundaries; not every zero
+% set must be an actual interface. Globally fixed-sign tests can be omitted.
+% The normalization is accompanied by the coefficient regularity in
+% \eqref{eq:interface-regularity}; it is not a way to avoid a degeneracy
+% assumption. State-only or time-only switching surfaces are not covered by
+% this sufficient hypothesis.
+
+% Define $H_\theta=\nabla_\theta f_\theta\in\R^{p\times d}$ off the switching
+% set, using the branch formula, and assign any measurable representative
+% of at most linear growth on that set. Let
+% \begin{equation}
+%  G_t^{\theta,x}=H_\theta(t,A_t^{\theta,x},x)
+%              \sigma(t,A_t^{\theta,x},x)^{-1},\qquad
+%  S_\theta^x=\int_0^T G_t^{\theta,x}\,dB_t.
+% \end{equation}
+
+% \begin{prop}[A7-av in the affine-region formulation]
+% Under Assumptions A--C, there is a finite constant $C$, independent of the
+% comparison pair, such that
+% \begin{equation}
+%  \int_0^T\E\|G_t^{\theta',x'}-G_t^{\theta,x}\|_{HS}\,dt
+%  \le C\bigl(\|\theta'-\theta\|+\|x'-x\|\bigr)
+%  \label{eq:a7av}
+% \end{equation}
+% for all $\theta,\theta'\in\Theta$ and $x,x'\in\mathcal X$.
+% The constant may depend on the fixed architecture, $J,K,T,d,m,p$, all
+% coefficient and interface bounds, the volatility constants, and
+% $\E\|\zeta\|^4$. No architecture-uniform or degeneration-uniform bound is
+% asserted.
+% \end{prop}
+
+% \begin{proof}
+% Throughout, $C$ is a finite constant with only the stated dependencies.
+% Fix a comparison pair and abbreviate
+% $A_t=A_t^{\theta,x}$, $A_t'=A_t^{\theta',x'}$, $Z_t=A_t'-A_t$, and
+% $\delta=\|\theta'-\theta\|+\|x'-x\|$. If $\delta=0$, pathwise uniqueness
+% makes the conclusion immediate. Hence assume $\delta>0$.
+
+% \paragraph{Step 1: maximal moments and a common random envelope.}
+% Linear growth, bounded volatility, BDG, and Gronwall give
+% \begin{equation}
+%  \sup_{\theta,x}\E\sup_{t\le T}\|A_t^{\theta,x}\|^4\le C.
+%  \label{eq:moment}
+% \end{equation}
+% The drift and diffusion differences in the equation for $Z$ satisfy
+% \begin{align}
+%  \|\Delta f_t\|&\le L_f^a\|Z_t\|+C\delta(1+\|A_t\|),\\
+%  \|\Delta\sigma_t\|_{\HS}&\le L_\sigma^a\|Z_t\|+L_\sigma^x\delta.
+% \end{align}
+% For $h(u)=\E\sup_{t\le u}\|Z_t\|^4$, the integral equation, Holder, and BDG
+% therefore imply
+% \[
+%  h(u)\le C\int_0^u h(v)\,dv
+%        +C\delta^4\int_0^u(1+\E\|A_v\|^4)\,dv.
+% \]
+% Gronwall and \eqref{eq:moment} give
+% \begin{equation}
+%  \E\sup_{t\le T}\|Z_t\|^4\le C\delta^4.
+%  \label{eq:path-stability}
+% \end{equation}
+% Consequently,
+% \begin{equation}
+%  R=1+\sup_{t\le T}\|A_t\|
+%        +\delta^{-1}\sup_{t\le T}\|Z_t\|,
+%  \qquad \E R^4\le C.
+%  \label{eq:envelope}
+% \end{equation}
+
+% \paragraph{Step 2: deterministic-width occupation estimates.}
+% Fix an interface index $j$ and define the globally affine projection
+% \[
+%  Y_t=\ell_{\theta,j}(t,A_t,x).
+% \]
+% This is an auxiliary process even where its hyperplane is not an active
+% facet. Its dynamics are
+% \[
+%  dY_t=\mu_t\,dt+\nu_t\,dB_t,
+%  \quad \mu_t=n_{\theta,j}^\top f_\theta(t,A_t,x)+\alpha_{\theta,j},
+%  \quad \nu_t=n_{\theta,j}^\top\sigma(t,A_t,x).
+% \]
+% Thus $\kappa\,dt\le d\langle Y\rangle_t\le\Lambda\,dt$ and
+% $\sup_t\|\mu_t\|_{L^4}\le C$. With local time normalized by
+% \[
+%  \int_0^T\varphi(Y_t)\,d\langle Y\rangle_t
+%  =\int_\R\varphi(z)L_T^z(Y)\,dz,
+% \]
+% Tanaka's formula gives
+% \[
+%  L_T^z(Y)=|Y_T-z|-|Y_0-z|
+%    -\int_0^T\operatorname{sgn}(Y_t-z)\mu_t\,dt
+%    -\int_0^T\operatorname{sgn}(Y_t-z)\nu_t\,dB_t.
+% \]
+% The endpoint difference is bounded by $|Y_T-Y_0|$. Minkowski and BDG yield
+% \begin{align*}
+%  \|L_T^z(Y)\|_{L^4}
+%  &\le 2\int_0^T\|\mu_t\|_{L^4}\,dt
+%       +2C_{\rm BDG,4}\left\|\left(\int_0^T\|\nu_t\|^2dt\right)^{1/2}\right\|_{L^4}
+%  \le C.
+% \end{align*}
+% This is uniform in $j,\theta,x,z$. Hence, for
+% $O_j(r)=\int_0^T\ind_{\{|Y_t|\le r\}}dt$ and deterministic $r\ge0$,
+% \begin{equation}
+%  \|O_j(r)\|_{L^4}
+%  \le\kappa^{-1}\int_{-r}^r\|L_T^z(Y)\|_{L^4}\,dz
+%  \le Cr.
+%  \label{eq:strip}
+% \end{equation}
+% The occupation formula also gives
+% $\int_0^T\ind_{\{Y_t=0\}}dt=0$ almost surely. Since there are finitely many
+% interfaces, the choice of derivative representative on their union does
+% not affect $G$ as a $dt\,d\mathbb P$ equivalence class or its Ito integral.
+
+% \paragraph{Step 3: different region labels imply proximity to an interface.}
+% Let $r_t=\iota_\theta(t,A_t,x)$ and
+% $r_t'=\iota_{\theta'}(t,A_t',x')$. By \eqref{eq:selection}, if $r_t'\ne r_t$,
+% then at least one corresponding sign differs. For this index $j$,
+% \[
+%  |\ell_{\theta,j}(t,A_t,x)|
+%  \le|\ell_{\theta',j}(t,A_t',x')-\ell_{\theta,j}(t,A_t,x)|.
+% \]
+% Using \eqref{eq:interface-regularity} and compactness of time and state,
+% \[
+%  |\ell_{\theta',j}(t,A_t',x')-\ell_{\theta,j}(t,A_t,x)|
+%  \le C\|Z_t\|+C\delta(1+\|A_t\|)\le C\delta R.
+% \]
+% Outside a null set in $dt\,d\mathbb P$,
+% \begin{equation}
+%  \ind_{\{r_t'\ne r_t\}}
+%  \le\sum_{j=1}^J
+%        \ind_{\{|\ell_{\theta,j}(t,A_t,x)|\le C\delta R\}}.
+%  \label{eq:switch-strip}
+% \end{equation}
+
+% \paragraph{Step 4: weighted random-width occupation.}
+% For each $j$, partition according to $E_n=\{2^n\le R<2^{n+1}\}$,
+% $n\ge0$. By Holder with exponents $4$ and $4/3$, \eqref{eq:strip}, and
+% Markov's inequality,
+% \begin{align*}
+%  \E[R\,O_j(C\delta R)]
+%  &\le\sum_{n\ge0}2^{n+1}
+%        \E[O_j(C\delta2^{n+1})\ind_{E_n}]\\
+%  &\le\sum_{n\ge0}2^{n+1}\|O_j(C\delta2^{n+1})\|_{L^4}
+%        \mathbb P(R\ge2^n)^{3/4}\\
+%  &\le C\delta\sum_{n\ge0}2^{2n}
+%        \left(\frac{\E R^4}{2^{4n}}\right)^{3/4}
+%  \le C\delta\sum_{n\ge0}2^{-n}\le C\delta.
+% \end{align*}
+% No independence between $R$ and the action path is used. By
+% \eqref{eq:switch-strip} and $1+\|A_t\|\le R$,
+% \begin{equation}
+%  \E\int_0^T(1+\|A_t\|)\ind_{\{r_t'\ne r_t\}}dt\le C\delta.
+%  \label{eq:weighted-switch}
+% \end{equation}
+
+% \paragraph{Step 5: compare parameter derivatives using the affine templates.}
+% Define the $p\times d$ branch derivative by
+% \[
+%  (H_{\theta,S}(t,a,x))_{i,\cdot}
+%  =K\left(\partial_{\theta_i}M^1_{\theta,S}t
+%           +\partial_{\theta_i}M^2_{\theta,S}a
+%           +\partial_{\theta_i}M^3_{\theta,S}x
+%           +\partial_{\theta_i}b_{\theta,S}\right)^\top.
+% \]
+% The coefficient assumptions imply
+% \begin{align}
+%  \|H_{\theta,S}(t,a,x)\|_{\HS}&\le C(1+\|a\|),\\
+%  \|H_{\theta',S}(t,a',x')-H_{\theta,S}(t,a,x)\|_{\HS}
+%  &\le C\|a'-a\|+C(1+\|a\|)\delta.
+% \end{align}
+% Off switching hyperplanes, continuity of the tests makes the active label
+% locally constant in $\theta$, so this branch derivative is the ordinary
+% parameter derivative. Step 2 permits ignoring boundary times. Add and
+% subtract $H_{\theta,r_t'}(t,A_t,x)$ to obtain
+% \begin{align}
+%  \|H_t'-H_t\|_{\HS}
+%  &\le\|H_{\theta',r_t'}(t,A_t',x')-H_{\theta,r_t'}(t,A_t,x)\|_{\HS}\\
+%  &\quad+\|H_{\theta,r_t'}(t,A_t,x)-H_{\theta,r_t}(t,A_t,x)\|_{\HS}\\
+%  &\le C\|Z_t\|+C(1+\|A_t\|)\delta
+%          +C(1+\|A_t\|)\1_{\{r_t'\ne r_t\}}.
+% \end{align}
+% The affine extension in the added term need not be active at the unprimed
+% input; the template assumptions hold there regardless. Integrating,
+% \eqref{eq:moment}, \eqref{eq:path-stability}, and
+% \eqref{eq:weighted-switch} yield
+% \begin{equation}
+%  \int_0^T\E\|H_t'-H_t\|_{\HS}dt\le C\delta.
+%  \label{eq:h-av}
+% \end{equation}
+
+% \paragraph{Step 6: include inverse volatility.}
+% Write $\sigma_t=\sigma(t,A_t,x)$ and
+% $\sigma_t'=\sigma(t,A_t',x')$. The inverse identity gives
+% \[
+%  \|\sigma_t'^{-1}-\sigma_t^{-1}\|_{\op}
+%  \le\kappa^{-1}\|\sigma_t'-\sigma_t\|_{\op}
+%  \le C(\|Z_t\|+\|x'-x\|).
+% \]
+% Consequently,
+% \begin{align*}
+%  \|G_t'-G_t\|_{\HS}
+%  &\le\kappa^{-1/2}\|H_t'-H_t\|_{\HS}
+%     +C(1+\|A_t\|)(\|Z_t\|+\|x'-x\|).
+% \end{align*}
+% Cauchy--Schwarz and the moment/stability estimates give
+% \[
+%  \E[(1+\|A_t\|)\|Z_t\|]
+%  \le\|1+\|A_t\|\|_{L^2}\|Z_t\|_{L^2}\le C\delta.
+% \]
+% Integrating and using \eqref{eq:h-av} proves \eqref{eq:a7av}.
+% The linear-growth bound on $H$ and bounded inverse volatility also ensure
+% that $G$ is square integrable, so the displayed scores are well-defined.
+% \end{proof}
+
+
+
+% \begin{remark}[What is additional to Eq. (4.7)]
+% For fixed architecture and consistently labelled activation templates,
+% branch coefficients are polynomial in the weights, and the usual
+% parameter perturbation estimate is available on bounded boxes. The new
+% substantive hypothesis is Assumption C: a fixed switching description with
+% uniformly controlled normalized coefficients and nonzero action normals.
+% It excludes unrestricted degeneracy and unhandled state-only switching.
+% Equation (4.7), the upper slope bounds, and bounded weights do not imply
+% this condition. A sufficient way to verify the normalization is to start
+% with raw affine tests whose coefficients are uniformly bounded and
+% Lipschitz in $\theta$, and whose action-normal magnitudes are uniformly
+% bounded below, then divide by those magnitudes. Tests with a fixed sign
+% on the entire parameter/input domain can be dropped. Other degenerate
+% tests require separate treatment or sharper cancellation-aware estimates.
+% \end{remark}
+
+% \begin{remark}[Why fourth-order occupation estimates appear]
+% In the restricted shallow proof, the relevant gate jumps have bounded
+% amplitudes and an unweighted $L^2$ occupation bound suffices. Here a branch
+% parameter derivative can grow linearly in the action, so Step 4 controls
+% $\E[R O_j(C\delta R)]$. The $L^4$ strip estimate closes this bound using
+% only a fourth moment of $R$; no eighth moment of the initialization is
+% needed. The constant depends on the finite switching description and is
+% not asserted to have polynomial dependence on architecture size.
+% \end{remark}
+
+\newpage
+
+\section{PL Condition}
+identify subspace $U$
+
+\begin{enumerate}
+    % \item check $1+\|a\|$
+    \item rectified flow
+    \item check RELU compatiability
+    % \item nextstep sample-based analysis
+    % \item page 26 of the lecture notes
+    \item check experiment to see variance reduction
+    \item \textbf{Question: clipping}
+\end{enumerate}
+\bibliographystyle{plainnat}
+\bibliography{references}
+\end{document}
