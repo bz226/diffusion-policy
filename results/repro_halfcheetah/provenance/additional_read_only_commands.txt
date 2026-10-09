@@ -1,0 +1,10 @@
+Two read-only shell inspections at the start of the budget-amendment turn were
+executed directly through the terminal tool rather than run_logged.py. Their
+exact commands are recorded here; exact execution timestamps were not retained
+in commands.jsonl. All later root terminal commands in that turn used the logger.
+
+cat research_agent_workflow.md
+sed -n '1,190p' results/repro_halfcheetah/code/supervise_run.py
+
+Source and helper edits used the apply_patch tool; their resulting files are
+preserved in this study. No DPPO source or configuration file was edited.

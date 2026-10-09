@@ -1,0 +1,41 @@
+[
+  {
+    "run_id": "seed0_handoff",
+    "status": "complete",
+    "monitor_status": "paused",
+    "returncode": 0,
+    "subprocess_wall_seconds": 7414.732464429224,
+    "wall_seconds_including_verification": 7415.457779098302,
+    "final_training_env_steps": 10080000,
+    "source_after": {
+      "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+      "tracked_files_clean": true
+    }
+  },
+  {
+    "run_id": "seed1",
+    "status": "complete",
+    "monitor_status": "paused",
+    "returncode": 0,
+    "subprocess_wall_seconds": 7380.337116700015,
+    "wall_seconds_including_verification": 7385.044248561026,
+    "final_training_env_steps": 10080000,
+    "source_after": {
+      "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+      "tracked_files_clean": true
+    }
+  },
+  {
+    "run_id": "seed2",
+    "status": "complete",
+    "monitor_status": "paused",
+    "returncode": 0,
+    "subprocess_wall_seconds": 7512.229150913074,
+    "wall_seconds_including_verification": 7518.341434185975,
+    "final_training_env_steps": 10080000,
+    "source_after": {
+      "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+      "tracked_files_clean": true
+    }
+  }
+]

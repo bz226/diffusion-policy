@@ -1,0 +1,31 @@
+JobId=17768661 JobName=dppo-hc-repro
+   UserId=zbao7(25987) GroupId=users(100) MCS_label=N/A
+   Priority=31905 Nice=0 Account=soal QOS=normal
+   JobState=FAILED Reason=NonZeroExitCode Dependency=(null)
+   Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=1:0
+   RunTime=00:00:13 TimeLimit=08:30:00 TimeMin=N/A
+   SubmitTime=2026-10-08T19:49:31 EligibleTime=2026-10-08T19:49:31
+   AccrueTime=2026-10-08T19:49:31
+   StartTime=2026-10-08T19:49:42 EndTime=2026-10-08T19:49:55 Deadline=N/A
+   PreemptEligibleTime=2026-10-08T19:49:42 PreemptTime=None
+   SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-08T19:49:42 Scheduler=Backfill
+   Partition=soal AllocNode:Sid=soal-5:1149680
+   ReqNodeList=(null) ExcNodeList=(null)
+   NodeList=soal-10
+   BatchHost=soal-10
+   NumNodes=1 NumCPUs=40 NumTasks=1 CPUs/Task=40 ReqB:S:C:T=0:0:*:*
+   ReqTRES=cpu=40,mem=64G,node=1,billing=40,gres/gpu=1,gres/gpu:a6000=1
+   AllocTRES=cpu=40,mem=64G,node=1,billing=40,gres/gpu=1,gres/gpu:a6000=1
+   Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=*
+   MinCPUsNode=40 MinMemoryNode=64G MinTmpDiskNode=0
+   Features=(null) DelayBoot=00:00:00
+   OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null)
+   Command=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/code/run_batch.sh
+   SubmitLine=sbatch --parsable --account=soal --partition=soal --gres=gpu:a6000:1 --cpus-per-task=40 --mem=64G --time=08:30:00 --no-requeue --export=PATH,HOME,USER,LOGNAME,LANG --chdir=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo --job-name=dppo-hc-repro --output=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/setup/slurm-%j.log /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/code/run_batch.sh
+   WorkDir=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo
+   StdErr=
+   StdIn=/dev/null
+   StdOut=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/setup/slurm-17768661.log
+   TresPerNode=gres/gpu:a6000:1
+   TresPerTask=cpu=40
+

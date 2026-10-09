@@ -1,0 +1,20 @@
+Compiling /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/mujoco_py/cymj.pyx because it changed.
+[1/1] Cythonizing /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/mujoco_py/cymj.pyx
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+INFO:absl:MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+INFO:absl:Successfully imported OpenGL backend: glfw
+INFO:absl:MuJoCo library version is: 3.2.3
+pybullet build time: Jan 29 2025 23:19:57
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py:505: UserWarning: [33mWARN: The environment HalfCheetah-v2 is out of date. You should consider upgrading to version `v3` with the environment ID `HalfCheetah-v3`.[0m
+  logger.warn(
+ok

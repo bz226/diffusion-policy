@@ -1,0 +1,4 @@
+{"status": "running", "last_completed_itr": 3, "training_env_steps": 240000, "initial_eval_return": 4286.897, "last_eval_return": 4286.897, "elapsed_seconds": 213.51003854197916, "deadline_utc": "2026-10-09T05:01:31+00:00"}
+[2026-10-08 20:02:49,432][agent.finetune.train_ppo_diffusion_agent][INFO] - 1: step    80000 | loss   0.0054 | pg loss  -0.0008 | value loss   0.0123 | bc loss   0.0000 | reward 3841.4964 | eta   1.0000 | t: 57.9231
+[2026-10-08 20:03:46,130][agent.finetune.train_ppo_diffusion_agent][INFO] - 2: step   160000 | loss   0.0133 | pg loss  -0.0004 | value loss   0.0274 | bc loss   0.0000 | reward 3934.9944 | eta   1.0000 | t: 56.6981
+[2026-10-08 20:04:43,721][agent.finetune.train_ppo_diffusion_agent][INFO] - 3: step   240000 | loss   0.0201 | pg loss  -0.0004 | value loss   0.0411 | bc loss   0.0000 | reward 4066.8200 | eta   1.0000 | t: 57.5911

@@ -1,0 +1,577 @@
+                cycle_mult=1.0,
+                max_lr=cfg.train.eta_lr,
+                min_lr=cfg.train.eta_lr_scheduler.min_lr,
+                warmup_steps=cfg.train.eta_lr_scheduler.warmup_steps,
+                gamma=1.0,
+            )
+
+    def run(self):
+        # Start training loop
+        timer = Timer()
+        run_results = []
+        cnt_train_step = 0
+        last_itr_eval = False
+        done_venv = np.zeros((1, self.n_envs))
+        while self.itr < self.n_train_itr:
+            # Prepare video paths for each envs --- only applies for the first set of episodes if allowing reset within iteration and each iteration has multiple episodes from one env
+            options_venv = [{} for _ in range(self.n_envs)]
+            if self.itr % self.render_freq == 0 and self.render_video:
+                for env_ind in range(self.n_render):
+                    options_venv[env_ind]["video_path"] = os.path.join(
+                        self.render_dir, f"itr-{self.itr}_trial-{env_ind}.mp4"
+                    )
+
+            # Define train or eval - all envs restart
+            eval_mode = self.itr % self.val_freq == 0 and not self.force_train
+            self.model.eval() if eval_mode else self.model.train()
+            last_itr_eval = eval_mode
+
+            # Reset env before iteration starts (1) if specified, (2) at eval mode, or (3) right after eval mode
+            firsts_trajs = np.zeros((self.n_steps + 1, self.n_envs))
+            if self.reset_at_iteration or eval_mode or last_itr_eval:
+                prev_obs_venv = self.reset_env_all(options_venv=options_venv)
+                firsts_trajs[0] = 1
+            else:
+                # if done at the end of last iteration, the envs are just reset
+                firsts_trajs[0] = done_venv
+
+            # Holder
+            obs_trajs = {
+                "state": np.zeros(
+                    (self.n_steps, self.n_envs, self.n_cond_step, self.obs_dim)
+                )
+            }
+            chains_trajs = np.zeros(
+                (
+                    self.n_steps,
+                    self.n_envs,
+                    self.model.ft_denoising_steps + 1,
+                    self.horizon_steps,
+                    self.action_dim,
+                )
+            )
+            terminated_trajs = np.zeros((self.n_steps, self.n_envs))
+            reward_trajs = np.zeros((self.n_steps, self.n_envs))
+            if self.save_full_observations:  # state-only
+                obs_full_trajs = np.empty((0, self.n_envs, self.obs_dim))
+                obs_full_trajs = np.vstack(
+                    (obs_full_trajs, prev_obs_venv["state"][:, -1][None])
+                )
+
+            # Collect a set of trajectories from env
+            for step in range(self.n_steps):
+                if step % 10 == 0:
+                    print(f"Processed step {step} of {self.n_steps}")
+
+                # Select action
+                with torch.no_grad():
+                    cond = {
+                        "state": torch.from_numpy(prev_obs_venv["state"])
+                        .float()
+                        .to(self.device)
+                    }
+                    samples = self.model(
+                        cond=cond,
+                        deterministic=eval_mode,
+                        return_chain=True,
+                    )
+                    output_venv = (
+                        samples.trajectories.cpu().numpy()
+                    )  # n_env x horizon x act
+                    chains_venv = (
+                        samples.chains.cpu().numpy()
+                    )  # n_env x denoising x horizon x act
+                action_venv = output_venv[:, : self.act_steps]
+
+                # Apply multi-step action
+                (
+                    obs_venv,
+                    reward_venv,
+                    terminated_venv,
+                    truncated_venv,
+                    info_venv,
+                ) = self.venv.step(action_venv)
+                done_venv = terminated_venv | truncated_venv
+                if self.save_full_observations:  # state-only
+                    obs_full_venv = np.array(
+                        [info["full_obs"]["state"] for info in info_venv]
+                    )  # n_envs x act_steps x obs_dim
+                    obs_full_trajs = np.vstack(
+                        (obs_full_trajs, obs_full_venv.transpose(1, 0, 2))
+                    )
+                obs_trajs["state"][step] = prev_obs_venv["state"]
+                chains_trajs[step] = chains_venv
+                reward_trajs[step] = reward_venv
+                terminated_trajs[step] = terminated_venv
+                firsts_trajs[step + 1] = done_venv
+
+                # update for next step
+                prev_obs_venv = obs_venv
+
+                # count steps --- not acounting for done within action chunk
+                cnt_train_step += self.n_envs * self.act_steps if not eval_mode else 0
+
+            # Summarize episode reward --- this needs to be handled differently depending on whether the environment is reset after each iteration. Only count episodes that finish within the iteration.
+            episodes_start_end = []
+            for env_ind in range(self.n_envs):
+                env_steps = np.where(firsts_trajs[:, env_ind] == 1)[0]
+                for i in range(len(env_steps) - 1):
+                    start = env_steps[i]
+                    end = env_steps[i + 1]
+                    if end - start > 1:
+                        episodes_start_end.append((env_ind, start, end - 1))
+            if len(episodes_start_end) > 0:
+                reward_trajs_split = [
+                    reward_trajs[start : end + 1, env_ind]
+                    for env_ind, start, end in episodes_start_end
+                ]
+                num_episode_finished = len(reward_trajs_split)
+                episode_reward = np.array(
+                    [np.sum(reward_traj) for reward_traj in reward_trajs_split]
+                )
+                if (
+                    self.furniture_sparse_reward
+                ):  # only for furniture tasks, where reward only occurs in one env step
+                    episode_best_reward = episode_reward
+                else:
+                    episode_best_reward = np.array(
+                        [
+                            np.max(reward_traj) / self.act_steps
+                            for reward_traj in reward_trajs_split
+                        ]
+                    )
+                avg_episode_reward = np.mean(episode_reward)
+                avg_best_reward = np.mean(episode_best_reward)
+                success_rate = np.mean(
+                    episode_best_reward >= self.best_reward_threshold_for_success
+                )
+            else:
+                episode_reward = np.array([])
+                num_episode_finished = 0
+                avg_episode_reward = 0
+                avg_best_reward = 0
+                success_rate = 0
+                log.info("[WARNING] No episode completed within the iteration!")
+
+            # Update models
+            if not eval_mode:
+                with torch.no_grad():
+                    obs_trajs["state"] = (
+                        torch.from_numpy(obs_trajs["state"]).float().to(self.device)
+                    )
+
+                    # Calculate value and logprobs - split into batches to prevent out of memory
+                    num_split = math.ceil(
+                        self.n_envs * self.n_steps / self.logprob_batch_size
+                    )
+                    obs_ts = [{} for _ in range(num_split)]
+                    obs_k = einops.rearrange(
+                        obs_trajs["state"],
+                        "s e ... -> (s e) ...",
+                    )
+                    obs_ts_k = torch.split(obs_k, self.logprob_batch_size, dim=0)
+                    for i, obs_t in enumerate(obs_ts_k):
+                        obs_ts[i]["state"] = obs_t
+                    values_trajs = np.empty((0, self.n_envs))
+                    for obs in obs_ts:
+                        values = self.model.critic(obs).cpu().numpy().flatten()
+                        values_trajs = np.vstack(
+                            (values_trajs, values.reshape(-1, self.n_envs))
+                        )
+                    chains_t = einops.rearrange(
+
+            # Update lr, min_sampling_std
+            if self.itr >= self.n_critic_warmup_itr:
+                self.actor_lr_scheduler.step()
+                if self.learn_eta:
+                    self.eta_lr_scheduler.step()
+            self.critic_lr_scheduler.step()
+            self.model.step()
+            diffusion_min_sampling_std = self.model.get_min_sampling_denoising_std()
+
+            # Save model
+            if self.itr % self.save_model_freq == 0 or self.itr == self.n_train_itr - 1:
+                self.save_model()
+
+            # Log loss and save metrics
+            run_results.append(
+                {
+                    "itr": self.itr,
+                    "step": cnt_train_step,
+                }
+            )
+            if self.save_trajs:
+                run_results[-1]["obs_full_trajs"] = obs_full_trajs
+                run_results[-1]["obs_trajs"] = obs_trajs
+                run_results[-1]["chains_trajs"] = chains_trajs
+                run_results[-1]["reward_trajs"] = reward_trajs
+            if self.itr % self.log_freq == 0:
+                time = timer()
+                run_results[-1]["time"] = time
+                if eval_mode:
+                    log.info(
+                        f"eval: success rate {success_rate:8.4f} | avg episode reward {avg_episode_reward:8.4f} | avg best reward {avg_best_reward:8.4f}"
+                    )
+                    if self.use_wandb:
+                        wandb.log(
+                            {
+                                "success rate - eval": success_rate,
+                                "avg episode reward - eval": avg_episode_reward,
+                                "avg best reward - eval": avg_best_reward,
+                                "num episode - eval": num_episode_finished,
+                            },
+                            step=self.itr,
+                            commit=False,
+                        )
+                    run_results[-1]["eval_success_rate"] = success_rate
+                    run_results[-1]["eval_episode_reward"] = avg_episode_reward
+                    run_results[-1]["eval_best_reward"] = avg_best_reward
+                else:
+                    log.info(
+                        f"{self.itr}: step {cnt_train_step:8d} | loss {loss:8.4f} | pg loss {pg_loss:8.4f} | value loss {v_loss:8.4f} | bc loss {bc_loss:8.4f} | reward {avg_episode_reward:8.4f} | eta {eta:8.4f} | t:{time:8.4f}"
+                    )
+                    if self.use_wandb:
+                        wandb.log(
+                            {
+                                "total env step": cnt_train_step,
+                                "loss": loss,
+                                "pg loss": pg_loss,
+                                "value loss": v_loss,
+                                "bc loss": bc_loss,
+                                "eta": eta,
+                                "approx kl": approx_kl,
+                                "ratio": ratio,
+                                "clipfrac": np.mean(clipfracs),
+                                "explained variance": explained_var,
+                                "avg episode reward - train": avg_episode_reward,
+                                "num episode - train": num_episode_finished,
+                                "diffusion - min sampling std": diffusion_min_sampling_std,
+                                "actor lr": self.actor_optimizer.param_groups[0]["lr"],
+                                "critic lr": self.critic_optimizer.param_groups[0][
+                                    "lr"
+                                ],
+                            },
+                            step=self.itr,
+                            commit=True,
+                        )
+                    run_results[-1]["train_episode_reward"] = avg_episode_reward
+                with open(self.result_path, "wb") as f:
+                    pickle.dump(run_results, f)
+            self.itr += 1
+"""
+Parent fine-tuning agent class.
+
+"""
+
+import os
+import numpy as np
+from omegaconf import OmegaConf
+import torch
+import hydra
+import logging
+import wandb
+import random
+
+log = logging.getLogger(__name__)
+from env.gym_utils import make_async
+
+
+class TrainAgent:
+
+    def __init__(self, cfg):
+        super().__init__()
+        self.cfg = cfg
+        self.device = cfg.device
+        self.seed = cfg.get("seed", 42)
+        random.seed(self.seed)
+        np.random.seed(self.seed)
+        torch.manual_seed(self.seed)
+
+        # Wandb
+        self.use_wandb = cfg.wandb is not None
+        if cfg.wandb is not None:
+            wandb.init(
+                entity=cfg.wandb.entity,
+                project=cfg.wandb.project,
+                name=cfg.wandb.run,
+                config=OmegaConf.to_container(cfg, resolve=True),
+            )
+
+        # Make vectorized env
+        self.env_name = cfg.env.name
+        env_type = cfg.env.get("env_type", None)
+        self.venv = make_async(
+            cfg.env.name,
+            env_type=env_type,
+            num_envs=cfg.env.n_envs,
+            asynchronous=True,
+            max_episode_steps=cfg.env.max_episode_steps,
+            wrappers=cfg.env.get("wrappers", None),
+            robomimic_env_cfg_path=cfg.get("robomimic_env_cfg_path", None),
+            shape_meta=cfg.get("shape_meta", None),
+            use_image_obs=cfg.env.get("use_image_obs", False),
+            render=cfg.env.get("render", False),
+            render_offscreen=cfg.env.get("save_video", False),
+            obs_dim=cfg.obs_dim,
+            action_dim=cfg.action_dim,
+            **cfg.env.specific if "specific" in cfg.env else {},
+        )
+        if not env_type == "furniture":
+            self.venv.seed(
+                [self.seed + i for i in range(cfg.env.n_envs)]
+            )  # otherwise parallel envs might have the same initial states!
+            # isaacgym environments do not need seeding
+        self.n_envs = cfg.env.n_envs
+        self.n_cond_step = cfg.cond_steps
+        self.obs_dim = cfg.obs_dim
+        self.action_dim = cfg.action_dim
+        self.act_steps = cfg.act_steps
+        self.horizon_steps = cfg.horizon_steps
+        self.max_episode_steps = cfg.env.max_episode_steps
+        self.reset_at_iteration = cfg.env.get("reset_at_iteration", True)
+        self.save_full_observations = cfg.env.get("save_full_observations", False)
+        self.furniture_sparse_reward = (
+            cfg.env.specific.get("sparse_reward", False)
+            if "specific" in cfg.env
+            else False
+        )  # furniture specific, for best reward calculation
+
+        # Batch size for gradient update
+        self.batch_size: int = cfg.train.batch_size
+
+        # Build model and load checkpoint
+        self.model = hydra.utils.instantiate(cfg.model)
+
+        # Training params
+        self.itr = 0
+        self.n_train_itr = cfg.train.n_train_itr
+        self.val_freq = cfg.train.val_freq
+        self.force_train = cfg.train.get("force_train", False)
+        self.n_steps = cfg.train.n_steps
+        self.best_reward_threshold_for_success = (
+            len(self.venv.pairs_to_assemble)
+            if env_type == "furniture"
+            else cfg.env.best_reward_threshold_for_success
+        )
+        self.max_grad_norm = cfg.train.get("max_grad_norm", None)
+
+        # Logging, rendering, checkpoints
+        self.logdir = cfg.logdir
+        self.render_dir = os.path.join(self.logdir, "render")
+        self.checkpoint_dir = os.path.join(self.logdir, "checkpoint")
+        self.result_path = os.path.join(self.logdir, "result.pkl")
+        os.makedirs(self.render_dir, exist_ok=True)
+        os.makedirs(self.checkpoint_dir, exist_ok=True)
+        self.save_trajs = cfg.train.get("save_trajs", False)
+        self.log_freq = cfg.train.get("log_freq", 1)
+        self.save_model_freq = cfg.train.save_model_freq
+        self.render_freq = cfg.train.render.freq
+        self.n_render = cfg.train.render.num
+        self.render_video = cfg.env.get("save_video", False)
+        assert self.n_render <= self.n_envs, "n_render must be <= n_envs"
+        assert not (
+            self.n_render <= 0 and self.render_video
+        ), "Need to set n_render > 0 if saving video"
+        self.traj_plotter = (
+            hydra.utils.instantiate(cfg.train.plotter)
+            if "plotter" in cfg.train
+            else None
+        )
+
+    def run(self):
+        pass
+
+    def save_model(self):
+        """
+        saves model to disk; no ema
+        """
+        data = {
+            "itr": self.itr,
+            "model": self.model.state_dict(),
+        }  # right now `model` includes weights for `network`, `actor`, `actor_ft`. Weights for `network` is redundant, and we can use `actor` weights as the base policy (earlier denoising steps) and `actor_ft` weights as the fine-tuned policy (later denoising steps) during evaluation.
+        savepath = os.path.join(self.checkpoint_dir, f"state_{self.itr}.pt")
+        torch.save(data, savepath)
+        log.info(f"Saved model to {savepath}")
+
+    def load(self, itr):
+        """
+        loads model from disk
+        """
+        loadpath = os.path.join(self.checkpoint_dir, f"state_{itr}.pt")
+        data = torch.load(loadpath, weights_only=True)
+
+        self.itr = data["itr"]
+        self.model.load_state_dict(data["model"])
+
+    def reset_env_all(self, verbose=False, options_venv=None, **kwargs):
+        if options_venv is None:
+            options_venv = [
+                {k: v for k, v in kwargs.items()} for _ in range(self.n_envs)
+            ]
+        obs_venv = self.venv.reset_arg(options_list=options_venv)
+        # convert to OrderedDict if obs_venv is a list of dict
+        if isinstance(obs_venv, list):
+            obs_venv = {
+                key: np.stack([obs_venv[i][key] for i in range(self.n_envs)])
+                for key in obs_venv[0].keys()
+            }
+        if verbose:
+            for index in range(self.n_envs):
+                logging.info(
+                    f"<-- Reset environment {index} with options {options_venv[index]}"
+                )
+        return obs_venv
+
+    def reset_env(self, env_ind, verbose=False):
+        task = {}
+        obs = self.venv.reset_one_arg(env_ind=env_ind, options=task)
+        if verbose:
+            logging.info(f"<-- Reset environment {env_ind} with task {task}")
+        return obs
+# Custom
+result/
+wandb/
+.vscode/
+data/
+log/
+logs/
+checkpoints/
+.github/
+out/
+err/
+*.pkl
+*.sh
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+pip-wheel-metadata/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a python script from a template
+#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+*.manifest
+*.spec
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
+
+# Translations
+*.mo
+*.pot
+
+# Django stuff:
+*.log
+local_settings.py
+db.sqlite3
+db.sqlite3-journal
+
+# Flask stuff:
+instance/
+.webassets-cache
+
+# Scrapy stuff:
+.scrapy
+
+# Sphinx documentation
+docs/_build/
+
+# PyBuilder
+target/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IPython
+profile_default/
+ipython_config.py
+
+# pyenv
+.python-version
+
+# pipenv
+#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+#   install all needed dependencies.
+#Pipfile.lock
+
+# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+__pypackages__/
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
+
+# SageMath parsed files
+*.sage.py
+
+# Environments
+.env
+.venv
+# env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# Spyder project settings
+.spyderproject
+.spyproject
+
+# Rope project settings
+.ropeproject
+
+# mkdocs documentation
+/site
+
+# mypy
+.mypy_cache/
+.dmypy.json
+dmypy.json
+
+# Pyre type checker
+.pyre/
+
+cfg/robomimic/*.sh
+
+*.out

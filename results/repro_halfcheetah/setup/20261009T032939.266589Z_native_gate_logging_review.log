@@ -1,0 +1,78 @@
+95-                obs_full_trajs = np.empty((0, self.n_envs, self.obs_dim))
+96-                obs_full_trajs = np.vstack(
+97-                    (obs_full_trajs, prev_obs_venv["state"][:, -1][None])
+98-                )
+99-
+100-            # Collect a set of trajectories from env
+101-            for step in range(self.n_steps):
+102-                if step % 10 == 0:
+103:                    print(f"Processed step {step} of {self.n_steps}")
+104-
+105-                # Select action
+106-                with torch.no_grad():
+107-                    cond = {
+108-                        "state": torch.from_numpy(prev_obs_venv["state"])
+109-                        .float()
+110-                        .to(self.device)
+111-                    }
+112-                    samples = self.model(
+113-                        cond=cond,
+114-                        deterministic=eval_mode,
+115-                        return_chain=True,
+--
+428-                run_results[-1]["obs_trajs"] = obs_trajs
+429-                run_results[-1]["chains_trajs"] = chains_trajs
+430-                run_results[-1]["reward_trajs"] = reward_trajs
+431-            if self.itr % self.log_freq == 0:
+432-                time = timer()
+433-                run_results[-1]["time"] = time
+434-                if eval_mode:
+435-                    log.info(
+436:                        f"eval: success rate {success_rate:8.4f} | avg episode reward {avg_episode_reward:8.4f} | avg best reward {avg_best_reward:8.4f}"
+437-                    )
+438-                    if self.use_wandb:
+439-                        wandb.log(
+440-                            {
+441-                                "success rate - eval": success_rate,
+442:                                "avg episode reward - eval": avg_episode_reward,
+443-                                "avg best reward - eval": avg_best_reward,
+444-                                "num episode - eval": num_episode_finished,
+445-                            },
+446-                            step=self.itr,
+447-                            commit=False,
+448-                        )
+449-                    run_results[-1]["eval_success_rate"] = success_rate
+450:                    run_results[-1]["eval_episode_reward"] = avg_episode_reward
+451-                    run_results[-1]["eval_best_reward"] = avg_best_reward
+452-                else:
+453-                    log.info(
+454-                        f"{self.itr}: step {cnt_train_step:8d} | loss {loss:8.4f} | pg loss {pg_loss:8.4f} | value loss {v_loss:8.4f} | bc loss {bc_loss:8.4f} | reward {avg_episode_reward:8.4f} | eta {eta:8.4f} | t:{time:8.4f}"
+455-                    )
+456-                    if self.use_wandb:
+457-                        wandb.log(
+458-                            {
+459-                                "total env step": cnt_train_step,
+460-                                "loss": loss,
+461-                                "pg loss": pg_loss,
+462-                                "value loss": v_loss,
+463-                                "bc loss": bc_loss,
+464-                                "eta": eta,
+465-                                "approx kl": approx_kl,
+466-                                "ratio": ratio,
+467-                                "clipfrac": np.mean(clipfracs),
+468-                                "explained variance": explained_var,
+469:                                "avg episode reward - train": avg_episode_reward,
+470-                                "num episode - train": num_episode_finished,
+471-                                "diffusion - min sampling std": diffusion_min_sampling_std,
+472-                                "actor lr": self.actor_optimizer.param_groups[0]["lr"],
+473-                                "critic lr": self.critic_optimizer.param_groups[0][
+474-                                    "lr"
+475-                                ],
+476-                            },
+477-                            step=self.itr,
+478-                            commit=True,
+479-                        )
+480:                    run_results[-1]["train_episode_reward"] = avg_episode_reward
+481-                with open(self.result_path, "wb") as f:
+482-                    pickle.dump(run_results, f)
+483-            self.itr += 1

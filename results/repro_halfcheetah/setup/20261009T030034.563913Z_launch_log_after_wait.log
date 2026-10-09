@@ -1,0 +1,100 @@
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py:505: UserWarning: [33mWARN: The environment HalfCheetah-v2 is out of date. You should consider upgrading to version `v3` with the environment ID `HalfCheetah-v3`.[0m
+  logger.warn(
+ok
++ python -c 'import d4rl.gym_mujoco, gym; print('\''Configured environment registration:'\'', gym.spec('\''halfcheetah-medium-v2'\''))'
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+Configured environment registration: EnvSpec(entry_point='d4rl.gym_mujoco.gym_envs:get_cheetah_env', reward_threshold=None, nondeterministic=False, max_episode_steps=1000, order_enforce=True, kwargs={'deprecated': False, 'ref_min_score': -280.178953, 'ref_max_score': 12135.0, 'dataset_url': 'http://rail.eecs.berkeley.edu/datasets/offline_rl/gym_mujoco_v2/halfcheetah_medium-v2.hdf5'}, namespace=None, name='halfcheetah-medium', version=2)
++ python -c 'import mujoco_py; print('\''mujoco-py'\'', mujoco_py.__version__, '\''MuJoCo'\'', mujoco_py.functions.mj_version())'
+mujoco-py 2.1.2.14 MuJoCo 210
++ python /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/code/supervise_run.py --run-id smoke --timeout-seconds 1800 --estimate-seconds 60 -- python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=2 wandb=null
+[2026-10-08 20:00:02,554][__main__][INFO] - Downloading normalization statistics from https://drive.google.com/file/d/1LlwCMfy1b5e8jSx99CV3lWhcrQWrI2Jm/view?usp=drive_link to /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz
+Downloading...
+From: https://drive.google.com/uc?id=1LlwCMfy1b5e8jSx99CV3lWhcrQWrI2Jm
+To: /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz
+  0%|          | 0.00/1.20k [00:00<?, ?B/s]100%|██████████| 1.20k/1.20k [00:00<00:00, 2.22MB/s]
+[2026-10-08 20:00:04,465][__main__][INFO] - Downloading checkpoint from https://drive.google.com/file/d/1o9ryyeZQAsaB4ffUTCJkIaGCi0frL3G4/view?usp=drive_link to /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+Downloading...
+From: https://drive.google.com/uc?id=1o9ryyeZQAsaB4ffUTCJkIaGCi0frL3G4
+To: /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+  0%|          | 0.00/4.57M [00:00<?, ?B/s]100%|██████████| 4.57M/4.57M [00:00<00:00, 46.1MB/s]
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[2026-10-08 20:00:11,519][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+[2026-10-08 20:00:11,527][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-08 20:00:11,574][absl][INFO] - MuJoCo library version is: 3.2.3
+pybullet build time: Jan 29 2025 23:19:57
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/spaces/box.py:78: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+[2026-10-08 20:00:15,581][root][INFO] - Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+[2026-10-08 20:00:15,582][root][INFO] - Number of network parameters: 568392
+[2026-10-08 20:00:16,021][root][INFO] - Cloned model for fine-tuning
+[2026-10-08 20:00:16,021][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-08 20:00:16,021][root][INFO] - Number of finetuned parameters: 568392
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500

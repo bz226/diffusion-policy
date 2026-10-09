@@ -1,0 +1,93 @@
+            returncode = self.process.wait(timeout=10)
+            self.manifest["returncode"] = returncode
+            self.manifest["subprocess_end_utc"] = utc()
+            self.manifest["subprocess_wall_seconds"] = time.monotonic() - process_start_clock
+            if self.stop_reason:
+                raise ValueError(self.stop_reason)
+            if returncode != 0:
+                raise ValueError("DPPO command exited with status %d" % returncode)
+        finally:
+            selector.close()
+
+    def save_configuration(self):
+        from omegaconf import OmegaConf
+        self.discover_logdir()
+        if self.logdir is None:
+            raise ValueError("Native log directory was not found")
+        native_config = self.logdir / ".hydra" / "config.yaml"
+        cfg = OmegaConf.load(native_config)
+        OmegaConf.register_new_resolver("eval", eval, replace=True)
+        OmegaConf.register_new_resolver("round_up", math.ceil, replace=True)
+        OmegaConf.register_new_resolver("round_down", math.floor, replace=True)
+        # Hydra's stored ${now:...} must not become the verification time.
+        cfg.logdir = str(self.logdir)
+        resolved = OmegaConf.to_container(cfg, resolve=True)
+        if not (self.run_dir / "config.yaml").exists():
+            with (self.run_dir / "config.yaml").open("x") as stream:
+                stream.write(OmegaConf.to_yaml(OmegaConf.create(resolved), resolve=True))
+        atomic_json(self.run_dir / "config.json", {
+            "native_config": str(native_config), "resolved_configuration": resolved,
+            "base_policy_path": resolved["base_policy_path"],
+            "normalization_path": resolved["normalization_path"],
+            "logdir": str(self.logdir), "result_path": str(self.logdir / "result.pkl")})
+        self.manifest["resolved_config"] = str(self.run_dir / "config.yaml")
+        return resolved
+
+    def verify(self):
+        import numpy as np
+        import torch
+
+        resolved = self.save_configuration()
+        checks = {"seed": self.seed, "act_steps": 4, "horizon_steps": 4,
+                  "denoising_steps": 20, "ft_denoising_steps": 10, "wandb": None,
+                  "env_name": "halfcheetah-medium-v2"}
+        if any(resolved[key] != value for key, value in checks.items()):
+            raise ValueError("Resolved configuration disagrees with the approved run")
+        if (resolved["env"]["n_envs"] != 40 or resolved["train"]["n_steps"] != 500
+                or resolved["train"]["val_freq"] != 10
+                or resolved["train"]["n_train_itr"] != self.expected_rows
+                or resolved["train"]["save_model_freq"] != (100 if self.expected_rows == 2 else 35)):
+            raise ValueError("Resolved training budget or unchanged environment settings disagree")
+        with (self.logdir / "result.pkl").open("rb") as stream:
+            records = pickle.load(stream)
+        if not isinstance(records, list) or len(records) != self.expected_rows:
+            raise ValueError("Incorrect number of native result records")
+        times = []
+        for itr, record in enumerate(records):
+            if not isinstance(record, dict):
+                raise ValueError("Invalid result record at iteration %d" % itr)
+            finite_tree(record, "iteration%d" % itr, np)
+            if any(isinstance(record.get(key), bool) or not isinstance(record.get(key), numbers.Integral)
+                   for key in ("itr", "step")):
+                raise ValueError("Invalid iteration/step type")
+            if record["itr"] != itr or record["step"] != (itr - itr // 10) * 80000:
+                raise ValueError("Native iteration/step schedule mismatch")
+            metric = "eval_episode_reward" if itr % 10 == 0 else "train_episode_reward"
+            other = "train_episode_reward" if itr % 10 == 0 else "eval_episode_reward"
+            if other in record:
+                raise ValueError("Evaluation/training metric schedule mismatch")
+            reward = finite(record.get(metric), metric)
+            elapsed = finite(record.get("time"), "iteration time")
+            if elapsed <= 0:
+                raise ValueError("Nonpositive iteration duration")
+            times.append(elapsed)
+            if itr == 0 and not 3850 <= reward <= 4650:
+                raise ValueError("Saved initial evaluation is outside [3850, 4650]")
+        if self.progress["initial_eval_return"] is None:
+            raise ValueError("First evaluation gate was not observed in live output")
+        checkpoints = []
+        for itr in ((0, 1) if self.expected_rows == 2 else (0, 35, 70, 105, 139)):
+            path = self.logdir / "checkpoint" / ("state_%d.pt" % itr)
+            if not path.is_file() or not path.stat().st_size:
+                raise ValueError("Missing or empty checkpoint: " + str(path))
+            checkpoint = torch.load(str(path), map_location="cpu", weights_only=True)
+            if not isinstance(checkpoint, dict) or checkpoint.get("itr") != itr or "model" not in checkpoint:
+                raise ValueError("Invalid checkpoint content: " + str(path))
+            finite_tree(checkpoint, str(path), np, torch)
+            del checkpoint
+            checkpoints.append(str(path))
+        self.manifest["source_after"] = self.source_check("after")
+        self.manifest.update({"checkpoints": checkpoints, "verified_rows": len(records),
+                              "initial_eval_return": float(records[0]["eval_episode_reward"]),
+                              "final_training_env_steps": records[-1]["step"],
+                              "native_iteration_time_sum_seconds": float(np.sum(times)),

@@ -1,0 +1,19 @@
+{
+  "recorded_utc": "2026-10-09T03:39:16.388076+00:00",
+  "job_id": "17769259",
+  "dependency": "afterany:17768782",
+  "seeds": [
+    1,
+    2
+  ],
+  "sequential": true,
+  "gpu": "a6000:1",
+  "cpus": 40,
+  "memory": "64G",
+  "allocation_time_limit": "05:00:00",
+  "per_seed_cap_seconds": 8100,
+  "prelaunch_gate": "seed0 clean exit, 140 rows, finite checkpoints, full console reconciliation; no existing remaining-seed directories",
+  "script": "code/run_remaining_batch.sh",
+  "on_failure": "stop; no retries",
+  "after_success": "approved two plots and one return table; no curation"
+}

@@ -1,0 +1,282 @@
+cc7234ad7ff39a8f32de3af903606723a16f0648
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "dppo"
+version = "0.8.0"
+description = "Fine-tuning diffusion policies with PPO."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+]
+dependencies = [
+    "av==12.3.0",
+    "einops==0.8.0",
+    "gdown==5.2.0",
+    "gym==0.22.0",
+    "hydra-core==1.3.2",
+    "imageio==2.35.1",
+    "matplotlib==3.7.5",
+    "omegaconf==2.3.0",
+    "pretty_errors==1.2.25",
+    "torch==2.4.0",
+    "tqdm==4.66.5",
+    "wandb==0.17.7"
+]
+
+[project.optional-dependencies]
+gym = [
+    "cython<3",
+    "d4rl",
+    "patchelf",
+]
+kitchen = [
+    "cython<3",
+    "d4rl",
+    "dm_control==1.0.16",
+    "mujoco==3.1.6",
+    "patchelf",
+]
+robomimic = [
+    "cython<3",
+    "d4rl",
+    "patchelf",
+    "robomimic @ git+https://github.com/ARISE-Initiative/robomimic.git",
+    "robosuite @ git+https://github.com/ARISE-Initiative/robosuite.git@v1.4.1",
+]
+d3il = [
+    "cython<3",
+    "d4rl",
+    "gin-config",
+    "patchelf",
+    "pin",
+]
+furniture = [
+    "cython<3",
+    "d4rl",
+    "ipdb==0.13.13",
+    "patchelf",
+]
+exact = [   # exact likelihood
+    "torchdiffeq",
+]
+all = [
+    "cython<3",
+    "d4rl",
+    "gin-config",
+    "ipdb==0.13.13",
+    "patchelf",
+    "pin",
+    "robomimic @ git+https://github.com/ARISE-Initiative/robomimic.git",
+    "robosuite @ git+https://github.com/ARISE-Initiative/robosuite.git@v1.4.1",
+]
+
+[project.urls]
+Homepage = "https://diffusion-ppo.github.io/"
+
+[tool.setuptools.packages.find]
+exclude = []
+
+[tool.wheel]
+exclude = []
+defaults:
+  - _self_
+hydra:
+  run:  
+    dir: ${logdir}
+_target_: agent.finetune.train_ppo_diffusion_agent.TrainPPODiffusionAgent
+
+name: ${env_name}_ppo_diffusion_mlp_ta${horizon_steps}_td${denoising_steps}_tdf${ft_denoising_steps}
+logdir: ${oc.env:DPPO_LOG_DIR}/gym-finetune/${name}/${now:%Y-%m-%d}_${now:%H-%M-%S}_${seed}
+base_policy_path: ${oc.env:DPPO_LOG_DIR}/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+normalization_path: ${oc.env:DPPO_DATA_DIR}/gym/${env_name}/normalization.npz
+
+seed: 42
+device: cuda:0
+env_name: halfcheetah-medium-v2
+obs_dim: 17
+action_dim: 6
+denoising_steps: 20
+ft_denoising_steps: 10
+cond_steps: 1
+horizon_steps: 4
+act_steps: 4
+
+env:
+  n_envs: 40
+  name: ${env_name}
+  max_episode_steps: 1000
+  reset_at_iteration: False
+  save_video: False
+  best_reward_threshold_for_success: 3  # success rate not relevant for gym tasks
+  wrappers:
+    mujoco_locomotion_lowdim:
+      normalization_path: ${normalization_path}
+    multi_step:
+      n_obs_steps: ${cond_steps}
+      n_action_steps: ${act_steps}
+      max_episode_steps: ${env.max_episode_steps}
+      reset_within_step: True
+
+wandb:
+  entity: ${oc.env:DPPO_WANDB_ENTITY}
+  project: gym-${env_name}-finetune
+  run: ${now:%H-%M-%S}_${name}
+
+train:
+  n_train_itr: 1000
+  n_critic_warmup_itr: 0
+  n_steps: 500
+  gamma: 0.99
+  actor_lr: 1e-4
+  actor_weight_decay: 0
+  actor_lr_scheduler:
+    first_cycle_steps: 1000
+    warmup_steps: 10
+    min_lr: 1e-4
+  critic_lr: 1e-3
+  critic_weight_decay: 0
+  critic_lr_scheduler:
+    first_cycle_steps: 1000
+    warmup_steps: 10
+    min_lr: 1e-3
+  save_model_freq: 100
+  val_freq: 10
+  render:
+    freq: 1
+    num: 0
+  # PPO specific
+  reward_scale_running: True
+  reward_scale_const: 1.0
+  gae_lambda: 0.95
+  batch_size: 50000
+  update_epochs: 5
+  vf_coef: 0.5
+  target_kl: 1
+
+model:
+  _target_: model.diffusion.diffusion_ppo.PPODiffusion
+  # HP to tune
+  gamma_denoising: 0.99
+  clip_ploss_coef: 0.01
+  clip_ploss_coef_base: 0.01
+  clip_ploss_coef_rate: 3
+  randn_clip_value: 3
+  min_sampling_denoising_std: 0.1
+  min_logprob_denoising_std: 0.1
+  #
+  network_path: ${base_policy_path}
+  actor:
+    _target_: model.diffusion.mlp_diffusion.DiffusionMLP
+    time_dim: 16
+    mlp_dims: [512, 512, 512]
+    activation_type: ReLU
+    residual_style: True
+    cond_dim: ${eval:'${obs_dim} * ${cond_steps}'}
+    horizon_steps: ${horizon_steps}
+    action_dim: ${action_dim}
+  critic:
+    _target_: model.common.critic.CriticObs
+    cond_dim: ${eval:'${obs_dim} * ${cond_steps}'}
+    mlp_dims: [256, 256, 256]
+    activation_type: Mish
+    residual_style: True
+  ft_denoising_steps: ${ft_denoising_steps}
+  horizon_steps: ${horizon_steps}
+  obs_dim: ${obs_dim}
+  action_dim: ${action_dim}
+  denoising_steps: ${denoising_steps}
+  device: ${device}"""
+Launcher for all experiments. Download pre-training data, normalization statistics, and pre-trained checkpoints if needed.
+
+"""
+
+import os
+import sys
+import pretty_errors
+import logging
+
+import math
+import hydra
+from omegaconf import OmegaConf
+import gdown
+from download_url import (
+    get_dataset_download_url,
+    get_normalization_download_url,
+    get_checkpoint_download_url,
+)
+
+# allows arbitrary python code execution in configs using the ${eval:''} resolver
+OmegaConf.register_new_resolver("eval", eval, replace=True)
+OmegaConf.register_new_resolver("round_up", math.ceil)
+OmegaConf.register_new_resolver("round_down", math.floor)
+
+# suppress d4rl import error
+os.environ["D4RL_SUPPRESS_IMPORT_ERROR"] = "1"
+
+# add logger
+log = logging.getLogger(__name__)
+
+# use line-buffering for both stdout and stderr
+sys.stdout = open(sys.stdout.fileno(), mode="w", buffering=1)
+sys.stderr = open(sys.stderr.fileno(), mode="w", buffering=1)
+
+
+@hydra.main(
+    version_base=None,
+    config_path=os.path.join(
+        os.getcwd(), "cfg"
+    ),  # possibly overwritten by --config-path
+)
+def main(cfg: OmegaConf):
+    # resolve immediately so all the ${now:} resolvers will use the same time.
+    OmegaConf.resolve(cfg)
+
+    # For pre-training: download dataset if needed
+    if "train_dataset_path" in cfg and not os.path.exists(cfg.train_dataset_path):
+        download_url = get_dataset_download_url(cfg)
+        download_target = os.path.dirname(cfg.train_dataset_path)
+        log.info(f"Downloading dataset from {download_url} to {download_target}")
+        gdown.download_folder(url=download_url, output=download_target)
+
+    # For for-tuning: download normalization if needed
+    if "normalization_path" in cfg and not os.path.exists(cfg.normalization_path):
+        download_url = get_normalization_download_url(cfg)
+        download_target = cfg.normalization_path
+        dir_name = os.path.dirname(download_target)
+        if not os.path.exists(dir_name):
+            os.makedirs(dir_name)
+        log.info(
+            f"Downloading normalization statistics from {download_url} to {download_target}"
+        )
+        gdown.download(url=download_url, output=download_target, fuzzy=True)
+
+    # For for-tuning: download checkpoint if needed
+    if "base_policy_path" in cfg and not os.path.exists(cfg.base_policy_path):
+        download_url = get_checkpoint_download_url(cfg)
+        if download_url is None:
+            raise ValueError(
+                f"Unknown checkpoint path. Did you specify the correct path to the policy you trained?"
+            )
+        download_target = cfg.base_policy_path
+        dir_name = os.path.dirname(download_target)
+        if not os.path.exists(dir_name):
+            os.makedirs(dir_name)
+        log.info(f"Downloading checkpoint from {download_url} to {download_target}")
+        gdown.download(url=download_url, output=download_target, fuzzy=True)
+
+    # Deal with isaacgym needs to be imported before torch
+    if "env" in cfg and "env_type" in cfg.env and cfg.env.env_type == "furniture":
+        import furniture_bench
+
+    # run agent
+    cls = hydra.utils.get_class(cfg._target_)
+    agent = cls(cfg)
+    agent.run()
+
+
+if __name__ == "__main__":
+    main()

@@ -1,0 +1,14 @@
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+EnvSpec(entry_point='d4rl.gym_mujoco.gym_envs:get_cheetah_env', reward_threshold=None, nondeterministic=False, max_episode_steps=1000, order_enforce=True, kwargs={'deprecated': False, 'ref_min_score': -280.178953, 'ref_max_score': 12135.0, 'dataset_url': 'http://rail.eecs.berkeley.edu/datasets/offline_rl/gym_mujoco_v2/halfcheetah_medium-v2.hdf5'}, namespace=None, name='halfcheetah-medium', version=2)
+MuJoCo runtime version 210

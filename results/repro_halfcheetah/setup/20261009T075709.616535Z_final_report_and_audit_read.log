@@ -1,0 +1,69 @@
+# DPPO HalfCheetah reproduction
+
+Status: smoke and seeds 0 and 1 completed; seed 2 running on its separate GPU.
+
+## Question
+Does the unmodified DPPO implementation and released HalfCheetah checkpoint reproduce the approximate Fig. 5 fine-tuning curve under the user's three-seed protocol?
+
+## Answer so far
+The smoke gate passed at 4,272.95. Seeds 0 and 1 each completed all 140 iterations and 10.08 million training steps, exited normally, and passed verification of five finite checkpoints. Their process wall times were 2h03m35s and 2h03m00s. Seed 0's last evaluation was 4,636.27 at 9.36 million steps; the three-seed assessment awaits seed 2 and the approved analysis. [Seed 0 record](runs/seed0_handoff/manifest.json), [seed 1 record](runs/seed1/manifest.json), [live seed 2 status](runs/seed2/monitor_status.md).
+
+## Current status and next step
+2026-10-09T07:09:17+00:00: `seed1` complete; last completed iteration 139, training steps 10080000, elapsed 7385.0s / 8100s. Monitor paused. Next: Verify the next authorized stage; no automatic retry or extension. [Run record](runs/seed1/manifest.json).
+
+## Essential setup
+Use commit `cc7234ad7ff39a8f32de3af903606723a16f0648`, its unchanged HalfCheetah fine-tuning YAML, Python 3.8, torch 2.4.0, MuJoCo 2.1.0, 40 environments, action chunks of four, and 20 denoising steps with the last ten fine-tuned. Full runs use seeds 0, 1, 2; seed 0 finished first and seeds 1 and 2 overlapped on separate GPUs. Each starts independently from the released checkpoint for 140 iterations, checkpoint frequency 35, and `wandb=null`; no other full-run configuration overrides. [Methods](methods.md), [parallel assignment](provenance/parallel_seed2.json), [seed 2 monitor](runs/seed2/monitor_status.md). The original launcher finished successfully after delegating seed 2; no duplicate or restart is permitted.
+
+## Budget and monitoring
+Approved limits: setup two hours (deadline 2026-10-09 04:33 UTC), smoke 30 minutes, each full seed 2h15m (8,100 seconds, explicitly approved after the smoke projected 7,465 seconds). No automatic retries or further extensions. Allocation: one A6000 GPU, 40 CPUs, 64 GiB RAM per active seed. The smoke took 86.71 seconds end-to-end. Seed 0 transferred to a replacement external watchdog without restarting DPPO; complete console reconciliation is required before later seeds. Each run starts a scheduled monitor at max(30 minutes, estimated duration / 6), currently 30 minutes. Dated counters and terminal verification are saved in each run; monitors pause terminally. [Handoff](runs/seed0_handoff/manifest.json), [estimate basis](provenance/runtime_estimates.jsonl), [hardware](setup/hardware.json), [pip freeze](setup/pip-freeze-17768782.txt).
+
+## Outputs and boundary
+Produce exactly two candidate plots (evaluation/training raw episode return, each seed and mean ± population standard deviation over three seeds) and one table including nearest saved evaluation points and the first training return. The final training count is 10,080,000; the last saved evaluation is 9,360,000. No interpolation, extrapolation, or additional evaluation is authorized. Fig. 5 used five Gym seeds; this task requests three. Pass criteria: every initial evaluation in 3850–4650 and mean last observed evaluation in 4550–4900, with individual curves inspected for collapse; no numerical collapse threshold was supplied. Exact 10-million-step evaluation is not measured.
+
+No artifacts have been generated or curated. Preserve all runs, logs, checkpoints, and installation failures; request keep/revise/leave-uncurated and final filename decisions after the approved outputs are ready.
+
+ode_reward'],'minimum_eval':min(row['eval_episode_reward'] for row in eval_rows),'maximum_eval':max(row['eval_episode_reward'] for row in eval_rows),'first_train':data[1]['train_episode_reward'],'process_wall_seconds':manifest['subprocess_wall_seconds'],'timing':native})
+ records.append(data)
+with (candidates/'returns.csv').open() as f: table=list(csv.DictReader(f))
+assert len(table)==6
+out_table=[]
+for index,target in enumerate((0,2500000,5000000,7500000,10000000)):
+ candidates_eval=[row for row in records[0] if 'eval_episode_reward' in row]
+ chosen=min(candidates_eval,key=lambda row:abs(row['step']-target))
+ itr,step=chosen['itr'],chosen['step']
+ row=table[index]
+ assert row['metric']=='eval_episode_reward'
+ assert int(row['requested_env_steps'])==target and int(row['actual_env_steps'])==step and int(row['itr'])==itr
+ values=[float(data[itr]['eval_episode_reward']) for data in records]
+ mean=math.fsum(values)/3
+ std=math.sqrt(math.fsum((value-mean)**2 for value in values)/3)
+ for seed,value in enumerate(values): assert math.isclose(float(row['seed'+str(seed)]),value,rel_tol=0,abs_tol=1e-8)
+ assert math.isclose(float(row['mean']),mean,rel_tol=0,abs_tol=1e-8)
+ assert math.isclose(float(row['population_std_ddof0']),std,rel_tol=0,abs_tol=1e-8)
+ out_table.append({'target':target,'actual':step,'itr':itr,'per_seed':values,'mean':mean,'population_std':std})
+row=table[-1]
+values=[float(data[1]['train_episode_reward']) for data in records]
+mean=math.fsum(values)/3
+std=math.sqrt(math.fsum((value-mean)**2 for value in values)/3)
+assert row['metric']=='train_episode_reward' and int(row['itr'])==1 and int(row['actual_env_steps'])==80000
+for seed,value in enumerate(values): assert math.isclose(float(row['seed'+str(seed)]),value,rel_tol=0,abs_tol=1e-8)
+assert math.isclose(float(row['mean']),mean,rel_tol=0,abs_tol=1e-8)
+assert math.isclose(float(row['population_std_ddof0']),std,rel_tol=0,abs_tol=1e-8)
+initial_pass=[3850<=data[0]['eval_episode_reward']<=4650 for data in records]
+final_mean=math.fsum(data[130]['eval_episode_reward'] for data in records)/3
+assert initial_pass==summary['criteria']['iteration_zero_pass_by_seed']
+assert math.isclose(final_mean,summary['criteria']['last_observed_eval_mean'],rel_tol=0,abs_tol=1e-8)
+assert (4550<=final_mean<=4900)==summary['criteria']['last_observed_eval_mean_pass']
+assert summary['criteria']['exact_10000000_step_evaluation']=='not_available'
+reconciliation=json.loads((root/'runs/seed0_handoff/console_reconciliation.json').read_text())
+assert reconciliation['status']=='passed' and reconciliation['original_parent_returncode']==0
+revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(repo),text=True).strip()
+assert revision=='cc7234ad7ff39a8f32de3af903606723a16f0648'
+subprocess.run(['git','diff','--exit-code','HEAD','--'],cwd=str(repo),check=True)
+statuses={p.name:json.loads(p.read_text()) for p in (root/'runs').glob('*status.json')}
+assert statuses['remaining_batch_status.json']['exit_code']==0
+assert all(value.get('exit_code',0)==0 for key,value in statuses.items() if key!='batch_status.json' and value.get('status')=='terminal')
+print(json.dumps({'independent_audit':'passed','commit':revision,'checkpoints_loaded_and_finite':checkpoint_count,'runs':output_runs,'evaluation_table':out_table,'first_training':{'step':80000,'itr':1,'per_seed':values,'mean':mean,'population_std':std},'numeric_intervals_pass':all(initial_pass) and 4550<=final_mean<=4900,'statuses':statuses},indent=2,allow_nan=False))
+PY
+
+

@@ -1,0 +1,51 @@
+{
+  "record_type": "observed pretrained asset provenance",
+  "study_root": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah",
+  "repository_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "environment_name": "halfcheetah-medium-v2",
+  "acquisition": {
+    "method": "Automatic gdown downloads by unchanged script/run.py during the approved smoke run",
+    "run_id": "smoke",
+    "slurm_job_id": "17768782",
+    "downloader_version": "gdown 5.2.0",
+    "source_paths_relative_to_study": [
+      "runs/smoke/console.log",
+      "setup/slurm-17768782.log",
+      "setup/pip-freeze-17768782.txt",
+      "dppo/script/download_url.py",
+      "runs/smoke/config.json"
+    ]
+  },
+  "assets": [
+    {
+      "role": "observation and action normalization statistics",
+      "config_key": "normalization_path",
+      "path_relative_to_study": "dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+      "size_bytes": 1202,
+      "configured_url": "https://drive.google.com/file/d/1LlwCMfy1b5e8jSx99CV3lWhcrQWrI2Jm/view?usp=drive_link",
+      "download_url_printed_by_gdown": "https://drive.google.com/uc?id=1LlwCMfy1b5e8jSx99CV3lWhcrQWrI2Jm",
+      "download_start_logged_local": "2026-10-08 20:00:02,554",
+      "log_timezone": "America/Los_Angeles",
+      "url_mapping_source": "dppo/script/download_url.py:79",
+      "verification": "File exists; byte count read with stat; native download log reports completion."
+    },
+    {
+      "role": "released pretrained diffusion policy",
+      "config_key": "base_policy_path",
+      "path_relative_to_study": "dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt",
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt",
+      "size_bytes": 4565995,
+      "configured_url": "https://drive.google.com/file/d/1o9ryyeZQAsaB4ffUTCJkIaGCi0frL3G4/view?usp=drive_link",
+      "download_url_printed_by_gdown": "https://drive.google.com/uc?id=1o9ryyeZQAsaB4ffUTCJkIaGCi0frL3G4",
+      "download_start_logged_local": "2026-10-08 20:00:04,465",
+      "log_timezone": "America/Los_Angeles",
+      "url_mapping_source": "dppo/script/download_url.py:160",
+      "checkpoint_iteration_in_filename": 3000,
+      "action_chunk_steps": 4,
+      "denoising_steps": 20,
+      "verification": "File exists; byte count read with stat; native download log reports completion and native smoke log records loading this policy."
+    }
+  ],
+  "scope": "Asset identity, acquisition and observed file sizes only; no additional rollout, checkpoint mutation or scientific analysis was performed to create this record."
+}

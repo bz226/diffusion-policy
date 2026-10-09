@@ -1,0 +1,8 @@
+{
+  "user_approval": "Approve 2h15m per seed",
+  "old_cap_seconds": 7200,
+  "approved_cap_seconds": 8100,
+  "scope": ["seed0", "seed1", "seed2"],
+  "reason": "Observed roughly 57-second training iterations project a full seed slightly beyond two hours.",
+  "constraints": "Preserve each original DPPO process, exact commands, all hyperparameters and the three-seed budget. No retries."
+}

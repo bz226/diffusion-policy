@@ -1,0 +1,19 @@
+{
+  "status": "assigned",
+  "seed": 2,
+  "user_request": "can we do seeds in parallel?",
+  "authorization_basis": "The user requested parallel execution; the original protocol permits it when each seed has its own GPU and approximately 40 CPU cores.",
+  "original_job_id": "17769259",
+  "parallel_job_id": "17770172",
+  "node": "soal-10",
+  "resources_per_active_seed": {"gpu": "one NVIDIA RTX A6000", "cpus": 40, "memory_gib": 64},
+  "training_cap_seconds_per_seed": 8100,
+  "allocation_wall_limit_seconds": 8700,
+  "allocation_limit_note": "Allocation includes initialization, verification and analysis; DPPO retains its 8100-second supervisor cap.",
+  "independent_seed_budget": [0, 1, 2],
+  "restarts_or_retries": 0,
+  "dispatch_rule": "Only job 17770172 may start seed 2. Job 17769259 skips that future stage and defers analysis, then releases its allocation after seed 1. Other job IDs refuse.",
+  "monitor_record": "runs/seed2/monitor_status.md",
+  "analysis_owner_job_id": "17770172",
+  "unchanged": "Current seed 1 process, all DPPO source/config files, exact native commands, hyperparameters and total training steps."
+}

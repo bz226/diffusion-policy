@@ -1,0 +1,15 @@
+usage: supervise_run.py [-h] --run-id {smoke,seed0,seed1,seed2}
+                        --timeout-seconds TIMEOUT_SECONDS --estimate-seconds
+                        ESTIMATE_SECONDS
+                        ...
+
+Execute one prescribed DPPO run with external gates and a scheduled monitor.
+
+positional arguments:
+  command
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --run-id {smoke,seed0,seed1,seed2}
+  --timeout-seconds TIMEOUT_SECONDS
+  --estimate-seconds ESTIMATE_SECONDS

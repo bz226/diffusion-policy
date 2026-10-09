@@ -1,0 +1,39 @@
+Pre-approval read-only inspection (2026-10-08 UTC), recorded after approval:
+pwd
+git status --short
+rg --files -g 'AGENTS.md' -g 'research_agent_workflow.md' -g '*halfcheetah*' -g '*dppo*' -g '*experiment.md' -g '!data/**' -g '!outputs/**' -g '!wandb/**' -g '!log/**'
+nvidia-smi
+nproc
+cat /etc/os-release
+df -h . /tmp
+free -h
+command -v conda mamba micromamba python python3 pip gcc patchelf crontab systemctl tmux screen sbatch srun || true
+ls -ld results results/repro_halfcheetah /sailhome/zbao7/.mujoco /sailhome/zbao7/.mujoco/mujoco210 /sailhome/zbao7/miniconda3 /sailhome/zbao7/anaconda3 /opt/conda 2>/dev/null || true
+ls -l /dev/nvidia* /proc/driver/nvidia/version 2>/dev/null || true
+file /usr/local/bin/sbatch /usr/local/bin/srun
+sed -n '1,180p' /usr/local/bin/sbatch
+sed -n '1,180p' /usr/local/bin/srun
+The preceding two sed commands mistakenly displayed binary content; no files were changed.
+lscpu
+cat /sys/fs/cgroup/cpu.max (absent; chained memory.max read did not execute)
+ls -la
+ls -ld /soalnas/share/data/zbao7/diffusion_policy/diffusion-policy
+rg --files -g 'AGENTS.md' -g '*slurm*' -g '*cluster*' -g '*ssh*' -g '*gpu*' -g '!diffusion-policy/data/**' -g '!diffusion-policy/outputs/**'
+cat codex-workspace
+timeout 15 sinfo -h -o '%P %a %l %D %G' (sandbox timeout; escalated read-only retry succeeded)
+cat /proc/self/cgroup
+rg 'Cpus_allowed_list|Mems_allowed_list' /proc/self/status
+cat /proc/driver/nvidia/version
+nvidia-smi (escalated read-only retry also failed)
+Agents read research_agent_workflow.md and pinned upstream source through GitHub/web GET tools.
+
+Findings: Ubuntu24.04.4, nproc2, 4.6TB workspace free, CPU E5-2698v3. Kernel NVIDIA580.82.07 visible but /dev/nvidia* masked by workspace launcher. Conda absent from PATH. Source is commit cc7234ad7ff39a8f32de3af903606723a16f0648. No training executed.
+
+Post-approval initial inspection (2026-10-09 02:33 UTC):
+git status --short && test ! -e results/repro_halfcheetah && id && command -v conda mamba micromamba python3 pip gcc patchelf sbatch srun scontrol sacctmgr && date -u
+timeout 20 scontrol show partition soal
+timeout 20 sacctmgr -n -P show assoc where user=zbao7 format=Cluster,Account,User,Partition,QOS,DefaultQOS
+ls -ld /sailhome/zbao7/miniforge3 /sailhome/zbao7/mambaforge /sailhome/zbao7/.conda /sailhome/zbao7/.mujoco /usr/include/GL /usr/include/GL/osmesa.h /usr/include/GL/glew.h /usr/include/GLFW /usr/lib/x86_64-linux-gnu/libOSMesa.so /usr/lib/x86_64-linux-gnu/libGL.so 2>/dev/null || true
+timeout 20 sinfo -N -p soal -o '%N %t %c %C %m %G'
+mkdir -p results/repro_halfcheetah/{code,setup,provenance,runs,candidates,cache,tmp,downloads}
+Findings: Slurm account soal authorized; nodes with GPUs/40 free CPUs visible. Local GL/OSMesa/GLEW/GLFW headers/libraries and patchelf already installed. No installation workaround applied yet.

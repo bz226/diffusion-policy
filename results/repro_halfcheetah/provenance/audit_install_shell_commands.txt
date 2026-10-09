@@ -1,0 +1,185 @@
+Retrospective shell-command supplement for agent /root/audit_install
+
+These are the exact command texts issued by this agent through exec_command,
+in conversation order. Exact execution timestamps were not retained in the
+study's command logger; no timestamps have been reconstructed. All commands
+used bash and the workspace cwd:
+/soalnas/share/data/zbao7/diffusion_policy
+
+The list includes unsuccessful file reads during concurrent helper creation.
+Commands were inspections or provenance validation, not DPPO training or
+installation. Read-only GitHub/web tool calls were not shell commands.
+
+This agent used apply_patch, rather than a shell command, to create only:
+provenance/assets.json
+setup/hardware.json
+provenance/audit_install_shell_commands.txt
+
+Command 01
+cat research_agent_workflow.md
+
+Command 02
+rg --files results/repro_halfcheetah -g 'supervise_run.py' -g 'run_batch.sh' -g 'environment.sh' -g 'estimate_runtime.py' -g 'experiment.md'
+
+Command 03
+cat results/repro_halfcheetah/code/run_batch.sh results/repro_halfcheetah/code/environment.sh results/repro_halfcheetah/code/estimate_runtime.py results/repro_halfcheetah/experiment.md
+
+Command 04
+rg -n "timer|time|eval_episode_reward|result|itr \+=|log_freq|save_model_freq|eval_mode|val_freq|train_episode_reward|n_train_itr" results/repro_halfcheetah/dppo/agent/finetune/train_ppo_diffusion_agent.py results/repro_halfcheetah/dppo/agent/finetune/train_agent.py results/repro_halfcheetah/dppo/agent/finetune/train_ppo_agent.py results/repro_halfcheetah/dppo/util/timer.py
+
+Command 05
+cat results/repro_halfcheetah/code/supervise_run.py
+
+Command 06
+cat results/repro_halfcheetah/code/supervise_run.py
+
+Command 07
+sed -n '1,250p' results/repro_halfcheetah/dppo/script/run.py
+sed -n '410,490p' results/repro_halfcheetah/dppo/agent/finetune/train_ppo_diffusion_agent.py
+sed -n '105,155p' results/repro_halfcheetah/dppo/agent/finetune/train_agent.py
+cat results/repro_halfcheetah/dppo/util/timer.py
+
+Command 08
+rg -n "print\(|log\.info|log\.warn" results/repro_halfcheetah/dppo/env/gym_utils results/repro_halfcheetah/dppo/agent/finetune/train_agent.py results/repro_halfcheetah/dppo/model/diffusion results/repro_halfcheetah/dppo/model/common | head -n 110
+sed -n '1,100p' results/repro_halfcheetah/dppo/agent/finetune/train_agent.py
+sed -n '1,180p' results/repro_halfcheetah/dppo/env/gym_utils/__init__.py
+
+Command 09
+sed -n '48,170p' results/repro_halfcheetah/dppo/agent/finetune/train_ppo_diffusion_agent.py
+nl -ba results/repro_halfcheetah/code/supervise_run.py | sed -n '167,212p;300,355p'
+rg -n "DPPO_HARDWARE_RECORD|LD_LIBRARY_PATH|glew|mesalib" results/repro_halfcheetah/code
+
+Command 10
+sed -n '315,430p' results/repro_halfcheetah/code/supervise_run.py
+sed -n '470,540p' results/repro_halfcheetah/code/supervise_run.py
+
+Command 11
+cat results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/__init__.py
+cat results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/gym_mujoco/__init__.py
+rg -n 'mjrl|halfcheetah-medium-v2' results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl
+
+Command 12
+sed -n '1,220p' results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/gym_mujoco/gym_envs.py
+sed -n '1,150p' results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/utils/wrappers.py
+rg -n 'import d4rl.gym_mujoco' results/repro_halfcheetah/dppo/env/gym_utils/__init__.py
+sed -n '1,80p' results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/locomotion/__init__.py
+
+Command 13
+rg --files results/repro_halfcheetah/setup results/repro_halfcheetah/provenance results/repro_halfcheetah/dppo/data results/repro_halfcheetah/dppo/log/gym-pretrain results/repro_halfcheetah/runs/smoke | sort
+
+Command 14
+sed -n '1,165p' results/repro_halfcheetah/setup/slurm-17768782.log
+cat results/repro_halfcheetah/setup/pip-freeze-17768782.txt
+cat results/repro_halfcheetah/runs/smoke/manifest.json
+rg -n -A 7 -B 5 'halfcheetah' results/repro_halfcheetah/dppo/script/download_url.py
+
+Command 15
+rg --files results/repro_halfcheetah/env/conda-meta -g 'python-*.json'
+cat results/repro_halfcheetah/setup/20261009T023641.923985Z_local_hardware.log
+cat results/repro_halfcheetah/setup/workarounds.md
+cat results/repro_halfcheetah/provenance/commands.jsonl | tail -n 2
+sed -n '1,90p' results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/mujoco/mujoco_env.py
+stat --format='%s %n' results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+
+Command 16
+sed -n '1,95p' results/repro_halfcheetah/code/environment.sh
+rg -n '"version"|"build"|"name"' results/repro_halfcheetah/env/conda-meta/python-3.8.20-h4a871b0_2_cpython.json
+rg -n -m 4 '^(Version:|Requires-Dist: mujoco|Requires-Dist: dm-control)' results/repro_halfcheetah/env/lib/python3.8/site-packages/dm_control-1.0.23.dist-info/METADATA results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl-1.1.dist-info/METADATA
+cat results/repro_halfcheetah/runs/smoke/source_after.json
+
+Command 17
+python3 - <<'PY'
+import json
+from pathlib import Path
+root = Path('/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah')
+for relative in ('provenance/assets.json', 'setup/hardware.json'):
+    document = json.loads((root / relative).read_text())
+    def check_sources(value):
+        if isinstance(value, dict):
+            for key, item in value.items():
+                if key in ('source_paths_relative_to_study', 'environment_implementation_evidence'):
+                    for source in item:
+                        assert (root / source).is_file(), source
+                elif key == 'source_path_relative_to_study':
+                    assert (root / item).is_file(), item
+                check_sources(item)
+        elif isinstance(value, list):
+            for item in value:
+                check_sources(item)
+    check_sources(document)
+    for asset in document.get('assets', []):
+        assert Path(asset['path']).stat().st_size == asset['size_bytes']
+    print(relative + ': valid JSON; referenced source files exist')
+PY
+
+Command 18
+cat results/repro_halfcheetah/runs/seed0/manifest.json
+sed -n '1,180p' results/repro_halfcheetah/code/supervise_run.py
+sed -n '295,403p' results/repro_halfcheetah/code/supervise_run.py
+cat results/repro_halfcheetah/code/run_batch.sh
+
+Command 19
+rg --files results/repro_halfcheetah/code -g '*adopt*' -g '*handoff*'
+cat results/repro_halfcheetah/provenance/budget_extension.json
+
+Command 20
+rg --files results/repro_halfcheetah/code results/repro_halfcheetah/provenance -g '*adopt*' -g '*handoff*' -g '*budget*'
+
+Command 21
+cat results/repro_halfcheetah/provenance/budget_amendment.json
+sed -n '85,130p' results/repro_halfcheetah/code/supervise_run.py
+
+Command 22
+rg --files results/repro_halfcheetah/code -g '*adopt*' -g '*handoff*'
+
+Command 23
+cat results/repro_halfcheetah/code/adopt_running_run.py
+
+Command 24
+rg -n -A 60 -B 3 'def pause_watchdog|finally:|syscall' results/repro_halfcheetah/code/adopt_running_run.py
+
+Command 25
+cat results/repro_halfcheetah/code/adopt_running_run.py
+
+Command 26
+rg -n -A 35 -B 8 'reconcil|seed0_handoff|seed1|seed2' results/repro_halfcheetah/code/supervise_run.py results/repro_halfcheetah/code/run_batch.sh
+sed -n '1,25p' results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/run.log
+
+Command 27
+rg -n -A 25 -B 4 'reconcil|seed0_handoff' results/repro_halfcheetah/code/supervise_run.py
+
+Command 28
+rg -n "reconciliation.get|result = \{.status|requires_original_console_reconciliation|reconcile-only|console_reconciliation" results/repro_halfcheetah/code/supervise_run.py results/repro_halfcheetah/code/adopt_running_run.py results/repro_halfcheetah/code/run_remaining_seeds.sh
+rg --files results/repro_halfcheetah/code -g '*remaining*'
+
+Command 29
+cat results/repro_halfcheetah/code/run_remaining_batch.sh
+sed -n '344,385p' results/repro_halfcheetah/code/adopt_running_run.py
+rg --files results/repro_halfcheetah/provenance -g 'result.json' | tail -n 3
+
+Command 30
+cat results/repro_halfcheetah/provenance/handoff_self_test_1791516758732643949/result.json
+
+Command 31
+sed -n '425,480p' results/repro_halfcheetah/code/adopt_running_run.py
+
+Command 32
+cat results/repro_halfcheetah/code/run_remaining_batch.sh
+cat results/repro_halfcheetah/code/finalize_candidates.py
+
+Command 33
+rg -n -A 32 -B 3 'ArgumentParser|add_argument|seed0|output.dir|make_plot|savefig|csv|create|exists' results/repro_halfcheetah/code/analyze_results.py
+sed -n '1,185p' results/repro_halfcheetah/code/run_logged.py
+
+Command 34
+rg --files results/repro_halfcheetah/setup results/repro_halfcheetah/provenance results/repro_halfcheetah/runs -g '*.json' -g '*freeze*' -g '*17769259*' -g '*workaround*' -g '*command*' -g 'console_reconciliation.json' -g 'config.yaml'
+cat results/repro_halfcheetah/setup/workarounds.md
+sed -n '1,130p' results/repro_halfcheetah/setup/slurm-17769259.log
+cat results/repro_halfcheetah/runs/seed0_handoff/manifest.json
+cat results/repro_halfcheetah/runs/seed1/manifest.json
+
+Command 35
+cat results/repro_halfcheetah/provenance/additional_read_only_commands.txt
+cat results/repro_halfcheetah/provenance/remaining_allocation.json
+cat results/repro_halfcheetah/runs/seed0_handoff/console_reconciliation.json
+rg -n 'cat research_agent_workflow.md|audit_install|adopt_running_run.py|hardware.json|assets.json' results/repro_halfcheetah/provenance/commands.jsonl

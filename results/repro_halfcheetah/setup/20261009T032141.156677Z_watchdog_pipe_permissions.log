@@ -1,0 +1,12 @@
+watchdog b'python /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/code/supervise_run.py --run-id seed0 --timeout-seconds 7200 --estimate-seconds 7465 -- python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=0 wandb=null '
+DPPOstdout pipe:[5523533]
+fds [('0', '/dev/null'), ('1', 'pipe:[5395020]'), ('2', 'pipe:[5395020]'), ('3', 'pipe:[5523533]'), ('4', 'anon_inode:[eventpoll]'), ('5', '/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0/console.log')]
+pid_status Name:	python
+Umask:	0022
+State:	S (sleeping)
+Tgid:	1598871
+Ngid:	0
+Pid:	1598871
+PPid:	1597992
+TracerPid:	0
+

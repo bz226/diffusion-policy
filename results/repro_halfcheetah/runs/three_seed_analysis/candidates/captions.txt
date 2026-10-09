@@ -1,0 +1,9 @@
+eval_return_vs_env_steps.png
+Evaluation return during unmodified DPPO fine-tuning: each point is a native within-iteration mean of undiscounted 1000-step episode returns. The x-axis counts training environment steps in millions; colored lines show seeds 0, 1, and 2, and the black line and shaded band show their mean ± population standard deviation (ddof=0), not a confidence interval. The last observed across-seed mean is 4758.37 at 9.36 million steps. Evaluation ends before the 10 million-step target; no smoothing or extrapolation is applied.
+
+train_return_vs_env_steps.png
+Training return during unmodified DPPO fine-tuning: each point is a native within-iteration mean of undiscounted 1000-step episode returns, collected using training exploration noise before that iteration's update. The x-axis counts training environment steps in millions; colored lines show seeds 0, 1, and 2, and the black line and shaded band show their mean ± population standard deviation (ddof=0), not a confidence interval. The final training mean is 4439.12 at 10.08 million steps. Training and evaluation returns use different sampling-noise settings and are not interchangeable; neither curve is smoothed or extrapolated.
+
+returns.csv
+Raw undiscounted episode returns are shown for each of three independent runs and their mean and population standard deviation (ddof=0), not a confidence interval. Evaluation rows use the nearest observed iteration to each requested step; both requested and actual steps are shown, without interpolation, and the final row lists training iteration 1 at 80,000 steps. The last observed evaluation mean is 4758.37 at 9.36 million steps, leaving the exact 10 million-step evaluation unmeasured.
+

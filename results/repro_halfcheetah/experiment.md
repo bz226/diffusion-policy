@@ -1,0 +1,60 @@
+# DPPO HalfCheetah reproduction
+
+## Question
+
+Does unmodified DPPO reproduce the approximate HalfCheetah-v2 Fig. 5 curve under the requested three-seed protocol?
+
+## Answer
+
+**PASS for the approximate endpoint criterion.** All initial evaluations fall within 3,850–4,650; the final observed mean is **4,758.37 ± 88.42** (population standard deviation), within 4,550–4,900. No seed collapse was observed. All runs completed 140 iterations and 10.08 million training steps, exited normally, and saved five finite checkpoints. Exact evaluation at 10 million steps is **unmeasured**; the final saved evaluation is at 9.36 million. [Verified analysis](runs/three_seed_analysis/candidates/summary.json), [visual review](runs/three_seed_analysis/review.json).
+
+## Evidence
+
+Raw undiscounted 1000-step episode returns; steps below are millions. Evaluation rows use the nearest saved point without interpolation. The final row is training iteration 1, collected with exploration noise.
+
+| Metric | Requested steps | Actual steps | Seed 0 | Seed 1 | Seed 2 | Mean |
+|---|---:|---:|---:|---:|---:|---:|
+| Eval | 0 | 0 | 4286.90 | 4384.28 | 4354.75 | 4341.98 |
+| Eval | 2.50 | 2.16 | 4529.55 | 4594.85 | 4659.23 | 4594.54 |
+| Eval | 5.00 | 5.04 | 4549.17 | 4706.77 | 4628.85 | 4628.26 |
+| Eval | 7.50 | 7.20 | 4619.44 | 4767.51 | 4761.14 | 4716.03 |
+| Eval | 10.00 | 9.36 | 4636.27 | 4796.04 | 4842.80 | 4758.37 |
+| Train, itr 1 | 0.08 | 0.08 | 3841.50 | 3841.06 | 3951.24 | 3877.93 |
+
+[A: evaluation plot](curated/halfcheetah-dppo-eval-return.png) · [B: training plot](curated/halfcheetah-dppo-train-return.png) · [C: full-precision table](curated/halfcheetah-dppo-return-checkpoints.csv). Both plots show individual seeds and mean ± population standard deviation across three runs, not a confidence interval. Training and evaluation sampling differ. [Captions and provenance](curated/INDEX.md).
+
+## Setup
+
+Commit `cc7234ad7ff39a8f32de3af903606723a16f0648`; tracked DPPO source/config remained unchanged. Fixed settings: 40 environments, four-action chunks, 20 denoising steps, ten fine-tuned. No tuning or restarts occurred. [Methods and exact commands](methods.md).
+
+Node `soal-10`: Ubuntu 24.04.4, RTX A6000, 40 CPUs and 64 GiB allocated per active seed; seeds 1/2 overlapped on distinct GPUs. Setup free disk: 4.6T. Python 3.8.20, torch 2.4.0+cu121, driver 580.82.07. HalfCheetah used MuJoCo **2.1.0**, via mujoco-py 2.1.2.14; incidental `mujoco 3.2.3` belongs to dm-control. [Hardware](setup/hardware.json), [pip freeze](setup/pip-freeze-17768782.txt), [installation workarounds](setup/workarounds.md), [assets](provenance/assets.json), [command ledger and supplements](provenance/).
+
+| Seed | Process wall, s | Mean all iterations, s | Mean train iteration, s | Mean eval iteration, s |
+|---|---:|---:|---:|---:|
+| 0 | 7414.73 | 52.90 | 57.36 | 12.78 |
+| 1 | 7380.34 | 52.64 | 57.08 | 12.69 |
+| 2 | 7512.23 | 53.58 | 58.09 | 12.97 |
+
+Native iteration timing excludes initialization/finalization. Training took approximately 57–58 seconds/iteration versus approximately 17 in the paper; the cause was not isolated. All monitors paused; the final two allocations completed successfully. [Independent audit](runs/three_seed_analysis/independent_audit.json).
+
+Seed 0's retired watchdog recorded its superseded timeout; DPPO continued uninterrupted and exited normally. [Console reconciliation](runs/seed0_handoff/console_reconciliation.json), [external parallel dispatch](provenance/parallel_seed2.json).
+
+| Seed | Native log directory | Results | Checkpoints |
+|---|---|---|---|
+| 0 | [Log](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/) | [result.pkl](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl) | [Directory](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/) |
+| 1 | [Log](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/) | [result.pkl](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl) | [Directory](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/) |
+| 2 | [Log](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/) | [result.pkl](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl) | [Directory](dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/) |
+
+Each checkpoint directory retains `state_0.pt`, `state_35.pt`, `state_70.pt`, `state_105.pt`, and `state_139.pt`.
+
+## Decision and boundary
+
+This uses three seeds versus five in Fig. 5; endpoint agreement is approximate, without extrapolation or extra evaluation.
+
+| ID | Answers / limitation | Curated name |
+|---|---|---|
+| A | Evaluation improvement; ends at 9.36m | `halfcheetah-dppo-eval-return.png` |
+| B | Exploration-time return; differs from evaluation | `halfcheetah-dppo-train-return.png` |
+| C | Numeric checkpoints; nearest observed steps | `halfcheetah-dppo-return-checkpoints.csv` |
+
+You approved keeping A–C under these names. All three are in [curated/](curated/INDEX.md); original candidates, raw results, logs and checkpoints remain preserved.

@@ -1,0 +1,15 @@
+# Installation record
+
+- Repository URL redirects from `irom-lab/dppo` to `irom-princeton/dppo`; the requested URL was cloned and exact commit `cc7234ad7ff39a8f32de3af903606723a16f0648` checked out.
+- Local GPU devices are masked; use the approved Slurm GPU allocation. No CPU-device configuration override is applied.
+- Network DNS is blocked inside the command sandbox; rerun required downloads with approved network escalation. Failed and successful command logs are retained.
+- Miniforge 24.7.1-2 bootstrap initially stopped at its required `~/.conda` directory on the read-only home mount. Repeated installation once with `-u` and approved filesystem escalation; its environment/package files remain in the study directory. The installer may create standard home-level conda registration metadata. Subsequent conda commands set `CONDA_REGISTER_ENVS=false`. No shell initialization is performed.
+- GL/OSMesa/GLEW/GLFW headers and patchelf are already installed on the current host. No additional system packages installed so far; compute-node checks remain pending.
+- Official MuJoCo 2.1.0 archive installed at the explicitly requested `~/.mujoco/mujoco210`, with archive retained under `downloads/`. Installation used an existence guard to preserve any prior installation. Only session environment variables are exported; no `.bashrc` edit or `script/set_path.sh` execution.
+
+- GPU-node setup check in Slurm job `17768661` passed CUDA and `pip check`, then mujoco-py requested `/usr/lib/nvidia` in `LD_LIBRARY_PATH`. Added that path to the study's session-only `code/environment.sh`, matching the upstream MuJoCo installation guide. No smoke or training subprocess had started; repeat only the corrected installation check before the approved smoke. Preserve the failed setup log `setup/slurm-17768661.log` and its original `setup/pip-freeze.txt`.
+
+- Additional installation verification in job `17768688` incorrectly checked D4RL registration after only `import d4rl`, causing a setup-only failure. DPPO itself explicitly imports `d4rl.gym_mujoco`, which registers the configured environment despite warnings from unavailable optional mjrl/Flow/CARLA environments. Corrected only the external check to match that import route; the local native-route check passed and reported MuJoCo runtime 210. No package or DPPO edit was needed. The requested HalfCheetah-v2 reset test passed on the GPU node before this additional check. No smoke/training process started in this job. Failed logs remain `setup/slurm-17768688.log`.
+- Pip installed `mujoco==3.2.3` transitively for `dm-control`; it is separate from the verified MuJoCo 2.1.0 library used by `mujoco-py` and HalfCheetah-v2. The declared Gym extra was installed unchanged.
+
+No additional package-version workaround applied yet. See `provenance/commands.jsonl` and linked `setup/*.log` for exact commands and outputs.

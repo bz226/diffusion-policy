@@ -1,0 +1,35 @@
+46-
+47-THIS_DIR=$(DIRNAME=$(dirname "$0"); cd "$DIRNAME"; pwd)
+48-THIS_FILE=$(basename "$0")
+49-THIS_PATH="$THIS_DIR/$THIS_FILE"
+50:PREFIX="${HOME:-/opt}/miniforge3"
+51-BATCH=0
+52:FORCE=0
+53-KEEP_PKGS=1
+54-SKIP_SCRIPTS=0
+55-TEST=0
+56-REINSTALL=0
+--
+85-        i)
+86-            BATCH=0
+87-            ;;
+88-        f)
+89:            FORCE=1
+90-            ;;
+91-        k)
+92-            KEEP_PKGS=1
+93-            ;;
+--
+97-        s)
+98-            SKIP_SCRIPTS=1
+99-            ;;
+100-        u)
+101:            FORCE=1
+102-            ;;
+103-        t)
+104-            TEST=1
+105-            ;;
+--
+binary file matches (found "\0" byte around offset 20305)
+ls: cannot access 'results/repro_halfcheetah/miniforge/bin/conda': No such file or directory
+-rwxrw----+ 1 zbao7 users 14586008 Oct  8 19:36 results/repro_halfcheetah/miniforge/_conda

@@ -1,0 +1,148 @@
+{
+  "run_id": "seed0_handoff",
+  "seed": 0,
+  "status": "complete_pending_console_reconciliation",
+  "start_utc": "2026-10-09T03:01:31+00:00",
+  "end_utc": "2026-10-09T05:05:06+00:00",
+  "command": [
+    "python",
+    "script/run.py",
+    "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=140",
+    "train.save_model_freq=35",
+    "seed=0",
+    "wandb=null"
+  ],
+  "command_shell_display": "python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=0 wandb=null",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "environment": {
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/cache/matplotlib",
+    "SLURM_JOB_ID": "17768782",
+    "SLURM_JOBID": "17768782",
+    "SLURM_JOB_NODELIST": "soal-10",
+    "SLURM_CPUS_PER_TASK": "40",
+    "SLURM_JOB_GPUS": "3"
+  },
+  "slurm_job_id": "17768782",
+  "hardware_record": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/setup",
+  "timeout_seconds": 8100,
+  "deadline_utc": "2026-10-09T05:16:31+00:00",
+  "estimate_seconds": 5485.0,
+  "estimate_basis": "Estimated remaining authorized work at watchdog handoff",
+  "runtime_estimate_records": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/provenance/runtime_estimates.jsonl",
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "paused",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/console.log",
+  "verification_commands": [
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ],
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ]
+  ],
+  "source_before": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "subprocess_start_utc": "2026-10-09T03:01:31+00:00",
+  "pid": 1598874,
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0",
+  "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+  "native_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/.hydra/config.yaml",
+  "original_run_id": "seed0",
+  "handoff_start_utc": "2026-10-09T03:34:30+00:00",
+  "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0/manifest.json",
+  "requested_timeout_seconds": 8100,
+  "budget_amendment": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/provenance/budget_amendment.json",
+  "dppo_identity_at_handoff": {
+    "pid": 1598874,
+    "state": "R",
+    "ppid": 1598871,
+    "pgrp": 1598874,
+    "start_ticks": 56792860,
+    "raw_exit_status": 0,
+    "returncode": null
+  },
+  "original_watchdog_identity": {
+    "pid": 1598871,
+    "state": "S",
+    "ppid": 1597992,
+    "pgrp": 1597992,
+    "start_ticks": 56792853,
+    "raw_exit_status": 0,
+    "returncode": null
+  },
+  "dppo_restarted": false,
+  "original_control_timeout_is_not_dppo_crash": true,
+  "requires_original_console_reconciliation": true,
+  "source_at_handoff": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "native_numeric_gate_log": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/run.log",
+  "adopted_pipe": "pipe:[5523533]",
+  "watchdog_stop_confirmation": {
+    "state": "T",
+    "confirmed_utc": "2026-10-09T03:34:34+00:00"
+  },
+  "watchdog_paused_utc": "2026-10-09T03:34:34+00:00",
+  "original_console_prefix_bytes": 151888,
+  "original_console_reconciliation_note": "The old reader may retain one unlogged chunk. Full original console after CONT plus the handoff console must be reconciled before another seed. Native run.log is independently checked every 0.5s for all numeric metrics.",
+  "returncode": 0,
+  "kernel_exit_evidence": {
+    "pid": 1598874,
+    "state": "Z",
+    "ppid": 1598871,
+    "pgrp": 1598874,
+    "start_ticks": 56792860,
+    "raw_exit_status": 0,
+    "returncode": 0
+  },
+  "subprocess_end_utc": "2026-10-09T05:05:05+00:00",
+  "subprocess_wall_seconds": 7414.732464429224,
+  "resolved_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/config.yaml",
+  "source_after": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "checkpoints": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_0.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_105.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt"
+  ],
+  "verified_rows": 140,
+  "initial_eval_return": 4286.896956658653,
+  "final_training_env_steps": 10080000,
+  "native_iteration_time_sum_seconds": 7406.625599145889,
+  "native_iteration_time_mean_seconds": 52.90446856532778,
+  "checkpoint_tensors_finite": true,
+  "verification_complete": true,
+  "wall_seconds_including_verification": 7415.457779098302
+}

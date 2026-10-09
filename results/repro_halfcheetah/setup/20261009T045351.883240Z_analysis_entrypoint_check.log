@@ -1,0 +1,16 @@
+usage: analyze_results.py [-h] --seed0 SEED0 --seed1 SEED1 --seed2 SEED2
+                          --output-dir OUTPUT_DIR
+
+Validate and plot the three approved, unmodified DPPO HalfCheetah runs.
+Accepts explicit native log directories or result.pkl paths. No training,
+model loading, smoothing, interpolation, extrapolation, or artifact curation
+occurs.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  --seed0 SEED0         Seed 0 native log directory or result.pkl
+  --seed1 SEED1         Seed 1 native log directory or result.pkl
+  --seed2 SEED2         Seed 2 native log directory or result.pkl
+  --output-dir OUTPUT_DIR
+                        New runs/<analysis-id>/candidates directory inside
+                        this study

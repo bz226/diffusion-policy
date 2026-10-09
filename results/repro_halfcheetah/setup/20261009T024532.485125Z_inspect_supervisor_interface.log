@@ -1,0 +1,84 @@
+2:"""Execute one prescribed DPPO run with external gates and a scheduled monitor."""
+15:import signal
+33:NONFINITE = re.compile(r"(?<![\w./])[-+]?(?:nan|inf(?:inity)?)(?![\w./])", re.I)
+49:        json.dump(value, stream, indent=2, allow_nan=False)
+54:def finite(value, label):
+57:    if not math.isfinite(float(value)):
+58:        raise ValueError("%s is not finite" % label)
+62:def finite_tree(value, label, np, torch=None):
+64:        if not bool(torch.isfinite(value).all().item()):
+65:            raise ValueError("Nonfinite checkpoint tensor: " + label)
+67:        if not bool(np.isfinite(value)):
+68:            raise ValueError("Nonfinite result: " + label)
+70:        if np.issubdtype(value.dtype, np.number) and not bool(np.isfinite(value).all()):
+71:            raise ValueError("Nonfinite result array: " + label)
+74:            finite_tree(item, "%s.%s" % (label, key), np, torch)
+77:            finite_tree(item, "%s[%d]" % (label, index), np, torch)
+82:    parser.add_argument("--run-id", required=True, choices=("smoke", "seed0", "seed1", "seed2"))
+83:    parser.add_argument("--timeout-seconds", required=True, type=int)
+84:    parser.add_argument("--estimate-seconds", required=True, type=float)
+85:    parser.add_argument("command", nargs=argparse.REMAINDER)
+90:    if not 0 < args.timeout_seconds <= cap:
+92:    if not math.isfinite(args.estimate_seconds) or args.estimate_seconds <= 0:
+93:        parser.error("--estimate-seconds must be finite and positive")
+96:    expected = ["--config-dir=cfg/gym/finetune/halfcheetah-v2",
+99:        expected += ["train.n_train_itr=2", "wandb=null"]
+101:        expected += ["train.n_train_itr=140", "train.save_model_freq=35",
+104:    if len(scripts) != 1 or args.command[scripts[0] + 1:] != expected:
+124:        self.deadline = self.start_clock + args.timeout_seconds
+126:        self.expected_rows = 2 if args.run_id == "smoke" else 140
+132:        self.previous_monitor_signature = None
+146:            "timeout_seconds": args.timeout_seconds,
+147:            "deadline_utc": utc(self.start_wall + args.timeout_seconds),
+149:            "estimate_basis": "Launch estimate supplied by approved controller; see experiment.md",
+150:            "monitor_interval_seconds": self.interval, "monitor_status": "scheduled",
+158:            ("commit", ["git", "rev-parse", "HEAD"]),
+159:            ("tracked_diff", ["git", "diff", "--exit-code", "HEAD", "--"]),
+162:                                    stderr=subprocess.STDOUT, text=True, timeout=30)
+177:                      (log_root / "gym-finetune").glob("*/*_%d/.hydra/config.yaml" % self.seed)
+194:        self.manifest["native_config"] = str(path / ".hydra" / "config.yaml")
+217:            reward = finite(float(match.group(1)), "printed evaluation reward")
+236:        path = STUDY / "experiment.md"
+240:            raise ValueError("experiment.md lacks Current status and next step section")
+248:            self.args.timeout_seconds)
+249:        note += ("Monitor paused. " if terminal else "Scheduled monitor interval %ds, based on %.1fs estimated runtime. " %
+254:        temporary = path.with_name("experiment.md.supervisor.pending")
+258:    def monitor(self, event, terminal=False):
+266:                         "monitor_status": "paused" if terminal else "running"})
+282:            self.stalled_checks = self.stalled_checks + 1 if signature == self.previous_monitor_signature else 0
+283:        self.previous_monitor_signature = signature
+285:        with (self.run_dir / "monitor_history.jsonl").open("a") as stream:
+286:            stream.write(json.dumps(snapshot, allow_nan=False) + "\n")
+296:        for sig, wait_seconds in ((signal.SIGTERM, 5), (signal.SIGKILL, 5)):
+302:                self.process.wait(timeout=wait_seconds)
+306:            if sig == signal.SIGTERM:
+308:                    os.killpg(self.process.pid, signal.SIGKILL)
+316:        self.process = subprocess.Popen(self.args.command, cwd=str(self.cwd),
+320:                              "monitor_status": "running"})
+328:                self.monitor("start")
+340:                            self.stop_reason = "Approved wall-clock timeout reached"
+345:                                self.monitor("scheduled")
+351:                    events = selector.select(timeout=0.5)
+377:            returncode = self.process.wait(timeout=10)
+393:        native_config = self.logdir / ".hydra" / "config.yaml"
+401:        if not (self.run_dir / "config.yaml").exists():
+402:            with (self.run_dir / "config.yaml").open("x") as stream:
+409:        self.manifest["resolved_config"] = str(self.run_dir / "config.yaml")
+424:                or resolved["train"]["n_train_itr"] != self.expected_rows
+425:                or resolved["train"]["save_model_freq"] != (100 if self.expected_rows == 2 else 35)):
+429:        if not isinstance(records, list) or len(records) != self.expected_rows:
+435:            finite_tree(record, "iteration%d" % itr, np)
+445:            reward = finite(record.get(metric), metric)
+446:            elapsed = finite(record.get("time"), "iteration time")
+455:        for itr in ((0, 1) if self.expected_rows == 2 else (0, 35, 70, 105, 139)):
+462:            finite_tree(checkpoint, str(path), np, torch)
+471:                              "checkpoint_tensors_finite": True,
+472:                              "resolved_config": str(self.run_dir / "config.yaml")})
+473:        self.progress.update({"last_completed_itr": self.expected_rows - 1,
+477:        for sig in (signal.SIGTERM, signal.SIGINT):
+478:            signal.signal(sig, lambda signum, frame: setattr(self, "interrupted", signal.Signals(signum).name))
+498:                if self.logdir is not None and (self.logdir / ".hydra" / "config.yaml").is_file():
+505:                                  "monitor_status": "paused"})
+506:            self.progress["monitor_status"] = "paused"
+508:                self.monitor("terminal", terminal=True)
+510:                self.manifest["terminal_monitor_error"] = str(error)

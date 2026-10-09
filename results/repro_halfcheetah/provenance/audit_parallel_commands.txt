@@ -1,0 +1,62 @@
+Parallel-dispatch read-only reviews: supporting command provenance
+
+Agent: /root/audit_install
+Working directory for every command: /soalnas/share/data/zbao7/diffusion_policy
+Shell: bash
+Exact execution timestamps: unknown; not retained in the review messages.
+These are exact exec_command argument strings, in execution order. Actual
+newlines within a command are preserved. Commands 01-05 are the design review;
+06-10 are the implementation review. Commands 11-12 are the subsequent
+allocation-log verification requested after job 17770172 was released.
+No command below edited helpers, launched experiments/jobs, or sent signals.
+This new supporting file itself was created using apply_patch, not a shell command.
+
+Command 01
+cat research_agent_workflow.md results/repro_halfcheetah/code/run_remaining_batch.sh results/repro_halfcheetah/code/supervise_run.py
+
+Command 02
+sed -n '1,110p' results/repro_halfcheetah/code/run_remaining_batch.sh
+
+Command 03
+sed -n '1,200p' results/repro_halfcheetah/code/supervise_run.py
+
+Command 04
+cat results/repro_halfcheetah/code/finalize_candidates.py results/repro_halfcheetah/code/environment.sh
+
+Command 05
+sed -n '194,230p' results/repro_halfcheetah/code/supervise_run.py
+cat results/repro_halfcheetah/code/estimate_runtime.py
+
+Command 06
+cat results/repro_halfcheetah/code/run_seed2_parallel.sh results/repro_halfcheetah/code/finalize_candidates.py results/repro_halfcheetah/code/estimate_runtime.py
+
+Command 07
+sed -n '1,240p' results/repro_halfcheetah/code/supervise_run.py
+sed -n '280,355p' results/repro_halfcheetah/code/supervise_run.py
+sed -n '485,610p' results/repro_halfcheetah/code/supervise_run.py
+
+Command 08
+rg -n 'parallel|seed2|before_parallel' results/repro_halfcheetah/provenance/parallel* results/repro_halfcheetah/code/run_remaining_batch.sh results/repro_halfcheetah/code/run_seed2_parallel.sh results/repro_halfcheetah/code/finalize_candidates.py results/repro_halfcheetah/code/supervise_run.py
+Exit status: 2; the parallel assignment file had not yet been created, so the
+parallel* glob did not match. The other requested source matches were printed.
+
+Command 09
+sed -n '249,292p' results/repro_halfcheetah/code/supervise_run.py
+
+Command 10
+rg --files results/repro_halfcheetah/provenance | rg 'before_parallel|parallel_seed2'
+
+Command 11
+sed -n '1,110p' results/repro_halfcheetah/setup/seed2-parallel-console.log
+
+Command 12
+sed -n '1,80p' results/repro_halfcheetah/setup/remaining-batch-console.log
+
+Allocation verification from these existing logs (no new hardware probe):
+- Seed 1: remaining-batch-console.log, NVIDIA RTX A6000 at PCI bus
+  00000000:C1:00.0; nproc printed 40; nvidia-smi timestamp Thu Oct 8 22:06:11 2026.
+- Seed 2: seed2-parallel-console.log, NVIDIA RTX A6000 at PCI bus
+  00000000:81:00.0; nproc printed 40; date -u printed
+  Fri Oct 9 05:48:31 AM UTC 2026.
+- The physical PCI bus IDs differ. Both runs therefore have distinct recorded
+  physical GPUs, with 40 CPUs reported in each allocation.

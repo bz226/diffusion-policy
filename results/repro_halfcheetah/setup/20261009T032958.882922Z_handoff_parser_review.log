@@ -1,0 +1,77 @@
+            raise ValueError("Pinned commit verification failed")
+        if results["tracked_diff"]["returncode"]:
+            raise ValueError("Tracked DPPO source/config differs from pinned commit")
+        return {"commit": COMMIT, "tracked_files_clean": True}
+
+    def discover_logdir(self):
+        if self.logdir is not None:
+            return
+        log_root = Path(os.environ["DPPO_LOG_DIR"]).expanduser().resolve()
+        candidates = [path.parent.parent for path in
+                      (log_root / "gym-finetune").glob("*/*_%d/.hydra/config.yaml" % self.seed)
+                      if path.stat().st_mtime >= self.start_wall - 2]
+        if len(candidates) > 1:
+            raise ValueError("Ambiguous newly created native log directories")
+        if len(candidates) == 1:
+            self.accept_logdir(candidates[0])
+
+    def accept_logdir(self, path):
+        path = Path(path).expanduser().resolve()
+        root = Path(os.environ["DPPO_LOG_DIR"]).expanduser().resolve()
+        if root not in path.parents or STUDY not in path.parents:
+            raise ValueError("Native log directory is outside the approved study/log root")
+        if self.logdir is not None and path != self.logdir:
+            raise ValueError("Native log directory changed within the run")
+        self.logdir = path
+        self.manifest["logdir"] = str(path)
+        self.manifest["result_path"] = str(path / "result.pkl")
+        self.manifest["native_config"] = str(path / ".hydra" / "config.yaml")
+
+    def consume_line(self, raw):
+        line = ANSI.sub("", raw.decode("utf-8", errors="replace")).rstrip("\r\n")
+        self.progress["lines"] += 1
+        self.progress["last_line"] = line[-1600:]
+        if NONFINITE.search(line):
+            raise ValueError("Printed NaN/Inf token: " + line[-400:])
+        match = CHECKPOINT.search(line)
+        if match:
+            self.accept_logdir(match.group(1))
+        match = COLLECTION.search(line)
+        if match:
+            step = int(match.group(1))
+            if step == 0:
+                self.progress["collection_iteration"] += 1
+            self.progress["rollout_step"] = step
+        match = TRAIN.search(line)
+        if match:
+            self.progress["last_completed_itr"] = int(match.group(1))
+            self.progress["training_env_steps"] = int(match.group(2))
+        match = EVAL.search(line)
+        if match:
+            reward = finite(float(match.group(1)), "printed evaluation reward")
+            self.progress["last_completed_itr"] = self.progress["collection_iteration"]
+            self.progress["last_eval_return"] = reward
+            if self.progress["initial_eval_return"] is None:
+                self.progress["initial_eval_return"] = reward
+                if not 3850 <= reward <= 4650:
+                    raise ValueError("Initial evaluation %.4f is outside [3850, 4650]" % reward)
+
+    def write_progress(self, force=False):
+        now = time.monotonic()
+        if force or now - self.last_progress_write >= 1:
+            self.progress.update({"updated_utc": utc(),
+                                  "elapsed_seconds": now - self.start_clock,
+                                  "deadline_utc": self.manifest["deadline_utc"],
+                                  "logdir": str(self.logdir) if self.logdir else None})
+            atomic_json(self.run_dir / "progress.json", self.progress)
+            self.last_progress_write = now
+
+    def update_study(self, terminal=False):
+        path = STUDY / "experiment.md"
+        text = path.read_text()
+        section = re.compile(r"(## Current status and next step\n).*?(?=\n## |\Z)", re.S)
+        if not section.search(text):
+            raise ValueError("experiment.md lacks Current status and next step section")
+        next_step = ("Verify the next authorized stage; no automatic retry or extension."
+                     if self.progress["status"] == "complete" else
+                     "Execution stopped; report the recorded failure before any further run."

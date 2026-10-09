@@ -1,0 +1,7 @@
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/usr/lib/python3.12/pathlib.py", line 1030, in read_text
+    return f.read()
+           ^^^^^^^^
+PermissionError: [Errno 1] Operation not permitted
+srun: error: soal-10: task 0: Exited with exit code 1

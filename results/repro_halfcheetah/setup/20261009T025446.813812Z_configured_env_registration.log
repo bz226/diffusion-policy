@@ -1,0 +1,25 @@
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 680, in spec
+    return registry.spec(id)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 540, in spec
+    return self.env_specs[id]
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 376, in __getitem__
+    self._assert_version_exists(namespace, name, version)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 302, in _assert_version_exists
+    self._assert_name_exists(namespace, name)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 297, in _assert_name_exists
+    raise error.NameNotFound(message)
+gym.error.NameNotFound: Environment `halfcheetah-medium` doesn't exist. Did you mean: `bullet-halfcheetah-medium`?

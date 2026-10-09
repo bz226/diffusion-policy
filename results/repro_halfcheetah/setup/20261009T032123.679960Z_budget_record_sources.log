@@ -1,0 +1,69 @@
+# DPPO HalfCheetah reproduction
+
+Status: executed smoke results; approved full runs in progress.
+
+## Question
+Does the unmodified DPPO implementation and released HalfCheetah checkpoint reproduce the approximate Fig. 5 fine-tuning curve under the user's three-seed protocol?
+
+## Answer so far
+The smoke test's pretrained evaluation was 4,272.95, inside the required 3,850–4,650 range; its two saved iterations and checkpoints passed verification. Full-curve reproduction remains unassessed while the three-seed batch runs. [Smoke record](runs/smoke/manifest.json).
+
+## Current status and next step
+2026-10-09T03:01:31+00:00: `seed0` running; last completed iteration None, training steps 0, elapsed 0.0s / 7200s. Scheduled monitor interval 1800s, based on 7465.0s estimated runtime. Next: Continue the same authorized run; stop on any failure gate. [Run record](runs/seed0/manifest.json).
+
+## Essential setup
+Use commit `cc7234ad7ff39a8f32de3af903606723a16f0648`, its unchanged HalfCheetah fine-tuning YAML, Python 3.8, torch 2.4.0, MuJoCo 2.1.0, 40 environments, action chunks of four, and 20 denoising steps with the last ten fine-tuned. Smoke: two iterations with default seed 42 and `wandb=null`. Full runs: seeds 0, 1, 2 sequentially, 140 iterations, checkpoint frequency 35, `wandb=null`; no other configuration overrides. Each seed starts independently from the released pretrained checkpoint. Full design and commands: [methods](methods.md).
+
+## Budget and monitoring
+Approved limits: setup two hours (deadline 2026-10-09 04:33 UTC), smoke 30 minutes, each full seed two hours; no automatic retries or extensions. Allocation: one A6000 GPU, 40 CPUs, 64 GiB RAM. The smoke took 86.71 seconds end-to-end; its native timings project 7,465 seconds per full seed (about 2h04m), slightly above the unchanged 7,200-second cap. First-iteration overhead makes this estimate uncertain. Each run starts a scheduled monitor at max(30 minutes, estimated duration / 6), currently 30 minutes. Dated counters and terminal verification are saved in each run; monitors pause terminally. [Estimate basis](provenance/runtime_estimates.jsonl), [hardware](setup/hardware.json), [pip freeze](setup/pip-freeze-17768782.txt).
+
+## Outputs and boundary
+Produce exactly two candidate plots (evaluation/training raw episode return, each seed and mean ± population standard deviation over three seeds) and one table including nearest saved evaluation points and the first training return. The final training count is 10,080,000; the last saved evaluation is 9,360,000. No interpolation, extrapolation, or additional evaluation is authorized. Fig. 5 used five Gym seeds; this task requests three. Pass criteria: every initial evaluation in 3850–4650 and mean last observed evaluation in 4550–4900, with individual curves inspected for collapse; no numerical collapse threshold was supplied. Exact 10-million-step evaluation is not measured.
+
+No artifacts have been generated or curated. Preserve all runs, logs, checkpoints, and installation failures; request keep/revise/leave-uncurated and final filename decisions after the approved outputs are ready.
+
+# Approved reproduction methods
+
+This is a reproduction, not a hyperparameter search or algorithm modification. The authoritative algorithm and all fixed parameters are the [pinned YAML](https://github.com/irom-princeton/dppo/blob/cc7234a/cfg/gym/finetune/halfcheetah-v2/ft_ppo_diffusion_mlp.yaml), [training loop](https://github.com/irom-princeton/dppo/blob/cc7234a/agent/finetune/train_ppo_diffusion_agent.py), and Ren et al., [arXiv:2409.00588, §4, Fig. 5, Appendix C Table A1](https://arxiv.org/html/2409.00588v1). These sources were inspected read-only before approval. Repository owner `irom-lab` redirects to `irom-princeton`; preserve the requested commit.
+
+## Parameters and approval
+
+| Code key / quantity | Meaning | Value | Rationale |
+|---|---|---|---|
+| env.n_envs | Parallel environment count | 40 | Constraint: unchanged pinned YAML |
+| train.n_steps | Chunk decisions per environment/iteration | 500 | Constraint: pinned YAML |
+| act_steps | Executed physical actions/chunk | 4 | Constraint: pinned YAML |
+| denoising_steps / ft_denoising_steps | Total / optimized denoising steps | 20 / 10 | Constraint: pinned YAML |
+| seed | Independent fine-tuning runs | 0, 1, 2 | User's design, three repetitions |
+| train.n_train_itr | Total iterations/full run | 140 | User's budget: 126 training × 80,000 physical environment steps |
+| train.save_model_freq | Checkpoint interval | 35 | User's requested override |
+| train.val_freq | Evaluation-only iteration interval | 10 | Constraint: pinned YAML |
+| wandb | External experiment tracking | null | User's required override |
+| initial evaluation range | Stop gate on pretrained return | 3850–4650 | User's approximate Fig. 5 acceptance interval |
+| final mean evaluation range | Approximate reproduction criterion | 4550–4900 | User's approximate Fig. 5 acceptance interval; apply to labeled last saved point |
+
+All other parameters remain exactly as checked in. Config uses the D4RL ID `halfcheetah-medium-v2`; the separately prescribed import check makes `HalfCheetah-v2`. Neither is changed. Installation pins may repair dependencies only and must be documented individually. No source/config file edits, extra baselines, sweeps, training continuations, evaluation runs, or data transformations are permitted.
+
+## Execution and verification
+
+Clone below this study's `dppo/`; verify full commit and clean tracked source/config before and after execution. Install isolated conda Python 3.8, then `pip install -e .` and `pip install -e '.[gym]'`, torch 2.4.0 with supported CUDA wheel. MuJoCo 2.1.0 installs at the explicitly requested `~/.mujoco/mujoco210`; this installation path is the task's explicit exception to the study-only artifact location. Do not run `script/set_path.sh` or change shell startup files. Export `DPPO_DATA_DIR=$PWD/data DPPO_LOG_DIR=$PWD/log` from the cloned repository and export MuJoCo's bin on `LD_LIBRARY_PATH`. Keep package caches and temporary build files inside this study when configurable.
+
+Run the user's import/reset check once the dependencies are installed. Then execute exactly:
+
+```bash
+python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=2 wandb=null
+python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=0 wandb=null
+python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=1 wandb=null
+python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=2 wandb=null
+```
+
+Pseudocode: verify installation and source → run smoke → inspect itr-0 gate and finite outputs → for each seed initialize from released weights, evaluate at 0,10,...,130 and train at all other iterations → stop at 139 → verify result.pkl, source, and checkpoints → aggregate the three saved series → pause for artifact decisions. An external supervisor may enforce timeout and failure gates without altering DPPO. A failed seed terminates the batch without restart. Save timestamps, commands, exact resolved config, dependency versions, data filenames/source URLs, clean-source status, execution status, and every log/checkpoint. Existing checkpoints contain model weights/iteration, not complete optimizer state.
+
+## Measurements and aggregation
+
+For a completed episode e, raw undiscounted return is R_e = sum over its 1000 physical steps of reward. The native per-iteration metric is the average of completed-episode returns; it precedes training reward scaling. Training collection and evaluation sampling differ, so plot them separately. Evaluation remains stochastic under the native diffusion sampling algorithm. Episodes within a training run are not independent training repetitions; the independent repetition unit is the seed. Retain native episode counts where available in saved records; do not invent them.
+
+For aligned native step x, report mean m(x) = (R_0(x)+R_1(x)+R_2(x))/3 and population standard deviation s(x) = sqrt(sum_i (R_i(x)-m(x))²/3). Shading is across-seed variability, not a confidence interval. No smoothing, reward normalization, interpolation, extrapolation, or seed exclusions. The table uses target→actual steps: 0→0, 2.5m→2.16m, 5m→5.04m, 7.5m→7.20m, 10m→9.36m. Add itr-1 training return at 80,000 steps in the same table. Individual runs and all failures remain visible. The exact 10m evaluation criterion is unmeasured; only approximate endpoint agreement can be assessed.
+
+Validate exactly 140 rows per completed full run, iteration/step schedule, finite metrics, and checkpoints at 0/35/70/105/139 before analysis. Record native iteration durations and external subprocess wall time separately; native durations omit installation and agent initialization. Preserve requested output captions adjacent to the figures. Candidate outputs belong under a fresh run's `candidates/`; no curated copy or completed-study checklist mutation outside the permitted study directory is authorized.
+

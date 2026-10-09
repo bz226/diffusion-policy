@@ -1,0 +1,126 @@
+# DPPO HalfCheetah reproduction
+
+Status: smoke and seed 0 completed; seed 1 running; seed 2 assigned a separate GPU at the user’s request.
+
+## Question
+Does the unmodified DPPO implementation and released HalfCheetah checkpoint reproduce the approximate Fig. 5 fine-tuning curve under the user's three-seed protocol?
+
+## Answer so far
+The smoke gate passed at 4,272.95. Seed 0 completed 10.08 million training steps in 2h03m35s; its initial evaluation was 4,286.90 and final saved evaluation was 4,636.27 at 9.36 million steps, with all 140 records, five checkpoints and console checks passing. Full reproduction remains unassessed until seeds 1 and 2 finish. [Seed 0 record](runs/seed0_handoff/manifest.json).
+
+## Current status and next step
+2026-10-09T07:09:17+00:00: `seed1` complete; last completed iteration 139, training steps 10080000, elapsed 7385.0s / 8100s. Monitor paused. Next: Verify the next authorized stage; no automatic retry or extension. [Run record](runs/seed1/manifest.json).
+
+## Essential setup
+Use commit `cc7234ad7ff39a8f32de3af903606723a16f0648`, its unchanged HalfCheetah fine-tuning YAML, Python 3.8, torch 2.4.0, MuJoCo 2.1.0, 40 environments, action chunks of four, and 20 denoising steps with the last ten fine-tuned. Smoke: two iterations with default seed 42 and `wandb=null`. Full runs: seeds 0, 1, 2; seed 0 finished first and seeds 1 and 2 now overlap on separate GPUs, 140 iterations, checkpoint frequency 35, `wandb=null`; no other configuration overrides. Each seed starts independently from the released pretrained checkpoint. [Methods](methods.md), [parallel assignment](provenance/parallel_seed2.json), [seed 2 monitor](runs/seed2/monitor_status.md). The original launcher delegates seed 2; no duplicate or restart is permitted.
+
+## Budget and monitoring
+Approved limits: setup two hours (deadline 2026-10-09 04:33 UTC), smoke 30 minutes, each full seed 2h15m (8,100 seconds, explicitly approved after the smoke projected 7,465 seconds). No automatic retries or further extensions. Allocation: one A6000 GPU, 40 CPUs, 64 GiB RAM per active seed. The smoke took 86.71 seconds end-to-end. Seed 0 transferred to a replacement external watchdog without restarting DPPO; complete console reconciliation is required before later seeds. Each run starts a scheduled monitor at max(30 minutes, estimated duration / 6), currently 30 minutes. Dated counters and terminal verification are saved in each run; monitors pause terminally. [Handoff](runs/seed0_handoff/manifest.json), [estimate basis](provenance/runtime_estimates.jsonl), [hardware](setup/hardware.json), [pip freeze](setup/pip-freeze-17768782.txt).
+
+## Outputs and boundary
+Produce exactly two candidate plots (evaluation/training raw episode return, each seed and mean ± population standard deviation over three seeds) and one table including nearest saved evaluation points and the first training return. The final training count is 10,080,000; the last saved evaluation is 9,360,000. No interpolation, extrapolation, or additional evaluation is authorized. Fig. 5 used five Gym seeds; this task requests three. Pass criteria: every initial evaluation in 3850–4650 and mean last observed evaluation in 4550–4900, with individual curves inspected for collapse; no numerical collapse threshold was supplied. Exact 10-million-step evaluation is not measured.
+
+No artifacts have been generated or curated. Preserve all runs, logs, checkpoints, and installation failures; request keep/revise/leave-uncurated and final filename decisions after the approved outputs are ready.
+{
+  "run_id": "seed1",
+  "seed": 1,
+  "status": "complete",
+  "start_utc": "2026-10-09T05:06:12+00:00",
+  "end_utc": "2026-10-09T07:09:17+00:00",
+  "command": [
+    "python",
+    "script/run.py",
+    "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=140",
+    "train.save_model_freq=35",
+    "seed=1",
+    "wandb=null"
+  ],
+  "command_shell_display": "python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=1 wandb=null",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "environment": {
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/cache/matplotlib",
+    "SLURM_JOB_ID": "17769259",
+    "SLURM_JOBID": "17769259",
+    "SLURM_JOB_NODELIST": "soal-10",
+    "SLURM_CPUS_PER_TASK": "40",
+    "SLURM_JOB_GPUS": "3"
+  },
+  "slurm_job_id": "17769259",
+  "hardware_record": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/setup",
+  "timeout_seconds": 8100,
+  "requested_timeout_seconds": 8100,
+  "budget_amendment": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/provenance/budget_amendment.json",
+  "deadline_utc": "2026-10-09T07:21:12+00:00",
+  "estimate_seconds": 7407.0,
+  "estimate_basis": "14 evaluation and 126 training iterations from measured smoke, replaced by completed full native timing when available",
+  "runtime_estimate_records": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/provenance/runtime_estimates.jsonl",
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "paused",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/console.log",
+  "verification_commands": [
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ],
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ]
+  ],
+  "source_before": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "subprocess_start_utc": "2026-10-09T05:06:12+00:00",
+  "pid": 1625364,
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1",
+  "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+  "native_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/.hydra/config.yaml",
+  "returncode": 0,
+  "subprocess_end_utc": "2026-10-09T07:09:13+00:00",
+  "subprocess_wall_seconds": 7380.337116700015,
+  "resolved_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/config.yaml",
+  "source_after": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "checkpoints": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_0.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_35.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_70.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_105.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_139.pt"
+  ],
+  "verified_rows": 140,
+  "initial_eval_return": 4384.282887687965,
+  "final_training_env_steps": 10080000,
+  "native_iteration_time_sum_seconds": 7369.236779928207,
+  "native_iteration_time_mean_seconds": 52.63740557091577,
+  "checkpoint_tensors_finite": true,
+  "wall_seconds_including_verification": 7385.044248561026
+}
+{"exit_code":0,"status":"terminal"}
+{"status":"running"}

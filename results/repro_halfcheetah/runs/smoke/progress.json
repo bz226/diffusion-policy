@@ -1,0 +1,18 @@
+{
+  "run_id": "smoke",
+  "status": "complete",
+  "bytes": 9389,
+  "lines": 150,
+  "collection_iteration": 1,
+  "rollout_step": 490,
+  "last_completed_itr": 1,
+  "training_env_steps": 80000,
+  "initial_eval_return": 4272.9526,
+  "last_line": "[2026-10-08 20:01:26,847][agent.finetune.train_ppo_diffusion_agent][INFO] - 1: step    80000 | loss   0.0045 | pg loss  -0.0006 | value loss   0.0102 | bc loss   0.0000 | reward 3806.3210 | eta   1.0000 | t: 57.8052",
+  "updated_utc": "2026-10-09T03:01:31+00:00",
+  "elapsed_seconds": 90.16369296400808,
+  "deadline_utc": "2026-10-09T03:30:00+00:00",
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42",
+  "last_eval_return": 4272.9526,
+  "monitor_status": "paused"
+}

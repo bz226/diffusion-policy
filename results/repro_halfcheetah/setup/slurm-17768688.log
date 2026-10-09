@@ -1,0 +1,100 @@
++ trap 'batch_rc=$?; printf "{\"exit_code\":%s,\"status\":\"terminal\"}\n" "$batch_rc" > "$REPRO_ROOT/runs/batch_status.json"' EXIT
++ printf '{"status":"running"}\n'
+++ python -c 'import datetime,time; print(int(datetime.datetime(2026,10,9,4,33,tzinfo=datetime.timezone.utc).timestamp()-time.time()))'
++ setup_remaining=5892
++ test 5892 -gt 0
++ timeout --kill-after=15 5892 bash /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/code/check_install.sh
++ date -u
+Fri Oct  9 02:54:47 AM UTC 2026
++ nvidia-smi
+Thu Oct  8 19:54:47 2026       
++-----------------------------------------------------------------------------------------+
+| NVIDIA-SMI 580.82.07              Driver Version: 580.82.07      CUDA Version: 13.0     |
++-----------------------------------------+------------------------+----------------------+
+| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |
+| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |
+|                                         |                        |               MIG M. |
+|=========================================+========================+======================|
+|   0  NVIDIA RTX A6000               On  |   00000000:C1:00.0 Off |                  Off |
+| 30%   33C    P8             20W /  300W |       1MiB /  49140MiB |      0%      Default |
+|                                         |                        |                  N/A |
++-----------------------------------------+------------------------+----------------------+
+
++-----------------------------------------------------------------------------------------+
+| Processes:                                                                              |
+|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |
+|        ID   ID                                                               Usage      |
+|=========================================================================================|
+|  No running processes found                                                             |
++-----------------------------------------------------------------------------------------+
++ nproc
+40
++ cat /etc/os-release
+PRETTY_NAME="Ubuntu 24.04.4 LTS"
+NAME="Ubuntu"
+VERSION_ID="24.04"
+VERSION="24.04.4 LTS (Noble Numbat)"
+VERSION_CODENAME=noble
+ID=ubuntu
+ID_LIKE=debian
+HOME_URL="https://www.ubuntu.com/"
+SUPPORT_URL="https://help.ubuntu.com/"
+BUG_REPORT_URL="https://bugs.launchpad.net/ubuntu/"
+PRIVACY_POLICY_URL="https://www.ubuntu.com/legal/terms-and-policies/privacy-policy"
+UBUNTU_CODENAME=noble
+LOGO=ubuntu-logo
++ df -h /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah
+Filesystem                  Size  Used Avail Use% Mounted on
+10.79.13.15:/soalnas/share   44T   39T  4.6T  90% /soalnas/share
++ git rev-parse HEAD
+cc7234ad7ff39a8f32de3af903606723a16f0648
++ git diff --exit-code HEAD --
++ python -m pip freeze
++ python -m pip check
+No broken requirements found.
++ python -c 'import torch; assert torch.__version__.split('\''+'\'')[0] == '\''2.4.0'\''; assert torch.cuda.is_available(); print('\''torch'\'', torch.__version__, '\''CUDA runtime'\'', torch.version.cuda, '\''GPU'\'', torch.cuda.get_device_name(0))'
+torch 2.4.0+cu121 CUDA runtime 12.1 GPU NVIDIA RTX A6000
++ python -c 'import mujoco_py, d4rl, gym; gym.make('\''HalfCheetah-v2'\'').reset(); print('\''ok'\'')'
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py:505: UserWarning: [33mWARN: The environment HalfCheetah-v2 is out of date. You should consider upgrading to version `v3` with the environment ID `HalfCheetah-v3`.[0m
+  logger.warn(
+ok
++ python -c 'import d4rl, gym; print('\''Configured environment registration:'\'', gym.spec('\''halfcheetah-medium-v2'\''))'
+pybullet build time: Jan 29 2025 23:19:57
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+Warning: Mujoco-based envs failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'mjrl'
+Warning: Flow failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'flow'
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+Warning: CARLA failed to import. Set the environment variable D4RL_SUPPRESS_IMPORT_ERROR=1 to suppress this message.
+No module named 'carla'
+Traceback (most recent call last):
+  File "<string>", line 1, in <module>
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 680, in spec
+    return registry.spec(id)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 540, in spec
+    return self.env_specs[id]
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 376, in __getitem__
+    self._assert_version_exists(namespace, name, version)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 302, in _assert_version_exists
+    self._assert_name_exists(namespace, name)
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/registration.py", line 297, in _assert_name_exists
+    raise error.NameNotFound(message)
+gym.error.NameNotFound: Environment `halfcheetah-medium` doesn't exist. Did you mean: `bullet-halfcheetah-medium`?
++ batch_rc=1
++ printf '{"exit_code":%s,"status":"terminal"}\n' 1

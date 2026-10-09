@@ -1,0 +1,24 @@
+{
+  "run_id": "seed0",
+  "status": "running",
+  "bytes": 9727,
+  "lines": 194,
+  "collection_iteration": 2,
+  "rollout_step": 490,
+  "last_completed_itr": 1,
+  "training_env_steps": 80000,
+  "initial_eval_return": 4286.897,
+  "last_line": "[2026-10-08 20:03:13,885][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.595990609843284e-07, update_epoch: 1, num_batch: 4",
+  "updated_utc": "2026-10-09T03:03:13+00:00",
+  "elapsed_seconds": 102.2217962089926,
+  "deadline_utc": "2026-10-09T05:01:31+00:00",
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0",
+  "last_eval_return": 4286.897
+}
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-08 20:03:05,101][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-08 20:03:07,398][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.250069617408371e-08, update_epoch: 0, num_batch: 4
+[2026-10-08 20:03:09,499][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.003014003548742e-07, update_epoch: 0, num_batch: 4

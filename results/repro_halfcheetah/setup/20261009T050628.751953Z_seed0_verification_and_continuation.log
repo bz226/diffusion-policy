@@ -1,0 +1,36 @@
+handoff {'status': 'complete', 'returncode': 0, 'failure_reason': None, 'verified_rows': 140, 'final_training_env_steps': 10080000, 'initial_eval_return': 4286.896956658653, 'subprocess_wall_seconds': 7414.732464429224, 'checkpoint_tensors_finite': True, 'requires_original_console_reconciliation': False}
+original {'status': 'failed', 'returncode': 0, 'failure_reason': 'Approved wall-clock timeout reached', 'monitor_status': 'paused'}
+reconciliation {
+  "status": "passed",
+  "checked_utc": "2026-10-09T05:06:11+00:00",
+  "original_parent_returncode": 0,
+  "original_supervisor_status": "failed",
+  "superseded_control_timeout_only": true,
+  "original_prefix_bytes": 151888,
+  "final_original_console_bytes": 151888,
+  "recovered_inflight_chunk_bytes": 0,
+  "evaluation_lines": 14,
+  "training_lines": 126,
+  "rollout_counter_lines": 7000,
+  "complete_stream_finite": true
+}
+
+remaining_batch {"status":"running"}
+
+seed1 {
+  "run_id": "seed1",
+  "status": "running",
+  "bytes": 2306,
+  "lines": 38,
+  "collection_iteration": 0,
+  "rollout_step": 210,
+  "last_completed_itr": null,
+  "training_env_steps": 0,
+  "initial_eval_return": null,
+  "last_line": "Processed step 210 of 500",
+  "updated_utc": "2026-10-09T05:06:28+00:00",
+  "elapsed_seconds": 15.887579244095832,
+  "deadline_utc": "2026-10-09T07:21:12+00:00",
+  "logdir": null
+}
+

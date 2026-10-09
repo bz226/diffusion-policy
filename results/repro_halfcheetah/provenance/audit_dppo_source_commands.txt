@@ -1,0 +1,268 @@
+Command provenance supplement: audit_dppo_source agent
+
+Working directory unless specified inside the command:
+/soalnas/share/data/zbao7/diffusion_policy
+
+These exact shell command strings were recovered from this agent's tool-call
+history. They were not routed through run_logged.py. Their individual execution
+timestamps are unknown unless stated. Independent reads were sometimes dispatched
+concurrently, so the order below is a record of commands, not a precise timing log.
+No DPPO training process, real watchdog handoff, install, or clone was launched by
+this agent. The sole executed handoff test was synthetic; its result records UTC
+2026-10-09 03:32:38 through 03:32:41 and contains no DPPO experiment.
+
+Public source inspection used read-only web and GitHub connector tools, not shell
+commands. Helper creation/updates used apply_patch tool calls, not shell commands.
+Those helpers were analyze_results.py, supervise_run.py, and adopt_running_run.py.
+This supplement and runs/three_seed_analysis/independent_audit.json were also
+created with apply_patch; no shell command was used to write them. The independent
+audit record contains observed findings from the single final verification below;
+the checks were not rerun to create that record.
+
+Initial source/workflow inspection:
+
+pwd
+cat research_agent_workflow.md
+
+Analysis-helper implementation and review:
+
+rg --files -g 'AGENTS.md' -g 'analyze_results.py' -g 'experiment.md' -g 'methods.md' results .agents 2>/dev/null
+ls -ld results/repro_halfcheetah results/repro_halfcheetah/code
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/analyze_results.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Syntax OK; no code executed or bytecode written")'
+git status --short -- results/repro_halfcheetah/code/analyze_results.py
+cat results/repro_halfcheetah/methods.md
+sed -n '1,390p' results/repro_halfcheetah/code/analyze_results.py
+
+Supervisor implementation:
+
+cat results/repro_halfcheetah/experiment.md
+ls results/repro_halfcheetah/code
+sed -n '95,155p' results/repro_halfcheetah/dppo/agent/finetune/train_agent.py
+rg --files results/repro_halfcheetah -g '*.txt' -g '*hardware*' -g '*environment*' -g '*manifest*' -g '*setup*' -g '*.json'
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/supervise_run.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Supervisor syntax OK; no job launched or bytecode written")'
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/supervise_run.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Final supervisor syntax OK; no execution or bytecode")'
+
+Budget-handoff inspection and helper implementation:
+
+sed -n '65,180p' results/repro_halfcheetah/code/supervise_run.py
+sed -n '300,415p' results/repro_halfcheetah/code/supervise_run.py
+cat results/repro_halfcheetah/runs/seed0/manifest.json
+sed -n '1,240p' results/repro_halfcheetah/code/run_batch.sh
+cat results/repro_halfcheetah/provenance/budget_amendment.json
+sed -n '135,178p' results/repro_halfcheetah/code/supervise_run.py
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/adopt_running_run.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Adopter syntax OK; no actual handoff executed")'
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/adopt_running_run.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Adopter syntax OK; no actual handoff executed")'
+python3 -B results/repro_halfcheetah/code/adopt_running_run.py --self-test
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/adopt_running_run.py"); s = p.read_text(); ast.parse(s, filename=str(p)); compile(s, str(p), "exec"); print("Final adopter syntax OK; no actual handoff executed")'
+cat results/repro_halfcheetah/provenance/handoff_self_test_1791516758732643949/result.json
+git -C results/repro_halfcheetah/dppo diff --exit-code HEAD --
+git -C results/repro_halfcheetah/dppo rev-parse HEAD
+python3 -c 'import ast, pathlib; p = pathlib.Path("results/repro_halfcheetah/code/adopt_running_run.py"); ast.parse(p.read_text(), filename=str(p)); print("Final handoff helper syntax validated")'
+
+Initial passive audit inspection:
+
+python3 -B - <<'PY'
+import json
+from pathlib import Path
+r=Path('results/repro_halfcheetah')
+for p in [r/'runs/seed0_handoff/manifest.json',r/'runs/seed0_handoff/progress.json',r/'runs/remaining_batch_status.json',r/'runs/three_seed_analysis/candidates/summary.json']:
+ print(str(p))
+ if p.exists():
+  d=json.loads(p.read_text())
+  print(json.dumps({k:d[k] for k in ('status','failure_reason','returncode','run_id','last_completed_itr','training_env_steps','updated_utc','deadline_utc') if k in d}))
+ else: print('not yet present')
+PY
+sed -n '1,240p' results/repro_halfcheetah/code/run_remaining_batch.sh
+sed -n '1,110p' results/repro_halfcheetah/code/environment.sh
+
+Repeated passive status probe, version 1. This command was repeated roughly once
+per 60-second wait until the parallel-seed dispatch update. The actual count and
+individual timestamps were not retained; do not infer them from this listing.
+
+python3 -B - <<'PY'
+import json
+from pathlib import Path
+r=Path('results/repro_halfcheetah')
+found=[]
+for name in ('seed0_handoff','seed1','seed2'):
+ p=r/'runs'/name/'manifest.json'
+ if p.exists():
+  d=json.loads(p.read_text())
+  if d.get('status')=='failed':found.append({'run':name,'reason':d.get('failure_reason'),'returncode':d.get('returncode')})
+p=r/'runs/remaining_batch_status.json'
+if p.exists():
+ d=json.loads(p.read_text())
+ if d.get('status')=='terminal' and d.get('exit_code')!=0:found.append({'run':'remaining_batch','record':d})
+s=r/'runs/three_seed_analysis/candidates/summary.json'
+print(json.dumps({'failure':found,'ready':s.exists()}))
+PY
+
+Parallel-dispatch read (the proposed seed2 filenames did not yet exist):
+
+rg -n 'batch_status|run-id|finalize_candidates|seed2' results/repro_halfcheetah/code/run_seed2_batch.sh results/repro_halfcheetah/code/run_remaining_batch.sh results/repro_halfcheetah/provenance/parallel_seed2_dispatch.json
+
+Repeated passive status probe, version 2. This command was repeated roughly once
+per 60-second wait until the environment/permission interruption. Tool-local
+start/count metadata was cleared by that interruption; its actual count and
+individual timestamps are unknown. It reads saved status only and neither
+controls nor launches jobs.
+
+python3 -B - <<'PY'
+import json
+from pathlib import Path
+r=Path('results/repro_halfcheetah')
+def read(p):
+ try: return json.loads(p.read_text())
+ except (FileNotFoundError,json.JSONDecodeError): return None
+found=[]
+for name in ('seed0_handoff','seed1','seed2'):
+ d=read(r/'runs'/name/'manifest.json')
+ if d and d.get('status')=='failed': found.append({'run':name,'reason':d.get('failure_reason'),'returncode':d.get('returncode')})
+for p in (r/'runs').glob('*status.json'):
+ if p.name=='batch_status.json': continue
+ d=read(p)
+ if d and d.get('status')=='terminal' and d.get('exit_code',d.get('returncode',0))!=0: found.append({'run':p.name,'record':d})
+s=read(r/'runs/three_seed_analysis/candidates/summary.json')
+print(json.dumps({'failure':found,'ready':s is not None}))
+PY
+
+Resumption inspection (observed seed2 progress updated 2026-10-09 07:40:30 UTC;
+the command's exact start timestamp was not separately recorded):
+
+python3 -B - <<'PY'
+import json
+from pathlib import Path
+r=Path('results/repro_halfcheetah')
+for p in [r/'runs/seed2/progress.json',r/'runs/seed2/manifest.json',r/'runs/parallel_seed2_batch_status.json',r/'runs/three_seed_analysis/candidates/summary.json']:
+ print(str(p))
+ if p.exists():
+  d=json.loads(p.read_text()); print(json.dumps({k:d[k] for k in ('status','failure_reason','returncode','run_id','last_completed_itr','training_env_steps','updated_utc','deadline_utc') if k in d}))
+ else: print('not yet present')
+PY
+
+
+Resumed passive waiting used the exact version-2 probe above 13 times from 2026-10-09T07:42:16.402Z through 2026-10-09T07:54:19.334Z. These are recorded probe bounds, not inferred timestamps for the earlier interrupted probes.
+
+Final candidate inspection:
+
+cat results/repro_halfcheetah/runs/three_seed_analysis/candidates/summary.json
+
+Final independent audit (read-only; reopens the three native pickles and all 15 checkpoints, independently recomputes CSV values, and checks complete configs/commands/source):
+
+results/repro_halfcheetah/env/bin/python -B - <<'PY'
+import csv, json, math, os, pickle, subprocess
+from pathlib import Path
+from omegaconf import OmegaConf
+import torch
+
+root=Path('results/repro_halfcheetah').resolve()
+repo=root/'dppo'
+candidates=root/'runs/three_seed_analysis/candidates'
+summary=json.loads((candidates/'summary.json').read_text())
+assert summary['aggregation']['seeds']==[0,1,2]
+assert summary['aggregation']['standard_deviation_ddof']==0
+os.environ['DPPO_LOG_DIR']=str(repo/'log')
+os.environ['DPPO_DATA_DIR']=str(repo/'data')
+OmegaConf.register_new_resolver('eval',eval,replace=True)
+records=[]
+output_runs=[]
+checkpoint_count=0
+for seed,name in enumerate(('seed0_handoff','seed1','seed2')):
+ manifest=json.loads((root/'runs'/name/'manifest.json').read_text())
+ assert manifest['status']=='complete' and manifest['returncode']==0
+ assert manifest['monitor_status']=='paused'
+ assert manifest['verified_rows']==140 and manifest['checkpoint_tensors_finite'] is True
+ assert manifest['final_training_env_steps']==10080000
+ expected_command=['python','script/run.py','--config-dir=cfg/gym/finetune/halfcheetah-v2','--config-name=ft_ppo_diffusion_mlp','train.n_train_itr=140','train.save_model_freq=35','seed='+str(seed),'wandb=null']
+ assert manifest['command']==expected_command, (seed,manifest['command'])
+ source=summary['runs'][seed]
+ assert source['seed']==seed
+ logdir=Path(source['logdir'])
+ assert str(logdir/'result.pkl')==source['result_path']
+ with (logdir/'result.pkl').open('rb') as f: data=pickle.load(f)
+ assert len(data)==140
+ train_count=0
+ for itr,row in enumerate(data):
+  if itr%10: train_count+=1
+  assert row['itr']==itr and row['step']==train_count*80000
+  keys=[key for key in ('train_episode_reward','eval_episode_reward') if key in row]
+  assert keys==(['eval_episode_reward'] if itr%10==0 else ['train_episode_reward'])
+  assert all(math.isfinite(float(value)) for value in row.values())
+  assert row['time']>0
+ assert train_count==126
+ overrides=OmegaConf.to_container(OmegaConf.load(logdir/'.hydra/overrides.yaml'),resolve=True)
+ assert overrides==expected_command[4:],(seed,overrides)
+ actual=OmegaConf.to_container(OmegaConf.load(root/'runs'/name/'config.yaml'),resolve=True)
+ baseline=OmegaConf.load(repo/'cfg/gym/finetune/halfcheetah-v2/ft_ppo_diffusion_mlp.yaml')
+ del baseline['defaults']
+ del baseline['hydra']
+ baseline.seed=seed
+ baseline.wandb=None
+ baseline.train.n_train_itr=140
+ baseline.train.save_model_freq=35
+ baseline.logdir=str(logdir)
+ expected=OmegaConf.to_container(baseline,resolve=True)
+ assert actual==expected,('resolved_config_difference',seed)
+ expected_names={'state_%d.pt'%itr for itr in (0,35,70,105,139)}
+ assert {p.name for p in (logdir/'checkpoint').glob('state_*.pt')}==expected_names
+ for itr in (0,35,70,105,139):
+  path=logdir/'checkpoint'/('state_%d.pt'%itr)
+  assert str(path) in source['checkpoints'] and path.stat().st_size>0
+  checkpoint=torch.load(str(path),map_location='cpu',weights_only=True)
+  assert checkpoint['itr']==itr
+  tensors=list(checkpoint['model'].values())
+  assert tensors and all(torch.is_tensor(t) and bool(torch.isfinite(t).all()) for t in tensors)
+  checkpoint_count+=1
+  del checkpoint,tensors
+ eval_rows=[row for row in data if 'eval_episode_reward' in row]
+ train_rows=[row for row in data if 'train_episode_reward' in row]
+ times=[row['time'] for row in data]
+ native={'native_iteration_time_sum_seconds':math.fsum(times),'iteration_mean_seconds':math.fsum(times)/140,'evaluation_iteration_mean_seconds':math.fsum(row['time'] for row in eval_rows)/14,'training_iteration_mean_seconds':math.fsum(row['time'] for row in train_rows)/126}
+ for key,value in native.items(): assert math.isclose(value,source['timing'][key],rel_tol=1e-12,abs_tol=1e-8)
+ assert source['initial_eval_return']==data[0]['eval_episode_reward']
+ assert source['last_eval_return']==data[130]['eval_episode_reward']
+ assert source['first_training_return']==data[1]['train_episode_reward']
+ output_runs.append({'seed':seed,'initial_eval':data[0]['eval_episode_reward'],'last_eval':data[130]['eval_episode_reward'],'minimum_eval':min(row['eval_episode_reward'] for row in eval_rows),'maximum_eval':max(row['eval_episode_reward'] for row in eval_rows),'first_train':data[1]['train_episode_reward'],'process_wall_seconds':manifest['subprocess_wall_seconds'],'timing':native})
+ records.append(data)
+with (candidates/'returns.csv').open() as f: table=list(csv.DictReader(f))
+assert len(table)==6
+out_table=[]
+for index,target in enumerate((0,2500000,5000000,7500000,10000000)):
+ candidates_eval=[row for row in records[0] if 'eval_episode_reward' in row]
+ chosen=min(candidates_eval,key=lambda row:abs(row['step']-target))
+ itr,step=chosen['itr'],chosen['step']
+ row=table[index]
+ assert row['metric']=='eval_episode_reward'
+ assert int(row['requested_env_steps'])==target and int(row['actual_env_steps'])==step and int(row['itr'])==itr
+ values=[float(data[itr]['eval_episode_reward']) for data in records]
+ mean=math.fsum(values)/3
+ std=math.sqrt(math.fsum((value-mean)**2 for value in values)/3)
+ for seed,value in enumerate(values): assert math.isclose(float(row['seed'+str(seed)]),value,rel_tol=0,abs_tol=1e-8)
+ assert math.isclose(float(row['mean']),mean,rel_tol=0,abs_tol=1e-8)
+ assert math.isclose(float(row['population_std_ddof0']),std,rel_tol=0,abs_tol=1e-8)
+ out_table.append({'target':target,'actual':step,'itr':itr,'per_seed':values,'mean':mean,'population_std':std})
+row=table[-1]
+values=[float(data[1]['train_episode_reward']) for data in records]
+mean=math.fsum(values)/3
+std=math.sqrt(math.fsum((value-mean)**2 for value in values)/3)
+assert row['metric']=='train_episode_reward' and int(row['itr'])==1 and int(row['actual_env_steps'])==80000
+for seed,value in enumerate(values): assert math.isclose(float(row['seed'+str(seed)]),value,rel_tol=0,abs_tol=1e-8)
+assert math.isclose(float(row['mean']),mean,rel_tol=0,abs_tol=1e-8)
+assert math.isclose(float(row['population_std_ddof0']),std,rel_tol=0,abs_tol=1e-8)
+initial_pass=[3850<=data[0]['eval_episode_reward']<=4650 for data in records]
+final_mean=math.fsum(data[130]['eval_episode_reward'] for data in records)/3
+assert initial_pass==summary['criteria']['iteration_zero_pass_by_seed']
+assert math.isclose(final_mean,summary['criteria']['last_observed_eval_mean'],rel_tol=0,abs_tol=1e-8)
+assert (4550<=final_mean<=4900)==summary['criteria']['last_observed_eval_mean_pass']
+assert summary['criteria']['exact_10000000_step_evaluation']=='not_available'
+reconciliation=json.loads((root/'runs/seed0_handoff/console_reconciliation.json').read_text())
+assert reconciliation['status']=='passed' and reconciliation['original_parent_returncode']==0
+revision=subprocess.check_output(['git','rev-parse','HEAD'],cwd=str(repo),text=True).strip()
+assert revision=='cc7234ad7ff39a8f32de3af903606723a16f0648'
+subprocess.run(['git','diff','--exit-code','HEAD','--'],cwd=str(repo),check=True)
+statuses={p.name:json.loads(p.read_text()) for p in (root/'runs').glob('*status.json')}
+assert statuses['remaining_batch_status.json']['exit_code']==0
+assert all(value.get('exit_code',0)==0 for key,value in statuses.items() if key!='batch_status.json' and value.get('status')=='terminal')
+print(json.dumps({'independent_audit':'passed','commit':revision,'checkpoints_loaded_and_finite':checkpoint_count,'runs':output_runs,'evaluation_table':out_table,'first_training':{'step':80000,'itr':1,'per_seed':values,'mean':mean,'population_std':std},'numeric_intervals_pass':all(initial_pass) and 4550<=final_mean<=4900,'statuses':statuses},indent=2,allow_nan=False))
+PY
+

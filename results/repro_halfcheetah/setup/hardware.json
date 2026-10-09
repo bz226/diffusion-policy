@@ -1,0 +1,153 @@
+{
+  "record_type": "observed execution hardware and software provenance",
+  "study_root": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah",
+  "execution_allocation": {
+    "slurm_job_id": "17768782",
+    "node": "soal-10",
+    "hardware_snapshot_utc": "2026-10-09T02:59:51+00:00",
+    "nproc": 40,
+    "slurm_cpus_per_task": 40,
+    "cpu_model": null,
+    "cpu_model_note": "CPU model was not printed in the allocation setup log.",
+    "cuda_visible_devices": "0",
+    "slurm_job_gpus": "3",
+    "gpu": {
+      "visible_count": 1,
+      "visible_index": 0,
+      "name": "NVIDIA RTX A6000",
+      "pci_bus_id": "00000000:C1:00.0",
+      "total_memory_mib_reported": 49140,
+      "used_memory_mib_at_setup_snapshot": 1,
+      "driver_version": "580.82.07",
+      "nvidia_smi_version": "580.82.07",
+      "driver_cuda_capability_reported_by_nvidia_smi": "13.0",
+      "torch_cuda_runtime_version": "12.1",
+      "cuda_version_note": "The CUDA 13.0 field is the driver capability reported by nvidia-smi. PyTorch actually reports CUDA runtime 12.1; these are distinct version measurements."
+    },
+    "os": {
+      "pretty_name": "Ubuntu 24.04.4 LTS",
+      "version_id": "24.04",
+      "codename": "noble"
+    },
+    "disk_snapshot": {
+      "filesystem": "10.79.13.15:/soalnas/share",
+      "mount_point": "/soalnas/share",
+      "size_df_h": "44T",
+      "used_df_h": "39T",
+      "available_df_h": "4.6T",
+      "used_percent": "90%",
+      "note": "Rounded human-readable df -h values at setup time; not a reserved disk allocation."
+    },
+    "source_paths_relative_to_study": [
+      "setup/slurm-17768782.log",
+      "runs/smoke/manifest.json"
+    ]
+  },
+  "additional_allocations": [
+    {
+      "slurm_job_id": "17770172",
+      "run_id": "seed2",
+      "node": "soal-10",
+      "hardware_snapshot_utc": "2026-10-09T05:48:31+00:00",
+      "nproc": 40,
+      "slurm_cpus_per_task": 40,
+      "cuda_visible_devices": "0",
+      "slurm_job_gpus": "4",
+      "gpu": {
+        "visible_count": 1,
+        "visible_index": 0,
+        "name": "NVIDIA RTX A6000",
+        "pci_bus_id": "00000000:81:00.0",
+        "total_memory_mib_reported": 49140,
+        "used_memory_mib_at_setup_snapshot": 1,
+        "driver_version": "580.82.07",
+        "nvidia_smi_version": "580.82.07",
+        "driver_cuda_capability_reported_by_nvidia_smi": "13.0",
+        "cuda_version_note": "CUDA 13.0 is the driver capability reported in this allocation's nvidia-smi snapshot. The unchanged shared environment's PyTorch CUDA runtime was separately verified as 12.1 during setup; no new runtime probe was performed here."
+      },
+      "parallel_relationship": {
+        "other_run_id": "seed1",
+        "other_slurm_job_id": "17769259",
+        "other_node": "soal-10",
+        "other_gpu_pci_bus_id": "00000000:C1:00.0",
+        "other_nproc": 40,
+        "physical_gpus_distinct": true,
+        "evidence": "Existing allocation logs show seed 2 on PCI bus 81:00.0 and seed 1 on C1:00.0, with nproc reporting 40 in each allocation."
+      },
+      "source_paths_relative_to_study": [
+        "setup/seed2-parallel-console.log",
+        "setup/remaining-batch-console.log",
+        "runs/seed2/manifest.json",
+        "runs/seed1/manifest.json",
+        "provenance/parallel_seed2.json"
+      ]
+    }
+  ],
+  "local_inspection_shell": {
+    "snapshot_utc": "2026-10-09T02:36:41+00:00",
+    "nproc": 2,
+    "nvidia_smi_status": "Could not communicate with the NVIDIA driver in the local shell.",
+    "note": "Training uses the separate Slurm allocation described above.",
+    "source_path_relative_to_study": "setup/20261009T023641.923985Z_local_hardware.log"
+  },
+  "software": {
+    "repository_url_requested": "https://github.com/irom-lab/dppo",
+    "repository_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_source_and_configuration_clean_after_smoke": true,
+    "python": {
+      "version": "3.8.20",
+      "conda_build": "h4a871b0_2_cpython",
+      "source_path_relative_to_study": "env/conda-meta/python-3.8.20-h4a871b0_2_cpython.json"
+    },
+    "torch_version_reported_at_runtime": "2.4.0+cu121",
+    "torch_version_in_pip_freeze": "2.4.0",
+    "torch_cuda_available_assertion_passed": true,
+    "gym": "0.22.0",
+    "d4rl": "1.1",
+    "numpy": "1.24.4",
+    "cython": "0.29.37",
+    "hydra_core": "1.3.2",
+    "gdown": "5.2.0",
+    "patchelf": "0.19.1.0",
+    "mujoco_for_halfcheetah": {
+      "binding": "mujoco-py",
+      "binding_version": "2.1.2.14",
+      "runtime_version_integer": 210,
+      "runtime_version": "2.1.0",
+      "binary_directory": "/sailhome/zbao7/.mujoco/mujoco210",
+      "runtime_measurement": "mujoco_py.functions.mj_version() returned 210",
+      "environment_implementation_evidence": [
+        "env/lib/python3.8/site-packages/d4rl/gym_mujoco/gym_envs.py",
+        "env/lib/python3.8/site-packages/gym/envs/mujoco/mujoco_env.py"
+      ]
+    },
+    "separate_transitive_mujoco_package": {
+      "package": "mujoco",
+      "version": "3.2.3",
+      "dependent_package": "dm_control 1.0.23",
+      "dependency_chain": "d4rl 1.1 requires dm-control>=1.0.3; dm_control 1.0.23 requires mujoco>=3.2.1.",
+      "note": "The dm-control import prints MuJoCo 3.2.3 during startup. The installed HalfCheetah implementation uses mujoco-py and its separately verified MuJoCo 2.1.0 runtime.",
+      "source_paths_relative_to_study": [
+        "env/lib/python3.8/site-packages/d4rl-1.1.dist-info/METADATA",
+        "env/lib/python3.8/site-packages/dm_control-1.0.23.dist-info/METADATA",
+        "setup/pip-freeze-17768782.txt",
+        "setup/slurm-17768782.log"
+      ]
+    },
+    "pip_check": "No broken requirements found.",
+    "requested_halfcheetah_v2_reset_check": "passed",
+    "configured_environment": {
+      "id": "halfcheetah-medium-v2",
+      "entry_point": "d4rl.gym_mujoco.gym_envs:get_cheetah_env",
+      "max_episode_steps": 1000,
+      "registration_check": "Passed after the explicit import d4rl.gym_mujoco used by DPPO."
+    },
+    "source_paths_relative_to_study": [
+      "setup/slurm-17768782.log",
+      "setup/pip-freeze-17768782.txt",
+      "runs/smoke/source_after.json"
+    ]
+  },
+  "installation_record_relative_to_study": "setup/workarounds.md",
+  "scope": "Recorded setup observations and existing source/dependency metadata only; no new experiment or hardware probe was run to create this record."
+}

@@ -1,0 +1,154 @@
+summary.json
+{
+  "status": "validated_complete_runs",
+  "endpoint_limitation": "The prescribed 140 iterations finish at 10,080,000 training steps, but the last evaluation is iteration 130 at 9,360,000 steps. No evaluation at 10,000,000 steps is available; the final evaluation comparison uses the last observed point without extrapolation.",
+  "aggregation": {
+    "independent_runs": 3,
+    "seeds": [
+      0,
+      1,
+      2
+    ],
+    "standard_deviation_ddof": 0,
+    "uncertainty": "Across-seed dispersion; not a confidence interval",
+    "smoothing": false,
+    "interpolation": false,
+    "extrapolation": false
+  },
+  "criteria": {
+    "iteration_zero_interval": [
+      3850,
+      4650
+    ],
+    "iteration_zero_pass_by_seed": [
+      true,
+      true,
+      true
+    ],
+    "last_observed_eval_mean_interval": [
+      4550,
+      4900
+    ],
+    "last_observed_eval_step": 9360000,
+    "last_observed_eval_mean": 4758.370764972049,
+    "last_observed_eval_mean_pass": true,
+    "numeric_interval_checks_pass": true,
+    "no_seed_collapse": "Requires human review; no numerical definition was supplied",
+    "overall_status": "pending_collapse_review",
+    "exact_10000000_step_evaluation": "not_available"
+  },
+  "timing_definition": "Native result.pkl time is elapsed wall time since the previous iteration's timer read. Its sum is not end-to-end process runtime: initialization, downloads, and final logging/serialization are excluded.",
+  "runs": [
+    {
+      "seed": 0,
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt"
+      ],
+      "iterations": 140,
+      "final_training_step": 10080000,
+      "initial_eval_return": 4286.896956658653,
+      "last_eval_return": 4636.273298273394,
+      "first_training_return": 3841.496354067624,
+      "timing": {
+        "native_iteration_time_sum_seconds": 7406.625599145889,
+        "iteration_mean_seconds": 52.90446856532778,
+        "iteration_median_seconds": 57.281073808670044,
+        "iteration_min_seconds": 12.435596704483032,
+        "iteration_max_seconds": 58.223257303237915,
+        "evaluation_iteration_mean_seconds": 12.780161602156502,
+        "training_iteration_mean_seconds": 57.362724894569034,
+        "evaluation_iterations": 14,
+        "training_iterations": 126
+      }
+    },
+    {
+      "seed": 1,
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_139.pt"
+      ],
+      "iterations": 140,
+      "final_training_step": 10080000,
+      "initial_eval_return": 4384.282887687965,
+      "last_eval_return": 4796.043488648042,
+      "first_training_return": 3841.064963843899,
+      "timing": {
+        "native_iteration_time_sum_seconds": 7369.236779928207,
+        "iteration_mean_seconds": 52.63740557091577,
+        "iteration_median_seconds": 56.96663987636566,
+        "iteration_min_seconds": 12.349571943283081,
+        "iteration_max_seconds": 58.03610897064209,
+        "evaluation_iteration_mean_seconds": 12.687537448746818,
+        "training_iteration_mean_seconds": 57.076279806712314,
+        "evaluation_iterations": 14,
+        "training_iterations": 126
+      }
+    },
+    {
+      "seed": 2,
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_139.pt"
+      ],
+      "iterations": 140,
+      "final_training_step": 10080000,
+      "initial_eval_return": 4354.750334819849,
+      "last_eval_return": 4842.7955079947105,
+      "first_training_return": 3951.242860095793,
+      "timing": {
+        "native_iteration_time_sum_seconds": 7501.074105262756,
+        "iteration_mean_seconds": 53.57910075187683,
+        "iteration_median_seconds": 57.87805449962616,
+        "iteration_min_seconds": 12.484497547149658,
+        "iteration_max_seconds": 59.032883644104004,
+        "evaluation_iteration_mean_seconds": 12.967911430767604,
+        "training_iteration_mean_seconds": 58.091455120888966,
+        "evaluation_iterations": 14,
+        "training_iterations": 126
+      }
+    }
+  ],
+  "artifacts": [
+    "eval_return_vs_env_steps.png",
+    "train_return_vs_env_steps.png",
+    "returns.csv"
+  ],
+  "captions_file": "captions.txt"
+}
+
+returns.csv
+metric,requested_env_steps,actual_env_steps,itr,seed0,seed1,seed2,mean,population_std_ddof0
+eval_episode_reward,0,0,0,4286.896956658653,4384.282887687965,4354.750334819849,4341.976726388822,40.77073047234883
+eval_episode_reward,2500000,2160000,30,4529.552125960205,4594.847757860682,4659.22770031796,4594.542528046281,52.940271502786445
+eval_episode_reward,5000000,5040000,70,4549.16837029026,4706.770206012169,4628.84613361733,4628.261569973253,64.34200774879704
+eval_episode_reward,7500000,7200000,100,4619.443888827633,4767.507690305814,4761.144784792437,4716.032121308628,68.34757558243577
+eval_episode_reward,10000000,9360000,130,4636.273298273394,4796.043488648042,4842.7955079947105,4758.370764972049,88.42051556405383
+train_episode_reward,80000,80000,1,3841.496354067624,3841.064963843899,3951.242860095793,3877.9347260024383,51.83697790553369
+
+captions.txt
+eval_return_vs_env_steps.png
+Evaluation return during unmodified DPPO fine-tuning: each point is a native within-iteration mean of undiscounted 1000-step episode returns. The x-axis counts training environment steps in millions; colored lines show seeds 0, 1, and 2, and the black line and shaded band show their mean ± population standard deviation (ddof=0), not a confidence interval. The last observed across-seed mean is 4758.37 at 9.36 million steps. Evaluation ends before the 10 million-step target; no smoothing or extrapolation is applied.
+
+train_return_vs_env_steps.png
+Training return during unmodified DPPO fine-tuning: each point is a native within-iteration mean of undiscounted 1000-step episode returns, collected using training exploration noise before that iteration's update. The x-axis counts training environment steps in millions; colored lines show seeds 0, 1, and 2, and the black line and shaded band show their mean ± population standard deviation (ddof=0), not a confidence interval. The final training mean is 4439.12 at 10.08 million steps. Training and evaluation returns use different sampling-noise settings and are not interchangeable; neither curve is smoothed or extrapolated.
+
+returns.csv
+Raw undiscounted episode returns are shown for each of three independent runs and their mean and population standard deviation (ddof=0), not a confidence interval. Evaluation rows use the nearest observed iteration to each requested step; both requested and actual steps are shown, without interpolation, and the final row lists training iteration 1 at 80,000 steps. The last observed evaluation mean is 4758.37 at 9.36 million steps, leaving the exact 10 million-step evaluation unmeasured.
+
+

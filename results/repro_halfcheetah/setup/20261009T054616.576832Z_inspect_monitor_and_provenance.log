@@ -1,0 +1,48 @@
+{
+  "user_approval": "Approve 2h15m per seed",
+  "old_cap_seconds": 7200,
+  "approved_cap_seconds": 8100,
+  "scope": ["seed0", "seed1", "seed2"],
+  "reason": "Observed roughly 57-second training iterations project a full seed slightly beyond two hours.",
+  "constraints": "Preserve each original DPPO process, exact commands, all hyperparameters and the three-seed budget. No retries."
+}
+
+#!/usr/bin/env bash
+# Session-only paths; do not source from shell startup files.
+REPRO_ROOT=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah
+export REPRO_ROOT
+export PATH="$REPRO_ROOT/env/bin:$PATH"
+export TMPDIR="$REPRO_ROOT/tmp"
+export PIP_CACHE_DIR="$REPRO_ROOT/cache/pip"
+export CONDA_PKGS_DIRS="$REPRO_ROOT/cache/conda"
+export CONDA_ENVS_PATH="$REPRO_ROOT/conda_envs"
+export CONDA_REGISTER_ENVS=false
+export XDG_CACHE_HOME="$REPRO_ROOT/cache"
+export MPLCONFIGDIR="$REPRO_ROOT/cache/matplotlib"
+export TORCH_HOME="$REPRO_ROOT/cache/torch"
+export D4RL_DATASET_DIR="$REPRO_ROOT/dppo/data/d4rl"
+export PYTHONNOUSERSITE=1
+export PYTHONDONTWRITEBYTECODE=1
+export LD_LIBRARY_PATH="$HOME/.mujoco/mujoco210/bin:/usr/lib/nvidia${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
+cd "$REPRO_ROOT/dppo"
+export DPPO_DATA_DIR="$PWD/data"
+export DPPO_LOG_DIR="$PWD/log"
+
+{
+  "run_id": "seed1",
+  "status": "running",
+  "bytes": 184303,
+  "lines": 3175,
+  "collection_iteration": 45,
+  "rollout_step": 490,
+  "last_completed_itr": 44,
+  "training_env_steps": 3200000,
+  "initial_eval_return": 4384.2829,
+  "last_line": "[2026-10-08 22:46:14,705][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.221671123465057e-06, update_epoch: 2, num_batch: 4",
+  "updated_utc": "2026-10-09T05:46:14+00:00",
+  "elapsed_seconds": 2402.216977097094,
+  "deadline_utc": "2026-10-09T07:21:12+00:00",
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1",
+  "last_eval_return": 4645.6573
+}
+

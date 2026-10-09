@@ -1,0 +1,19 @@
+Supplement to commands.jsonl and the earlier read-only inspection records.
+These exact shell invocations were reported in the conversation but were not
+wrapped by run_logged.py. Exact execution timestamps were not retained.
+Working directory: /soalnas/share/data/zbao7/diffusion_policy
+
+Root, following a context compaction:
+cat research_agent_workflow.md
+
+audit_install, additional parallel hardware provenance read:
+cat results/repro_halfcheetah/setup/hardware.json results/repro_halfcheetah/provenance/parallel_seed2.json
+sed -n '1,100p' results/repro_halfcheetah/runs/seed2/manifest.json
+
+audit_install, initial final-report preparation read:
+sed -n '1,210p' results/repro_halfcheetah/code/run_logged.py
+cat results/repro_halfcheetah/runs/remaining_batch_status.json results/repro_halfcheetah/runs/parallel_batch_status.json
+
+Helper/report/provenance edits performed through apply_patch are tool actions,
+not additional shell invocations. Original external helpers were preserved in
+provenance/before_parallel_*. DPPO source and configuration were not edited.

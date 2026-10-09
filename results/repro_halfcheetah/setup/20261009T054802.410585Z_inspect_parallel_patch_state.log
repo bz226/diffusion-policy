@@ -1,0 +1,25 @@
+assignment_exists False
+# DPPO HalfCheetah reproduction
+
+Status: smoke and seed 0 completed; seeds 1 and 2 in progress.
+
+## Question
+Does the unmodified DPPO implementation and released HalfCheetah checkpoint reproduce the approximate Fig. 5 fine-tuning curve under the user's three-seed protocol?
+
+## Answer so far
+The smoke gate passed at 4,272.95. Seed 0 completed 10.08 million training steps in 2h03m35s; its initial evaluation was 4,286.90 and final saved evaluation was 4,636.27 at 9.36 million steps, with all 140 records, five checkpoints and console checks passing. Full reproduction remains unassessed until seeds 1 and 2 finish. [Seed 0 record](runs/seed0_handoff/manifest.json).
+
+## Current status and next step
+2026-10-09T05:36:12+00:00: `seed1` running; last completed iteration 33, training steps 2400000, elapsed 1800.4s / 8100s. Scheduled monitor interval 1800s, based on 7407.0s estimated runtime. Next: Continue the same authorized run; stop on any failure gate. [Run record](runs/seed1/manifest.json).
+
+## Essential setup
+Use commit `cc7234ad7ff39a8f32de3af903606723a16f0648`, its unchanged HalfCheetah fine-tuning YAML, Python 3.8, torch 2.4.0, MuJoCo 2.1.0, 40 environments, action chunks of four, and 20 denoising steps with the last ten fine-tuned. Smoke: two iterations with default seed 42 and `wandb=null`. Full runs: seeds 0, 1, 2 sequentially, 140 iterations, checkpoint frequency 35, `wandb=null`; no other configuration overrides. Each seed starts independently from the released pretrained checkpoint. Full design and commands: [methods](methods.md).
+
+## Budget and monitoring
+Approved limits: setup two hours (deadline 2026-10-09 04:33 UTC), smoke 30 minutes, each full seed 2h15m (8,100 seconds, explicitly approved after the smoke projected 7,465 seconds). No automatic retries or further extensions. Allocation: one A6000 GPU, 40 CPUs, 64 GiB RAM. The smoke took 86.71 seconds end-to-end. Seed 0 transferred to a replacement external watchdog without restarting DPPO; complete console reconciliation is required before later seeds. Each run starts a scheduled monitor at max(30 minutes, estimated duration / 6), currently 30 minutes. Dated counters and terminal verification are saved in each run; monitors pause terminally. [Handoff](runs/seed0_handoff/manifest.json), [estimate basis](provenance/runtime_estimates.jsonl), [hardware](setup/hardware.json), [pip freeze](setup/pip-freeze-17768782.txt).
+
+## Outputs and boundary
+Produce exactly two candidate plots (evaluation/training raw episode return, each seed and mean ± population standard deviation over three seeds) and one table including nearest saved evaluation points and the first training return. The final training count is 10,080,000; the last saved evaluation is 9,360,000. No interpolation, extrapolation, or additional evaluation is authorized. Fig. 5 used five Gym seeds; this task requests three. Pass criteria: every initial evaluation in 3850–4650 and mean last observed evaluation in 4550–4900, with individual curves inspected for collapse; no numerical collapse threshold was supplied. Exact 10-million-step evaluation is not measured.
+
+No artifacts have been generated or curated. Preserve all runs, logs, checkpoints, and installation failures; request keep/revise/leave-uncurated and final filename decisions after the approved outputs are ready.
+

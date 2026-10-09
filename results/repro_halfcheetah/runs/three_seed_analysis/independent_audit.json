@@ -1,0 +1,112 @@
+{
+  "status": "passed",
+  "scope": "Independent read-only audit of completed native records and existing candidate table; no training or plotting.",
+  "code_revision": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "tracked_source_and_config_clean": true,
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "counts_per_seed": {
+    "result_rows": 140,
+    "evaluation_iterations": 14,
+    "training_iterations": 126,
+    "final_training_environment_steps": 10080000,
+    "last_evaluation_environment_steps": 9360000
+  },
+  "step_schedule_verified": true,
+  "all_result_scalars_finite": true,
+  "checkpoints": {
+    "loaded": 15,
+    "all_tensors_finite": true,
+    "iterations_per_seed": [
+      0,
+      35,
+      70,
+      105,
+      139
+    ],
+    "stored_iterations_and_paths_verified": true
+  },
+  "configurations": {
+    "manifest_commands_exact": true,
+    "hydra_override_lists_exact": true,
+    "resolved_configurations_match_pinned_yaml_with_approved_overrides": true,
+    "approved_cli_overrides": [
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "seed=0|1|2",
+      "wandb=null"
+    ],
+    "logdir_comparison": "The observed native logdir was substituted when resolving the reference YAML's timestamp; this was not an execution override."
+  },
+  "csv": {
+    "path": "candidates/returns.csv",
+    "rows": 6,
+    "all_per_seed_values_match_native_records": true,
+    "means_and_population_standard_deviations_match": true,
+    "independent_arithmetic": "math.fsum; population variance denominator 3",
+    "absolute_tolerance": 1e-8,
+    "target_steps": [
+      0,
+      2500000,
+      5000000,
+      7500000,
+      10000000
+    ],
+    "actual_eval_steps": [
+      0,
+      2160000,
+      5040000,
+      7200000,
+      9360000
+    ],
+    "evaluation_iterations": [
+      0,
+      30,
+      70,
+      100,
+      130
+    ],
+    "first_training_iteration": 1,
+    "first_training_step": 80000
+  },
+  "initial_evaluation_returns": [
+    4286.896956658653,
+    4384.282887687965,
+    4354.750334819849
+  ],
+  "last_evaluation_returns": [
+    4636.273298273394,
+    4796.043488648042,
+    4842.7955079947105
+  ],
+  "last_evaluation_mean": 4758.370764972049,
+  "last_evaluation_population_std": 88.42051556405383,
+  "numeric_interval_criteria_pass": true,
+  "exact_10000000_step_evaluation_available": false,
+  "first_training_returns": [
+    3841.496354067624,
+    3841.064963843899,
+    3951.242860095793
+  ],
+  "process_wall_seconds": [
+    7414.732464429224,
+    7380.337116700015,
+    7512.229150913074
+  ],
+  "native_timing_summary_matches": true,
+  "exit_status": {
+    "all_three_dppo_processes": 0,
+    "remaining_batch": 0,
+    "parallel_batch": 0,
+    "obsolete_original_batch": 1,
+    "seed0_console_reconciliation": "passed",
+    "obsolete_failure_meaning": "Superseded external watchdog deadline; DPPO exit 0 independently reconciled."
+  },
+  "minimum_evaluation_equals_initial_for_each_seed": true,
+  "visual_assessment": "Outside this numeric audit; root separately reviewed the plots.",
+  "command_provenance": "../../provenance/audit_dppo_source_commands.txt",
+  "provenance_limit": "Historical helper-command timestamps and interrupted passive-probe repetition counts were not retained; the supplement labels them unknown."
+}

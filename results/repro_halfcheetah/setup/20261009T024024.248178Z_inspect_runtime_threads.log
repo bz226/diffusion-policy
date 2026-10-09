@@ -1,0 +1,4 @@
+results/repro_halfcheetah/dppo/installation/install_furniture.md:31:export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:<conda_path>/envs/dppo/lib
+results/repro_halfcheetah/dppo/installation/install_mujoco.md:8:echo -e 'export LD_LIBRARY_PATH=$HOME/.mujoco/mujoco210/bin' >> ~/.bashrc
+results/repro_halfcheetah/dppo/installation/install_mujoco.md:9:echo -e 'export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/lib/nvidia' >> ~/.bashrc
+results/repro_halfcheetah/dppo/installation/install_mujoco.md:10:echo -e 'export PATH="$LD_LIBRARY_PATH:$PATH"' >> ~/.bashrc

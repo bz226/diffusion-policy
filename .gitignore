@@ -1,1 +1,31 @@
 /codex-workspace
+
+# Separate nested checkout of this repository.
+/diffusion-policy/
+
+# Training checkpoints and model weights.
+**/checkpoint/
+**/checkpoints/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+
+# Downloaded/generated datasets and dataset stores.
+**/data/
+**/datasets/
+*.h5
+*.hdf5
+*.zarr/
+*.zarr.zip
+
+# Local dependencies, caches and downloads for the HalfCheetah reproduction.
+/results/repro_halfcheetah/env/
+/results/repro_halfcheetah/miniforge/
+/results/repro_halfcheetah/cache/
+/results/repro_halfcheetah/downloads/
+/results/repro_halfcheetah/tmp/
+/results/repro_halfcheetah/conda_envs/
+
+# Keep reports, curated plots/tables, run metadata and result.pkl versionable.

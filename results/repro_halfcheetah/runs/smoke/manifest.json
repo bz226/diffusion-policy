@@ -1,0 +1,94 @@
+{
+  "run_id": "smoke",
+  "seed": 42,
+  "status": "complete",
+  "start_utc": "2026-10-09T03:00:00+00:00",
+  "end_utc": "2026-10-09T03:01:31+00:00",
+  "command": [
+    "python",
+    "script/run.py",
+    "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=2",
+    "wandb=null"
+  ],
+  "command_shell_display": "python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=2 wandb=null",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "environment": {
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/cache/matplotlib",
+    "SLURM_JOB_ID": "17768782",
+    "SLURM_JOBID": "17768782",
+    "SLURM_JOB_NODELIST": "soal-10",
+    "SLURM_CPUS_PER_TASK": "40",
+    "SLURM_JOB_GPUS": "3"
+  },
+  "slurm_job_id": "17768782",
+  "hardware_record": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/setup",
+  "timeout_seconds": 1800,
+  "deadline_utc": "2026-10-09T03:30:00+00:00",
+  "estimate_seconds": 60.0,
+  "estimate_basis": "Provisional 60s smoke estimate using the paper's 16.8s/training iteration",
+  "runtime_estimate_records": null,
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "paused",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/smoke/console.log",
+  "verification_commands": [
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ],
+    [
+      "git",
+      "rev-parse",
+      "HEAD"
+    ],
+    [
+      "git",
+      "diff",
+      "--exit-code",
+      "HEAD",
+      "--"
+    ]
+  ],
+  "source_before": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "subprocess_start_utc": "2026-10-09T03:00:00+00:00",
+  "pid": 1598221,
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42",
+  "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42/result.pkl",
+  "native_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42/.hydra/config.yaml",
+  "returncode": 0,
+  "subprocess_end_utc": "2026-10-09T03:01:27+00:00",
+  "subprocess_wall_seconds": 86.70604773599189,
+  "resolved_config": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/smoke/config.yaml",
+  "source_after": {
+    "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "tracked_files_clean": true
+  },
+  "checkpoints": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42/checkpoint/state_0.pt",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-00-02_42/checkpoint/state_1.pt"
+  ],
+  "verified_rows": 2,
+  "initial_eval_return": 4272.9525514687975,
+  "final_training_env_steps": 80000,
+  "native_iteration_time_sum_seconds": 70.798344373703,
+  "native_iteration_time_mean_seconds": 35.3991721868515,
+  "checkpoint_tensors_finite": true,
+  "wall_seconds_including_verification": 90.15355105604976
+}

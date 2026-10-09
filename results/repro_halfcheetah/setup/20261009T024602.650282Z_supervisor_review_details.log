@@ -1,0 +1,103 @@
+            raise ValueError("Native log directory changed within the run")
+        self.logdir = path
+        self.manifest["logdir"] = str(path)
+        self.manifest["result_path"] = str(path / "result.pkl")
+        self.manifest["native_config"] = str(path / ".hydra" / "config.yaml")
+
+    def consume_line(self, raw):
+        line = ANSI.sub("", raw.decode("utf-8", errors="replace")).rstrip("\r\n")
+        self.progress["lines"] += 1
+        self.progress["last_line"] = line[-1600:]
+        if NONFINITE.search(line):
+            raise ValueError("Printed NaN/Inf token: " + line[-400:])
+        match = CHECKPOINT.search(line)
+        if match:
+            self.accept_logdir(match.group(1))
+        match = COLLECTION.search(line)
+        if match:
+            step = int(match.group(1))
+            if step == 0:
+                self.progress["collection_iteration"] += 1
+            self.progress["rollout_step"] = step
+        match = TRAIN.search(line)
+        if match:
+            self.progress["last_completed_itr"] = int(match.group(1))
+            self.progress["training_env_steps"] = int(match.group(2))
+        match = EVAL.search(line)
+        if match:
+            reward = finite(float(match.group(1)), "printed evaluation reward")
+            self.progress["last_completed_itr"] = self.progress["collection_iteration"]
+            self.progress["last_eval_return"] = reward
+            if self.progress["initial_eval_return"] is None:
+                self.progress["initial_eval_return"] = reward
+                if not 3850 <= reward <= 4650:
+                    raise ValueError("Initial evaluation %.4f is outside [3850, 4650]" % reward)
+
+    def write_progress(self, force=False):
+        now = time.monotonic()
+        if force or now - self.last_progress_write >= 1:
+            self.progress.update({"updated_utc": utc(),
+                                  "elapsed_seconds": now - self.start_clock,
+                                  "deadline_utc": self.manifest["deadline_utc"],
+                                  "logdir": str(self.logdir) if self.logdir else None})
+            atomic_json(self.run_dir / "progress.json", self.progress)
+            self.last_progress_write = now
+
+    def update_study(self, terminal=False):
+        path = STUDY / "experiment.md"
+        text = path.read_text()
+        section = re.compile(r"(## Current status and next step\n).*?(?=\n## |\Z)", re.S)
+        if not section.search(text):
+            raise ValueError("experiment.md lacks Current status and next step section")
+        next_step = ("Verify the next authorized stage; no automatic retry or extension."
+                     if self.progress["status"] == "complete" else
+                     "Execution stopped; report the recorded failure before any further run."
+                     if terminal else "Continue the same authorized run; stop on any failure gate.")
+        note = "%s: `%s` %s; last completed iteration %s, training steps %s, elapsed %.1fs / %ds. " % (
+            utc(), self.args.run_id, self.progress["status"], self.progress["last_completed_itr"],
+            self.progress["training_env_steps"], time.monotonic() - self.start_clock,
+            self.args.timeout_seconds)
+        note += ("Monitor paused. " if terminal else "Scheduled monitor interval %ds, based on %.1fs estimated runtime. " %
+                 (self.interval, self.args.estimate_seconds))
+        if self.stop_reason:
+            note += "Failure: %s. " % self.stop_reason.replace("\n", " ")
+        note += "Next: %s [Run record](runs/%s/manifest.json).\n" % (next_step, self.args.run_id)
+        temporary = path.with_name("experiment.md.supervisor.pending")
+        temporary.write_text(section.sub(lambda match: match.group(1) + note, text, count=1))
+        temporary.replace(path)
+
+    def monitor(self, event, terminal=False):
+        self.discover_logdir()
+        snapshot = dict(self.progress)
+        snapshot.update({"checked_utc": utc(), "event": event,
+                         "elapsed_seconds": time.monotonic() - self.start_clock,
+                         "deadline_utc": self.manifest["deadline_utc"],
+                         "disk_free_bytes": shutil.disk_usage(STUDY).free,
+                         "load_average": list(os.getloadavg()),
+                         "monitor_status": "paused" if terminal else "running"})
+        if self.process is not None:
+            snapshot["process_pid"] = self.process.pid
+            snapshot["process_returncode"] = self.process.poll()
+            try:
+                status = Path("/proc/%d/status" % self.process.pid).read_text()
+                rss = re.search(r"^VmRSS:\s+(\d+) kB", status, re.M)
+                snapshot["main_process_rss_bytes"] = int(rss.group(1)) * 1024 if rss else None
+            except OSError:
+                snapshot["main_process_rss_bytes"] = None
+        if self.logdir is not None:
+            native_result = self.logdir / "result.pkl"
+            snapshot["native_result_bytes"] = native_result.stat().st_size if native_result.exists() else 0
+        signature = (self.progress["bytes"], self.progress["collection_iteration"],
+                     self.progress["rollout_step"], self.progress["last_completed_itr"])
+        if event == "scheduled":
+            self.stalled_checks = self.stalled_checks + 1 if signature == self.previous_monitor_signature else 0
+        self.previous_monitor_signature = signature
+        snapshot["consecutive_scheduled_checks_without_progress"] = self.stalled_checks
+        with (self.run_dir / "monitor_history.jsonl").open("a") as stream:
+            stream.write(json.dumps(snapshot, allow_nan=False) + "\n")
+        self.write_progress(force=True)
+        self.update_study(terminal=terminal)
+        atomic_json(self.run_dir / "manifest.json", self.manifest)
+        if self.stalled_checks >= 2 and not terminal:
+            raise ValueError("Confirmed stall: two consecutive scheduled checks without progress")
+
