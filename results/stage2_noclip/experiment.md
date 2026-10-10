@@ -2,42 +2,35 @@
 
 Which clipping mechanisms support stable HalfCheetah-v2 fine-tuning, and does their effect depend on reusing a batch for multiple actor updates?
 
-**All NC2 and NC3 seeds crossed the collapse threshold; NC3 recovered to higher returns than NC2.** NC4 was stable at LR 1e-4, degraded at 1e-3 and collapsed at 3e-3. These completed subsets are plotted; the full comparison awaits the R0 and NC1 seed-1 replacements.
+The agent’s scheduler handoff interrupted [R0](runs/R0_rerun_seed0/manifest.json) and [NC1 seed 1](runs/NC1_seed1/manifest.json) at 138/140 iterations, leaving their final two training rows and checkpoint missing. These orchestration failures remain [preserved](provenance/parallel_handoff_failure.json). The authorized fresh replacements `R0_recovery_seed0` and `NC1_recovery_seed1` now occupy those two analysis slots regardless of outcome; original trajectories are excluded, not spliced or averaged together.
 
-## Analysis: NC2 and NC3
+**Executed results:** 19 of 19 new full runs completed; 12 met the prescribed observed-collapse criterion. R0 ended with status `complete`. The fixed-batch differential gate passed before launch; trajectories were not used to test code equivalence.
 
-| Condition | Last eval, mean ± SD | Collapsed seeds |
-|---|---:|---:|
-| Stage 1 baseline | 4,758 ± 88 | 0/3 |
-| NC2 | −13 ± 833 | 3/3 |
-| NC3 | 3,043 ± 497 | 3/3 |
+| Condition | Completed | Final eval mean ± std | Observed collapses |
+|---|---:|---:|---:|
+| baseline | 3/3 | 4758.4 ± 88.4 | 0/3 |
+| R0 | 1/1 | 4621.8 (one run) | 0/1 |
+| NC1 | 3/3 | -757.5 ± 593.5 | 3/3 |
+| NC2 | 3/3 | -13.1 ± 833.1 | 3/3 |
+| NC3 | 3/3 | 3043.0 ± 496.8 | 3/3 |
+| NC4_lr1e-4 | 3/3 | 4603.5 ± 15.6 | 0/3 |
+| NC4_lr1e-3 | 3/3 | 3726.4 ± 403.6 | 0/3 |
+| NC4_lr3e-3 | 3/3 | -97.6 ± 476.8 | 3/3 |
 
-![NC2 and NC3 evaluation and training returns](curated/halfcheetah-nc2-nc3-returns.png)
+Final evaluation means iteration 130 at 9.36 million training steps; completed training ends at 10.08 million. Bands use population standard deviation over all three requested seeds, without survivor averaging or endpoint substitution. Collapse means an observed evaluation below half the initial return or any recorded scientific NaN/inf. All 19 selected runs have finite saved metrics.
 
-Evaluation and exploratory training returns use three independent seeds per condition: faint lines are seeds, bold lines arithmetic means, and bands ± population SD, not confidence intervals. All nine runs completed 140 iterations; last evaluation is at 9.36 million training steps and final training at 10.08 million, without smoothing or extrapolation. NC3 ends higher but does not restore baseline performance.
+NC1 widens the ratio-clip bound to 1e6 and removes KL stopping; NC2 additionally removes log-probability and practical noise clamps; NC3 additionally sums log-probabilities. NC4 uses NC2 with one actor step per batch at the three specified constant learning rates. [Per-seed results](curated/condition_seed_results.csv) and [captions](curated/stage2-captions.md) cover all selected runs. NC3 seed 1, iteration 31, has clip fraction approximately 1e-6: the prescribed finite bound was exceeded rarely, as retained in the [curated diagnostics](curated/halfcheetah-nc2-nc3-captions.md).
 
-NC2 widens ratio clipping to 1e6 and removes KL early stopping, log-probability clamping and practical sampling-noise clipping. NC3 additionally replaces coordinate-mean with coordinate-sum log-probabilities in the PPO ratio. Collapse means any evaluation below half that seed's initial return or any scientific NaN/inf; all six ablation runs remained finite.
+[CPU/GPU gate results](runs/verification_full_update/verification.json) include each minibatch loss, actor/critic gradients, final parameters, fixed-noise sampling and RNG isolation. Maximum absolute / relative differences: CPU 0 / 0; GPU 0 / 0. CPU requires bitwise equality; GPU tolerance was fixed at `atol=1e-7, rtol=1e-5`. [Flag verification](runs/verification/verification.json) additionally checks the NC4 ratio-one/clip-zero invariant.
 
-The [diagnostic plot](curated/halfcheetah-nc2-nc3-diagnostics.png) preserves one exception to the anticipated zero clip fraction: NC3 seed 1, iteration 31, approximately 1e-6. The prescribed finite bound was exceeded; this alone does not prove the clipped loss branch changed gradients. Post-update KL is a sampled denoising-transition statistic, not exact final-action KL. Its 52 exact zeros remain in summaries and are omitted only from logarithmic rendering.
+R0 produced 0 non-stopping evaluation red flags against the three Stage 1 seeds' same-step mean ± five sample standard deviations; see its [manifest](runs/R0_recovery_seed0/manifest.json). P1/P2 and the previously stopped R0 remain preserved outside condition averages.
 
-[Per-seed table](curated/halfcheetah-nc2-nc3-seed-results.csv), [captions](curated/halfcheetah-nc2-nc3-captions.md), [verification](runs/nc23_analysis/verification.json), and [sources/command](runs/nc23_analysis/analysis_record.json) accompany the curated artifacts. [Methods](methods.md#nc2-and-nc3-plots-before-full-stage-2-analysis) document the unchanged aggregation and checks. NC2's joint removals do not isolate individual mechanisms. The approved figures and table are [curated](curated/INDEX.md#nc2-and-nc3); source candidates remain preserved.
+Curated artifacts: [evaluation returns](curated/eval_return_vs_env_steps.png), [training returns](curated/train_return_vs_env_steps.png), [diagnostics](curated/diagnostics_vs_iteration.png), and [condition × seed table](curated/condition_seed_results.csv). [Analysis records](runs/final_analysis/analysis_record.json) provide native log/result/checkpoint paths, failures, last diagnostics, per-run and per-condition times, and observed GPU sharing.
 
-## Analysis: NC4 learning rates
+Source remains `ab46b150fa34b5a5b457cd4062cd4c5ad830d964` on `stage2-noclip`; [diff](provenance/dppo_changes.patch), [methods](methods.md), [dependencies](provenance/pip_freeze.txt). Scientific settings and Stage 1 outputs are unchanged. The KL diagnostic is a sampled transition estimate, not the exact final-action KL.
+NC1 seed 2 used H200 NVL after a passing [saved-batch H200 check](runs/verification_h200/verification.json); other runs used A6000. This approved hardware difference is a comparison limitation. [Authorization](provenance/h200_seed2_authorization.json) and run manifests retain resource details.
 
-Last evaluation means ± SD were 4,604 ± 16 at LR 1e-4, 3,726 ± 404 at 1e-3 and −98 ± 477 at 3e-3; collapse counts were 0/3, 0/3 and 3/3. All 1,134 actor updates had pre-step ratio exactly 1 and clip fraction 0. Avoiding repeated updates did not prevent collapse at the largest learning rate; NC4 also changes update count and gradient aggregation, so reuse alone is not isolated.
 
-Approved [return plots](curated/halfcheetah-nc4-returns.png), [diagnostics](curated/halfcheetah-nc4-diagnostics.png), [table](curated/halfcheetah-nc4-seed-results.csv), [captions](curated/halfcheetah-nc4-captions.md), [verification](runs/nc4_analysis/verification.json) and [methods](methods.md#nc4-subset-analysis-requested-before-campaign-completion) remain preserved in the [curated index](curated/INDEX.md).
+**Completion:** the last training process finished October 10 at 12:18 a.m. PDT. All 19 selected runs have 140 rows and all 95 expected checkpoints; monitors are paused. [Completion verification](runs/monitor_checks/20261010T084908_completion.json).
 
-## Execution and remaining work
-
-My earlier scheduler handoff [interrupted R0 and NC1 seed 1](provenance/parallel_handoff_failure.json) at 138/140 iterations. Their checkpoints lacked the state needed for faithful continuation; raw outputs survive. Two [authorized fresh replacements](provenance/interrupted_recovery_authorization.json) started October 9 at 10:15 p.m. PDT, capped at 2h15m each; expected completion is October 10 around 12:20–12:30 a.m. Completed seeds were not repeated.
-
-Scientific source remains `ab46b150fa34b5a5b457cd4062cd4c5ad830d964`; the [fixed-batch gate](runs/verification_full_update/verification.json) passed with zero CPU/A6000 differences and isolated diagnostic RNG. NC2–NC4 used A6000; only NC1 seed 2 used the verified H200 exception. The [58.5 GPU-hour budget](provenance/interrupted_recovery_budget.json), deadline, 40 workers and 30-minute monitors remain unchanged.
-
-<!-- campaign-status-start -->
-Original campaign terminal: 17 ablations completed; two interrupted attempts remain preserved. Original allocations ended before recovery began; their monitors are paused. [Verified status](runs/monitor_checks/20261010T052335_status.json).
-<!-- campaign-status-end -->
-
-<!-- recovery-status-start -->
-Recovery (2026-10-10T05:38:25+00:00): running_replacements; R0_recovery_seed0: running, NC1_recovery_seed1: running; next: check replacement outputs. [Run record](runs/recovery_campaign.json).
-<!-- recovery-status-end -->
+**Curation:** the user approved all full-analysis plots and the table. [Verified copies and captions](curated/INDEX.md#full-stage-2-comparison) retain their sources; earlier curated subsets remain preserved. No further experiments are authorized.

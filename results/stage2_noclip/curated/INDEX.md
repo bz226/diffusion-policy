@@ -1,10 +1,27 @@
 # Curated Stage 2 results
 
+## Full Stage 2 comparison
+
+Which clipping removals preserve stable fine-tuning, and how does one actor update per batch change the outcome?
+
+The user approved all full-analysis plots and the table with “keep the plots and tables in curated.” **final_analysis** includes all 19 selected Stage 2 runs and three unchanged Stage 1 baselines; original candidate filenames are retained.
+
+| Artifact | What it answers / limitation | Original source |
+|---|---|---|
+| [Evaluation returns](eval_return_vs_env_steps.png) | Baseline versus NC1–NC3 and NC4 rates; three seeds, last eval at 9.36M steps. | [Candidate](../runs/final_analysis/candidates/eval_return_vs_env_steps.png) |
+| [Training returns](train_return_vs_env_steps.png) | Returns under exploration noise; differs from evaluation. | [Candidate](../runs/final_analysis/candidates/train_return_vs_env_steps.png) |
+| [Update diagnostics](diagnostics_vs_iteration.png) | R0 and all ablations; sampled transition KL, one R0 seed. | [Candidate](../runs/final_analysis/candidates/diagnostics_vs_iteration.png) |
+| [Condition × seed table](condition_seed_results.csv) | All 22 rows, endpoints, minima, diagnostic KL and collapse. | [Candidate](../runs/final_analysis/candidates/condition_seed_results.csv) |
+
+Keep the [captions](stage2-captions.md) with exports. They define population-SD bands and diagnostic caveats. Authorized fresh replacements occupy the R0 and NC1 seed-1 slots; interrupted attempts remain preserved and excluded. All unfavorable results are retained.
+
+[Methods](../methods.md#analysis-and-deliverables) · [Source paths and analysis](../runs/final_analysis/analysis_record.json) · [Verification](../runs/final_analysis/curation_verification.json) · [Approval and copy record](../runs/final_analysis/curation_record.json).
+
 ## NC4 learning rates
 
 Does one actor update per batch preserve stable HalfCheetah-v2 fine-tuning after the specified clipping removals, and how does the learning rate affect it?
 
-Approved artifacts A–C from analysis **nc4_analysis** include all nine NC4 runs: seeds 0, 1 and 2 at learning rates 1e-4, 1e-3 and 3e-3, plus the three unchanged Stage 1 runs where baseline comparisons apply. The user approved the proposed names with “keep in curated.” This completed subset does not mark the full Stage 2 campaign complete.
+Approved artifacts A–C from analysis **nc4_analysis** include all nine NC4 runs: seeds 0, 1 and 2 at learning rates 1e-4, 1e-3 and 3e-3, plus the three unchanged Stage 1 runs where baseline comparisons apply. The user approved the proposed names with “keep in curated.” This subset was curated before full-campaign completion and remains available alongside the full comparison.
 
 | ID | Artifact | What it answers / limitation | Original source |
 |---|---|---|---|
@@ -20,7 +37,7 @@ Keep the [captions](halfcheetah-nc4-captions.md) with exported artifacts. Bands 
 
 How does HalfCheetah-v2 fine-tuning change when the specified clipping mechanisms are removed, and when the coordinate-mean ratio becomes a coordinate-sum ratio?
 
-Approved artifacts A–C from **nc23_analysis** include all six NC2/NC3 runs (seeds 0, 1 and 2) and the three unchanged Stage 1 runs for return comparisons. The user approved the proposed names with “keep in curated.” This is a completed subset, not a declaration that the full Stage 2 campaign is complete.
+Approved artifacts A–C from **nc23_analysis** include all six NC2/NC3 runs (seeds 0, 1 and 2) and the three unchanged Stage 1 runs for return comparisons. The user approved the proposed names with “keep in curated.” This subset was curated before full-campaign completion and remains available alongside the full comparison.
 
 | ID | Artifact | What it answers / limitation | Original source |
 |---|---|---|---|

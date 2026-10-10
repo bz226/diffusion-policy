@@ -2,7 +2,7 @@
   "role": "descriptive_only_no_trajectory_stopping",
   "criterion": "eval return outside Stage 1 same-step mean +/- 5 sample standard deviations",
   "standard_deviation_ddof": 1,
-  "status": "observing",
+  "status": "complete",
   "references": [
     {
       "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
@@ -116,9 +116,137 @@
       "eval_return": 4552.113377282804,
       "red_flag": false,
       "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4567.939355363847,
+        4635.8633758981405,
+        4685.191660270862
+      ],
+      "mean": 4629.6647971776165,
+      "sample_std": 58.871406770330815,
+      "lower": 4335.307763325963,
+      "upper": 4924.02183102927,
+      "iteration": 60,
+      "step": 4320000,
+      "eval_return": 4639.704982038461,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4549.16837029026,
+        4706.770206012169,
+        4628.84613361733
+      ],
+      "mean": 4628.261569973253,
+      "sample_std": 78.80254400537706,
+      "lower": 4234.248849946368,
+      "upper": 5022.2742900001385,
+      "iteration": 70,
+      "step": 5040000,
+      "eval_return": 4660.817276563081,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4668.026744418287,
+        4741.414553442958,
+        4676.997945874726
+      ],
+      "mean": 4695.479747911991,
+      "sample_std": 40.0328038397121,
+      "lower": 4495.31572871343,
+      "upper": 4895.643767110551,
+      "iteration": 80,
+      "step": 5760000,
+      "eval_return": 4626.685836911146,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4565.196542196399,
+        4712.629475594787,
+        4590.414542257403
+      ],
+      "mean": 4622.746853349529,
+      "sample_std": 78.85525485363661,
+      "lower": 4228.470579081346,
+      "upper": 5017.023127617713,
+      "iteration": 90,
+      "step": 6480000,
+      "eval_return": 4659.1016171236915,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4619.443888827633,
+        4767.507690305814,
+        4761.144784792437
+      ],
+      "mean": 4716.032121308628,
+      "sample_std": 83.70834266663722,
+      "lower": 4297.490407975442,
+      "upper": 5134.573834641814,
+      "iteration": 100,
+      "step": 7200000,
+      "eval_return": 4671.663653679151,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4673.863218633073,
+        4793.801790054369,
+        4708.965500604488
+      ],
+      "mean": 4725.54350309731,
+      "sample_std": 61.66391046336858,
+      "lower": 4417.223950780468,
+      "upper": 5033.863055414153,
+      "iteration": 110,
+      "step": 7920000,
+      "eval_return": 4722.139735109628,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4688.817055330243,
+        4731.517934279893,
+        4833.376379779091
+      ],
+      "mean": 4751.237123129742,
+      "sample_std": 74.26967333945124,
+      "lower": 4379.888756432486,
+      "upper": 5122.585489826998,
+      "iteration": 120,
+      "step": 8640000,
+      "eval_return": 4738.388228644723,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4636.273298273394,
+        4796.043488648042,
+        4842.7955079947105
+      ],
+      "mean": 4758.370764972049,
+      "sample_std": 108.2925729628751,
+      "lower": 4216.907900157674,
+      "upper": 5299.833629786424,
+      "iteration": 130,
+      "step": 9360000,
+      "eval_return": 4621.8268476741305,
+      "red_flag": false,
+      "action": "record_only_continue"
     }
   ],
   "red_flags": [],
   "training_or_log_token_comparisons": false,
-  "updated_utc": "2026-10-10T05:59:15+00:00"
+  "updated_utc": "2026-10-10T07:16:42+00:00"
 }

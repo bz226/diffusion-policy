@@ -1,5 +1,5 @@
 {
-  "status": "running_replacements",
+  "status": "candidate_artifacts_ready_for_review",
   "started_utc": "2026-10-09T21:35:29+00:00",
   "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
   "controller_slurm_job": "17780304",
@@ -90,9 +90,9 @@
   ],
   "retries": 0,
   "monitor_interval_seconds": 1800,
-  "monitor_status": "running",
+  "monitor_status": "paused",
   "trajectory_stopping": false,
-  "updated_utc": "2026-10-10T06:07:15+00:00",
+  "updated_utc": "2026-10-10T07:19:02+00:00",
   "primary_controller_state": "COMPLETED",
   "primary_campaign_status": "runs_terminal_recovery_pending",
   "primary_controller_observation": {
@@ -827,7 +827,7 @@
       "start": null,
       "end": null,
       "source": "squeue",
-      "observed_utc": "2026-10-10T06:07:15+00:00",
+      "observed_utc": "2026-10-10T07:16:30+00:00",
       "evidence": [
         {
           "command": [
@@ -850,7 +850,7 @@
       "start": null,
       "end": null,
       "source": "squeue",
-      "observed_utc": "2026-10-10T06:07:15+00:00",
+      "observed_utc": "2026-10-10T07:18:17+00:00",
       "evidence": [
         {
           "command": [
@@ -867,19 +867,19 @@
     }
   },
   "condition_progress": {
-    "R0_recovery_seed0": "running",
-    "NC1_recovery_seed1": "running"
+    "R0_recovery_seed0": "complete",
+    "NC1_recovery_seed1": "complete"
   },
   "recovery_allocation_observations": {
     "R0_recovery_seed0": {
       "job_id": "17789310",
-      "state": "RUNNING",
-      "raw_state": "RUNNING",
-      "exit_code": null,
-      "start": null,
-      "end": null,
-      "source": "squeue",
-      "observed_utc": "2026-10-10T06:07:15+00:00",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T22:15:36",
+      "end": "2026-10-10T00:16:43",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T07:19:02+00:00",
       "evidence": [
         {
           "command": [
@@ -889,20 +889,33 @@
             "--format=%i|%T"
           ],
           "returncode": 0,
-          "stdout": "17789310|RUNNING\n",
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17789310",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17789310|COMPLETED|0:0|2026-10-09T22:15:36|2026-10-10T00:16:43\n",
           "stderr": ""
         }
       ]
     },
     "NC1_recovery_seed1": {
       "job_id": "17789311",
-      "state": "RUNNING",
-      "raw_state": "RUNNING",
-      "exit_code": null,
-      "start": null,
-      "end": null,
-      "source": "squeue",
-      "observed_utc": "2026-10-10T06:07:15+00:00",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T22:15:36",
+      "end": "2026-10-10T00:18:32",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T07:19:02+00:00",
       "evidence": [
         {
           "command": [
@@ -912,10 +925,36 @@
             "--format=%i|%T"
           ],
           "returncode": 0,
-          "stdout": "17789311|RUNNING\n",
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17789311",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17789311|COMPLETED|0:0|2026-10-09T22:15:36|2026-10-10T00:18:32\n",
           "stderr": ""
         }
       ]
     }
-  }
+  },
+  "ended_utc": "2026-10-10T07:19:02+00:00",
+  "finalizer_command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/finalize_campaign.py",
+    "--matrix",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_recovery.json",
+    "--campaign",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/campaign_revised.json",
+    "--recovery-record",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/recovery_campaign.json"
+  ],
+  "analysis_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/analysis_record.json",
+  "finalization_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/finalization.json"
 }

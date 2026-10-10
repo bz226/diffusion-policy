@@ -1,5 +1,5 @@
 {
-  "status": "runs_terminal_recovery_pending",
+  "status": "candidate_artifacts_ready_for_review",
   "started_utc": "2026-10-09T17:49:34+00:00",
   "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
   "r0_job_id": "17777245",
@@ -2230,5 +2230,7 @@
   "dispatch_paused_for_unknown_allocation": false,
   "recovery_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/recovery_campaign.json",
   "recovery_matrix": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_recovery.json",
-  "finalization_deferred_reason": "Two authorized fresh replacements remain pending"
+  "finalization_deferred_reason": "Two authorized fresh replacements remain pending",
+  "analysis_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/analysis_record.json",
+  "finalization_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/finalization.json"
 }

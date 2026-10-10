@@ -22,6 +22,8 @@ import sys
 import time
 import types
 
+from source_git import source_git_command
+
 STUDY = Path(__file__).resolve().parents[1]
 PIN = "cc7234ad7ff39a8f32de3af903606723a16f0648"
 EXPECTED = "ab46b150fa34b5a5b457cd4062cd4c5ad830d964"
@@ -207,7 +209,7 @@ def compile_update(source, module, label):
 
 
 def load_reference(repo):
-    sources = {path: subprocess.check_output(["git", "-C", str(repo), "show", PIN + ":" + path],
+    sources = {path: subprocess.check_output(source_git_command(repo, "show", PIN + ":" + path),
                                             text=True) for path in (MODEL, AGENT)}
     modules = {}
     for path, suffix in ((MODEL, "model"), (AGENT, "agent")):
@@ -494,7 +496,7 @@ def main():
     save()
     try:
         repo = STUDY / "dppo"
-        command = lambda *parts: subprocess.check_output(["git", "-C", str(repo), *parts], text=True).strip()
+        command = lambda *parts: subprocess.check_output(source_git_command(repo, *parts), text=True).strip()
         require(command("rev-parse", "HEAD") == EXPECTED and not command("status", "--porcelain"),
                 "source commit changed or worktree dirty")
         require(set(command("diff", "--name-only", PIN).splitlines()) == {MODEL, AGENT}, "unauthorized source files changed")

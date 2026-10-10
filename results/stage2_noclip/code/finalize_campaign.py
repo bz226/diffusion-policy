@@ -9,6 +9,7 @@ import subprocess
 
 from analyze_stage2 import generate, load_campaign, summarize_run, resources, CONDITIONS
 from fixed_batch_gate import validate_gate
+from source_git import source_git_command
 
 ROOT = Path(__file__).resolve().parents[1]
 BASE = ROOT.parent / 'repro_halfcheetah'
@@ -209,9 +210,9 @@ def main():
         raise ValueError('Deferred recovery authorization is unavailable')
     gate = validate_gate(ROOT / 'runs/verification_full_update/verification.json', COMMIT)
     repo = ROOT / 'dppo'
-    if subprocess.check_output(['git', '-C', str(repo), 'rev-parse', 'HEAD'], text=True).strip() != COMMIT:
+    if subprocess.check_output(source_git_command(repo, 'rev-parse', 'HEAD'), text=True).strip() != COMMIT:
         raise ValueError('Source revision changed before analysis')
-    if subprocess.check_output(['git', '-C', str(repo), 'status', '--porcelain'], text=True).strip():
+    if subprocess.check_output(source_git_command(repo, 'status', '--porcelain'), text=True).strip():
         raise ValueError('Source tree changed before analysis')
     runs = load_campaign(args.matrix, BASELINES, expected_r0)  # Refuses any nonterminal run.
     verify_paused(runs)

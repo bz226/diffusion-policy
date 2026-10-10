@@ -1,0 +1,211 @@
+{
+  "observed_utc": "2026-10-10T07:00:31.463707+00:00",
+  "observed_pdt": "2026-10-10T00:00:31.463707-07:00",
+  "reason": "User requested monitor the runs",
+  "scheduler": {
+    "command": "squeue --noheader --jobs=17780304,17789310,17789311 --format='%i|%T|%M|%l|%S|%e|%N|%C|%m|%b'",
+    "exit_code": 0,
+    "output": "17780304|RUNNING|9:23:52|20:14:00|2026-10-09T14:35:28|2026-10-10T10:49:28|soal-9|2|8G|N/A\n17789310|RUNNING|1:43:44|2:15:00|2026-10-09T22:15:36|2026-10-10T00:30:36|soal-11|40|64G|gres/gpu:a6000:1\n17789311|RUNNING|1:43:44|2:15:00|2026-10-09T22:15:36|2026-10-10T00:30:36|soal-10|40|64G|gres/gpu:a6000:1\n"
+  },
+  "runs": [
+    {
+      "run_id": "R0_recovery_seed0",
+      "manifest_status": "running",
+      "job_id": "17789310",
+      "completed_rows": 122,
+      "last_iteration": 121,
+      "training_env_steps": 8720000,
+      "latest_eval": {
+        "itr": 120,
+        "step": 8640000,
+        "time": 13.196235179901123,
+        "eval_success_rate": 1.0,
+        "eval_episode_reward": 4738.388228644723,
+        "eval_best_reward": 6.56411368884734
+      },
+      "latest_training": {
+        "itr": 121,
+        "step": 8720000,
+        "time": 56.51872396469116,
+        "train_episode_reward": 4466.654880236997,
+        "kl_true_per_action": 0.08713754716223952,
+        "logratio_p99": 0.3926524782180784,
+        "clamp_hit_frac": 0.0,
+        "approx_kl": 1.4436955098062754e-05,
+        "clipfrac": 0.02809099911683006,
+        "ratio": 0.9996929168701172,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "nonfinite_values": [],
+      "console_error_matches": [],
+      "first_reward_collapse_iteration": null,
+      "minimum_eval_return": 4380.307454168202,
+      "checkpoints_present": [
+        "state_0.pt",
+        "state_105.pt",
+        "state_35.pt",
+        "state_70.pt"
+      ],
+      "periodic_monitor_last_check": {
+        "run_id": "R0_recovery_seed0",
+        "status": "running",
+        "completed_rows": 104,
+        "training_env_steps": 7440000,
+        "bytes": 429349,
+        "last_line": "[2026-10-09 23:45:36,197][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.96956373960711e-06, update_epoch: 1, num_batch: 4",
+        "last_diagnostic_line": "[2026-10-09 23:45:36,197][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.96956373960711e-06, update_epoch: 1, num_batch: 4",
+        "last_diagnostics": {
+          "approx_kl": 1.5813640857231803e-05,
+          "clipfrac": 0.033783999280058194,
+          "actor_optimizer_steps": 20,
+          "critic_optimizer_steps": 20,
+          "actor_lr": 0.0001,
+          "critic_lr": 0.001,
+          "kl_true_per_action": 0.08805463000639202,
+          "logratio_p99": 0.3841471672058088,
+          "clamp_hit_frac": 0.0
+        },
+        "updated_utc": "2026-10-10T06:45:38+00:00",
+        "elapsed_seconds": 5400.081886028871,
+        "collection_iteration": 104,
+        "last_completed_itr": 103,
+        "event": "scheduled",
+        "consecutive_stalled_checks": 0
+      },
+      "progress_since_last_periodic_check": 18,
+      "recent_mean_iteration_seconds": {
+        "train": 56.09678879976273,
+        "eval": 12.59911243732159
+      },
+      "remaining_iterations": {
+        "train": 17,
+        "eval": 1
+      },
+      "eta_method": "Current observation plus remaining train/eval counts times recent20 per-type mean iteration durations; no credit for current in-flight iteration.",
+      "eta_utc": "2026-10-10T07:16:37.708229+00:00",
+      "eta_pdt": "2026-10-10T00:16:37.708229-07:00",
+      "scheduler_cap_pdt": "2026-10-10T00:30:36-07:00",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_recovery_seed0/native/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_recovery_seed0/manifest.json",
+      "trajectory_red_flags": [],
+      "trajectory_rule": "Record-only mean plus/minus5 sample SD; fixed-batch gate controls code equivalence."
+    },
+    {
+      "run_id": "NC1_recovery_seed1",
+      "manifest_status": "running",
+      "job_id": "17789311",
+      "completed_rows": 119,
+      "last_iteration": 118,
+      "training_env_steps": 8560000,
+      "latest_eval": {
+        "itr": 110,
+        "step": 7920000,
+        "time": 13.352797985076904,
+        "eval_success_rate": 0.0,
+        "eval_episode_reward": -1551.4936356509318,
+        "eval_best_reward": 0.4648078045302217
+      },
+      "latest_training": {
+        "itr": 118,
+        "step": 8560000,
+        "time": 56.47828769683838,
+        "train_episode_reward": -1630.2192819897975,
+        "kl_true_per_action": 3.973729539665076e-06,
+        "logratio_p99": 0.0,
+        "clamp_hit_frac": 0.0,
+        "approx_kl": 2.0631565345041736e-09,
+        "clipfrac": 0.0,
+        "ratio": 1.0000004768371582,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "nonfinite_values": [],
+      "console_error_matches": [],
+      "first_reward_collapse_iteration": 20,
+      "minimum_eval_return": -1610.8838686954932,
+      "checkpoints_present": [
+        "state_0.pt",
+        "state_105.pt",
+        "state_35.pt",
+        "state_70.pt"
+      ],
+      "periodic_monitor_last_check": {
+        "run_id": "NC1_recovery_seed1",
+        "status": "running",
+        "completed_rows": 103,
+        "training_env_steps": 7360000,
+        "bytes": 415335,
+        "last_line": "Processed step 470 of 500",
+        "last_diagnostic_line": "[2026-10-09 23:45:25,925][agent.finetune.train_ppo_diffusion_agent][INFO] - 102: step  7360000 | loss   0.0098 | pg loss   0.0000 | value loss   0.0196 | bc loss   0.0000 | reward -1637.5375 | eta   1.0000 | t: 57.2806 | kl_true_per_action=1.3968792968508323e-05 | logratio_p99=0.0 | clamp_hit_frac=0.0",
+        "last_diagnostics": {
+          "approx_kl": 3.0349660562478675e-09,
+          "clipfrac": 0.0,
+          "actor_optimizer_steps": 20,
+          "critic_optimizer_steps": 20,
+          "actor_lr": 0.0001,
+          "critic_lr": 0.001,
+          "kl_true_per_action": 1.3968792968508323e-05,
+          "logratio_p99": 0.0,
+          "clamp_hit_frac": 0.0
+        },
+        "updated_utc": "2026-10-10T06:45:38+00:00",
+        "elapsed_seconds": 5400.24706266704,
+        "collection_iteration": 103,
+        "last_completed_itr": 102,
+        "event": "scheduled",
+        "consecutive_stalled_checks": 0
+      },
+      "progress_since_last_periodic_check": 16,
+      "recent_mean_iteration_seconds": {
+        "train": 57.19040809869766,
+        "eval": 12.770862420399984
+      },
+      "remaining_iterations": {
+        "train": 19,
+        "eval": 2
+      },
+      "eta_method": "Current observation plus remaining train/eval counts times recent20 per-type mean iteration durations; no credit for current in-flight iteration.",
+      "eta_utc": "2026-10-10T07:19:03.623186+00:00",
+      "eta_pdt": "2026-10-10T00:19:03.623186-07:00",
+      "scheduler_cap_pdt": "2026-10-10T00:30:36-07:00",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/manifest.json"
+    }
+  ],
+  "mutated_training_or_controllers": false,
+  "new_monitors_created": false,
+  "controller": {
+    "status": "running_replacements",
+    "controller_slurm_job": "17780304",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "updated_utc": "2026-10-10T07:00:20+00:00",
+    "condition_progress": {
+      "R0_recovery_seed0": "running",
+      "NC1_recovery_seed1": "running"
+    },
+    "error": null
+  },
+  "last_campaign_periodic_check": {
+    "status": "running_replacements",
+    "updated_utc": "2026-10-10T06:38:35+00:00",
+    "controller_slurm_job": "17780304",
+    "primary_controller_state": "COMPLETED",
+    "primary_campaign_status": "runs_terminal_recovery_pending",
+    "condition_progress": {
+      "R0_recovery_seed0": "running",
+      "NC1_recovery_seed1": "running"
+    },
+    "monitor_status": "running",
+    "error": null
+  },
+  "independent_check": {
+    "reviewer": "recovery_monitor_now",
+    "agreement": "Raw finiteness, collapse, latest evaluations, checkpoint presence, progress and monitor health agree. ETA differs by at most a few minutes because reviewer used median durations and result modification time."
+  }
+}

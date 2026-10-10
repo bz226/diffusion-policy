@@ -1,0 +1,41 @@
+{
+  "status": "curated",
+  "recorded_utc": "2026-10-10T08:53:51.406718+00:00",
+  "user_instruction": "keep the plots and tables in curated",
+  "approval_context": "Direct instruction to curate the already-generated full Stage2 figures and condition-by-seed table. Existing candidate filenames retained; no new names or figure variants introduced.",
+  "analysis_id": "final_analysis",
+  "artifacts": [
+    {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/candidates/eval_return_vs_env_steps.png",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/eval_return_vs_env_steps.png",
+      "bytes": 378962,
+      "direct_copy_verified": true
+    },
+    {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/candidates/train_return_vs_env_steps.png",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/train_return_vs_env_steps.png",
+      "bytes": 584855,
+      "direct_copy_verified": true
+    },
+    {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/candidates/diagnostics_vs_iteration.png",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/diagnostics_vs_iteration.png",
+      "bytes": 702194,
+      "direct_copy_verified": true
+    },
+    {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/candidates/condition_seed_results.csv",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/condition_seed_results.csv",
+      "bytes": 7133,
+      "direct_copy_verified": true
+    }
+  ],
+  "caption_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/candidates/captions.txt",
+  "curated_captions": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/stage2-captions.md",
+  "caption_changes": "Original scientific caption paragraphs retained verbatim, formatted with Markdown headings; existing diagnostic interpretation caveats and relative reproducibility links appended.",
+  "verification": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/curation_verification.json",
+  "originals_preserved": true,
+  "earlier_subset_curated_artifacts_preserved": true,
+  "scientific_outputs_regenerated": false,
+  "training_or_monitor_changes": false
+}

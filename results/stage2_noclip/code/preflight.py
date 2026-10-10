@@ -10,6 +10,8 @@ from pathlib import Path
 import hydra
 from omegaconf import OmegaConf
 
+from source_git import source_git_command
+
 
 def inspect(overrides):
     root = Path(os.environ['STUDY_ROOT'])
@@ -42,7 +44,8 @@ def inspect(overrides):
     assert not misplaced, misplaced
     return {'status': 'passed', 'python': sys.executable, 'module_origins': origins,
             'resolved_configuration': OmegaConf.to_container(cfg, resolve=True),
-            'source_commit': subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=str(source), text=True).strip(),
+            'source_commit': subprocess.check_output(source_git_command(source, 'rev-parse', 'HEAD'),
+                                                     cwd=str(source), text=True).strip(),
             'environment': {k: os.environ.get(k) for k in ('DPPO_DATA_DIR', 'DPPO_LOG_DIR', 'PYTHONPATH', 'LD_LIBRARY_PATH',
                                                          'OMP_NUM_THREADS', 'MKL_NUM_THREADS', 'OPENBLAS_NUM_THREADS')}}
 

@@ -19,6 +19,7 @@ import sys
 import time
 
 import verify_full_update as gate
+from source_git import source_git_command
 
 STUDY = Path(__file__).resolve().parents[1]
 ORIGIN = STUDY / "runs/verification_full_update"
@@ -103,7 +104,7 @@ def main():
     save()
     try:
         repo = STUDY / "dppo"
-        command = lambda *parts: subprocess.check_output(["git", "-C", str(repo), *parts], text=True).strip()
+        command = lambda *parts: subprocess.check_output(source_git_command(repo, *parts), text=True).strip()
         gate.require(command("rev-parse", "HEAD") == gate.EXPECTED and not command("status", "--porcelain"),
                      "source commit changed or worktree is dirty")
         gate.require(set(command("diff", "--name-only", gate.PIN).splitlines()) == {gate.MODEL, gate.AGENT},

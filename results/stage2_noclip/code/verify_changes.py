@@ -22,6 +22,8 @@ import sys
 import time
 import types
 
+from source_git import source_git_command
+
 
 STUDY = Path(__file__).resolve().parents[1]
 PIN = "cc7234ad7ff39a8f32de3af903606723a16f0648"
@@ -532,7 +534,7 @@ def main():
         repo = args.repo.resolve()
         require(repo.is_dir(), "Stage 2 source missing")
         command = lambda *parts: subprocess.check_output(
-            ["git", "-C", str(repo), *parts], text=True).strip()
+            source_git_command(repo, *parts), text=True).strip()
         require(command("rev-parse", PIN) == PIN, "pinned revision unavailable")
         changed = set(command("diff", "--name-only", PIN).splitlines())
         require(changed == ALLOWED, "expected only the two approved scientific source edits")

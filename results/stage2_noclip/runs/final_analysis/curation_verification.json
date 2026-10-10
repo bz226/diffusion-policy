@@ -1,0 +1,42 @@
+{
+  "status": "passed",
+  "recorded_utc": "2026-10-10T08:53:51.405158+00:00",
+  "independent_reviewer": "full_curation_audit",
+  "csv_rows_checked": 22,
+  "rows_per_run": 140,
+  "final_training_env_steps": 10080000,
+  "csv_quantities_checked": [
+    "eval_return_itr0",
+    "eval_return_itr70",
+    "eval_return_itr130",
+    "minimum_eval_return",
+    "median_kl_true_per_action",
+    "collapse"
+  ],
+  "maximum_csv_absolute_difference": 0,
+  "finite_saved_metric_values_checked": 39144,
+  "checkpoint_paths_present": 110,
+  "stage2_checkpoints": 95,
+  "baseline_checkpoints": 15,
+  "selected_replacements": [
+    "R0_recovery_seed0",
+    "NC1_recovery_seed1"
+  ],
+  "interrupted_originals_retained_only_as_provenance": true,
+  "visual_review": {
+    "figures": [
+      "eval_return_vs_env_steps.png",
+      "train_return_vs_env_steps.png",
+      "diagnostics_vs_iteration.png"
+    ],
+    "readable": true,
+    "no_clipped_content": true,
+    "nonpositive_kl_observations_omitted_from_log_rendering": 213,
+    "zeros_retained_in_summaries": true
+  },
+  "stage2_reward_collapses": 12,
+  "clipfrac_exception_retained_in_caption_context": "NC3 seed1 itr31 approximately1e-6",
+  "direct_artifact_copies_verified": 4,
+  "original_caption_paragraphs_preserved": true,
+  "scientific_outputs_regenerated": false
+}

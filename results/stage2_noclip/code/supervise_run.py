@@ -17,6 +17,8 @@ import sys
 import time
 from pathlib import Path
 
+from source_git import source_git_command
+
 ROOT = Path(__file__).resolve().parents[1]
 BASE = "cc7234ad7ff39a8f32de3af903606723a16f0648"
 CONFIG = "cfg/gym/finetune/halfcheetah-v2"
@@ -152,11 +154,11 @@ class Supervisor:
         return r.stdout.strip()
 
     def source(self):
-        commit = self.checked_command(["git", "rev-parse", "HEAD"])
+        commit = self.checked_command(source_git_command(self.repo, "rev-parse", "HEAD"))
         if commit != self.a.expected_commit:
             raise ValueError("Unexpected source commit")
-        self.checked_command(["git", "diff", "--exit-code", "HEAD", "--"])
-        changed = self.checked_command(["git", "diff", "--name-only", BASE, "HEAD", "--"]).splitlines()
+        self.checked_command(source_git_command(self.repo, "diff", "--exit-code", "HEAD", "--"))
+        changed = self.checked_command(source_git_command(self.repo, "diff", "--name-only", BASE, "HEAD", "--")).splitlines()
         allowed = {"model/diffusion/diffusion_ppo.py", "agent/finetune/train_ppo_diffusion_agent.py"}
         if set(changed) - allowed or (self.a.probe and changed):
             raise ValueError("Unexpected source/config modifications")

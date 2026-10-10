@@ -1,0 +1,17 @@
+{
+  "status": "candidate_artifacts_ready_for_review",
+  "utc": "2026-10-10T07:19:14.570906+00:00",
+  "analysis_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/final_analysis/analysis_record.json",
+  "gate": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "curated": false,
+  "stage1_modified": false,
+  "report_words": 528,
+  "recovery_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/recovery_campaign.json",
+  "selected_r0_run_id": "R0_recovery_seed0"
+}
