@@ -1,0 +1,44 @@
+{
+  "checked_utc": "2026-10-09T17:57:06.833197+00:00",
+  "request": "Keep periodic monitoring for the Stage 2 runs",
+  "action": "Reused and verified existing Slurm supervisor and campaign monitors; no duplicate monitors or new training jobs created.",
+  "controller_job": "17777246",
+  "controller_last_update_utc": "2026-10-09T17:56:54+00:00",
+  "period_seconds": 1800,
+  "running_monitors": [
+    {
+      "run_id": "R0_rerun_seed0",
+      "job_id": "17777245",
+      "status": "running",
+      "last_completed_iteration": 7,
+      "last_progress_utc": "2026-10-09T17:57:06+00:00",
+      "interval_seconds": 1800,
+      "first_periodic_check_utc": "2026-10-09T18:19:33+00:00",
+      "history": "results/stage2_noclip/runs/R0_rerun_seed0/monitor_history.jsonl"
+    },
+    {
+      "run_id": "NC1_seed0",
+      "job_id": "17777247",
+      "status": "running",
+      "last_completed_iteration": 5,
+      "last_progress_utc": "2026-10-09T17:57:04+00:00",
+      "interval_seconds": 1800,
+      "first_periodic_check_utc": "2026-10-09T18:20:35+00:00",
+      "history": "results/stage2_noclip/runs/NC1_seed0/monitor_history.jsonl"
+    },
+    {
+      "run_id": "NC1_seed1",
+      "job_id": "17777248",
+      "status": "running",
+      "last_completed_iteration": 5,
+      "last_progress_utc": "2026-10-09T17:57:04+00:00",
+      "interval_seconds": 1800,
+      "first_periodic_check_utc": "2026-10-09T18:20:35+00:00",
+      "history": "results/stage2_noclip/runs/NC1_seed1/monitor_history.jsonl"
+    }
+  ],
+  "queued_run": "NC1_seed2; supervisor monitor starts on allocation",
+  "terminal_action": "Verify outputs and pause completed/failed run monitor; remaining authorized runs continue.",
+  "trajectory_difference_stopping": false,
+  "delivery": "Persistent local progress, monitor histories, Slurm logs, and current experiment record."
+}

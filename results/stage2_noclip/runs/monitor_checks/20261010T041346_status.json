@@ -1,0 +1,1004 @@
+{
+  "checked_utc": "2026-10-10T04:13:46.443239+00:00",
+  "purpose": "Requested execution monitoring; no code, job, configuration, or monitor changes",
+  "runs": {
+    "NC1_seed0": {
+      "status": "complete",
+      "job_id": "17777247",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4157.22284062235,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": -552.465805384626
+      },
+      "min_eval": -552.465805384626,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T19:52:31+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC1_seed1": {
+      "status": "failed",
+      "job_id": "17777248",
+      "rows": 138,
+      "last_itr": 137,
+      "training_steps": 9920000,
+      "initial_eval": 4216.54557808029,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 708.2530518361307
+      },
+      "min_eval": -676.108706052348,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T19:52:57+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": null,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/result.pkl",
+      "failure_reason": "Received SIGTERM"
+    },
+    "NC1_seed2": {
+      "status": "complete",
+      "job_id": "17777249",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4333.435346779079,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": -155.08959873929166
+      },
+      "min_eval": -173.9289121948488,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T19:22:15+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC2_seed0": {
+      "status": "complete",
+      "job_id": "17778496",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4204.112836868476,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 1149.2236034316263
+      },
+      "min_eval": 1149.2236034316263,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T21:59:22+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC2_seed1": {
+      "status": "complete",
+      "job_id": "17778497",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4282.639681227471,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": -427.06230121109337
+      },
+      "min_eval": -436.94574265401445,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T22:03:20+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC2_seed2": {
+      "status": "complete",
+      "job_id": "17778498",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4303.985536933509,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": -761.4112344536153
+      },
+      "min_eval": -762.2171154906689,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T22:04:47+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC3_seed0": {
+      "status": "complete",
+      "job_id": "17778499",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4296.078829317283,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 2373.098940269012
+      },
+      "min_eval": 354.6866544773894,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-09T22:04:57+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC3_seed1": {
+      "status": "complete",
+      "job_id": "17778500",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4344.956135860159,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 3561.3690359708153
+      },
+      "min_eval": 1385.7942680231477,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T00:02:10+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC3_seed2": {
+      "status": "complete",
+      "job_id": "17778501",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4305.6395617321705,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 3194.6298045790836
+      },
+      "min_eval": 760.9236167841647,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T00:07:32+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "failure_reason": null
+    },
+    "NC4_lr1e-4_seed0": {
+      "status": "complete",
+      "job_id": "17778502",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4316.39629852191,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 4624.0873515240455
+      },
+      "min_eval": 4316.39629852191,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T00:27:11+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-4_seed1": {
+      "status": "complete",
+      "job_id": "17778503",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4274.331458175189,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 4586.218975028707
+      },
+      "min_eval": 4274.331458175189,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T00:30:16+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-4_seed2": {
+      "status": "complete",
+      "job_id": "17778504",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4368.699338080412,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 4600.264927409581
+      },
+      "min_eval": 4252.954497474648,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T02:25:10+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-3_seed0": {
+      "status": "complete",
+      "job_id": "17780957",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4282.48048732081,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 3278.9758932952172
+      },
+      "min_eval": 3278.9758932952172,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T02:29:53+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-3_seed1": {
+      "status": "complete",
+      "job_id": "17780958",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4339.810460820627,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 4257.122539602991
+      },
+      "min_eval": 3069.571631074413,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T02:49:01+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-3_seed2": {
+      "status": "complete",
+      "job_id": "17780959",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "initial_eval": 4238.400994880294,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 3643.135383126463
+      },
+      "min_eval": 3276.8146173237596,
+      "monitor_status": "paused",
+      "updated_utc": "2026-10-10T02:53:23+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": true,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr3e-3_seed0": {
+      "status": "running",
+      "job_id": "17783505",
+      "rows": 108,
+      "last_itr": 107,
+      "training_steps": 7760000,
+      "initial_eval": 4259.991063329484,
+      "last_eval": {
+        "itr": 100,
+        "step": 7200000,
+        "eval_episode_reward": 484.16549531557513
+      },
+      "min_eval": 484.16549531557513,
+      "monitor_status": "running",
+      "updated_utc": "2026-10-10T04:13:46+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": null,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      },
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.7135596569307423,
+        "logratio_p99": 1.2688894921541074,
+        "clamp_hit_frac": 0.0009416666666666667
+      },
+      "deadline_utc": "2026-10-10T05:25:36+00:00",
+      "timeout_seconds": 10800,
+      "elapsed_seconds": 6489.645111439982,
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC4_lr3e-3_seed0",
+          "status": "running",
+          "completed_rows": 59,
+          "training_env_steps": 4240000,
+          "bytes": 232131,
+          "last_line": "[2026-10-09 20:25:35,339][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 20:25:35,339][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 3.2796776540262824,
+            "logratio_p99": 4.7918405222892675,
+            "clamp_hit_frac": 0.0011270833333333332
+          },
+          "updated_utc": "2026-10-10T03:25:36+00:00",
+          "elapsed_seconds": 3600.1634721900336,
+          "collection_iteration": 59,
+          "last_completed_itr": 58,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC4_lr3e-3_seed0",
+          "status": "running",
+          "completed_rows": 89,
+          "training_env_steps": 6400000,
+          "bytes": 347461,
+          "last_line": "[2026-10-09 20:55:31,576][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 20:55:31,576][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 12.956747456575538,
+            "logratio_p99": 21.22947844624514,
+            "clamp_hit_frac": 0.0036166666666666665
+          },
+          "updated_utc": "2026-10-10T03:55:37+00:00",
+          "elapsed_seconds": 5400.408258217969,
+          "collection_iteration": 89,
+          "last_completed_itr": 88,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "mean_training_iteration_seconds": 65.0111744182626
+    },
+    "NC4_lr3e-3_seed1": {
+      "status": "running",
+      "job_id": "17783506",
+      "rows": 101,
+      "last_itr": 100,
+      "training_steps": 7200000,
+      "initial_eval": 4260.671460193969,
+      "last_eval": {
+        "itr": 100,
+        "step": 7200000,
+        "eval_episode_reward": -22.54218858701076
+      },
+      "min_eval": -22.54218858701076,
+      "monitor_status": "running",
+      "updated_utc": "2026-10-10T04:13:46+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": null,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      },
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 28.285683908506968,
+        "logratio_p99": 32.02978291749948,
+        "clamp_hit_frac": 0.0077354166666666665
+      },
+      "deadline_utc": "2026-10-10T05:30:36+00:00",
+      "timeout_seconds": 10800,
+      "elapsed_seconds": 6190.446166860987,
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC4_lr3e-3_seed1",
+          "status": "running",
+          "completed_rows": 58,
+          "training_env_steps": 4160000,
+          "bytes": 226729,
+          "last_line": "[2026-10-09 20:30:35,341][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 20:30:35,341][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 4.305698236391846,
+            "logratio_p99": 7.978931673765181,
+            "clamp_hit_frac": 0.00164375
+          },
+          "updated_utc": "2026-10-10T03:30:36+00:00",
+          "elapsed_seconds": 3600.206953312969,
+          "collection_iteration": 58,
+          "last_completed_itr": 57,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC4_lr3e-3_seed1",
+          "status": "running",
+          "completed_rows": 87,
+          "training_env_steps": 6240000,
+          "bytes": 339164,
+          "last_line": "[2026-10-09 21:00:28,428][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 21:00:28,428][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 22.493668953473573,
+            "logratio_p99": 16.501701235771176,
+            "clamp_hit_frac": 0.007635416666666667
+          },
+          "updated_utc": "2026-10-10T04:00:36+00:00",
+          "elapsed_seconds": 5400.321742468048,
+          "collection_iteration": 87,
+          "last_completed_itr": 86,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "mean_training_iteration_seconds": 66.74176655875311
+    },
+    "NC4_lr3e-3_seed2": {
+      "status": "running",
+      "job_id": "17783507",
+      "rows": 82,
+      "last_itr": 81,
+      "training_steps": 5840000,
+      "initial_eval": 4267.114063779499,
+      "last_eval": {
+        "itr": 80,
+        "step": 5760000,
+        "eval_episode_reward": 126.85535108436659
+      },
+      "min_eval": -448.93852952304206,
+      "monitor_status": "running",
+      "updated_utc": "2026-10-10T04:13:44+00:00",
+      "nonfinite_values": [],
+      "checkpoint_tensors_finite": null,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_70.pt"
+      ],
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/result.pkl",
+      "failure_reason": null,
+      "single_step_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      },
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 45.86274947395783,
+        "logratio_p99": 62.71679522395118,
+        "clamp_hit_frac": 0.007729166666666666
+      },
+      "deadline_utc": "2026-10-10T05:49:37+00:00",
+      "timeout_seconds": 10800,
+      "elapsed_seconds": 5047.096137719229,
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC4_lr3e-3_seed2",
+          "status": "running",
+          "completed_rows": 29,
+          "training_env_steps": 2080000,
+          "bytes": 113994,
+          "last_line": "Processed step 340 of 500",
+          "last_diagnostic_line": "[2026-10-09 20:19:28,734][agent.finetune.train_ppo_diffusion_agent][INFO] - 28: step  2080000 | loss   0.0225 | pg loss  -0.0000 | value loss   0.0451 | bc loss   0.0000 | reward 1608.6702 | eta   1.0000 | t: 66.8375 | kl_true_per_action=7.041506322631147 | logratio_p99=7.785472171306561 | clamp_hit_frac=0.0014395833333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 7.041506322631147,
+            "logratio_p99": 7.785472171306561,
+            "clamp_hit_frac": 0.0014395833333333333
+          },
+          "updated_utc": "2026-10-10T03:19:37+00:00",
+          "elapsed_seconds": 1800.1321990862489,
+          "collection_iteration": 29,
+          "last_completed_itr": 28,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC4_lr3e-3_seed2",
+          "status": "running",
+          "completed_rows": 58,
+          "training_env_steps": 4160000,
+          "bytes": 225830,
+          "last_line": "[2026-10-09 20:49:36,402][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 20:49:36,402][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.003,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 29.717194267784727,
+            "logratio_p99": 27.909456582069378,
+            "clamp_hit_frac": 0.009041666666666667
+          },
+          "updated_utc": "2026-10-10T03:49:37+00:00",
+          "elapsed_seconds": 3600.2279169373214,
+          "collection_iteration": 58,
+          "last_completed_itr": 57,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "mean_training_iteration_seconds": 67.1619180195952
+    }
+  },
+  "campaign_revised": {
+    "status": "running_parallel_conditions",
+    "controller_slurm_job": "17778495",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "updated_utc": "2026-10-10T04:13:44+00:00",
+    "active_or_pending_training_allocations": 3,
+    "primary_controller_state": null,
+    "last_scheduled_check": {
+      "utc": "2026-10-10T04:00:33+00:00",
+      "status": "running_parallel_conditions",
+      "condition": "parallel",
+      "submitted_ablations": 18,
+      "condition_progress": {
+        "NC1_seed0": "complete",
+        "NC1_seed1": "failed",
+        "NC1_seed2": "complete",
+        "NC2_seed0": "complete",
+        "NC2_seed1": "complete",
+        "NC2_seed2": "complete",
+        "NC3_seed0": "complete",
+        "NC3_seed1": "complete",
+        "NC3_seed2": "complete",
+        "NC4_lr1e-4_seed0": "complete",
+        "NC4_lr1e-4_seed1": "complete",
+        "NC4_lr1e-4_seed2": "complete",
+        "NC4_lr1e-3_seed0": "complete",
+        "NC4_lr1e-3_seed1": "complete",
+        "NC4_lr1e-3_seed2": "complete",
+        "NC4_lr3e-3_seed0": "running",
+        "NC4_lr3e-3_seed1": "running",
+        "NC4_lr3e-3_seed2": "running"
+      },
+      "r0_status": "failed",
+      "monitor_status": "running"
+    },
+    "next_scheduled_check_utc_approx": "2026-10-10T04:30:33+00:00",
+    "submitted_runs": [
+      {
+        "run_id": "NC1_seed0",
+        "job_id": "17777247"
+      },
+      {
+        "run_id": "NC1_seed1",
+        "job_id": "17777248"
+      },
+      {
+        "run_id": "NC1_seed2",
+        "job_id": "17777249"
+      },
+      {
+        "run_id": "NC2_seed0",
+        "job_id": "17778496"
+      },
+      {
+        "run_id": "NC2_seed1",
+        "job_id": "17778497"
+      },
+      {
+        "run_id": "NC2_seed2",
+        "job_id": "17778498"
+      },
+      {
+        "run_id": "NC3_seed0",
+        "job_id": "17778499"
+      },
+      {
+        "run_id": "NC3_seed1",
+        "job_id": "17778500"
+      },
+      {
+        "run_id": "NC3_seed2",
+        "job_id": "17778501"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed0",
+        "job_id": "17778502"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed1",
+        "job_id": "17778503"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed2",
+        "job_id": "17778504"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed0",
+        "job_id": "17780957"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed1",
+        "job_id": "17780958"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed2",
+        "job_id": "17780959"
+      },
+      {
+        "run_id": "NC4_lr3e-3_seed0",
+        "job_id": "17783505"
+      },
+      {
+        "run_id": "NC4_lr3e-3_seed1",
+        "job_id": "17783506"
+      },
+      {
+        "run_id": "NC4_lr3e-3_seed2",
+        "job_id": "17783507"
+      }
+    ]
+  },
+  "recovery_campaign": {
+    "status": "waiting_for_original_campaign",
+    "controller_slurm_job": "17780304",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "updated_utc": "2026-10-10T04:13:32+00:00",
+    "active_or_pending_training_allocations": null,
+    "primary_controller_state": "RUNNING",
+    "last_scheduled_check": {
+      "status": "waiting_for_original_campaign",
+      "updated_utc": "2026-10-10T04:08:00+00:00",
+      "controller_slurm_job": "17780304",
+      "primary_controller_state": "RUNNING",
+      "primary_campaign_status": "running_parallel_conditions",
+      "condition_progress": null,
+      "monitor_status": "running",
+      "error": null
+    },
+    "next_scheduled_check_utc_approx": "2026-10-10T04:38:00+00:00",
+    "submitted_runs": []
+  },
+  "scheduler_status": {
+    "chunk_id": "c9c02d",
+    "wall_time_seconds": 0.00001316,
+    "exit_code": 0,
+    "original_token_count": 174,
+    "output": "             JOBID                           NAME      STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)\n          17780304     stage2-recovery-controller    RUNNING    6:37:38   20:14:00      1 soal-9\n          17778495     stage2-parallel-controller    RUNNING    8:15:21   21:51:00      1 soal-2\n          17783507        stage2-NC4_lr3e-3_seed2    RUNNING    1:23:31    3:00:00      1 soal-11\n          17783506        stage2-NC4_lr3e-3_seed1    RUNNING    1:42:32    3:00:00      1 soal-10\n          17783505        stage2-NC4_lr3e-3_seed0    RUNNING    1:47:33    3:00:00      1 soal-10\n          17787570                           bash    RUNNING      37:57    6:00:00      1 soal-11\n"
+  },
+  "completed_job_accounting": {
+    "chunk_id": "270a30",
+    "wall_time_seconds": 0.00001297,
+    "exit_code": 0,
+    "original_token_count": 284,
+    "output": "JobIDRaw|JobName|State|ExitCode|Elapsed|End|AllocTRES\n17778500|stage2-NC3_seed1|COMPLETED|0:0|02:02:38|2026-10-09T17:02:12|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778501|stage2-NC3_seed2|COMPLETED|0:0|02:04:00|2026-10-09T17:07:33|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778502|stage2-NC4_lr1e-4_seed0|COMPLETED|0:0|02:21:38|2026-10-09T17:27:11|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778503|stage2-NC4_lr1e-4_seed1|COMPLETED|0:0|02:24:43|2026-10-09T17:30:16|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778504|stage2-NC4_lr1e-4_seed2|COMPLETED|0:0|02:22:36|2026-10-09T19:25:11|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17780957|stage2-NC4_lr1e-3_seed0|COMPLETED|0:0|02:22:18|2026-10-09T19:29:54|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17780958|stage2-NC4_lr1e-3_seed1|COMPLETED|0:0|02:21:27|2026-10-09T19:49:01|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17780959|stage2-NC4_lr1e-3_seed2|COMPLETED|0:0|02:22:50|2026-10-09T19:53:24|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n"
+  },
+  "disk_space": {
+    "chunk_id": "938e7a",
+    "wall_time_seconds": 0.10727351,
+    "exit_code": 0,
+    "original_token_count": 53,
+    "output": "Filesystem                                              Size  Used Avail Use% Mounted on\n10.79.13.15:/soalnas/share/data/zbao7/diffusion_policy   44T   40T  4.3T  91% /soalnas/share/data/zbao7/diffusion_policy\n"
+  },
+  "independent_monitor_audit": "All 3 active per-run monitors and both controller monitors active. Dated scheduled histories show advancing counters and consecutive_stalled_checks=0. No new failed/nonfinite manifests. Old R0 and NC1 seed1 interruptions remain recorded separately. Recovery waits correctly for original campaign completion.",
+  "newly_verified_completed": [
+    "NC3_seed1",
+    "NC3_seed2",
+    "NC4_lr1e-4_seed0",
+    "NC4_lr1e-4_seed1",
+    "NC4_lr1e-4_seed2",
+    "NC4_lr1e-3_seed0",
+    "NC4_lr1e-3_seed1",
+    "NC4_lr1e-3_seed2"
+  ],
+  "reward_collapse_observed": {
+    "NC1_seed0": true,
+    "NC1_seed1": true,
+    "NC1_seed2": true,
+    "NC2_seed0": true,
+    "NC2_seed1": true,
+    "NC2_seed2": true,
+    "NC3_seed0": true,
+    "NC3_seed1": true,
+    "NC3_seed2": true,
+    "NC4_lr1e-4_seed0": false,
+    "NC4_lr1e-4_seed1": false,
+    "NC4_lr1e-4_seed2": false,
+    "NC4_lr1e-3_seed0": false,
+    "NC4_lr1e-3_seed1": false,
+    "NC4_lr1e-3_seed2": false,
+    "NC4_lr3e-3_seed0": true,
+    "NC4_lr3e-3_seed1": true,
+    "NC4_lr3e-3_seed2": true
+  }
+}

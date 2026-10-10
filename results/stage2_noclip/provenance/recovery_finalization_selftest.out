@@ -1,0 +1,45 @@
+test_authorization_exact_scope (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_default_finalizer_defers_even_when_recovery_record_exists (test_recovery_finalization.RecoveryFinalizationTests) ... Original runs are terminal; final analysis waits for the two authorized replacement attempts.
+ok
+test_default_finalizer_defers_without_gate_read_or_outputs (test_recovery_finalization.RecoveryFinalizationTests) ... Original runs are terminal; final analysis waits for the two authorized replacement attempts.
+ok
+test_exact_matrix_accepted_without_mutating_original (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_extra_attempt_or_active_monitor_rejected (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_generated_candidates_expose_selected_and_excluded_attempts (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_historical_attempts_retained_without_inclusion_in_selected_matrix (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_pending_recovery_rejected_before_loading_any_measurements (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_recovery_invocation_does_not_defer (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_report_uses_selected_r0_redflags_and_preserves_history (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_wrong_cap_and_manifest_rejected (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_wrong_seed_extra_run_or_third_replacement_rejected (test_recovery_finalization.RecoveryFinalizationTests) ... ok
+test_completed_native_corruption_always_raises (test_analysis_fallback.FallbackTests) ... ok
+test_corrupt_failed_native_uses_only_declared_prefix (test_analysis_fallback.FallbackTests) ... ok
+test_declared_snapshot_count_must_match (test_analysis_fallback.FallbackTests) ... ok
+test_failed_corrupt_native_without_fallback_is_explicitly_unavailable (test_analysis_fallback.FallbackTests) ... ok
+test_minimum_preserves_infinities_and_rejects_nan (test_analysis_fallback.FallbackTests) ... ok
+test_missing_native_may_use_declared_snapshot (test_analysis_fallback.FallbackTests) ... ok
+test_readable_nonfinite_native_is_never_replaced (test_analysis_fallback.FallbackTests) ... ok
+test_two_corrupt_sources_do_not_fabricate_rows (test_analysis_fallback.FallbackTests) ... ok
+test_undeclared_snapshot_is_not_discovered_or_used (test_analysis_fallback.FallbackTests) ... ok
+test_all_minibatch_losses_and_gradients_must_be_present (test_revised_regression.GateTests) ... ok
+test_analysis_refuses_archived_r0_by_default (test_revised_regression.GateTests) ... ok
+test_cpu_tolerance_match_is_not_bitwise_match (test_revised_regression.GateTests) ... ok
+test_each_rng_state_must_be_unchanged (test_revised_regression.GateTests) ... ok
+test_initial_inputs_must_be_bitwise_equal_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_missing_comparison_rejected (test_revised_regression.GateTests) ... ok
+test_missing_sampling_rng_or_full_update_rejected (test_revised_regression.GateTests) ... ok
+test_old_r0_id_refused_new_id_requires_gate (test_revised_regression.GateTests) ... ok
+test_passed_report (test_revised_regression.GateTests) ... ok
+test_permutation_must_be_exact_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_preserved_evidence_files_are_required (test_revised_regression.GateTests) ... ok
+test_sampling_subcomparison_cannot_hide_under_passed_summary (test_revised_regression.GateTests) ... ok
+test_wrong_source_or_settings_rejected (test_revised_regression.GateTests) ... ok
+test_boundary_inclusive_and_training_values_ignored (test_revised_regression.TrajectoryTests) ... ok
+test_full_trajectory_is_not_compared_with_probe_or_baseline_tokens (test_revised_regression.TrajectoryTests) ... ok
+test_huge_trajectory_difference_is_record_only (test_revised_regression.TrajectoryTests) ... ok
+test_terminal_partial_observation_preserves_red_flags (test_revised_regression.TrajectoryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 38 tests in 2.559s
+
+OK

@@ -1,0 +1,146 @@
+{
+  "run_id": "NC1_recovery_seed1",
+  "condition": "NC1",
+  "seed": 1,
+  "status": "running",
+  "start_utc": "2026-10-10T05:15:38+00:00",
+  "deadline_utc": "2026-10-10T07:30:38+00:00",
+  "timeout_seconds": 8100,
+  "estimate_seconds": 7500,
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "running",
+  "expected_rows": 140,
+  "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "command": [
+    "python",
+    "script/run.py",
+    "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=140",
+    "train.save_model_freq=35",
+    "seed=1",
+    "wandb=null",
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native"
+  ],
+  "command_shell_display": "python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=1 wandb=null model.clip_ploss_coef=1e6 model.clip_ploss_coef_base=1e6 train.target_kl=null logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native",
+  "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native/result.pkl",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/NC1_recovery_seed1.out",
+  "environment": {
+    "STUDY_ROOT": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip",
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "SLURM_JOB_ID": "17789311",
+    "SLURM_JOB_NODELIST": "soal-10",
+    "SLURM_CPUS_PER_TASK": "40",
+    "SLURM_JOB_GPUS": "3",
+    "SLURM_MEM_PER_NODE": "65536",
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/tmp",
+    "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/matplotlib",
+    "TORCH_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/torch",
+    "CUDA_CACHE_PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/cuda",
+    "TRITON_CACHE_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/triton",
+    "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/d4rl",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "slurm_job_id": "17789311",
+  "verification_commands": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "output": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": "agent/finetune/train_ppo_diffusion_agent.py\nmodel/diffusion/diffusion_ppo.py\n"
+    },
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,pci.bus_id,driver_version,memory.total",
+        "--format=csv,noheader"
+      ],
+      "returncode": 0,
+      "output": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB\n"
+    }
+  ],
+  "recovery": {
+    "authorization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json",
+    "replaced_run_id": "NC1_seed1",
+    "fresh_from_released_pretrained_policy": true,
+    "resume_attempted": false,
+    "automatic_retries": 0,
+    "original_deadline_utc": "2026-10-10T17:49:34+00:00"
+  },
+  "execution_phase": "training",
+  "source_before": {
+    "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "tracked_files_clean": true,
+    "changed_from_base": [
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "model/diffusion/diffusion_ppo.py"
+    ]
+  },
+  "fixed_batch_gate": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "hardware": {
+    "gpu_query": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+    "uname": [
+      "Linux",
+      "soal-10.stanford.edu",
+      "6.8.0-137-generic",
+      "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+      "x86_64"
+    ],
+    "cpu_affinity_count": 40
+  },
+  "subprocess_start_utc": "2026-10-10T05:15:45+00:00",
+  "pid": 1921751,
+  "effective_startup_flags": {
+    "clamp_logprob": true,
+    "logprob_reduce": "mean",
+    "actor_single_step": false
+  },
+  "last_valid_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/observed_results/itr_033.pkl",
+  "last_valid_result_rows": 34,
+  "last_valid_result_note": "External snapshot of the validated finite native prefix; never replaces raw failure evidence."
+}

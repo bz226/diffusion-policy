@@ -1,0 +1,143 @@
+{
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/verify_changes.py",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification",
+    "--device",
+    "cuda:0",
+    "--timeout-seconds",
+    "1740",
+    "--checkpoint",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt"
+  ],
+  "started_utc": "2026-10-09T09:55:19Z",
+  "tests": {
+    "default_equivalence": {
+      "status": "passed",
+      "seconds": 2.6833086491096765,
+      "findings": {
+        "pairs": 128,
+        "losses_exact": true,
+        "gradients_exact": true,
+        "parameters_and_optimizer_states_exact": true
+      }
+    },
+    "flag_behavior": {
+      "status": "passed",
+      "seconds": 0.03659158304799348,
+      "findings": {
+        "invalid_reduction_rejected": true,
+        "flags": {
+          "True/mean": {
+            "ratio": 0.9978366494178772,
+            "reference": 0.997836643685849
+          },
+          "True/sum": {
+            "ratio": 0.9767860174179077,
+            "reference": 0.9767858709122175
+          },
+          "False/mean": {
+            "ratio": 1.000170111656189,
+            "reference": 1.0001700294871123
+          },
+          "False/sum": {
+            "ratio": 1.100824236869812,
+            "reference": 1.100822125486803
+          }
+        }
+      }
+    },
+    "diagnostic_checks": {
+      "status": "passed",
+      "seconds": 0.2395252559799701,
+      "findings": {
+        "sample_pairs": 20000,
+        "coordinate_denominator": 480000,
+        "global_rng_unchanged": true,
+        "flag_independent": true,
+        "actual": {
+          "kl_true_per_action": 8.351912609911102e-05,
+          "logratio_p99": 0.0070002079010009766,
+          "clamp_hit_frac": 0.30661666666666665
+        },
+        "independent_reference": {
+          "kl_true_per_action": 8.3519126099111e-05,
+          "logratio_p99": 0.0070002079010009766,
+          "clamp_hit_frac": 0.30661666666666665
+        }
+      }
+    },
+    "synthetic_control_flow": {
+      "status": "passed",
+      "seconds": 19.26405458105728,
+      "findings": {
+        "synthetic_only": true,
+        "actor_steps": 1,
+        "critic_steps": 20,
+        "coverage": 200000,
+        "reused_last_permutation": true,
+        "actor_unchanged_during_critic": true,
+        "ratio": 1.0,
+        "clipfrac": 0.0,
+        "actor_zero_grad_calls": 1,
+        "accumulated_gradient": {
+          "actual": 0.08052609860897064,
+          "analytic_reference": 0.08052643567427542
+        }
+      }
+    },
+    "full_batch_shape_invariant": {
+      "status": "passed",
+      "seconds": 9.106527825002559,
+      "findings": {
+        "pairs": 200000,
+        "old_forward_pairs": 100000,
+        "actor_chunk_pairs": 50000,
+        "actor_steps": 1,
+        "actor_metrics": {
+          "actor_loss": -1.325615812675096e-07,
+          "pg_loss": -1.325615812675096e-07,
+          "entropy_loss": -1.0,
+          "bc_loss": 0.0,
+          "eta": 1.0,
+          "actor_step_ratio": 1.0,
+          "actor_step_clipfrac": 0.0,
+          "clipfracs": [
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "approx_kl": 0.0,
+          "ratio": 1.0
+        },
+        "diagnostics": {
+          "kl_true_per_action": 0.049522240327775385,
+          "logratio_p99": 0.3987718057632441,
+          "clamp_hit_frac": 0.0008166666666666667
+        },
+        "old_cache_unchanged": true,
+        "critic_unchanged": true,
+        "global_rng_unchanged_by_diagnostics": true
+      }
+    }
+  },
+  "device": "cuda:0",
+  "scientific_environment_runs": 0,
+  "timeout_seconds": 1740,
+  "source": {
+    "repo": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "head": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "reference": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "changed_paths": [
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "model/diffusion/diffusion_ppo.py"
+    ]
+  },
+  "gpu": "NVIDIA RTX A6000",
+  "elapsed_seconds": 36.63762583397329,
+  "ended_utc": "2026-10-09T09:55:56Z"
+}

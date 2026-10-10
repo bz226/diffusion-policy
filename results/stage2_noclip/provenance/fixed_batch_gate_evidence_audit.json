@@ -1,0 +1,300 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-10-09T17:48:32Z",
+  "scope": "Independent CPU-only readback of saved raw evidence. No environment, training or CUDA execution. NumPy bytes and arithmetic are checked independently of the verification helper comparator.",
+  "full_gate_report": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "capture": {
+    "seconds": 34.07692804699764,
+    "saved_batch_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/training_batch.pt",
+    "training_iteration": 1,
+    "training_environment_transitions": 80000,
+    "evaluation_environment_transitions": 80000,
+    "env_step_denoising_pairs": 200000,
+    "optimizer_steps_performed": 0,
+    "reference_source": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "actor_optimizer_state_entries": 0,
+    "critic_optimizer_state_entries": 0,
+    "batch_shapes": {
+      "obs_k": [
+        20000,
+        1,
+        17
+      ],
+      "chains_k": [
+        20000,
+        11,
+        4,
+        6
+      ],
+      "returns_k": [
+        20000
+      ],
+      "values_k": [
+        20000
+      ],
+      "advantages_k": [
+        20000
+      ],
+      "logprobs_k": [
+        20000,
+        10,
+        4,
+        6
+      ]
+    }
+  },
+  "checks": {
+    "cpu": {
+      "passed": true,
+      "source_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/cpu",
+      "actual_actor_steps": 20,
+      "actual_critic_steps": 20,
+      "actual_epoch_permutations": 5,
+      "comparisons": {
+        "loss_components": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 80,
+          "elements": 80
+        },
+        "actor_gradients": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 240,
+          "elements": 11367840
+        },
+        "critic_gradients": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 160,
+          "elements": 2728980
+        },
+        "actor_parameters": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 12,
+          "elements": 568392
+        },
+        "critic_parameters": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 8,
+          "elements": 136449
+        },
+        "model_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 44,
+          "elements": 1841625
+        },
+        "actor_optimizer_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 36,
+          "elements": 1136796
+        },
+        "critic_optimizer_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 24,
+          "elements": 272906
+        },
+        "permutations": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 5,
+          "elements": 1000000
+        },
+        "rng_after_update": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 2,
+          "elements": 5072
+        },
+        "sampling_returned": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 2,
+          "elements": 11520
+        },
+        "sampling_all_20_states": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 1,
+          "elements": 19200
+        },
+        "diagnostic_rng": {
+          "python": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 0,
+            "elements": 0
+          },
+          "numpy": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 0,
+            "elements": 0
+          },
+          "torch_cpu": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 1,
+            "elements": 5056
+          },
+          "torch_cuda": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 1,
+            "elements": 16
+          }
+        }
+      }
+    },
+    "gpu": {
+      "passed": true,
+      "source_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/gpu",
+      "actual_actor_steps": 20,
+      "actual_critic_steps": 20,
+      "actual_epoch_permutations": 5,
+      "comparisons": {
+        "loss_components": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 80,
+          "elements": 80
+        },
+        "actor_gradients": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 240,
+          "elements": 11367840
+        },
+        "critic_gradients": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 160,
+          "elements": 2728980
+        },
+        "actor_parameters": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 12,
+          "elements": 568392
+        },
+        "critic_parameters": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 8,
+          "elements": 136449
+        },
+        "model_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 44,
+          "elements": 1841625
+        },
+        "actor_optimizer_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 36,
+          "elements": 1136796
+        },
+        "critic_optimizer_state": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 24,
+          "elements": 272906
+        },
+        "permutations": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 5,
+          "elements": 1000000
+        },
+        "rng_after_update": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 2,
+          "elements": 5072
+        },
+        "sampling_returned": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 2,
+          "elements": 11520
+        },
+        "sampling_all_20_states": {
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "tensors": 1,
+          "elements": 19200
+        },
+        "diagnostic_rng": {
+          "python": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 0,
+            "elements": 0
+          },
+          "numpy": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 0,
+            "elements": 0
+          },
+          "torch_cpu": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 1,
+            "elements": 5056
+          },
+          "torch_cuda": {
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "tensors": 1,
+            "elements": 16
+          }
+        }
+      }
+    }
+  },
+  "global_max_abs": 0.0,
+  "global_max_rel": 0.0,
+  "cpu_and_gpu_both_bitwise_equal": true,
+  "numeric_settings_unchanged": true,
+  "full_gate_elapsed_seconds": 210.4315445580287
+}

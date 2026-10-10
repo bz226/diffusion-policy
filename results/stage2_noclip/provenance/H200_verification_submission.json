@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-09T18:10:24.026952+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--gres=gpu:h200nvl:1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--time=00:10:00",
+    "--signal=B:TERM@5",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--job-name=stage2-h200-gate",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-h200-gate-%j.log",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_h200_verification.sh"
+  ],
+  "stdout": "17777408\n",
+  "stderr": "",
+  "returncode": 0,
+  "held_seed_job": "17777249"
+}

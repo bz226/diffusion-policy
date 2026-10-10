@@ -1,0 +1,271 @@
+{
+  "recorded_utc": "2026-10-09T21:28:48.820252+00:00",
+  "request": "Read-only recovery budget and nonintrusive scheduling assessment; no jobs submitted or modified.",
+  "source_command": [
+    "sacct",
+    "-X",
+    "-j",
+    "17772575,17772576,17773065,17773043,17777209,17777408,17777247,17777248,17777249,17778496,17778497,17778498,17778499,17778500,17778501,17778502,17778503,17778504,17777245,17778495",
+    "-o",
+    "JobID,JobName%36,State,ElapsedRaw,AllocTRES%100,TimelimitRaw",
+    "-P"
+  ],
+  "accounting_stdout": "JobID|JobName|State|ElapsedRaw|AllocTRES|TimelimitRaw\n17772575|stage2-P1|COMPLETED|1073|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|30\n17772576|stage2-P2|COMPLETED|1081|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|30\n17773043|stage2-verify|COMPLETED|38|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|30\n17773065|stage2-R0|FAILED|367|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17777209|stage2-full-gate|COMPLETED|214|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|29\n17777245|stage2-R0-rerun|CANCELLED by 25987|7403|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17777247|stage2-NC1_seed0|COMPLETED|7318|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17777248|stage2-NC1_seed1|CANCELLED by 25987|7342|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17777249|stage2-NC1_seed2|COMPLETED|4182|billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1|180\n17777408|stage2-h200-gate|COMPLETED|65|billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1|10\n17778495|stage2-parallel-controller|RUNNING|5463|billing=2,cpu=2,mem=8G,node=1|1311\n17778496|stage2-NC2_seed0|RUNNING|5415|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17778497|stage2-NC2_seed1|RUNNING|5415|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17778498|stage2-NC2_seed2|RUNNING|5415|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17778499|stage2-NC3_seed0|RUNNING|5415|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|180\n17778500|stage2-NC3_seed1|PENDING|0||180\n17778501|stage2-NC3_seed2|PENDING|0||180\n17778502|stage2-NC4_lr1e-4_seed0|PENDING|0||180\n17778503|stage2-NC4_lr1e-4_seed1|PENDING|0||180\n17778504|stage2-NC4_lr1e-4_seed2|PENDING|0||180\n",
+  "accounting_stderr": "",
+  "study_gpu_hour_cap": 58.5,
+  "study_gpu_seconds_cap": 210600,
+  "entries": [
+    {
+      "run_id": "P1_seed0",
+      "job_id": "17772575",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 1073,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "P2_seed0",
+      "job_id": "17772576",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 1081,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "R0_seed0_retired_replay",
+      "job_id": "17773065",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "FAILED",
+      "accounted_gpu_seconds": 367,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "verification_initial",
+      "job_id": "17773043",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 38,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "verification_full_update",
+      "job_id": "17777209",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 214,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "verification_h200",
+      "job_id": "17777408",
+      "role": "probe_or_prior_attempt_or_verification",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 65,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "R0_rerun_seed0",
+      "job_id": "17777245",
+      "role": "original_current_campaign",
+      "state": "CANCELLED by 25987",
+      "accounted_gpu_seconds": 7403,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "NC1_seed0",
+      "job_id": "17777247",
+      "role": "original_current_campaign",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 7318,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "NC1_seed1",
+      "job_id": "17777248",
+      "role": "original_current_campaign",
+      "state": "CANCELLED by 25987",
+      "accounted_gpu_seconds": 7342,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "NC1_seed2",
+      "job_id": "17777249",
+      "role": "original_current_campaign",
+      "state": "COMPLETED",
+      "accounted_gpu_seconds": 4182,
+      "basis": "terminal Slurm elapsed seconds x one allocated GPU"
+    },
+    {
+      "run_id": "NC2_seed0",
+      "job_id": "17778496",
+      "role": "original_current_campaign",
+      "state": "RUNNING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC2_seed1",
+      "job_id": "17778497",
+      "role": "original_current_campaign",
+      "state": "RUNNING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC2_seed2",
+      "job_id": "17778498",
+      "role": "original_current_campaign",
+      "state": "RUNNING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC3_seed0",
+      "job_id": "17778499",
+      "role": "original_current_campaign",
+      "state": "RUNNING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC3_seed1",
+      "job_id": "17778500",
+      "role": "original_current_campaign",
+      "state": "PENDING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC3_seed2",
+      "job_id": "17778501",
+      "role": "original_current_campaign",
+      "state": "PENDING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed0",
+      "job_id": "17778502",
+      "role": "original_current_campaign",
+      "state": "PENDING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed1",
+      "job_id": "17778503",
+      "role": "original_current_campaign",
+      "state": "PENDING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed2",
+      "job_id": "17778504",
+      "role": "original_current_campaign",
+      "state": "PENDING",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed0",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed1",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed2",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed0",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed1",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed2",
+      "job_id": null,
+      "role": "original_current_campaign",
+      "state": "NOT_SUBMITTED",
+      "accounted_gpu_seconds": 10800,
+      "basis": "full10800second reservation, inclusive of any elapsed running time"
+    }
+  ],
+  "terminal_gpu_seconds_used": 29083,
+  "terminal_gpu_hours_used": 8.078611111111112,
+  "nonterminal_original_runs_reserved": 15,
+  "remaining_original_gpu_seconds_reserved": 162000,
+  "remaining_original_gpu_hours_reserved": 45.0,
+  "original_campaign_worst_case_gpu_seconds": 191083,
+  "original_campaign_worst_case_gpu_hours": 53.07861111111111,
+  "remaining_ceiling_after_original_commitments_seconds": 19517,
+  "recovery_scenarios": [
+    {
+      "replacement_runs": 2,
+      "replacement_cap_seconds_each": 10800,
+      "worst_case_total_gpu_seconds": 212683,
+      "worst_case_total_gpu_hours": 59.07861111111111,
+      "within_existing_ceiling": false,
+      "remaining_gpu_seconds": -2083,
+      "remaining_gpu_hours": -0.5786111111111111
+    },
+    {
+      "replacement_runs": 2,
+      "replacement_cap_seconds_each": 8100,
+      "worst_case_total_gpu_seconds": 207283,
+      "worst_case_total_gpu_hours": 57.57861111111111,
+      "within_existing_ceiling": true,
+      "remaining_gpu_seconds": 3317,
+      "remaining_gpu_hours": 0.9213888888888889
+    }
+  ],
+  "verification_allocation_seconds": 317,
+  "accounting_rules": [
+    "One GPU per recorded study allocation; terminal records use actual Slurm allocation elapsed seconds, not application wall times.",
+    "Active/pending/unsubmitted original runs each reserve full3h, not elapsed plus3h.",
+    "CPU-only controllers contribute zero GPU-hours.",
+    "Interactive bash allocations and Stage1 are excluded from this study accounting.",
+    "Lower runtime caps change only stopping limits, never scientific settings; no additional retry allowance is implied."
+  ],
+  "safe_deferred_scheduling": {
+    "existing_controller_job_id": "17778495",
+    "approach": "Independent recovery dispatcher/job with Slurm dependency afterany:17778495; before starting any GPU training require the controller and every original owned training job to be terminal, require passed fixed-batch gate and unchanged source, and recheck budget.",
+    "avoid": [
+      "No stop, signal, cancel, requeue or handoff of active controller.",
+      "No rewriting active campaign state or original run matrix.",
+      "No reuse of interrupted output paths."
+    ],
+    "notes": [
+      "afterany releases even if final analysis fails; runtime checks must distinguish an analysis failure from remaining live original workers or scientific source/setup failures.",
+      "If a CPU dispatcher is used, it can submit both replacement GPU jobs only after checks; queued dependencies do not themselves consume GPU allocation hours.",
+      "The existing supervisor run-ID whitelist must be handled with a separately reviewed recovery entry point or narrowly scoped authorization, while preserving immutable scientific code.",
+      "Existing finalizer will produce an original-campaign report before recovery; preserve those candidate artifacts and create separately identified recovery-aware analysis after both replacements terminate.",
+      "Two3h replacements do not currently fit the conservative full-reservation ceiling; they could fit after subsequent original runs finish below their caps, but require a fresh accounting gate before authorization/submission."
+    ]
+  }
+}

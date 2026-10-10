@@ -1,0 +1,921 @@
+{
+  "status": "running_replacements",
+  "started_utc": "2026-10-09T21:35:29+00:00",
+  "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "controller_slurm_job": "17780304",
+  "authorization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json",
+  "primary_controller_job_id": "17778495",
+  "primary_campaign_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/campaign_revised.json",
+  "matrix_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_recovery.json",
+  "original_deadline_utc": "2026-10-10T17:49:34+00:00",
+  "worker_runtime_cap_seconds": 8100,
+  "estimate_seconds": 7500,
+  "max_recovery_runs": 2,
+  "max_simultaneous_recovery_gpus": 2,
+  "additional_gpu_seconds_cap": 16200,
+  "fixed_batch_gate": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "submitted_jobs": [
+    {
+      "run_id": "R0_recovery_seed0",
+      "condition": "R0",
+      "seed": 0,
+      "replaced_run_id": "R0_rerun_seed0",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--gres=gpu:a6000:1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--time=02:15:00",
+        "--signal=B:TERM@5",
+        "--no-requeue",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--job-name=stage2-R0_recovery_seed0",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-R0_recovery_seed0-%j.log",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_worker.sh",
+        "--run-id",
+        "R0_recovery_seed0",
+        "--authorization",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json"
+      ],
+      "submission_started_utc": "2026-10-10T05:15:22+00:00",
+      "returncode": 0,
+      "stdout": "17789310\n",
+      "stderr": "",
+      "job_id": "17789310"
+    },
+    {
+      "run_id": "NC1_recovery_seed1",
+      "condition": "NC1",
+      "seed": 1,
+      "replaced_run_id": "NC1_seed1",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--gres=gpu:a6000:1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--time=02:15:00",
+        "--signal=B:TERM@5",
+        "--no-requeue",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--job-name=stage2-NC1_recovery_seed1",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_recovery_seed1-%j.log",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_worker.sh",
+        "--run-id",
+        "NC1_recovery_seed1",
+        "--authorization",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json"
+      ],
+      "submission_started_utc": "2026-10-10T05:15:22+00:00",
+      "returncode": 0,
+      "stdout": "17789311\n",
+      "stderr": "",
+      "job_id": "17789311"
+    }
+  ],
+  "retries": 0,
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "running",
+  "trajectory_stopping": false,
+  "updated_utc": "2026-10-10T05:53:04+00:00",
+  "primary_controller_state": "COMPLETED",
+  "primary_campaign_status": "runs_terminal_recovery_pending",
+  "primary_controller_observation": {
+    "job_id": "17778495",
+    "state": "COMPLETED",
+    "raw_state": "COMPLETED",
+    "exit_code": "0:0",
+    "start": "2026-10-09T12:57:45",
+    "end": "2026-10-09T22:14:39",
+    "source": "sacct",
+    "observed_utc": "2026-10-10T05:15:21+00:00",
+    "evidence": [
+      {
+        "command": [
+          "squeue",
+          "--noheader",
+          "--jobs=17778495",
+          "--format=%i|%T"
+        ],
+        "returncode": 0,
+        "stdout": "",
+        "stderr": ""
+      },
+      {
+        "command": [
+          "sacct",
+          "--noheader",
+          "--parsable2",
+          "--allocations",
+          "--jobs=17778495",
+          "--format=JobIDRaw,State,ExitCode,Start,End"
+        ],
+        "returncode": 0,
+        "stdout": "17778495|COMPLETED|0:0|2026-10-09T12:57:45|2026-10-09T22:14:39\n",
+        "stderr": ""
+      }
+    ]
+  },
+  "original_allocation_observations": {
+    "R0_rerun_seed0": {
+      "job_id": "17777245",
+      "state": "CANCELLED",
+      "raw_state": "CANCELLED by 25987",
+      "exit_code": "0:0",
+      "start": "2026-10-09T10:49:33",
+      "end": "2026-10-09T12:52:56",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17777245",
+            "--format=%i|%T"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17777245",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17777245|CANCELLED by 25987|0:0|2026-10-09T10:49:33|2026-10-09T12:52:56\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC1_seed0": {
+      "job_id": "17777247",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T10:50:34",
+      "end": "2026-10-09T12:52:32",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17777247",
+            "--format=%i|%T"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17777247",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17777247|COMPLETED|0:0|2026-10-09T10:50:34|2026-10-09T12:52:32\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC1_seed1": {
+      "job_id": "17777248",
+      "state": "CANCELLED",
+      "raw_state": "CANCELLED by 25987",
+      "exit_code": "0:0",
+      "start": "2026-10-09T10:50:34",
+      "end": "2026-10-09T12:52:56",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17777248",
+            "--format=%i|%T"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17777248",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17777248|CANCELLED by 25987|0:0|2026-10-09T10:50:34|2026-10-09T12:52:56\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC1_seed2": {
+      "job_id": "17777249",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T11:12:33",
+      "end": "2026-10-09T12:22:15",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17777249",
+            "--format=%i|%T"
+          ],
+          "returncode": 1,
+          "stdout": "",
+          "stderr": "slurm_load_jobs error: Invalid job id specified\n"
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17777249",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17777249|COMPLETED|0:0|2026-10-09T11:12:33|2026-10-09T12:22:15\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC2_seed0": {
+      "job_id": "17778496",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T12:58:33",
+      "end": "2026-10-09T14:59:23",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778496",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778496",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778496|COMPLETED|0:0|2026-10-09T12:58:33|2026-10-09T14:59:23\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC2_seed1": {
+      "job_id": "17778497",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T12:58:33",
+      "end": "2026-10-09T15:03:20",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778497",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778497",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778497|COMPLETED|0:0|2026-10-09T12:58:33|2026-10-09T15:03:20\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC2_seed2": {
+      "job_id": "17778498",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T12:58:33",
+      "end": "2026-10-09T15:04:48",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778498",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778498",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778498|COMPLETED|0:0|2026-10-09T12:58:33|2026-10-09T15:04:48\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC3_seed0": {
+      "job_id": "17778499",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T12:58:33",
+      "end": "2026-10-09T15:04:57",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778499",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778499",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778499|COMPLETED|0:0|2026-10-09T12:58:33|2026-10-09T15:04:57\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC3_seed1": {
+      "job_id": "17778500",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T14:59:34",
+      "end": "2026-10-09T17:02:12",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778500",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778500",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778500|COMPLETED|0:0|2026-10-09T14:59:34|2026-10-09T17:02:12\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC3_seed2": {
+      "job_id": "17778501",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T15:03:33",
+      "end": "2026-10-09T17:07:33",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778501",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778501",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778501|COMPLETED|0:0|2026-10-09T15:03:33|2026-10-09T17:07:33\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-4_seed0": {
+      "job_id": "17778502",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T15:05:33",
+      "end": "2026-10-09T17:27:11",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778502",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778502",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778502|COMPLETED|0:0|2026-10-09T15:05:33|2026-10-09T17:27:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-4_seed1": {
+      "job_id": "17778503",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T15:05:33",
+      "end": "2026-10-09T17:30:16",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778503",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778503",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778503|COMPLETED|0:0|2026-10-09T15:05:33|2026-10-09T17:30:16\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-4_seed2": {
+      "job_id": "17778504",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T17:02:35",
+      "end": "2026-10-09T19:25:11",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17778504",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17778504",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17778504|COMPLETED|0:0|2026-10-09T17:02:35|2026-10-09T19:25:11\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-3_seed0": {
+      "job_id": "17780957",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T17:07:36",
+      "end": "2026-10-09T19:29:54",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17780957",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17780957",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17780957|COMPLETED|0:0|2026-10-09T17:07:36|2026-10-09T19:29:54\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-3_seed1": {
+      "job_id": "17780958",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T17:27:34",
+      "end": "2026-10-09T19:49:01",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17780958",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17780958",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17780958|COMPLETED|0:0|2026-10-09T17:27:34|2026-10-09T19:49:01\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr1e-3_seed2": {
+      "job_id": "17780959",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T17:30:34",
+      "end": "2026-10-09T19:53:24",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17780959",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17780959",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17780959|COMPLETED|0:0|2026-10-09T17:30:34|2026-10-09T19:53:24\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr3e-3_seed0": {
+      "job_id": "17783505",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T19:25:33",
+      "end": "2026-10-09T21:45:26",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:21+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17783505",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17783505",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17783505|COMPLETED|0:0|2026-10-09T19:25:33|2026-10-09T21:45:26\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr3e-3_seed1": {
+      "job_id": "17783506",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T19:30:34",
+      "end": "2026-10-09T21:54:10",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:22+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17783506",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17783506",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17783506|COMPLETED|0:0|2026-10-09T19:30:34|2026-10-09T21:54:10\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC4_lr3e-3_seed2": {
+      "job_id": "17783507",
+      "state": "COMPLETED",
+      "raw_state": "COMPLETED",
+      "exit_code": "0:0",
+      "start": "2026-10-09T19:49:35",
+      "end": "2026-10-09T22:14:02",
+      "source": "sacct",
+      "observed_utc": "2026-10-10T05:15:22+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17783507",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "",
+          "stderr": ""
+        },
+        {
+          "command": [
+            "sacct",
+            "--noheader",
+            "--parsable2",
+            "--allocations",
+            "--jobs=17783507",
+            "--format=JobIDRaw,State,ExitCode,Start,End"
+          ],
+          "returncode": 0,
+          "stdout": "17783507|COMPLETED|0:0|2026-10-09T19:49:35|2026-10-09T22:14:02\n",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "original_terminal_verified_utc": "2026-10-10T05:15:22+00:00",
+  "scheduler_observations": {
+    "R0_recovery_seed0": {
+      "job_id": "17789310",
+      "state": "RUNNING",
+      "raw_state": "RUNNING",
+      "exit_code": null,
+      "start": null,
+      "end": null,
+      "source": "squeue",
+      "observed_utc": "2026-10-10T05:53:04+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17789310",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "17789310|RUNNING\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC1_recovery_seed1": {
+      "job_id": "17789311",
+      "state": "RUNNING",
+      "raw_state": "RUNNING",
+      "exit_code": null,
+      "start": null,
+      "end": null,
+      "source": "squeue",
+      "observed_utc": "2026-10-10T05:53:04+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17789311",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "17789311|RUNNING\n",
+          "stderr": ""
+        }
+      ]
+    }
+  },
+  "condition_progress": {
+    "R0_recovery_seed0": "running",
+    "NC1_recovery_seed1": "running"
+  },
+  "recovery_allocation_observations": {
+    "R0_recovery_seed0": {
+      "job_id": "17789310",
+      "state": "RUNNING",
+      "raw_state": "RUNNING",
+      "exit_code": null,
+      "start": null,
+      "end": null,
+      "source": "squeue",
+      "observed_utc": "2026-10-10T05:53:04+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17789310",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "17789310|RUNNING\n",
+          "stderr": ""
+        }
+      ]
+    },
+    "NC1_recovery_seed1": {
+      "job_id": "17789311",
+      "state": "RUNNING",
+      "raw_state": "RUNNING",
+      "exit_code": null,
+      "start": null,
+      "end": null,
+      "source": "squeue",
+      "observed_utc": "2026-10-10T05:53:04+00:00",
+      "evidence": [
+        {
+          "command": [
+            "squeue",
+            "--noheader",
+            "--jobs=17789311",
+            "--format=%i|%T"
+          ],
+          "returncode": 0,
+          "stdout": "17789311|RUNNING\n",
+          "stderr": ""
+        }
+      ]
+    }
+  }
+}

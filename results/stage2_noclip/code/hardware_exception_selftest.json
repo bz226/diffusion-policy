@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "command": "PYTHONDONTWRITEBYTECODE=1 /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -m unittest -v test_hardware_exception.py test_revised_regression.py",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code",
+  "tests_passed": 26,
+  "scientific_source_changed": false,
+  "gpu_used": false,
+  "new_hardware_tests": 9,
+  "output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/hardware_exception_selftest.out",
+  "note": "Original full CPU/GPU gate remains independently required by Supervisor.validate_gate before hardware validation."
+}

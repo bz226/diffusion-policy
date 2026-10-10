@@ -1,0 +1,115 @@
+{
+  "passed": true,
+  "utc": "2026-10-09T21:33:19.652263+00:00",
+  "cpu_tests": 15,
+  "test_output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_runtime_selftest_v2.out",
+  "authorization_scope_checked": true,
+  "fixed_batch_gate": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "remaining_original_deadline_seconds": 72974.343936,
+  "worker_argument_checks": [
+    {
+      "run_id": "R0_recovery_seed0",
+      "args": {
+        "run_id": "R0_recovery_seed0",
+        "condition": "R0",
+        "seed": 0,
+        "probe": false,
+        "rows": 140,
+        "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "timeout_seconds": 8100,
+        "estimate_seconds": 7500,
+        "fixed_batch_gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "command": [
+          "python",
+          "script/run.py",
+          "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+          "--config-name=ft_ppo_diffusion_mlp",
+          "train.n_train_itr=140",
+          "train.save_model_freq=35",
+          "seed=0",
+          "wandb=null",
+          "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_recovery_seed0/native"
+        ]
+      },
+      "submission": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--gres=gpu:a6000:1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--time=02:15:00",
+        "--signal=B:TERM@5",
+        "--no-requeue",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--job-name=stage2-R0_recovery_seed0",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-R0_recovery_seed0-%j.log",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_worker.sh",
+        "--run-id",
+        "R0_recovery_seed0",
+        "--authorization",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json"
+      ]
+    },
+    {
+      "run_id": "NC1_recovery_seed1",
+      "args": {
+        "run_id": "NC1_recovery_seed1",
+        "condition": "NC1",
+        "seed": 1,
+        "probe": false,
+        "rows": 140,
+        "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "timeout_seconds": 8100,
+        "estimate_seconds": 7500,
+        "fixed_batch_gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "command": [
+          "python",
+          "script/run.py",
+          "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+          "--config-name=ft_ppo_diffusion_mlp",
+          "train.n_train_itr=140",
+          "train.save_model_freq=35",
+          "seed=1",
+          "wandb=null",
+          "model.clip_ploss_coef=1e6",
+          "model.clip_ploss_coef_base=1e6",
+          "train.target_kl=null",
+          "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native"
+        ]
+      },
+      "submission": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--gres=gpu:a6000:1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--time=02:15:00",
+        "--signal=B:TERM@5",
+        "--no-requeue",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--job-name=stage2-NC1_recovery_seed1",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_recovery_seed1-%j.log",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_worker.sh",
+        "--run-id",
+        "NC1_recovery_seed1",
+        "--authorization",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json"
+      ]
+    }
+  ],
+  "jobs_submitted": false
+}

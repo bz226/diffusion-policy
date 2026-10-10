@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-09T21:34:44.230741+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--cpus-per-task=1",
+    "--mem=8G",
+    "--time=1214",
+    "--signal=B:TERM@5",
+    "--job-name=stage2-recovery-controller",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-recovery-controller-%j.log",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_campaign.sh",
+    "--authorization",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_authorization.json"
+  ],
+  "returncode": 0,
+  "stdout": "17780304\n",
+  "stderr": "",
+  "original_controller_untouched": "17778495",
+  "gpu_jobs_submitted_now": false,
+  "original_deadline_utc": "2026-10-10T17:49:34+00:00",
+  "requested_controller_minutes": 1214
+}

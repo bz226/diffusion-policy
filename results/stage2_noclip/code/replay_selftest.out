@@ -1,0 +1,24 @@
+test_actual_stage1_twenty_iteration_console_and_schema (test_replay_compare.ReplayTests) ... ok
+test_checks_gross_deviation_after_replay_interval (test_replay_compare.ReplayTests) ... ok
+test_exact_replay_ignores_only_declared_metadata (test_replay_compare.ReplayTests) ... ok
+test_full_precision_pickle_difference_is_not_rounded_away (test_replay_compare.ReplayTests) ... ok
+test_log_mask_is_per_token_not_per_line (test_replay_compare.ReplayTests) ... ok
+test_matching_warning_inside_iteration_is_compared (test_replay_compare.ReplayTests) ... ok
+test_missing_legacy_key_fails (test_replay_compare.ReplayTests) ... ok
+test_nondeterminism_does_not_disable_later_stable_fields (test_replay_compare.ReplayTests) ... ok
+test_nonfinite_new_metric_fails (test_replay_compare.ReplayTests) ... ok
+test_partial_r0_waits_but_detects_early_failure (test_replay_compare.ReplayTests) ... ok
+test_probe_requires_all_twenty_iterations (test_replay_compare.ReplayTests) ... ok
+test_probes_only (test_replay_compare.ReplayTests) ... ok
+test_required_diagnostics_must_be_logged (test_replay_compare.ReplayTests) ... ok
+test_sample_std_interval_and_strict_boundary (test_replay_compare.ReplayTests) ... ok
+test_startup_flags_must_be_defaults (test_replay_compare.ReplayTests) ... ok
+test_terminal_checkpoint_exception_cannot_hide_wrong_iteration (test_replay_compare.ReplayTests) ... ok
+test_unknown_additive_key_fails (test_replay_compare.ReplayTests) ... ok
+test_unknown_log_line_fails_without_realignment (test_replay_compare.ReplayTests) ... ok
+test_unrelated_startup_warning_is_not_a_flag_printout (test_replay_compare.ReplayTests) ... ok
+
+----------------------------------------------------------------------
+Ran 19 tests in 1.610s
+
+OK

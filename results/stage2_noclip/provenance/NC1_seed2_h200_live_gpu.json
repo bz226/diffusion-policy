@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-09T18:13:05.138681+00:00",
+  "command": [
+    "srun",
+    "--jobid=17777249",
+    "--overlap",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--cpu-bind=none",
+    "nvidia-smi",
+    "--query-gpu=name,uuid,driver_version,memory.used,memory.total,utilization.gpu",
+    "--format=csv,noheader"
+  ],
+  "returncode": 0,
+  "stdout": "NVIDIA H200 NVL, GPU-e20ab410-d3c3-b2e6-3513-eb025b864c85, 610.43.02, 1735 MiB, 143771 MiB, 46 %\n",
+  "stderr": ""
+}

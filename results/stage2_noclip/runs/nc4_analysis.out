@@ -1,0 +1,106 @@
+{
+  "candidate_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc4_analysis/candidates",
+  "aggregates": {
+    "baseline": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4341.9767263888225,
+        "population_std": 40.77073047234883
+      },
+      "eval_return_itr70": {
+        "mean": 4628.261569973253,
+        "population_std": 64.34200774879704
+      },
+      "eval_return_itr130": {
+        "mean": 4758.370764972049,
+        "population_std": 88.42051556405383
+      },
+      "train_return_itr1": {
+        "mean": 3877.9347260024388,
+        "population_std": 51.83697790553369
+      },
+      "train_return_itr139": {
+        "mean": 4439.122335110909,
+        "population_std": 109.02420779147656
+      }
+    },
+    "NC4_lr1e-4": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4319.809031592504,
+        "population_std": 38.60102977650554
+      },
+      "eval_return_itr70": {
+        "mean": 4540.534431541765,
+        "population_std": 9.174371790792328
+      },
+      "eval_return_itr130": {
+        "mean": 4603.523751320778,
+        "population_std": 15.630492305348039
+      },
+      "train_return_itr1": {
+        "mean": 3789.533847418613,
+        "population_std": 125.20418840858399
+      },
+      "train_return_itr139": {
+        "mean": 4310.317556847538,
+        "population_std": 52.60388682976957
+      }
+    },
+    "NC4_lr1e-3": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4286.897314340577,
+        "population_std": 41.517877404541274
+      },
+      "eval_return_itr70": {
+        "mean": 3829.9428289387643,
+        "population_std": 346.50434033480417
+      },
+      "eval_return_itr130": {
+        "mean": 3726.411272008224,
+        "population_std": 403.6449518017635
+      },
+      "train_return_itr1": {
+        "mean": 3904.5067892548736,
+        "population_std": 35.44291225995515
+      },
+      "train_return_itr139": {
+        "mean": 3360.578294016055,
+        "population_std": 228.73912673799535
+      }
+    },
+    "NC4_lr3e-3": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4262.592195767651,
+        "population_std": 3.209486221680112
+      },
+      "eval_return_itr70": {
+        "mean": 330.87495829420783,
+        "population_std": 679.5196530129638
+      },
+      "eval_return_itr130": {
+        "mean": -97.58865022798392,
+        "population_std": 476.8398982333499
+      },
+      "train_return_itr1": {
+        "mean": 3939.9138099357333,
+        "population_std": 40.904658596067776
+      },
+      "train_return_itr139": {
+        "mean": -52.69597936037336,
+        "population_std": 506.35409011233605
+      }
+    }
+  },
+  "log_axis_omissions": {
+    "zero_observations": 4,
+    "band_positions_with_nonpositive_lower_bound": 26
+  },
+  "validated_nc4_runs": 9
+}

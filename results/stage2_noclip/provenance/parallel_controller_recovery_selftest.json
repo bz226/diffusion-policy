@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-09T19:56:57.047452+00:00",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/test_campaign_parallel.py"
+  ],
+  "returncode": 0,
+  "passed": true,
+  "tests": 28,
+  "previous_tests": 22,
+  "added_documented_failure_tests": 6,
+  "live_read_only_authorization_and_stopped_state_validation_passed": true,
+  "remaining_original_deadline_seconds_at_validation": 78756.955912,
+  "coverage_added": [
+    "preserve stopped error/cancellation history",
+    "never retry interrupted runs",
+    "require exact stopped state from failure record",
+    "require explicit documented exception",
+    "reject wrong cancellation scope",
+    "reject source/setup/nonfinite failure overrides",
+    "all adopted run manifests terminal and only recorded training SIGTERM failures"
+  ],
+  "actual_slurm_operations": false,
+  "actual_training": false
+}

@@ -1,0 +1,17 @@
+{
+  "job_id": "17773065",
+  "condition": "R0",
+  "seed": 0,
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "gpu_type": "a6000",
+  "gpus": 1,
+  "cpus": 40,
+  "memory": "64G",
+  "maximum_allocation_seconds": 10800,
+  "estimate_seconds": 8100,
+  "estimate_basis": "Stage1about2h05plusallowance fordiagnosticsoverhead;pristine20itrprobes17m40s/17m50s",
+  "monitor_interval_seconds": 1800,
+  "submitted_utc": "2026-10-09T09:58:33.023713+00:00",
+  "gating": "Require20-iterationmatching-value replay passbeforeanyablationlaunch",
+  "verification": "runs/verification/verification.json"
+}

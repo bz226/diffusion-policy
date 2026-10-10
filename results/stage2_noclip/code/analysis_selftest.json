@@ -1,0 +1,14 @@
+{
+  "status": "passed",
+  "python": "existing Stage 1 Python 3.8",
+  "scope": "Synthetic scalar summaries and compilation only; no scientific results loaded, no plots generated",
+  "checks": [
+    "Population mean/std require all three requested seeds at each exact step",
+    "Missing endpoints remain NA; infinity is retained in median and triggers collapse",
+    "NaN does not disappear from median arithmetic",
+    "Finite crash is separate from observed collapse",
+    "Evaluation below half initial return triggers collapse",
+    "No initial observation is unassessable, not a fabricated non-collapse",
+    "Nonfinite provenance is JSON-safe and explicitly labeled"
+  ]
+}

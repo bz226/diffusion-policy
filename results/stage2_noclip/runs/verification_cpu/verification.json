@@ -1,0 +1,99 @@
+{
+  "status": "cpu_checks_passed_gpu_pending",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/verify_changes.py",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_cpu",
+    "--device",
+    "cpu"
+  ],
+  "started_utc": "2026-10-09T09:49:09Z",
+  "tests": {
+    "default_equivalence": {
+      "status": "passed",
+      "seconds": 2.0084413471631706,
+      "findings": {
+        "pairs": 128,
+        "losses_exact": true,
+        "gradients_exact": true,
+        "parameters_and_optimizer_states_exact": true
+      }
+    },
+    "flag_behavior": {
+      "status": "passed",
+      "seconds": 0.017939636949449778,
+      "findings": {
+        "invalid_reduction_rejected": true,
+        "flags": {
+          "True/mean": {
+            "ratio": 0.9978366494178772,
+            "reference": 0.997836643685849
+          },
+          "True/sum": {
+            "ratio": 0.9767860174179077,
+            "reference": 0.9767858709122175
+          },
+          "False/mean": {
+            "ratio": 1.000170111656189,
+            "reference": 1.0001700294871123
+          },
+          "False/sum": {
+            "ratio": 1.100824236869812,
+            "reference": 1.100822125486803
+          }
+        }
+      }
+    },
+    "diagnostic_checks": {
+      "status": "passed",
+      "seconds": 0.33619802189059556,
+      "findings": {
+        "sample_pairs": 20000,
+        "coordinate_denominator": 480000,
+        "global_rng_unchanged": true,
+        "flag_independent": true,
+        "actual": {
+          "kl_true_per_action": 8.351912609911102e-05,
+          "logratio_p99": 0.0070002079010009766,
+          "clamp_hit_frac": 0.30661666666666665
+        },
+        "independent_reference": {
+          "kl_true_per_action": 8.3519126099111e-05,
+          "logratio_p99": 0.0070002079010009766,
+          "clamp_hit_frac": 0.30661666666666665
+        }
+      }
+    },
+    "synthetic_control_flow": {
+      "status": "passed",
+      "seconds": 46.79767538397573,
+      "findings": {
+        "synthetic_only": true,
+        "actor_steps": 1,
+        "critic_steps": 20,
+        "coverage": 200000,
+        "reused_last_permutation": true,
+        "actor_unchanged_during_critic": true,
+        "ratio": 1.0,
+        "clipfrac": 0.0
+      }
+    }
+  },
+  "device": "cpu",
+  "scientific_environment_runs": 0,
+  "timeout_seconds": 1800,
+  "source": {
+    "repo": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "head": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "reference": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+    "changed_paths": [
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "model/diffusion/diffusion_ppo.py"
+    ]
+  },
+  "full_batch_shape_invariant": "not_run_requires_authorized_GPU_check",
+  "elapsed_seconds": 53.516996558057144,
+  "ended_utc": "2026-10-09T09:50:03Z"
+}

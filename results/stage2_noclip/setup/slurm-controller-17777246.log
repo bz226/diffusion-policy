@@ -1,0 +1,11 @@
+[2026-10-09T12:52:50.787] error: *** JOB 17777246 ON soal-2 CANCELLED AT 2026-10-09T12:52:50 DUE to SIGNAL Terminated ***
+Traceback (most recent call last):
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/campaign.py", line 322, in <module>
+    Campaign(args.commit, args.r0_job, args.gate, args.matrix, args.timeout_seconds).run()
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/campaign.py", line 284, in run
+    self.check_r0()
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/campaign.py", line 159, in check_r0
+    self.check_control()
+  File "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/campaign.py", line 152, in check_control
+    raise RuntimeError('Campaign controller interrupted; no continuation authorized')
+RuntimeError: Campaign controller interrupted; no continuation authorized

@@ -1,0 +1,39 @@
+{
+  "utc": "2026-10-09T18:12:17.553500+00:00",
+  "commands": [
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "job",
+        "17777249",
+        "-o"
+      ],
+      "returncode": 0,
+      "stdout": "JobId=17777249 JobName=stage2-NC1_seed2 UserId=zbao7(25987) GroupId=users(100) MCS_label=N/A Priority=0 Nice=0 Account=soal QOS=normal JobState=PENDING Reason=JobHeldUser Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=00:00:00 TimeLimit=03:00:00 TimeMin=N/A SubmitTime=2026-10-09T10:49:34 EligibleTime=Unknown AccrueTime=Unknown StartTime=Unknown EndTime=Unknown Deadline=N/A SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-09T11:05:33 Scheduler=Main Partition=soal AllocNode:Sid=soal-2:1780505 ReqNodeList=(null) ExcNodeList=(null) NodeList= NumNodes=1-1 NumCPUs=40 NumTasks=1 CPUs/Task=40 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=40,mem=64G,node=1,billing=40,gres/gpu=1,gres/gpu:h200nvl=1 AllocTRES=(null) Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=40 MinMemoryNode=64G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_worker.sh SubmitLine=sbatch --parsable --account=soal --partition=soal --nodes=1 --gres=gpu:a6000:1 --cpus-per-task=40 --mem=64G --time=03:00:00 --signal=B:TERM@30 --no-requeue --export=PATH,HOME,USER,LOGNAME,LANG --job-name=stage2-NC1_seed2 --chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo --output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_seed2-%j.log /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_worker.sh --run-id NC1_seed2 --expected-commit ab46b150fa34b5a5b457cd4062cd4c5ad830d964 --timeout-seconds 10800 --fixed-batch-gate /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json --estimate-seconds 8100 -- python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=2 wandb=null model.clip_ploss_coef=1e6 model.clip_ploss_coef_base=1e6 train.target_kl=null logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native WorkDir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo StdErr= StdIn=/dev/null StdOut=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_seed2-17777249.log TresPerNode=gres/gpu:h200nvl:1 TresPerTask=cpu=40\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "release",
+        "17777249"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "squeue",
+        "-j",
+        "17777245,17777246,17777247,17777248,17777249",
+        "-o",
+        "%.12i %.24j %.10T %.12M %.20R"
+      ],
+      "returncode": 0,
+      "stdout": "       JOBID                     NAME      STATE         TIME     NODELIST(REASON)\n    17777249         stage2-NC1_seed2    PENDING         0:00               (None)\n    17777247         stage2-NC1_seed0    RUNNING        21:43              soal-11\n    17777248         stage2-NC1_seed1    RUNNING        21:43              soal-11\n    17777245          stage2-R0-rerun    RUNNING        22:44              soal-10\n    17777246        stage2-controller    RUNNING        22:44               soal-2\n",
+      "stderr": ""
+    }
+  ]
+}

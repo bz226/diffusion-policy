@@ -1,0 +1,153 @@
+{
+  "status": "passed",
+  "reviewed_utc": "2026-10-09T18:12:05.169439+00:00",
+  "gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_h200/verification.json",
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "scientific_source_clean": true,
+  "original_gate_validation": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "actual_hardware_validation": {
+    "authorization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/h200_seed2_authorization.json",
+    "run_id": "NC1_seed2",
+    "slurm_job_id": "17777249",
+    "original_gpu_type": "NVIDIA RTX A6000",
+    "actual_gpu_type": "NVIDIA H200 NVL",
+    "same_pending_job_retargeted": true,
+    "h200_fixed_batch_gate": {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_h200/verification.json",
+      "passed": true,
+      "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+      "criterion": "H200_full_update_fixed_batch_gpu_float_tolerance"
+    }
+  },
+  "gpu_name": "NVIDIA H200 NVL",
+  "gpu_uuid": "GPU-e20ab410-d3c3-b2e6-3513-eb025b864c85",
+  "driver_version": "610.43.02",
+  "gpu_maximum_differences": {
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "bitwise_equal": true,
+    "comparison_records": 78
+  },
+  "checks_passed": 23,
+  "checks": [
+    {
+      "case": "original_full_CPU_A6000_gate_remains_passed",
+      "passed": true
+    },
+    {
+      "case": "actual_H200_passed_evidence_accepts_exact_approved_job",
+      "passed": true
+    },
+    {
+      "case": "different_run_id",
+      "passed": true,
+      "rejection": "Each run requires RTX A6000 except the approved NC1 seed-2 H200 job"
+    },
+    {
+      "case": "different_expected_commit",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "different_seed",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "different_rows",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "different_timeout_seconds",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "different_SLURM_JOB_ID",
+      "passed": true,
+      "rejection": "Each run requires RTX A6000 except the approved NC1 seed-2 H200 job"
+    },
+    {
+      "case": "different_SLURM_CPUS_PER_TASK",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "different_SLURM_MEM_PER_NODE",
+      "passed": true,
+      "rejection": "H200 run differs from the approved source, configuration or resource limits"
+    },
+    {
+      "case": "two_visible_GPUs",
+      "passed": true,
+      "rejection": "Each run requires exactly one visible GPU"
+    },
+    {
+      "case": "failed_actual_report_loss_components",
+      "passed": true,
+      "rejection": "Missing or failed H200 loss_components comparison"
+    },
+    {
+      "case": "failed_actual_report_actor_gradients",
+      "passed": true,
+      "rejection": "Missing or failed H200 actor_gradients comparison"
+    },
+    {
+      "case": "failed_actual_report_critic_gradients",
+      "passed": true,
+      "rejection": "Missing or failed H200 critic_gradients comparison"
+    },
+    {
+      "case": "failed_actual_report_actor_parameters",
+      "passed": true,
+      "rejection": "Missing or failed H200 actor_parameters comparison"
+    },
+    {
+      "case": "failed_actual_report_critic_parameters",
+      "passed": true,
+      "rejection": "Missing or failed H200 critic_parameters comparison"
+    },
+    {
+      "case": "failed_actual_report_permutations",
+      "passed": true,
+      "rejection": "Missing or failed H200 permutations comparison"
+    },
+    {
+      "case": "changed_python_RNG",
+      "passed": true,
+      "rejection": "H200 diagnostics must preserve all required global RNG states"
+    },
+    {
+      "case": "changed_numpy_RNG",
+      "passed": true,
+      "rejection": "H200 diagnostics must preserve all required global RNG states"
+    },
+    {
+      "case": "changed_torch_cpu_RNG",
+      "passed": true,
+      "rejection": "H200 diagnostics must preserve all required global RNG states"
+    },
+    {
+      "case": "changed_torch_cuda_RNG",
+      "passed": true,
+      "rejection": "H200 diagnostics must preserve all required global RNG states"
+    },
+    {
+      "case": "failed_sampling_chain",
+      "passed": true,
+      "rejection": "Missing or failed H200 sampling chain comparison"
+    },
+    {
+      "case": "scientific_source_still_clean_at_approved_commit",
+      "passed": true
+    }
+  ],
+  "test_method": "CPU-only validator calls with actual saved evidence; negative cases mutate argument copies or mock reads in memory only. No saved evidence or jobs changed."
+}

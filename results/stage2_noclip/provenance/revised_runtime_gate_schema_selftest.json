@@ -1,0 +1,16 @@
+{
+  "tests_run": 35,
+  "passed": true,
+  "test_modules": [
+    "test_campaign",
+    "test_revised_regression"
+  ],
+  "actual_gate_validation": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "passed": true,
+    "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+    "trajectory_comparison_gate": false
+  },
+  "change": "Accept actual separate training/evaluation transition count fields; all numeric checks unchanged"
+}

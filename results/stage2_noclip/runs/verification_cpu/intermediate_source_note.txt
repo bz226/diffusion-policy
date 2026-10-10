@@ -1,0 +1,13 @@
+This successful CPU check used an intermediate, uncommitted Stage 2 patch.
+Its source diff was not captured at process startup. The report's pinned HEAD
+and changed-path list therefore do not fully identify the tested source.
+
+After this process imported the source, two authorized changes were made:
+1. Skip actor zero_grad inside the critic-only loop, leaving one call in the
+   accumulated single actor update.
+2. Preserve raw nonfinite diagnostics in the iteration log and result.pkl,
+   then raise FloatingPointError after writing, instead of raising inside
+   the diagnostic calculator.
+
+Use ../verification_cpu_final/source.diff and its verification.json for the
+subsequent final CPU check. The GPU check remains a separate required gate.

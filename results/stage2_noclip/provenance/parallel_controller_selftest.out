@@ -1,0 +1,27 @@
+test_complete_campaign_reaches_finalization_only_allocation_terminal (__main__.ParallelCampaignTests) ... ok
+test_cycle_admits_parallel_groups_up_to_nine (__main__.ParallelCampaignTests) ... ok
+test_expired_original_budget_is_rejected (__main__.ParallelCampaignTests) ... ok
+test_failed_submission_is_rejected (__main__.ParallelCampaignTests) ... ok
+test_handoff_without_authorization_is_rejected (__main__.ParallelCampaignTests) ... ok
+test_infrastructure_failure_uses_existing_abort_semantics (__main__.ParallelCampaignTests) ... ok
+test_live_old_controller_is_rejected_without_state_write (__main__.ParallelCampaignTests) ... ok
+test_no_ambiguous_retry (__main__.ParallelCampaignTests) ... ok
+test_no_duplicate_run_or_job (__main__.ParallelCampaignTests) ... ok
+test_numerical_terminal_failure_does_not_retry_or_block_new_group (__main__.ParallelCampaignTests) ... ok
+test_partial_existing_group_admits_only_missing_seeds (__main__.ParallelCampaignTests) ... ok
+test_pending_and_completing_count_even_terminal_manifest (__main__.ParallelCampaignTests) ... ok
+test_r0_occupies_slot_and_caps_group_admission (__main__.ParallelCampaignTests) ... ok
+test_resume_preserves_jobs_original_start_and_deadline (__main__.ParallelCampaignTests) ... ok
+test_scientific_failure_can_remain_terminal (__main__.ParallelCampaignTests) ... ok
+test_scientific_or_resource_matrix_change_is_rejected (__main__.ParallelCampaignTests) ... ok
+test_submit_refuses_tenth_allocation (__main__.ParallelCampaignTests) ... ok
+test_unknown_allocation_occupies_slot_and_pauses_dispatch (__main__.ParallelCampaignTests) ... ok
+test_unknown_allocation_timeout_is_not_silently_terminal (__main__.ParallelCampaignTests) ... ok
+test_unknown_old_controller_is_rejected (__main__.ParallelCampaignTests) ... ok
+test_whole_group_admission_and_no_duplicates (__main__.ParallelCampaignTests) ... ok
+test_worker_command_unchanged (__main__.ParallelCampaignTests) ... ok
+
+----------------------------------------------------------------------
+Ran 22 tests in 0.635s
+
+OK

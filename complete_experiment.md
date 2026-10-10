@@ -16,4 +16,8 @@
 
 ## Comparison analyses
 
-None recorded.
+### NC4 learning-rate comparison against the Stage 1 baseline
+
+- Analysis folder: [nc4_analysis](results/stage2_noclip/runs/nc4_analysis/)
+- Analysis design: [NC4 subset methods](results/stage2_noclip/methods.md#nc4-subset-analysis-requested-before-campaign-completion)
+- Curated results: [Folder](results/stage2_noclip/curated/) · [Artifact index and captions](results/stage2_noclip/curated/INDEX.md)

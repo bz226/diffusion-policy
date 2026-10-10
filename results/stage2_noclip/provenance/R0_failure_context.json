@@ -1,0 +1,276 @@
+{
+  "status": "required_regression_gate_failed; campaign_stopped",
+  "criterion": "On a nondeterministic platform, R0 must equal P1 at every original saved value or printed token where P1 equals P2.",
+  "first_criterion_failure": {
+    "iteration": 6,
+    "source": "log_token",
+    "field": "070.token_03",
+    "p1": "-0.0004",
+    "p2": "-0.0004",
+    "r0": "-0.0005",
+    "metric": "pg_loss",
+    "precision": "original console format: four decimal places"
+  },
+  "independent_mask_audit": {
+    "method": "Re-read immutable result/log prefixes, reconstruct every probe equality-mask value and independently compare each enforced R0 value.",
+    "iterations_compared": [
+      0,
+      6
+    ],
+    "coverage_by_iteration": {
+      "0": {
+        "enforced": 157,
+        "passed": 157,
+        "failed": 0,
+        "unconstrained": 4
+      },
+      "1": {
+        "enforced": 220,
+        "passed": 220,
+        "failed": 0,
+        "unconstrained": 23
+      },
+      "2": {
+        "enforced": 220,
+        "passed": 220,
+        "failed": 0,
+        "unconstrained": 23
+      },
+      "3": {
+        "enforced": 219,
+        "passed": 219,
+        "failed": 0,
+        "unconstrained": 24
+      },
+      "4": {
+        "enforced": 220,
+        "passed": 220,
+        "failed": 0,
+        "unconstrained": 23
+      },
+      "5": {
+        "enforced": 219,
+        "passed": 219,
+        "failed": 0,
+        "unconstrained": 24
+      },
+      "6": {
+        "enforced": 220,
+        "passed": 219,
+        "failed": 1,
+        "unconstrained": 23
+      }
+    },
+    "enforced_value_count": 1475,
+    "mismatch_count": 1,
+    "all_earlier_iterations_passed": true,
+    "earlier_snapshot_reports": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_001.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_002.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_003.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_004.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_005.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_006.json"
+    ]
+  },
+  "comparison_lines_and_saved_values": {
+    "P1": {
+      "console_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/P1_seed0.out",
+      "raw_line_number": 494,
+      "canonical_line": "[agent.finetune.train_ppo_diffusion_agent][INFO] - 6: step   480000 | loss   0.0372 | pg loss  -0.0004 | value loss   0.0753 | bc loss   0.0000 | reward 4009.3790 | eta   1.0000",
+      "printed_pg_loss": "-0.0004",
+      "saved_iteration6_values": {
+        "itr": 6,
+        "step": 480000,
+        "time": 56.653629302978516,
+        "train_episode_reward": 4009.3790217829096
+      },
+      "initial_eval_return": 4351.056448682089,
+      "iteration1_train_return": 3898.7218223296595
+    },
+    "P2": {
+      "console_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/P2_seed0.out",
+      "raw_line_number": 494,
+      "canonical_line": "[agent.finetune.train_ppo_diffusion_agent][INFO] - 6: step   480000 | loss   0.0391 | pg loss  -0.0004 | value loss   0.0790 | bc loss   0.0000 | reward 4097.9338 | eta   1.0000",
+      "printed_pg_loss": "-0.0004",
+      "saved_iteration6_values": {
+        "itr": 6,
+        "step": 480000,
+        "time": 58.31924366950989,
+        "train_episode_reward": 4097.933842717534
+      },
+      "initial_eval_return": 4294.754141298264,
+      "iteration1_train_return": 3866.3806870681146
+    },
+    "R0": {
+      "console_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_007.out",
+      "raw_line_number": 495,
+      "canonical_line": "[agent.finetune.train_ppo_diffusion_agent][INFO] - 6: step   480000 | loss   0.0373 | pg loss  -0.0005 | value loss   0.0756 | bc loss   0.0000 | reward 3976.3736 | eta   1.0000",
+      "printed_pg_loss": "-0.0005",
+      "saved_iteration6_values": {
+        "itr": 6,
+        "step": 480000,
+        "time": 56.44697666168213,
+        "train_episode_reward": 3976.3735832227335,
+        "kl_true_per_action": 0.07694674543991246,
+        "logratio_p99": 0.37911837816238186,
+        "clamp_hit_frac": 0.0,
+        "approx_kl": 1.2821202290069778e-05,
+        "clipfrac": 0.021621999079434316,
+        "ratio": 0.9997138977050781,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "initial_eval_return": 4367.29459523241,
+      "iteration1_train_return": 3924.8082218158174
+    }
+  },
+  "probe_determinism": {
+    "deterministic": false,
+    "differing_value_count": 429,
+    "total_comparison_count": 4695,
+    "first_difference": {
+      "iteration": 0,
+      "source": "log_token",
+      "field": "051.token_01",
+      "p1": "4351.0564",
+      "p2": "4294.7541"
+    }
+  },
+  "effective_new_flags": [
+    {
+      "line_number": 17,
+      "payload": "stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False"
+    }
+  ],
+  "source_records": {
+    "P1": {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/P1_seed0/manifest.json",
+      "before": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true,
+        "changed_from_base": []
+      },
+      "after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true,
+        "changed_from_base": []
+      }
+    },
+    "P2": {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/P2_seed0/manifest.json",
+      "before": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true,
+        "changed_from_base": []
+      },
+      "after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true,
+        "changed_from_base": []
+      }
+    },
+    "R0": {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/manifest.json",
+      "before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    }
+  },
+  "runtime": {
+    "P1": {
+      "subprocess_wall_seconds": 1060.4257000639336,
+      "mean_training_iteration_seconds": 57.177242305543686,
+      "mean_evaluation_iteration_seconds": 12.4154292345047,
+      "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    },
+    "P2": {
+      "subprocess_wall_seconds": 1069.8062980090035,
+      "mean_training_iteration_seconds": 57.63383913040161,
+      "mean_evaluation_iteration_seconds": 12.812114000320435,
+      "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    },
+    "R0": {
+      "subprocess_wall_seconds": 357.3597291399492,
+      "mean_training_iteration_seconds": 56.50895909468333,
+      "mean_evaluation_iteration_seconds": 12.420835733413696,
+      "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    }
+  },
+  "termination": {
+    "cause": "Supervisor intentionally terminated R0 after the exact matching-value failure; not a NaN/inf training crash.",
+    "native_returncode": -15,
+    "criterion_failure_iteration": 6,
+    "interrupted_collection_iteration": 7,
+    "original_manifest_failing_iteration": 7,
+    "last_saved_iteration": 6,
+    "saved_rows": 7,
+    "saved_training_env_steps": 480000,
+    "all_saved_numeric_values_finite": true,
+    "monitor_status": "paused"
+  },
+  "last_saved_diagnostics": {
+    "kl_true_per_action": 0.07694674543991246,
+    "logratio_p99": 0.37911837816238186,
+    "clamp_hit_frac": 0.0,
+    "approx_kl": 1.2821202290069778e-05,
+    "clipfrac": 0.021621999079434316,
+    "ratio": 0.9997138977050781,
+    "actor_optimizer_steps": 20,
+    "critic_optimizer_steps": 20,
+    "actor_lr": 0.0001,
+    "critic_lr": 0.001
+  },
+  "gross_eval_checks": [
+    {
+      "iteration": 0,
+      "step": 0,
+      "r0": 4367.29459523241,
+      "baseline_values": [
+        4286.896956658653,
+        4384.282887687965,
+        4354.750334819849
+      ],
+      "mean": 4341.9767263888225,
+      "sample_std_ddof1": 49.93374304889801,
+      "lower": 4092.3080111443323,
+      "upper": 4591.645441633313,
+      "red_flag": false
+    }
+  ],
+  "gross_eval_red_flags": [],
+  "limitations": [
+    "The full-precision pg_loss was not saved in pristine result.pkl; the failing criterion compares the original four-decimal printed tokens.",
+    "P1 and P2 differ before any policy update, and equality of their rounded PG-loss tokens may be coincidental. This required-gate failure does not by itself establish that the edited default loss computes differently.",
+    "Read-only source inspection identifies a reset-seeding gap: the DPPO wrapper seeds global NumPy but not the inner Gym HalfCheetah np_random, which is used for reset initial conditions. This is consistent with the pristine initial-return differences; initial observations and underlying RNG states were not captured, so it is not proven to be the sole cause."
+  ],
+  "seeding_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/seeding_inspection.json",
+  "sources": {
+    "replay_status": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay_status.json",
+    "frozen_failure_result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_007.result.pkl",
+    "frozen_failure_console": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay/rows_007.out",
+    "native_result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native/result.pkl",
+    "checkpoint_paths": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native/checkpoint/state_0.pt"
+    ]
+  },
+  "action": "Stop and report. No ablation launch, retry, source edit, criterion relaxation, or further scientific plot/analysis is authorized."
+}

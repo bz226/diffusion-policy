@@ -1,0 +1,284 @@
+diff --git a/agent/finetune/train_ppo_diffusion_agent.py b/agent/finetune/train_ppo_diffusion_agent.py
+index 998c638..0de965a 100644
+--- a/agent/finetune/train_ppo_diffusion_agent.py
++++ b/agent/finetune/train_ppo_diffusion_agent.py
+@@ -22,6 +22,15 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+     def __init__(self, cfg):
+         super().__init__(cfg)
+ 
++        self.actor_single_step = cfg.train.get("actor_single_step", False)
++        self.diagnostic_generator = torch.Generator(device="cpu")
++        self.diagnostic_generator.manual_seed(self.seed)
++        log.info(
++            f"stage2_flags clamp_logprob={self.model.clamp_logprob} "
++            f"logprob_reduce={self.model.logprob_reduce} "
++            f"actor_single_step={self.actor_single_step}"
++        )
++
+         # Reward horizon --- always set to act_steps for now
+         self.reward_horizon = cfg.get("reward_horizon", self.act_steps)
+ 
+@@ -44,6 +53,102 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 gamma=1.0,
+             )
+ 
++    def _single_actor_step(
++        self, obs_k, chains_k, returns_k, values_k, advantages_k, logprobs_k, inds_k
++    ):
++        """Accumulate all pairs using the final critic permutation; step once."""
++        total_steps = self.n_steps * self.n_envs * self.model.ft_denoising_steps
++        if len(inds_k) != total_steps:
++            raise ValueError("single actor step requires the complete pair permutation")
++        metrics = {
++            "actor_loss": 0.0,
++            "pg_loss": 0.0,
++            "entropy_loss": 0.0,
++            "bc_loss": 0.0,
++            "eta": 0.0,
++            "actor_step_ratio": 0.0,
++            "actor_step_clipfrac": 0.0,
++            "clipfracs": [],
++        }
++        self.actor_optimizer.zero_grad()
++        for start in range(0, total_steps, self.batch_size):
++            inds_b = inds_k[start : start + self.batch_size]
++            batch_inds_b, denoising_inds_b = torch.unravel_index(
++                inds_b, (self.n_steps * self.n_envs, self.model.ft_denoising_steps)
++            )
++            (
++                pg_loss, entropy_loss, _, clipfrac, approx_kl, ratio, bc_loss, eta
++            ) = self.model.loss(
++                {"state": obs_k["state"][batch_inds_b]},
++                chains_k[batch_inds_b, denoising_inds_b],
++                chains_k[batch_inds_b, denoising_inds_b + 1],
++                denoising_inds_b,
++                returns_k[batch_inds_b],
++                values_k[batch_inds_b],
++                advantages_k[batch_inds_b],
++                logprobs_k[batch_inds_b, denoising_inds_b],
++                use_bc_loss=self.use_bc_loss,
++                reward_horizon=self.reward_horizon,
++            )
++            actor_loss = (
++                pg_loss + entropy_loss * self.ent_coef + bc_loss * self.bc_loss_coeff
++            )
++            weight = len(inds_b) / total_steps
++            (actor_loss * weight).backward()
++            for key, value in (
++                ("actor_loss", actor_loss), ("pg_loss", pg_loss),
++                ("entropy_loss", entropy_loss), ("bc_loss", bc_loss), ("eta", eta),
++                ("actor_step_ratio", ratio), ("actor_step_clipfrac", clipfrac),
++            ):
++                if torch.is_tensor(value):
++                    value = value.detach().item()
++                metrics[key] += weight * value
++            metrics["approx_kl"] = approx_kl
++            metrics["ratio"] = ratio
++            metrics["clipfracs"].append(clipfrac)
++
++        if metrics["actor_step_ratio"] != 1.0 or metrics["actor_step_clipfrac"] != 0.0:
++            raise RuntimeError(
++                "actor_single_step invariant failed: "
++                f"ratio={metrics['actor_step_ratio']!r}, "
++                f"clipfrac={metrics['actor_step_clipfrac']!r}"
++            )
++        if self.max_grad_norm is not None:
++            torch.nn.utils.clip_grad_norm_(
++                self.model.actor_ft.parameters(), self.max_grad_norm
++            )
++        self.actor_optimizer.step()
++        return metrics
++
++    @torch.no_grad()
++    def _post_update_diagnostics(self, obs_k, chains_k, logprobs_k):
++        """Unclamped coordinate-sum diagnostics with an independent RNG."""
++        total_steps = self.n_steps * self.n_envs * self.model.ft_denoising_steps
++        if total_steps < 20000:
++            raise ValueError("diagnostics require at least 20000 pairs")
++        inds = torch.randperm(total_steps, generator=self.diagnostic_generator)[:20000]
++        inds = inds.to(self.device)
++        batch_inds, denoising_inds = torch.unravel_index(
++            inds, (self.n_steps * self.n_envs, self.model.ft_denoising_steps)
++        )
++        new = self.model.get_logprobs_subsample(
++            {"state": obs_k["state"][batch_inds]},
++            chains_k[batch_inds, denoising_inds],
++            chains_k[batch_inds, denoising_inds + 1],
++            denoising_inds,
++        )
++        old = logprobs_k[batch_inds, denoising_inds]
++        d = new.double().sum(dim=(-1, -2)) - old.double().sum(dim=(-1, -2))
++        metrics = {
++            "kl_true_per_action": (
++                self.model.ft_denoising_steps * (torch.expm1(d) - d).mean()
++            ).item(),
++            "logratio_p99": torch.quantile(d.abs(), 0.99).item(),
++            "clamp_hit_frac": torch.count_nonzero((new < -5) | (new > 2)).item()
++            / new.numel(),
++        }
++        return metrics
++
+     def run(self):
+         # Start training loop
+         timer = Timer()
+@@ -305,6 +410,11 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 # Update policy and critic
+                 total_steps = self.n_steps * self.n_envs * self.model.ft_denoising_steps
+                 clipfracs = []
++                actor_optimizer_steps = 0
++                critic_optimizer_steps = 0
++                actor_lr = self.actor_optimizer.param_groups[0]["lr"]
++                critic_lr = self.critic_optimizer.param_groups[0]["lr"]
++                actor_step_metrics = None
+                 for update_epoch in range(self.update_epochs):
+                     # for each epoch, go through all data in batches
+                     flag_break = False
+@@ -357,20 +467,26 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                         clipfracs += [clipfrac]
+ 
+                         # update policy and critic
+-                        self.actor_optimizer.zero_grad()
++                        if not self.actor_single_step:
++                            self.actor_optimizer.zero_grad()
+                         self.critic_optimizer.zero_grad()
+                         if self.learn_eta:
+                             self.eta_optimizer.zero_grad()
+-                        loss.backward()
+-                        if self.itr >= self.n_critic_warmup_itr:
++                        if self.actor_single_step:
++                            (v_loss * self.vf_coef).backward()
++                        else:
++                            loss.backward()
++                        if self.itr >= self.n_critic_warmup_itr and not self.actor_single_step:
+                             if self.max_grad_norm is not None:
+                                 torch.nn.utils.clip_grad_norm_(
+                                     self.model.actor_ft.parameters(), self.max_grad_norm
+                                 )
+                             self.actor_optimizer.step()
++                            actor_optimizer_steps += 1
+                             if self.learn_eta and batch % self.eta_update_interval == 0:
+                                 self.eta_optimizer.step()
+                         self.critic_optimizer.step()
++                        critic_optimizer_steps += 1
+                         log.info(
+                             f"approx_kl: {approx_kl}, update_epoch: {update_epoch}, num_batch: {num_batch}"
+                         )
+@@ -382,12 +498,27 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                     if flag_break:
+                         break
+ 
++                if self.actor_single_step and self.itr >= self.n_critic_warmup_itr:
++                    actor_step_metrics = self._single_actor_step(
++                        obs_k, chains_k, returns_k, values_k, advantages_k, logprobs_k, inds_k
++                    )
++                    actor_optimizer_steps += 1
++                    pg_loss = actor_step_metrics["pg_loss"]
++                    entropy_loss = actor_step_metrics["entropy_loss"]
++                    bc_loss = actor_step_metrics["bc_loss"]
++                    eta = actor_step_metrics["eta"]
++                    approx_kl = actor_step_metrics["approx_kl"]
++                    ratio = actor_step_metrics["ratio"]
++                    clipfracs = actor_step_metrics["clipfracs"]
++                    loss = actor_step_metrics["actor_loss"] + v_loss * self.vf_coef
++
+                 # Explained variation of future rewards using value function
+                 y_pred, y_true = values_k.cpu().numpy(), returns_k.cpu().numpy()
+                 var_y = np.var(y_true)
+                 explained_var = (
+                     np.nan if var_y == 0 else 1 - np.var(y_true - y_pred) / var_y
+                 )
++                diagnostics = self._post_update_diagnostics(obs_k, chains_k, logprobs_k)
+ 
+             # Plot state trajectories (only in D3IL)
+             if (
+@@ -452,6 +583,14 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 else:
+                     log.info(
+                         f"{self.itr}: step {cnt_train_step:8d} | loss {loss:8.4f} | pg loss {pg_loss:8.4f} | value loss {v_loss:8.4f} | bc loss {bc_loss:8.4f} | reward {avg_episode_reward:8.4f} | eta {eta:8.4f} | t:{time:8.4f}"
++                        f" | kl_true_per_action={diagnostics['kl_true_per_action']!r}"
++                        f" | logratio_p99={diagnostics['logratio_p99']!r}"
++                        f" | clamp_hit_frac={diagnostics['clamp_hit_frac']!r}"
++                        + (
++                            f" | actor_step_ratio={actor_step_metrics['actor_step_ratio']!r}"
++                            f" | actor_step_clipfrac={actor_step_metrics['actor_step_clipfrac']!r}"
++                            if actor_step_metrics is not None else ""
++                        )
+                     )
+                     if self.use_wandb:
+                         wandb.log(
+@@ -478,6 +617,27 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                             commit=True,
+                         )
+                     run_results[-1]["train_episode_reward"] = avg_episode_reward
++                    run_results[-1].update(diagnostics)
++                    run_results[-1].update(
++                        approx_kl=approx_kl,
++                        clipfrac=float(np.mean(clipfracs)),
++                        ratio=ratio,
++                        actor_optimizer_steps=actor_optimizer_steps,
++                        critic_optimizer_steps=critic_optimizer_steps,
++                        actor_lr=actor_lr,
++                        critic_lr=critic_lr,
++                    )
++                    if actor_step_metrics is not None:
++                        run_results[-1].update(
++                            actor_step_ratio=actor_step_metrics["actor_step_ratio"],
++                            actor_step_clipfrac=actor_step_metrics["actor_step_clipfrac"],
++                        )
+                 with open(self.result_path, "wb") as f:
+                     pickle.dump(run_results, f)
++                if not eval_mode and not all(
++                    math.isfinite(value) for value in diagnostics.values()
++                ):
++                    raise FloatingPointError(
++                        f"nonfinite post-update diagnostics: {diagnostics}"
++                    )
+             self.itr += 1
+diff --git a/model/diffusion/diffusion_ppo.py b/model/diffusion/diffusion_ppo.py
+index 1c574a3..4d58321 100644
+--- a/model/diffusion/diffusion_ppo.py
++++ b/model/diffusion/diffusion_ppo.py
+@@ -32,10 +32,17 @@ class PPODiffusion(VPGDiffusion):
+         clip_advantage_lower_quantile: float = 0,
+         clip_advantage_upper_quantile: float = 1,
+         norm_adv: bool = True,
++        clamp_logprob: bool = True,
++        logprob_reduce: str = "mean",
+         **kwargs,
+     ):
++        if logprob_reduce not in ("mean", "sum"):
++            raise ValueError("logprob_reduce must be 'mean' or 'sum'")
+         super().__init__(**kwargs)
+ 
++        self.clamp_logprob = clamp_logprob
++        self.logprob_reduce = logprob_reduce
++
+         # Whether to normalize advantages within batch
+         self.norm_adv = norm_adv
+ 
+@@ -90,16 +97,21 @@ class PPODiffusion(VPGDiffusion):
+             get_ent=True,
+         )
+         entropy_loss = -eta.mean()
+-        newlogprobs = newlogprobs.clamp(min=-5, max=2)
+-        oldlogprobs = oldlogprobs.clamp(min=-5, max=2)
++        if self.clamp_logprob:
++            newlogprobs = newlogprobs.clamp(min=-5, max=2)
++            oldlogprobs = oldlogprobs.clamp(min=-5, max=2)
+ 
+         # only backpropagate through the earlier steps (e.g., ones actually executed in the environment)
+         newlogprobs = newlogprobs[:, :reward_horizon, :]
+         oldlogprobs = oldlogprobs[:, :reward_horizon, :]
+ 
+         # Get the logprobs - batch over B and denoising steps
+-        newlogprobs = newlogprobs.mean(dim=(-1, -2)).view(-1)
+-        oldlogprobs = oldlogprobs.mean(dim=(-1, -2)).view(-1)
++        if self.logprob_reduce == "mean":
++            newlogprobs = newlogprobs.mean(dim=(-1, -2)).view(-1)
++            oldlogprobs = oldlogprobs.mean(dim=(-1, -2)).view(-1)
++        else:
++            newlogprobs = newlogprobs.sum(dim=(-1, -2)).view(-1)
++            oldlogprobs = oldlogprobs.sum(dim=(-1, -2)).view(-1)
+ 
+         bc_loss = 0
+         if use_bc_loss:

@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-09T18:13:53.387171+00:00",
+  "status": "running_on_approved_H200",
+  "run_id": "NC1_seed2",
+  "slurm_job_id": "17777249",
+  "same_pending_job_retargeted": true,
+  "hardware": {
+    "gpu_query": "NVIDIA H200 NVL, GPU-e20ab410-d3c3-b2e6-3513-eb025b864c85, 00000000:D1:00.0, 610.43.02, 143771 MiB",
+    "uname": [
+      "Linux",
+      "soal-12.stanford.edu",
+      "6.8.0-134-generic",
+      "#134-Ubuntu SMP PREEMPT_DYNAMIC Fri Jun 26 18:43:11 UTC 2026",
+      "x86_64"
+    ],
+    "cpu_affinity_count": 40
+  },
+  "limits": {
+    "cpus": 40,
+    "memory_gib": 64,
+    "gpu_count": 1,
+    "n_train_itr": 140,
+    "runtime_cap_seconds": 10800
+  },
+  "scientific_source_clean": true,
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "initial_eval_return": 4333.435346779079,
+  "first_train_return": 3885.6245782577234,
+  "first_train_iteration_seconds": 32.68823218345642,
+  "first_train_diagnostics": {
+    "kl_true_per_action": 2.7130300530562184,
+    "logratio_p99": 6.109183720350224,
+    "clamp_hit_frac": 0.00010416666666666667,
+    "approx_kl": 0.0009159263572655618,
+    "clipfrac": 0.0
+  },
+  "startup_flags_printed": "stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False",
+  "monitor_interval_seconds": 1800,
+  "first_periodic_check_utc": "2026-10-09T18:42:33+00:00",
+  "new_gpu_verification_allocation_seconds": 65,
+  "total_verification_allocation_seconds": 317,
+  "verification_budget_seconds": 1800,
+  "other_active_runs_unchanged": [
+    "R0_rerun_seed0",
+    "NC1_seed0",
+    "NC1_seed1"
+  ],
+  "no_installation_changes": true,
+  "no_deterministic_settings_changes": true,
+  "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/manifest.json",
+  "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/result.pkl"
+}

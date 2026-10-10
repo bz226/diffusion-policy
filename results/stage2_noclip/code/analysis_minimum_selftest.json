@@ -1,0 +1,11 @@
+{
+  "status": "passed",
+  "command": ["/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python", "-m", "unittest", "-v", "test_analysis_fallback.FallbackTests.test_minimum_preserves_infinities_and_rejects_nan"],
+  "environment": {"PYTHONDONTWRITEBYTECODE": "1"},
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code",
+  "exit_code": 0,
+  "tests_run": 1,
+  "cases": ["finite plus positive infinity", "finite plus negative infinity", "NaN present", "positive infinity only", "no evaluations"],
+  "raw_output": "test_minimum_preserves_infinities_and_rejects_nan (test_analysis_fallback.FallbackTests) ... ok\n\n----------------------------------------------------------------------\nRan 1 test in 0.012s\n\nOK\n",
+  "scope": "Synthetic scalar minimum-return fixtures only; no scientific data loaded or plots generated"
+}

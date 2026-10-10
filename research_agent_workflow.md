@@ -128,6 +128,8 @@ Adapt this structure to an existing repository when appropriate; do not reorgani
 
 Each run must record the exact configuration, random seeds, commands, code revision or source snapshot, relevant dependency versions, data identity, test status, and execution status. If the repository has uncommitted changes, a commit ID alone is insufficient: preserve the relevant diff or snapshot. Do not expose credentials or private data in manifests.
 
+Track experiment source and selected results as ordinary files in this repository. After creating or updating a checkout under `results/<study>/dppo`, use `python3 scripts/git_add_all.py` from the project root when staging changes. The helper registers tracked DPPO source and native fine-tuning `result.pkl`, `run.log`, and Hydra YAML records before running `git add -A`; `--dry-run` previews the plan. It preserves the nested Git metadata, revision, and tracked working tree required by active provenance checks, and respects surrounding ignore rules for datasets, checkpoints, and caches. Do not delete or rename an active checkout's `.git`, change its ignore rules just for publishing, or add it as a submodule. If the parent Git index is read-only, prepare and verify the changes, then give me the helper command to run in my normal terminal.
+
 Preserve raw measurements and completed run outputs. Do not overwrite past evidence, silently drop failed seeds, or delete results merely because they are unfavorable. Record failures, exclusions, and any deviations from the approved design. Destructive actions and changes outside the approved scope require permission.
 
 Report clearly whether code was written, checked, executed, and inspected. Do not equate code that runs with a validated scientific result.

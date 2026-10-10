@@ -1,0 +1,151 @@
+{
+  "recorded_utc": "2026-10-09T19:49:58.508234+00:00",
+  "scope": "Read-only cluster policy and instantaneous availability for authorized parallel Stage 2 training; no jobs modified or submitted.",
+  "requested_capacity": {
+    "training_jobs": 9,
+    "gpus": 9,
+    "cpus": 360,
+    "memory_gib": 576,
+    "controller_jobs": 1,
+    "controller_cpus": 2,
+    "controller_memory_gib": 8
+  },
+  "limits": {
+    "partition": "soal",
+    "account": "soal",
+    "partition_qos": "soal",
+    "max_running_jobs_per_user": 12,
+    "max_submitted_jobs_per_user": 20,
+    "max_gpus_per_user": 12,
+    "cpu_or_memory_limit_found_in_soal_account_user_or_qos": false,
+    "enforcement": "associations,limits,qos"
+  },
+  "current_other_user_job": {
+    "job_id": "17777102",
+    "partition": "soal-interactive",
+    "cpus": 2,
+    "memory_gib": 4,
+    "gpus": 1,
+    "separate_partition_qos": true
+  },
+  "availability": {
+    "a6000_total": 10,
+    "a6000_allocated": 9,
+    "a6000_unallocated": 1,
+    "our_running_a6000_jobs": 3,
+    "a6000_allocated_to_other_users": 6,
+    "unallocated_resources_on_soal10": {
+      "cpus": 120,
+      "memory_mib": 178032,
+      "gpus": 1
+    },
+    "unallocated_resources_on_soal11": {
+      "cpus": 80,
+      "memory_mib": 112496,
+      "gpus": 0
+    }
+  },
+  "conclusion": "Nine training jobs plus the CPU-only controller are allowed by the exposed SOAL account/QOS limits. They cannot all start immediately: only one A6000 is currently unallocated, and six of ten A6000s are allocated to another user. Queue the authorized jobs and let Slurm enforce availability; do not assume an immediate nine-GPU allocation. No GPU hardware change is included.",
+  "caveat": "Read-only scheduler evidence cannot guarantee start times or exclude undisclosed policy in the job-submit Lua plugin; job submission provides the definitive admission decision.",
+  "evidence": [
+    {
+      "command": [
+        "sacctmgr",
+        "-nP",
+        "show",
+        "assoc",
+        "where",
+        "user=zbao7",
+        "format=Cluster,Account,User,Partition,QOS,DefaultQOS,GrpJobs,GrpSubmitJobs,GrpTRES,MaxJobs,MaxSubmitJobs,MaxTRES,MaxWall"
+      ],
+      "returncode": 0,
+      "stdout": "sc|default|zbao7||normal||||||||\nsc|soal|zbao7||normal||||||||\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sacctmgr",
+        "-nP",
+        "show",
+        "assoc",
+        "where",
+        "account=root,soal",
+        "format=Cluster,Account,User,Partition,QOS,DefaultQOS,GrpJobs,GrpSubmitJobs,GrpTRES,MaxJobs,MaxSubmitJobs,MaxTRES,MaxWall"
+      ],
+      "returncode": 0,
+      "stdout": "sc|root|||normal||||||||\nsc|root|root||normal||||||||\nsc|soal|||normal||||||||\nsc|soal|acaosun||normal||||||||\nsc|soal|ach974||normal||||||||\nsc|soal|amadayan||normal||||||||\nsc|soal|angikar||normal||||||||\nsc|soal|anushkam||normal||||||||\nsc|soal|archetti||normal||||||||\nsc|soal|benl66||normal||||||||\nsc|soal|epsteine||normal||||||||\nsc|soal|ghoshadi||normal||||||||\nsc|soal|harrislee||normal||||||||\nsc|soal|heyu||normal||||||||\nsc|soal|hippowal||normal||||||||\nsc|soal|htdai||normal||||||||\nsc|soal|hwr||normal||||||||\nsc|soal|ilo||normal||||||||\nsc|soal|ishita||normal||||||||\nsc|soal|jfuest||normal||||||||\nsc|soal|jimmyw||normal||||||||\nsc|soal|jipliu||normal||||||||\nsc|soal|jjingwei||normal||||||||\nsc|soal|jmaho||normal||||||||\nsc|soal|jmaire||normal||||||||\nsc|soal|jytan12||normal||||||||\nsc|soal|kadenwu||normal||||||||\nsc|soal|kprasai||normal||||||||\nsc|soal|kqureshi||normal||||||||\nsc|soal|kuelbs||normal||||||||\nsc|soal|kumarc||normal||||||||\nsc|soal|lhao||normal||||||||\nsc|soal|liushang||normal||||||||\nsc|soal|ltwolf||normal||||||||\nsc|soal|miaowang||normal||||||||\nsc|soal|nrs||normal||||||||\nsc|soal|pratikr||normal||||||||\nsc|soal|puhengli||normal||||||||\nsc|soal|pvtsai||normal||||||||\nsc|soal|pyj||normal||||||||\nsc|soal|ravisoji||normal||||||||\nsc|soal|rebei||normal||||||||\nsc|soal|rosew||normal||||||||\nsc|soal|ruizhe||normal||||||||\nsc|soal|shouqiao||normal||||||||\nsc|soal|tkeely||normal||||||||\nsc|soal|udell||normal||||||||\nsc|soal|vitercik||normal||||||||\nsc|soal|wikum||normal||||||||\nsc|soal|xinzeng||normal||||||||\nsc|soal|xueye||normal||||||||\nsc|soal|yangwh||normal||||||||\nsc|soal|yangzj||normal||||||||\nsc|soal|ycchu97||normal||||||||\nsc|soal|yifacop0||normal||||||||\nsc|soal|yinbinha||normal||||||||\nsc|soal|yinjunw||normal||||||||\nsc|soal|zackryan||normal||||||||\nsc|soal|zbao7||normal||||||||\nsc|soal|zwanyu||normal||||||||\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sacctmgr",
+        "-nP",
+        "show",
+        "qos",
+        "where",
+        "name=soal,soal-interactive",
+        "format=Name,Flags,MaxJobsPU,MaxSubmitPU,MaxTRESPU,MaxTRESPJ,MaxTRESPerNode,GrpJobs,GrpSubmit,GrpTRES,MaxWall"
+      ],
+      "returncode": 0,
+      "stdout": "soal||12|20|gres/gpu=12||||||\nsoal-interactive||1|1|gres/gpu=1||||||\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "partition",
+        "soal"
+      ],
+      "returncode": 0,
+      "stdout": "PartitionName=soal\n   AllowGroups=ALL AllowAccounts=soal,gems AllowQos=ALL\n   AllocNodes=ALL Default=NO QoS=soal\n   DefaultTime=7-00:00:00 DisableRootJobs=NO ExclusiveUser=NO ExclusiveTopo=NO GraceTime=60 Hidden=NO\n   MaxNodes=UNLIMITED MaxTime=21-00:00:00 MinNodes=0 LLN=NO MaxCPUsPerNode=UNLIMITED MaxCPUsPerSocket=UNLIMITED\n   Nodes=soal-[1-12]\n   PriorityJobFactor=100 PriorityTier=100 RootOnly=NO ReqResv=NO OverSubscribe=NO\n   OverTimeLimit=NONE PreemptMode=REQUEUE\n   State=UP TotalCPUs=1760 TotalNodes=12 SelectTypeParameters=NONE\n   JobDefaults=(null)\n   DefMemPerCPU=4096 MaxMemPerCPU=125000\n   TRES=cpu=1760,mem=12590000M,node=12,billing=1760,gres/gpu=38,gres/gpu:a6000=10,gres/gpu:h200nvl=4,gres/gpu:titanv=16,gres/gpu:titanx=8\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "squeue",
+        "-u",
+        "zbao7",
+        "-o",
+        "%.18i %.12P %.28j %.2t %.10M %.6D %.6C %.10m %.20b %.24R"
+      ],
+      "returncode": 0,
+      "stdout": "             JOBID    PARTITION                         NAME ST       TIME  NODES   CPUS MIN_MEMORY        TRES_PER_NODE         NODELIST(REASON)\n          17777247         soal             stage2-NC1_seed0  R    1:59:24      1     40        64G     gres/gpu:a6000:1                  soal-11\n          17777248         soal             stage2-NC1_seed1  R    1:59:24      1     40        64G     gres/gpu:a6000:1                  soal-11\n          17777245         soal              stage2-R0-rerun  R    2:00:25      1     40        64G     gres/gpu:a6000:1                  soal-10\n          17777246         soal            stage2-controller  R    2:00:25      1      2         8G                  N/A                   soal-2\n          17777102 soal-interac                         bash  R    2:17:38      1      2         4G           gres/gpu:1                   soal-5\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "nodes",
+        "soal-10,soal-11"
+      ],
+      "returncode": 0,
+      "stdout": "NodeName=soal-10 Arch=x86_64 CoresPerSocket=64 \n   CPUAlloc=136 CPUEfctv=256 CPUTot=256 CPULoad=74.02\n   AvailableFeatures=48G,ampere\n   ActiveFeatures=48G,ampere\n   Gres=gpu:a6000:5\n   NodeAddr=soal-10 NodeHostName=soal-10 Version=25.11.5\n   OS=Linux 6.8.0-137-generic #137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026 \n   RealMemory=1030000 AllocMem=851968 FreeMem=569902 Sockets=2 Boards=1\n   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\n   Partitions=soal,soal-interactive \n   BootTime=2026-10-02T06:16:03 SlurmdStartTime=2026-10-08T14:40:35\n   LastBusyTime=2026-10-05T22:45:04 ResumeAfterTime=None\n   CfgTRES=cpu=256,mem=1030000M,billing=256,gres/gpu=5,gres/gpu:a6000=5\n   AllocTRES=cpu=136,mem=832G,gres/gpu=4,gres/gpu:a6000=4\n   CurrentWatts=0 AveWatts=0\n\nNodeName=soal-11 Arch=x86_64 CoresPerSocket=64 \n   CPUAlloc=176 CPUEfctv=256 CPUTot=256 CPULoad=48.63\n   AvailableFeatures=48G,ampere\n   ActiveFeatures=48G,ampere\n   Gres=gpu:a6000:5\n   NodeAddr=soal-11 NodeHostName=soal-11 Version=25.11.5\n   OS=Linux 6.8.0-137-generic #137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026 \n   RealMemory=1030000 AllocMem=917504 FreeMem=60190 Sockets=2 Boards=1\n   State=MIXED ThreadsPerCore=2 TmpDisk=0 Weight=1 Owner=N/A MCS_label=N/A\n   Partitions=soal,soal-interactive \n   BootTime=2026-08-07T16:28:59 SlurmdStartTime=2026-10-08T14:40:35\n   LastBusyTime=2026-10-05T18:27:23 ResumeAfterTime=None\n   CfgTRES=cpu=256,mem=1030000M,billing=256,gres/gpu=5,gres/gpu:a6000=5\n   AllocTRES=cpu=176,mem=896G,gres/gpu=5,gres/gpu:a6000=5\n   CurrentWatts=0 AveWatts=0\n\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "squeue",
+        "-w",
+        "soal-10,soal-11",
+        "-o",
+        "%.18i %.10u %.12P %.26j %.2t %.10M %.6C %.10m %.20b %.24R"
+      ],
+      "returncode": 0,
+      "stdout": "             JOBID       USER    PARTITION                       NAME ST       TIME   CPUS MIN_MEMORY        TRES_PER_NODE         NODELIST(REASON)\n          17777247      zbao7         soal           stage2-NC1_seed0  R    1:59:24     40        64G     gres/gpu:a6000:1                  soal-11\n          17777248      zbao7         soal           stage2-NC1_seed1  R    1:59:24     40        64G     gres/gpu:a6000:1                  soal-11\n          17777245      zbao7         soal            stage2-R0-rerun  R    2:00:25     40        64G     gres/gpu:a6000:1                  soal-10\n          17733315     jfuest         soal            harvey_post_job  R 3-13:54:47     32       256G           gres/gpu:1                  soal-10\n          17733319     jfuest         soal             laura_post_job  R 3-08:10:58     32       256G           gres/gpu:1                  soal-11\n          17733321     jfuest         soal               ian_post_job  R 3-10:42:09     32       256G           gres/gpu:1                  soal-10\n          17733317     jfuest         soal          florence_post_job  R 3-12:03:08     32       256G           gres/gpu:1                  soal-11\n          17733316     jfuest         soal              irma_post_job  R 3-12:08:12     32       256G           gres/gpu:1                  soal-11\n          17733318     jfuest         soal           michael_post_job  R 3-12:33:31     32       256G           gres/gpu:1                  soal-10\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "config"
+      ],
+      "recorded_fields_only": true,
+      "returncode": 0,
+      "stdout": "AccountingStorageEnforce = associations,limits,qos\nClusterName             = sc\nJobSubmitPlugins        = lua\nSelectType              = select/cons_tres\nSelectTypeParameters    = CR_CORE_MEMORY,CR_CORE_DEFAULT_DIST_BLOCK\nSLURM_VERSION           = 25.11.5",
+      "stderr": ""
+    }
+  ]
+}

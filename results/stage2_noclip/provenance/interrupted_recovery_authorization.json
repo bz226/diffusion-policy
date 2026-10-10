@@ -1,0 +1,47 @@
+{
+  "approved": true,
+  "user_quote": "try to finish R0 and NC1?",
+  "recorded_utc": "2026-10-09T21:30:10.453577+00:00",
+  "authorization_interpretation": "One fresh replacement attempt for each of the two interrupted runs, using unchanged scientific settings. Checkpoints lack full training state, so partial continuation would change the experiment. Completed NC1 seeds are not repeated.",
+  "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "primary_controller_job_id": "17778495",
+  "primary_campaign_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/campaign_revised.json",
+  "original_matrix_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_revised.json",
+  "matrix_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_recovery.json",
+  "recovery_record_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/recovery_campaign.json",
+  "original_deadline_utc": "2026-10-10T17:49:34+00:00",
+  "worker_runtime_cap_seconds": 8100,
+  "estimate_seconds": 7500,
+  "max_recovery_runs": 2,
+  "runs": [
+    {
+      "run_id": "R0_recovery_seed0",
+      "condition": "R0",
+      "seed": 0,
+      "replaced_run_id": "R0_rerun_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_recovery_seed0/manifest.json"
+    },
+    {
+      "run_id": "NC1_recovery_seed1",
+      "condition": "NC1",
+      "seed": 1,
+      "replaced_run_id": "NC1_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/manifest.json"
+    }
+  ],
+  "fixed_batch_gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+  "gpu_type": "NVIDIA RTX A6000",
+  "cpus_per_run": 40,
+  "memory_gib_per_run": 64,
+  "train_n_train_itr": 140,
+  "save_model_freq": 35,
+  "launch_only_after_original_campaign_terminal": true,
+  "no_training_resumption_from_partial_checkpoint": true,
+  "no_automatic_retries": true,
+  "preserve_original_outputs": true,
+  "overall_gpu_hours_cap": 58.5,
+  "worst_case_total_gpu_hours": 57.57861111111111,
+  "budget_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_budget.json",
+  "resume_audit": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_resume_audit.json",
+  "curation_authorized": false
+}

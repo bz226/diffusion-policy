@@ -1,0 +1,61 @@
+{
+  "checked_utc": "2026-10-10T04:43:57.098135+00:00",
+  "checked_pdt": "2026-10-09T21:43:57.098135-07:00",
+  "running": {
+    "NC4_lr3e-3_seed0": {
+      "status": "running",
+      "rows": 138,
+      "remaining_train_iterations": 2,
+      "remaining_eval_iterations": 0,
+      "recent_training_seconds": 64.88065658807754,
+      "mean_evaluation_seconds": 12.85865649155208,
+      "estimated_remaining_seconds": 129.76131317615508,
+      "estimated_finish_pdt": "2026-10-09T21:46:06.859448-07:00"
+    },
+    "NC4_lr3e-3_seed1": {
+      "status": "running",
+      "rows": 130,
+      "remaining_train_iterations": 9,
+      "remaining_eval_iterations": 1,
+      "recent_training_seconds": 66.89740543365478,
+      "mean_evaluation_seconds": 12.990732523111197,
+      "estimated_remaining_seconds": 615.0673814260042,
+      "estimated_finish_pdt": "2026-10-09T21:54:12.165516-07:00"
+    },
+    "NC4_lr3e-3_seed2": {
+      "status": "running",
+      "rows": 111,
+      "remaining_train_iterations": 27,
+      "remaining_eval_iterations": 2,
+      "recent_training_seconds": 67.30489922761917,
+      "mean_evaluation_seconds": 13.07610003153483,
+      "estimated_remaining_seconds": 1843.3844792087873,
+      "estimated_finish_pdt": "2026-10-09T22:14:40.482614-07:00"
+    }
+  },
+  "method": "Remaining evaluation iterations times mean observed evaluation time plus remaining training iterations times mean of last20 training times. Current in-progress iteration is counted in full; allow roughly one-iteration timing uncertainty.",
+  "recovery": {
+    "mode": "Two A6000 runs in parallel after original campaign and allocations become terminal",
+    "expected_duration_seconds": 7500,
+    "per_run_cap_seconds": 8100,
+    "basis": "Approved recovery estimate; original A6000 R0 needed7404s for138iterations; completed A6000NC1seed0 needed7316s for140iterations. H200timings excluded.",
+    "estimated_training_completion_pdt_without_queue": "2026-10-10T00:19:40.482614-07:00",
+    "cap_duration_completion_pdt_without_queue": "2026-10-10T00:29:40.482614-07:00",
+    "uncertainties": [
+      "Slurm queue after recovery submission",
+      "Timing variability and controller dispatch/terminal verification overhead",
+      "Final plots/report generation excluded"
+    ],
+    "no_budget_or_job_changes": true
+  },
+  "scheduler": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "61b10f",
+      "wall_time_seconds": 0.00001714,
+      "exit_code": 0,
+      "original_token_count": 174,
+      "output": "             JOBID                           NAME      STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)\n          17780304     stage2-recovery-controller    RUNNING    7:07:50   20:14:00      1 soal-9\n          17778495     stage2-parallel-controller    RUNNING    8:45:33   21:51:00      1 soal-2\n          17783507        stage2-NC4_lr3e-3_seed2    RUNNING    1:53:43    3:00:00      1 soal-11\n          17783506        stage2-NC4_lr3e-3_seed1    RUNNING    2:12:44    3:00:00      1 soal-10\n          17783505        stage2-NC4_lr3e-3_seed0    RUNNING    2:17:45    3:00:00      1 soal-10\n          17787570                           bash    RUNNING    1:08:09    6:00:00      1 soal-11\n"
+    }
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--gres=gpu:a6000:1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--time=00:29:00",
+    "--signal=B:TERM@5",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--job-name=stage2-full-gate",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-full-gate-%j.log",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_full_verification.sh"
+  ],
+  "submitted_utc": "2026-10-09T17:43:39.338770+00:00",
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "allocation_cap_seconds": 1740,
+  "harness_cap_seconds": 1710,
+  "prior_verification_gpu_seconds": 38,
+  "revised_gate": "one saved real batch; entire original and edited updates on CPU/GPU; sampling and RNG isolation",
+  "returncode": 0,
+  "stdout": "17777209\n",
+  "stderr": "",
+  "job_id": "17777209"
+}

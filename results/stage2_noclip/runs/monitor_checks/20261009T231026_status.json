@@ -1,0 +1,547 @@
+{
+  "checked_utc": "2026-10-09T23:10:26.895696+00:00",
+  "purpose": "User-requested monitoring of existing jobs; no changes to jobs, code, scientific settings or monitors.",
+  "runs": {
+    "NC3_seed1": {
+      "job_id": "17778500",
+      "status": "running",
+      "completed_iterations": 81,
+      "last_itr": 80,
+      "training_env_steps": 5760000,
+      "progress_updated_utc": "2026-10-09T23:10:25+00:00",
+      "last_eval": {
+        "itr": 80,
+        "step": 5760000,
+        "eval_episode_reward": 3351.893405006909
+      },
+      "initial_eval_return": 4344.956135860159,
+      "minimum_eval_return": 3000.77410845716,
+      "latest_train_return": 3229.839394364534,
+      "last_diagnostics": {
+        "approx_kl": 0.07918781787157059,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.9039219230493218,
+        "logratio_p99": 1.514466097354888,
+        "clamp_hit_frac": 0.0007645833333333334
+      },
+      "nonfinite_values": [],
+      "monitor_status": "running",
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC3_seed1",
+          "status": "running",
+          "completed_rows": 34,
+          "training_env_steps": 2400000,
+          "bytes": 141374,
+          "last_line": "[2026-10-09 15:29:34,710][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.03230607137084007, update_epoch: 2, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 15:29:34,710][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.03230607137084007, update_epoch: 2, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0.5008937120437622,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 20,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 5.244596573060674,
+            "logratio_p99": 4.577630224227895,
+            "clamp_hit_frac": 0.0009479166666666667
+          },
+          "updated_utc": "2026-10-09T22:29:36+00:00",
+          "elapsed_seconds": 1800.4997867060592,
+          "collection_iteration": 34,
+          "last_completed_itr": 33,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC3_seed1",
+          "status": "running",
+          "completed_rows": 68,
+          "training_env_steps": 4880000,
+          "bytes": 281509,
+          "last_line": "[2026-10-09 15:59:35,817][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.019837720319628716, update_epoch: 2, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 15:59:35,817][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.019837720319628716, update_epoch: 2, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0.07135956734418869,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 20,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.8125052553965896,
+            "logratio_p99": 1.4306549179553971,
+            "clamp_hit_frac": 0.00079375
+          },
+          "updated_utc": "2026-10-09T22:59:36+00:00",
+          "elapsed_seconds": 3600.105217740056,
+          "collection_iteration": 68,
+          "last_completed_itr": 67,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "deadline_utc": "2026-10-10T00:59:36+00:00",
+      "runtime_cap_seconds": 10800,
+      "elapsed_seconds": 4248.880347487051,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_70.pt"
+      ],
+      "failure_reason": null
+    },
+    "NC3_seed2": {
+      "job_id": "17778501",
+      "status": "running",
+      "completed_iterations": 75,
+      "last_itr": 74,
+      "training_env_steps": 5360000,
+      "progress_updated_utc": "2026-10-09T23:10:26+00:00",
+      "last_eval": {
+        "itr": 70,
+        "step": 5040000,
+        "eval_episode_reward": 3338.3446870128987
+      },
+      "initial_eval_return": 4305.6395617321705,
+      "minimum_eval_return": 760.9236167841647,
+      "latest_train_return": 3077.9064274377465,
+      "last_diagnostics": {
+        "approx_kl": 0.2832973301410675,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 3.3512231111928874,
+        "logratio_p99": 3.350738676786422,
+        "clamp_hit_frac": 0.0008395833333333333
+      },
+      "nonfinite_values": [],
+      "monitor_status": "running",
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC3_seed2",
+          "status": "running",
+          "completed_rows": 34,
+          "training_env_steps": 2400000,
+          "bytes": 139371,
+          "last_line": "Processed step 150 of 500",
+          "last_diagnostic_line": "[2026-10-09 15:33:31,571][agent.finetune.train_ppo_diffusion_agent][INFO] - 33: step  2400000 | loss  -0.0024 | pg loss  -0.0045 | value loss   0.0043 | bc loss   0.0000 | reward 925.0581 | eta   1.0000 | t: 56.8439 | kl_true_per_action=0.29041704585149514 | logratio_p99=0.7625992369651764 | clamp_hit_frac=0.0007791666666666666",
+          "last_diagnostics": {
+            "approx_kl": 0.02542981691658497,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 20,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.29041704585149514,
+            "logratio_p99": 0.7625992369651764,
+            "clamp_hit_frac": 0.0007791666666666666
+          },
+          "updated_utc": "2026-10-09T22:33:35+00:00",
+          "elapsed_seconds": 1800.1835894410033,
+          "collection_iteration": 34,
+          "last_completed_itr": 33,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC3_seed2",
+          "status": "running",
+          "completed_rows": 67,
+          "training_env_steps": 4800000,
+          "bytes": 277584,
+          "last_line": "[2026-10-09 16:03:33,169][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.025813229382038116, update_epoch: 2, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 16:03:33,169][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.025813229382038116, update_epoch: 2, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0.07686027884483337,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 20,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.8611362229934605,
+            "logratio_p99": 1.415187755823135,
+            "clamp_hit_frac": 0.0008041666666666667
+          },
+          "updated_utc": "2026-10-09T23:03:35+00:00",
+          "elapsed_seconds": 3600.036663177074,
+          "collection_iteration": 67,
+          "last_completed_itr": 66,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "deadline_utc": "2026-10-10T01:03:35+00:00",
+      "runtime_cap_seconds": 10800,
+      "elapsed_seconds": 4011.4260201021098,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_70.pt"
+      ],
+      "failure_reason": null
+    },
+    "NC4_lr1e-4_seed0": {
+      "job_id": "17778502",
+      "status": "running",
+      "completed_iterations": 64,
+      "last_itr": 63,
+      "training_env_steps": 4560000,
+      "progress_updated_utc": "2026-10-09T23:10:26+00:00",
+      "last_eval": {
+        "itr": 60,
+        "step": 4320000,
+        "eval_episode_reward": 4539.110892644962
+      },
+      "initial_eval_return": 4316.39629852191,
+      "minimum_eval_return": 4316.39629852191,
+      "latest_train_return": 4308.846556616001,
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.00046222746505962726,
+        "logratio_p99": 0.030773156881332378,
+        "clamp_hit_frac": 0.0008291666666666666
+      },
+      "nonfinite_values": [],
+      "monitor_status": "running",
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC4_lr1e-4_seed0",
+          "status": "running",
+          "completed_rows": 29,
+          "training_env_steps": 2080000,
+          "bytes": 116004,
+          "last_line": "[2026-10-09 15:35:33,537][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 15:35:33,537][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.0003907316835816922,
+            "logratio_p99": 0.028007745742797754,
+            "clamp_hit_frac": 0.0008229166666666667
+          },
+          "updated_utc": "2026-10-09T22:35:35+00:00",
+          "elapsed_seconds": 1800.0273479344323,
+          "collection_iteration": 29,
+          "last_completed_itr": 28,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC4_lr1e-4_seed0",
+          "status": "running",
+          "completed_rows": 59,
+          "training_env_steps": 4240000,
+          "bytes": 230505,
+          "last_line": "[2026-10-09 16:05:33,577][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 16:05:33,577][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.0004263878295470663,
+            "logratio_p99": 0.029487946033477652,
+            "clamp_hit_frac": 0.00080625
+          },
+          "updated_utc": "2026-10-09T23:05:35+00:00",
+          "elapsed_seconds": 3600.0674751717597,
+          "collection_iteration": 59,
+          "last_completed_itr": 58,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "deadline_utc": "2026-10-10T01:05:35+00:00",
+      "runtime_cap_seconds": 10800,
+      "elapsed_seconds": 3891.6805886626244,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt"
+      ],
+      "failure_reason": null,
+      "actor_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-4_seed1": {
+      "job_id": "17778503",
+      "status": "running",
+      "completed_iterations": 63,
+      "last_itr": 62,
+      "training_env_steps": 4480000,
+      "progress_updated_utc": "2026-10-09T23:10:26+00:00",
+      "last_eval": {
+        "itr": 60,
+        "step": 4320000,
+        "eval_episode_reward": 4402.966571223945
+      },
+      "initial_eval_return": 4274.331458175189,
+      "minimum_eval_return": 4274.331458175189,
+      "latest_train_return": 4205.134093836532,
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.00045536998924151136,
+        "logratio_p99": 0.030897923707962027,
+        "clamp_hit_frac": 0.0008041666666666667
+      },
+      "nonfinite_values": [],
+      "monitor_status": "running",
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC4_lr1e-4_seed1",
+          "status": "running",
+          "completed_rows": 28,
+          "training_env_steps": 2000000,
+          "bytes": 112874,
+          "last_line": "[2026-10-09 15:35:26,203][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostic_line": "[2026-10-09 15:35:26,203][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.0004800943683605256,
+            "logratio_p99": 0.03275333523750302,
+            "clamp_hit_frac": 0.00081875
+          },
+          "updated_utc": "2026-10-09T22:35:34+00:00",
+          "elapsed_seconds": 1800.0937042394653,
+          "collection_iteration": 28,
+          "last_completed_itr": 27,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        },
+        {
+          "run_id": "NC4_lr1e-4_seed1",
+          "status": "running",
+          "completed_rows": 58,
+          "training_env_steps": 4160000,
+          "bytes": 225900,
+          "last_line": "Processed step 490 of 500",
+          "last_diagnostic_line": "[2026-10-09 16:05:19,066][agent.finetune.train_ppo_diffusion_agent][INFO] - 57: step  4160000 | loss   0.0573 | pg loss  -0.0000 | value loss   0.1145 | bc loss   0.0000 | reward 4213.2078 | eta   1.0000 | t: 67.8650 | kl_true_per_action=0.00035393580295025895 | logratio_p99=0.0277640914916992 | clamp_hit_frac=0.0007708333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0",
+          "last_diagnostics": {
+            "approx_kl": 0,
+            "clipfrac": 0,
+            "actor_optimizer_steps": 1,
+            "critic_optimizer_steps": 20,
+            "actor_lr": 0.0001,
+            "critic_lr": 0.001,
+            "kl_true_per_action": 0.00035393580295025895,
+            "logratio_p99": 0.0277640914916992,
+            "clamp_hit_frac": 0.0007708333333333333
+          },
+          "updated_utc": "2026-10-09T23:05:34+00:00",
+          "elapsed_seconds": 3600.2943877587095,
+          "collection_iteration": 58,
+          "last_completed_itr": 57,
+          "event": "scheduled",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "deadline_utc": "2026-10-10T01:05:34+00:00",
+      "runtime_cap_seconds": 10800,
+      "elapsed_seconds": 3892.741450095549,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_35.pt"
+      ],
+      "failure_reason": null,
+      "actor_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    }
+  },
+  "campaign_revised": {
+    "status": "running_parallel_conditions",
+    "controller_slurm_job": "17778495",
+    "updated_utc": "2026-10-09T23:10:24+00:00",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "active_or_pending_training_allocations": 8,
+    "condition_progress": {
+      "NC1_seed0": "complete",
+      "NC1_seed1": "failed",
+      "NC1_seed2": "complete",
+      "NC2_seed0": "complete",
+      "NC2_seed1": "complete",
+      "NC2_seed2": "complete",
+      "NC3_seed0": "complete",
+      "NC3_seed1": "running",
+      "NC3_seed2": "running",
+      "NC4_lr1e-4_seed0": "running",
+      "NC4_lr1e-4_seed1": "running",
+      "NC4_lr1e-4_seed2": "queued_or_starting",
+      "NC4_lr1e-3_seed0": "queued_or_starting",
+      "NC4_lr1e-3_seed1": "queued_or_starting",
+      "NC4_lr1e-3_seed2": "queued_or_starting",
+      "NC4_lr3e-3_seed0": "not_submitted",
+      "NC4_lr3e-3_seed1": "not_submitted",
+      "NC4_lr3e-3_seed2": "not_submitted"
+    },
+    "last_scheduled_check": {
+      "utc": "2026-10-09T22:58:49+00:00",
+      "status": "running_parallel_conditions",
+      "condition": "parallel",
+      "submitted_ablations": 15,
+      "condition_progress": {
+        "NC1_seed0": "complete",
+        "NC1_seed1": "failed",
+        "NC1_seed2": "complete",
+        "NC2_seed0": "complete",
+        "NC2_seed1": "complete",
+        "NC2_seed2": "complete",
+        "NC3_seed0": "complete",
+        "NC3_seed1": "running",
+        "NC3_seed2": "running",
+        "NC4_lr1e-4_seed0": "running",
+        "NC4_lr1e-4_seed1": "running",
+        "NC4_lr1e-4_seed2": "queued_or_starting",
+        "NC4_lr1e-3_seed0": "queued_or_starting",
+        "NC4_lr1e-3_seed1": "queued_or_starting",
+        "NC4_lr1e-3_seed2": "queued_or_starting",
+        "NC4_lr3e-3_seed0": "not_submitted",
+        "NC4_lr3e-3_seed1": "not_submitted",
+        "NC4_lr3e-3_seed2": "not_submitted"
+      },
+      "r0_status": "failed",
+      "monitor_status": "running"
+    },
+    "next_scheduled_check_utc_approx": "2026-10-09T23:28:49+00:00",
+    "submitted": [
+      {
+        "run_id": "NC1_seed0",
+        "job_id": "17777247"
+      },
+      {
+        "run_id": "NC1_seed1",
+        "job_id": "17777248"
+      },
+      {
+        "run_id": "NC1_seed2",
+        "job_id": "17777249"
+      },
+      {
+        "run_id": "NC2_seed0",
+        "job_id": "17778496"
+      },
+      {
+        "run_id": "NC2_seed1",
+        "job_id": "17778497"
+      },
+      {
+        "run_id": "NC2_seed2",
+        "job_id": "17778498"
+      },
+      {
+        "run_id": "NC3_seed0",
+        "job_id": "17778499"
+      },
+      {
+        "run_id": "NC3_seed1",
+        "job_id": "17778500"
+      },
+      {
+        "run_id": "NC3_seed2",
+        "job_id": "17778501"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed0",
+        "job_id": "17778502"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed1",
+        "job_id": "17778503"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed2",
+        "job_id": "17778504"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed0",
+        "job_id": "17780957"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed1",
+        "job_id": "17780958"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed2",
+        "job_id": "17780959"
+      }
+    ]
+  },
+  "recovery_campaign": {
+    "status": "waiting_for_original_campaign",
+    "controller_slurm_job": "17780304",
+    "updated_utc": "2026-10-09T23:10:21+00:00",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "active_or_pending_training_allocations": null,
+    "condition_progress": null,
+    "last_scheduled_check": {
+      "status": "waiting_for_original_campaign",
+      "updated_utc": "2026-10-09T23:06:05+00:00",
+      "controller_slurm_job": "17780304",
+      "primary_controller_state": "RUNNING",
+      "primary_campaign_status": "running_parallel_conditions",
+      "condition_progress": null,
+      "monitor_status": "running",
+      "error": null
+    },
+    "next_scheduled_check_utc_approx": "2026-10-09T23:36:05+00:00",
+    "submitted": []
+  },
+  "scheduler_check": "             JOBID                           NAME      STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)\n          17778504        stage2-NC4_lr1e-4_seed2    PENDING       0:00    3:00:00      1 (Resources)\n          17780959        stage2-NC4_lr1e-3_seed2    PENDING       0:00    3:00:00      1 (Priority)\n          17780958        stage2-NC4_lr1e-3_seed1    PENDING       0:00    3:00:00      1 (Priority)\n          17780957        stage2-NC4_lr1e-3_seed0    PENDING       0:00    3:00:00      1 (Priority)\n          17778502        stage2-NC4_lr1e-4_seed0    RUNNING    1:05:11    3:00:00      1 soal-11\n          17778503        stage2-NC4_lr1e-4_seed1    RUNNING    1:05:11    3:00:00      1 soal-11\n          17778501               stage2-NC3_seed2    RUNNING    1:07:11    3:00:00      1 soal-10\n          17778500               stage2-NC3_seed1    RUNNING    1:11:10    3:00:00      1 soal-10\n          17780304     stage2-recovery-controller    RUNNING    1:35:16   20:14:00      1 soal-9\n          17778495     stage2-parallel-controller    RUNNING    3:12:59   21:51:00      1 soal-2\n          17779865                           bash    RUNNING    2:07:20    6:00:00      1 soal-12\n",
+  "disk_check": "Filesystem                                              Size  Used Avail Use% Mounted on\n10.79.13.15:/soalnas/share/data/zbao7/diffusion_policy   44T   40T  4.4T  90% /soalnas/share/data/zbao7/diffusion_policy\n",
+  "monitor_audit": "Primary, recovery, and four running supervisors active. Scheduled checks advance with consecutive_stalled_checks=0. No new failed or nonfinite manifests; no new completions. Old R0 and NC1 seed1 interruptions remain historical. No job actions."
+}

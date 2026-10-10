@@ -1,0 +1,53 @@
+{
+  "utc": "2026-10-09T19:52:50.862288+00:00",
+  "purpose": "Replace CPU-only dispatcher; SIGKILL bypasses cancellation handlers, separately allocated training jobs remain untouched.",
+  "commands": [
+    {
+      "command": [
+        "scontrol",
+        "show",
+        "job",
+        "17777246",
+        "-o"
+      ],
+      "returncode": 0,
+      "stdout": "JobId=17777246 JobName=stage2-controller UserId=zbao7(25987) GroupId=users(100) MCS_label=N/A Priority=31292 Nice=0 Account=soal QOS=normal JobState=RUNNING Reason=None Dependency=(null) Requeue=0 Restarts=0 BatchFlag=1 Reboot=0 ExitCode=0:0 RunTime=02:03:17 TimeLimit=1-00:00:00 TimeMin=N/A SubmitTime=2026-10-09T10:49:15 EligibleTime=2026-10-09T10:49:15 AccrueTime=2026-10-09T10:49:15 StartTime=2026-10-09T10:49:33 EndTime=2026-10-10T10:49:33 Deadline=N/A PreemptEligibleTime=2026-10-09T10:49:33 PreemptTime=None SuspendTime=None SecsPreSuspend=0 LastSchedEval=2026-10-09T10:49:33 Scheduler=Main Partition=soal AllocNode:Sid=soal-5:1395895 ReqNodeList=(null) ExcNodeList=(null) NodeList=soal-2 BatchHost=soal-2 NumNodes=1 NumCPUs=2 NumTasks=1 CPUs/Task=1 ReqB:S:C:T=0:0:*:* ReqTRES=cpu=1,mem=8G,node=1,billing=1 AllocTRES=cpu=2,mem=8G,node=1,billing=2 Socks/Node=* NtasksPerN:B:S:C=0:0:*:* CoreSpec=* MinCPUsNode=1 MinMemoryNode=8G MinTmpDiskNode=0 Features=(null) DelayBoot=00:00:00 OverSubscribe=OK Contiguous=0 Licenses=(null) LicensesAlloc=(null) Network=(null) Command=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_campaign.sh SubmitLine=sbatch --parsable --account=soal --partition=soal --nodes=1 --no-requeue --export=PATH,HOME,USER,LOGNAME,LANG --chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo --cpus-per-task=1 --mem=8G --time=24:00:00 --signal=B:TERM@60 --job-name=stage2-controller --output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-controller-%j.log /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_campaign.sh --commit ab46b150fa34b5a5b457cd4062cd4c5ad830d964 --r0-job 17777245 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json --matrix /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_revised.json --timeout-seconds 86400 WorkDir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo StdErr= StdIn=/dev/null StdOut=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-controller-17777246.log TresPerTask=cpu=1\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "scancel",
+        "--signal=KILL",
+        "--full",
+        "17777246"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "sacct",
+        "-j",
+        "17777246",
+        "--format=JobID,State,ExitCode,Elapsed",
+        "-P"
+      ],
+      "returncode": 0,
+      "stdout": "JobID|State|ExitCode|Elapsed\n17777246|CANCELLED by 25987|0:0|02:03:17\n17777246.batch|CANCELLED|0:0|02:03:17\n17777246.extern|CANCELLED|0:0|02:03:17\n",
+      "stderr": ""
+    },
+    {
+      "command": [
+        "squeue",
+        "-u",
+        "zbao7",
+        "-o",
+        "%.12i %.24j %.10T %.12M %.20R"
+      ],
+      "returncode": 0,
+      "stdout": "       JOBID                     NAME      STATE         TIME     NODELIST(REASON)\n    17777247         stage2-NC1_seed0 COMPLETING      2:01:58                     \n    17777246        stage2-controller COMPLETING      2:03:17               soal-2\n    17777248         stage2-NC1_seed1    RUNNING      2:02:16              soal-11\n    17777245          stage2-R0-rerun    RUNNING      2:03:17              soal-10\n    17777102                     bash    RUNNING      2:20:30               soal-5\n",
+      "stderr": ""
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "run_id": "NC2_seed2",
+  "status": "complete",
+  "completed_rows": 140,
+  "training_env_steps": 10080000,
+  "bytes": 576894,
+  "last_line": "[2026-10-09 15:04:43,847][agent.finetune.train_ppo_diffusion_agent][INFO] - 139: step 10080000 | loss   0.0038 | pg loss  -0.0001 | value loss   0.0079 | bc loss   0.0000 | reward -681.1239 | eta   1.0000 | t: 58.5126 | kl_true_per_action=7.661466879935586e-10 | logratio_p99=0.0 | clamp_hit_frac=0.0008291666666666666",
+  "last_diagnostic_line": "[2026-10-09 15:04:43,847][agent.finetune.train_ppo_diffusion_agent][INFO] - 139: step 10080000 | loss   0.0038 | pg loss  -0.0001 | value loss   0.0079 | bc loss   0.0000 | reward -681.1239 | eta   1.0000 | t: 58.5126 | kl_true_per_action=7.661466879935586e-10 | logratio_p99=0.0 | clamp_hit_frac=0.0008291666666666666",
+  "last_diagnostics": {
+    "approx_kl": 6.407499097277336e-12,
+    "clipfrac": 0.0,
+    "actor_optimizer_steps": 20,
+    "critic_optimizer_steps": 20,
+    "actor_lr": 0.0001,
+    "critic_lr": 0.001,
+    "kl_true_per_action": 7.661466879935586e-10,
+    "logratio_p99": 0.0,
+    "clamp_hit_frac": 0.0008291666666666666
+  },
+  "updated_utc": "2026-10-09T22:04:47+00:00",
+  "elapsed_seconds": 7573.0504461424425,
+  "collection_iteration": 139,
+  "last_completed_itr": 139,
+  "monitor_status": "paused"
+}

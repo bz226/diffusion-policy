@@ -1,0 +1,97 @@
+{
+  "created_utc": "2026-10-09T21:33:59.013548+00:00",
+  "reviewer": "resume_audit independent agent",
+  "passed": true,
+  "reviewed_files": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/recovery_scope.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/supervise_recovery.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/recovery_campaign.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_worker.sh",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_recovery_campaign.sh",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/finalize_campaign.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/analyze_stage2.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/test_recovery_campaign.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/test_recovery_finalization.py"
+  ],
+  "scope": "Read-only helper/source inspection plus CPU-only synthetic/fake-scheduler tests; no training or Slurm mutations.",
+  "scientific_source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "scientific_source_clean": true,
+  "active_controller_matches_launch_snapshots": {
+    "campaign_parallel.py": true,
+    "run_campaign_parallel.sh": true
+  },
+  "checks": {
+    "exactly_two_fresh_replacements": true,
+    "run_ids": [
+      "R0_recovery_seed0",
+      "NC1_recovery_seed1"
+    ],
+    "original_controller_must_be_completed": "17778495",
+    "all_19_original_allocations_must_be_terminal": true,
+    "completing_allocations_block_launch": true,
+    "requires_original_analysis_deferral": true,
+    "strict_original_18_ablation_id_set": true,
+    "no_source_or_configuration_changes": true,
+    "unchanged_training_commands_except_output_directories": true,
+    "cap_seconds_each": 8100,
+    "gpus_each": 1,
+    "gpu": "NVIDIA RTX A6000",
+    "cpus_each": 40,
+    "memory_gib_each": 64,
+    "preserves_original_campaign_deadline": true,
+    "new_controller_state_exclusive_creation": true,
+    "submission_attempt_reserved_before_sbatch": true,
+    "no_automatic_retry_even_ambiguous_submission": true,
+    "cancellation_excludes_original_workers_and_controller": true,
+    "original_finalizer_produces_no_early_candidate_artifacts": true,
+    "analysis_has_19_unique_condition_seed_slots": true,
+    "changed_slots": [
+      {
+        "condition": "R0",
+        "seed": 0,
+        "fields": [
+          "run_id",
+          "manifest",
+          "runtime_cap_seconds"
+        ]
+      },
+      {
+        "condition": "NC1",
+        "seed": 1,
+        "fields": [
+          "run_id",
+          "manifest",
+          "runtime_cap_seconds"
+        ]
+      }
+    ],
+    "selected_attempt_rule": "One authorized replacement per interrupted condition/seed regardless of outcome; original interrupted measurements retained as excluded provenance, never spliced or averaged.",
+    "r0_redflags_from_selected_replacement": true,
+    "monitor_interval_seconds": 1800,
+    "no_automatic_curation": true
+  },
+  "independently_executed_tests": [
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES='' /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -m unittest test_recovery_finalization",
+      "working_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code",
+      "tests": 12,
+      "returncode": 0
+    },
+    {
+      "command": "PYTHONDONTWRITEBYTECODE=1 CUDA_VISIBLE_DEVICES='' MPLCONFIGDIR=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/matplotlib /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -m unittest test_recovery_campaign",
+      "working_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code",
+      "tests": 15,
+      "returncode": 0
+    }
+  ],
+  "agent_test_evidence": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/interrupted_recovery_runtime_selftest.json",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/recovery_finalization_selftest.json"
+  ],
+  "finding_resolved": "Initial original_jobs validation counted any 18 unique IDs; tightened to exact original ablation ID set and covered by regression test before approval.",
+  "limitations": [
+    "No GPU training launched or completed by this audit.",
+    "Queue admission and completion are future runtime events; helpers preserve the original deadline and can refuse a late start.",
+    "Recovery remains a fresh independent trajectory, not exact continuation of interrupted training."
+  ]
+}

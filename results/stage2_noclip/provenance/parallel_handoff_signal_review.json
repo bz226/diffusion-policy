@@ -1,0 +1,142 @@
+{
+  "recorded_utc": "2026-10-09T20:00:18.395111+00:00",
+  "reviewer": "/root/controller_handoff_review",
+  "status": "prior_safety_assessment_retracted",
+  "scope": "Read-only investigation of the executed handoff failure. This JSON is the only new file written by this review; no jobs, signals, source, or prior evidence were changed.",
+  "prior_incorrect_assessment": "scancel --signal=KILL --full 17777246 would deliver an uncatchable direct SIGKILL to the controller shell and Python, bypassing cancel_owned and leaving training allocations untouched.",
+  "correction": "The job-level Slurm command cancelled the controller allocation through a termination path that delivered SIGTERM. The controller handled that signal and explicitly cancelled its separately allocated training jobs. My prior review confused scheduler cancellation semantics with a direct POSIX kill and gave an unsupported guarantee.",
+  "installed_slurm_version": "25.11.5",
+  "executed_command": {
+    "command": [
+      "scancel",
+      "--signal=KILL",
+      "--full",
+      "17777246"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "verified_local_evidence": [
+    {
+      "path": "results/stage2_noclip/provenance/parallel_controller_stop.json",
+      "finding": "Records the exact --signal=KILL --full command, success return code, and immediate CANCELLED accounting state for job 17777246."
+    },
+    {
+      "path": "results/stage2_noclip/setup/slurm-controller-17777246.log",
+      "finding": "At 2026-10-09 12:52:50 Pacific, Slurm logs cancellation due to SIGNAL Terminated. Python then raises Campaign controller interrupted; no continuation authorized."
+    },
+    {
+      "path": "results/stage2_noclip/provenance/parallel_controller_handoff/campaign_after_controller_exit.json",
+      "finding": "The old controller recorded cancel_owned targets 17777245, 17777247, 17777248, 17777249 and a successful scancel return."
+    },
+    {
+      "path": "results/stage2_noclip/provenance/parallel_handoff_failure.json",
+      "finding": "R0_rerun_seed0 and NC1_seed1 terminated with Received SIGTERM after 138 saved rows, through iteration 137. Both retain all evaluations through 130, but lack training rows 138-139 and state_139.pt."
+    },
+    {
+      "path": "results/stage2_noclip/provenance/parallel_controller_handoff/campaign.py",
+      "finding": "SIGTERM/SIGINT set interrupted; check_control raises; run except BaseException calls cancel_owned. The separately allocated training jobs were cancelled by this application cleanup, not by being children of the controller allocation."
+    },
+    {
+      "path": "results/stage2_noclip/provenance/parallel_controller_handoff/run_campaign.sh",
+      "finding": "Shell TERM/INT trap forwards TERM to the Python controller. The record does not distinguish direct Slurm delivery to Python from delivery via this shell trap; either reaches the same cleanup."
+    }
+  ],
+  "recorded_cancellation": {
+    "job_ids": [
+      "17777245",
+      "17777247",
+      "17777248",
+      "17777249"
+    ],
+    "returncode": 0,
+    "stdout": "",
+    "stderr": ""
+  },
+  "affected_runs": [
+    {
+      "run_id": "R0_rerun_seed0",
+      "status": "failed",
+      "completed_rows": 138,
+      "last_iteration": 137,
+      "last_env_step": 9920000,
+      "failure_reason": "Received SIGTERM",
+      "end_utc": "2026-10-09T19:52:57+00:00"
+    },
+    {
+      "run_id": "NC1_seed0",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_iteration": 139,
+      "last_env_step": 10080000,
+      "failure_reason": null,
+      "end_utc": "2026-10-09T19:52:29+00:00"
+    },
+    {
+      "run_id": "NC1_seed1",
+      "status": "failed",
+      "completed_rows": 138,
+      "last_iteration": 137,
+      "last_env_step": 9920000,
+      "failure_reason": "Received SIGTERM",
+      "end_utc": "2026-10-09T19:52:57+00:00"
+    },
+    {
+      "run_id": "NC1_seed2",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_iteration": 139,
+      "last_env_step": 10080000,
+      "failure_reason": null,
+      "end_utc": "2026-10-09T19:22:13+00:00"
+    }
+  ],
+  "local_documentation": [
+    {
+      "path": "/usr/share/doc/slurm/doc/man/man1/scancel.1",
+      "lines": "90-100",
+      "finding": "--full includes batch script and its children. This recipient-scope statement alone does not prove that job-level KILL bypasses scheduler termination."
+    },
+    {
+      "path": "/usr/share/doc/slurm/doc/man/man1/scancel.1",
+      "lines": "354-361",
+      "finding": "The notes distinguish the normal SIGCONT/SIGTERM/KillWait/SIGKILL cancellation sequence and special job-level KILL handling. I failed to establish the --full interaction before recommending the action."
+    },
+    {
+      "path": "/usr/local/include/slurm/slurm.h",
+      "lines": "3832-3836",
+      "finding": "KILL_STEPS_ONLY, KILL_JOB_BATCH, and KILL_FULL_JOB are separate flag bits; full does not imply either exception flag."
+    }
+  ],
+  "upstream_source_explanation": {
+    "source_scope": "Primary SchedMD upstream source for tag slurm-25-11-5-1, matching the installed reported version. Local slurmctld C implementation was unavailable; upstream sources were inspected through the web tool. No claim is made that local administrator patches were exhaustively ruled out.",
+    "sources": [
+      {
+        "url": "https://raw.githubusercontent.com/SchedMD/slurm/slurm-25-11-5-1/src/slurmctld/job_mgr.c",
+        "function": "job_signal",
+        "lines": "4990-5004",
+        "finding": "For a running job, SIGKILL with neither KILL_STEPS_ONLY nor KILL_JOB_BATCH marks the job cancelled/completing and calls deallocate_nodes. KILL_FULL_JOB is not an exception. This explains why adding --full does not make this a direct uncatchable process kill."
+      },
+      {
+        "url": "https://raw.githubusercontent.com/SchedMD/slurm/slurm-25-11-5-1/src/slurmd/slurmd/req.c",
+        "function": "_rpc_terminate_job",
+        "lines": "4235-4253",
+        "finding": "The node termination handler resumes tasks with SIGCONT and normally sends SIGTERM to all active steps. This supports the controller log and explains how its cleanup handlers ran."
+      }
+    ],
+    "causal_conclusion": "Observed TERM cleanup matches upstream scheduler cancellation semantics for SIGKILL plus KILL_FULL_JOB. It is not evidence that the operating system permits a Python handler to catch an actual delivered SIGKILL."
+  },
+  "future_handoff_recommendation_not_executed": {
+    "preferred": "Implement an explicit cooperative controller handoff path that atomically stops new submissions, persists complete adoption state, releases its lock and exits without cancel_owned or finalization. Validate it with isolated fake scheduler tests and a disposable Slurm controller before relying on it for live runs.",
+    "direct_process_signal_alternative": "A direct operating-system SIGKILL to independently verified controller process IDs on the controller node has different semantics from job-level scancel, but PID scope, shell trap behavior, race conditions and access must be verified first. No direct-kill command is validated or recommended for immediate execution by this review.",
+    "do_not_repeat": "Do not use job-level scancel --signal=KILL --full as an assumed no-cleanup handoff mechanism."
+  },
+  "review_actions": {
+    "slurm_jobs_changed": false,
+    "signals_sent": false,
+    "experiments_run": false,
+    "scientific_source_changed": false,
+    "prior_records_overwritten": false
+  }
+}

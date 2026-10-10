@@ -1,0 +1,15 @@
+Terminal accounting and empty squeue result for all four authorized Slurm jobs.
+JobID|JobName|State|ExitCode|ElapsedRaw|NodeList|AllocTRES
+17772575|stage2-P1|COMPLETED|0:0|1073|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17772575.batch|batch|COMPLETED|0:0|1073|soal-10|cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17772575.extern|extern|COMPLETED|0:0|1073|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17772576|stage2-P2|COMPLETED|0:0|1081|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17772576.batch|batch|COMPLETED|0:0|1081|soal-10|cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17772576.extern|extern|COMPLETED|0:0|1081|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773043|stage2-verify|COMPLETED|0:0|38|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773043.batch|batch|COMPLETED|0:0|38|soal-10|cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773043.extern|extern|COMPLETED|0:0|39|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773065|stage2-R0|FAILED|1:0|367|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773065.batch|batch|FAILED|1:0|367|soal-10|cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+17773065.extern|extern|COMPLETED|0:0|367|soal-10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1
+

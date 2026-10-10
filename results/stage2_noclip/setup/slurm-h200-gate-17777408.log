@@ -1,0 +1,102 @@
+H200 GATE START existing saved-batch full-update replay
+2026-10-09 11:10:33,599 INFO Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+2026-10-09 11:10:33,599 INFO Number of network parameters: 568392
+2026-10-09 11:10:33,923 INFO Cloned model for fine-tuning
+2026-10-09 11:10:33,924 INFO Turned off gradients of the pretrained network
+2026-10-09 11:10:33,924 INFO Number of finetuned parameters: 568392
+FULL UPDATE cuda:0 pristine minibatch 1/20
+2026-10-09 11:10:36,370 INFO approx_kl: 1.0222336171983315e-10, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 2/20
+2026-10-09 11:10:37,719 INFO approx_kl: 8.504793527208676e-07, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 3/20
+2026-10-09 11:10:39,058 INFO approx_kl: 2.50814468927274e-06, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 4/20
+2026-10-09 11:10:40,393 INFO approx_kl: 4.087144134246046e-06, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 5/20
+2026-10-09 11:10:41,739 INFO approx_kl: 5.373989097279264e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 6/20
+2026-10-09 11:10:43,071 INFO approx_kl: 5.944352778897155e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 7/20
+2026-10-09 11:10:44,406 INFO approx_kl: 6.666380613751244e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 8/20
+2026-10-09 11:10:45,733 INFO approx_kl: 7.297922365978593e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 9/20
+2026-10-09 11:10:47,082 INFO approx_kl: 8.103927939373534e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 10/20
+2026-10-09 11:10:48,411 INFO approx_kl: 8.642872671771329e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 11/20
+2026-10-09 11:10:49,739 INFO approx_kl: 8.952387361205183e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 12/20
+2026-10-09 11:10:51,056 INFO approx_kl: 9.326438885182142e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 13/20
+2026-10-09 11:10:52,361 INFO approx_kl: 9.852446964941919e-06, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 14/20
+2026-10-09 11:10:53,669 INFO approx_kl: 9.927483915816993e-06, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 15/20
+2026-10-09 11:10:54,979 INFO approx_kl: 1.0729570021794643e-05, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 16/20
+2026-10-09 11:10:56,276 INFO approx_kl: 1.1276585610175971e-05, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 17/20
+2026-10-09 11:10:57,681 INFO approx_kl: 1.1524853107403032e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 18/20
+2026-10-09 11:10:59,002 INFO approx_kl: 1.1838190403068438e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 19/20
+2026-10-09 11:11:00,328 INFO approx_kl: 1.2219898053444922e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 pristine minibatch 20/20
+2026-10-09 11:11:01,546 INFO approx_kl: 1.2591975973919034e-05, update_epoch: 4, num_batch: 4
+2026-10-09 11:11:02,050 INFO Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+2026-10-09 11:11:02,050 INFO Number of network parameters: 568392
+2026-10-09 11:11:02,052 INFO Cloned model for fine-tuning
+2026-10-09 11:11:02,052 INFO Turned off gradients of the pretrained network
+2026-10-09 11:11:02,052 INFO Number of finetuned parameters: 568392
+FULL UPDATE cuda:0 edited minibatch 1/20
+2026-10-09 11:11:03,397 INFO approx_kl: 1.0222336171983315e-10, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 2/20
+2026-10-09 11:11:04,711 INFO approx_kl: 8.504793527208676e-07, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 3/20
+2026-10-09 11:11:06,031 INFO approx_kl: 2.50814468927274e-06, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 4/20
+2026-10-09 11:11:07,364 INFO approx_kl: 4.087144134246046e-06, update_epoch: 0, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 5/20
+2026-10-09 11:11:08,685 INFO approx_kl: 5.373989097279264e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 6/20
+2026-10-09 11:11:10,000 INFO approx_kl: 5.944352778897155e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 7/20
+2026-10-09 11:11:11,313 INFO approx_kl: 6.666380613751244e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 8/20
+2026-10-09 11:11:12,627 INFO approx_kl: 7.297922365978593e-06, update_epoch: 1, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 9/20
+2026-10-09 11:11:13,951 INFO approx_kl: 8.103927939373534e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 10/20
+2026-10-09 11:11:15,264 INFO approx_kl: 8.642872671771329e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 11/20
+2026-10-09 11:11:16,573 INFO approx_kl: 8.952387361205183e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 12/20
+2026-10-09 11:11:17,876 INFO approx_kl: 9.326438885182142e-06, update_epoch: 2, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 13/20
+2026-10-09 11:11:19,282 INFO approx_kl: 9.852446964941919e-06, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 14/20
+2026-10-09 11:11:20,604 INFO approx_kl: 9.927483915816993e-06, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 15/20
+2026-10-09 11:11:21,824 INFO approx_kl: 1.0729570021794643e-05, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 16/20
+2026-10-09 11:11:23,226 INFO approx_kl: 1.1276585610175971e-05, update_epoch: 3, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 17/20
+2026-10-09 11:11:24,545 INFO approx_kl: 1.1524853107403032e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 18/20
+2026-10-09 11:11:25,865 INFO approx_kl: 1.1838190403068438e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 19/20
+2026-10-09 11:11:27,087 INFO approx_kl: 1.2219898053444922e-05, update_epoch: 4, num_batch: 4
+FULL UPDATE cuda:0 edited minibatch 20/20
+2026-10-09 11:11:28,488 INFO approx_kl: 1.2591975973919034e-05, update_epoch: 4, num_batch: 4
+2026-10-09 11:11:29,267 INFO Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+2026-10-09 11:11:29,267 INFO Number of network parameters: 568392
+2026-10-09 11:11:29,268 INFO Cloned model for fine-tuning
+2026-10-09 11:11:29,268 INFO Turned off gradients of the pretrained network
+2026-10-09 11:11:29,268 INFO Number of finetuned parameters: 568392
+2026-10-09 11:11:29,355 INFO Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+2026-10-09 11:11:29,355 INFO Number of network parameters: 568392
+2026-10-09 11:11:29,356 INFO Cloned model for fine-tuning
+2026-10-09 11:11:29,356 INFO Turned off gradients of the pretrained network
+2026-10-09 11:11:29,356 INFO Number of finetuned parameters: 568392
+H200 GATE COMPLETE passed

@@ -1,0 +1,5 @@
+Read-only query within R0's existing Slurm allocation:
+srun --jobid=17777245 --overlap --nodes=1 --ntasks=1 --cpus-per-task=1 --cpu-bind=none nvidia-smi --query-gpu=name,uuid,utilization.gpu,memory.used --format=csv,noheader
+NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 14 %, 1476 MiB
+
+The first auxiliary query omitted --cpu-bind=none and failed to start because its CPU binding did not fit the job-step allocation. Only the read-only query was retried. Training settings, allocations and processes were unchanged.

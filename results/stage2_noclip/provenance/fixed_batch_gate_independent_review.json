@@ -1,0 +1,43 @@
+{
+  "reviewed_utc": "2026-10-09T17:42:15Z",
+  "review_scope": "Independent static review plus tiny CPU comparator selftests; no environment, update or GPU execution in this audit.",
+  "helper": "code/verify_full_update.py",
+  "old_verification_gaps": [
+    "Pristine versus edited default check used 128 synthetic pairs and one optimizer step.",
+    "The production 200,000-pair check exercised NC4 only, not the native default update over 20 minibatches.",
+    "There was no sampling-chain differential check with fixed noise or report of maximum absolute and relative differences."
+  ],
+  "new_static_coverage": {
+    "actual_saved_batch": "The pristine run is interrupted before its first update. The helper saves 20,000 observations, chains of shape (20000, 11, 4, 6), GAE advantages, returns, values and unclamped old log probabilities.",
+    "initial_conditions": "Both versions restore the saved model, actor and critic optimizers, module training flags, and Python, NumPy, torch CPU and all visible CUDA generator states. Input equality is checked.",
+    "full_update": "Each native update body is extracted from its source AST without numerical changes. The helper requires 20 actor and 20 critic steps, and five complete permutations of the 200,000 pairs.",
+    "per_minibatch": "All nine loss and metric values plus named actor and critic gradients are collected immediately before each actor step. Every gradient must be present. Permutations are compared exactly.",
+    "after_update": "Actor and critic parameters, the entire model, both optimizers and global RNG states are compared. Saved batch inputs must remain unchanged.",
+    "sampling": "The two versions receive the same 21 noise tensors. Their returned 11-state chain, final action and all 20 transition states are compared. The sampling trace selects the minimum matching source line.",
+    "diagnostic_rng": "Actual post-update diagnostics are bracketed by Python, NumPy, torch CPU and all visible CUDA default generator snapshots.",
+    "numerical_criteria": "CPU requires literal byte equality. GPU permits absolute difference <= 1e-7 + 1e-5 * abs(reference). Maximum absolute and reference-relative differences are reported, and nonfinite tensor values fail.",
+    "source_bounds": "The helper requires a clean scientific commit ab46b150fa34b5a5b457cd4062cd4c5ad830d964, only the two approved source differences from cc7234a, and unchanged numerical settings."
+  },
+  "comparator_selftests": {
+    "identical_float32_bytes": true,
+    "signed_zero_rejected_for_cpu": true,
+    "gpu_absolute_tolerance": true,
+    "gpu_relative_tolerance": true,
+    "outside_gpu_tolerance_rejected": true,
+    "dtype_mismatch_rejected": true,
+    "shape_mismatch_rejected": true,
+    "missing_loss_key_rejected": true,
+    "nonfinite_rejected": true,
+    "integer_permutation_difference_rejected": true,
+    "maximum_absolute_difference_correct": true,
+    "maximum_relative_difference_correct": true
+  },
+  "selftests_passed": 12,
+  "scientific_gate_execution_status": "pending_separate_authorized_job",
+  "notes": [
+    "The captured first-update AdamW states are empty; this is valid and explicitly reported.",
+    "CPU and GPU are independently differential-tested; this is not a CPU-versus-GPU comparison.",
+    "This independent review verifies helper coverage and its comparison logic. The full gate has not yet run."
+  ],
+  "static_review_passed": true
+}

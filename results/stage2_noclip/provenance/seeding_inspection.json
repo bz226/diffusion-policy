@@ -1,0 +1,35 @@
+{
+  "observed_utc": "2026-10-09T09:38:57.871152+00:00",
+  "finding": "Run seed does not propagate to underlying HalfCheetah reset RNG in the retained DPPO wrapper/Gym stack.",
+  "evidence": [
+    {
+      "path": "dppo/env/gym_utils/wrapper/mujoco_locomotion_lowdim.py",
+      "lines": "29,39-51",
+      "behavior": "Wrapper resets inner environment during construction, seeds only global numpy.random, and does not pass a seed to the inner reset."
+    },
+    {
+      "path": "results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/core.py",
+      "lines": "50-57,291-292",
+      "behavior": "Gym np_random lazily creates a separate unseeded generator; Wrapper.seed delegates to next wrapper."
+    },
+    {
+      "path": "results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/envs/mujoco/half_cheetah.py",
+      "lines": "30-35",
+      "behavior": "Reset samples initial qpos/qvel from self.np_random."
+    },
+    {
+      "path": "results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/utils/seeding.py",
+      "lines": "13-20",
+      "behavior": "np_random(None) uses SeedSequence(None) and PCG64."
+    },
+    {
+      "path": "results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/gym_mujoco/gym_envs.py",
+      "lines": "15-18,29-30",
+      "behavior": "D4RL inherits Gym HalfCheetah and wraps it without repairing seed propagation."
+    }
+  ],
+  "interpretation": "A source-level mechanism consistent with pristine initial-return differences, not proof it is the sole cause; no underlying RNG states or initial observations captured.",
+  "action": "No seeding changes. Apply the approved nondeterministic replay fallback after both probes complete.",
+  "source_or_environment_edits": false,
+  "additional_environment_runs": 0
+}

@@ -1,0 +1,19 @@
+test_active_queue_state_does_not_consult_stale_accounting (test_campaign.CampaignTests) ... ok
+test_ambiguous_submission_is_recorded_and_never_retried (test_campaign.CampaignTests) ... ok
+test_completed_verified_manifest_is_not_rewritten (test_campaign.CampaignTests) ... ok
+test_failed_ablations_do_not_prevent_remaining_groups (test_campaign.CampaignTests) ... ok
+test_killed_worker_preserves_previous_manifest_and_snapshot_pointer (test_campaign.CampaignTests) ... ok
+test_late_r0_failure_cancels_owned_work_and_stops_new_groups (test_campaign.CampaignTests) ... ok
+test_matrix_cap_and_condition_guard (test_campaign.CampaignTests) ... ok
+test_pending_job_is_not_falsely_failed (test_campaign.CampaignTests) ... ok
+test_queued_failure_becomes_explicit_external_failure (test_campaign.CampaignTests) ... ok
+test_r0_complete_without_gate_stops_instead_of_waiting_forever (test_campaign.CampaignTests) ... ok
+test_r0_external_failure_stops_gate (test_campaign.CampaignTests) ... ok
+test_sacct_terminal_without_squeue_record (test_campaign.CampaignTests) ... ok
+test_submit_one_gpu_without_invalid_node_list_and_no_retry (test_campaign.CampaignTests) ... ok
+test_unknown_scheduler_state_has_bounded_wait_without_fake_outcome (test_campaign.CampaignTests) ... ok
+
+----------------------------------------------------------------------
+Ran 14 tests in 0.503s
+
+OK

@@ -1,0 +1,39 @@
+{
+  "recorded_utc": "2026-10-09T17:38:12.664982+00:00",
+  "authorization": "User explicitly replaced Section 2 and directed filling verification gaps, restarting R0, then launching all conditions once the fixed-batch gate passes.",
+  "replaces": "Exact trajectory/matching-token replay acceptance criterion; prior evidence remains under original paths.",
+  "gate": {
+    "saved_real_training_batch": true,
+    "full_update_phase": true,
+    "per_minibatch_losses_and_actor_critic_gradients": true,
+    "final_actor_critic_parameters": true,
+    "shared_initial_model_optimizer_rng_state": true,
+    "fixed_noise_chain": true,
+    "diagnostic_rng_isolation": [
+      "Python",
+      "NumPy",
+      "torch CPU",
+      "torch CUDA"
+    ],
+    "cpu": "bitwise equality",
+    "cuda_atol": 1e-07,
+    "cuda_rtol": 1e-05,
+    "max_absolute_relative_differences_reported": true,
+    "record": "runs/verification_full_update/verification.json"
+  },
+  "r0_run_id": "R0_rerun_seed0",
+  "r0_from_scratch": true,
+  "trajectory_comparisons_used_for_stopping": false,
+  "r0_evaluation_red_flag": "Outside Stage 1 same-step mean \u00b1 5 sample standard deviations; informational only.",
+  "launch_rule": "After fixed-batch gate passes, R0 and all three NC1 seeds launch; six condition groups execute sequentially with each three seeds in parallel.",
+  "remaining_full_runs": 19,
+  "full_run_cap_seconds_each": 10800,
+  "new_verification_allocation_cap_seconds": 1740,
+  "verification_gpu_allocation_already_used_seconds": 38,
+  "overall_gpu_hour_cap_unchanged": 58.5,
+  "worst_case_total_allocated_gpu_hours": 58.20027777777778,
+  "max_simultaneous_gpus": 4,
+  "deterministic_algorithm_settings_changed": false,
+  "scientific_source_commit_unchanged": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "curation_approved": false
+}

@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-09T19:57:43.137936+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "--cpus-per-task=1",
+    "--mem=8G",
+    "--time=1311",
+    "--signal=B:TERM@60",
+    "--job-name=stage2-parallel-controller",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-parallel-controller-%j.log",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_campaign_parallel.sh",
+    "--commit",
+    "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "--r0-job",
+    "17777245",
+    "--gate",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+    "--matrix",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_revised.json",
+    "--handoff",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/parallel_dispatch_authorization.json"
+  ],
+  "returncode": 0,
+  "stdout": "17778495\n",
+  "stderr": "",
+  "old_controller_accounting": "17777246|CANCELLED by 25987|0:0\n",
+  "original_controller_deadline_utc": "2026-10-10T17:49:34+00:00",
+  "remaining_requested_controller_minutes": 1311,
+  "failed_runs_retained_without_retry": [
+    "R0_rerun_seed0",
+    "NC1_seed1"
+  ]
+}

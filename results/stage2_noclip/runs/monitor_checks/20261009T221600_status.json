@@ -1,0 +1,497 @@
+{
+  "checked_utc": "2026-10-09T22:16:00.441220+00:00",
+  "purpose": "User-requested status check; reuse existing scheduled monitors; no job mutations",
+  "runs": {
+    "NC2_seed0": {
+      "job_id": "17778496",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_105.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_139.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_35.pt",
+          "bytes": 5107290
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_70.pt",
+          "bytes": 5107290
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": true,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T21:59:22+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0,
+        "logratio_p99": 0,
+        "clamp_hit_frac": 0.0007916666666666666
+      }
+    },
+    "NC2_seed1": {
+      "job_id": "17778497",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_105.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_139.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_35.pt",
+          "bytes": 5107290
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_70.pt",
+          "bytes": 5107290
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": true,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:03:20+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 3.691762520685593e-11,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 5.929093539422965e-8,
+        "logratio_p99": 0,
+        "clamp_hit_frac": 0.0008083333333333333
+      }
+    },
+    "NC2_seed2": {
+      "job_id": "17778498",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_105.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_139.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_35.pt",
+          "bytes": 5107290
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_70.pt",
+          "bytes": 5107290
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": true,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:04:47+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 6.407499097277336e-12,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 7.661466879935586e-10,
+        "logratio_p99": 0,
+        "clamp_hit_frac": 0.0008291666666666666
+      }
+    },
+    "NC3_seed0": {
+      "job_id": "17778499",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_105.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_139.pt",
+          "bytes": 5107326
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_35.pt",
+          "bytes": 5107290
+        },
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_70.pt",
+          "bytes": 5107290
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": true,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:04:57+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0.17658168077468872,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 1.9545386648055532,
+        "logratio_p99": 2.782475515604019,
+        "clamp_hit_frac": 0.000875
+      }
+    },
+    "NC3_seed1": {
+      "job_id": "17778500",
+      "status": "running",
+      "completed_rows": 18,
+      "last_itr": 17,
+      "training_steps": 1280000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": null,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:15:58+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0.1936482936143875,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 2.171457531066072,
+        "logratio_p99": 2.6071502387523546,
+        "clamp_hit_frac": 0.0007708333333333333
+      }
+    },
+    "NC3_seed2": {
+      "job_id": "17778501",
+      "status": "running",
+      "completed_rows": 14,
+      "last_itr": 13,
+      "training_steps": 960000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": null,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:16:00+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0.21257108449935913,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 2.422114899186899,
+        "logratio_p99": 2.624654301404949,
+        "clamp_hit_frac": 0.0008645833333333333
+      }
+    },
+    "NC4_lr1e-4_seed0": {
+      "job_id": "17778502",
+      "status": "running",
+      "completed_rows": 10,
+      "last_itr": 9,
+      "training_steps": 720000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": null,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:15:59+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.0011401534370485107,
+        "logratio_p99": 0.048216661214828475,
+        "clamp_hit_frac": 0.0007583333333333333
+      },
+      "actor_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    },
+    "NC4_lr1e-4_seed1": {
+      "job_id": "17778503",
+      "status": "running",
+      "completed_rows": 9,
+      "last_itr": 8,
+      "training_steps": 640000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "nonfinite_result_values": [],
+      "checkpoints": [
+        {
+          "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_0.pt",
+          "bytes": 5106742
+        }
+      ],
+      "supervisor_checkpoint_tensors_finite": null,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "progress_updated_utc": "2026-10-09T22:15:56+00:00",
+      "failure_reason": null,
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.0009226119430577112,
+        "logratio_p99": 0.04415388107299804,
+        "clamp_hit_frac": 0.0007458333333333334
+      },
+      "actor_invariants": {
+        "actor_step_ratio": [
+          1
+        ],
+        "actor_step_clipfrac": [
+          0
+        ],
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ]
+      }
+    }
+  },
+  "campaign_revised": {
+    "status": "running_parallel_conditions",
+    "controller_slurm_job": "17778495",
+    "updated_utc": "2026-10-09T22:15:47+00:00",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "active_or_pending_training_allocations": 8,
+    "condition_progress": {
+      "NC1_seed0": "complete",
+      "NC1_seed1": "failed",
+      "NC1_seed2": "complete",
+      "NC2_seed0": "complete",
+      "NC2_seed1": "complete",
+      "NC2_seed2": "complete",
+      "NC3_seed0": "complete",
+      "NC3_seed1": "running",
+      "NC3_seed2": "running",
+      "NC4_lr1e-4_seed0": "running",
+      "NC4_lr1e-4_seed1": "running",
+      "NC4_lr1e-4_seed2": "queued_or_starting",
+      "NC4_lr1e-3_seed0": "queued_or_starting",
+      "NC4_lr1e-3_seed1": "queued_or_starting",
+      "NC4_lr1e-3_seed2": "queued_or_starting",
+      "NC4_lr3e-3_seed0": "not_submitted",
+      "NC4_lr3e-3_seed1": "not_submitted",
+      "NC4_lr3e-3_seed2": "not_submitted"
+    },
+    "submitted_runs": [
+      {
+        "run_id": "NC1_seed0",
+        "job_id": "17777247"
+      },
+      {
+        "run_id": "NC1_seed1",
+        "job_id": "17777248"
+      },
+      {
+        "run_id": "NC1_seed2",
+        "job_id": "17777249"
+      },
+      {
+        "run_id": "NC2_seed0",
+        "job_id": "17778496"
+      },
+      {
+        "run_id": "NC2_seed1",
+        "job_id": "17778497"
+      },
+      {
+        "run_id": "NC2_seed2",
+        "job_id": "17778498"
+      },
+      {
+        "run_id": "NC3_seed0",
+        "job_id": "17778499"
+      },
+      {
+        "run_id": "NC3_seed1",
+        "job_id": "17778500"
+      },
+      {
+        "run_id": "NC3_seed2",
+        "job_id": "17778501"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed0",
+        "job_id": "17778502"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed1",
+        "job_id": "17778503"
+      },
+      {
+        "run_id": "NC4_lr1e-4_seed2",
+        "job_id": "17778504"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed0",
+        "job_id": "17780957"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed1",
+        "job_id": "17780958"
+      },
+      {
+        "run_id": "NC4_lr1e-3_seed2",
+        "job_id": "17780959"
+      }
+    ],
+    "last_periodic_check_utc": "2026-10-09T21:58:30+00:00",
+    "next_periodic_check_utc_approx": "2026-10-09T22:28:30+00:00"
+  },
+  "recovery_campaign": {
+    "status": "waiting_for_original_campaign",
+    "controller_slurm_job": "17780304",
+    "updated_utc": "2026-10-09T22:15:46+00:00",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "active_or_pending_training_allocations": null,
+    "condition_progress": null,
+    "submitted_runs": [],
+    "last_periodic_check_utc": "2026-10-09T22:05:42+00:00",
+    "next_periodic_check_utc_approx": "2026-10-09T22:35:42+00:00"
+  },
+  "independent_monitor_review": "Four supervisors advancing, zero recorded stale checks or new nonfinite/failure events; original R0 and NC1 seed1 SIGTERM interruptions remain historical. Primary and recovery controller records refreshed within seconds.",
+  "queued_runs": [
+    "NC4_lr1e-4_seed2",
+    "NC4_lr1e-3_seed0",
+    "NC4_lr1e-3_seed1",
+    "NC4_lr1e-3_seed2"
+  ],
+  "not_submitted_conditions": [
+    "NC4_lr3e-3 (three seeds)"
+  ],
+  "recovery": "R0_recovery_seed0 and NC1_recovery_seed1 wait for the original campaign to become terminal, under existing authorization; neither submitted.",
+  "scope": "Execution monitoring only. No scientific analysis, curation, source edits, job submissions, cancellations or restarts.",
+  "scheduler_checks": [
+    {
+      "check": 0,
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "563ab1",
+        "wall_time_seconds": 0.00001017,
+        "exit_code": 0,
+        "original_token_count": 299,
+        "output": "             JOBID                           NAME      STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)\n          17778504        stage2-NC4_lr1e-4_seed2    PENDING       0:00    3:00:00      1 (Resources)\n          17780959        stage2-NC4_lr1e-3_seed2    PENDING       0:00    3:00:00      1 (Priority)\n          17780958        stage2-NC4_lr1e-3_seed1    PENDING       0:00    3:00:00      1 (Priority)\n          17780957        stage2-NC4_lr1e-3_seed0    PENDING       0:00    3:00:00      1 (Priority)\n          17778502        stage2-NC4_lr1e-4_seed0    RUNNING      10:29    3:00:00      1 soal-11\n          17778503        stage2-NC4_lr1e-4_seed1    RUNNING      10:29    3:00:00      1 soal-11\n          17778501               stage2-NC3_seed2    RUNNING      12:29    3:00:00      1 soal-10\n          17778500               stage2-NC3_seed1    RUNNING      16:28    3:00:00      1 soal-10\n          17780304     stage2-recovery-controller    RUNNING      40:34   20:14:00      1 soal-9\n          17778495     stage2-parallel-controller    RUNNING    2:18:17   21:51:00      1 soal-2\n          17779865                           bash    RUNNING    1:12:38    6:00:00      1 soal-12\n"
+      }
+    },
+    {
+      "check": 1,
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "15b9c6",
+        "wall_time_seconds": 0.00000995,
+        "exit_code": 0,
+        "original_token_count": 144,
+        "output": "JobIDRaw|JobName|State|ExitCode|Elapsed|End|AllocTRES\n17778496|stage2-NC2_seed0|COMPLETED|0:0|02:00:50|2026-10-09T14:59:23|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778497|stage2-NC2_seed1|COMPLETED|0:0|02:04:47|2026-10-09T15:03:20|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778498|stage2-NC2_seed2|COMPLETED|0:0|02:06:15|2026-10-09T15:04:48|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17778499|stage2-NC3_seed0|COMPLETED|0:0|02:06:24|2026-10-09T15:04:57|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n"
+      }
+    },
+    {
+      "check": 2,
+      "status": "fulfilled",
+      "value": {
+        "chunk_id": "e42161",
+        "wall_time_seconds": 0.00001035,
+        "exit_code": 0,
+        "original_token_count": 53,
+        "output": "Filesystem                                              Size  Used Avail Use% Mounted on\n10.79.13.15:/soalnas/share/data/zbao7/diffusion_policy   44T   40T  4.4T  90% /soalnas/share/data/zbao7/diffusion_policy\n"
+      }
+    }
+  ]
+}

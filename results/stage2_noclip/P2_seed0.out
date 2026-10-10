@@ -1,0 +1,1398 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[2026-10-09 02:27:45,330][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+[2026-10-09 02:27:45,340][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-09 02:27:45,396][absl][INFO] - MuJoCo library version is: 3.2.3
+pybullet build time: Jan 29 2025 23:19:57
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/spaces/box.py:78: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+[2026-10-09 02:27:47,262][root][INFO] - Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+[2026-10-09 02:27:47,262][root][INFO] - Number of network parameters: 568392
+[2026-10-09 02:27:47,393][root][INFO] - Cloned model for fine-tuning
+[2026-10-09 02:27:47,393][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-09 02:27:47,393][root][INFO] - Number of finetuned parameters: 568392
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:27:59,784][agent.finetune.train_agent][INFO] - Saved model to /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/P2_seed0/native/checkpoint/state_0.pt
+[2026-10-09 02:27:59,785][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4294.7541 | avg best reward   6.5192
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:28:14,934][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:28:17,288][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.308854262395471e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:28:19,410][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.2487711248686537e-06, update_epoch: 0, num_batch: 4
+[2026-10-09 02:28:21,634][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.081018232682254e-06, update_epoch: 0, num_batch: 4
+[2026-10-09 02:28:23,865][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.644855264108628e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:28:26,184][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.269946308952058e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:28:28,316][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.943544005684089e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:28:30,595][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.825776603771374e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:28:32,814][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.16577391762985e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:28:35,122][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.505837624601554e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:28:37,262][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.126916665991303e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:28:39,508][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.489949661656283e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:28:41,729][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.395792403665837e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:28:44,038][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.603710168448742e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:28:46,170][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.889664397633169e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:28:48,367][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0337967978557572e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:28:50,584][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0559196198300924e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:28:52,900][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0798265975608956e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:28:55,030][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1320197700115386e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:28:57,232][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1669605555653106e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:28:57,238][agent.finetune.train_ppo_diffusion_agent][INFO] - 1: step    80000 | loss   0.0069 | pg loss  -0.0006 | value loss   0.0152 | bc loss   0.0000 | reward 3866.3807 | eta   1.0000 | t: 57.4535
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:29:12,074][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:29:14,354][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.107458633801798e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:29:16,450][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.790563572967585e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:29:18,679][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.200101102469489e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:29:20,870][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.64618619086832e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:29:23,209][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.3339066526896204e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:29:25,346][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.1822663711645873e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:29:27,578][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.3466319564467994e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:29:29,823][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.689761681220261e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:29:32,162][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.004837814543862e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:29:34,312][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.450531484209932e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:29:36,546][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.810116014501546e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:29:38,768][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.604424121789634e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:29:41,094][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0090159776154906e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:29:43,234][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0229764484392945e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:29:45,460][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0266053322993685e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:29:47,691][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.031056854117196e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:29:50,034][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0284571544616483e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:29:52,178][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0457676580699626e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:29:54,409][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0779858712339774e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:29:54,415][agent.finetune.train_ppo_diffusion_agent][INFO] - 2: step   160000 | loss   0.0148 | pg loss  -0.0004 | value loss   0.0305 | bc loss   0.0000 | reward 3919.9124 | eta   1.0000 | t: 57.1773
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:30:10,838][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:30:12,954][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.942216401739643e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:30:15,158][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.1060614585621806e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:30:17,383][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.2467266325729724e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:30:19,698][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.212386208266253e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:30:21,813][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1875725931531633e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:30:24,079][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.8395028291706694e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:30:26,318][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.6839286419999553e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:30:28,649][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.7788076951983385e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:30:30,789][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.082425559521653e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:30:33,031][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.449042302847374e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:30:35,322][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.876135896367487e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:30:37,657][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.971825991466176e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:30:39,803][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.912811947287992e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:30:42,038][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0178235243074596e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:30:44,276][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1106530109827872e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:30:46,612][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1205336704733782e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:30:48,757][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1451551472418942e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:30:50,958][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1896782780240756e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:30:53,243][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2362226698314771e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:30:53,249][agent.finetune.train_ppo_diffusion_agent][INFO] - 3: step   240000 | loss   0.0222 | pg loss  -0.0004 | value loss   0.0451 | bc loss   0.0000 | reward 3961.8534 | eta   1.0000 | t: 58.8332
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:31:09,805][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:31:11,959][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.740781254346075e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:31:14,213][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.884953289594705e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:31:16,432][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.790808472738718e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:31:18,784][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.895888979372103e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:31:20,938][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.5586653034915798e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:31:23,196][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.382461616434739e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:31:25,476][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.4380529996269615e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:31:27,826][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.641245141101535e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:31:29,973][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.981421509204665e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:31:32,273][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.283791546797147e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:31:34,543][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.7989610619843e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:31:36,908][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.632750334276352e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:31:39,064][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0334539183531888e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:31:41,262][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.07811547422898e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:31:43,511][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0990025657520164e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:31:45,897][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1246317626500968e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:31:48,023][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1626868399616797e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:31:50,229][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1874491974595003e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:31:52,479][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2070547199982684e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:31:52,486][agent.finetune.train_ppo_diffusion_agent][INFO] - 4: step   320000 | loss   0.0302 | pg loss  -0.0004 | value loss   0.0612 | bc loss   0.0000 | reward 3986.0056 | eta   1.0000 | t: 59.2373
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:32:08,683][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:32:10,781][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.674895468629984e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:32:12,966][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.3189988357662514e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:32:15,244][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.242326773848617e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:32:17,358][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.280350488741533e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:32:19,567][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.0747042981383856e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:32:21,753][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.1391350603371393e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:32:24,097][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.453773271961836e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:32:26,241][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.917417183809448e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:32:28,472][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.498519153159577e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:32:30,722][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.569730198360048e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:32:33,051][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.638620213081595e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:32:35,212][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0195563845627476e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:32:37,447][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0124559594260063e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:32:39,700][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0366041351517197e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:32:42,014][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0459614713909104e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:32:44,150][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0623371053952724e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:32:46,382][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.070429334504297e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:32:48,561][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.093323589884676e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:32:50,847][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1366862963768654e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:32:50,854][agent.finetune.train_ppo_diffusion_agent][INFO] - 5: step   400000 | loss   0.0344 | pg loss  -0.0004 | value loss   0.0698 | bc loss   0.0000 | reward 4064.8187 | eta   1.0000 | t: 58.3678
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:33:06,627][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:33:08,859][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.878254848492361e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:33:11,136][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.496135493856855e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:33:13,460][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.350504466150596e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:33:15,598][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.702414445200702e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:33:17,827][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.5527715504504158e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:33:20,060][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.3591710487380624e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:33:22,388][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.431914365137345e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:33:24,533][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.628353963198606e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:33:26,760][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.0226388995943125e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:33:28,989][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.00969212630298e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:33:31,343][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.064567737164907e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:33:33,486][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.794178938842379e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:33:35,721][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.33305000216933e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:33:37,945][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.741244866745546e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:33:40,271][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.983989002648741e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:33:42,416][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0297570042894222e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:33:44,647][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0549540093052201e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:33:46,877][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.09186357803992e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:33:49,167][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1217371138627641e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:33:49,173][agent.finetune.train_ppo_diffusion_agent][INFO] - 6: step   480000 | loss   0.0391 | pg loss  -0.0004 | value loss   0.0790 | bc loss   0.0000 | reward 4097.9338 | eta   1.0000 | t: 58.3192
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:34:05,024][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:34:07,262][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.683553514605592e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:34:09,507][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.4198640719296236e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:34:11,822][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.939054628674057e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:34:13,954][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.180301524073002e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:34:16,189][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.8824013068297063e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:34:18,392][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.7922312710870756e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:34:20,580][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.937134806619724e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:34:22,548][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.155210146767786e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:34:24,840][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.537572971865302e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:34:27,120][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.4449035309953615e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:34:29,442][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.406201231991872e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:34:31,454][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.043560567079112e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:34:33,562][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.156051419267897e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:34:35,582][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.623203368391842e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:34:37,724][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0131927410839126e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:34:39,804][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0314294740965124e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:34:42,042][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0917223335127346e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:34:44,275][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1396652553230524e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:34:46,600][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1838644240924623e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:34:46,607][agent.finetune.train_ppo_diffusion_agent][INFO] - 7: step   560000 | loss   0.0408 | pg loss  -0.0003 | value loss   0.0822 | bc loss   0.0000 | reward 3990.7979 | eta   1.0000 | t: 57.4338
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:35:02,563][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:35:04,825][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.5044256081801e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:35:07,064][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.14906571929896e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:35:09,401][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.668627179351461e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:35:11,545][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1569549087653286e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:35:13,748][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.8806844082064345e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:35:15,965][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.76926448350423e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:35:18,266][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.8837970350869e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:35:20,380][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.116436568641802e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:35:22,603][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.2220397012424655e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:35:24,851][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.459405424015131e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:35:27,187][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.524353688699193e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:35:29,334][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.096434041566681e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:35:31,560][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.600938028597739e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:35:33,802][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.889856301015243e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:35:36,158][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0174186172662303e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:35:38,296][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.040032111632172e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:35:40,527][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0819303497555666e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:35:42,742][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1470859135442879e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:35:45,085][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1968748367507942e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:35:45,091][agent.finetune.train_ppo_diffusion_agent][INFO] - 8: step   640000 | loss   0.0440 | pg loss  -0.0004 | value loss   0.0888 | bc loss   0.0000 | reward 4114.2960 | eta   1.0000 | t: 58.4844
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:36:00,959][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:36:03,176][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.491974767821375e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:36:05,471][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.7523924472916406e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:36:07,632][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.229239263826457e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:36:09,861][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.563935693928215e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:36:12,046][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.373242071167624e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:36:14,322][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.0216134544170927e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:36:16,417][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.861575921997428e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:36:18,646][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.919552000297699e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:36:20,845][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.036838956584688e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:36:23,176][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.097284313000273e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:36:25,304][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.093211024766788e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:36:27,534][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.336740393133368e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:36:29,757][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.181150744552724e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:36:32,077][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0058376574306749e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:36:34,220][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0460933481226675e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:36:36,445][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0923220543190837e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:36:38,649][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1243495464441366e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:36:40,966][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1878320947289467e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:36:43,123][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2081811291864142e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:36:43,129][agent.finetune.train_ppo_diffusion_agent][INFO] - 9: step   720000 | loss   0.0455 | pg loss  -0.0005 | value loss   0.0919 | bc loss   0.0000 | reward 4076.3882 | eta   1.0000 | t: 58.0380
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:36:56,380][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4520.3564 | avg best reward   6.4947
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:37:11,676][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:37:13,892][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.899819275460686e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:37:16,175][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.17409558192594e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:37:18,288][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.589091867681418e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:37:20,515][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0820923534993199e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:37:22,758][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.6269071920760325e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:37:25,088][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.3591494482388953e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:37:27,225][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.3381347748218104e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:37:29,447][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.4660150706477e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:37:31,687][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.766117283201311e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:37:34,026][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.090482085914118e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:37:36,168][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.124308806145564e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:37:38,406][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.06926561583532e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:37:40,656][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.67756386671681e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:37:42,990][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0152609320357442e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:37:45,132][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0639491847541649e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:37:47,339][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1244909728702623e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:37:49,541][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.158169106929563e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:37:51,854][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.22340961752343e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:37:53,993][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.298559618589934e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:37:54,000][agent.finetune.train_ppo_diffusion_agent][INFO] - 11: step   800000 | loss   0.0492 | pg loss  -0.0006 | value loss   0.0995 | bc loss   0.0000 | reward 4091.4050 | eta   1.0000 | t: 57.6190
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:38:09,367][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:38:11,620][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.953340031008338e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:38:13,933][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.7166615268470196e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:38:16,080][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.769881568085111e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:38:18,283][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.413580528416787e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:38:20,585][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.4619248531744233e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:38:22,724][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.1734974779974436e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:38:24,971][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.102735718130134e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:38:27,210][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.172191438556183e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:38:29,548][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.540120582736563e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:38:31,695][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.905186182848411e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:38:33,947][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.979928341228515e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:38:36,180][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.18679688766133e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:38:38,512][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0122935236722697e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:38:40,658][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0772339919640217e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:38:42,891][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1355423339409754e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:38:45,121][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1774365702876821e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:38:47,410][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.211187645822065e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:38:49,521][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2692388736468274e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:38:51,743][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.3233591744210571e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:38:51,749][agent.finetune.train_ppo_diffusion_agent][INFO] - 12: step   880000 | loss   0.0498 | pg loss  -0.0004 | value loss   0.1005 | bc loss   0.0000 | reward 4163.6898 | eta   1.0000 | t: 57.7494
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:39:06,475][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:39:08,806][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.949372443112225e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:39:10,936][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.072657648317545e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:39:13,126][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.577856765943579e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:39:15,306][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0694107004383113e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:39:17,608][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.6779255247456604e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:39:19,706][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.5564575025782688e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:39:21,920][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.527264880176517e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:39:24,147][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.5385286284727044e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:39:26,463][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.593487912847195e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:39:28,590][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.868488526379224e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:39:30,810][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.918324627098627e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:39:33,038][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.815490218694322e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:39:35,344][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.4820070444257e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:39:37,476][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0073063094750978e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:39:39,700][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0530426152399741e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:39:41,918][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1300202459096909e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:39:44,264][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.152485219790833e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:39:46,395][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1993026419077069e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:39:48,578][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.269843505724566e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:39:48,585][agent.finetune.train_ppo_diffusion_agent][INFO] - 13: step   960000 | loss   0.0516 | pg loss  -0.0005 | value loss   0.1041 | bc loss   0.0000 | reward 4197.1447 | eta   1.0000 | t: 56.8360
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:40:03,414][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:40:05,689][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.097154591268918e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:40:07,839][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.8681927233265014e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:40:10,054][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.249532589208684e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:40:12,233][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0849679483726504e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:40:14,538][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.7336216160401818e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:40:16,655][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.6978477762895636e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:40:18,834][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.86407782571041e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:40:21,047][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.239287474978482e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:40:23,347][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.431605470424984e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:40:25,476][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.323243607970653e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:40:27,696][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.310021257784683e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:40:29,911][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.075019988813438e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:40:32,219][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.642374607210513e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:40:34,356][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.735530511534307e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:40:36,591][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0110814400832169e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:40:38,808][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0565418961050455e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:40:41,123][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0654487596184481e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:40:43,259][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.11233193820226e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:40:45,484][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.155592872237321e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:40:45,490][agent.finetune.train_ppo_diffusion_agent][INFO] - 14: step  1040000 | loss   0.0544 | pg loss  -0.0006 | value loss   0.1099 | bc loss   0.0000 | reward 4231.3930 | eta   1.0000 | t: 56.9052
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:41:00,196][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:41:02,500][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.905066550823904e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:41:04,628][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.9930046707704605e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:41:06,867][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.01556848778273e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:41:09,083][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.007218429549539e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:41:11,384][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.6200381196540548e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:41:13,512][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.4268636025226442e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:41:15,731][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.484948820187128e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:41:17,920][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.7327021093224175e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:41:20,188][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.0243132793402765e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:41:22,297][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.304683549591573e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:41:24,509][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.475225513393525e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:41:26,735][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.190920536639169e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:41:29,073][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.004784553515492e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:41:31,205][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.043962674884824e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:41:33,428][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.052995867212303e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:41:35,650][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0897390893660486e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:41:37,936][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1027228538296185e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:41:40,049][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1761741006921511e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:41:42,272][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2279471775400452e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:41:42,278][agent.finetune.train_ppo_diffusion_agent][INFO] - 15: step  1120000 | loss   0.0520 | pg loss  -0.0003 | value loss   0.1048 | bc loss   0.0000 | reward 4184.9511 | eta   1.0000 | t: 56.7881
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:41:57,192][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:41:59,327][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.729298007712714e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:42:01,507][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.546097164213279e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:42:03,689][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.641238089992839e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:42:06,003][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.712994142319076e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:42:08,140][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.690403792053985e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:42:10,373][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.545097459005774e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:42:12,596][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.7502366012631683e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:42:14,917][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.254187271930277e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:42:17,054][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.9614538915629964e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:42:19,286][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.693496056366712e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:42:21,473][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.78823663899675e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:42:23,805][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0805534657265525e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:42:25,941][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1134544365631882e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:42:28,164][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1508793249959126e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:42:30,383][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1729393008863553e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:42:32,693][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.178935508505674e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:42:34,830][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1808347153419163e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:42:37,070][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.191933642985532e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:42:39,293][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.220509238919476e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:42:39,299][agent.finetune.train_ppo_diffusion_agent][INFO] - 16: step  1200000 | loss   0.0535 | pg loss  -0.0006 | value loss   0.1082 | bc loss   0.0000 | reward 4278.6507 | eta   1.0000 | t: 57.0211
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:42:54,200][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:42:56,338][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.751819535746108e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:42:58,536][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.8710692845379526e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:43:00,754][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.862020771019161e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:43:03,064][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.966784091375303e-07, update_epoch: 1, num_batch: 4
+[2026-10-09 02:43:05,206][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.577161242494185e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:43:07,434][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.3708671506028622e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:43:09,666][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.4082370348187396e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:43:12,008][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.517096840572776e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:43:14,139][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.5194068409036845e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:43:16,367][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.821298939030385e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:43:18,603][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.700324204051867e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:43:20,942][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.41775272419909e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:43:23,074][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.268182111554779e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:43:25,330][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.779414540389553e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:43:27,572][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0222968739981297e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:43:29,892][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0564829608483706e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:43:32,030][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0952367119898554e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:43:34,265][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1397518392186612e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:43:36,498][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1913728485524189e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:43:36,505][agent.finetune.train_ppo_diffusion_agent][INFO] - 17: step  1280000 | loss   0.0543 | pg loss  -0.0004 | value loss   0.1094 | bc loss   0.0000 | reward 4275.3964 | eta   1.0000 | t: 57.2055
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:43:51,360][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:43:53,525][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0661084104413021e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:43:55,754][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.435705480114848e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:43:58,076][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.047304393381637e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:44:00,181][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.19029618872446e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:44:02,380][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.967360276466934e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:44:04,600][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 3.026991180377081e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:44:06,923][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.128801265324e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:44:09,061][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.368918209569529e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:44:11,294][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.645589110121364e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:44:13,492][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.756781087664422e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:44:15,809][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.326393981406e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:44:17,946][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.692431038070936e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:44:20,143][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.167291864287108e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:44:22,375][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.52769369177986e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:44:24,690][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.889587090583518e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:44:26,835][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0333294994779862e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:44:29,074][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1079435353167355e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:44:31,332][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1841631931019947e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:44:33,669][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2576884728332516e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:44:33,676][agent.finetune.train_ppo_diffusion_agent][INFO] - 18: step  1360000 | loss   0.0524 | pg loss  -0.0005 | value loss   0.1058 | bc loss   0.0000 | reward 4200.9692 | eta   1.0000 | t: 57.1707
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:44:48,313][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:44:50,491][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.412862856881475e-08, update_epoch: 0, num_batch: 4
+[2026-10-09 02:44:52,694][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.6594665314405574e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:44:55,003][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.192379373715085e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:44:57,131][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1030225550712203e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:44:59,314][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.8481140386938932e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:45:01,571][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.9859511414542794e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:45:03,877][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.352239557192661e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:45:06,013][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 5.6795952332322486e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:45:08,230][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.166288924054243e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:45:10,449][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.585379873693455e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:45:12,719][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.398376278113574e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:45:14,852][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.559737009112723e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:45:17,030][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.742017937242053e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:45:19,208][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.578119716024958e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:45:21,516][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.838250662141945e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:45:23,675][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0242174539598636e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:45:25,892][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.086147312889807e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:45:28,106][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.141612392530078e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:45:30,419][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.2075447557435837e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:45:30,445][agent.finetune.train_agent][INFO] - Saved model to /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/P2_seed0/native/checkpoint/state_19.pt
+[2026-10-09 02:45:30,445][agent.finetune.train_ppo_diffusion_agent][INFO] - 19: step  1440000 | loss   0.0552 | pg loss  -0.0005 | value loss   0.1114 | bc loss   0.0000 | reward 4228.6232 | eta   1.0000 | t: 56.7694

@@ -1,0 +1,195 @@
+{
+  "run_id": "R0_seed0",
+  "condition": "R0",
+  "seed": 0,
+  "status": "failed",
+  "start_utc": "2026-10-09T09:57:32+00:00",
+  "deadline_utc": "2026-10-09T12:57:32+00:00",
+  "timeout_seconds": 10800,
+  "estimate_seconds": 8100.0,
+  "monitor_interval_seconds": 1800,
+  "monitor_status": "paused",
+  "expected_rows": 140,
+  "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "command": [
+    "python",
+    "script/run.py",
+    "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=140",
+    "train.save_model_freq=35",
+    "seed=0",
+    "wandb=null",
+    "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native"
+  ],
+  "command_shell_display": "python script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 seed=0 wandb=null logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native",
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native",
+  "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native/result.pkl",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/R0_seed0.out",
+  "environment": {
+    "STUDY_ROOT": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip",
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "CUDA_VISIBLE_DEVICES": "0",
+    "SLURM_JOB_ID": "17773065",
+    "SLURM_JOB_NODELIST": "soal-10",
+    "SLURM_CPUS_PER_TASK": "40",
+    "SLURM_JOB_GPUS": "3",
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/tmp",
+    "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/matplotlib",
+    "TORCH_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/torch",
+    "CUDA_CACHE_PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/cuda",
+    "TRITON_CACHE_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/triton",
+    "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/cache/d4rl",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  },
+  "slurm_job_id": "17773065",
+  "verification_commands": [
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "output": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": "agent/finetune/train_ppo_diffusion_agent.py\nmodel/diffusion/diffusion_ppo.py\n"
+    },
+    {
+      "command": [
+        "nvidia-smi",
+        "--query-gpu=name,uuid,pci.bus_id,driver_version,memory.total",
+        "--format=csv,noheader"
+      ],
+      "returncode": 0,
+      "output": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB\n"
+    },
+    {
+      "command": [
+        "git",
+        "rev-parse",
+        "HEAD"
+      ],
+      "returncode": 0,
+      "output": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964\n"
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": ""
+    },
+    {
+      "command": [
+        "git",
+        "diff",
+        "--name-only",
+        "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "HEAD",
+        "--"
+      ],
+      "returncode": 0,
+      "output": "agent/finetune/train_ppo_diffusion_agent.py\nmodel/diffusion/diffusion_ppo.py\n"
+    }
+  ],
+  "source_before": {
+    "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "tracked_files_clean": true,
+    "changed_from_base": [
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "model/diffusion/diffusion_ppo.py"
+    ]
+  },
+  "hardware": {
+    "gpu_query": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+    "uname": [
+      "Linux",
+      "soal-10.stanford.edu",
+      "6.8.0-137-generic",
+      "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+      "x86_64"
+    ],
+    "cpu_affinity_count": 40
+  },
+  "replay_status_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/replay_status.json",
+  "subprocess_start_utc": "2026-10-09T09:57:40+00:00",
+  "pid": 1684606,
+  "last_valid_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/observed_results/itr_006.pkl",
+  "last_valid_result_rows": 7,
+  "last_valid_result_note": "External snapshot of the validated finite native prefix; never replaces raw failure evidence.",
+  "returncode": -15,
+  "subprocess_end_utc": "2026-10-09T10:03:37+00:00",
+  "subprocess_wall_seconds": 357.3597291399492,
+  "failure_reason": "R0 exact replay mismatch: {\"iteration\": 6, \"source\": \"log_token\", \"field\": \"070.token_03\", \"p1\": \"-0.0004\", \"p2\": \"-0.0004\", \"r0\": \"-0.0005\"}",
+  "failing_iteration": 6,
+  "nonfinite_failure": false,
+  "source_after": {
+    "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "tracked_files_clean": true,
+    "changed_from_base": [
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "model/diffusion/diffusion_ppo.py"
+    ]
+  },
+  "end_utc": "2026-10-09T10:03:37+00:00",
+  "wall_seconds_including_verification": 365.29003641195595,
+  "last_diagnostics": {
+    "approx_kl": 1.2821202290069778e-05,
+    "clipfrac": 0.021621999079434316,
+    "actor_optimizer_steps": 20,
+    "critic_optimizer_steps": 20,
+    "actor_lr": 0.0001,
+    "critic_lr": 0.001,
+    "kl_true_per_action": 0.07694674543991246,
+    "logratio_p99": 0.37911837816238186,
+    "clamp_hit_frac": 0.0
+  },
+  "last_diagnostic_line": "[2026-10-09 03:03:37,217][agent.finetune.train_ppo_diffusion_agent][INFO] - 6: step   480000 | loss   0.0373 | pg loss  -0.0005 | value loss   0.0756 | bc loss   0.0000 | reward 3976.3736 | eta   1.0000 | t: 56.4470 | kl_true_per_action=0.07694674543991246 | logratio_p99=0.37911837816238186 | clamp_hit_frac=0.0",
+  "last_nonfinite_line": null,
+  "nonfinite_summary_line": null,
+  "checkpoints_found": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native/checkpoint/state_0.pt"
+  ],
+  "interrupted_collection_iteration": 7,
+  "failure_phase": "replay_comparison",
+  "failure_context_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/R0_failure_context.json",
+  "failure_metadata_reconciliation": {
+    "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/manifest_before_failure_context_reconciliation.json",
+    "reason": "The generic supervisor recorded the active collection iteration 7; the regression criterion failed in the completed iteration 6. Raw logs, results and progress history are unchanged.",
+    "utc": "2026-10-09T10:08:45.868261+00:00"
+  }
+}

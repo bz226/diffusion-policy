@@ -1,0 +1,108 @@
+{
+  "role": "descriptive_only_no_trajectory_stopping",
+  "criterion": "eval return outside Stage 1 same-step mean +/- 5 sample standard deviations",
+  "standard_deviation_ddof": 1,
+  "status": "observing",
+  "references": [
+    {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "seed": 0
+    },
+    {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "seed": 1
+    },
+    {
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed2/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "seed": 2
+    }
+  ],
+  "evaluations": [
+    {
+      "baseline_seed_values": [
+        4286.896956658653,
+        4384.282887687965,
+        4354.750334819849
+      ],
+      "mean": 4341.9767263888225,
+      "sample_std": 49.93374304889801,
+      "lower": 4092.3080111443323,
+      "upper": 4591.645441633313,
+      "iteration": 0,
+      "step": 0,
+      "eval_return": 4384.174257061992,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4475.588559808406,
+        4450.224838210207,
+        4436.506452390398
+      ],
+      "mean": 4454.106616803004,
+      "sample_std": 19.828109689044798,
+      "lower": 4354.9660683577795,
+      "upper": 4553.247165248228,
+      "iteration": 10,
+      "step": 720000,
+      "eval_return": 4380.307454168202,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4510.175482304081,
+        4528.9101353638325,
+        4632.511033454184
+      ],
+      "mean": 4557.198883707366,
+      "sample_std": 65.89147692177416,
+      "lower": 4227.741499098495,
+      "upper": 4886.6562683162365,
+      "iteration": 20,
+      "step": 1440000,
+      "eval_return": 4490.72894034173,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4529.552125960205,
+        4594.847757860682,
+        4659.22770031796
+      ],
+      "mean": 4594.542528046282,
+      "sample_std": 64.83832601311599,
+      "lower": 4270.350897980702,
+      "upper": 4918.734158111863,
+      "iteration": 30,
+      "step": 2160000,
+      "eval_return": 4543.610468223053,
+      "red_flag": false,
+      "action": "record_only_continue"
+    },
+    {
+      "baseline_seed_values": [
+        4480.450596191774,
+        4645.657280803083,
+        4650.737349443743
+      ],
+      "mean": 4592.2817421462005,
+      "sample_std": 96.88191615806635,
+      "lower": 4107.872161355869,
+      "upper": 5076.691322936532,
+      "iteration": 40,
+      "step": 2880000,
+      "eval_return": 4590.0595475315,
+      "red_flag": false,
+      "action": "record_only_continue"
+    }
+  ],
+  "red_flags": [],
+  "training_or_log_token_comparisons": false,
+  "updated_utc": "2026-10-10T05:50:37+00:00"
+}

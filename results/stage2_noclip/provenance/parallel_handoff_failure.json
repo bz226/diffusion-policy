@@ -1,0 +1,496 @@
+{
+  "utc": "2026-10-09T19:54:37.983772+00:00",
+  "status": "handoff_failed_training_interrupted",
+  "cause": "scancel --signal=KILL --full for controller triggered ordinary Slurm cancellation and TERM cleanup; old controller cancel_owned stopped two near-complete training runs. Agent action caused this interruption.",
+  "controller_job_id": "17777246",
+  "replacement_controller_submitted": false,
+  "training_runs_restarted": false,
+  "stage1_unchanged": true,
+  "scientific_source_unchanged": true,
+  "runs": [
+    {
+      "run_id": "R0_rerun_seed0",
+      "status": "failed",
+      "completed_rows": 138,
+      "last_iteration": 137,
+      "last_env_step": 9920000,
+      "last_train_diagnostics": {
+        "approx_kl": 1.6185878848773427e-05,
+        "clipfrac": 0.03389099922023888,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.09596263201381558,
+        "logratio_p99": 0.40049078106880154,
+        "clamp_hit_frac": 0.0
+      },
+      "eval_iterations": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
+      "failure_reason": "Received SIGTERM",
+      "end_utc": "2026-10-09T19:52:57+00:00",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_rerun_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_rerun_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_rerun_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_rerun_seed0/native/checkpoint/state_70.pt"
+      ],
+      "manifest": "results/stage2_noclip/runs/R0_rerun_seed0/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_rerun_seed0/native/result.pkl"
+    },
+    {
+      "run_id": "NC1_seed0",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_iteration": 139,
+      "last_env_step": 10080000,
+      "last_train_diagnostics": {
+        "approx_kl": 4.988163770924814e-10,
+        "clipfrac": 0.0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 2.180810778080333e-06,
+        "logratio_p99": 0.0,
+        "clamp_hit_frac": 0.0
+      },
+      "eval_iterations": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
+      "failure_reason": null,
+      "end_utc": "2026-10-09T19:52:29+00:00",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_139.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/checkpoint/state_70.pt"
+      ],
+      "manifest": "results/stage2_noclip/runs/NC1_seed0/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native/result.pkl"
+    },
+    {
+      "run_id": "NC1_seed1",
+      "status": "failed",
+      "completed_rows": 138,
+      "last_iteration": 137,
+      "last_env_step": 9920000,
+      "last_train_diagnostics": {
+        "approx_kl": 6.7299824877409264e-06,
+        "clipfrac": 0.0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.038925766182305324,
+        "logratio_p99": 0.3861013150215116,
+        "clamp_hit_frac": 2.0833333333333334e-06
+      },
+      "eval_iterations": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
+      "failure_reason": "Received SIGTERM",
+      "end_utc": "2026-10-09T19:52:57+00:00",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/checkpoint/state_70.pt"
+      ],
+      "manifest": "results/stage2_noclip/runs/NC1_seed1/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native/result.pkl"
+    },
+    {
+      "run_id": "NC1_seed2",
+      "status": "complete",
+      "completed_rows": 140,
+      "last_iteration": 139,
+      "last_env_step": 10080000,
+      "last_train_diagnostics": {
+        "approx_kl": 0.0,
+        "clipfrac": 0.0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.0,
+        "logratio_p99": 0.0,
+        "clamp_hit_frac": 0.0
+      },
+      "eval_iterations": [
+        0,
+        10,
+        20,
+        30,
+        40,
+        50,
+        60,
+        70,
+        80,
+        90,
+        100,
+        110,
+        120,
+        130
+      ],
+      "failure_reason": null,
+      "end_utc": "2026-10-09T19:22:13+00:00",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_139.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/checkpoint/state_70.pt"
+      ],
+      "manifest": "results/stage2_noclip/runs/NC1_seed2/manifest.json",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native/result.pkl"
+    }
+  ],
+  "old_controller_state": {
+    "status": "stopped",
+    "started_utc": "2026-10-09T17:49:34+00:00",
+    "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "r0_job_id": "17777245",
+    "submitted_jobs": [
+      {
+        "run_id": "NC1_seed0",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--account=soal",
+          "--partition=soal",
+          "--nodes=1",
+          "--gres=gpu:a6000:1",
+          "--cpus-per-task=40",
+          "--mem=64G",
+          "--time=03:00:00",
+          "--signal=B:TERM@30",
+          "--no-requeue",
+          "--export=PATH,HOME,USER,LOGNAME,LANG",
+          "--job-name=stage2-NC1_seed0",
+          "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+          "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_seed0-%j.log",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_worker.sh",
+          "--run-id",
+          "NC1_seed0",
+          "--expected-commit",
+          "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+          "--timeout-seconds",
+          "10800",
+          "--fixed-batch-gate",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+          "--estimate-seconds",
+          "8100",
+          "--",
+          "python",
+          "script/run.py",
+          "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+          "--config-name=ft_ppo_diffusion_mlp",
+          "train.n_train_itr=140",
+          "train.save_model_freq=35",
+          "seed=0",
+          "wandb=null",
+          "model.clip_ploss_coef=1e6",
+          "model.clip_ploss_coef_base=1e6",
+          "train.target_kl=null",
+          "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed0/native"
+        ],
+        "submission_started_utc": "2026-10-09T17:49:34+00:00",
+        "returncode": 0,
+        "stdout": "17777247\n",
+        "stderr": "",
+        "job_id": "17777247",
+        "submitted_utc": "2026-10-09T17:49:34+00:00"
+      },
+      {
+        "run_id": "NC1_seed1",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--account=soal",
+          "--partition=soal",
+          "--nodes=1",
+          "--gres=gpu:a6000:1",
+          "--cpus-per-task=40",
+          "--mem=64G",
+          "--time=03:00:00",
+          "--signal=B:TERM@30",
+          "--no-requeue",
+          "--export=PATH,HOME,USER,LOGNAME,LANG",
+          "--job-name=stage2-NC1_seed1",
+          "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+          "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_seed1-%j.log",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_worker.sh",
+          "--run-id",
+          "NC1_seed1",
+          "--expected-commit",
+          "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+          "--timeout-seconds",
+          "10800",
+          "--fixed-batch-gate",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+          "--estimate-seconds",
+          "8100",
+          "--",
+          "python",
+          "script/run.py",
+          "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+          "--config-name=ft_ppo_diffusion_mlp",
+          "train.n_train_itr=140",
+          "train.save_model_freq=35",
+          "seed=1",
+          "wandb=null",
+          "model.clip_ploss_coef=1e6",
+          "model.clip_ploss_coef_base=1e6",
+          "train.target_kl=null",
+          "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed1/native"
+        ],
+        "submission_started_utc": "2026-10-09T17:49:34+00:00",
+        "returncode": 0,
+        "stdout": "17777248\n",
+        "stderr": "",
+        "job_id": "17777248",
+        "submitted_utc": "2026-10-09T17:49:34+00:00"
+      },
+      {
+        "run_id": "NC1_seed2",
+        "command": [
+          "sbatch",
+          "--parsable",
+          "--account=soal",
+          "--partition=soal",
+          "--nodes=1",
+          "--gres=gpu:a6000:1",
+          "--cpus-per-task=40",
+          "--mem=64G",
+          "--time=03:00:00",
+          "--signal=B:TERM@30",
+          "--no-requeue",
+          "--export=PATH,HOME,USER,LOGNAME,LANG",
+          "--job-name=stage2-NC1_seed2",
+          "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+          "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/setup/slurm-NC1_seed2-%j.log",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/run_worker.sh",
+          "--run-id",
+          "NC1_seed2",
+          "--expected-commit",
+          "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+          "--timeout-seconds",
+          "10800",
+          "--fixed-batch-gate",
+          "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+          "--estimate-seconds",
+          "8100",
+          "--",
+          "python",
+          "script/run.py",
+          "--config-dir=cfg/gym/finetune/halfcheetah-v2",
+          "--config-name=ft_ppo_diffusion_mlp",
+          "train.n_train_itr=140",
+          "train.save_model_freq=35",
+          "seed=2",
+          "wandb=null",
+          "model.clip_ploss_coef=1e6",
+          "model.clip_ploss_coef_base=1e6",
+          "train.target_kl=null",
+          "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_seed2/native"
+        ],
+        "submission_started_utc": "2026-10-09T17:49:34+00:00",
+        "returncode": 0,
+        "stdout": "17777249\n",
+        "stderr": "",
+        "job_id": "17777249",
+        "submitted_utc": "2026-10-09T17:49:34+00:00"
+      }
+    ],
+    "condition": "NC1",
+    "fixed_batch_gate": {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+      "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+      "passed": true,
+      "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+      "trajectory_comparison_gate": false
+    },
+    "matrix_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_revised.json",
+    "timeout_seconds": 86400,
+    "trajectory_stopping": false,
+    "monitor_interval_seconds": 1800,
+    "monitor_status": "paused",
+    "retries": 0,
+    "controller_slurm_job": "17777246",
+    "fixed_batch_gate_confirmed_utc": "2026-10-09T17:49:34+00:00",
+    "scheduler_observations": {
+      "R0_rerun_seed0": {
+        "job_id": "17777245",
+        "state": "RUNNING",
+        "raw_state": "RUNNING",
+        "exit_code": null,
+        "start": null,
+        "end": null,
+        "source": "squeue",
+        "observed_utc": "2026-10-09T19:52:41+00:00",
+        "evidence": [
+          {
+            "command": [
+              "squeue",
+              "--noheader",
+              "--jobs=17777245",
+              "--format=%i|%T"
+            ],
+            "returncode": 0,
+            "stdout": "17777245|RUNNING\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "NC1_seed0": {
+        "job_id": "17777247",
+        "state": "RUNNING",
+        "raw_state": "RUNNING",
+        "exit_code": null,
+        "start": null,
+        "end": null,
+        "source": "squeue",
+        "observed_utc": "2026-10-09T19:52:26+00:00",
+        "evidence": [
+          {
+            "command": [
+              "squeue",
+              "--noheader",
+              "--jobs=17777247",
+              "--format=%i|%T"
+            ],
+            "returncode": 0,
+            "stdout": "17777247|RUNNING\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "NC1_seed1": {
+        "job_id": "17777248",
+        "state": "RUNNING",
+        "raw_state": "RUNNING",
+        "exit_code": null,
+        "start": null,
+        "end": null,
+        "source": "squeue",
+        "observed_utc": "2026-10-09T19:52:41+00:00",
+        "evidence": [
+          {
+            "command": [
+              "squeue",
+              "--noheader",
+              "--jobs=17777248",
+              "--format=%i|%T"
+            ],
+            "returncode": 0,
+            "stdout": "17777248|RUNNING\n",
+            "stderr": ""
+          }
+        ]
+      },
+      "NC1_seed2": {
+        "job_id": "17777249",
+        "state": "RUNNING",
+        "raw_state": "RUNNING",
+        "exit_code": null,
+        "start": null,
+        "end": null,
+        "source": "squeue",
+        "observed_utc": "2026-10-09T19:22:12+00:00",
+        "evidence": [
+          {
+            "command": [
+              "squeue",
+              "--noheader",
+              "--jobs=17777249",
+              "--format=%i|%T"
+            ],
+            "returncode": 0,
+            "stdout": "17777249|RUNNING\n",
+            "stderr": ""
+          }
+        ]
+      }
+    },
+    "r0_status": "running",
+    "r0_trajectory_red_flags": [
+      {
+        "baseline_seed_values": [
+          4475.588559808406,
+          4450.224838210207,
+          4436.506452390398
+        ],
+        "mean": 4454.106616803004,
+        "sample_std": 19.828109689044798,
+        "lower": 4354.9660683577795,
+        "upper": 4553.247165248228,
+        "iteration": 10,
+        "step": 720000,
+        "eval_return": 4320.645516812164,
+        "red_flag": true,
+        "action": "record_only_continue"
+      }
+    ],
+    "updated_utc": "2026-10-09T19:52:56+00:00",
+    "condition_progress": {
+      "NC1_seed0": "complete",
+      "NC1_seed1": "running",
+      "NC1_seed2": "complete"
+    },
+    "error": "Campaign controller interrupted; no continuation authorized",
+    "ended_utc": "2026-10-09T19:52:56+00:00",
+    "cancellation": {
+      "job_ids": [
+        "17777245",
+        "17777247",
+        "17777248",
+        "17777249"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  }
+}

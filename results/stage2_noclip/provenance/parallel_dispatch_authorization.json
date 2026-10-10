@@ -1,0 +1,33 @@
+{
+  "approved": true,
+  "user_quote": "if that allocation is allowed, we should do that it in parallel",
+  "recorded_utc": "2026-10-09T19:49:55.118237+00:00",
+  "scope": "Concurrent dispatch of the same remaining Stage2 runs up to nine active or pending training allocations, including R0; no new runs, retries, changed scientific settings or additional GPU-hour budget. Each condition retains three independently submitted seeds. Only NC1 seed2 retains its previous H200 exception.",
+  "old_controller_job_id": "17777246",
+  "max_training_jobs": 9,
+  "preserve_original_deadline": true,
+  "expected_started_utc": "2026-10-09T17:49:34+00:00",
+  "state_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/campaign_revised.json",
+  "matrix_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/run_matrix_revised.json",
+  "expected_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "allocation_limits_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/parallel_allocation_limits.json",
+  "per_training_job": {
+    "gpu_type": "NVIDIA RTX A6000",
+    "gpus": 1,
+    "cpus": 40,
+    "memory_gib": 64,
+    "runtime_cap_seconds": 10800,
+    "n_train_itr": 140
+  },
+  "unchanged_overall_gpu_hours_cap": 58.5,
+  "unchanged_monitor_interval_seconds": 1800,
+  "no_deterministic_settings_changes": true,
+  "allow_documented_handoff_failure": true,
+  "failure_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/parallel_handoff_failure.json",
+  "continuation_basis": "User Stage2 instruction: If a run produces NaN/inf or crashes, record the iteration and the last logged diagnostics, then continue with the remaining runs. Existing interrupted runs remain failed with no restart or retry; only the 15 previously unsubmitted approved runs are admitted.",
+  "continuation_recorded_utc": "2026-10-09T19:55:58.515264+00:00",
+  "interrupted_runs_not_restarted": [
+    "R0_rerun_seed0",
+    "NC1_seed1"
+  ]
+}

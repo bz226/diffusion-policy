@@ -1,0 +1,140 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[2026-10-09 02:57:43,842][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+[2026-10-09 02:57:43,856][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-09 02:57:43,940][absl][INFO] - MuJoCo library version is: 3.2.3
+pybullet build time: Jan 29 2025 23:19:57
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/spaces/box.py:78: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+[2026-10-09 02:57:45,583][root][INFO] - Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+[2026-10-09 02:57:45,584][root][INFO] - Number of network parameters: 568392
+[2026-10-09 02:57:45,724][root][INFO] - Cloned model for fine-tuning
+[2026-10-09 02:57:45,725][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-09 02:57:45,725][root][INFO] - Number of finetuned parameters: 568392
+[2026-10-09 02:57:45,742][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:57:58,163][agent.finetune.train_agent][INFO] - Saved model to /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_seed0/native/checkpoint/state_0.pt
+[2026-10-09 02:57:58,163][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4367.2946 | avg best reward   6.4744
+Processed step 0 of 500
+Processed step 10 of 500
+Processed step 20 of 500
+Processed step 30 of 500
+Processed step 40 of 500
+Processed step 50 of 500
+Processed step 60 of 500
+Processed step 70 of 500
+Processed step 80 of 500
+Processed step 90 of 500
+Processed step 100 of 500
+Processed step 110 of 500
+Processed step 120 of 500
+Processed step 130 of 500
+Processed step 140 of 500
+Processed step 150 of 500
+Processed step 160 of 500
+Processed step 170 of 500
+Processed step 180 of 500
+Processed step 190 of 500
+Processed step 200 of 500
+Processed step 210 of 500
+Processed step 220 of 500
+Processed step 230 of 500
+Processed step 240 of 500
+Processed step 250 of 500
+Processed step 260 of 500
+Processed step 270 of 500
+Processed step 280 of 500
+Processed step 290 of 500
+Processed step 300 of 500
+Processed step 310 of 500
+Processed step 320 of 500
+Processed step 330 of 500
+Processed step 340 of 500
+Processed step 350 of 500
+Processed step 360 of 500
+Processed step 370 of 500
+Processed step 380 of 500
+Processed step 390 of 500
+Processed step 400 of 500
+Processed step 410 of 500
+Processed step 420 of 500
+Processed step 430 of 500
+Processed step 440 of 500
+Processed step 450 of 500
+Processed step 460 of 500
+Processed step 470 of 500
+Processed step 480 of 500
+Processed step 490 of 500
+[2026-10-09 02:58:13,098][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-09 02:58:15,427][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.759605745784938e-07, update_epoch: 0, num_batch: 4
+[2026-10-09 02:58:17,502][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 2.8724080038955435e-06, update_epoch: 0, num_batch: 4
+[2026-10-09 02:58:19,660][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 4.88212708660285e-06, update_epoch: 0, num_batch: 4
+[2026-10-09 02:58:21,825][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 6.433551334339427e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:58:24,098][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.303979600692401e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:58:26,182][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 7.88810575613752e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:58:28,350][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.319168046000414e-06, update_epoch: 1, num_batch: 4
+[2026-10-09 02:58:30,551][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.416356649831869e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:58:32,827][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.683361556904856e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:58:34,903][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.636570782982744e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:58:37,083][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.855434316501487e-06, update_epoch: 2, num_batch: 4
+[2026-10-09 02:58:39,244][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.912908015190624e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:58:41,514][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.273067007598002e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:58:43,588][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 9.454055543756112e-06, update_epoch: 3, num_batch: 4
+[2026-10-09 02:58:45,760][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0048182957689278e-05, update_epoch: 3, num_batch: 4
+[2026-10-09 02:58:47,919][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0428108907944988e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:58:50,229][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.0741615369624924e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:58:52,305][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.1457974324002862e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:58:54,472][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 1.168416565633379e-05, update_epoch: 4, num_batch: 4
+[2026-10-09 02:58:54,507][agent.finetune.train_ppo_diffusion_agent][INFO] - 1: step    80000 | loss   0.0058 | pg loss  -0.0006 | value loss   0.0127 | bc loss   0.0000 | reward 3924.8082 | eta   1.0000 | t: 56.3435 | kl_true_per_action=0.0700336808712499 | logratio_p99=0.36478743553161436 | clamp_hit_frac=0.0

@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-09T19:52:18.779971+00:00",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/test_campaign_parallel.py"
+  ],
+  "returncode": 0,
+  "passed": true,
+  "tests": 22,
+  "coverage": [
+    "preserve exact adopted run IDs and job IDs",
+    "original 24-hour deadline",
+    "old controller must be Slurm terminal",
+    "reject duplicate or ambiguous submissions",
+    "partial seed-group adoption",
+    "pending and draining allocations count toward nine",
+    "unknown allocations pause admission and count occupied",
+    "R0 counts toward cap",
+    "scientific failure continuation and infrastructure failure stop",
+    "worker command and scientific/resource arguments unchanged",
+    "finalize only after all manifests and allocations terminal"
+  ],
+  "actual_slurm_operations": false,
+  "actual_training": false
+}

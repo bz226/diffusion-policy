@@ -1,0 +1,40 @@
+test_active_queue_state_does_not_consult_stale_accounting (test_campaign.CampaignTests) ... ok
+test_ambiguous_submission_is_recorded_and_never_retried (test_campaign.CampaignTests) ... ok
+test_completed_verified_manifest_is_not_rewritten (test_campaign.CampaignTests) ... ok
+test_experiment_updates_only_status_marker_and_pauses_monitor (test_campaign.CampaignTests) ... ok
+test_failed_ablations_do_not_prevent_remaining_groups (test_campaign.CampaignTests) ... ok
+test_fixed_batch_gate_is_required_before_submitting (test_campaign.CampaignTests) ... ok
+test_interruption_cancels_owned_work_and_stops_new_groups (test_campaign.CampaignTests) ... ok
+test_killed_worker_preserves_previous_manifest_and_snapshot_pointer (test_campaign.CampaignTests) ... ok
+test_matrix_cap_and_condition_guard (test_campaign.CampaignTests) ... ok
+test_old_failed_replay_record_is_never_read (test_campaign.CampaignTests) ... ok
+test_pending_job_is_not_falsely_failed (test_campaign.CampaignTests) ... ok
+test_queued_failure_becomes_explicit_external_failure (test_campaign.CampaignTests) ... ok
+test_r0_complete_needs_no_trajectory_gate (test_campaign.CampaignTests) ... ok
+test_r0_external_failure_does_not_stop_remaining_runs (test_campaign.CampaignTests) ... ok
+test_sacct_terminal_without_squeue_record (test_campaign.CampaignTests) ... ok
+test_submit_one_gpu_without_invalid_node_list_and_no_retry (test_campaign.CampaignTests) ... ok
+test_true_source_failure_stops_dispatch (test_campaign.CampaignTests) ... ok
+test_unknown_scheduler_state_has_bounded_wait_without_fake_outcome (test_campaign.CampaignTests) ... ok
+test_all_minibatch_losses_and_gradients_must_be_present (test_revised_regression.GateTests) ... ok
+test_analysis_refuses_archived_r0_by_default (test_revised_regression.GateTests) ... ok
+test_cpu_tolerance_match_is_not_bitwise_match (test_revised_regression.GateTests) ... ok
+test_each_rng_state_must_be_unchanged (test_revised_regression.GateTests) ... ok
+test_initial_inputs_must_be_bitwise_equal_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_missing_comparison_rejected (test_revised_regression.GateTests) ... ok
+test_missing_sampling_rng_or_full_update_rejected (test_revised_regression.GateTests) ... ok
+test_old_r0_id_refused_new_id_requires_gate (test_revised_regression.GateTests) ... ok
+test_passed_report (test_revised_regression.GateTests) ... ok
+test_permutation_must_be_exact_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_preserved_evidence_files_are_required (test_revised_regression.GateTests) ... ok
+test_sampling_subcomparison_cannot_hide_under_passed_summary (test_revised_regression.GateTests) ... ok
+test_wrong_source_or_settings_rejected (test_revised_regression.GateTests) ... ok
+test_boundary_inclusive_and_training_values_ignored (test_revised_regression.TrajectoryTests) ... ok
+test_full_trajectory_is_not_compared_with_probe_or_baseline_tokens (test_revised_regression.TrajectoryTests) ... ok
+test_huge_trajectory_difference_is_record_only (test_revised_regression.TrajectoryTests) ... ok
+test_terminal_partial_observation_preserves_red_flags (test_revised_regression.TrajectoryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 35 tests in 1.897s
+
+OK

@@ -1,0 +1,33 @@
+[
+  {
+    "command": [
+      "git",
+      "clone",
+      "https://github.com/irom-lab/dppo.git",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo"
+    ],
+    "exit_code": 0,
+    "output": "setup/clone.log"
+  },
+  {
+    "command": [
+      "git",
+      "checkout",
+      "-b",
+      "stage2-noclip",
+      "cc7234a"
+    ],
+    "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/dppo",
+    "exit_code": 0
+  },
+  {
+    "command": [
+      "python",
+      "-m",
+      "pip",
+      "freeze"
+    ],
+    "output": "provenance/pip_freeze.txt",
+    "exit_code": 0
+  }
+]

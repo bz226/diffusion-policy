@@ -1,0 +1,21 @@
+{
+  "utc": "2026-10-09T21:36:18.355460+00:00",
+  "recovery_controller_job_id": "17780304",
+  "status": "waiting_for_original_campaign",
+  "primary_controller_job_id": "17778495",
+  "primary_status": "running_parallel_conditions",
+  "primary_jobs_untouched": true,
+  "replacement_gpu_jobs_submitted": 0,
+  "replacement_scope": [
+    "R0_recovery_seed0",
+    "NC1_recovery_seed1"
+  ],
+  "monitor_interval_seconds": 1800,
+  "monitor_active": true,
+  "per_replacement_runtime_cap_seconds": 8100,
+  "original_deadline_utc": "2026-10-10T17:49:34+00:00",
+  "source_clean": true,
+  "worst_case_total_gpu_hours": 57.57861111111111,
+  "gpu_hour_cap": 58.5,
+  "recovery_state_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/recovery_campaign.json"
+}

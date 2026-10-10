@@ -1,0 +1,98 @@
+{
+  "status": "stopped_R0_failed",
+  "recorded_utc": "2026-10-09T10:08:46.017704+00:00",
+  "failure_iteration": 6,
+  "failure_metric": "printed_pg_loss",
+  "first_difference": {
+    "iteration": 6,
+    "source": "log_token",
+    "field": "070.token_03",
+    "p1": "-0.0004",
+    "p2": "-0.0004",
+    "r0": "-0.0005",
+    "metric": "pg_loss",
+    "precision": "original console format: four decimal places"
+  },
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "source_branch": "stage2-noclip",
+  "source_tree_clean": true,
+  "source_diff": "provenance/dppo_changes.patch",
+  "runs": {
+    "P1_seed0": {
+      "status": "complete",
+      "manifest": "runs/P1_seed0/manifest.json",
+      "native_log_directory": "runs/P1_seed0/native",
+      "result": "runs/P1_seed0/native/result.pkl",
+      "checkpoints": [
+        "runs/P1_seed0/native/checkpoint/state_0.pt",
+        "runs/P1_seed0/native/checkpoint/state_19.pt"
+      ],
+      "subprocess_wall_seconds": 1060.4257000639336,
+      "monitor_status": "paused"
+    },
+    "P2_seed0": {
+      "status": "complete",
+      "manifest": "runs/P2_seed0/manifest.json",
+      "native_log_directory": "runs/P2_seed0/native",
+      "result": "runs/P2_seed0/native/result.pkl",
+      "checkpoints": [
+        "runs/P2_seed0/native/checkpoint/state_0.pt",
+        "runs/P2_seed0/native/checkpoint/state_19.pt"
+      ],
+      "subprocess_wall_seconds": 1069.8062980090035,
+      "monitor_status": "paused"
+    },
+    "R0_seed0": {
+      "status": "failed",
+      "manifest": "runs/R0_seed0/manifest.json",
+      "native_log_directory": "runs/R0_seed0/native",
+      "result": "runs/R0_seed0/native/result.pkl",
+      "checkpoints": [
+        "runs/R0_seed0/native/checkpoint/state_0.pt"
+      ],
+      "subprocess_wall_seconds": 357.3597291399492,
+      "monitor_status": "paused"
+    }
+  },
+  "runtime": {
+    "P1": {
+      "subprocess_wall_seconds": 1060.4257000639336,
+      "mean_training_iteration_seconds": 57.177242305543686,
+      "mean_evaluation_iteration_seconds": 12.4154292345047,
+      "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    },
+    "P2": {
+      "subprocess_wall_seconds": 1069.8062980090035,
+      "mean_training_iteration_seconds": 57.63383913040161,
+      "mean_evaluation_iteration_seconds": 12.812114000320435,
+      "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    },
+    "R0": {
+      "subprocess_wall_seconds": 357.3597291399492,
+      "mean_training_iteration_seconds": 56.50895909468333,
+      "mean_evaluation_iteration_seconds": 12.420835733413696,
+      "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity_count": 40
+    }
+  },
+  "verification_record": "runs/verification/verification.json",
+  "slurm_allocation_seconds": {
+    "P1": 1073,
+    "P2": 1081,
+    "fixed_batch_verification": 38,
+    "R0": 367
+  },
+  "slurm_gpu_allocation_hours": 0.7108333333333333,
+  "gpu_sharing": "One RTX A6000 per process. P1/P2 ran concurrently on separate GPUs; GPU verification and R0 ran alone.",
+  "ablation_runs_submitted": 0,
+  "campaign_controller_launched": false,
+  "all_training_jobs_terminal": true,
+  "monitors_paused": true,
+  "scientific_figures_generated": false,
+  "curated": false,
+  "additional_experiments_authorized_after_failure": false,
+  "dependencies_changed": false,
+  "stage1_outputs_modified": false
+}

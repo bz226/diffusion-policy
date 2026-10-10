@@ -1,0 +1,491 @@
+{
+  "checked_utc": "2026-10-10T05:23:35.828871+00:00",
+  "purpose": "User-requested monitoring; no source, hyperparameter, job, or monitor changes",
+  "runs": {
+    "NC4_lr3e-3_seed0": {
+      "job_id": "17783505",
+      "status": "complete",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "start_utc": "2026-10-10T02:25:36+00:00",
+      "updated_utc": "2026-10-10T04:45:26+00:00",
+      "deadline_utc": "2026-10-10T05:25:36+00:00",
+      "timeout_seconds": 10800,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_70.pt"
+      ],
+      "checkpoint_tensors_finite": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/result.pkl",
+      "initial_eval": 4259.991063329484,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 395.9768285671437
+      },
+      "nonfinite_values": [],
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 2.5124238921582673e-8,
+        "logratio_p99": 0,
+        "clamp_hit_frac": 0.0007916666666666666
+      },
+      "failure_reason": null,
+      "effective_startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      },
+      "hardware": {
+        "gpu_query": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+        "uname": [
+          "Linux",
+          "soal-10.stanford.edu",
+          "6.8.0-137-generic",
+          "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+          "x86_64"
+        ],
+        "cpu_affinity_count": 40
+      },
+      "fixed_batch_gate": {
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "passed": true,
+        "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+        "trajectory_comparison_gate": false
+      },
+      "source_before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    "NC4_lr3e-3_seed1": {
+      "job_id": "17783506",
+      "status": "complete",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "start_utc": "2026-10-10T02:30:36+00:00",
+      "updated_utc": "2026-10-10T04:54:10+00:00",
+      "deadline_utc": "2026-10-10T05:30:36+00:00",
+      "timeout_seconds": 10800,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_70.pt"
+      ],
+      "checkpoint_tensors_finite": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/result.pkl",
+      "initial_eval": 4260.671460193969,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": 53.57241473266758
+      },
+      "nonfinite_values": [],
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.3417460560776483,
+        "logratio_p99": 1.2102645337581526,
+        "clamp_hit_frac": 0.0008229166666666667
+      },
+      "failure_reason": null,
+      "effective_startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      },
+      "hardware": {
+        "gpu_query": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 00000000:81:00.0, 580.82.07, 49140 MiB",
+        "uname": [
+          "Linux",
+          "soal-10.stanford.edu",
+          "6.8.0-137-generic",
+          "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+          "x86_64"
+        ],
+        "cpu_affinity_count": 40
+      },
+      "fixed_batch_gate": {
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "passed": true,
+        "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+        "trajectory_comparison_gate": false
+      },
+      "source_before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    "NC4_lr3e-3_seed2": {
+      "job_id": "17783507",
+      "status": "complete",
+      "rows": 140,
+      "last_itr": 139,
+      "training_steps": 10080000,
+      "start_utc": "2026-10-10T02:49:37+00:00",
+      "updated_utc": "2026-10-10T05:14:02+00:00",
+      "deadline_utc": "2026-10-10T05:49:37+00:00",
+      "timeout_seconds": 10800,
+      "monitor_status": "paused",
+      "monitor_interval_seconds": 1800,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_0.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_105.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_139.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_35.pt",
+        "results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_70.pt"
+      ],
+      "checkpoint_tensors_finite": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/result.pkl",
+      "initial_eval": 4267.114063779499,
+      "last_eval": {
+        "itr": 130,
+        "step": 9360000,
+        "eval_episode_reward": -742.315193983763
+      },
+      "nonfinite_values": [],
+      "last_diagnostics": {
+        "approx_kl": 0,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 1,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.003,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.3130158604453044,
+        "logratio_p99": 0.7408653879165455,
+        "clamp_hit_frac": 0.0009416666666666667
+      },
+      "failure_reason": null,
+      "effective_startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      },
+      "hardware": {
+        "gpu_query": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+        "uname": [
+          "Linux",
+          "soal-11.stanford.edu",
+          "6.8.0-137-generic",
+          "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+          "x86_64"
+        ],
+        "cpu_affinity_count": 40
+      },
+      "fixed_batch_gate": {
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "passed": true,
+        "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+        "trajectory_comparison_gate": false
+      },
+      "source_before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    "R0_recovery_seed0": {
+      "job_id": "17789310",
+      "status": "running",
+      "rows": 9,
+      "last_itr": 8,
+      "training_steps": 640000,
+      "start_utc": "2026-10-10T05:15:38+00:00",
+      "updated_utc": "2026-10-10T05:23:35+00:00",
+      "deadline_utc": "2026-10-10T07:30:38+00:00",
+      "timeout_seconds": 8100,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "checkpoints": [
+        "results/stage2_noclip/runs/R0_recovery_seed0/native/checkpoint/state_0.pt"
+      ],
+      "checkpoint_tensors_finite": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/R0_recovery_seed0/native/result.pkl",
+      "initial_eval": 4384.174257061992,
+      "last_eval": {
+        "itr": 0,
+        "step": 0,
+        "eval_episode_reward": 4384.174257061992
+      },
+      "nonfinite_values": [],
+      "last_diagnostics": {
+        "approx_kl": 0.000012574651918839663,
+        "clipfrac": 0.021768999087726115,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.0734192794915303,
+        "logratio_p99": 0.36788941979408263,
+        "clamp_hit_frac": 0
+      },
+      "failure_reason": null,
+      "effective_startup_flags": null,
+      "hardware": {
+        "gpu_query": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+        "uname": [
+          "Linux",
+          "soal-11.stanford.edu",
+          "6.8.0-137-generic",
+          "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+          "x86_64"
+        ],
+        "cpu_affinity_count": 40
+      },
+      "fixed_batch_gate": {
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "passed": true,
+        "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+        "trajectory_comparison_gate": false
+      },
+      "source_before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "last_scheduled_checks": [
+        {
+          "run_id": "R0_recovery_seed0",
+          "status": "running",
+          "completed_rows": 0,
+          "training_env_steps": 0,
+          "bytes": 0,
+          "last_line": null,
+          "last_diagnostic_line": null,
+          "last_diagnostics": null,
+          "updated_utc": "2026-10-10T05:15:45+00:00",
+          "elapsed_seconds": 7.461577418260276,
+          "event": "start",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "mean_train_seconds": 56.157959163188934,
+      "mean_eval_seconds": 12.314828634262085,
+      "elapsed_seconds": 477.8109921840951
+    },
+    "NC1_recovery_seed1": {
+      "job_id": "17789311",
+      "status": "running",
+      "rows": 8,
+      "last_itr": 7,
+      "training_steps": 560000,
+      "start_utc": "2026-10-10T05:15:38+00:00",
+      "updated_utc": "2026-10-10T05:23:35+00:00",
+      "deadline_utc": "2026-10-10T07:30:38+00:00",
+      "timeout_seconds": 8100,
+      "monitor_status": "running",
+      "monitor_interval_seconds": 1800,
+      "checkpoints": [
+        "results/stage2_noclip/runs/NC1_recovery_seed1/native/checkpoint/state_0.pt"
+      ],
+      "checkpoint_tensors_finite": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC1_recovery_seed1/native/result.pkl",
+      "initial_eval": 4257.897094800118,
+      "last_eval": {
+        "itr": 0,
+        "step": 0,
+        "eval_episode_reward": 4257.897094800118
+      },
+      "nonfinite_values": [],
+      "last_diagnostics": {
+        "approx_kl": 0.000014383050256583374,
+        "clipfrac": 0,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001,
+        "kl_true_per_action": 0.08443446229448465,
+        "logratio_p99": 0.5438500094413721,
+        "clamp_hit_frac": 0
+      },
+      "failure_reason": null,
+      "effective_startup_flags": null,
+      "hardware": {
+        "gpu_query": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+        "uname": [
+          "Linux",
+          "soal-10.stanford.edu",
+          "6.8.0-137-generic",
+          "#137-Ubuntu SMP PREEMPT_DYNAMIC Fri Jul 17 20:28:23 UTC 2026",
+          "x86_64"
+        ],
+        "cpu_affinity_count": 40
+      },
+      "fixed_batch_gate": {
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/verification_full_update/verification.json",
+        "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "passed": true,
+        "criterion": "full_update_fixed_batch_cpu_bitwise_gpu_float_tolerance",
+        "trajectory_comparison_gate": false
+      },
+      "source_before": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "last_scheduled_checks": [
+        {
+          "run_id": "NC1_recovery_seed1",
+          "status": "running",
+          "completed_rows": 0,
+          "training_env_steps": 0,
+          "bytes": 0,
+          "last_line": null,
+          "last_diagnostic_line": null,
+          "last_diagnostics": null,
+          "updated_utc": "2026-10-10T05:15:45+00:00",
+          "elapsed_seconds": 7.1828043720452115,
+          "event": "start",
+          "consecutive_stalled_checks": 0
+        }
+      ],
+      "mean_train_seconds": 57.03521537780762,
+      "mean_eval_seconds": 12.709342241287231,
+      "elapsed_seconds": 476.9845336000435
+    }
+  },
+  "campaign_revised": {
+    "status": "runs_terminal_recovery_pending",
+    "controller_slurm_job": "17778495",
+    "updated_utc": "2026-10-10T05:14:38+00:00",
+    "monitor_status": "paused",
+    "monitor_interval_seconds": 1800,
+    "primary_controller_state": null,
+    "condition_progress": {
+      "NC1_seed0": "complete",
+      "NC1_seed1": "failed",
+      "NC1_seed2": "complete",
+      "NC2_seed0": "complete",
+      "NC2_seed1": "complete",
+      "NC2_seed2": "complete",
+      "NC3_seed0": "complete",
+      "NC3_seed1": "complete",
+      "NC3_seed2": "complete",
+      "NC4_lr1e-4_seed0": "complete",
+      "NC4_lr1e-4_seed1": "complete",
+      "NC4_lr1e-4_seed2": "complete",
+      "NC4_lr1e-3_seed0": "complete",
+      "NC4_lr1e-3_seed1": "complete",
+      "NC4_lr1e-3_seed2": "complete",
+      "NC4_lr3e-3_seed0": "complete",
+      "NC4_lr3e-3_seed1": "complete",
+      "NC4_lr3e-3_seed2": "complete"
+    },
+    "finalization_deferred": null,
+    "analysis_status": null,
+    "last_scheduled_check": {
+      "utc": "2026-10-10T05:14:38+00:00",
+      "status": "runs_terminal_analysis_pending",
+      "condition": "parallel",
+      "submitted_ablations": 18,
+      "condition_progress": {
+        "NC1_seed0": "complete",
+        "NC1_seed1": "failed",
+        "NC1_seed2": "complete",
+        "NC2_seed0": "complete",
+        "NC2_seed1": "complete",
+        "NC2_seed2": "complete",
+        "NC3_seed0": "complete",
+        "NC3_seed1": "complete",
+        "NC3_seed2": "complete",
+        "NC4_lr1e-4_seed0": "complete",
+        "NC4_lr1e-4_seed1": "complete",
+        "NC4_lr1e-4_seed2": "complete",
+        "NC4_lr1e-3_seed0": "complete",
+        "NC4_lr1e-3_seed1": "complete",
+        "NC4_lr1e-3_seed2": "complete",
+        "NC4_lr3e-3_seed0": "complete",
+        "NC4_lr3e-3_seed1": "complete",
+        "NC4_lr3e-3_seed2": "complete"
+      },
+      "r0_status": "failed",
+      "monitor_status": "paused"
+    },
+    "next_scheduled_check_utc_approx": null
+  },
+  "recovery_campaign": {
+    "status": "running_replacements",
+    "controller_slurm_job": "17780304",
+    "updated_utc": "2026-10-10T05:23:28+00:00",
+    "monitor_status": "running",
+    "monitor_interval_seconds": 1800,
+    "primary_controller_state": "COMPLETED",
+    "condition_progress": {
+      "R0_recovery_seed0": "running",
+      "NC1_recovery_seed1": "running"
+    },
+    "finalization_deferred": null,
+    "analysis_status": null,
+    "last_scheduled_check": {
+      "status": "waiting_for_original_campaign",
+      "updated_utc": "2026-10-10T05:08:17+00:00",
+      "controller_slurm_job": "17780304",
+      "primary_controller_state": "RUNNING",
+      "primary_campaign_status": "running_parallel_conditions",
+      "condition_progress": null,
+      "monitor_status": "running",
+      "error": null
+    },
+    "next_scheduled_check_utc_approx": "2026-10-10T05:38:17+00:00"
+  },
+  "scheduler": {
+    "status": "fulfilled",
+    "value": {
+      "chunk_id": "671b09",
+      "wall_time_seconds": 0.00001358,
+      "exit_code": 0,
+      "original_token_count": 125,
+      "output": "             JOBID                           NAME      STATE       TIME TIME_LIMIT  NODES NODELIST(REASON)\n          17780304     stage2-recovery-controller    RUNNING    7:47:25   20:14:00      1 soal-9\n          17789310       stage2-R0_recovery_seed0    RUNNING       7:17    2:15:00      1 soal-11\n          17789311      stage2-NC1_recovery_seed1    RUNNING       7:17    2:15:00      1 soal-10\n          17787570                           bash    RUNNING    1:47:44    6:00:00      1 soal-11\n"
+    }
+  },
+  "accounting": {
+    "chunk_id": "1468ee",
+    "wall_time_seconds": 0.000013771,
+    "exit_code": 0,
+    "original_token_count": 238,
+    "output": "JobIDRaw|JobName|State|ExitCode|Elapsed|Start|End|AllocTRES\n17778495|stage2-parallel-controller|COMPLETED|0:0|09:16:54|2026-10-09T12:57:45|2026-10-09T22:14:39|billing=2,cpu=2,mem=8G,node=1\n17783505|stage2-NC4_lr3e-3_seed0|COMPLETED|0:0|02:19:53|2026-10-09T19:25:33|2026-10-09T21:45:26|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17783506|stage2-NC4_lr3e-3_seed1|COMPLETED|0:0|02:23:36|2026-10-09T19:30:34|2026-10-09T21:54:10|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17783507|stage2-NC4_lr3e-3_seed2|COMPLETED|0:0|02:24:27|2026-10-09T19:49:35|2026-10-09T22:14:02|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17789310|stage2-R0_recovery_seed0|RUNNING|0:0|00:08:26|2026-10-09T22:15:36|Unknown|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n17789311|stage2-NC1_recovery_seed1|RUNNING|0:0|00:08:26|2026-10-09T22:15:36|Unknown|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1\n"
+  },
+  "monitor_audit": "Original controller completed and paused. Recovery verified all19 original allocations terminal before dispatch (17COMPLETED,2historicalCANCELLED). Both replacements print clamp_logprob=True,logprob_reduce=mean,actor_single_step=False; commands distinguish R0defaults versus NC1clip1e6/KLnull. Separate A6000GPUs,40CPUs,64GiB,8100scaps,cleanab46b15,passedfixedbatchgate. Recoverycontroller and supervisors active with freshprogress,no newfailure,nonfinite,or stallrecords.",
+  "no_job_changes": true
+}

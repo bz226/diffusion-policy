@@ -1,0 +1,11 @@
+- train.n_train_itr=140
+- train.save_model_freq=35
+- seed=1
+- wandb=null
+- model.clip_ploss_coef=1e6
+- model.clip_ploss_coef_base=1e6
+- train.target_kl=null
+- +model.clamp_logprob=false
+- model.randn_clip_value=100
+- +model.logprob_reduce=sum
+- logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native

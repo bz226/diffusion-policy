@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-09T20:00:13.034130+00:00",
+  "status": "parallel_dispatch_active_with_two_prior_interruptions",
+  "controller_job_id": "17778495",
+  "max_training_allocations": 9,
+  "actual_running": [
+    {
+      "run_id": "NC2_seed0",
+      "job_id": "17778496",
+      "hardware": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "startup_flags": "clamp_logprob=False logprob_reduce=mean actor_single_step=False",
+      "completed_iterations": 2,
+      "initial_eval_return": 4204.112836868476,
+      "monitor_interval_seconds": 1800,
+      "status": "running"
+    },
+    {
+      "run_id": "NC2_seed1",
+      "job_id": "17778497",
+      "hardware": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "startup_flags": "clamp_logprob=False logprob_reduce=mean actor_single_step=False",
+      "completed_iterations": 2,
+      "initial_eval_return": 4282.639681227471,
+      "monitor_interval_seconds": 1800,
+      "status": "running"
+    },
+    {
+      "run_id": "NC2_seed2",
+      "job_id": "17778498",
+      "hardware": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "startup_flags": "clamp_logprob=False logprob_reduce=mean actor_single_step=False",
+      "completed_iterations": 2,
+      "initial_eval_return": 4303.985536933509,
+      "monitor_interval_seconds": 1800,
+      "status": "running"
+    },
+    {
+      "run_id": "NC3_seed0",
+      "job_id": "17778499",
+      "hardware": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "startup_flags": "clamp_logprob=False logprob_reduce=sum actor_single_step=False",
+      "completed_iterations": 2,
+      "initial_eval_return": 4296.078829317283,
+      "monitor_interval_seconds": 1800,
+      "status": "running"
+    }
+  ],
+  "new_submissions": [
+    {
+      "run_id": "NC2_seed0",
+      "job_id": "17778496"
+    },
+    {
+      "run_id": "NC2_seed1",
+      "job_id": "17778497"
+    },
+    {
+      "run_id": "NC2_seed2",
+      "job_id": "17778498"
+    },
+    {
+      "run_id": "NC3_seed0",
+      "job_id": "17778499"
+    },
+    {
+      "run_id": "NC3_seed1",
+      "job_id": "17778500"
+    },
+    {
+      "run_id": "NC3_seed2",
+      "job_id": "17778501"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed0",
+      "job_id": "17778502"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed1",
+      "job_id": "17778503"
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed2",
+      "job_id": "17778504"
+    }
+  ],
+  "interrupted_runs_preserved_without_retry": [
+    "R0_rerun_seed0",
+    "NC1_seed1"
+  ],
+  "failure_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/provenance/parallel_handoff_failure.json",
+  "scientific_source_clean": true,
+  "source_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "original_deadline_preserved": true,
+  "gpu_hour_budget_unchanged": 58.5,
+  "monitors_active": true
+}

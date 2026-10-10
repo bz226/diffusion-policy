@@ -1,0 +1,31 @@
+test_a6000_needs_no_h200_exception (test_hardware_exception.HardwareExceptionTests) ... ok
+test_actual_allocation_and_limits_must_match (test_hardware_exception.HardwareExceptionTests) ... ok
+test_all_rngs_and_saved_inputs_required (test_hardware_exception.HardwareExceptionTests) ... ok
+test_authorization_cannot_change_resources_or_source (test_hardware_exception.HardwareExceptionTests) ... ok
+test_gate_cannot_be_summarized_as_passed_when_a_minibatch_failed (test_hardware_exception.HardwareExceptionTests) ... ok
+test_no_settings_changes_or_new_batch (test_hardware_exception.HardwareExceptionTests) ... ok
+test_only_approved_pending_job_is_allowed (test_hardware_exception.HardwareExceptionTests) ... ok
+test_sampling_evidence_required (test_hardware_exception.HardwareExceptionTests) ... ok
+test_wrong_run_job_or_gpu_is_rejected (test_hardware_exception.HardwareExceptionTests) ... ok
+test_all_minibatch_losses_and_gradients_must_be_present (test_revised_regression.GateTests) ... ok
+test_analysis_refuses_archived_r0_by_default (test_revised_regression.GateTests) ... ok
+test_cpu_tolerance_match_is_not_bitwise_match (test_revised_regression.GateTests) ... ok
+test_each_rng_state_must_be_unchanged (test_revised_regression.GateTests) ... ok
+test_initial_inputs_must_be_bitwise_equal_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_missing_comparison_rejected (test_revised_regression.GateTests) ... ok
+test_missing_sampling_rng_or_full_update_rejected (test_revised_regression.GateTests) ... ok
+test_old_r0_id_refused_new_id_requires_gate (test_revised_regression.GateTests) ... ok
+test_passed_report (test_revised_regression.GateTests) ... ok
+test_permutation_must_be_exact_even_on_gpu (test_revised_regression.GateTests) ... ok
+test_preserved_evidence_files_are_required (test_revised_regression.GateTests) ... ok
+test_sampling_subcomparison_cannot_hide_under_passed_summary (test_revised_regression.GateTests) ... ok
+test_wrong_source_or_settings_rejected (test_revised_regression.GateTests) ... ok
+test_boundary_inclusive_and_training_values_ignored (test_revised_regression.TrajectoryTests) ... ok
+test_full_trajectory_is_not_compared_with_probe_or_baseline_tokens (test_revised_regression.TrajectoryTests) ... ok
+test_huge_trajectory_difference_is_record_only (test_revised_regression.TrajectoryTests) ... ok
+test_terminal_partial_observation_preserves_red_flags (test_revised_regression.TrajectoryTests) ... ok
+
+----------------------------------------------------------------------
+Ran 26 tests in 1.321s
+
+OK

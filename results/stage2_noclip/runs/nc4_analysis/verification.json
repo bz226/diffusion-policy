@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "review": "Independent read-only review by nc4_analysis_audit; primary agent also inspected both PNGs",
+  "inputs": "9 completed NC4 runs and 3 unchanged completed Stage1 baseline runs",
+  "checks": {
+    "csv_rows_against_native_results": 12,
+    "maximum_aggregate_absolute_difference_independent_numpy": 9.095e-13,
+    "aggregate_difference_interpretation": "Floating-point summation roundoff only",
+    "all_source_manifest_result_and_log_paths_exist": true,
+    "existing_checkpoint_paths": 60,
+    "all_collapse_flags_match_native_results": true,
+    "nc4_training_rows_with_exact_invariants": 1134,
+    "all_nc4_actor_steps": 1,
+    "all_nc4_critic_steps": 20,
+    "all_nc4_actor_pre_step_ratios": 1.0,
+    "all_nc4_clip_fractions": 0.0,
+    "all_nc4_learning_rates_constant_and_correct": true,
+    "finite_completed_input_metrics": true,
+    "both_pngs_visually_inspected_and_readable": true,
+    "means_and_population_sd_unsmoothed": true,
+    "exact_zero_kl_values_retained_in_numeric_aggregation": 4,
+    "nonpositive_log_band_positions_disclosed": 26,
+    "pre_step_and_post_update_metrics_distinguished": true,
+    "source_repository_tracked_files_clean": true,
+    "no_training_jobs_or_monitors_changed": true
+  },
+  "limitations": [
+    "Three seeds per condition; no statistical equivalence claim",
+    "Last evaluation at9.36million steps; no extrapolation to10million",
+    "KL is a sampled denoising-transition diagnostic, not exact final-action KL",
+    "Single-step comparison changes update count and gradient aggregation as well as sample reuse",
+    "R0 diagnostics and fullcampaign comparison remain pending",
+    "Artifacts are candidates, not curated"
+  ]
+}

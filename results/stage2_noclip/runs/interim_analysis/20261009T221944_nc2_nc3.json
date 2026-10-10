@@ -1,0 +1,593 @@
+{
+  "checked_utc": "2026-10-09T22:19:44.808183+00:00",
+  "request": "Explain NC2 and NC3 results",
+  "scope": "Interim explanation of existing saved data; no new training, scientific settings, plots, or curation",
+  "endpoint": "Last scheduled evaluation: iteration130, 9360000 training environment steps. Full runs finish iteration139 at10080000steps.",
+  "collapse_definition": "Any saved evaluation below half that seed initial evaluation, or any NaN/inf.",
+  "runs": {
+    "NC2_seed0": {
+      "status": "complete",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "rows": 140,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4204.112836868476
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": 3795.337016582221
+        },
+        {
+          "itr": 20,
+          "step": 1440000,
+          "return": 1221.8935299873506
+        },
+        {
+          "itr": 30,
+          "step": 2160000,
+          "return": 1251.0183848432566
+        },
+        {
+          "itr": 40,
+          "step": 2880000,
+          "return": 1227.681886216977
+        },
+        {
+          "itr": 50,
+          "step": 3600000,
+          "return": 1204.9652622946835
+        },
+        {
+          "itr": 60,
+          "step": 4320000,
+          "return": 1228.5739836480057
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "return": 1226.8979633578433
+        },
+        {
+          "itr": 80,
+          "step": 5760000,
+          "return": 1246.9746226230036
+        },
+        {
+          "itr": 90,
+          "step": 6480000,
+          "return": 1258.678420164736
+        },
+        {
+          "itr": 100,
+          "step": 7200000,
+          "return": 1229.4483333745288
+        },
+        {
+          "itr": 110,
+          "step": 7920000,
+          "return": 1231.605692849118
+        },
+        {
+          "itr": 120,
+          "step": 8640000,
+          "return": 1252.2592772681678
+        },
+        {
+          "itr": 130,
+          "step": 9360000,
+          "return": 1149.2236034316263
+        }
+      ],
+      "initial_eval": 4204.112836868476,
+      "minimum_eval": 1149.2236034316263,
+      "last_eval": 1149.2236034316263,
+      "collapse_observed": true,
+      "first_observed_collapse_iteration": 20,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 6.34148619517072e-7,
+          "maximum": 241.30156279979803,
+          "maximum_iteration": 13,
+          "last": 0
+        },
+        "logratio_p99": {
+          "median": 0,
+          "maximum": 252.2116852951045,
+          "maximum_iteration": 13,
+          "last": 0
+        },
+        "clamp_hit_frac": {
+          "median": 0.0007864583333333333,
+          "maximum": 0.06143125,
+          "maximum_iteration": 13,
+          "last": 0.0007916666666666666
+        },
+        "approx_kl": {
+          "median": 1.7450190598067294e-10,
+          "maximum": 0.6718682646751404,
+          "maximum_iteration": 13,
+          "last": 0
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    },
+    "NC2_seed1": {
+      "status": "complete",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "rows": 140,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4282.639681227471
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": 3765.871184748151
+        },
+        {
+          "itr": 20,
+          "step": 1440000,
+          "return": -436.94574265401445
+        },
+        {
+          "itr": 30,
+          "step": 2160000,
+          "return": -392.6301716389527
+        },
+        {
+          "itr": 40,
+          "step": 2880000,
+          "return": -421.9753513581398
+        },
+        {
+          "itr": 50,
+          "step": 3600000,
+          "return": -422.9855979620196
+        },
+        {
+          "itr": 60,
+          "step": 4320000,
+          "return": -422.51033976798846
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "return": -404.8690124654571
+        },
+        {
+          "itr": 80,
+          "step": 5760000,
+          "return": -425.0436033347795
+        },
+        {
+          "itr": 90,
+          "step": 6480000,
+          "return": -434.22940870931495
+        },
+        {
+          "itr": 100,
+          "step": 7200000,
+          "return": -384.0640148845484
+        },
+        {
+          "itr": 110,
+          "step": 7920000,
+          "return": -431.3625790899141
+        },
+        {
+          "itr": 120,
+          "step": 8640000,
+          "return": -383.1026815510136
+        },
+        {
+          "itr": 130,
+          "step": 9360000,
+          "return": -427.06230121109337
+        }
+      ],
+      "initial_eval": 4282.639681227471,
+      "minimum_eval": -436.94574265401445,
+      "last_eval": -427.06230121109337,
+      "collapse_observed": true,
+      "first_observed_collapse_iteration": 20,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 0.0000011017092826496166,
+          "maximum": 103.28100008655205,
+          "maximum_iteration": 14,
+          "last": 5.929093539422965e-8
+        },
+        "logratio_p99": {
+          "median": 0,
+          "maximum": 92.36035970926274,
+          "maximum_iteration": 14,
+          "last": 0
+        },
+        "clamp_hit_frac": {
+          "median": 0.0007895833333333333,
+          "maximum": 0.02243125,
+          "maximum_iteration": 14,
+          "last": 0.0008083333333333333
+        },
+        "approx_kl": {
+          "median": 1.9237864773424818e-10,
+          "maximum": 0.17504262924194336,
+          "maximum_iteration": 14,
+          "last": 3.691762520685593e-11
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    },
+    "NC2_seed2": {
+      "status": "complete",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "rows": 140,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4303.985536933509
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": -632.5487726180969
+        },
+        {
+          "itr": 20,
+          "step": 1440000,
+          "return": -515.3579301405872
+        },
+        {
+          "itr": 30,
+          "step": 2160000,
+          "return": -762.2171154906689
+        },
+        {
+          "itr": 40,
+          "step": 2880000,
+          "return": -759.7265904104249
+        },
+        {
+          "itr": 50,
+          "step": 3600000,
+          "return": -760.6030192547481
+        },
+        {
+          "itr": 60,
+          "step": 4320000,
+          "return": -760.6824778518692
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "return": -761.9011739341267
+        },
+        {
+          "itr": 80,
+          "step": 5760000,
+          "return": -760.4848744463243
+        },
+        {
+          "itr": 90,
+          "step": 6480000,
+          "return": -762.1375713059651
+        },
+        {
+          "itr": 100,
+          "step": 7200000,
+          "return": -760.4866581004446
+        },
+        {
+          "itr": 110,
+          "step": 7920000,
+          "return": -761.1117086376331
+        },
+        {
+          "itr": 120,
+          "step": 8640000,
+          "return": -761.3141619544219
+        },
+        {
+          "itr": 130,
+          "step": 9360000,
+          "return": -761.4112344536153
+        }
+      ],
+      "initial_eval": 4303.985536933509,
+      "minimum_eval": -762.2171154906689,
+      "last_eval": -761.4112344536153,
+      "collapse_observed": true,
+      "first_observed_collapse_iteration": 10,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 3.7186424775169446e-10,
+          "maximum": 663.1008138092199,
+          "maximum_iteration": 17,
+          "last": 7.661466879935586e-10
+        },
+        "logratio_p99": {
+          "median": 0,
+          "maximum": 494.63614214062295,
+          "maximum_iteration": 18,
+          "last": 0
+        },
+        "clamp_hit_frac": {
+          "median": 0.0007854166666666667,
+          "maximum": 0.1190125,
+          "maximum_iteration": 17,
+          "last": 0.0008291666666666666
+        },
+        "approx_kl": {
+          "median": 4.60073342270495e-12,
+          "maximum": 1.910378336906433,
+          "maximum_iteration": 17,
+          "last": 6.407499097277336e-12
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    },
+    "NC3_seed0": {
+      "status": "complete",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "rows": 140,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4296.078829317283
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": 922.3552542399262
+        },
+        {
+          "itr": 20,
+          "step": 1440000,
+          "return": 3389.1832437590915
+        },
+        {
+          "itr": 30,
+          "step": 2160000,
+          "return": 3790.8511079407535
+        },
+        {
+          "itr": 40,
+          "step": 2880000,
+          "return": 2717.0827440535513
+        },
+        {
+          "itr": 50,
+          "step": 3600000,
+          "return": 1887.6530836607471
+        },
+        {
+          "itr": 60,
+          "step": 4320000,
+          "return": 2343.7919014986096
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "return": 2301.484136894077
+        },
+        {
+          "itr": 80,
+          "step": 5760000,
+          "return": 2272.3349223110627
+        },
+        {
+          "itr": 90,
+          "step": 6480000,
+          "return": 354.6866544773894
+        },
+        {
+          "itr": 100,
+          "step": 7200000,
+          "return": 1383.3657527582147
+        },
+        {
+          "itr": 110,
+          "step": 7920000,
+          "return": 1890.9679766019697
+        },
+        {
+          "itr": 120,
+          "step": 8640000,
+          "return": 2177.6911257568568
+        },
+        {
+          "itr": 130,
+          "step": 9360000,
+          "return": 2373.098940269012
+        }
+      ],
+      "initial_eval": 4296.078829317283,
+      "minimum_eval": 354.6866544773894,
+      "last_eval": 2373.098940269012,
+      "collapse_observed": true,
+      "first_observed_collapse_iteration": 10,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 1.6975672069259105,
+          "maximum": 4900.0953078764605,
+          "maximum_iteration": 89,
+          "last": 1.9545386648055532
+        },
+        "logratio_p99": {
+          "median": 2.2907204174995375,
+          "maximum": 28.445484834909436,
+          "maximum_iteration": 94,
+          "last": 2.782475515604019
+        },
+        "clamp_hit_frac": {
+          "median": 0.000840625,
+          "maximum": 0.014610416666666667,
+          "maximum_iteration": 93,
+          "last": 0.000875
+        },
+        "approx_kl": {
+          "median": 0.15226048231124878,
+          "maximum": 4.658976078033447,
+          "maximum_iteration": 93,
+          "last": 0.17658168077468872
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    },
+    "NC3_seed1": {
+      "status": "running",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "rows": 23,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4344.956135860159
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": 4042.390133723761
+        },
+        {
+          "itr": 20,
+          "step": 1440000,
+          "return": 4018.9567513453208
+        }
+      ],
+      "initial_eval": 4344.956135860159,
+      "minimum_eval": 4018.9567513453208,
+      "last_eval": 4018.9567513453208,
+      "collapse_observed": false,
+      "first_observed_collapse_iteration": null,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 1.6493238141405937,
+          "maximum": 3.530860142538985,
+          "maximum_iteration": 16,
+          "last": 1.9586881625425987
+        },
+        "logratio_p99": {
+          "median": 2.116064248681066,
+          "maximum": 3.5712118542194355,
+          "maximum_iteration": 16,
+          "last": 2.388965425491324
+        },
+        "clamp_hit_frac": {
+          "median": 0.0008156249999999999,
+          "maximum": 0.000925,
+          "maximum_iteration": 16,
+          "last": 0.0008645833333333333
+        },
+        "approx_kl": {
+          "median": 0.1458127498626709,
+          "maximum": 0.31984660029411316,
+          "maximum_iteration": 16,
+          "last": 0.16813528537750244
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    },
+    "NC3_seed2": {
+      "status": "running",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "rows": 18,
+      "eval": [
+        {
+          "itr": 0,
+          "step": 0,
+          "return": 4305.6395617321705
+        },
+        {
+          "itr": 10,
+          "step": 720000,
+          "return": 4099.124400905375
+        }
+      ],
+      "initial_eval": 4305.6395617321705,
+      "minimum_eval": 4099.124400905375,
+      "last_eval": 4099.124400905375,
+      "collapse_observed": false,
+      "first_observed_collapse_iteration": null,
+      "diagnostics": {
+        "kl_true_per_action": {
+          "median": 1.4977409811976687,
+          "maximum": 4.005903964475431,
+          "maximum_iteration": 17,
+          "last": 4.005903964475431
+        },
+        "logratio_p99": {
+          "median": 1.8968399691581612,
+          "maximum": 3.4318424916267354,
+          "maximum_iteration": 14,
+          "last": 3.3495808947086307
+        },
+        "clamp_hit_frac": {
+          "median": 0.0008114583333333333,
+          "maximum": 0.00091875,
+          "maximum_iteration": 11,
+          "last": 0.0009083333333333334
+        },
+        "approx_kl": {
+          "median": 0.12874242290854454,
+          "maximum": 0.3406750559806824,
+          "maximum_iteration": 14,
+          "last": 0.28444236516952515
+        },
+        "clipfrac": {
+          "median": 0,
+          "maximum": 0,
+          "maximum_iteration": 1,
+          "last": 0
+        }
+      }
+    }
+  },
+  "NC2_final_eval_aggregation": {
+    "n": 3,
+    "mean": -13.083310744360801,
+    "population_std": 833.1327722702555,
+    "step": 9360000
+  },
+  "baseline_source": "results/repro_halfcheetah/runs/three_seed_analysis/candidates/summary.json",
+  "baseline_last_eval_mean": 4758.370764972049,
+  "limitations": [
+    "NC3 onlyseed0 complete; partialseeds not endpoint samples",
+    "NC2 changes logprob and samplingnoise clamps jointly; cannot separate their effects",
+    "Nearzero sampled logprob differences do not establish frozen parameters or gradients",
+    "kl_true_per_action is the prescribed sampled denoising transition statistic, not exact action-marginal KL",
+    "NC1 historical interruptedseed1 will be prospectively replaced; no final NC1 aggregate is formed here"
+  ]
+}

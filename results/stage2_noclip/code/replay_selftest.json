@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "command": ["/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python", "-m", "unittest", "-v", "test_replay_compare.py"],
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code",
+  "exit_code": 0,
+  "tests_run": 19,
+  "raw_output": "replay_selftest.out",
+  "scope": "Synthetic replay fixtures plus read-only retained Stage 1 first-20-iteration console/results; no training launched",
+  "earlier_attempts": [
+    {"command": ["python", "-m", "unittest", "-v", "test_replay_compare.py"], "exit_code": 127, "reason": "python not present on shell PATH; used the approved existing conda interpreter"},
+    {"command": ["/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python", "-m", "unittest", "-v", "test_replay_compare.py"], "exit_code": 1, "tests_run": 15, "errors": 2, "reason": "Synthetic tests used math.nextafter, unavailable in Python 3.8; replaced with explicitly nonzero representable test perturbations"}
+  ]
+}

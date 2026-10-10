@@ -1,0 +1,96 @@
+{
+  "utc": "2026-10-09T17:53:04.487112+00:00",
+  "running": [
+    {
+      "run_id": "R0_rerun_seed0",
+      "job_id": "17777245",
+      "status": "running",
+      "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity": 40,
+      "effective_flags": [
+        "[2026-10-09 10:49:45,900][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False"
+      ],
+      "completed_rows": 4,
+      "last_row": {
+        "itr": 3,
+        "step": 240000,
+        "time": 57.768208026885986,
+        "train_episode_reward": 3979.03642662239,
+        "kl_true_per_action": 0.06595888800778288,
+        "logratio_p99": 0.33586741089820804,
+        "clamp_hit_frac": 0.0,
+        "approx_kl": 1.1211675882805139e-05,
+        "clipfrac": 0.017001999486456042,
+        "ratio": 0.9997355937957764,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "monitor_interval_seconds": 1800
+    },
+    {
+      "run_id": "NC1_seed0",
+      "job_id": "17777247",
+      "status": "running",
+      "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 00000000:C1:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity": 40,
+      "effective_flags": [
+        "[2026-10-09 10:51:12,371][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False"
+      ],
+      "completed_rows": 2,
+      "last_row": {
+        "itr": 1,
+        "step": 80000,
+        "time": 57.72204327583313,
+        "train_episode_reward": 3915.082503694847,
+        "kl_true_per_action": 3.1447766068821603,
+        "logratio_p99": 6.781924363374708,
+        "clamp_hit_frac": 0.00013541666666666666,
+        "approx_kl": 0.0011249519884586334,
+        "clipfrac": 0.0,
+        "ratio": 0.9899669885635376,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "monitor_interval_seconds": 1800
+    },
+    {
+      "run_id": "NC1_seed1",
+      "job_id": "17777248",
+      "status": "running",
+      "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 00000000:81:00.0, 580.82.07, 49140 MiB",
+      "cpu_affinity": 40,
+      "effective_flags": [
+        "[2026-10-09 10:51:12,370][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=True logprob_reduce=mean actor_single_step=False"
+      ],
+      "completed_rows": 2,
+      "last_row": {
+        "itr": 1,
+        "step": 80000,
+        "time": 58.85635328292847,
+        "train_episode_reward": 3866.65776096191,
+        "kl_true_per_action": 3.4114748497210905,
+        "logratio_p99": 6.729319305419858,
+        "clamp_hit_frac": 0.00012916666666666667,
+        "approx_kl": 0.0012798522366210818,
+        "clipfrac": 0.0,
+        "ratio": 0.9883751273155212,
+        "actor_optimizer_steps": 20,
+        "critic_optimizer_steps": 20,
+        "actor_lr": 0.0001,
+        "critic_lr": 0.001
+      },
+      "monitor_interval_seconds": 1800
+    }
+  ],
+  "queued": {
+    "run_id": "NC1_seed2",
+    "job_id": "17777249",
+    "reason": "Resources: no additional free A6000 at initial launch"
+  },
+  "trajectory_stopping": false,
+  "remaining_groups": "Controller submits each triplet after previous group terminates; actual start overlap is subject to Slurm resource availability."
+}

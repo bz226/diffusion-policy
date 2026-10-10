@@ -1,0 +1,1206 @@
+{
+  "status": "completed_nc4_subset_analysis",
+  "created_utc": "2026-10-10T05:30:47.883843+00:00",
+  "authorization": "User: do the analysis and ploting for the NC4 runs",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python results/stage2_noclip/code/analyze_nc4.py --output-dir results/stage2_noclip/runs/nc4_analysis/candidates",
+  "scientific_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "baseline_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "analysis_code": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/analyze_nc4.py",
+  "shared_analysis_code": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/analyze_stage2.py",
+  "python_version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "numpy_version": "1.24.4",
+  "matplotlib_version": "3.7.5",
+  "aggregation": "Arithmetic mean and population SD across seeds0,1,2; no smoothing or extrapolation",
+  "summaries": [
+    {
+      "condition": "baseline",
+      "seed": 0,
+      "run_id": "seed0_handoff",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4286.896956658653,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "eval_return_itr0": 4286.896956658653,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4549.16837029026,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4636.273298273394,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3841.496354067624,
+      "train_return_itr139": 4285.90194015741,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "actor_lr": null
+    },
+    {
+      "condition": "baseline",
+      "seed": 1,
+      "run_id": "seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4384.282887687965,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "eval_return_itr0": 4384.282887687965,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4706.770206012169,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4796.043488648042,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3841.064963843899,
+      "train_return_itr139": 4530.633866573542,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "actor_lr": null
+    },
+    {
+      "condition": "baseline",
+      "seed": 2,
+      "run_id": "seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4354.750334819849,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "eval_return_itr0": 4354.750334819849,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4628.84613361733,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4842.7955079947105,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3951.242860095793,
+      "train_return_itr139": 4500.831198601775,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "actor_lr": null
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 0,
+      "run_id": "NC4_lr1e-4_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4316.39629852191,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.0005283256956950024,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "eval_return_itr0": 4316.39629852191,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4547.596168273354,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4624.0873515240455,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3614.2219290576104,
+      "train_return_itr139": 4374.462483856731,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "actor_lr": 0.0001,
+      "max_kl_true_per_action": 0.005376881344806664,
+      "max_logratio_p99": 0.12181897282600379,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 1,
+      "run_id": "NC4_lr1e-4_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4274.331458175189,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.000584517336086918,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "eval_return_itr0": 4274.331458175189,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4546.42972636063,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4586.218975028707,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3855.662343836001,
+      "train_return_itr139": 4245.613442777305,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "actor_lr": 0.0001,
+      "max_kl_true_per_action": 0.005956761561571947,
+      "max_logratio_p99": 0.11391927123069757,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 2,
+      "run_id": "NC4_lr1e-4_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4252.954497474648,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.0006320875433833632,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl",
+      "eval_return_itr0": 4368.699338080412,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4527.577399991312,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4600.264927409581,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3898.717269362227,
+      "train_return_itr139": 4310.876743908579,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl",
+      "actor_lr": 0.0001,
+      "max_kl_true_per_action": 0.004943079942230618,
+      "max_logratio_p99": 0.10559005737304653,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 0,
+      "run_id": "NC4_lr1e-3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 3278.9758932952172,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.23032447797082592,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/result.pkl",
+      "eval_return_itr0": 4282.48048732081,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 3359.0801111139867,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 3278.9758932952172,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3950.60591651485,
+      "train_return_itr139": 3197.8875937119906,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/result.pkl",
+      "actor_lr": 0.001,
+      "max_kl_true_per_action": 0.5724901849850276,
+      "max_logratio_p99": 1.3005873894691364,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 1,
+      "run_id": "NC4_lr1e-3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 3069.571631074413,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.3542036841273925,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/result.pkl",
+      "eval_return_itr0": 4339.810460820627,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 3947.8407350460693,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4257.122539602991,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3864.4145470325484,
+      "train_return_itr139": 3684.062414663894,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/result.pkl",
+      "actor_lr": 0.001,
+      "max_kl_true_per_action": 0.8659344187809286,
+      "max_logratio_p99": 1.4445081055164317,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 2,
+      "run_id": "NC4_lr1e-3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 3276.8146173237596,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.27489489546090595,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/result.pkl",
+      "eval_return_itr0": 4238.400994880294,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4182.907640656236,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 3643.135383126463,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3898.499904217223,
+      "train_return_itr139": 3199.784873672281,
+      "first_collapse_eval_itr": null,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/result.pkl",
+      "actor_lr": 0.001,
+      "max_kl_true_per_action": 0.8930506336690663,
+      "max_logratio_p99": 1.6975302350521086,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 0,
+      "run_id": "NC4_lr3e-3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 395.9768285671437,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 4.786408488337042,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/result.pkl",
+      "eval_return_itr0": 4259.991063329484,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 1207.1340759093973,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 395.9768285671437,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3990.352634516728,
+      "train_return_itr139": 551.4782669277029,
+      "first_collapse_eval_itr": 10,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/result.pkl",
+      "actor_lr": 0.003,
+      "max_kl_true_per_action": 17.599312424321987,
+      "max_logratio_p99": 36.53138194680205,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 1,
+      "run_id": "NC4_lr3e-3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": -84.77648716065335,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 4.5659999231522495,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/result.pkl",
+      "eval_return_itr0": 4260.671460193969,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 234.42932849626828,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 53.57241473266758,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3939.224590743886,
+      "train_return_itr139": -21.884008255247355,
+      "first_collapse_eval_itr": 20,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/result.pkl",
+      "actor_lr": 0.003,
+      "max_kl_true_per_action": 43.67952142186919,
+      "max_logratio_p99": 44.14663865327834,
+      "single_step_checks_passed": true
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 2,
+      "run_id": "NC4_lr3e-3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": -754.2273952714919,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 4.651106863876953,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/result.pkl",
+      "eval_return_itr0": 4267.114063779499,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": -448.93852952304206,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": -742.315193983763,
+      "eval_step_itr130": 9360000,
+      "train_return_itr1": 3890.1642045465865,
+      "train_return_itr139": -687.6821967535756,
+      "first_collapse_eval_itr": 20,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/result.pkl",
+      "actor_lr": 0.003,
+      "max_kl_true_per_action": 108.49403814003188,
+      "max_logratio_p99": 153.97102474570195,
+      "single_step_checks_passed": true
+    }
+  ],
+  "aggregates": {
+    "baseline": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4341.9767263888225,
+        "population_std": 40.77073047234883
+      },
+      "eval_return_itr70": {
+        "mean": 4628.261569973253,
+        "population_std": 64.34200774879704
+      },
+      "eval_return_itr130": {
+        "mean": 4758.370764972049,
+        "population_std": 88.42051556405383
+      },
+      "train_return_itr1": {
+        "mean": 3877.9347260024388,
+        "population_std": 51.83697790553369
+      },
+      "train_return_itr139": {
+        "mean": 4439.122335110909,
+        "population_std": 109.02420779147656
+      }
+    },
+    "NC4_lr1e-4": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4319.809031592504,
+        "population_std": 38.60102977650554
+      },
+      "eval_return_itr70": {
+        "mean": 4540.534431541765,
+        "population_std": 9.174371790792328
+      },
+      "eval_return_itr130": {
+        "mean": 4603.523751320778,
+        "population_std": 15.630492305348039
+      },
+      "train_return_itr1": {
+        "mean": 3789.533847418613,
+        "population_std": 125.20418840858399
+      },
+      "train_return_itr139": {
+        "mean": 4310.317556847538,
+        "population_std": 52.60388682976957
+      }
+    },
+    "NC4_lr1e-3": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4286.897314340577,
+        "population_std": 41.517877404541274
+      },
+      "eval_return_itr70": {
+        "mean": 3829.9428289387643,
+        "population_std": 346.50434033480417
+      },
+      "eval_return_itr130": {
+        "mean": 3726.411272008224,
+        "population_std": 403.6449518017635
+      },
+      "train_return_itr1": {
+        "mean": 3904.5067892548736,
+        "population_std": 35.44291225995515
+      },
+      "train_return_itr139": {
+        "mean": 3360.578294016055,
+        "population_std": 228.73912673799535
+      }
+    },
+    "NC4_lr3e-3": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4262.592195767651,
+        "population_std": 3.209486221680112
+      },
+      "eval_return_itr70": {
+        "mean": 330.87495829420783,
+        "population_std": 679.5196530129638
+      },
+      "eval_return_itr130": {
+        "mean": -97.58865022798392,
+        "population_std": 476.8398982333499
+      },
+      "train_return_itr1": {
+        "mean": 3939.9138099357333,
+        "population_std": 40.904658596067776
+      },
+      "train_return_itr139": {
+        "mean": -52.69597936037336,
+        "population_std": 506.35409011233605
+      }
+    }
+  },
+  "invariant_checks": [
+    {
+      "run_id": "NC4_lr1e-4_seed0",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed1",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr1e-4_seed2",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed0",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed1",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr1e-3_seed2",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed0",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.003
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed1",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.003
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    },
+    {
+      "run_id": "NC4_lr3e-3_seed2",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          1
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_step_ratio": [
+          1.0
+        ],
+        "actor_step_clipfrac": [
+          0.0
+        ],
+        "ratio": [
+          1.0
+        ],
+        "clipfrac": [
+          0.0
+        ],
+        "approx_kl": [
+          0.0
+        ],
+        "actor_lr": [
+          0.003
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "logprob_reduce": "mean",
+        "actor_single_step": true
+      }
+    }
+  ],
+  "sources": [
+    {
+      "condition": "baseline",
+      "seed": 0,
+      "run_id": "seed0_handoff",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      },
+      "wall_seconds": 7414.732464429224
+    },
+    {
+      "condition": "baseline",
+      "seed": 1,
+      "run_id": "seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      },
+      "wall_seconds": 7380.337116700015
+    },
+    {
+      "condition": "baseline",
+      "seed": 2,
+      "run_id": "seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      },
+      "wall_seconds": 7512.229150913074
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 0,
+      "run_id": "NC4_lr1e-4_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8488.71000133641
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 1,
+      "run_id": "NC4_lr1e-4_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8674.111188067123
+    },
+    {
+      "condition": "NC4_lr1e-4",
+      "seed": 2,
+      "run_id": "NC4_lr1e-4_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8544.72858683695
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 0,
+      "run_id": "NC4_lr1e-3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed0/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8524.834838812938
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 1,
+      "run_id": "NC4_lr1e-3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed1/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8476.898221410811
+    },
+    {
+      "condition": "NC4_lr1e-3",
+      "seed": 2,
+      "run_id": "NC4_lr1e-3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-3_seed2/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8558.450842142105
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 0,
+      "run_id": "NC4_lr3e-3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed0/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8373.38871512399
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 1,
+      "run_id": "NC4_lr3e-3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed1/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8602.142445076024
+    },
+    {
+      "condition": "NC4_lr3e-3",
+      "seed": 2,
+      "run_id": "NC4_lr3e-3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr3e-3_seed2/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      },
+      "wall_seconds": 8654.153487922624
+    }
+  ],
+  "log_axis_omissions": {
+    "zero_observations": 4,
+    "band_positions_with_nonpositive_lower_bound": 26
+  },
+  "artifacts": [
+    "nc4_returns.png",
+    "nc4_returns.pdf",
+    "nc4_diagnostics.png",
+    "nc4_diagnostics.pdf",
+    "nc4_seed_results.csv"
+  ],
+  "captions": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc4_analysis/candidates/captions.md",
+  "curation_status": "Awaiting explicit artifact/name approval; no curated outputs",
+  "scope": "Completed NC4 subset and reused Stage1 only. R0/NC1 replacements and full-campaign finalizer remain untouched."
+}
