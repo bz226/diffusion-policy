@@ -1,0 +1,62 @@
+{
+  "status": "passed_with_documented_clipfrac_exception",
+  "created_utc": "2026-10-10T06:05:05.248173+00:00",
+  "independent_reviewer": "nc23_plot_audit",
+  "inputs": {
+    "run_count": 9,
+    "rows_per_run": 140,
+    "training_rows_per_run": 126,
+    "evaluation_rows_per_run": 14,
+    "all_recorded_numeric_values_finite": true,
+    "checkpoint_paths_present": 45
+  },
+  "numeric_verification": {
+    "csv_rows": 9,
+    "independently_recomputed_numeric_comparisons": 150,
+    "maximum_csv_absolute_difference": 0,
+    "maximum_summary_aggregate_absolute_difference": 9.094947017729282e-13,
+    "difference_reason": "Floating-point arithmetic roundoff between independent mean/population-SD calculations"
+  },
+  "ablation_verification": {
+    "training_rows": 756,
+    "actor_steps_per_iteration": 20,
+    "critic_steps_per_iteration": 20,
+    "actor_lr": 0.0001,
+    "native_configs_and_startup_flags_checked": 6,
+    "source_before_and_after_clean": true,
+    "fixed_batch_gate_passed": true
+  },
+  "clipfrac_exception": {
+    "run_id": "NC3_seed1",
+    "iteration": 31,
+    "training_env_steps": 2240000,
+    "clipfrac": 9.999999747378752e-07,
+    "other_zero_rows": 755,
+    "interpretation": "The prescribed finite1e6 bound was exceeded rarely; clipfrac alone does not establish that the clipped surrogate branch changed gradients. Retained without training modification."
+  },
+  "log_axis_omissions": {
+    "zero_observations": 52,
+    "band_positions_with_nonpositive_lower_bound": 135
+  },
+  "visual_review": {
+    "figures": [
+      "nc23_returns.png",
+      "nc23_diagnostics.png"
+    ],
+    "reviewed_by": [
+      "root",
+      "nc23_plot_audit"
+    ],
+    "readable": true,
+    "individual_seeds_and_population_sd": true,
+    "spikes_preserved": true,
+    "clipfrac_exception_annotated": true
+  },
+  "provenance": {
+    "exact_shell_command_recorded": true,
+    "command_includes_executed_B_flag": true,
+    "source_paths_recorded": true,
+    "no_training_or_controller_changes": true,
+    "curation_status": "Uncurated; awaiting explicit artifact/name approval"
+  }
+}

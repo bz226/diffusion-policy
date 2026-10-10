@@ -1,0 +1,819 @@
+{
+  "status": "completed_nc23_subset_plotting",
+  "created_utc": "2026-10-10T06:03:05.428927+00:00",
+  "authorization": "User: do the plotting first before the full stage 2 analysis",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B results/stage2_noclip/code/analyze_nc23.py --output-dir results/stage2_noclip/runs/nc23_analysis/candidates",
+  "scientific_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "baseline_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "analysis_code": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/analyze_nc23.py",
+  "shared_analysis_code": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/code/analyze_stage2.py",
+  "python_version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "numpy_version": "1.24.4",
+  "matplotlib_version": "3.7.5",
+  "aggregation": "Mean and population SD across seeds 0,1,2",
+  "summaries": [
+    {
+      "condition": "baseline",
+      "seed": 0,
+      "run_id": "seed0_handoff",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4286.896956658653,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "eval_return_itr0": 4286.896956658653,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4549.16837029026,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4636.273298273394,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "train_return_itr1": 3841.496354067624,
+      "train_return_itr139": 4285.90194015741,
+      "first_collapse_eval_itr": null
+    },
+    {
+      "condition": "baseline",
+      "seed": 1,
+      "run_id": "seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4384.282887687965,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "eval_return_itr0": 4384.282887687965,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4706.770206012169,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4796.043488648042,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "train_return_itr1": 3841.064963843899,
+      "train_return_itr139": 4530.633866573542,
+      "first_collapse_eval_itr": null
+    },
+    {
+      "condition": "baseline",
+      "seed": 2,
+      "run_id": "seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 4354.750334819849,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": null,
+      "median_kl_status": "unavailable_baseline",
+      "kl_measurement_count": 0,
+      "nonfinite_kl_count": 0,
+      "collapse": false,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "eval_return_itr0": 4354.750334819849,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 4628.84613361733,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 4842.7955079947105,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "train_return_itr1": 3951.242860095793,
+      "train_return_itr139": 4500.831198601775,
+      "first_collapse_eval_itr": null
+    },
+    {
+      "condition": "NC2",
+      "seed": 0,
+      "run_id": "NC2_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 1149.2236034316263,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 6.34148619517072e-07,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "eval_return_itr0": 4204.112836868476,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 1226.8979633578433,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 1149.2236034316263,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "train_return_itr1": 3950.921134511854,
+      "train_return_itr139": 1261.4085118731239,
+      "first_collapse_eval_itr": 20,
+      "max_kl_true_per_action": 241.30156279979803,
+      "max_logratio_p99": 252.2116852951045,
+      "max_clamp_hit_frac": 0.06143125,
+      "max_clipfrac": 0.0,
+      "nonzero_clipfrac_iterations": [],
+      "update_checks_passed": true
+    },
+    {
+      "condition": "NC2",
+      "seed": 1,
+      "run_id": "NC2_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": -436.94574265401445,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 1.1017092826496166e-06,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "eval_return_itr0": 4282.639681227471,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": -404.8690124654571,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": -427.06230121109337,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "train_return_itr1": 4024.4012088254995,
+      "train_return_itr139": -294.13142910797217,
+      "first_collapse_eval_itr": 20,
+      "max_kl_true_per_action": 103.28100008655205,
+      "max_logratio_p99": 92.36035970926274,
+      "max_clamp_hit_frac": 0.02243125,
+      "max_clipfrac": 0.0,
+      "nonzero_clipfrac_iterations": [],
+      "update_checks_passed": true
+    },
+    {
+      "condition": "NC2",
+      "seed": 2,
+      "run_id": "NC2_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": -762.2171154906689,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 3.7186424775169446e-10,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "eval_return_itr0": 4303.985536933509,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": -761.9011739341267,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": -761.4112344536153,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "train_return_itr1": 3995.9538129108705,
+      "train_return_itr139": -681.123909853818,
+      "first_collapse_eval_itr": 10,
+      "max_kl_true_per_action": 663.1008138092199,
+      "max_logratio_p99": 494.63614214062295,
+      "max_clamp_hit_frac": 0.1190125,
+      "max_clipfrac": 0.0,
+      "nonzero_clipfrac_iterations": [],
+      "update_checks_passed": true
+    },
+    {
+      "condition": "NC3",
+      "seed": 0,
+      "run_id": "NC3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 354.6866544773894,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 1.6975672069259105,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "eval_return_itr0": 4296.078829317283,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 2301.484136894077,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 2373.098940269012,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "train_return_itr1": 4005.382194736121,
+      "train_return_itr139": 2332.8560149900604,
+      "first_collapse_eval_itr": 10,
+      "max_kl_true_per_action": 4900.0953078764605,
+      "max_logratio_p99": 28.445484834909436,
+      "max_clamp_hit_frac": 0.014610416666666667,
+      "max_clipfrac": 0.0,
+      "nonzero_clipfrac_iterations": [],
+      "update_checks_passed": true
+    },
+    {
+      "condition": "NC3",
+      "seed": 1,
+      "run_id": "NC3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 1385.7942680231477,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.8349056831149746,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "eval_return_itr0": 4344.956135860159,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 3716.599862773389,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 3561.3690359708153,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "train_return_itr1": 3943.1136999909168,
+      "train_return_itr139": 3378.6603636777554,
+      "first_collapse_eval_itr": 100,
+      "max_kl_true_per_action": 50.35470225603319,
+      "max_logratio_p99": 25.305830824375125,
+      "max_clamp_hit_frac": 0.00398125,
+      "max_clipfrac": 9.999999747378752e-07,
+      "nonzero_clipfrac_iterations": [
+        31
+      ],
+      "update_checks_passed": true
+    },
+    {
+      "condition": "NC3",
+      "seed": 2,
+      "run_id": "NC3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/manifest.json",
+      "status": "complete",
+      "completed_iterations": 140,
+      "minimum_eval_return": 760.9236167841647,
+      "minimum_eval_status": "defined",
+      "median_kl_true_per_action": 0.872093012185835,
+      "median_kl_status": "defined",
+      "kl_measurement_count": 126,
+      "nonfinite_kl_count": 0,
+      "collapse": true,
+      "collapse_observation_scope": "full_run",
+      "nonfinite_failure": false,
+      "saved_nonfinite_count": 0,
+      "failing_iteration": null,
+      "failure_reason": null,
+      "scientific_nonfinite_values": [],
+      "result_source": "native",
+      "fallback_used": false,
+      "native_read_error": null,
+      "fallback_read_error": null,
+      "effective_result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "eval_return_itr0": 4305.6395617321705,
+      "eval_step_itr0": 0,
+      "eval_return_itr70": 3338.3446870128987,
+      "eval_step_itr70": 5040000,
+      "eval_return_itr130": 3194.6298045790836,
+      "eval_step_itr130": 9360000,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "train_return_itr1": 3993.6331425820745,
+      "train_return_itr139": 2840.3460068025042,
+      "first_collapse_eval_itr": 20,
+      "max_kl_true_per_action": 31.120272937357257,
+      "max_logratio_p99": 16.91650112152099,
+      "max_clamp_hit_frac": 0.0032208333333333334,
+      "max_clipfrac": 0.0,
+      "nonzero_clipfrac_iterations": [],
+      "update_checks_passed": true
+    }
+  ],
+  "aggregates": {
+    "baseline": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4341.9767263888225,
+        "population_std": 40.77073047234883
+      },
+      "eval_return_itr70": {
+        "mean": 4628.261569973253,
+        "population_std": 64.34200774879704
+      },
+      "eval_return_itr130": {
+        "mean": 4758.370764972049,
+        "population_std": 88.42051556405383
+      },
+      "train_return_itr1": {
+        "mean": 3877.9347260024388,
+        "population_std": 51.83697790553369
+      },
+      "train_return_itr139": {
+        "mean": 4439.122335110909,
+        "population_std": 109.02420779147656
+      }
+    },
+    "NC2": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4263.579351676485,
+        "population_std": 42.94268409957745
+      },
+      "eval_return_itr70": {
+        "mean": 20.04259231941982,
+        "population_std": 865.7339491375573
+      },
+      "eval_return_itr130": {
+        "mean": -13.083310744360782,
+        "population_std": 833.1327722702555
+      },
+      "train_return_itr1": {
+        "mean": 3990.4253854160747,
+        "population_std": 30.251754364649493
+      },
+      "train_return_itr139": {
+        "mean": 95.38439097044458,
+        "population_std": 839.5038149341968
+      }
+    },
+    "NC3": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4315.558175636537,
+        "population_std": 21.15075964056592
+      },
+      "eval_return_itr70": {
+        "mean": 3118.8095622267883,
+        "population_std": 598.211157072413
+      },
+      "eval_return_itr130": {
+        "mean": 3043.0325936063036,
+        "population_std": 496.8116617430508
+      },
+      "train_return_itr1": {
+        "mean": 3980.7096791030376,
+        "population_std": 27.01361743860418
+      },
+      "train_return_itr139": {
+        "mean": 2850.6207951567735,
+        "population_std": 427.009650468868
+      }
+    }
+  },
+  "invariant_checks": [
+    {
+      "run_id": "NC2_seed0",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "mean"
+      },
+      "nonzero_clipfrac_rows": []
+    },
+    {
+      "run_id": "NC2_seed1",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "mean"
+      },
+      "nonzero_clipfrac_rows": []
+    },
+    {
+      "run_id": "NC2_seed2",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "mean"
+      },
+      "nonzero_clipfrac_rows": []
+    },
+    {
+      "run_id": "NC3_seed0",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "sum"
+      },
+      "nonzero_clipfrac_rows": []
+    },
+    {
+      "run_id": "NC3_seed1",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "sum"
+      },
+      "nonzero_clipfrac_rows": [
+        {
+          "itr": 31,
+          "step": 2240000,
+          "time": 57.184720039367676,
+          "train_episode_reward": 3032.5773161016923,
+          "kl_true_per_action": 23.623342779678126,
+          "logratio_p99": 15.736479721069248,
+          "clamp_hit_frac": 0.002364583333333333,
+          "approx_kl": 2.2083728313446045,
+          "clipfrac": 9.999999747378752e-07,
+          "ratio": 0.9898304343223572,
+          "actor_optimizer_steps": 20,
+          "critic_optimizer_steps": 20,
+          "actor_lr": 0.0001,
+          "critic_lr": 0.001
+        }
+      ]
+    },
+    {
+      "run_id": "NC3_seed2",
+      "training_rows_checked": 126,
+      "observed_unique_values": {
+        "actor_optimizer_steps": [
+          20
+        ],
+        "critic_optimizer_steps": [
+          20
+        ],
+        "actor_lr": [
+          0.0001
+        ]
+      },
+      "startup_flags": {
+        "clamp_logprob": false,
+        "actor_single_step": false,
+        "logprob_reduce": "sum"
+      },
+      "nonzero_clipfrac_rows": []
+    }
+  ],
+  "sources": [
+    {
+      "condition": "baseline",
+      "seed": 0,
+      "run_id": "seed0_handoff",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed0_handoff/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      }
+    },
+    {
+      "condition": "baseline",
+      "seed": 1,
+      "run_id": "seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      }
+    },
+    {
+      "condition": "baseline",
+      "seed": 2,
+      "run_id": "seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/runs/seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+        "tracked_files_clean": true
+      }
+    },
+    {
+      "condition": "NC2",
+      "seed": 0,
+      "run_id": "NC2_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed0/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    {
+      "condition": "NC2",
+      "seed": 1,
+      "run_id": "NC2_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed1/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    {
+      "condition": "NC2",
+      "seed": 2,
+      "run_id": "NC2_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC2_seed2/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    {
+      "condition": "NC3",
+      "seed": 0,
+      "run_id": "NC3_seed0",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed0/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    {
+      "condition": "NC3",
+      "seed": 1,
+      "run_id": "NC3_seed1",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed1/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    },
+    {
+      "condition": "NC3",
+      "seed": 2,
+      "run_id": "NC3_seed2",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/result.pkl",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC3_seed2/native/checkpoint/state_139.pt"
+      ],
+      "status": "complete",
+      "source_after": {
+        "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+        "tracked_files_clean": true,
+        "changed_from_base": [
+          "agent/finetune/train_ppo_diffusion_agent.py",
+          "model/diffusion/diffusion_ppo.py"
+        ]
+      }
+    }
+  ],
+  "log_axis_omissions": {
+    "zero_observations": 52,
+    "band_positions_with_nonpositive_lower_bound": 135
+  },
+  "artifacts": [
+    "nc23_returns.png",
+    "nc23_returns.pdf",
+    "nc23_diagnostics.png",
+    "nc23_diagnostics.pdf",
+    "nc23_seed_results.csv"
+  ],
+  "captions": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/captions.md",
+  "curation_status": "Awaiting explicit artifact/name approval; candidates only",
+  "scope": "Completed NC2/NC3 and unchanged Stage 1; no full Stage 2 analysis or training changes.",
+  "shell_command": "results/repro_halfcheetah/env/bin/python -B results/stage2_noclip/code/analyze_nc23.py --output-dir results/stage2_noclip/runs/nc23_analysis/candidates > results/stage2_noclip/runs/nc23_analysis.out 2>&1",
+  "metadata_note": "Before delivery, invocation metadata was corrected to include the executed -B option and stdout/stderr redirection; captions gained methods/source links. Plotting and numerical code and generated values were unchanged."
+}

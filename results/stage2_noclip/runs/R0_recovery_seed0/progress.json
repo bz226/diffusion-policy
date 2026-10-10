@@ -1,24 +1,24 @@
 {
   "run_id": "R0_recovery_seed0",
   "status": "running",
-  "completed_rows": 43,
-  "training_env_steps": 3040000,
-  "bytes": 179243,
-  "last_line": "[2026-10-09 22:53:06,155][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.51000368129462e-06, update_epoch: 2, num_batch: 4",
-  "last_diagnostic_line": "[2026-10-09 22:53:06,155][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.51000368129462e-06, update_epoch: 2, num_batch: 4",
+  "completed_rows": 59,
+  "training_env_steps": 4240000,
+  "bytes": 246475,
+  "last_line": "[2026-10-09 23:07:15,859][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.683269697939977e-06, update_epoch: 2, num_batch: 4",
+  "last_diagnostic_line": "[2026-10-09 23:07:15,859][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 8.683269697939977e-06, update_epoch: 2, num_batch: 4",
   "last_diagnostics": {
-    "approx_kl": 1.2656876606342848e-05,
-    "clipfrac": 0.022151999525522114,
+    "approx_kl": 1.5229498785629403e-05,
+    "clipfrac": 0.02791399923298741,
     "actor_optimizer_steps": 20,
     "critic_optimizer_steps": 20,
     "actor_lr": 0.0001,
     "critic_lr": 0.001,
-    "kl_true_per_action": 0.07561241047985665,
-    "logratio_p99": 0.35788013935089114,
+    "kl_true_per_action": 0.09000639618987968,
+    "logratio_p99": 0.37786664605140674,
     "clamp_hit_frac": 0.0
   },
-  "updated_utc": "2026-10-10T05:53:06+00:00",
-  "elapsed_seconds": 2248.032681404613,
-  "collection_iteration": 43,
-  "last_completed_itr": 42
+  "updated_utc": "2026-10-10T06:07:15+00:00",
+  "elapsed_seconds": 3097.7365426095203,
+  "collection_iteration": 59,
+  "last_completed_itr": 58
 }

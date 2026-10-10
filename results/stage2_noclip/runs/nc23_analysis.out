@@ -1,0 +1,82 @@
+{
+  "candidate_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates",
+  "aggregates": {
+    "baseline": {
+      "n_seeds": 3,
+      "collapse_count": 0,
+      "eval_return_itr0": {
+        "mean": 4341.9767263888225,
+        "population_std": 40.77073047234883
+      },
+      "eval_return_itr70": {
+        "mean": 4628.261569973253,
+        "population_std": 64.34200774879704
+      },
+      "eval_return_itr130": {
+        "mean": 4758.370764972049,
+        "population_std": 88.42051556405383
+      },
+      "train_return_itr1": {
+        "mean": 3877.9347260024388,
+        "population_std": 51.83697790553369
+      },
+      "train_return_itr139": {
+        "mean": 4439.122335110909,
+        "population_std": 109.02420779147656
+      }
+    },
+    "NC2": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4263.579351676485,
+        "population_std": 42.94268409957745
+      },
+      "eval_return_itr70": {
+        "mean": 20.04259231941982,
+        "population_std": 865.7339491375573
+      },
+      "eval_return_itr130": {
+        "mean": -13.083310744360782,
+        "population_std": 833.1327722702555
+      },
+      "train_return_itr1": {
+        "mean": 3990.4253854160747,
+        "population_std": 30.251754364649493
+      },
+      "train_return_itr139": {
+        "mean": 95.38439097044458,
+        "population_std": 839.5038149341968
+      }
+    },
+    "NC3": {
+      "n_seeds": 3,
+      "collapse_count": 3,
+      "eval_return_itr0": {
+        "mean": 4315.558175636537,
+        "population_std": 21.15075964056592
+      },
+      "eval_return_itr70": {
+        "mean": 3118.8095622267883,
+        "population_std": 598.211157072413
+      },
+      "eval_return_itr130": {
+        "mean": 3043.0325936063036,
+        "population_std": 496.8116617430508
+      },
+      "train_return_itr1": {
+        "mean": 3980.7096791030376,
+        "population_std": 27.01361743860418
+      },
+      "train_return_itr139": {
+        "mean": 2850.6207951567735,
+        "population_std": 427.009650468868
+      }
+    }
+  },
+  "log_axis_omissions": {
+    "zero_observations": 52,
+    "band_positions_with_nonpositive_lower_bound": 135
+  },
+  "validated_ablation_runs": 6
+}

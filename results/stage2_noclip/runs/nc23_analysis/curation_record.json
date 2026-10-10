@@ -1,0 +1,51 @@
+{
+  "status": "curated",
+  "recorded_utc": "2026-10-10T06:06:26.255053+00:00",
+  "user_instruction": "keep in curated",
+  "approval_context": "Direct reply to the A-C review table: both return/diagnostic PNG and PDF formats plus per-seed CSV, under the proposed names.",
+  "analysis_id": "nc23_analysis",
+  "artifacts": [
+    {
+      "artifact_id": "A",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/nc23_returns.png",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-returns.png",
+      "bytes": 444514,
+      "direct_copy_verified": true
+    },
+    {
+      "artifact_id": "A",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/nc23_returns.pdf",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-returns.pdf",
+      "bytes": 43447,
+      "direct_copy_verified": true
+    },
+    {
+      "artifact_id": "B",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/nc23_diagnostics.png",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-diagnostics.png",
+      "bytes": 536072,
+      "direct_copy_verified": true
+    },
+    {
+      "artifact_id": "B",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/nc23_diagnostics.pdf",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-diagnostics.pdf",
+      "bytes": 64667,
+      "direct_copy_verified": true
+    },
+    {
+      "artifact_id": "C",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/nc23_seed_results.csv",
+      "curated": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-seed-results.csv",
+      "bytes": 4436,
+      "direct_copy_verified": true
+    }
+  ],
+  "caption_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/nc23_analysis/candidates/captions.md",
+  "curated_captions": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/curated/halfcheetah-nc2-nc3-captions.md",
+  "caption_changes": "Updated artifact labels and relative links for curated location; added verification and approval links. Scientific captions preserved.",
+  "originals_preserved": true,
+  "training_or_monitor_changes": false,
+  "full_campaign_completion_claimed": false,
+  "scope": "Completed NC2/NC3 subset; existing NC4 artifacts remain unchanged."
+}

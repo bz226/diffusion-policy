@@ -1,11 +1,11 @@
 {
   "run_id": "NC1_recovery_seed1",
   "status": "running",
-  "completed_rows": 43,
-  "training_env_steps": 3040000,
-  "bytes": 176028,
-  "last_line": "[2026-10-09 22:53:06,579][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
-  "last_diagnostic_line": "[2026-10-09 22:53:06,579][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4",
+  "completed_rows": 58,
+  "training_env_steps": 4160000,
+  "bytes": 238917,
+  "last_line": "[2026-10-09 23:07:16,924][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
+  "last_diagnostic_line": "[2026-10-09 23:07:16,924][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4",
   "last_diagnostics": {
     "approx_kl": 0.0,
     "clipfrac": 0.0,
@@ -17,8 +17,8 @@
     "logratio_p99": 0.0,
     "clamp_hit_frac": 0.0
   },
-  "updated_utc": "2026-10-10T05:53:06+00:00",
-  "elapsed_seconds": 2248.2755694070365,
-  "collection_iteration": 43,
-  "last_completed_itr": 42
+  "updated_utc": "2026-10-10T06:07:16+00:00",
+  "elapsed_seconds": 3098.62091425003,
+  "collection_iteration": 58,
+  "last_completed_itr": 57
 }

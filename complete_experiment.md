@@ -21,3 +21,9 @@
 - Analysis folder: [nc4_analysis](results/stage2_noclip/runs/nc4_analysis/)
 - Analysis design: [NC4 subset methods](results/stage2_noclip/methods.md#nc4-subset-analysis-requested-before-campaign-completion)
 - Curated results: [Folder](results/stage2_noclip/curated/) · [Artifact index and captions](results/stage2_noclip/curated/INDEX.md)
+
+### NC2/NC3 clipping comparison against the Stage 1 baseline
+
+- Analysis folder: [nc23_analysis](results/stage2_noclip/runs/nc23_analysis/)
+- Analysis design: [NC2/NC3 subset methods](results/stage2_noclip/methods.md#nc2-and-nc3-plots-before-full-stage-2-analysis)
+- Curated results: [Folder](results/stage2_noclip/curated/) · [Artifact index and captions](results/stage2_noclip/curated/INDEX.md#nc2-and-nc3)
