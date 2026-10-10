@@ -1,0 +1,31 @@
+{
+  "run_id": "ns_ckpt_seed2000",
+  "condition": "ns_ckpt",
+  "seed": 2000,
+  "mode": "noise_scale",
+  "wave": 0,
+  "overrides": [
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "+model.clamp_logprob=false",
+    "model.randn_clip_value=100",
+    "+train.actor_single_step=true",
+    "+model.actor_loss=score",
+    "+train.stage3_diag=true",
+    "+train.mode=noise_scale",
+    "+train.ns_warmup_batches=5",
+    "+train.ns_batches=25",
+    "base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt"
+  ],
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000.out",
+  "cap_seconds": 10800,
+  "estimate_seconds": 4500,
+  "monitor_interval_seconds": 1800,
+  "gpu_type": "a6000",
+  "gpu_count": 1,
+  "cpus": 40,
+  "memory_gib": 64,
+  "estimate_basis": "NC4 1e-4: 8489\u20138674 seconds; central Stage3 estimate includes split-gradient and saturation passes"
+}

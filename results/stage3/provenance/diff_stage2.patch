@@ -1,0 +1,1324 @@
+diff --git a/agent/finetune/stage3_math.py b/agent/finetune/stage3_math.py
+new file mode 100644
+index 0000000..dcc7f33
+--- /dev/null
++++ b/agent/finetune/stage3_math.py
+@@ -0,0 +1,250 @@
++"""Stage-3 estimator mathematics and side-effect-free gradient measurements."""
++
++import math
++import numpy as np
++import torch
++
++
++def mc_returns(rewards, firsts, gamma):
++    """Float64 reward-to-go; boundary t+1 stops the recursion after reward t."""
++    rewards = np.asarray(rewards, dtype=np.float64)
++    firsts = np.asarray(firsts)
++    if rewards.ndim != 2 or firsts.shape != (rewards.shape[0] + 1, rewards.shape[1]):
++        raise ValueError("rewards/firsts must have shapes (T,E)/(T+1,E)")
++    if not np.isfinite(rewards).all() or not np.isfinite(gamma):
++        raise ValueError("non-finite MC input")
++    if not np.isin(firsts, (0, 1)).all():
++        raise ValueError("episode boundaries must be binary")
++    result = np.zeros_like(rewards)
++    running = np.zeros(rewards.shape[1], dtype=np.float64)
++    for t in range(len(rewards) - 1, -1, -1):
++        running = rewards[t] + gamma * running * (1.0 - firsts[t + 1])
++        result[t] = running
++    return result
++
++
++def episode_indices(firsts, horizon=250):
++    """Assert complete aligned episodes and return the within-episode index."""
++    firsts = np.asarray(firsts)
++    if firsts.ndim != 2 or len(firsts) < 2 or horizon < 1:
++        raise ValueError("invalid episode-boundary shape or horizon")
++    steps, envs = len(firsts) - 1, firsts.shape[1]
++    expected = np.zeros_like(firsts)
++    expected[::horizon] = 1
++    if steps % horizon or not np.array_equal(firsts, expected):
++        observed = {str(e): np.flatnonzero(firsts[:, e]).tolist() for e in range(envs)}
++        raise ValueError("episode alignment failed: horizon=%d, steps=%d, boundaries=%r" %
++                         (horizon, steps, observed))
++    return np.broadcast_to((np.arange(steps) % horizon)[:, None], (steps, envs)).copy()
++
++
++def as_episodes(values, firsts, horizon=250):
++    values = np.asarray(values, dtype=np.float64)
++    indices = episode_indices(firsts, horizon)
++    if values.shape != indices.shape:
++        raise ValueError("values do not match episode boundaries")
++    return values.T.reshape(-1, horizon)
++
++
++def loo_advantages(returns, firsts, horizon=250):
++    """LOO baseline across all episodes at equal within-episode decision k."""
++    returns = np.asarray(returns, dtype=np.float64)
++    episodes = as_episodes(returns, firsts, horizon)
++    if len(episodes) < 2:
++        raise ValueError("LOO needs at least two episodes")
++    baseline = (episodes.sum(axis=0, keepdims=True) - episodes) / (len(episodes) - 1)
++    shape = (returns.shape[1], returns.shape[0])
++    baseline = baseline.reshape(shape).T
++    return returns - baseline, baseline
++
++
++def discounted_episode_returns(rewards, firsts, gamma, horizon=250):
++    episodes = as_episodes(rewards, firsts, horizon)
++    return episodes @ np.power(float(gamma), np.arange(horizon, dtype=np.float64))
++
++
++def mean_se(values):
++    values = np.asarray(values, dtype=np.float64)
++    return {"mean": float(values.mean()),
++            "se": float(values.std(ddof=1) / np.sqrt(len(values))) if len(values) > 1 else None,
++            "n": int(len(values))}
++
++
++def _noise_from_gram(mean_dot, scalar_cross_sums, n):
++    if n < 2:
++        raise ValueError("at least two gradient vectors are required")
++    covariance = (np.asarray(scalar_cross_sums, dtype=np.float64) - n * mean_dot) / (n - 1)
++    signal = mean_dot - covariance / n
++    return {"mean_dot": mean_dot, "covariance": covariance,
++            "cross_signal": signal, "u_sq": np.diag(signal).copy(),
++            "tr_cov": np.diag(covariance).copy(), "n": int(n)}
++
++
++def noise_moments(sum_vectors, scalar_cross_sums, n):
++    """Prescribed per-env moment estimator; no clipping of signed estimates."""
++    sums = np.asarray(sum_vectors, dtype=np.float64)
++    if sums.ndim == 1:
++        sums = sums[None]
++    if sums.ndim != 2:
++        raise ValueError("sum_vectors must have shape (variants, parameters)")
++    scalar_cross_sums = np.asarray(scalar_cross_sums, dtype=np.float64)
++    if scalar_cross_sums.shape != (len(sums), len(sums)):
++        raise ValueError("scalar_cross_sums shape mismatch")
++    mean_dot = (sums @ sums.T) / float(n * n)
++    return _noise_from_gram(mean_dot, scalar_cross_sums, n)
++
++
++def batch_noise_summary(batch_sums, batch_cross_sums, envs_per_batch=40,
++                        episodes_per_env=2, bootstrap_reps=2000, seed=0):
++    """Cluster bootstrap over batches using only their vector-sum Gram matrix.
++
++    This follows the requested moment correction, which is approximate for
++    variants coupled through full-batch normalization or LOO coefficients.
++    """
++    sums = np.asarray(batch_sums, dtype=np.float64)
++    scalar = np.asarray(batch_cross_sums, dtype=np.float64)
++    if sums.ndim != 3 or scalar.shape != (sums.shape[0], sums.shape[1], sums.shape[1]):
++        raise ValueError("expected batch_sums(B,V,P), batch_cross_sums(B,V,V)")
++    batches, variants, parameters = sums.shape
++    n = batches * envs_per_batch
++    flattened = sums.reshape(batches * variants, parameters)
++    gram = (flattened @ flattened.T).reshape(batches, variants, batches, variants)
++    point = noise_moments(sums.sum(axis=0), scalar.sum(axis=0), n)
++    # Dedicated generator: never draws from NumPy's global generator.
++    rng = np.random.default_rng(np.random.SeedSequence([int(seed), 314159]))
++    weights = rng.multinomial(batches, np.full(batches, 1.0 / batches),
++                              size=bootstrap_reps).astype(np.float64)
++    boot_dot = np.einsum("rb,bvcw,rc->rvw", weights, gram, weights, optimize=True) / (n * n)
++    boot_scalar = np.einsum("rb,bvw->rvw", weights, scalar, optimize=True)
++    boot_cov = (boot_scalar - n * boot_dot) / (n - 1)
++    boot_signal = boot_dot - boot_cov / n
++    boot_u = np.diagonal(boot_signal, axis1=1, axis2=2)
++    boot_var = np.diagonal(boot_cov, axis1=1, axis2=2)
++    ci_u = np.quantile(boot_u, [0.05, 0.95], axis=0)
++    ci_var = np.quantile(boot_var, [0.05, 0.95], axis=0)
++    # Lower bound uses simultaneous Bonferroni one-sided 95% percentile bounds:
++    # variance >= its 5th percentile and signal <= its 95th percentile.
++    rows = []
++    for v in range(variants):
++        u, variance = float(point["u_sq"][v]), float(point["tr_cov"][v])
++        resolved = bool(ci_u[0, v] > 0 and u > 0 and variance >= 0)
++        row = {"u_sq": u, "u_sq_ci90": ci_u[:, v].tolist(),
++               "tr_sigma": variance, "tr_sigma_ci90": ci_var[:, v].tolist(),
++               "signal_ci_includes_zero": bool(ci_u[0, v] <= 0 <= ci_u[1, v]),
++               "signal_resolved_positive": resolved,
++               "B_env": variance / u if resolved else None,
++               "B_ep": episodes_per_env * variance / u if resolved else None,
++               "snr_training_batch": envs_per_batch * u / variance if resolved and variance > 0 else None,
++               "expected_batch_cosine": (1 + variance / (envs_per_batch * u)) ** -0.5 if resolved else None,
++               "B_env_lower_bound": (max(0.0, float(ci_var[0, v])) / float(ci_u[1, v]))
++                   if ci_u[1, v] > 0 else None}
++        if resolved and np.all(boot_u[:, v] > 0) and np.all(boot_var[:, v] >= 0):
++            ratios = boot_var[:, v] / boot_u[:, v]
++            row["B_env_ci90"] = np.quantile(ratios, [0.05, 0.95]).tolist()
++            row["B_ep_ci90"] = (episodes_per_env * np.quantile(ratios, [0.05, 0.95])).tolist()
++            row["snr_training_batch_ci90"] = (np.quantile(envs_per_batch / ratios, [0.05, 0.95]).tolist()
++                                                   if np.all(ratios > 0) else None)
++            row["expected_batch_cosine_ci90"] = np.quantile((1 + ratios / envs_per_batch) ** -0.5, [0.05, 0.95]).tolist()
++        else:
++            row.update({key: None for key in ("B_env_ci90", "B_ep_ci90", "snr_training_batch_ci90", "expected_batch_cosine_ci90")})
++        rows.append(row)
++    cosines = []
++    cosine_ci = []
++    for v in range(variants):
++        row, row_ci = [], []
++        for w in range(variants):
++            if rows[v]["signal_resolved_positive"] and rows[w]["signal_resolved_positive"]:
++                row.append(float(point["cross_signal"][v, w] /
++                                 np.sqrt(point["u_sq"][v] * point["u_sq"][w])))
++                if np.all(boot_u[:, v] > 0) and np.all(boot_u[:, w] > 0):
++                    cos = boot_signal[:, v, w] / np.sqrt(boot_u[:, v] * boot_u[:, w])
++                    row_ci.append(np.quantile(cos, [0.05, 0.95]).tolist())
++                else:
++                    row_ci.append(None)
++            else:
++                row.append(None)
++                row_ci.append(None)
++        cosines.append(row)
++        cosine_ci.append(row_ci)
++    return {"variants": rows, "cosine_matrix": cosines, "cosine_ci90": cosine_ci,
++            "cross_signal": point["cross_signal"].tolist(),
++            "n_env_rollouts": n, "n_batches": batches, "bootstrap_reps": bootstrap_reps,
++            "gram": gram, "uncertainty_unit": "whole fresh batch",
++            "dependence_note": "The prescribed n-based moment correction is approximate for full-batch-normalized and LOO-coupled variants; batch bootstrap preserves within-batch dependence but does not eliminate centering bias.",
++            "bound_note": "B_env lower bound uses max(0, variance 5th percentile) / signal 95th percentile, a Bonferroni combination of one-sided 95% percentile bounds. Signed point moments remain unchanged.",
++            "cosine_note": "Signed debiased moments and unbounded cosine estimates are retained, never clipped. Derived values are null when signal is unresolved; an estimated cosine outside [-1,1] signals estimation uncertainty."}
++
++
++def actor_gradient(agent, batch, advantages, reduce="sum", gamma_denoising=1.0,
++                   normalize=False, env_indices=None, clamp=False):
++    """Return a loss gradient without touching .grad, RNG, or model state.
++
++    Normalization uses the entire pair batch before selecting environments.
++    Chunk weighting is each chunk's pair count divided by selected pair count.
++    """
++    if reduce not in ("mean", "sum"):
++        raise ValueError("invalid coordinate reduction")
++    model = agent.model
++    parameters = list(model.actor_ft.parameters())
++    device = parameters[0].device
++    dtype = parameters[0].dtype
++    total_decisions = batch["chains_k"].shape[0]
++    denoising = model.ft_denoising_steps
++    adv = torch.as_tensor(advantages, device=device, dtype=dtype).detach().reshape(-1).clone()
++    if adv.numel() != total_decisions:
++        raise ValueError("one advantage per decision is required")
++    if normalize:
++        # Equivalent to std() on every decision repeated once per denoising step.
++        mean = adv.mean()
++        count = adv.numel() * denoising
++        std = torch.sqrt(((adv - mean) ** 2).sum() * denoising / (count - 1))
++        adv = (adv - mean) / (std + 1e-8)
++    decisions = torch.arange(total_decisions, device=device)
++    if env_indices is not None:
++        environments = torch.as_tensor(env_indices, device=device, dtype=torch.long)
++        decisions = decisions.reshape(-1, agent.n_envs)[:, environments].reshape(-1)
++    # Ordered decision-major pair indices; no random permutation or RNG use.
++    pairs = (decisions[:, None] * denoising + torch.arange(denoising, device=device)).reshape(-1)
++    gradient = torch.zeros(sum(p.numel() for p in parameters), dtype=dtype, device=device)
++    discounts = torch.tensor([gamma_denoising ** (denoising - j - 1) for j in range(denoising)],
++                             device=device, dtype=dtype)
++    for start in range(0, len(pairs), agent.batch_size):
++        selected = pairs[start:start + agent.batch_size]
++        decisions_b, steps_b = torch.div(selected, denoising, rounding_mode="floor"), selected % denoising
++        logp = model.get_logprobs_subsample(
++            {key: value[decisions_b] for key, value in batch["obs_k"].items()},
++            batch["chains_k"][decisions_b, steps_b],
++            batch["chains_k"][decisions_b, steps_b + 1], steps_b)
++        if clamp:
++            logp = logp.clamp(min=-5, max=2)
++        logp = logp[:, :agent.reward_horizon, :]
++        logp = logp.mean(dim=(-1, -2)) if reduce == "mean" else logp.sum(dim=(-1, -2))
++        coefficients = adv[decisions_b] * discounts[steps_b]
++        loss = -(coefficients * logp).sum() / len(pairs)
++        chunk = torch.autograd.grad(loss, parameters, allow_unused=True)
++        offset = 0
++        for parameter, value in zip(parameters, chunk):
++            if value is not None:
++                gradient[offset:offset + parameter.numel()].add_(value.detach().reshape(-1))
++            offset += parameter.numel()
++    return gradient
++
++
++@torch.no_grad()
++def project_ball_(parameters, origin, radius):
++    """In-place Euclidean projection; inside-ball parameters are untouched."""
++    parameters = list(parameters)
++    theta = torch.cat([p.detach().reshape(-1) for p in parameters])
++    origin = torch.as_tensor(origin, device=theta.device, dtype=theta.dtype)
++    if theta.shape != origin.shape or radius is None or radius < 0 or not math.isfinite(radius):
++        raise ValueError("invalid projection origin or radius")
++    displacement = theta - origin
++    norm = torch.linalg.vector_norm(displacement.double())
++    active = bool(norm.item() > radius)
++    if active:
++        projected = origin + displacement * (radius / norm).to(theta.dtype)
++        offset = 0
++        for parameter in parameters:
++            parameter.copy_(projected[offset:offset + parameter.numel()].view_as(parameter))
++            offset += parameter.numel()
++    return {"theta_dist_preproj": norm.item(), "proj_active": active}
+diff --git a/agent/finetune/stage3_modes.py b/agent/finetune/stage3_modes.py
+new file mode 100644
+index 0000000..310fa1c
+--- /dev/null
++++ b/agent/finetune/stage3_modes.py
+@@ -0,0 +1,437 @@
++"""Non-training Stage-3 protocols; sampling remains the DPPO sampler."""
++
++import csv
++import json
++import logging
++import math
++import time
++from pathlib import Path
++
++import numpy as np
++import torch
++
++from agent.finetune.stage3_math import (
++    actor_gradient, as_episodes, batch_noise_summary, discounted_episode_returns,
++    episode_indices, loo_advantages, mc_returns, mean_se,
++)
++
++log = logging.getLogger(__name__)
++VARIANTS = ("nc4", "mc_critic", "mc_loo", "theory_loo", "theory_nobase")
++
++
++def _strict_json(value):
++    if isinstance(value, dict):
++        return {str(k): _strict_json(v) for k, v in value.items()}
++    if isinstance(value, (tuple, list)):
++        return [_strict_json(v) for v in value]
++    if isinstance(value, np.ndarray):
++        return _strict_json(value.tolist())
++    if isinstance(value, np.generic):
++        return _strict_json(value.item())
++    if isinstance(value, float) and not math.isfinite(value):
++        raise ValueError("non-finite number cannot be written as scientific output")
++    return value
++
++
++def _write_json(path, data):
++    path = Path(path)
++    temporary = path.with_name(path.name + ".tmp")
++    temporary.write_text(json.dumps(_strict_json(data), indent=2, allow_nan=False) + "\n")
++    temporary.replace(path)
++
++
++def _write_csv(path, rows):
++    if not rows:
++        return
++    keys = list(dict.fromkeys(key for row in rows for key in row))
++    with Path(path).open("w", newline="") as stream:
++        writer = csv.DictWriter(stream, fieldnames=keys)
++        writer.writeheader()
++        writer.writerows({key: json.dumps(value) if isinstance(value, (dict, list)) else value
++                         for key, value in row.items()} for row in rows)
++
++
++def _flat_parameters(model):
++    return torch.cat([p.detach().reshape(-1) for p in model.actor_ft.parameters()]).clone()
++
++
++@torch.no_grad()
++def _set_parameters(model, vector):
++    offset = 0
++    for parameter in model.actor_ft.parameters():
++        parameter.copy_(vector[offset:offset + parameter.numel()].view_as(parameter))
++        offset += parameter.numel()
++    if offset != len(vector):
++        raise ValueError("actor parameter-vector length mismatch")
++
++
++def _generator(seed, iteration, purpose):
++    # SeedSequence does not use any global Python/NumPy/torch generator.
++    state = np.random.SeedSequence([int(seed), int(iteration), int(purpose)]).generate_state(2)
++    local_seed = (int(state[0]) | (int(state[1]) << 32)) % (2 ** 63 - 1)
++    return torch.Generator(device="cpu").manual_seed(local_seed)
++
++
++def diagnostic_pairs(agent, batch, iteration, purpose=37, count=20000):
++    count_available = batch["chains_k"].shape[0] * agent.model.ft_denoising_steps
++    if count_available < count:
++        raise ValueError("insufficient chain pairs for prescribed diagnostic subsample")
++    return torch.randperm(count_available, generator=_generator(agent.seed, iteration, purpose))[:count].to(agent.device)
++
++
++@torch.no_grad()
++def sampled_kl(agent, batch, pairs):
++    denoising = agent.model.ft_denoising_steps
++    decisions = torch.div(pairs, denoising, rounding_mode="floor")
++    steps = pairs % denoising
++    new = agent.model.get_logprobs_subsample(
++        {key: value[decisions] for key, value in batch["obs_k"].items()},
++        batch["chains_k"][decisions, steps], batch["chains_k"][decisions, steps + 1], steps)
++    old = batch["oldlogprobs"][decisions, steps]
++    difference = new.double().sum(dim=(-1, -2)) - old.double().sum(dim=(-1, -2))
++    value = (denoising * (torch.expm1(difference) - difference).mean()).item()
++    if not math.isfinite(value):
++        raise FloatingPointError("non-finite calibration KL")
++    return value
++
++
++@torch.no_grad()
++def saturation_metrics(agent, batch, pairs):
++    """Raw predicted x0 before clamping, on actual stored fine-tuned chains."""
++    model = agent.model
++    if model.use_ddim or not model.predict_epsilon:
++        raise ValueError("Stage-3 saturation formula requires the prescribed DDPM epsilon model")
++    steps = pairs % model.ft_denoising_steps
++    decisions = torch.div(pairs, model.ft_denoising_steps, rounding_mode="floor")
++    timesteps = model.ft_denoising_steps - 1 - steps
++    x = batch["chains_k"][decisions, steps]
++    noise = model.actor_ft(x, timesteps, cond={key: value[decisions]
++                                             for key, value in batch["obs_k"].items()})
++    sqrt_recip = model.sqrt_recip_alphas_cumprod[timesteps].reshape(-1, 1, 1)
++    sqrt_recipm1 = model.sqrt_recipm1_alphas_cumprod[timesteps].reshape(-1, 1, 1)
++    raw = sqrt_recip * x - sqrt_recipm1 * noise
++    if not torch.isfinite(raw).all():
++        raise FloatingPointError("non-finite raw x0 prediction")
++    saturated = raw.abs() > model.denoised_clip_value
++    last = timesteps == 0
++    per_step = [saturated[steps == j].double().mean() for j in range(model.ft_denoising_steps)]
++    return {"x0_sat_frac_mean": torch.stack(per_step).mean().item(),
++            "x0_sat_frac_last": saturated[last].double().mean().item() if last.any() else None,
++            "x0_sat_pairs": int(len(pairs)), "x0_sat_last_pairs": int(last.sum().item())}
++
++
++def _explained_variance(batch):
++    targets = np.asarray(batch["returns"], dtype=np.float64).reshape(-1)
++    values = np.asarray(batch["values"], dtype=np.float64).reshape(-1)
++    variance = targets.var()
++    return float(1 - (targets - values).var() / variance) if variance > 0 else None
++
++
++def _record_progress(agent, mode, phase, completed, target, started, **values):
++    state = {"mode": mode, "phase": phase, "substage": phase,
++             "completed": completed, "target": target, "done": completed, "total": target,
++             "status": "complete" if phase == "completed" else "running",
++             "elapsed_seconds": time.monotonic() - started, **values}
++    _write_json(Path(agent.logdir) / "stage3_progress.json", state)
++    log.info("stage3_mode_progress %s", json.dumps(_strict_json(state), sort_keys=True))
++
++
++def _variant_coefficients(agent, batch):
++    firsts = batch["firsts"]
++    k = episode_indices(firsts)
++    raw_returns = mc_returns(batch["raw_rewards"], firsts, agent.gamma)
++    loo, _ = loo_advantages(raw_returns, firsts)
++    scaled_returns = mc_returns(np.asarray(batch["scaled_rewards"]) * agent.reward_scale_const,
++                                firsts, agent.gamma)
++    # Match the training path's float32 advantage cast followed by float32 weight.
++    gamma_k = torch.as_tensor(agent.gamma ** k, device=agent.device, dtype=torch.float32)
++    weighted_loo = torch.as_tensor(loo, device=agent.device, dtype=torch.float32) * gamma_k
++    weighted_raw = torch.as_tensor(raw_returns, device=agent.device, dtype=torch.float32) * gamma_k
++    return (
++        (batch["gae_adv"], "mean", 0.99, True),
++        (scaled_returns - batch["values"], "mean", 0.99, True),
++        (loo, "mean", 0.99, True),
++        (weighted_loo, "sum", 1.0, False),
++        (weighted_raw, "sum", 1.0, False),
++    )
++
++
++def run_noise_scale(agent):
++    cfg = agent.cfg.train
++    warmup = int(cfg.get("ns_warmup_batches", 20))
++    batches = int(cfg.get("ns_batches", 25))
++    if warmup < 0 or batches < 2:
++        raise ValueError("invalid noise-scale protocol length")
++    started = time.monotonic()
++    actor_before = _flat_parameters(agent.model)
++    directory = Path(agent.logdir)
++    warmup_rows = []
++    for iteration in range(warmup):
++        batch_started = time.monotonic()
++        batch = agent._stage3_collect(deterministic=False, update_scaler=True)
++        episode_indices(batch["firsts"])
++        updates = agent._stage3_critic_update(batch)
++        row = {"batch": iteration, "seconds": time.monotonic() - batch_started,
++               "explained_var_preupdate": _explained_variance(batch)}
++        if isinstance(updates, dict):
++            row["critic_optimizer_steps"] = updates.get("critic_optimizer_steps", updates.get("critic_steps"))
++        warmup_rows.append(row)
++        _record_progress(agent, "noise_scale", "critic_warmup", iteration + 1, warmup, started)
++    if not torch.equal(actor_before, _flat_parameters(agent.model)):
++        raise RuntimeError("noise-scale warmup changed the frozen actor")
++    # Freeze by not stepping parameters/scaler. Autograd still needs actor parameters.
++    critic_before = {key: value.detach().clone() for key, value in agent.model.critic.state_dict().items()}
++    scaler_before = (agent.running_reward_scaler.ret_rms.var.copy(),
++                     agent.running_reward_scaler.ret_rms.mean.copy(),
++                     agent.running_reward_scaler.ret_rms.count,
++                     agent.running_reward_scaler.ret.copy())
++    parameter_count = actor_before.numel()
++    batch_sums = np.lib.format.open_memmap(directory / "noise_batch_vector_sums.npy", mode="w+",
++                                         dtype=np.float64, shape=(batches, len(VARIANTS), parameter_count))
++    cross_sums = np.zeros((batches, len(VARIANTS), len(VARIANTS)), dtype=np.float64)
++    rows = []
++    for iteration in range(batches):
++        batch_started = time.monotonic()
++        batch = agent._stage3_collect(deterministic=False, update_scaler=False)
++        coefficients = _variant_coefficients(agent, batch)
++        batch_sums[iteration] = 0
++        for environment in range(agent.n_envs):
++            vectors = []
++            for advantages, reduction, discount, normalize in coefficients:
++                gradient = actor_gradient(agent, batch, advantages, reduce=reduction,
++                                          gamma_denoising=discount, normalize=normalize,
++                                          env_indices=[environment])
++                if not torch.isfinite(gradient).all():
++                    raise FloatingPointError("non-finite noise-scale gradient at batch %d env %d" %
++                                             (iteration, environment))
++                vectors.append(gradient.double().cpu().numpy())
++            vectors = np.stack(vectors)
++            batch_sums[iteration] += vectors
++            cross_sums[iteration] += vectors @ vectors.T
++            if (environment + 1) % 10 == 0:
++                _record_progress(agent, "noise_scale", "measure", iteration, batches, started,
++                                 environments_completed=environment + 1)
++        batch_sums.flush()
++        row = {"batch": iteration, "seconds": time.monotonic() - batch_started,
++               "explained_var": _explained_variance(batch),
++               "J_disc_train": mean_se(discounted_episode_returns(batch["raw_rewards"], batch["firsts"], agent.gamma))}
++        rows.append(row)
++        _write_json(directory / "noise_measurements.json", rows)
++        np.save(directory / "noise_batch_scalar_cross_sums.npy", cross_sums)
++        _record_progress(agent, "noise_scale", "measure", iteration + 1, batches, started)
++    if not torch.equal(actor_before, _flat_parameters(agent.model)):
++        raise RuntimeError("noise-scale measurement changed the frozen actor")
++    if any(not torch.equal(value, agent.model.critic.state_dict()[key]) for key, value in critic_before.items()):
++        raise RuntimeError("noise-scale measurement changed the frozen critic")
++    scaler_after = (agent.running_reward_scaler.ret_rms.var, agent.running_reward_scaler.ret_rms.mean,
++                    agent.running_reward_scaler.ret_rms.count, agent.running_reward_scaler.ret)
++    if any(not np.array_equal(before, after) for before, after in zip(scaler_before, scaler_after)):
++        raise RuntimeError("noise-scale measurement changed the frozen reward scaler")
++    _record_progress(agent, "noise_scale", "bootstrap", 0, 2000, started)
++    summary = batch_noise_summary(batch_sums, cross_sums, agent.n_envs, agent.n_steps // 250,
++                                  bootstrap_reps=2000, seed=agent.seed)
++    gram = summary.pop("gram")
++    np.save(directory / "noise_batch_gram.npy", gram)
++    for name, row in zip(VARIANTS, summary["variants"]):
++        row["variant"] = name
++    summary.update({"mode": "noise_scale", "status": "completed", "seed": agent.seed,
++                    "variant_order": list(VARIANTS), "warmup_batches": warmup,
++                    "measurement_batches": batches, "warmup": warmup_rows,
++                    "measurements": rows, "critic_explained_var_after_warmup": rows[0]["explained_var"],
++                    "critic_explained_var_mean_measurement": float(np.mean([r["explained_var"] for r in rows if r["explained_var"] is not None]))
++                        if any(r["explained_var"] is not None for r in rows) else None,
++                    "elapsed_seconds": time.monotonic() - started,
++                    "sampling": "train sampler; frozen actor, critic and reward scaler during measurement",
++                    "gradient_units": "negative mean loss gradient per 5000-pair environment rollout; theory variants equal minus paper estimator / 2500",
++                    "artifacts": {"batch_vector_sums": "noise_batch_vector_sums.npy",
++                                  "batch_scalar_cross_sums": "noise_batch_scalar_cross_sums.npy", "gram": "noise_batch_gram.npy"}})
++    _write_json(directory / "noise_scale.json", summary)
++    _write_csv(directory / "noise_scale.csv", summary["variants"])
++    lines = ["# Fixed-policy gradient noise", "",
++             "Twenty-five fresh batches are the bootstrap units; the 1,000 environment gradients are coupled within a batch by normalization and/or LOO. The specified n-based signal correction is consequently approximate for those variants.", "",
++             "| Variant | Signal norm squared [90% CI] | Noise trace | B_env | B_ep | Batch cosine |",
++             "|---|---:|---:|---:|---:|---:|"]
++    for row in summary["variants"]:
++        lines.append("| {variant} | {u_sq:.6g} {u_sq_ci90} | {tr_sigma:.6g} | {B_env} | {B_ep} | {expected_batch_cosine} |".format(**row))
++    lines.extend(["", "Null ratios indicate unresolved positive signal; signed signal estimates are retained. See noise_scale.json for lower bounds, all confidence intervals, the direction-cosine matrix and warmed-critic explained variance.", "", summary["bound_note"], "", summary["cosine_note"]])
++    (directory / "SUMMARY.md").write_text("\n".join(lines) + "\n")
++    _record_progress(agent, "noise_scale", "completed", batches, batches, started)
++    return summary
++
++
++def run_calibrate(agent):
++    target = float(agent.cfg.train.get("calib_kl_target"))
++    if not math.isfinite(target) or target <= 0:
++        raise ValueError("calib_kl_target must be finite and positive")
++    directory = Path(agent.logdir)
++    origin = _flat_parameters(agent.model)
++    norm = torch.linalg.vector_norm(origin.double()).item()
++    started = time.monotonic()
++    rows = []
++    for iteration in range(5):
++        batch_started = time.monotonic()
++        batch = agent._stage3_collect(deterministic=False, update_scaler=False)
++        k = episode_indices(batch["firsts"])
++        returns = mc_returns(batch["raw_rewards"], batch["firsts"], agent.gamma)
++        advantages, _ = loo_advantages(returns, batch["firsts"])
++        coefficients = (torch.as_tensor(advantages, device=agent.device, dtype=torch.float32)
++                        * torch.as_tensor(agent.gamma ** k, device=agent.device, dtype=torch.float32))
++        gradient = actor_gradient(agent, batch, coefficients,
++                                  reduce="sum", gamma_denoising=1., normalize=False)
++        grad_norm = torch.linalg.vector_norm(gradient.double()).item()
++        if not math.isfinite(grad_norm) or grad_norm <= 0:
++            raise FloatingPointError("calibration requires a nonzero finite E2 gradient")
++        pairs = diagnostic_pairs(agent, batch, iteration, purpose=3000)
++        trials = []
++
++        def evaluate(eta, label):
++            if not math.isfinite(eta) or eta <= 0:
++                raise FloatingPointError("invalid calibration trial step size")
++            try:
++                _set_parameters(agent.model, origin - eta * gradient)
++                kl = sampled_kl(agent, batch, pairs)
++            finally:
++                _set_parameters(agent.model, origin)
++            trials.append({"eta": float(eta), "kl": kl, "label": label})
++            return kl
++
++        eta0 = 1e-4 * norm / grad_norm
++        kl0 = evaluate(eta0, "initial")
++        bracket_trials = 0
++        while not 1e-6 <= kl0 <= 1e-2:
++            bracket_trials += 1
++            if bracket_trials > 20:
++                raise RuntimeError("calibration failed to bracket KL after 20 decade changes")
++            eta0 *= 10 if kl0 < 1e-6 else 0.1
++            kl0 = evaluate(eta0, "bracket")
++        kl10 = evaluate(10 * eta0, "exponent_probe")
++        exponent = math.log(kl10 / kl0) / math.log(10) if kl10 > 0 else None
++        eta_b = eta0 * math.sqrt(target / kl0)
++        kl_b = evaluate(eta_b, "quadratic_prediction")
++        warnings = []
++        if not (0.5 * target <= kl_b <= 2 * target):
++            if kl_b > 0 and eta_b != eta0:
++                slope = math.log(kl_b / kl0) / math.log(eta_b / eta0)
++            else:
++                slope = exponent
++            if slope is None or slope == 0 or not math.isfinite(slope) or kl_b <= 0:
++                warnings.append("log-log secant undefined; retaining the quadratic step")
++            else:
++                eta_b = math.exp(math.log(eta_b) + (math.log(target) - math.log(kl_b)) / slope)
++                kl_b = evaluate(eta_b, "one_loglog_secant")
++        if exponent is None or not 1.5 <= exponent <= 2.5:
++            warnings.append("KL exponent is outside [1.5, 2.5]")
++        if not 0.5 * target <= kl_b <= 2 * target:
++            warnings.append("final trial KL is outside [0.5, 2] times target after the permitted correction")
++        row = {"batch": iteration, "eta0": eta0, "kl_eta0": kl0,
++               "kl_10eta0": kl10, "exponent": exponent, "eta_b": eta_b,
++               "eta_theory_b": eta_b / 2500, "kl_eta_b": kl_b,
++               "gradient_norm": grad_norm, "theta0_norm": norm,
++               "seconds": time.monotonic() - batch_started, "trials": trials,
++               "warnings": warnings}
++        rows.append(row)
++        _write_json(directory / "calibration_batches.json", rows)
++        _record_progress(agent, "calibrate", "calibrate", iteration + 1, 5, started,
++                         eta_b=eta_b, target_kl=target, realized_kl=kl_b, warnings=warnings)
++    if not torch.equal(origin, _flat_parameters(agent.model)):
++        raise RuntimeError("calibration did not restore the actor")
++    eta_star = float(np.median([row["eta_b"] for row in rows]))
++    spread = max(row["eta_b"] for row in rows) / min(row["eta_b"] for row in rows)
++    summary = {"mode": "calibrate", "status": "completed", "seed": agent.seed,
++               "kl_target": target, "eta_star": eta_star, "eta_star_theory": eta_star / 2500,
++               "eta_spread_max_over_min": spread, "batches": rows,
++               "warnings": ["eta_b spread exceeds 3x"] if spread > 3 else [],
++               "elapsed_seconds": time.monotonic() - started,
++               "gradient_units": "code gradient equals negative paper gradient / 2500",
++               "protocol": "Five fresh train-sampler batches; same 20,000 raw coordinate-sum logprob pairs for every trial within a batch; actor restored after each trial; no optimizer step."}
++    _write_json(directory / "calibration.json", summary)
++    _write_csv(directory / "calibration.csv", [{k: v for k, v in row.items() if k != "trials"} for row in rows])
++    lines = ["# SGD step calibration", "", "Target sampled transition KL: %.9g. Median eta: %.9g; eta_theory: %.9g; max/min spread: %.6g." %
++             (target, eta_star, eta_star / 2500, spread), "",
++             "| Batch | eta | eta_theory | Realized KL | KL exponent |", "|---|---:|---:|---:|---:|"]
++    for row in rows:
++        lines.append("| {batch} | {eta_b:.9g} | {eta_theory_b:.9g} | {kl_eta_b:.9g} | {exponent} |".format(**row))
++    lines.extend(["", "No actor or optimizer update is retained. Per-trial data and calibration warnings are in calibration.json.", "", "Warnings: " + json.dumps(summary["warnings"] + [warning for row in rows for warning in row["warnings"]])])
++    (directory / "SUMMARY.md").write_text("\n".join(lines) + "\n")
++    _record_progress(agent, "calibrate", "completed", 5, 5, started)
++    return summary
++
++
++def run_ckpt_eval(agent):
++    repeats = int(agent.cfg.train.get("ckpt_eval_repeats", 1))
++    if repeats not in (1, 3):
++        raise ValueError("ckpt_eval_repeats must be 1 (final checkpoint) or 3 (pretrained)")
++    directory = Path(agent.logdir)
++    started = time.monotonic()
++    rows, pooled = [], {}
++    origin = _flat_parameters(agent.model)
++    collected = {sampler: {"returns": [], "discounted": []} for sampler in ("train", "eval")}
++    # Interleave samplers so pretrained repeat 0 has the same policy-RNG prefix
++    # as every one-repeat final-checkpoint job, without reseeding global RNG.
++    for repetition in range(repeats):
++        for sampler, deterministic in (("train", False), ("eval", True)):
++            batch_started = time.monotonic()
++            batch = agent._stage3_collect(deterministic=deterministic, n_steps=500, update_scaler=False)
++            rewards = as_episodes(batch["raw_rewards"], batch["firsts"])
++            undiscounted = rewards.sum(axis=1)
++            discounted = discounted_episode_returns(batch["raw_rewards"], batch["firsts"], agent.gamma)
++            if len(undiscounted) != 80:
++                raise ValueError("checkpoint evaluation requires exactly 80 episodes per rollout")
++            pairs = diagnostic_pairs(agent, batch, 2 * repetition + int(deterministic), purpose=5000)
++            saturation = saturation_metrics(agent, batch, pairs)
++            action_metrics = agent._stage3_action_metrics(batch["actions"])
++            row = {"sampler": sampler, "deterministic_flag": deterministic, "repeat": repetition,
++                   "undiscounted_return": mean_se(undiscounted), "J_disc": mean_se(discounted),
++                   "x0_sat_frac": saturation["x0_sat_frac_mean"], **saturation,
++                   **action_metrics,
++                   "episode_returns": undiscounted.tolist(), "episode_J_disc": discounted.tolist(),
++                   "seconds": time.monotonic() - batch_started}
++            rows.append(row)
++            collected[sampler]["returns"].extend(undiscounted.tolist())
++            collected[sampler]["discounted"].extend(discounted.tolist())
++            _write_json(directory / "ckpt_eval_rollouts.json", rows)
++            _record_progress(agent, "ckpt_eval", sampler, repetition + 1, repeats, started)
++    for sampler in ("train", "eval"):
++        selected = [row for row in rows if row["sampler"] == sampler]
++        pooled[sampler] = {"undiscounted_return": mean_se(collected[sampler]["returns"]),
++                           "J_disc": mean_se(collected[sampler]["discounted"]),
++                           "x0_sat_frac": float(np.mean([row["x0_sat_frac"] for row in selected])),
++                           "x0_sat_frac_last": float(np.mean([row["x0_sat_frac_last"] for row in selected])),
++                           "action_oor_frac": float(np.mean([row["action_oor_frac"] for row in selected])),
++                           "policy_action_oor_frac": float(np.mean([row["policy_action_oor_frac"] for row in selected]))}
++    if not torch.equal(origin, _flat_parameters(agent.model)):
++        raise RuntimeError("checkpoint evaluation changed the actor")
++    summary = {"mode": "ckpt_eval", "status": "completed", "seed": agent.seed,
++               "checkpoint": str(agent.cfg.base_policy_path), "repeats_per_sampler": repeats,
++               "samplers": pooled, "rollouts": rows, "elapsed_seconds": time.monotonic() - started,
++               "sampling_note": "Seed initialized once; each repeat collects train then eval, with continuous policy RNG across repeats. Pretrained repeat 0 has the same policy-RNG prefix as each one-repeat checkpoint job. DDPM deterministic=True still adds noise at t>0, and zero noise at t=0. Seed 5000 aligns policy RNG streams across checkpoints, but the existing wrapper does not seed Gym's underlying np_random generator, so initial environment states are not fully paired; environment seeding remains unchanged.",
++               "uncertainty": "Episode standard error uses sample SD (ddof=1)/sqrt(n); pretrained pooled summaries contain 240 episodes per sampler, each final checkpoint 80.",
++               "action_units": "action_oor_frac uses physical actions sent to Gym after the wrapper's float32 affine unnormalization; policy_action_oor_frac separately uses normalized policy coordinates."}
++    _write_json(directory / "ckpt_eval.json", summary)
++    _write_csv(directory / "ckpt_eval.csv", [{"sampler": key,
++                "undiscounted_mean": values["undiscounted_return"]["mean"],
++                "undiscounted_se": values["undiscounted_return"]["se"],
++                "J_disc_mean": values["J_disc"]["mean"], "J_disc_se": values["J_disc"]["se"],
++                "n_episodes": values["J_disc"]["n"], "x0_sat_frac": values["x0_sat_frac"],
++                "x0_sat_frac_last": values["x0_sat_frac_last"], "action_oor_frac": values["action_oor_frac"],
++                "policy_action_oor_frac": values["policy_action_oor_frac"]}
++                for key, values in pooled.items()])
++    lines = ["# Final-checkpoint evaluation", "", "| Sampler | Undiscounted return (mean ± s.e.) | Discounted return (mean ± s.e.) | x0 saturation |",
++             "|---|---:|---:|---:|"]
++    for sampler, values in pooled.items():
++        lines.append("| %s | %.6g ± %.6g | %.6g ± %.6g | %.6g |" %
++                     (sampler, values["undiscounted_return"]["mean"], values["undiscounted_return"]["se"],
++                      values["J_disc"]["mean"], values["J_disc"]["se"], values["x0_sat_frac"]))
++    lines.extend(["", summary["sampling_note"], "", summary["uncertainty"], "", summary["action_units"]])
++    (directory / "SUMMARY.md").write_text("\n".join(lines) + "\n")
++    _record_progress(agent, "ckpt_eval", "completed", 2 * repeats, 2 * repeats, started)
++    return summary
++
++
++def run_stage3_mode(agent):
++    mode = agent.cfg.train.get("mode", "train")
++    dispatch = {"noise_scale": run_noise_scale, "calibrate": run_calibrate,
++                "ckpt_eval": run_ckpt_eval}
++    if mode not in dispatch:
++        raise ValueError("unsupported non-training mode: %s" % mode)
++    return dispatch[mode](agent)
+diff --git a/agent/finetune/stage3_support.py b/agent/finetune/stage3_support.py
+new file mode 100644
+index 0000000..bf0597a
+--- /dev/null
++++ b/agent/finetune/stage3_support.py
+@@ -0,0 +1,368 @@
++"""Flagged Stage-3 bookkeeping and nontraining rollout support.
++
++Default training never calls these diagnostic/estimator paths. Measurements use
++autograd.grad and owned tensors, leaving optimizer gradients and global RNG alone.
++"""
++import json
++import logging
++import math
++import time
++from pathlib import Path
++
++import numpy as np
++import torch
++
++from agent.finetune.stage3_math import (
++    actor_gradient, discounted_episode_returns, episode_indices, loo_advantages,
++    mc_returns, mean_se, project_ball_,
++)
++
++log = logging.getLogger(__name__)
++
++
++def flat_actor(model):
++    return torch.cat([p.detach().reshape(-1) for p in model.actor_ft.parameters()])
++
++
++class Stage3Support:
++    def _stage3_init(self, cfg):
++        self.stage3_cfg = cfg
++        self.adv_estimator = cfg.train.get("adv_estimator", "gae")
++        self.decision_discount = cfg.train.get("decision_discount", False)
++        self.proj_radius = cfg.train.get("proj_radius", None)
++        self.stage3_diag = cfg.train.get("stage3_diag", False)
++        self.stage3_mode = cfg.train.get("mode", "train")
++        if self.adv_estimator not in ("gae", "mc_loo", "mc_none"):
++            raise ValueError("adv_estimator must be gae, mc_loo or mc_none")
++        if self.stage3_mode not in ("train", "noise_scale", "calibrate", "ckpt_eval"):
++            raise ValueError("invalid Stage-3 mode")
++        if self.decision_discount and self.model.norm_adv:
++            raise ValueError("decision_discount is incompatible with norm_adv=true")
++        if self.proj_radius is not None and (
++            not math.isfinite(float(self.proj_radius)) or float(self.proj_radius) < 0
++        ):
++            raise ValueError("proj_radius must be finite and nonnegative")
++        self.stage3_active = bool(self.stage3_diag or self.adv_estimator != "gae"
++                                 or self.decision_discount or self.proj_radius is not None
++                                 or self.stage3_mode != "train")
++        self.stage3_theta0 = flat_actor(self.model).clone() if self.stage3_active else None
++        if self.stage3_active:
++            with np.load(cfg.normalization_path) as normalization:
++                self._stage3_action_min = normalization["action_min"].copy()
++                self._stage3_action_max = normalization["action_max"].copy()
++        self._stage3_prev_gradient = None
++        self._stage3_metrics = {}
++        self._stage3_diag_seconds = 0.0
++        self._stage3_update_started = None
++        self._stage3_expected_lr = float(cfg.train.actor_lr)
++        self._stage3_constant_lr = float(cfg.train.actor_lr_scheduler.min_lr) == self._stage3_expected_lr
++        group = self.actor_optimizer.param_groups[0]
++        settings = {
++            "actor_loss": self.model.actor_loss, "adv_estimator": self.adv_estimator,
++            "decision_discount": self.decision_discount,
++            "gamma_denoising": self.model.gamma_denoising,
++            "logprob_reduce": self.model.logprob_reduce, "norm_adv": self.model.norm_adv,
++            "clamp_logprob": self.model.clamp_logprob,
++            "randn_clip_value": self.model.randn_clip_value,
++            "actor_single_step": self.actor_single_step,
++            "actor_optimizer": cfg.train.get("actor_optimizer", "adamw"),
++            "optimizer_class": type(self.actor_optimizer).__name__,
++            "lr": group["lr"], "actor_beta1": cfg.train.get("actor_beta1", 0.9),
++            "betas": group.get("betas"), "momentum": group.get("momentum"),
++            "scheduler_min_lr": cfg.train.actor_lr_scheduler.min_lr,
++            "scheduler_max_lr": cfg.train.actor_lr, "proj_radius": self.proj_radius,
++            "mode": self.stage3_mode, "stage3_diag": self.stage3_diag,
++            "ns_warmup_batches": cfg.train.get("ns_warmup_batches", 20),
++            "ns_batches": cfg.train.get("ns_batches", 25),
++            "calib_kl_target": cfg.train.get("calib_kl_target", None),
++            "ckpt_eval_repeats": cfg.train.get("ckpt_eval_repeats", 1),
++            "denoised_clip_value": self.model.denoised_clip_value,
++            "min_sampling_denoising_std": self.model.get_min_sampling_denoising_std(),
++            "min_logprob_denoising_std": self.model.min_logprob_denoising_std,
++            "max_grad_norm": self.max_grad_norm,
++        }
++        log.info("STAGE3_SETTINGS " + json.dumps(settings, sort_keys=True))
++
++    def _stage3_assert_lr(self):
++        if self._stage3_constant_lr:
++            for group in self.actor_optimizer.param_groups:
++                if group["lr"] != self._stage3_expected_lr:
++                    raise AssertionError("actor learning rate changed despite equal min/max: %r != %r" %
++                                         (group["lr"], self._stage3_expected_lr))
++
++    def _stage3_iteration_start(self):
++        self._stage3_started = time.perf_counter()
++        self._stage3_diag_seconds = 0.0
++        self._stage3_metrics = {}
++        self._stage3_update_started = None
++        self._stage3_actions = np.empty((self.n_steps, self.n_envs, self.act_steps, self.action_dim))
++        self._stage3_iteration_theta = flat_actor(self.model).clone() if self.stage3_diag else None
++
++    def _stage3_action_metrics(self, actions):
++        # Repeat the unchanged wrapper's float32 affine map to the actual Gym input.
++        actions = np.asarray(actions, dtype=np.float32)
++        raw_actions = (actions + 1) / 2
++        raw_actions = raw_actions * (self._stage3_action_max - self._stage3_action_min) + self._stage3_action_min
++        return {"action_oor_frac": float(np.mean(np.abs(raw_actions) > 1)),
++                "policy_action_oor_frac": float(np.mean(np.abs(actions) > 1))}
++
++    def _stage3_rollout_finished(self, rewards, firsts, eval_mode):
++        self._stage3_metrics["rollout_seconds"] = time.perf_counter() - self._stage3_started
++        before = time.perf_counter()
++        episode_indices(firsts)
++        self._stage3_raw_rewards = rewards.copy()
++        self._stage3_firsts = firsts.copy()
++        if self.stage3_diag:
++            summary = mean_se(discounted_episode_returns(rewards, firsts, self.gamma))
++            prefix = "J_disc_eval" if eval_mode else "J_disc_train"
++            self._stage3_metrics.update({prefix: summary["mean"], prefix + "_se": summary["se"],
++                                        "episode_count": summary["n"]})
++            self._stage3_metrics.update(self._stage3_action_metrics(self._stage3_actions))
++        self._stage3_diag_seconds += time.perf_counter() - before
++        self._stage3_update_started = time.perf_counter()
++        self._stage3_update_diag_start = self._stage3_diag_seconds
++
++    def _stage3_prepare_batch(self, raw_reward_trajs, firsts_trajs, terminated_trajs,
++                             action_trajs, obs_k, chains_k, returns_k, values_k,
++                             advantages_k, logprobs_k, scaled_rewards):
++        """Change actor advantages only; critic targets and values are untouched."""
++        before = time.perf_counter()
++        indices = episode_indices(firsts_trajs)
++        raw_adv = advantages_k.detach().cpu().double().numpy().reshape(raw_reward_trajs.shape)
++        if self.adv_estimator != "gae":
++            raw_adv = mc_returns(raw_reward_trajs, firsts_trajs, self.gamma)
++            if self.adv_estimator == "mc_loo":
++                raw_adv, _ = loo_advantages(raw_adv, firsts_trajs)
++            advantages_k = torch.as_tensor(raw_adv, device=self.device, dtype=torch.float32).reshape(-1)
++        if self.stage3_diag:
++            self._stage3_metrics.update(adv_raw_mean=float(np.mean(raw_adv)),
++                                        adv_raw_std=float(np.std(raw_adv, ddof=0)),
++                                        reward_clip_frac=float(np.mean(np.abs(scaled_rewards) >= 10)))
++        if self.decision_discount:
++            # Form the finite-horizon decision coefficient before the loss pass.
++            weights = torch.as_tensor(self.gamma ** indices, device=self.device,
++                                      dtype=advantages_k.dtype).reshape(-1)
++            advantages_k = advantages_k * weights
++        batch = {"raw_rewards": raw_reward_trajs, "firsts": firsts_trajs,
++                 "terminated": terminated_trajs, "actions": action_trajs,
++                 "obs_k": obs_k, "chains_k": chains_k, "oldlogprobs": logprobs_k,
++                 "returns_k": returns_k, "values_k": values_k,
++                 "actor_advantages": advantages_k, "scaled_rewards": scaled_rewards}
++        self._stage3_batch = batch
++        self._stage3_diag_seconds += time.perf_counter() - before
++        if self.stage3_diag:
++            self._stage3_before_update(batch)
++        return advantages_k
++
++    def _stage3_before_update(self, batch):
++        before = time.perf_counter()
++        half = self.n_envs // 2
++        if 2 * half != self.n_envs:
++            raise ValueError("split gradients require an even number of environments")
++        kwargs = dict(reduce=self.model.logprob_reduce,
++                      gamma_denoising=self.model.gamma_denoising,
++                      normalize=self.model.norm_adv, clamp=self.model.clamp_logprob)
++        gradients = [actor_gradient(self, batch, batch["actor_advantages"],
++                                    env_indices=range(start, start + half), **kwargs).double()
++                     for start in (0, half)]
++        self._stage3_metrics.update(split_dot=torch.dot(*gradients).item(),
++                                    split_diff_sq=(gradients[0] - gradients[1]).square().sum().item())
++        self._stage3_metrics.update(self._stage3_saturation(batch, self.itr))
++        self._stage3_diag_seconds += time.perf_counter() - before
++
++    @torch.no_grad()
++    def _stage3_saturation(self, batch, iteration):
++        # Separate from the unchanged Stage-2 advancing diagnostic generator.
++        generator = torch.Generator(device="cpu")
++        generator.manual_seed((int(self.seed) * 1000003 + int(iteration) * 9176 + 7321) % (2**63 - 1))
++        denoising = self.model.ft_denoising_steps
++        total = batch["chains_k"].shape[0] * denoising
++        pairs = torch.randperm(total, generator=generator)[:min(total, 20000)].to(self.device)
++        decisions, steps = torch.div(pairs, denoising, rounding_mode="floor"), pairs % denoising
++        x = batch["chains_k"][decisions, steps]
++        timesteps = denoising - 1 - steps
++        noise = self.model.actor_ft(x, timesteps,
++                                    cond={key: value[decisions] for key, value in batch["obs_k"].items()})
++        scale1 = self.model.sqrt_recip_alphas_cumprod[timesteps].reshape(-1, 1, 1)
++        scale2 = self.model.sqrt_recipm1_alphas_cumprod[timesteps].reshape(-1, 1, 1)
++        raw = scale1 * x - scale2 * noise
++        if not torch.isfinite(raw).all():
++            raise FloatingPointError("nonfinite pre-update raw x0 prediction")
++        hit = raw.abs() > self.model.denoised_clip_value
++        # Equal-step average (rather than changing the weight with subsample counts).
++        per_step = [hit[steps == j].double().mean() for j in range(denoising)]
++        return {"x0_sat_frac_mean": torch.stack(per_step).mean().item(),
++                "x0_sat_frac_last": hit[timesteps == 0].double().mean().item()}
++
++    def _stage3_before_step(self):
++        before = time.perf_counter()
++        if self.stage3_diag:
++            gradient = torch.cat([p.grad.detach().reshape(-1) if p.grad is not None
++                                  else torch.zeros_like(p).reshape(-1)
++                                  for p in self.model.actor_ft.parameters()]).double()
++            norm = torch.linalg.vector_norm(gradient).item()
++            previous = self._stage3_prev_gradient
++            cosine, reason = None, "first_training_iteration"
++            if previous is not None:
++                denominator = norm * torch.linalg.vector_norm(previous).item()
++                cosine = torch.dot(gradient, previous).item() / denominator if denominator > 0 else None
++                reason = None if denominator > 0 else "zero_gradient"
++            self._stage3_metrics.update(grad_norm=norm, grad_cos_prev=cosine,
++                                        grad_cos_prev_reason=reason)
++            self._stage3_current_gradient = gradient.clone()
++        self._stage3_diag_seconds += time.perf_counter() - before
++
++    def _stage3_after_step(self):
++        before = time.perf_counter()
++        if self.proj_radius is not None:
++            projection = project_ball_(self.model.actor_ft.parameters(), self.stage3_theta0, self.proj_radius)
++        else:
++            projection = {"theta_dist_preproj": torch.linalg.vector_norm(
++                flat_actor(self.model).double() - self.stage3_theta0.double()).item(), "proj_active": False}
++        if self.stage3_diag:
++            self._stage3_metrics.update(projection)
++            theta = flat_actor(self.model).double()
++            self._stage3_metrics.update(theta_dist=torch.linalg.vector_norm(theta - self.stage3_theta0.double()).item(),
++                                        update_norm=torch.linalg.vector_norm(theta - self._stage3_iteration_theta.double()).item())
++        self._stage3_diag_seconds += time.perf_counter() - before
++
++    def _stage3_finish_update(self, explained_var, return_variance):
++        if self.stage3_diag:
++            self._stage3_prev_gradient = self._stage3_current_gradient
++            before = time.perf_counter()
++            self._stage3_metrics["explained_var"] = None if return_variance == 0 else float(explained_var)
++            self._stage3_metrics["explained_var_reason"] = "zero_return_variance" if return_variance == 0 else None
++            self._stage3_metrics["update_seconds"] = (
++                before - self._stage3_update_started
++                - (self._stage3_diag_seconds - self._stage3_update_diag_start))
++            self._stage3_metrics["diagnostics_seconds"] = self._stage3_diag_seconds
++
++    def _stage3_check_update_numeric(self, losses=None, actor=False, critic=False):
++        bad = {}
++        for name, value in (losses or {}).items():
++            scalar = value.detach().item() if torch.is_tensor(value) else float(value)
++            if not math.isfinite(scalar):
++                bad[name] = repr(scalar)
++        for name, module, check in (("actor", self.model.actor_ft, actor),
++                                     ("critic", self.model.critic, critic)):
++            if check and any(p.grad is not None and not bool(torch.isfinite(p.grad).all())
++                             for p in module.parameters()):
++                bad[name + "_gradient"] = "nonfinite"
++        if bad:
++            failure = {"itr": self.itr, "reason": "nonfinite", "values": bad,
++                       "last_diagnostics": {key: repr(value) for key, value in self._stage3_metrics.items()}}
++            (Path(self.logdir) / "failure.json").write_text(json.dumps(failure, indent=2) + "\n")
++            raise FloatingPointError("nonfinite Stage-3 update: " + repr(bad))
++
++    def _stage3_record(self, record, eval_mode):
++        if self.stage3_diag:
++            if eval_mode:
++                self._stage3_metrics.update(diagnostics_seconds=self._stage3_diag_seconds, update_seconds=0.0)
++            record.update(self._stage3_metrics)
++            record["actor_lr"] = self.actor_optimizer.param_groups[0]["lr"]
++            log.info("STAGE3_METRICS " + json.dumps(self._stage3_metrics, sort_keys=True))
++
++    def _stage3_check_finite(self, record):
++        if not self.stage3_active:
++            return
++        bad = {key: repr(value) for key, value in record.items()
++               if isinstance(value, (float, np.floating)) and not math.isfinite(value)}
++        if bad:
++            failure = {"itr": self.itr, "reason": "nonfinite", "values": bad}
++            (Path(self.logdir) / "failure.json").write_text(json.dumps(failure, indent=2) + "\n")
++            raise FloatingPointError("nonfinite Stage-3 metrics: " + repr(bad))
++
++    def _stage3_collect(self, deterministic=False, n_steps=None, update_scaler=True):
++        """Fresh complete batches for measurement modes; actor is never stepped."""
++        started = time.perf_counter()
++        steps = self.n_steps if n_steps is None else int(n_steps)
++        self.model.eval() if deterministic else self.model.train()
++        if deterministic or not hasattr(self, "_stage3_mode_obs"):
++            self._stage3_mode_obs = self.reset_env_all()
++            self._stage3_mode_done = np.ones(self.n_envs)
++        firsts = np.zeros((steps + 1, self.n_envs))
++        firsts[0] = self._stage3_mode_done
++        observations = np.zeros((steps, self.n_envs, self.n_cond_step, self.obs_dim))
++        chains = np.zeros((steps, self.n_envs, self.model.ft_denoising_steps + 1,
++                           self.horizon_steps, self.action_dim))
++        rewards = np.zeros((steps, self.n_envs))
++        terminated = np.zeros_like(rewards)
++        truncated = np.zeros_like(rewards)
++        actions = np.zeros((steps, self.n_envs, self.act_steps, self.action_dim))
++        with torch.no_grad():
++            for t in range(steps):
++                if t % 100 == 0:
++                    log.info("STAGE3_ROLLOUT decision=%d/%d", t, steps)
++                obs = self._stage3_mode_obs
++                cond = {"state": torch.from_numpy(obs["state"]).float().to(self.device)}
++                sample = self.model(cond=cond, deterministic=deterministic, return_chain=True)
++                action = sample.trajectories.cpu().numpy()[:, :self.act_steps]
++                next_obs, reward, term, trunc, _ = self.venv.step(action)
++                observations[t] = obs["state"]
++                chains[t] = sample.chains.cpu().numpy()
++                rewards[t], terminated[t], truncated[t], actions[t] = reward, term, trunc, action
++                self._stage3_mode_done = term | trunc
++                firsts[t + 1] = self._stage3_mode_done
++                self._stage3_mode_obs = next_obs
++            episode_indices(firsts)
++            obs_k = {"state": torch.from_numpy(observations).float().to(self.device).reshape(
++                -1, self.n_cond_step, self.obs_dim)}
++            chains_k = torch.from_numpy(chains).float().to(self.device).reshape(
++                -1, self.model.ft_denoising_steps + 1, self.horizon_steps, self.action_dim)
++            values_parts, logprob_parts = [], []
++            for start in range(0, steps * self.n_envs, self.logprob_batch_size):
++                end = start + self.logprob_batch_size
++                cond = {"state": obs_k["state"][start:end]}
++                values_parts.append(self.model.critic(cond).cpu().numpy().reshape(-1))
++                logprob_parts.append(self.model.get_logprobs(cond, chains_k[start:end]).reshape(
++                    -1, self.model.ft_denoising_steps, self.horizon_steps, self.action_dim))
++            values = np.concatenate(values_parts).reshape(steps, self.n_envs).astype(np.float64)
++            oldlogprobs = torch.cat(logprob_parts)
++            if self.reward_scale_running:
++                if update_scaler:
++                    scaled = self.running_reward_scaler(rewards.T, firsts[:-1].T).T
++                else:
++                    scaled = self.running_reward_scaler.transform(rewards.T).T
++            else:
++                scaled = rewards.copy()
++            advantages = np.zeros_like(rewards)
++            last = 0
++            final_values = self.model.critic({"state": torch.from_numpy(
++                self._stage3_mode_obs["state"]).float().to(self.device)}).reshape(1, -1).cpu().numpy()
++            for t in reversed(range(steps)):
++                next_values = final_values if t == steps - 1 else values[t + 1]
++                nonterminal = 1 - terminated[t]
++                delta = scaled[t] * self.reward_scale_const + self.gamma * next_values * nonterminal - values[t]
++                advantages[t] = last = delta + self.gamma * self.gae_lambda * nonterminal * last
++            returns = advantages + values
++        return {"raw_rewards": rewards, "firsts": firsts, "terminated": terminated,
++                "truncated": truncated, "obs_k": obs_k, "chains_k": chains_k,
++                "oldlogprobs": oldlogprobs, "values": values, "gae_adv": advantages,
++                "returns": returns, "scaled_rewards": scaled, "actions": actions,
++                "timing": {"rollout_seconds": time.perf_counter() - started}}
++
++    def _stage3_critic_update(self, batch):
++        started = time.perf_counter()
++        total_decisions = batch["chains_k"].shape[0]
++        denoising = self.model.ft_denoising_steps
++        returns = torch.as_tensor(batch["returns"], device=self.device, dtype=torch.float32).reshape(-1)
++        values = torch.as_tensor(batch["values"], device=self.device, dtype=torch.float32).reshape(-1)
++        advantages = torch.as_tensor(batch["gae_adv"], device=self.device, dtype=torch.float32).reshape(-1)
++        steps = 0
++        for epoch in range(self.update_epochs):
++            indices = torch.randperm(total_decisions * denoising, device=self.device)
++            for start in range(0, len(indices), self.batch_size):
++                pairs = indices[start:start + self.batch_size]
++                decisions, denoise = torch.div(pairs, denoising, rounding_mode="floor"), pairs % denoising
++                losses = self.model.loss(
++                    {key: value[decisions] for key, value in batch["obs_k"].items()},
++                    batch["chains_k"][decisions, denoise], batch["chains_k"][decisions, denoise + 1],
++                    denoise, returns[decisions], values[decisions], advantages[decisions],
++                    batch["oldlogprobs"][decisions, denoise], use_bc_loss=False,
++                    reward_horizon=self.reward_horizon)
++                self.critic_optimizer.zero_grad()
++                (losses[2] * self.vf_coef).backward()
++                self.critic_optimizer.step()
++                steps += 1
++        self.critic_lr_scheduler.step()
++        return {"critic_steps": steps, "update_seconds": time.perf_counter() - started}
+diff --git a/agent/finetune/train_ppo_agent.py b/agent/finetune/train_ppo_agent.py
+index ff25b89..e094c02 100644
+--- a/agent/finetune/train_ppo_agent.py
++++ b/agent/finetune/train_ppo_agent.py
+@@ -31,11 +31,26 @@ class TrainPPOAgent(TrainAgent):
+         self.n_critic_warmup_itr = cfg.train.n_critic_warmup_itr
+ 
+         # Optimizer
+-        self.actor_optimizer = torch.optim.AdamW(
+-            self.model.actor_ft.parameters(),
+-            lr=cfg.train.actor_lr,
+-            weight_decay=cfg.train.actor_weight_decay,
+-        )
++        actor_optimizer = cfg.train.get("actor_optimizer", "adamw")
++        actor_beta1 = cfg.train.get("actor_beta1", 0.9)
++        if actor_optimizer == "adamw" and actor_beta1 == 0.9:
++            self.actor_optimizer = torch.optim.AdamW(
++                self.model.actor_ft.parameters(),
++                lr=cfg.train.actor_lr,
++                weight_decay=cfg.train.actor_weight_decay,
++            )
++        elif actor_optimizer == "adamw":
++            self.actor_optimizer = torch.optim.AdamW(
++                self.model.actor_ft.parameters(), lr=cfg.train.actor_lr,
++                betas=(actor_beta1, 0.999), weight_decay=cfg.train.actor_weight_decay,
++            )
++        elif actor_optimizer == "sgd":
++            self.actor_optimizer = torch.optim.SGD(
++                self.model.actor_ft.parameters(), lr=cfg.train.actor_lr,
++                momentum=0, dampening=0, weight_decay=0, nesterov=False,
++            )
++        else:
++            raise ValueError("actor_optimizer must be 'adamw' or 'sgd'")
+         # use cosine scheduler with linear warmup
+         self.actor_lr_scheduler = CosineAnnealingWarmupRestarts(
+             self.actor_optimizer,
+diff --git a/agent/finetune/train_ppo_diffusion_agent.py b/agent/finetune/train_ppo_diffusion_agent.py
+index 0de965a..2fe5ee7 100644
+--- a/agent/finetune/train_ppo_diffusion_agent.py
++++ b/agent/finetune/train_ppo_diffusion_agent.py
+@@ -11,14 +11,16 @@ import torch
+ import logging
+ import wandb
+ import math
++from time import perf_counter
+ 
+ log = logging.getLogger(__name__)
+ from util.timer import Timer
+ from agent.finetune.train_ppo_agent import TrainPPOAgent
+ from util.scheduler import CosineAnnealingWarmupRestarts
++from agent.finetune.stage3_support import Stage3Support
+ 
+ 
+-class TrainPPODiffusionAgent(TrainPPOAgent):
++class TrainPPODiffusionAgent(Stage3Support, TrainPPOAgent):
+     def __init__(self, cfg):
+         super().__init__(cfg)
+ 
+@@ -53,6 +55,8 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 gamma=1.0,
+             )
+ 
++        self._stage3_init(cfg)
++
+     def _single_actor_step(
+         self, obs_k, chains_k, returns_k, values_k, advantages_k, logprobs_k, inds_k
+     ):
+@@ -117,7 +121,13 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+             torch.nn.utils.clip_grad_norm_(
+                 self.model.actor_ft.parameters(), self.max_grad_norm
+             )
++        if self.stage3_diag:
++            self._stage3_before_step()
++        if self.stage3_active:
++            self._stage3_check_update_numeric(actor=True, losses={"actor_loss": metrics["actor_loss"]})
+         self.actor_optimizer.step()
++        if self.stage3_diag or self.proj_radius is not None:
++            self._stage3_after_step()
+         return metrics
+ 
+     @torch.no_grad()
+@@ -150,6 +160,9 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+         return metrics
+ 
+     def run(self):
++        if self.stage3_mode != "train":
++            from agent.finetune.stage3_modes import run_stage3_mode
++            return run_stage3_mode(self)
+         # Start training loop
+         timer = Timer()
+         run_results = []
+@@ -157,6 +170,9 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+         last_itr_eval = False
+         done_venv = np.zeros((1, self.n_envs))
+         while self.itr < self.n_train_itr:
++            self._stage3_assert_lr()
++            if self.stage3_active:
++                self._stage3_iteration_start()
+             # Prepare video paths for each envs --- only applies for the first set of episodes if allowing reset within iteration and each iteration has multiple episodes from one env
+             options_venv = [{} for _ in range(self.n_envs)]
+             if self.itr % self.render_freq == 0 and self.render_video:
+@@ -226,6 +242,8 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                         samples.chains.cpu().numpy()
+                     )  # n_env x denoising x horizon x act
+                 action_venv = output_venv[:, : self.act_steps]
++                if self.stage3_active:
++                    self._stage3_actions[step] = action_venv
+ 
+                 # Apply multi-step action
+                 (
+@@ -297,6 +315,9 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 success_rate = 0
+                 log.info("[WARNING] No episode completed within the iteration!")
+ 
++            if self.stage3_active:
++                self._stage3_rollout_finished(reward_trajs, firsts_trajs, eval_mode)
++
+             # Update models
+             if not eval_mode:
+                 with torch.no_grad():
+@@ -407,6 +428,13 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 )
+                 logprobs_k = torch.tensor(logprobs_trajs, device=self.device).float()
+ 
++                if self.stage3_active:
++                    advantages_k = self._stage3_prepare_batch(
++                        self._stage3_raw_rewards, firsts_trajs, terminated_trajs,
++                        self._stage3_actions, obs_k, chains_k, returns_k, values_k,
++                        advantages_k, logprobs_k, reward_trajs,
++                    )
++
+                 # Update policy and critic
+                 total_steps = self.n_steps * self.n_envs * self.model.ft_denoising_steps
+                 clipfracs = []
+@@ -465,6 +493,8 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                             + bc_loss * self.bc_loss_coeff
+                         )
+                         clipfracs += [clipfrac]
++                        if self.stage3_active:
++                            self._stage3_check_update_numeric(losses={"loss": loss, "pg_loss": pg_loss, "v_loss": v_loss})
+ 
+                         # update policy and critic
+                         if not self.actor_single_step:
+@@ -481,10 +511,18 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                                 torch.nn.utils.clip_grad_norm_(
+                                     self.model.actor_ft.parameters(), self.max_grad_norm
+                                 )
++                            if self.stage3_diag:
++                                self._stage3_before_step()
++                            if self.stage3_active:
++                                self._stage3_check_update_numeric(actor=True)
+                             self.actor_optimizer.step()
++                            if self.stage3_diag or self.proj_radius is not None:
++                                self._stage3_after_step()
+                             actor_optimizer_steps += 1
+                             if self.learn_eta and batch % self.eta_update_interval == 0:
+                                 self.eta_optimizer.step()
++                        if self.stage3_active:
++                            self._stage3_check_update_numeric(critic=True)
+                         self.critic_optimizer.step()
+                         critic_optimizer_steps += 1
+                         log.info(
+@@ -518,7 +556,12 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                 explained_var = (
+                     np.nan if var_y == 0 else 1 - np.var(y_true - y_pred) / var_y
+                 )
++                if self.stage3_active:
++                    stage3_diagnostic_started = perf_counter()
+                 diagnostics = self._post_update_diagnostics(obs_k, chains_k, logprobs_k)
++                if self.stage3_active:
++                    self._stage3_diag_seconds += perf_counter() - stage3_diagnostic_started
++                    self._stage3_finish_update(explained_var, var_y)
+ 
+             # Plot state trajectories (only in D3IL)
+             if (
+@@ -541,6 +584,7 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                     self.eta_lr_scheduler.step()
+             self.critic_lr_scheduler.step()
+             self.model.step()
++            self._stage3_assert_lr()
+             diffusion_min_sampling_std = self.model.get_min_sampling_denoising_std()
+ 
+             # Save model
+@@ -632,8 +676,11 @@ class TrainPPODiffusionAgent(TrainPPOAgent):
+                             actor_step_ratio=actor_step_metrics["actor_step_ratio"],
+                             actor_step_clipfrac=actor_step_metrics["actor_step_clipfrac"],
+                         )
++                if self.stage3_active:
++                    self._stage3_record(run_results[-1], eval_mode)
+                 with open(self.result_path, "wb") as f:
+                     pickle.dump(run_results, f)
++                self._stage3_check_finite(run_results[-1])
+                 if not eval_mode and not all(
+                     math.isfinite(value) for value in diagnostics.values()
+                 ):
+diff --git a/model/diffusion/diffusion_ppo.py b/model/diffusion/diffusion_ppo.py
+index 4d58321..81cb0c0 100644
+--- a/model/diffusion/diffusion_ppo.py
++++ b/model/diffusion/diffusion_ppo.py
+@@ -34,14 +34,18 @@ class PPODiffusion(VPGDiffusion):
+         norm_adv: bool = True,
+         clamp_logprob: bool = True,
+         logprob_reduce: str = "mean",
++        actor_loss: str = "ratio",
+         **kwargs,
+     ):
+         if logprob_reduce not in ("mean", "sum"):
+             raise ValueError("logprob_reduce must be 'mean' or 'sum'")
++        if actor_loss not in ("ratio", "score"):
++            raise ValueError("actor_loss must be 'ratio' or 'score'")
+         super().__init__(**kwargs)
+ 
+         self.clamp_logprob = clamp_logprob
+         self.logprob_reduce = logprob_reduce
++        self.actor_loss = actor_loss
+ 
+         # Whether to normalize advantages within batch
+         self.norm_adv = norm_adv
+@@ -157,7 +161,11 @@ class PPODiffusion(VPGDiffusion):
+ 
+         # get ratio
+         logratio = newlogprobs - oldlogprobs
+-        ratio = logratio.exp()
++        if self.actor_loss == "score":
++            with torch.no_grad():
++                ratio = logratio.exp()
++        else:
++            ratio = logratio.exp()
+ 
+         # exponentially interpolate between the base and the current clipping value over denoising steps and repeat
+         t = (denoising_inds.float() / (self.ft_denoising_steps - 1)).to(self.device)
+@@ -179,11 +187,14 @@ class PPODiffusion(VPGDiffusion):
+             clipfrac = ((ratio - 1.0).abs() > clip_ploss_coef).float().mean().item()
+ 
+         # Policy loss with clipping
+-        pg_loss1 = -advantages * ratio
+-        pg_loss2 = -advantages * torch.clamp(
+-            ratio, 1 - clip_ploss_coef, 1 + clip_ploss_coef
+-        )
+-        pg_loss = torch.max(pg_loss1, pg_loss2).mean()
++        if self.actor_loss == "score":
++            pg_loss = -(advantages * newlogprobs).mean()
++        else:
++            pg_loss1 = -advantages * ratio
++            pg_loss2 = -advantages * torch.clamp(
++                ratio, 1 - clip_ploss_coef, 1 + clip_ploss_coef
++            )
++            pg_loss = torch.max(pg_loss1, pg_loss2).mean()
+ 
+         # Value loss optionally with clipping
+         newvalues = self.critic(obs).view(-1)

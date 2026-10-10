@@ -1,0 +1,41 @@
+{
+  "checked_utc": "2026-10-10T10:17:05.994523+00:00",
+  "gate_passed": true,
+  "current_source_head": "1515be0411a78df94e940de22df45834edadd858",
+  "source_status": "",
+  "gate_scientific_source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "finalizer_controller_contract": "compatible",
+  "finalizer_script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_stage3.py",
+  "finalizer_command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_stage3.py"
+  ],
+  "slurm_allocations": [
+    {
+      "job_id": "17792120",
+      "state": "COMPLETED",
+      "elapsed_seconds": 76
+    },
+    {
+      "job_id": "17792237",
+      "state": "COMPLETED",
+      "elapsed_seconds": 588
+    }
+  ],
+  "gate_capture_gpu_seconds": 664,
+  "currently_running_other_job": {
+    "job_id": "17791992",
+    "partition": "soal-interactive",
+    "gpus": 1
+  },
+  "jobs_submitted_by_review": false,
+  "notes": [
+    "Requires clean exact scientific source commit matching gate scientific_source_commit before submission.",
+    "Requires both capture/gate jobs terminal; verified.",
+    "Five-day CPUcontroller cap supported byexposedlimits; seecontroller_limits.json.",
+    "Controller writes finalizing before invokingfinalizer; all36train slotsincluding skipsandall modeoutputs resolve tosame paths."
+  ],
+  "actual_validator_results": "validate_source and validate_gate both passed at1515be0411a78df94e940de22df45834edadd858",
+  "concrete_blocker": null
+}

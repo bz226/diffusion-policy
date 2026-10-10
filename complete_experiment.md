@@ -22,6 +22,12 @@
 
 ## Comparison analyses
 
+### Stage 3 E0/E1/E2/SGD1/SGD3 comparison against Stage 1 and NC4
+
+- Analysis record: [completed_five_analysis](./results/stage3/runs/completed_five_analysis/analysis_record.json)
+- Analysis design: [Training comparisons](./results/stage3/methods.md#training-comparisons)
+- Curated results: [Returns, update diagnostics and results tables](./results/stage3/curated/INDEX.md)
+
 ### Full Stage 2 comparison against the Stage 1 baseline
 
 - Analysis record: [final_analysis](./results/stage2_noclip/runs/final_analysis/analysis_record.json)

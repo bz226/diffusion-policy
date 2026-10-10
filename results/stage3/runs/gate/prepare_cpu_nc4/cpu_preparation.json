@@ -1,0 +1,12 @@
+{
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate/prepare_cpu_nc4",
+  "input_fixture": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "operation": "Recompute old log-probs once on the reference CPU at the saved theta_old, using the final critic epoch's permutation and actor chunk shapes; supply this identical tensor to both CPU replays. Other saved batch fields remain unchanged.",
+  "max_abs_difference_from_gpu_capture": 2.765655517578125e-05,
+  "shape": [
+    20000,
+    10,
+    4,
+    6
+  ]
+}

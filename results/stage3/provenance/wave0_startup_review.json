@@ -1,0 +1,54 @@
+{
+  "checked_utc": "2026-10-10T10:19:09.430001+00:00",
+  "controller_job_id": "17792337",
+  "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "source_and_gate_validators_passed": true,
+  "all_three_workers_running": true,
+  "distinct_gpu_uuids": true,
+  "each_worker_cpus": 40,
+  "each_worker_memory_gib": 64,
+  "effective_settings_verified": true,
+  "startup_failure_detected": false,
+  "jobs": [
+    {
+      "run_id": "cal_seed3000",
+      "job_id": "17792340",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-10"
+      },
+      "mode": "calibrate",
+      "warmup_batches": null
+    },
+    {
+      "run_id": "ns_theta0_seed1000",
+      "job_id": "17792341",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-10"
+      },
+      "mode": "noise_scale",
+      "warmup_batches": 20
+    },
+    {
+      "run_id": "ns_ckpt_seed2000",
+      "job_id": "17792342",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-11"
+      },
+      "mode": "noise_scale",
+      "warmup_batches": 5
+    }
+  ],
+  "calibration_progress": "First batch completed, second rollout in progress at the observation; no warnings logged.",
+  "detail_record": "../runs/wave0_startup_review.json",
+  "persistent_monitor": "CPU controller and independent worker supervisors continue; this manual startup check does not create another monitor.",
+  "jobs_or_scientific_source_changed_by_review": false
+}

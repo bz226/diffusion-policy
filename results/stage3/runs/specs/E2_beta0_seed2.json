@@ -1,0 +1,33 @@
+{
+  "run_id": "E2_beta0_seed2",
+  "condition": "E2_beta0",
+  "seed": 2,
+  "mode": "train",
+  "wave": 1,
+  "overrides": [
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "+model.clamp_logprob=false",
+    "model.randn_clip_value=100",
+    "+train.actor_single_step=true",
+    "+model.actor_loss=score",
+    "+train.stage3_diag=true",
+    "+train.adv_estimator=mc_loo",
+    "+train.decision_discount=true",
+    "model.gamma_denoising=1.0",
+    "+model.logprob_reduce=sum",
+    "+model.norm_adv=false",
+    "+train.actor_beta1=0.0"
+  ],
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2.out",
+  "cap_seconds": 14400,
+  "estimate_seconds": 10800,
+  "monitor_interval_seconds": 1800,
+  "gpu_type": "a6000",
+  "gpu_count": 1,
+  "cpus": 40,
+  "memory_gib": 64,
+  "estimate_basis": "NC4 1e-4: 8489\u20138674 seconds; central Stage3 estimate includes split-gradient and saturation passes"
+}

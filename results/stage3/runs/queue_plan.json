@@ -1,0 +1,33 @@
+{
+  "kl_star": 0.000584517336086918,
+  "projection_radius": 8.686025494700294,
+  "kl_source": "Pooled median over the 378 Stage2 NC4 1e-4 training iterations",
+  "radius_source": "1.25 times maximum final actor_ft distance over Stage1 seeds 0,1,2",
+  "gate_reserved_seconds": 3600,
+  "gpu_budget_seconds": 720000,
+  "max_parallel_gpu_allocations": 9,
+  "max_training_runs": 36,
+  "max_gpu_hours_from_caps": 197.5,
+  "retries": 0,
+  "normal_estimate_seconds": 10800,
+  "batch4_estimate_seconds": 43200,
+  "normal_monitor_interval_seconds": 1800,
+  "batch4_monitor_interval_seconds": 7200,
+  "optional_included": [
+    "E2_nobase",
+    "SGD03",
+    "BATCH4"
+  ],
+  "optional_excluded": [
+    "per-denoising-step Phase1 variance",
+    "Stage2 degraded-checkpoint evaluations"
+  ],
+  "normal_training_cap_seconds": 14400,
+  "batch4_cap_seconds": 57600,
+  "wave0_specs": [
+    "cal_seed3000",
+    "ns_theta0_seed1000",
+    "ns_ckpt_seed2000"
+  ],
+  "later_job_files": "Written with numeric eta_star after verified calibration; no placeholders are executable"
+}

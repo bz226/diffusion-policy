@@ -33,4 +33,6 @@ NC1 seed 2 used H200 NVL after a passing [saved-batch H200 check](runs/verificat
 
 **Completion:** the last training process finished October 10 at 12:18 a.m. PDT. All 19 selected runs have 140 rows and all 95 expected checkpoints; monitors are paused. [Completion verification](runs/monitor_checks/20261010T084908_completion.json).
 
+Actual Stage 2 allocation: **45.95 GPU-hours** of the approved 58.5 (78.6%), including probes, verification and interrupted attempts; [accounting](provenance/final_compute_usage.json).
+
 **Curation:** the user approved all full-analysis plots and the table. [Verified copies and captions](curated/INDEX.md#full-stage-2-comparison) retain their sources; earlier curated subsets remain preserved. No further experiments are authorized.

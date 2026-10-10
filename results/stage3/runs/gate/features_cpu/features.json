@@ -1,0 +1,136 @@
+{
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/gate_features.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate/features_cpu",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--device",
+    "cpu",
+    "--cpu-logprobs",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt"
+  ],
+  "checks": {
+    "B2a": {
+      "passed": true,
+      "comparisons": [
+        {
+          "case": "random_boundaries",
+          "max_abs": 2.6645352591003757e-15,
+          "relative_l2": 1.766861251770297e-16
+        },
+        {
+          "case": "live_batch",
+          "max_abs": 2.5011104298755527e-12,
+          "relative_l2": 4.136830657269485e-16
+        }
+      ]
+    },
+    "B2b": {
+      "report_only": true,
+      "matches": true,
+      "recursion": "Exact Stage2 source AST; lambda=1, values=0, raw rewards, reward_scale_const=1",
+      "episode_ends": 80,
+      "terminated_at_ends": 80,
+      "truncated_at_ends": 80,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "B3": {
+      "passed": true,
+      "max_abs": 6.821210263296962e-13,
+      "relative_l2": 1.0245315865601568e-16,
+      "max_abs_advantage_sum_per_k": 8.753886504564434e-11,
+      "sum_roundoff_bound": 2.0341970659186464e-09,
+      "episodes": 80
+    },
+    "B4": {
+      "passed": true,
+      "index_max_abs": 0,
+      "discount_max_abs": 0.0,
+      "episode_start_discount": 1.0,
+      "last_decision_discount": 0.08187728905270836,
+      "production_e2_coefficients_bitwise_equal": true
+    },
+    "B8": {
+      "passed": true,
+      "inside_bitwise": true,
+      "outside_relative_radius_error": 1.1102230246251565e-16,
+      "one_minus_cosine": 0.0,
+      "production_actor": {
+        "device": "cpu",
+        "dtype": "torch.float32",
+        "parameters": 568392,
+        "nonzero_pretrained_center_norm": 694.2776660278384,
+        "radius": 8.686025494700294,
+        "inside_bitwise": true,
+        "outside_relative_radius_error": 4.002633192667915e-07,
+        "one_minus_cosine": 3.0336844147882402e-12,
+        "parallelism_tolerance": 1e-06
+      }
+    },
+    "B10": {
+      "passed": true,
+      "n": 1000,
+      "dimension": 1000,
+      "true_u_sq": 4.000000000000002,
+      "estimated_u_sq": 3.8422526152681473,
+      "true_tr_sigma": 1000.0,
+      "estimated_tr_sigma": 999.2179068722709,
+      "se_u_sq": 0.13479306177682207,
+      "se_tr_sigma": 1.4728100702976508,
+      "signal_error_in_se": 1.1702930599873014,
+      "variance_error_in_se": 0.5310210348922096
+    },
+    "B1": {
+      "passed": true,
+      "tolerance": 1e-05,
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "B5": {
+      "passed": true,
+      "factor": 24,
+      "tolerance": 1e-06,
+      "max_abs": 1.4901161193847656e-06,
+      "relative_l2": 6.877344645177401e-07
+    },
+    "B6": {
+      "report_only": true,
+      "cosine": 0.999567714181953,
+      "expected_above_0999": true
+    },
+    "B7": {
+      "passed": true,
+      "max_abs": 6.794650104779976e-07,
+      "relative_l2": 1.042423701293165e-08,
+      "eta": 0.0001,
+      "lr_over_20_steps": [
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001,
+        0.0001
+      ]
+    }
+  },
+  "seconds": 33.33309926302172
+}

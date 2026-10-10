@@ -1,0 +1,49 @@
+Gym has been unmaintained since 2022 and does not support NumPy 2.0 amongst other critical functionality.
+Please upgrade to Gymnasium, the maintained drop-in replacement of Gym, or contact the authors of your software and request that they upgrade.
+See the migration guide at https://gymnasium.farama.org/introduction/migration_guide/ for additional information.
+[2026-10-10 03:18:47,549][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/glfw/__init__.py:917: GLFWError: (65550) b'X11: The DISPLAY environment variable is missing'
+  warnings.warn(message, GLFWError)
+[2026-10-10 03:18:47,554][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-10 03:18:47,585][absl][INFO] - MuJoCo library version is: 3.2.3
+pybullet build time: Jan 29 2025 23:19:57
+/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/gym/spaces/box.py:78: UserWarning: [33mWARN: Box bound precision lowered by casting to float32[0m
+  logger.warn(f"Box bound precision lowered by casting to {self.dtype}")
+[2026-10-10 03:18:50,134][root][INFO] - Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+[2026-10-10 03:18:50,136][root][INFO] - Number of network parameters: 568392
+[2026-10-10 03:18:50,258][root][INFO] - Cloned model for fine-tuning
+[2026-10-10 03:18:50,258][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-10 03:18:50,258][root][INFO] - Number of finetuned parameters: 568392
+[2026-10-10 03:18:50,277][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=False logprob_reduce=sum actor_single_step=True
+[2026-10-10 03:18:50,280][agent.finetune.stage3_support][INFO] - STAGE3_SETTINGS {"actor_beta1": 0.9, "actor_loss": "score", "actor_optimizer": "adamw", "actor_single_step": true, "adv_estimator": "mc_loo", "betas": [0.9, 0.999], "calib_kl_target": 0.000584517336086918, "ckpt_eval_repeats": 1, "clamp_logprob": false, "decision_discount": true, "denoised_clip_value": 1.0, "gamma_denoising": 1.0, "logprob_reduce": "sum", "lr": 0.0001, "max_grad_norm": null, "min_logprob_denoising_std": 0.1, "min_sampling_denoising_std": 0.1, "mode": "calibrate", "momentum": null, "norm_adv": false, "ns_batches": 25, "ns_warmup_batches": 20, "optimizer_class": "AdamW", "proj_radius": null, "randn_clip_value": 100, "scheduler_max_lr": 0.0001, "scheduler_min_lr": 0.0001, "stage3_diag": true}
+[2026-10-10 03:18:50,334][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:18:52,877][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:18:55,378][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:18:57,854][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:00,289][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:03,224][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 12.89800829300657, "eta_b": 9.04514410295006e-05, "mode": "calibrate", "phase": "calibrate", "realized_kl": 0.000583664631905675, "status": "running", "substage": "calibrate", "target": 5, "target_kl": 0.000584517336086918, "total": 5, "warnings": []}
+[2026-10-10 03:19:03,226][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:19:05,666][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:19:08,163][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:19:10,740][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:13,235][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:16,017][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 25.69061407702975, "eta_b": 0.0002442157111524882, "mode": "calibrate", "phase": "calibrate", "realized_kl": 0.0005852118759256939, "status": "running", "substage": "calibrate", "target": 5, "target_kl": 0.000584517336086918, "total": 5, "warnings": []}
+[2026-10-10 03:19:16,018][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:19:18,460][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:19:20,899][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:19:23,373][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:25,842][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:28,547][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 38.21987402997911, "eta_b": 0.00015193979279057494, "mode": "calibrate", "phase": "calibrate", "realized_kl": 0.0005859164087276954, "status": "running", "substage": "calibrate", "target": 5, "target_kl": 0.000584517336086918, "total": 5, "warnings": []}
+[2026-10-10 03:19:28,549][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:19:31,040][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:19:33,520][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:19:35,981][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:38,438][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:41,100][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 50.774043465964496, "eta_b": 0.00012107235674859004, "mode": "calibrate", "phase": "calibrate", "realized_kl": 0.000583887227452293, "status": "running", "substage": "calibrate", "target": 5, "target_kl": 0.000584517336086918, "total": 5, "warnings": []}
+[2026-10-10 03:19:41,102][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:19:43,556][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:19:46,015][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:19:48,463][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:50,881][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:53,513][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 63.18733247893397, "eta_b": 7.192369225688919e-05, "mode": "calibrate", "phase": "calibrate", "realized_kl": 0.000598960223736015, "status": "running", "substage": "calibrate", "target": 5, "target_kl": 0.000584517336086918, "total": 5, "warnings": []}
+[2026-10-10 03:19:53,525][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 63.19877209095284, "mode": "calibrate", "phase": "completed", "status": "complete", "substage": "completed", "target": 5, "total": 5}

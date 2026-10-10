@@ -1,0 +1,382 @@
+[2026-10-10 03:18:47,364][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+[2026-10-10 03:18:47,374][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-10 03:18:47,432][absl][INFO] - MuJoCo library version is: 3.2.3
+[2026-10-10 03:18:50,106][root][INFO] - Loaded SL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+[2026-10-10 03:18:50,107][root][INFO] - Number of network parameters: 568392
+[2026-10-10 03:18:50,203][root][INFO] - Cloned model for fine-tuning
+[2026-10-10 03:18:50,204][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-10 03:18:50,204][root][INFO] - Number of finetuned parameters: 568392
+[2026-10-10 03:18:50,222][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=False logprob_reduce=mean actor_single_step=True
+[2026-10-10 03:18:50,226][agent.finetune.stage3_support][INFO] - STAGE3_SETTINGS {"actor_beta1": 0.9, "actor_loss": "score", "actor_optimizer": "adamw", "actor_single_step": true, "adv_estimator": "gae", "betas": [0.9, 0.999], "calib_kl_target": null, "ckpt_eval_repeats": 1, "clamp_logprob": false, "decision_discount": false, "denoised_clip_value": 1.0, "gamma_denoising": 0.99, "logprob_reduce": "mean", "lr": 0.0001, "max_grad_norm": null, "min_logprob_denoising_std": 0.1, "min_sampling_denoising_std": 0.1, "mode": "noise_scale", "momentum": null, "norm_adv": true, "ns_batches": 25, "ns_warmup_batches": 20, "optimizer_class": "AdamW", "proj_radius": null, "randn_clip_value": 100, "scheduler_max_lr": 0.0001, "scheduler_min_lr": 0.0001, "stage3_diag": true}
+[2026-10-10 03:18:50,240][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:18:52,883][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:18:55,463][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:18:58,003][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:00,526][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:19:48,689][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 58.45391600194853, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:19:48,690][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:19:51,229][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:19:53,781][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:19:56,394][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:19:58,941][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:20:46,433][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 116.19761250796728, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:20:46,437][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:20:48,988][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:20:51,511][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:20:54,059][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:20:56,600][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:21:44,047][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 173.81135761691257, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:21:44,050][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:21:46,695][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:21:49,278][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:21:51,812][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:21:54,324][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:22:41,458][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 231.22237577696797, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:22:41,460][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:22:44,018][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:22:46,568][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:22:49,109][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:22:51,654][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:23:39,001][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 288.76591505191755, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:23:39,005][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:23:41,537][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:23:44,107][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:23:46,698][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:23:49,301][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:24:36,845][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 346.6097090130206, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:24:36,848][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:24:39,402][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:24:41,996][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:24:44,556][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:24:47,113][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:25:35,669][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 405.4298586549703, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:25:35,677][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:25:38,274][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:25:40,861][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:25:43,460][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:25:46,049][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:26:33,526][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 463.29015430493746, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:26:33,531][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:26:36,081][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:26:38,691][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:26:41,320][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:26:43,895][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:27:31,549][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 521.3136097210227, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:27:31,556][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:27:34,122][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:27:36,702][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:27:39,288][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:27:41,840][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:28:29,355][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 579.119831362972, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:28:29,361][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:28:31,881][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:28:34,422][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:28:37,051][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:28:39,633][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:29:26,586][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 636.3502235049382, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:29:26,589][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:29:29,101][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:29:31,642][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:29:34,194][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:29:36,751][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:30:24,146][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 693.9105446879985, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:30:24,150][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:30:26,654][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:30:29,167][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:30:31,689][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:30:34,228][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:31:21,654][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 751.4187656790018, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:31:21,657][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:31:24,184][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:31:26,728][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:31:29,340][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:31:31,938][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:32:20,076][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 809.8401917449664, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:32:20,085][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:32:22,662][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:32:25,252][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:32:27,831][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:32:30,394][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:33:18,459][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 868.2226971379714, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:33:18,465][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:33:21,042][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:33:23,603][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:33:26,165][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:33:28,755][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:34:16,901][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 926.6652628339361, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:34:16,905][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:34:19,483][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:34:22,076][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:34:24,683][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:34:27,284][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:35:16,097][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 985.8605802069651, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:35:16,102][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:35:18,641][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:35:21,196][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:35:23,781][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:35:26,342][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:36:14,246][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1044.0101021329174, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:36:14,250][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:36:16,803][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:36:19,351][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:36:21,959][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:36:24,527][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:37:12,415][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1102.1757617749972, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:37:12,420][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:37:14,974][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:37:17,530][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:37:20,082][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:37:22,626][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:38:10,274][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1160.0379617349245, "mode": "noise_scale", "phase": "critic_warmup", "status": "running", "substage": "critic_warmup", "target": 20, "total": 20}
+[2026-10-10 03:38:10,283][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:38:12,837][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:38:15,399][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:38:18,055][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:38:20,853][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:38:24,114][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 0, "done": 0, "elapsed_seconds": 1173.8761883649277, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:24,481][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 0, "done": 0, "elapsed_seconds": 1174.2462898809463, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:24,854][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 0, "done": 0, "elapsed_seconds": 1174.6191322099185, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:25,205][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 0, "done": 0, "elapsed_seconds": 1174.9701771929394, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:25,249][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 1175.0141428839415, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:25,251][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:38:27,794][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:38:30,308][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:38:32,855][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:38:35,395][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:38:38,602][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 1188.3654235720169, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:39,057][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 1188.8215689749923, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:39,556][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 1189.3208315019729, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:39,996][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 1189.7607988839736, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:40,035][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 1189.8011246250244, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:40,036][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:38:42,607][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:38:45,158][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:38:47,696][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:38:50,231][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:38:53,292][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 1203.0555917869788, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:53,605][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 1203.3696468109265, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:53,917][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 1203.6819793989416, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:54,232][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 1203.9970012409613, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:54,273][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 1204.0388127670158, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:38:54,274][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:38:56,805][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:38:59,354][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:39:01,953][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:39:04,492][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:39:07,702][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 1217.466369585949, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:08,140][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 1217.9047173729632, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:08,544][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 1218.3087625239277, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:08,979][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 3, "done": 3, "elapsed_seconds": 1218.7436000700109, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:09,015][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 1218.7805006189737, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:09,016][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:39:11,575][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:39:14,108][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:39:16,646][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:39:19,190][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:39:22,316][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 1232.077316586976, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:22,630][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 1232.3951748309191, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:22,958][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 1232.7231511300197, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:23,269][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 4, "done": 4, "elapsed_seconds": 1233.0343887510244, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:23,307][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 1233.0728772759903, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:23,309][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:39:25,839][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:39:28,398][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:39:31,032][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:39:33,699][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:39:37,017][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 1246.779719893937, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:37,431][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 1247.1957792160101, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:37,893][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 1247.6577356639318, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:38,364][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 5, "done": 5, "elapsed_seconds": 1248.1288523389958, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:38,400][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 1248.165316749015, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:38,401][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:39:41,115][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:39:43,703][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:39:46,293][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:39:48,870][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:39:52,064][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 1261.8266231539892, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:52,446][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 1262.2110637240112, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:52,827][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 1262.5903892759234, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:53,207][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 6, "done": 6, "elapsed_seconds": 1262.9721803719876, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:53,244][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 1263.0103172579547, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:39:53,246][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:39:55,835][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:39:58,425][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:40:00,987][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:40:03,557][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:40:06,815][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 1276.579207636998, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:07,240][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 1277.0014870029408, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:07,642][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 1277.4067472600145, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:08,011][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 7, "done": 7, "elapsed_seconds": 1277.7765611259965, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:08,047][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 1277.813181955018, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:08,048][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:40:10,596][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:40:13,099][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:40:15,653][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:40:18,243][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:40:21,421][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 1291.1857675840147, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:21,831][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 1291.5963924489915, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:22,210][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 1291.9743058839813, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:22,589][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 8, "done": 8, "elapsed_seconds": 1292.3537140759872, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:22,627][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 1292.3925679599633, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:22,628][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:40:25,221][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:40:27,843][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:40:30,407][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:40:32,956][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:40:36,126][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 1305.8901274439413, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:36,513][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 1306.278015734977, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:36,941][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 1306.7065073349513, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:37,367][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 9, "done": 9, "elapsed_seconds": 1307.1324811809463, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:37,403][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 1307.1684466919396, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:37,404][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:40:40,068][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:40:42,708][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:40:45,295][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:40:47,963][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:40:51,256][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 1321.020152375917, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:51,619][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 1321.384322304977, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:51,989][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 1321.7539639999159, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:52,373][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 10, "done": 10, "elapsed_seconds": 1322.138112979941, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:52,410][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 1322.1754273079569, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:40:52,411][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:40:55,120][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:40:57,806][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:41:00,402][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:41:03,007][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:41:06,232][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 1335.997042819974, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:06,617][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 1336.3818701279815, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:06,998][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 1336.7631685839733, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:07,380][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 11, "done": 11, "elapsed_seconds": 1337.145271838992, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:07,416][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 1337.1821091179736, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:07,417][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:41:10,029][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:41:12,579][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:41:15,175][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:41:17,772][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:41:20,979][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 1350.742820200976, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:21,356][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 1351.121404074016, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:21,739][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 1351.5040586169343, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:22,132][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 12, "done": 12, "elapsed_seconds": 1351.89691679494, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:22,168][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 1351.9337145839818, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:22,169][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:41:24,770][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:41:27,313][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:41:29,857][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:41:32,406][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:41:35,485][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 1365.2490992390085, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:35,797][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 1365.562020043959, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:36,107][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 1365.8722928059287, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:36,418][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 13, "done": 13, "elapsed_seconds": 1366.1831766669638, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:36,455][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 1366.2211699929321, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:36,457][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:41:38,998][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:41:41,667][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:41:44,242][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:41:46,797][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:41:50,139][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 1379.9031597350258, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:50,529][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 1380.2941189069534, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:50,918][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 1380.6825721659698, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:51,304][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 14, "done": 14, "elapsed_seconds": 1381.069422157947, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:51,339][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 1381.104723340948, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:41:51,340][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:41:53,908][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:41:56,505][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:41:59,135][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:42:01,691][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:42:04,883][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 1394.6453723679297, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:05,322][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 1395.0874131040182, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:05,808][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 1395.5728831719607, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:06,235][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 15, "done": 15, "elapsed_seconds": 1395.9993842559634, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:06,270][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 1396.0362031649565, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:06,271][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:42:08,853][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:42:11,431][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:42:14,026][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:42:16,598][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:42:19,774][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 1409.5372604449512, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:20,131][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 1409.8961739159422, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:20,487][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 1410.2517725860234, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:20,843][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 16, "done": 16, "elapsed_seconds": 1410.6075015449896, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:20,878][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 1410.643654244952, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:20,879][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:42:23,436][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:42:25,983][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:42:28,538][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:42:31,113][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:42:34,335][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 1424.099970760988, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:34,742][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 1424.5075233220123, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:35,192][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 1424.956620879937, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:35,614][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 17, "done": 17, "elapsed_seconds": 1425.3792076229583, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:35,651][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1425.4164555210155, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:35,652][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:42:38,209][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:42:40,735][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:42:43,282][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:42:45,837][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:42:48,935][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1438.696814068011, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:49,250][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1439.015478858957, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:49,564][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1439.3288726130268, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:49,877][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 18, "done": 18, "elapsed_seconds": 1439.6417338579195, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:49,915][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1439.6810709499987, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:42:49,917][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:42:52,469][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:42:55,016][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:42:57,574][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:43:00,125][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:43:03,283][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1453.0473780989414, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:03,663][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1453.4281172859482, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:04,044][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1453.8091011429206, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:04,441][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 19, "done": 19, "elapsed_seconds": 1454.2062044990016, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:04,478][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1454.2436238860246, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:04,479][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:43:07,024][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:43:09,560][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:43:12,125][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:43:14,702][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:43:17,892][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1467.6552448780276, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:18,281][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1468.0455909409793, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:18,672][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1468.4362104729516, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:19,062][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 20, "done": 20, "elapsed_seconds": 1468.8272214339813, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:19,099][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 21, "done": 21, "elapsed_seconds": 1468.864702601917, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:19,101][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:43:21,675][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:43:24,228][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:43:26,806][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:43:29,368][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:43:32,642][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 21, "done": 21, "elapsed_seconds": 1482.4055871689925, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:33,099][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 21, "done": 21, "elapsed_seconds": 1482.8642597720027, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:33,586][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 21, "done": 21, "elapsed_seconds": 1483.3510535859969, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:34,008][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 21, "done": 21, "elapsed_seconds": 1483.7729774100007, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:34,044][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 22, "done": 22, "elapsed_seconds": 1483.8101615980268, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:34,045][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:43:36,594][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:43:39,152][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:43:41,728][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:43:44,312][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:43:47,455][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 22, "done": 22, "elapsed_seconds": 1497.2203142639482, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:47,775][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 22, "done": 22, "elapsed_seconds": 1497.539818692021, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:48,095][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 22, "done": 22, "elapsed_seconds": 1497.8601946779527, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:48,413][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 22, "done": 22, "elapsed_seconds": 1498.1778232009383, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:48,449][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 23, "done": 23, "elapsed_seconds": 1498.2147705699317, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:43:48,450][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:43:51,008][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:43:53,551][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:43:56,101][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:43:58,712][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:44:01,957][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 23, "done": 23, "elapsed_seconds": 1511.721789840958, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:02,353][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 23, "done": 23, "elapsed_seconds": 1512.1179464790039, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:02,748][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 23, "done": 23, "elapsed_seconds": 1512.5128230500268, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:03,142][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 23, "done": 23, "elapsed_seconds": 1512.907428311999, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:03,178][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 24, "done": 24, "elapsed_seconds": 1512.9440208210144, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:03,179][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 03:44:05,772][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 03:44:08,337][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 03:44:10,932][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 03:44:13,525][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 03:44:16,705][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 24, "done": 24, "elapsed_seconds": 1526.46812764497, "environments_completed": 10, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:17,088][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 24, "done": 24, "elapsed_seconds": 1526.8530941909412, "environments_completed": 20, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:17,496][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 24, "done": 24, "elapsed_seconds": 1527.2607000599382, "environments_completed": 30, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:17,898][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 24, "done": 24, "elapsed_seconds": 1527.6609043580247, "environments_completed": 40, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:17,940][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 25, "done": 25, "elapsed_seconds": 1527.7058268869296, "mode": "noise_scale", "phase": "measure", "status": "running", "substage": "measure", "target": 25, "total": 25}
+[2026-10-10 03:44:17,946][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 0, "done": 0, "elapsed_seconds": 1527.7098399059614, "mode": "noise_scale", "phase": "bootstrap", "status": "running", "substage": "bootstrap", "target": 2000, "total": 2000}
+[2026-10-10 03:44:18,289][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 25, "done": 25, "elapsed_seconds": 1528.0551333499607, "mode": "noise_scale", "phase": "completed", "status": "complete", "substage": "completed", "target": 25, "total": 25}

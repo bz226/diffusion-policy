@@ -1,0 +1,111 @@
+{
+  "approved_utc": "2026-10-10T18:18:03.002321+00:00",
+  "approval": "keep in curated",
+  "approved_artifact_ids": [
+    "A",
+    "B",
+    "C"
+  ],
+  "approved_names": [
+    "estimator-sgd-returns",
+    "estimator-sgd-diagnostics",
+    "estimator-sgd-results"
+  ],
+  "analysis": "completed_five_analysis",
+  "conditions": [
+    "E0",
+    "E1",
+    "E2",
+    "SGD1",
+    "SGD3"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "files": [
+    {
+      "source": "runs/completed_five_analysis/candidates/performance.png",
+      "curated": "curated/estimator-sgd-returns.png",
+      "bytes": 1073495,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/performance.pdf",
+      "curated": "curated/estimator-sgd-returns.pdf",
+      "bytes": 109402,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/diagnostics.png",
+      "curated": "curated/estimator-sgd-diagnostics.png",
+      "bytes": 823013,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/diagnostics.pdf",
+      "curated": "curated/estimator-sgd-diagnostics.pdf",
+      "bytes": 135800,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/comparisons.csv",
+      "curated": "curated/estimator-sgd-results/comparisons.csv",
+      "bytes": 2334,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/analysis.md",
+      "curated": "curated/estimator-sgd-results/analysis.md",
+      "bytes": 3601,
+      "preservation": "Markdown links rebased and curation labels updated; numerical content unchanged"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/noise_windows.csv",
+      "curated": "curated/estimator-sgd-results/noise_windows.csv",
+      "bytes": 21068,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/all_runs_long.csv",
+      "curated": "curated/estimator-sgd-results/all_runs_long.csv",
+      "bytes": 1102278,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/captions.md",
+      "curated": "curated/estimator-sgd-results/captions.md",
+      "bytes": 3026,
+      "preservation": "Markdown links rebased and curation labels updated; numerical content unchanged"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/table_caption.md",
+      "curated": "curated/estimator-sgd-results/table_caption.md",
+      "bytes": 1721,
+      "preservation": "Markdown links rebased and curation labels updated; numerical content unchanged"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/summary.json",
+      "curated": "curated/estimator-sgd-results/summary.json",
+      "bytes": 30402,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/seed_results.csv",
+      "curated": "curated/estimator-sgd-results/seed_results.csv",
+      "bytes": 21853,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_five_analysis/candidates/condition_results.csv",
+      "curated": "curated/estimator-sgd-results/condition_results.csv",
+      "bytes": 11274,
+      "preservation": "byte-identical copy"
+    }
+  ],
+  "curated_index": "curated/INDEX.md",
+  "source_candidates_preserved": true,
+  "scientific_source_or_runs_changed": false,
+  "validation": "Binary figures and data files directly byte-compared; Markdown only rebased/relabeled, all numerical content retained."
+}

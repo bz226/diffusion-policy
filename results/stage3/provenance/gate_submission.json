@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--gres=gpu:a6000:1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--time=00:45:00",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--job-name=stage3-gate",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate-slurm-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/run_gate.sh"
+  ],
+  "submitted_utc": "2026-10-10T10:03:46.486570+00:00",
+  "allocation_cap_seconds": 2700,
+  "harness_cap_seconds": 2640,
+  "returncode": 0,
+  "stdout": "17792237\n",
+  "stderr": "",
+  "job_id": "17792237"
+}

@@ -1,0 +1,47 @@
+{
+  "checked_utc": "2026-10-10T10:10:15.829815+00:00",
+  "status": "passed",
+  "scheduler_jobs_submitted": false,
+  "tests": 9,
+  "test_output": "results/stage3/runs/queue_selftest.out",
+  "checks": [
+    "Admission counts outside jobs and queued allocations",
+    "Full optional-inclusive run budget197.5GPUh below approved200",
+    "Three-seed sets and exact unique overrides",
+    "Strict projection skip after complete data only",
+    "NaN/inf rejected and undefined null diagnostics allowed",
+    "Reward collapse recorded without killing finite training",
+    "Startup effective settings validated",
+    "No overwrite of prior job specifications",
+    "Crash before pickle write retains explicit failed iteration or clearly marked inference, traceback, latest metrics and saved prefix"
+  ],
+  "scope": "Orchestration-only checks, separate from required scientific gate; no Slurm calls in tests.",
+  "commands": [
+    [
+      "results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "results/stage3/code/test_queue.py"
+    ],
+    [
+      "results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "results/stage3/code/campaign.py",
+      "prepare"
+    ],
+    [
+      "bash",
+      "-n",
+      "results/stage3/run_queue.sh",
+      "results/stage3/code/environment.sh",
+      "results/stage3/code/run_worker.sh"
+    ]
+  ],
+  "prepared_files": [
+    "results/stage3/jobs_wave0.txt",
+    "results/stage3/runs/queue_plan.json",
+    "results/stage3/runs/specs/cal_seed3000.json",
+    "results/stage3/runs/specs/ns_theta0_seed1000.json",
+    "results/stage3/runs/specs/ns_ckpt_seed2000.json"
+  ],
+  "mode_output_validation": "Requires five calibration batches,25noisebatches/1000envgradients/fivevariants, and80episodes percheckpoint-eval rollout."
+}

@@ -1,0 +1,46 @@
+{
+  "checked_utc": "2026-10-10T10:10:15.829815+00:00",
+  "scope": "Read-only scheduler policy inspection; no allocations changed or submitted",
+  "requested_controller_walltime": "5-00:00:00",
+  "requested_controller_cpus": 2,
+  "requested_controller_memory_gib": 8,
+  "requested_gpus": 0,
+  "partition": "soal",
+  "partition_default_time": "7-00:00:00",
+  "partition_max_time": "21-00:00:00",
+  "qos_max_wall": null,
+  "user_association_max_wall": null,
+  "qos_max_jobs_per_user": 12,
+  "qos_max_submitted_jobs_per_user": 20,
+  "qos_max_gpus_per_user": 12,
+  "conclusion": "Five-day CPU-only controller cap is within the exposed partition, QoS and user-association limits. Admission still depends on the scheduler and any undisclosed job-submit plugin rules.",
+  "commands": [
+    [
+      "scontrol",
+      "show",
+      "partition",
+      "soal"
+    ],
+    [
+      "sacctmgr",
+      "-nP",
+      "show",
+      "qos",
+      "where",
+      "name=soal",
+      "format=Name,MaxWall,MaxJobsPU,MaxSubmitPU,MaxTRESPU"
+    ],
+    [
+      "sacctmgr",
+      "-nP",
+      "show",
+      "assoc",
+      "where",
+      "user=zbao7",
+      "account=soal",
+      "format=Cluster,Account,User,Partition,QOS,MaxWall"
+    ]
+  ],
+  "qos_stdout": "soal||12|20|gres/gpu=12\n",
+  "association_stdout": "sc|soal|zbao7||normal|\n"
+}

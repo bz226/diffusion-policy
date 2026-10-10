@@ -1,0 +1,11 @@
+# Reusable dependencies stay in Stage 1; these are process-local scratch caches.
+cache/
+tmp/
+
+# Unchanged Stage-2 replay worktree; its revision is recorded in provenance.
+reference_stage2/
+
+# Large float64 gradient vector sums remain on disk for reproducibility.
+**/noise_batch_vector_sums.npy
+
+# Checkpoints and full gate tensor evidence inherit the parent *.pt exclusions.

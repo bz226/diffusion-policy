@@ -1,0 +1,29 @@
+{
+  "reviewed_utc": "2026-10-10T18:16:19.495148+00:00",
+  "status": "report_guard_verified",
+  "changed_report_code": "code/analyze_stage3.py",
+  "trigger": "runs/noise_ci_review.json status uncertainty_unreliable",
+  "behavior": [
+    "Prominent warning before verification gate and in final experiment summary.",
+    "Phase-1 tables preserve signed point moments and saved provisional derived points; omit all saved uncertainty/bound columns.",
+    "Q1-Q3 remove CI-based resolution and lower-bound conclusions; Q8 omits the invalid confidence interval.",
+    "Raw Phase-1 JSON is linked for provenance and is never rewritten.",
+    "Future analysis_record.json includes the uncertainty audit."
+  ],
+  "verification": [
+    {
+      "command": "results/repro_halfcheetah/env/bin/python -B results/stage3/code/analyze_stage3.py --self-test",
+      "result": "passed, including guarded table suppression and unchanged input values"
+    },
+    {
+      "check": "Rendered report() in memory with actual completed Phase-1 JSON and empty partial training tables",
+      "result": "passed: warnings precede gate; Phase-1 and Q1-Q3/Q8 omit invalid CI/bound/resolution claims; input dictionaries unchanged; no REPORT.md written"
+    }
+  ],
+  "scientific_source_changed": false,
+  "jobs_changed": false,
+  "measurements_changed": false,
+  "new_confidence_intervals_computed": false,
+  "additional_scientific_sampling": false,
+  "scope": "Reporting validity correction only; no statistical replacement method implemented."
+}

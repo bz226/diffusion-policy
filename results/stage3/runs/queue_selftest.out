@@ -1,0 +1,14 @@
+test_approved_maximum_is_bounded_including_every_evaluation (__main__.QueueSafetyTests) ... ok
+test_effective_flags_must_match_instead_of_silently_ignoring (__main__.QueueSafetyTests) ... ok
+test_failure_record_preserves_iteration_beyond_saved_prefix (__main__.QueueSafetyTests) ... ok
+test_log_observation_ignores_null_and_finds_reward_collapse (__main__.QueueSafetyTests) ... ok
+test_null_diagnostic_is_allowed_but_nan_and_inf_are_failures (__main__.QueueSafetyTests) ... ok
+test_other_jobs_reduce_capacity (__main__.QueueSafetyTests) ... ok
+test_preexisting_jobfile_is_not_overwritten (__main__.QueueSafetyTests) ... ok
+test_projection_skip_requires_all_complete_and_strict_threshold (__main__.QueueSafetyTests) ... ok
+test_wave_specs_have_exact_seeds_and_no_duplicate_keys (__main__.QueueSafetyTests) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.075s
+
+OK

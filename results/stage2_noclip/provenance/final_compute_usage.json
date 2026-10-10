@@ -1,0 +1,1022 @@
+{
+  "recorded_utc": "2026-10-10 09:09:33 UTC",
+  "source_command": "sacct --allocations --parsable2 --user=zbao7 --starttime=2026-10-08 --endtime=2026-10-11 --format=JobIDRaw,JobName%48,Account,Partition,State,ElapsedRaw,AllocCPUS,AllocTRES%180,Start,End",
+  "source_exit_code": 0,
+  "source_stdout": "JobIDRaw|JobName|Account|Partition|State|ElapsedRaw|AllocCPUS|AllocTRES|Start|End\n17763716|bash|soal|soal-interactive|TIMEOUT|21624|2|billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1|2026-10-08T11:54:31|2026-10-08T17:54:55\n17767857|bash|soal|soal-interactive|TIMEOUT|21600|2|billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1|2026-10-08T18:08:58|2026-10-09T00:08:58\n17768661|dppo-hc-repro|soal|soal|FAILED|13|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-08T19:49:42|2026-10-08T19:49:55\n17768688|dppo-hc-repro|soal|soal|FAILED|13|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-08T19:54:45|2026-10-08T19:54:58\n17768782|dppo-hc-repro|soal|soal|FAILED|7520|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-08T19:59:48|2026-10-08T22:05:08\n17769259|dppo-hc-remaining|soal|soal|COMPLETED|7388|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-08T22:06:10|2026-10-09T00:09:18\n17770172|dppo-hc-seed2|soal|soal|COMPLETED|7524|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-08T22:48:31|2026-10-09T00:53:55\n17771006|bash|soal|soal-interactive|TIMEOUT|21603|2|billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1|2026-10-09T00:26:02|2026-10-09T06:26:05\n17772575|stage2-P1|soal|soal|COMPLETED|1073|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T02:27:31|2026-10-09T02:45:24\n17772576|stage2-P2|soal|soal|COMPLETED|1081|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T02:27:31|2026-10-09T02:45:32\n17773043|stage2-verify|soal|soal|COMPLETED|38|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T02:55:18|2026-10-09T02:55:56\n17773065|stage2-R0|soal|soal|FAILED|367|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T02:57:31|2026-10-09T03:03:38\n17777102|bash|soal|soal-interactive|FAILED|9155|2|billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1|2026-10-09T10:32:20|2026-10-09T13:04:55\n17777209|stage2-full-gate|soal|soal|COMPLETED|214|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T10:43:44|2026-10-09T10:47:18\n17777245|stage2-R0-rerun|soal|soal|CANCELLED by 25987|7403|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T10:49:33|2026-10-09T12:52:56\n17777246|stage2-controller|soal|soal|CANCELLED by 25987|7397|2|billing=2,cpu=2,mem=8G,node=1|2026-10-09T10:49:33|2026-10-09T12:52:50\n17777247|stage2-NC1_seed0|soal|soal|COMPLETED|7318|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T10:50:34|2026-10-09T12:52:32\n17777248|stage2-NC1_seed1|soal|soal|CANCELLED by 25987|7342|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T10:50:34|2026-10-09T12:52:56\n17777249|stage2-NC1_seed2|soal|soal|COMPLETED|4182|40|billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1|2026-10-09T11:12:33|2026-10-09T12:22:15\n17777408|stage2-h200-gate|soal|soal|COMPLETED|65|40|billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1|2026-10-09T11:10:25|2026-10-09T11:11:30\n17778495|stage2-parallel-controller|soal|soal|COMPLETED|33414|2|billing=2,cpu=2,mem=8G,node=1|2026-10-09T12:57:45|2026-10-09T22:14:39\n17778496|stage2-NC2_seed0|soal|soal|COMPLETED|7250|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T12:58:33|2026-10-09T14:59:23\n17778497|stage2-NC2_seed1|soal|soal|COMPLETED|7487|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T12:58:33|2026-10-09T15:03:20\n17778498|stage2-NC2_seed2|soal|soal|COMPLETED|7575|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T12:58:33|2026-10-09T15:04:48\n17778499|stage2-NC3_seed0|soal|soal|COMPLETED|7584|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T12:58:33|2026-10-09T15:04:57\n17778500|stage2-NC3_seed1|soal|soal|COMPLETED|7358|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T14:59:34|2026-10-09T17:02:12\n17778501|stage2-NC3_seed2|soal|soal|COMPLETED|7440|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T15:03:33|2026-10-09T17:07:33\n17778502|stage2-NC4_lr1e-4_seed0|soal|soal|COMPLETED|8498|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T15:05:33|2026-10-09T17:27:11\n17778503|stage2-NC4_lr1e-4_seed1|soal|soal|COMPLETED|8683|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T15:05:33|2026-10-09T17:30:16\n17778504|stage2-NC4_lr1e-4_seed2|soal|soal|COMPLETED|8556|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T17:02:35|2026-10-09T19:25:11\n17779865|bash|soal|soal-interactive|FAILED|15868|2|billing=2,cpu=2,gres/gpu:h200nvl=1,gres/gpu=1,mem=8G,node=1|2026-10-09T14:03:24|2026-10-09T18:27:52\n17780304|stage2-recovery-controller|soal|soal|COMPLETED|35026|2|billing=2,cpu=2,mem=8G,node=1|2026-10-09T14:35:28|2026-10-10T00:19:14\n17780957|stage2-NC4_lr1e-3_seed0|soal|soal|COMPLETED|8538|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T17:07:36|2026-10-09T19:29:54\n17780958|stage2-NC4_lr1e-3_seed1|soal|soal|COMPLETED|8487|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T17:27:34|2026-10-09T19:49:01\n17780959|stage2-NC4_lr1e-3_seed2|soal|soal|COMPLETED|8570|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T17:30:34|2026-10-09T19:53:24\n17783505|stage2-NC4_lr3e-3_seed0|soal|soal|COMPLETED|8393|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T19:25:33|2026-10-09T21:45:26\n17783506|stage2-NC4_lr3e-3_seed1|soal|soal|COMPLETED|8616|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T19:30:34|2026-10-09T21:54:10\n17783507|stage2-NC4_lr3e-3_seed2|soal|soal|COMPLETED|8667|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T19:49:35|2026-10-09T22:14:02\n17787570|bash|soal|soal-interactive|RUNNING|19942|2|billing=2,cpu=2,gres/gpu:a6000=1,gres/gpu=1,mem=8G,node=1|2026-10-09T20:35:09|Unknown\n17789310|stage2-R0_recovery_seed0|soal|soal|COMPLETED|7267|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T22:15:36|2026-10-10T00:16:43\n17789311|stage2-NC1_recovery_seed1|soal|soal|COMPLETED|7376|40|billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1|2026-10-09T22:15:36|2026-10-10T00:18:32\n",
+  "units": "Raw allocated GPU-hours: ElapsedRaw seconds times generic gres/gpu divided by3600. GPU models are not performance-normalized. Billing-unit-hours reported separately are Slurm TRES accounting, not GPU-hours or currency.",
+  "summary": {
+    "stage2": {
+      "jobs": 30,
+      "gpuJobs": 27,
+      "gpuHours": 45.952222222222225,
+      "cpuHours": 1880.2205555555556,
+      "billingUnitHours": 1880.2205555555556,
+      "byGPU": {
+        "a6000": 44.772499999999994,
+        "h200nvl": 1.1797222222222221
+      },
+      "approvedBudgetGPUHours": 58.5,
+      "percentBudget": 78.55080721747389,
+      "unusedBudgetGPUHours": 12.547777777777775
+    },
+    "stage1": {
+      "jobs": 5,
+      "gpuJobs": 5,
+      "gpuHours": 6.238333333333333,
+      "cpuHours": 249.53333333333333,
+      "billingUnitHours": 249.53333333333333,
+      "byGPU": {
+        "a6000": 6.238333333333333
+      }
+    },
+    "interactive": {
+      "jobs": 6,
+      "gpuJobs": 6,
+      "gpuHours": 30.497777777777777,
+      "cpuHours": 60.995555555555555,
+      "billingUnitHours": 60.995555555555555,
+      "byGPU": {
+        "titanv": 20.550555555555555,
+        "h200nvl": 4.407777777777778,
+        "a6000": 5.539444444444444
+      }
+    },
+    "combinedExperimentGPUHours": 52.19055555555556,
+    "allListedGPUHours": 82.68833333333333
+  },
+  "stage2_breakdown": {
+    "selected": {
+      "job_count": 19,
+      "gpu_seconds": 147845,
+      "gpu_hours": 41.06805555555555,
+      "job_ids": [
+        "17777247",
+        "17777249",
+        "17778496",
+        "17778497",
+        "17778498",
+        "17778499",
+        "17778500",
+        "17778501",
+        "17778502",
+        "17778503",
+        "17778504",
+        "17780957",
+        "17780958",
+        "17780959",
+        "17783505",
+        "17783506",
+        "17783507",
+        "17789310",
+        "17789311"
+      ]
+    },
+    "interrupted_or_prior": {
+      "job_count": 3,
+      "gpu_seconds": 15112,
+      "gpu_hours": 4.197777777777778,
+      "job_ids": [
+        "17773065",
+        "17777245",
+        "17777248"
+      ]
+    },
+    "probes": {
+      "job_count": 2,
+      "gpu_seconds": 2154,
+      "gpu_hours": 0.5983333333333334,
+      "job_ids": [
+        "17772575",
+        "17772576"
+      ]
+    },
+    "verification": {
+      "job_count": 3,
+      "gpu_seconds": 317,
+      "gpu_hours": 0.08805555555555555,
+      "job_ids": [
+        "17773043",
+        "17777209",
+        "17777408"
+      ]
+    }
+  },
+  "allocations": [
+    {
+      "JobIDRaw": "17763716",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "TIMEOUT",
+      "ElapsedRaw": "21624",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-08T11:54:31",
+      "End": "2026-10-08T17:54:55",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:titanv": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 21624,
+      "billingSeconds": 43248
+    },
+    {
+      "JobIDRaw": "17767857",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "TIMEOUT",
+      "ElapsedRaw": "21600",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-08T18:08:58",
+      "End": "2026-10-09T00:08:58",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:titanv": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 21600,
+      "billingSeconds": 43200
+    },
+    {
+      "JobIDRaw": "17768661",
+      "JobName": "dppo-hc-repro",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "FAILED",
+      "ElapsedRaw": "13",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-08T19:49:42",
+      "End": "2026-10-08T19:49:55",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 13,
+      "billingSeconds": 520
+    },
+    {
+      "JobIDRaw": "17768688",
+      "JobName": "dppo-hc-repro",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "FAILED",
+      "ElapsedRaw": "13",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-08T19:54:45",
+      "End": "2026-10-08T19:54:58",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 13,
+      "billingSeconds": 520
+    },
+    {
+      "JobIDRaw": "17768782",
+      "JobName": "dppo-hc-repro",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "FAILED",
+      "ElapsedRaw": "7520",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-08T19:59:48",
+      "End": "2026-10-08T22:05:08",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7520,
+      "billingSeconds": 300800
+    },
+    {
+      "JobIDRaw": "17769259",
+      "JobName": "dppo-hc-remaining",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7388",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-08T22:06:10",
+      "End": "2026-10-09T00:09:18",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7388,
+      "billingSeconds": 295520
+    },
+    {
+      "JobIDRaw": "17770172",
+      "JobName": "dppo-hc-seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7524",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-08T22:48:31",
+      "End": "2026-10-09T00:53:55",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7524,
+      "billingSeconds": 300960
+    },
+    {
+      "JobIDRaw": "17771006",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "TIMEOUT",
+      "ElapsedRaw": "21603",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-09T00:26:02",
+      "End": "2026-10-09T06:26:05",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:titanv": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 21603,
+      "billingSeconds": 43206
+    },
+    {
+      "JobIDRaw": "17772575",
+      "JobName": "stage2-P1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "1073",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T02:27:31",
+      "End": "2026-10-09T02:45:24",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 1073,
+      "billingSeconds": 42920
+    },
+    {
+      "JobIDRaw": "17772576",
+      "JobName": "stage2-P2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "1081",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T02:27:31",
+      "End": "2026-10-09T02:45:32",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 1081,
+      "billingSeconds": 43240
+    },
+    {
+      "JobIDRaw": "17773043",
+      "JobName": "stage2-verify",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "38",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T02:55:18",
+      "End": "2026-10-09T02:55:56",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 38,
+      "billingSeconds": 1520
+    },
+    {
+      "JobIDRaw": "17773065",
+      "JobName": "stage2-R0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "FAILED",
+      "ElapsedRaw": "367",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T02:57:31",
+      "End": "2026-10-09T03:03:38",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 367,
+      "billingSeconds": 14680
+    },
+    {
+      "JobIDRaw": "17777102",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "FAILED",
+      "ElapsedRaw": "9155",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:titanv=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-09T10:32:20",
+      "End": "2026-10-09T13:04:55",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:titanv": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 9155,
+      "billingSeconds": 18310
+    },
+    {
+      "JobIDRaw": "17777209",
+      "JobName": "stage2-full-gate",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "214",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T10:43:44",
+      "End": "2026-10-09T10:47:18",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 214,
+      "billingSeconds": 8560
+    },
+    {
+      "JobIDRaw": "17777245",
+      "JobName": "stage2-R0-rerun",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "CANCELLED by 25987",
+      "ElapsedRaw": "7403",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T10:49:33",
+      "End": "2026-10-09T12:52:56",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7403,
+      "billingSeconds": 296120
+    },
+    {
+      "JobIDRaw": "17777246",
+      "JobName": "stage2-controller",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "CANCELLED by 25987",
+      "ElapsedRaw": "7397",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,mem=8G,node=1",
+      "Start": "2026-10-09T10:49:33",
+      "End": "2026-10-09T12:52:50",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 0,
+      "billingSeconds": 14794
+    },
+    {
+      "JobIDRaw": "17777247",
+      "JobName": "stage2-NC1_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7318",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T10:50:34",
+      "End": "2026-10-09T12:52:32",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7318,
+      "billingSeconds": 292720
+    },
+    {
+      "JobIDRaw": "17777248",
+      "JobName": "stage2-NC1_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "CANCELLED by 25987",
+      "ElapsedRaw": "7342",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T10:50:34",
+      "End": "2026-10-09T12:52:56",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7342,
+      "billingSeconds": 293680
+    },
+    {
+      "JobIDRaw": "17777249",
+      "JobName": "stage2-NC1_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "4182",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T11:12:33",
+      "End": "2026-10-09T12:22:15",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:h200nvl": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 4182,
+      "billingSeconds": 167280
+    },
+    {
+      "JobIDRaw": "17777408",
+      "JobName": "stage2-h200-gate",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "65",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:h200nvl=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T11:10:25",
+      "End": "2026-10-09T11:11:30",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:h200nvl": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 65,
+      "billingSeconds": 2600
+    },
+    {
+      "JobIDRaw": "17778495",
+      "JobName": "stage2-parallel-controller",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "33414",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,mem=8G,node=1",
+      "Start": "2026-10-09T12:57:45",
+      "End": "2026-10-09T22:14:39",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 0,
+      "billingSeconds": 66828
+    },
+    {
+      "JobIDRaw": "17778496",
+      "JobName": "stage2-NC2_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7250",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T12:58:33",
+      "End": "2026-10-09T14:59:23",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7250,
+      "billingSeconds": 290000
+    },
+    {
+      "JobIDRaw": "17778497",
+      "JobName": "stage2-NC2_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7487",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T12:58:33",
+      "End": "2026-10-09T15:03:20",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7487,
+      "billingSeconds": 299480
+    },
+    {
+      "JobIDRaw": "17778498",
+      "JobName": "stage2-NC2_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7575",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T12:58:33",
+      "End": "2026-10-09T15:04:48",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7575,
+      "billingSeconds": 303000
+    },
+    {
+      "JobIDRaw": "17778499",
+      "JobName": "stage2-NC3_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7584",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T12:58:33",
+      "End": "2026-10-09T15:04:57",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7584,
+      "billingSeconds": 303360
+    },
+    {
+      "JobIDRaw": "17778500",
+      "JobName": "stage2-NC3_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7358",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T14:59:34",
+      "End": "2026-10-09T17:02:12",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7358,
+      "billingSeconds": 294320
+    },
+    {
+      "JobIDRaw": "17778501",
+      "JobName": "stage2-NC3_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7440",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T15:03:33",
+      "End": "2026-10-09T17:07:33",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7440,
+      "billingSeconds": 297600
+    },
+    {
+      "JobIDRaw": "17778502",
+      "JobName": "stage2-NC4_lr1e-4_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8498",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T15:05:33",
+      "End": "2026-10-09T17:27:11",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8498,
+      "billingSeconds": 339920
+    },
+    {
+      "JobIDRaw": "17778503",
+      "JobName": "stage2-NC4_lr1e-4_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8683",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T15:05:33",
+      "End": "2026-10-09T17:30:16",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8683,
+      "billingSeconds": 347320
+    },
+    {
+      "JobIDRaw": "17778504",
+      "JobName": "stage2-NC4_lr1e-4_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8556",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T17:02:35",
+      "End": "2026-10-09T19:25:11",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8556,
+      "billingSeconds": 342240
+    },
+    {
+      "JobIDRaw": "17779865",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "FAILED",
+      "ElapsedRaw": "15868",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:h200nvl=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-09T14:03:24",
+      "End": "2026-10-09T18:27:52",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:h200nvl": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 15868,
+      "billingSeconds": 31736
+    },
+    {
+      "JobIDRaw": "17780304",
+      "JobName": "stage2-recovery-controller",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "35026",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,mem=8G,node=1",
+      "Start": "2026-10-09T14:35:28",
+      "End": "2026-10-10T00:19:14",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 0,
+      "billingSeconds": 70052
+    },
+    {
+      "JobIDRaw": "17780957",
+      "JobName": "stage2-NC4_lr1e-3_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8538",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T17:07:36",
+      "End": "2026-10-09T19:29:54",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8538,
+      "billingSeconds": 341520
+    },
+    {
+      "JobIDRaw": "17780958",
+      "JobName": "stage2-NC4_lr1e-3_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8487",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T17:27:34",
+      "End": "2026-10-09T19:49:01",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8487,
+      "billingSeconds": 339480
+    },
+    {
+      "JobIDRaw": "17780959",
+      "JobName": "stage2-NC4_lr1e-3_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8570",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T17:30:34",
+      "End": "2026-10-09T19:53:24",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8570,
+      "billingSeconds": 342800
+    },
+    {
+      "JobIDRaw": "17783505",
+      "JobName": "stage2-NC4_lr3e-3_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8393",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T19:25:33",
+      "End": "2026-10-09T21:45:26",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8393,
+      "billingSeconds": 335720
+    },
+    {
+      "JobIDRaw": "17783506",
+      "JobName": "stage2-NC4_lr3e-3_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8616",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T19:30:34",
+      "End": "2026-10-09T21:54:10",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8616,
+      "billingSeconds": 344640
+    },
+    {
+      "JobIDRaw": "17783507",
+      "JobName": "stage2-NC4_lr3e-3_seed2",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "8667",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T19:49:35",
+      "End": "2026-10-09T22:14:02",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 8667,
+      "billingSeconds": 346680
+    },
+    {
+      "JobIDRaw": "17787570",
+      "JobName": "bash",
+      "Account": "soal",
+      "Partition": "soal-interactive",
+      "State": "RUNNING",
+      "ElapsedRaw": "19942",
+      "AllocCPUS": "2",
+      "AllocTRES": "billing=2,cpu=2,gres/gpu:a6000=1,gres/gpu=1,mem=8G,node=1",
+      "Start": "2026-10-09T20:35:09",
+      "End": "Unknown",
+      "tres": {
+        "billing": "2",
+        "cpu": "2",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "8G",
+        "node": "1"
+      },
+      "gpuSeconds": 19942,
+      "billingSeconds": 39884
+    },
+    {
+      "JobIDRaw": "17789310",
+      "JobName": "stage2-R0_recovery_seed0",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7267",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T22:15:36",
+      "End": "2026-10-10T00:16:43",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7267,
+      "billingSeconds": 290680
+    },
+    {
+      "JobIDRaw": "17789311",
+      "JobName": "stage2-NC1_recovery_seed1",
+      "Account": "soal",
+      "Partition": "soal",
+      "State": "COMPLETED",
+      "ElapsedRaw": "7376",
+      "AllocCPUS": "40",
+      "AllocTRES": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "Start": "2026-10-09T22:15:36",
+      "End": "2026-10-10T00:18:32",
+      "tres": {
+        "billing": "40",
+        "cpu": "40",
+        "gres/gpu:a6000": "1",
+        "gres/gpu": "1",
+        "mem": "64G",
+        "node": "1"
+      },
+      "gpuSeconds": 7376,
+      "billingSeconds": 295040
+    }
+  ],
+  "stage1_startup_failures": {
+    "job_ids": [
+      "17768661",
+      "17768688"
+    ],
+    "seconds_each": 13,
+    "evidence": "results/repro_halfcheetah/setup/workarounds.md"
+  },
+  "accounting_rules": [
+    "Allocation-level records only, excluding duplicated batch/extern steps.",
+    "Count generic gres/gpu once; typed GPU TRES identify hardware without adding a second GPU.",
+    "Include Stage2 probes, verification, interrupted/prior attempts and replacement runs.",
+    "CPU-only controllers contribute0GPU-hours; their allocated CPU/billing units are recorded separately.",
+    "Deduplicate Stage1 smoke/seed0/seed0_handoff, all sharing job17768782.",
+    "Stage1 setup-only failed allocations are included in Stage1.",
+    "Interactive bash allocations are reported separately and excluded from Stage2's approved58.5GPU-hour ceiling.",
+    "One interactive A6000 allocation was RUNNING at the query; its total is a snapshot and continues increasing.",
+    "The58.5GPU-hour value is the user-approved Stage2 experiment budget, not a discovered cluster-wide consumable quota."
+  ],
+  "training_or_scheduler_changes": false
+}

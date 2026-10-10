@@ -1,0 +1,16 @@
+{
+  "status": "passed",
+  "check": "Python syntax via ast.parse, no imports or simulation",
+  "files": [
+    "results/stage3/code/gate_stage3.py",
+    "results/stage3/code/gate_replay.py",
+    "results/stage3/code/gate_common.py",
+    "results/stage3/code/gate_features.py",
+    "results/stage3/dppo/model/diffusion/diffusion_ppo.py",
+    "results/stage3/dppo/agent/finetune/train_ppo_agent.py",
+    "results/stage3/dppo/agent/finetune/train_ppo_diffusion_agent.py",
+    "results/stage3/dppo/agent/finetune/stage3_support.py",
+    "results/stage3/dppo/agent/finetune/stage3_math.py",
+    "results/stage3/dppo/agent/finetune/stage3_modes.py"
+  ]
+}

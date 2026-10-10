@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/gate_replay.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate/nc4_cpu_edited",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--device",
+    "cpu",
+    "--cpu-logprobs",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "actor_steps": 1,
+  "critic_steps": 20,
+  "loss_calls": 24,
+  "permutations": 5,
+  "seconds": 35.274106272961944,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

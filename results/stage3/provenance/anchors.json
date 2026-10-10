@@ -1,0 +1,16 @@
+{
+  "kl_star": 0.000584517336086918,
+  "kl_training_rows": 378,
+  "kl_seed_medians": [0.0005283256956950024, 0.000584517336086918, 0.0006320875433833632],
+  "projection_radius": 8.686025494700294,
+  "radius_source": "stage1",
+  "stage1_final_distances": [6.858459063553909, 6.935898417571779, 6.948820395760235],
+  "nc4_final_distances": [0.9097471263899602, 0.8784519424117502, 0.8951921299172264],
+  "theta0_norm": 694.2776660278384,
+  "theta0_key_mapping": "pretrained ema.network.<suffix> to RL model.actor_ft.<suffix>",
+  "theta0_parameter_count": 568392,
+  "distance_dtype": "float64 before subtraction",
+  "final_checkpoint_itr": 139,
+  "final_training_steps": 10080000,
+  "frozen_actor_matches_theta0_exactly_all_six": true
+}

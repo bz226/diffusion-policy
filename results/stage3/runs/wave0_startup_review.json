@@ -1,0 +1,175 @@
+{
+  "checked_utc": "2026-10-10T10:19:09.430001+00:00",
+  "controller_job_id": "17792337",
+  "jobs": [
+    {
+      "run_id": "cal_seed3000",
+      "job_id": "17792340",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-5ffe0c3b-eaa7-1234-b486-4fa5f9994a30, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-10"
+      },
+      "effective_settings": {
+        "actor_beta1": 0.9,
+        "actor_loss": "score",
+        "actor_optimizer": "adamw",
+        "actor_single_step": true,
+        "adv_estimator": "mc_loo",
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "calib_kl_target": 0.000584517336086918,
+        "ckpt_eval_repeats": 1,
+        "clamp_logprob": false,
+        "decision_discount": true,
+        "denoised_clip_value": 1.0,
+        "gamma_denoising": 1.0,
+        "logprob_reduce": "sum",
+        "lr": 0.0001,
+        "max_grad_norm": null,
+        "min_logprob_denoising_std": 0.1,
+        "min_sampling_denoising_std": 0.1,
+        "mode": "calibrate",
+        "momentum": null,
+        "norm_adv": false,
+        "ns_batches": 25,
+        "ns_warmup_batches": 20,
+        "optimizer_class": "AdamW",
+        "proj_radius": null,
+        "randn_clip_value": 100,
+        "scheduler_max_lr": 0.0001,
+        "scheduler_min_lr": 0.0001,
+        "stage3_diag": true
+      },
+      "effective_settings_verified": true,
+      "progress": null,
+      "console_tail": [
+        "[2026-10-10 03:18:50,334][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500",
+        "[2026-10-10 03:18:52,877][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500",
+        "[2026-10-10 03:18:55,378][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500",
+        "[2026-10-10 03:18:57,854][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500",
+        "[2026-10-10 03:19:00,289][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500",
+        "[2026-10-10 03:19:03,224][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {\"completed\": 1, \"done\": 1, \"elapsed_seconds\": 12.89800829300657, \"eta_b\": 9.04514410295006e-05, \"mode\": \"calibrate\", \"phase\": \"calibrate\", \"realized_kl\": 0.000583664631905675, \"status\": \"running\", \"substage\": \"calibrate\", \"target\": 5, \"target_kl\": 0.000584517336086918, \"total\": 5, \"warnings\": []}",
+        "[2026-10-10 03:19:03,226][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500",
+        "[2026-10-10 03:19:05,666][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500"
+      ],
+      "failure": null
+    },
+    {
+      "run_id": "ns_theta0_seed1000",
+      "job_id": "17792341",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-10"
+      },
+      "effective_settings": {
+        "actor_beta1": 0.9,
+        "actor_loss": "score",
+        "actor_optimizer": "adamw",
+        "actor_single_step": true,
+        "adv_estimator": "gae",
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "calib_kl_target": null,
+        "ckpt_eval_repeats": 1,
+        "clamp_logprob": false,
+        "decision_discount": false,
+        "denoised_clip_value": 1.0,
+        "gamma_denoising": 0.99,
+        "logprob_reduce": "mean",
+        "lr": 0.0001,
+        "max_grad_norm": null,
+        "min_logprob_denoising_std": 0.1,
+        "min_sampling_denoising_std": 0.1,
+        "mode": "noise_scale",
+        "momentum": null,
+        "norm_adv": true,
+        "ns_batches": 25,
+        "ns_warmup_batches": 20,
+        "optimizer_class": "AdamW",
+        "proj_radius": null,
+        "randn_clip_value": 100,
+        "scheduler_max_lr": 0.0001,
+        "scheduler_min_lr": 0.0001,
+        "stage3_diag": true
+      },
+      "effective_settings_verified": true,
+      "progress": null,
+      "console_tail": [
+        "[2026-10-10 03:18:50,204][root][INFO] - Number of finetuned parameters: 568392",
+        "[2026-10-10 03:18:50,222][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=False logprob_reduce=mean actor_single_step=True",
+        "[2026-10-10 03:18:50,226][agent.finetune.stage3_support][INFO] - STAGE3_SETTINGS {\"actor_beta1\": 0.9, \"actor_loss\": \"score\", \"actor_optimizer\": \"adamw\", \"actor_single_step\": true, \"adv_estimator\": \"gae\", \"betas\": [0.9, 0.999], \"calib_kl_target\": null, \"ckpt_eval_repeats\": 1, \"clamp_logprob\": false, \"decision_discount\": false, \"denoised_clip_value\": 1.0, \"gamma_denoising\": 0.99, \"logprob_reduce\": \"mean\", \"lr\": 0.0001, \"max_grad_norm\": null, \"min_logprob_denoising_std\": 0.1, \"min_sampling_denoising_std\": 0.1, \"mode\": \"noise_scale\", \"momentum\": null, \"norm_adv\": true, \"ns_batches\": 25, \"ns_warmup_batches\": 20, \"optimizer_class\": \"AdamW\", \"proj_radius\": null, \"randn_clip_value\": 100, \"scheduler_max_lr\": 0.0001, \"scheduler_min_lr\": 0.0001, \"stage3_diag\": true}",
+        "[2026-10-10 03:18:50,240][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500",
+        "[2026-10-10 03:18:52,883][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500",
+        "[2026-10-10 03:18:55,463][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500",
+        "[2026-10-10 03:18:58,003][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500",
+        "[2026-10-10 03:19:00,526][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500"
+      ],
+      "failure": null
+    },
+    {
+      "run_id": "ns_ckpt_seed2000",
+      "job_id": "17792342",
+      "status": "running",
+      "hardware": {
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "cpu_affinity_count": 40,
+        "slurm_node": "soal-11"
+      },
+      "effective_settings": {
+        "actor_beta1": 0.9,
+        "actor_loss": "score",
+        "actor_optimizer": "adamw",
+        "actor_single_step": true,
+        "adv_estimator": "gae",
+        "betas": [
+          0.9,
+          0.999
+        ],
+        "calib_kl_target": null,
+        "ckpt_eval_repeats": 1,
+        "clamp_logprob": false,
+        "decision_discount": false,
+        "denoised_clip_value": 1.0,
+        "gamma_denoising": 0.99,
+        "logprob_reduce": "mean",
+        "lr": 0.0001,
+        "max_grad_norm": null,
+        "min_logprob_denoising_std": 0.1,
+        "min_sampling_denoising_std": 0.1,
+        "mode": "noise_scale",
+        "momentum": null,
+        "norm_adv": true,
+        "ns_batches": 25,
+        "ns_warmup_batches": 5,
+        "optimizer_class": "AdamW",
+        "proj_radius": null,
+        "randn_clip_value": 100,
+        "scheduler_max_lr": 0.0001,
+        "scheduler_min_lr": 0.0001,
+        "stage3_diag": true
+      },
+      "effective_settings_verified": true,
+      "progress": null,
+      "console_tail": [
+        "[2026-10-10 03:18:51,847][root][INFO] - Loaded critic from /soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+        "[2026-10-10 03:18:51,853][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=False logprob_reduce=mean actor_single_step=True",
+        "[2026-10-10 03:18:51,855][agent.finetune.stage3_support][INFO] - STAGE3_SETTINGS {\"actor_beta1\": 0.9, \"actor_loss\": \"score\", \"actor_optimizer\": \"adamw\", \"actor_single_step\": true, \"adv_estimator\": \"gae\", \"betas\": [0.9, 0.999], \"calib_kl_target\": null, \"ckpt_eval_repeats\": 1, \"clamp_logprob\": false, \"decision_discount\": false, \"denoised_clip_value\": 1.0, \"gamma_denoising\": 0.99, \"logprob_reduce\": \"mean\", \"lr\": 0.0001, \"max_grad_norm\": null, \"min_logprob_denoising_std\": 0.1, \"min_sampling_denoising_std\": 0.1, \"mode\": \"noise_scale\", \"momentum\": null, \"norm_adv\": true, \"ns_batches\": 25, \"ns_warmup_batches\": 5, \"optimizer_class\": \"AdamW\", \"proj_radius\": null, \"randn_clip_value\": 100, \"scheduler_max_lr\": 0.0001, \"scheduler_min_lr\": 0.0001, \"stage3_diag\": true}",
+        "[2026-10-10 03:18:51,883][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500",
+        "[2026-10-10 03:18:54,668][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500",
+        "[2026-10-10 03:18:57,098][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500",
+        "[2026-10-10 03:18:59,568][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500",
+        "[2026-10-10 03:19:02,019][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500"
+      ],
+      "failure": null
+    }
+  ],
+  "source_or_job_changes": false
+}

@@ -1,0 +1,359 @@
+{
+  "created_utc": "2026-10-10T18:15:48.159417+00:00",
+  "status": "complete",
+  "scope": [
+    "E0",
+    "E1",
+    "E2",
+    "SGD1",
+    "SGD3"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "scientific_source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_completed_five.py",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_completed_five.py",
+  "working_directory": "/soalnas/share/data/zbao7/diffusion_policy",
+  "sources": [
+    {
+      "run": "E0_seed0",
+      "condition": "E0",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed0/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E0_seed1",
+      "condition": "E0",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed1/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E0_seed2",
+      "condition": "E0",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed2/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E1_seed0",
+      "condition": "E1",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed0/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E1_seed1",
+      "condition": "E1",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed1/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E1_seed2",
+      "condition": "E1",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed2/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E2_seed0",
+      "condition": "E2",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed0/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E2_seed1",
+      "condition": "E2",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed1/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "E2_seed2",
+      "condition": "E2",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed2/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD1_seed0",
+      "condition": "SGD1",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed0/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD1_seed1",
+      "condition": "SGD1",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed1/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD1_seed2",
+      "condition": "SGD1",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed2/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD3_seed0",
+      "condition": "SGD3",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed0/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD3_seed1",
+      "condition": "SGD3",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed1/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "run": "SGD3_seed2",
+      "condition": "SGD3",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/result.pkl",
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed2/manifest.json",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "status": "complete",
+      "rows": 140,
+      "eval_rows": 14,
+      "train_rows": 126
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 0,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl"
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 1,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl"
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 2,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl"
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 0,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl"
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 1,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl"
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 2,
+      "rows": 140,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl"
+    }
+  ],
+  "calibration_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/cal_seed3000/calibration.json",
+  "kl_target": 0.000584517336086918,
+  "eta_star": 0.00012107235674859004,
+  "aggregation": "arithmetic seed mean; sample SD ddof=1; n=3; no smoothing",
+  "uncertainty_unit": "independent training seed, not episodes or iterations",
+  "log_axis_policy": "include zeros in arithmetic aggregation; mask nonpositive rendered values/band; no epsilon",
+  "exclusions_unique_conditions": {
+    "E0": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 0
+    },
+    "E1": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 1
+    },
+    "E2": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 2
+    },
+    "SGD1": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 10
+    },
+    "SGD3": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 7
+    }
+  },
+  "imputed_values": 0,
+  "reference_metrics": {
+    "Stage 1 DPPO": [
+      "eval_episode_reward",
+      "train_episode_reward"
+    ],
+    "Stage 2 NC4 1e-4": [
+      "eval_episode_reward",
+      "train_episode_reward",
+      "kl_true_per_action"
+    ]
+  },
+  "versions": {
+    "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+    "numpy": "1.24.4",
+    "matplotlib": "3.7.5"
+  },
+  "outputs": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_five_analysis/candidates/performance.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_five_analysis/candidates/performance.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_five_analysis/candidates/diagnostics.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_five_analysis/candidates/diagnostics.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_five_analysis/candidates/captions.md"
+  ],
+  "figure_size_inches": [
+    13.5,
+    8.3
+  ],
+  "png_dpi": 180,
+  "aggregation_rows": {
+    "E0": {
+      "eval_episode_reward": 14,
+      "train_episode_reward": 126,
+      "J_disc_train": 126,
+      "kl_true_per_action": 126,
+      "theta_dist": 126,
+      "grad_cos_prev": 125
+    },
+    "E1": {
+      "eval_episode_reward": 14,
+      "train_episode_reward": 126,
+      "J_disc_train": 126,
+      "kl_true_per_action": 126,
+      "theta_dist": 126,
+      "grad_cos_prev": 125
+    },
+    "E2": {
+      "eval_episode_reward": 14,
+      "train_episode_reward": 126,
+      "J_disc_train": 126,
+      "kl_true_per_action": 126,
+      "theta_dist": 126,
+      "grad_cos_prev": 125
+    },
+    "SGD1": {
+      "eval_episode_reward": 14,
+      "train_episode_reward": 126,
+      "J_disc_train": 126,
+      "kl_true_per_action": 126,
+      "theta_dist": 126,
+      "grad_cos_prev": 125
+    },
+    "SGD3": {
+      "eval_episode_reward": 14,
+      "train_episode_reward": 126,
+      "J_disc_train": 126,
+      "kl_true_per_action": 126,
+      "theta_dist": 126,
+      "grad_cos_prev": 125
+    }
+  },
+  "verification": {
+    "all_15_manifests_complete": true,
+    "each_result_has_140_rows": true,
+    "step_grid_checked": true,
+    "all_numeric_values_finite": true,
+    "independent_seeds_per_condition": 3,
+    "pngs_visually_inspected": true,
+    "visual_review": "Both 2x3 PNGs inspected: readable labels and legends; no cropping or overlap; PDF uses the same figure canvas.",
+    "table_aggregate_crosscheck": "20 endpoint mean/sample-SD comparisons equal condition_results.csv exactly"
+  },
+  "executed_command": "results/repro_halfcheetah/env/bin/python -B results/stage3/code/plot_completed_five.py",
+  "visual_review_utc": "2026-10-10T18:16:06.441770+00:00"
+}

@@ -1,0 +1,134 @@
+{
+  "reviewed_utc": "2026-10-10T18:13:20.448390+00:00",
+  "scope": "Read-only review of completed Phase-1 uncertainty calculations; this audit file is the only new artifact.",
+  "status": "uncertainty_unreliable",
+  "finding": "The raw percentile whole-batch bootstrap produces strongly upward-shifted squared-signal intervals in these noise-dominated data. CI-based positivity/resolution claims and derived confidence intervals or lower bounds are not supported.",
+  "classification": "Statistical-method limitation of the implemented raw percentile bootstrap, not an identified axis, array-shape, or normalization-factor coding error. The requested whole-batch resampling is implemented literally; percentile intervals were an implementation choice, not an explicit user requirement.",
+  "estimator": "u_hat_sq = (||sum_b S_b||^2 - sum_b Q_b) / (n*(n-1)); S_b sums 40 per-env gradients, Q_b sums their squared norms; B=25, n=1000.",
+  "exact_conditional_bootstrap_mean_shift": "E_boot[u_hat_sq_boot] - u_hat_sq = (sum_b ||S_b||^2 - ||sum_b S_b||^2/B) / (n*(n-1)) >= 0.",
+  "independence_approximation": "With independent per-env gradients the expected shift is approximately ((B-1)/B)*trSigma/n. Existing full-batch-normalization and LOO-dependence limitations remain separate.",
+  "examples": "At theta0 the approximate shift is 18.1 for theory_loo (point 0.483) and 497 for theory_nobase (point 9.07), consistent with the reported intervals lying far above their points.",
+  "affected_outputs": [
+    "u_sq_ci90",
+    "signal_ci_includes_zero",
+    "signal_resolved_positive",
+    "B_env_ci90",
+    "B_ep_ci90",
+    "snr_training_batch_ci90",
+    "expected_batch_cosine_ci90",
+    "B_env_lower_bound",
+    "cosine_ci90"
+  ],
+  "point_estimates": "The audit identifies no additional error in the saved signed point-moment calculations. Point-derived ratios and cosines remain provisional, with their existing dependence assumptions; they must not be described as resolved using these intervals.",
+  "gate_scope": "B10 in code/gate_features.py verifies synthetic Gaussian point moments within analytic standard errors, not bootstrap confidence-interval coverage.",
+  "source_references": [
+    "dppo/agent/finetune/stage3_math.py:115-124",
+    "dppo/agent/finetune/stage3_math.py:130-161",
+    "code/gate_features.py:146-155"
+  ],
+  "evidence": {
+    "ns_theta0_seed1000": [
+      {
+        "variant": "nc4",
+        "u_sq": 1.0542590688563778e-07,
+        "u_sq_ci90": [
+          1.3295744177853914e-06,
+          3.5300624637576678e-06
+        ],
+        "tr_sigma": 0.0021745641754431044
+      },
+      {
+        "variant": "mc_critic",
+        "u_sq": -6.383054469343535e-08,
+        "u_sq_ci90": [
+          1.1568558433991267e-06,
+          3.2443165206290594e-06
+        ],
+        "tr_sigma": 0.0021757116153470753
+      },
+      {
+        "variant": "mc_loo",
+        "u_sq": 1.0883613062649151e-07,
+        "u_sq_ci90": [
+          1.3447328696178078e-06,
+          3.620076403895452e-06
+        ],
+        "tr_sigma": 0.0023542826679563184
+      },
+      {
+        "variant": "theory_loo",
+        "u_sq": 0.482816582231127,
+        "u_sq_ci90": [
+          10.23789221245015,
+          29.237063416627386
+        ],
+        "tr_sigma": 18898.61783027218
+      },
+      {
+        "variant": "theory_nobase",
+        "u_sq": 9.066356311832806,
+        "u_sq_ci90": [
+          299.9886272099814,
+          780.2644835902587
+        ],
+        "tr_sigma": 518104.6243513712
+      }
+    ],
+    "ns_ckpt_seed2000": [
+      {
+        "variant": "nc4",
+        "u_sq": 2.7058409246701574e-07,
+        "u_sq_ci90": [
+          1.312794133596961e-06,
+          3.7103617522121862e-06
+        ],
+        "tr_sigma": 0.0021065989714596084
+      },
+      {
+        "variant": "mc_critic",
+        "u_sq": 1.4191884393760335e-07,
+        "u_sq_ci90": [
+          1.196587314156872e-06,
+          3.640082172062311e-06
+        ],
+        "tr_sigma": 0.0021268209931962784
+      },
+      {
+        "variant": "mc_loo",
+        "u_sq": 2.5478768386668917e-08,
+        "u_sq_ci90": [
+          1.3262036479619568e-06,
+          6.426281933920479e-06
+        ],
+        "tr_sigma": 0.0029869389541907596
+      },
+      {
+        "variant": "theory_loo",
+        "u_sq": -0.3188112313704874,
+        "u_sq_ci90": [
+          2.374269836011159,
+          38.99166883169697
+        ],
+        "tr_sigma": 11907.010213772168
+      },
+      {
+        "variant": "theory_nobase",
+        "u_sq": 48.322309004896624,
+        "u_sq_ci90": [
+          364.7185043774556,
+          981.1971411172893
+        ],
+        "tr_sigma": 589444.8787724694
+      }
+    ]
+  },
+  "actions": {
+    "source_changed": false,
+    "jobs_changed": false,
+    "training_changed": false,
+    "measurements_changed": false,
+    "new_confidence_intervals_computed": false,
+    "new_scientific_samples": 0
+  },
+  "boundary": "Preserve original outputs. A replacement uncertainty method requires a separate approved analysis decision; stored Gram/scalar measurements can support such analysis without additional scientific sampling."
+}

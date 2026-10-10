@@ -1,0 +1,17 @@
+{
+  "study": "stage3",
+  "approval": "Approve 200 GPU-hours, include the three optional conditions",
+  "gpu_hour_cap": 200,
+  "max_parallel_gpu_allocations": 9,
+  "gpu_type": "a6000",
+  "cpus_per_gpu_job": 40,
+  "memory_gib_per_gpu_job": 64,
+  "caps_hours": {"capture_and_gate_total": 1, "noise_scale_each": 3, "calibration": 1, "training_each": 4, "BATCH4_each": 16, "ckpt_eval_each": 0.25, "theta0_eval": 0.5},
+  "optional_conditions_included": ["E2_nobase", "SGD03", "BATCH4"],
+  "optional_measurements_excluded": ["per_denoising_noise_diagonal", "stage2_degraded_checkpoint_evaluation"],
+  "automatic_retries": false,
+  "curation_authorized": false,
+  "source_stage2_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "base_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "stage2_snapshot_needed": false
+}

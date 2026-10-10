@@ -1,0 +1,26 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--gres=gpu:a6000:1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--time=00:15:00",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--job-name=stage3-capture",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/reference_stage2",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/capture-slurm-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/run_capture.sh"
+  ],
+  "submitted_utc": "2026-10-10T09:51:15.144720+00:00",
+  "allocation_cap_seconds": 900,
+  "harness_cap_seconds": 840,
+  "returncode": 0,
+  "stdout": "17792120\n",
+  "stderr": "",
+  "job_id": "17792120"
+}
