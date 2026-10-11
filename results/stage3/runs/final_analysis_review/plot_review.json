@@ -1,0 +1,150 @@
+{
+  "reviewed_utc": "2026-10-11T07:35:00.810897+00:00",
+  "scope": "Read-only audit of original finalizer and generated figures; no training, sampling, plotting or curated edits by reviewer.",
+  "status": "Original figures need reporting-only corrections before presenting as final; root agent notified.",
+  "inspected": [
+    "code/analyze_stage3.py",
+    "figs/stage3_phase_comparison.png",
+    "figs/stage3_batch4_comparison.png",
+    "figs/captions.md",
+    "all_runs_long.csv",
+    "noise_windows.csv",
+    "experiment.md"
+  ],
+  "data_scope": {
+    "executed_runs": 30,
+    "iteration_rows": 4200,
+    "evaluation_rows": 420,
+    "training_rows": 3780,
+    "executed_noise_windows": 420,
+    "nonpositive_noise_windows": 227,
+    "skipped_projection_incomplete_windows": 84
+  },
+  "defects": [
+    {
+      "id": "action_sampler_mixing",
+      "location": "series(), panel (h) dashed action_oor_frac curves in both original figures",
+      "evidence": "Every executed run has 14 eval rows with action_oor_frac=0. On environment-step x axes, eval iterations 10..130 overwrite the preceding training observation at the same cumulative step. On iteration axes, eval zeros are included as observations.",
+      "overwritten_training_values_on_step_axis": 390,
+      "example": {
+        "run": "E0_seed0",
+        "step": 720000,
+        "train_itr": 9,
+        "train_action_oor_frac": 0.1420375,
+        "overwriting_eval_itr": 10,
+        "eval_action_oor_frac": 0.0
+      },
+      "impact": "Artificial periodic drops to zero in a training-sampler diagnostic. Numeric action_oor_mean summaries already correctly restrict to training rows.",
+      "minimal_fix": "Filter action_oor_frac (and policy_action_oor_frac if plotted) to rows with train_episode_reward before constructing the coordinate map; state training sampler in caption."
+    },
+    {
+      "id": "undefined_noise_gaps",
+      "location": "series()/plot_group(), panel (f) B_env curves",
+      "evidence": "Undefined windows are removed, allowing connectors across missing values. E0 mean connects itr49 to119 across six unsupported windows. Means themselves require all three finite seeds and do not average survivors.",
+      "impact": "Visual continuity implies observations through undefined windows; line-only isolated points are invisible.",
+      "minimal_fix": "Keep a complete ordered window grid and mask undefined entries with NaN, including mean/band when any seed is undefined; show finite observations with markers and visible isolated mean\u00b1SD where supported. Keep crosses for undefined denominators."
+    }
+  ],
+  "noise_mean_coverage": {
+    "E0": {
+      "common_mean_windows": 2,
+      "mean_window_itrs": [
+        49,
+        119
+      ],
+      "joined_across_undefined_windows": [
+        [
+          49,
+          119
+        ]
+      ],
+      "undefined_seed_windows": 21
+    },
+    "E1": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        49
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 26
+    },
+    "E2": {
+      "common_mean_windows": 0,
+      "mean_window_itrs": [],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 27
+    },
+    "SGD1": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        59
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 24
+    },
+    "SGD3": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        69
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 20
+    },
+    "SGD10": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        49
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 21
+    },
+    "E2_beta0": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        119
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 22
+    },
+    "E2_nobase": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        39
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 26
+    },
+    "SGD03": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        109
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 20
+    },
+    "BATCH4": {
+      "common_mean_windows": 1,
+      "mean_window_itrs": [
+        19
+      ],
+      "joined_across_undefined_windows": [],
+      "undefined_seed_windows": 20
+    }
+  },
+  "verified_correct": [
+    "Mean/SD aggregation requires all three finite comparable seed values.",
+    "Standard deviations use ddof=1 (sample SD).",
+    "Nonpositive log observations and lower bands are omitted without epsilon substitution.",
+    "Window estimator requires all nine training iterations and positive summed split-dot denominator.",
+    "BATCH4 figure uses iteration for its first row and training environment samples for its second row.",
+    "BATCH4 final evaluation step is 37,440,000 versus 9,360,000 for SGD3; final training step is 40,320,000 versus 10,080,000.",
+    "Return curves and tabulated action_oor_mean are unaffected by the two plotting defects."
+  ],
+  "readability": [
+    "Original 8-column figures are dense at chat/report display size but legible when opened or zoomed as PDF. Keep a small endpoint table or answer in the study report; use figures as linked detail.",
+    "Phase 4 title mentions projection although all six projection slots were skipped. Label this explicitly or use a batch-size comparison title; caption should explain the unused projection-radius guide.",
+    "For B_env, one isolated common finite point exists in eight conditions, two points in E0, and none in E2. Point markers are necessary; absence of a continuous mean is substantive rather than an empty-plot bug.",
+    "Panel (h) must explicitly name the training sampler after filtering; raw action fraction is dimensionless on 0..1 scale."
+  ],
+  "preservation": "All inspected originals remain unchanged by this reviewer. Root agent plans separate reviewed candidates, preserving original figures and curated artifacts."
+}

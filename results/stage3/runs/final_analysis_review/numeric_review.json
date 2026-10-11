@@ -1,0 +1,39 @@
+{
+  "status": "passed_targeted_numeric_review",
+  "reviewed_utc": "2026-10-11T07:34:20.226833+00:00",
+  "scope": "Read-only reconstruction of existing final checkpoint summaries, all final seed CSV fields from checkpoint evaluations, all condition means/sample SDs/seed values, BATCH4 native endpoints and steps, saved Q4-Q7 descriptive claims. No new scientific estimator, samples, comparisons or uncertainty method.",
+  "training_seed_rows": 30,
+  "prospectively_skipped_rows": 6,
+  "checkpoint_evaluations": 31,
+  "checks": 2118,
+  "tolerance": {
+    "atol": 1e-10,
+    "rtol": 1e-12
+  },
+  "maximum_absolute_difference": 0.0,
+  "maximum_relative_difference": 0.0,
+  "largest_absolute_difference_at": null,
+  "errors": [],
+  "theta0_pooled_J_disc": {
+    "train": {
+      "mean": 1369.0240467260296,
+      "se": 15.124889640443797,
+      "n": 240
+    },
+    "eval": {
+      "mean": 1496.096697283436,
+      "se": 12.475090445271308,
+      "n": 240
+    }
+  },
+  "sample_sd_ddof": 1,
+  "editorial_caveats": [
+    "PROJ3/PROJ10 metric tables say unresolved (0/3 available), though status tables and Q6 correctly identify prospective skips. Prefer skipped for clarity.",
+    "Q7 final sentence No matching observations in the saved records is ambiguous; this refers to no frozen-update/collapse matches, while all30 runs have measured updates."
+  ],
+  "known_out_of_scope_limitations": [
+    "Phase1 bootstrap uncertainty remains invalid per saved statistical audit; this review does not validate or replace it.",
+    "Three seed SDs exclude uncertainty in the shared pretrained evaluation mean.",
+    "Final figures and non-Q4-Q7 report interpretation are reviewed separately by parent agent."
+  ]
+}

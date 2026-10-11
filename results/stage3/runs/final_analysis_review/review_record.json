@@ -1,0 +1,79 @@
+{
+  "status": "reviewed_candidates_complete",
+  "created_utc": "2026-10-11T07:37:59.389838+00:00",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python /soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/review_final_analysis.py",
+  "scope": "Reporting-only corrections; no new sampling, training, estimators, uncertainty methods or scientific comparisons.",
+  "original_analysis_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/analysis_record.json",
+  "original_report_preserved": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/REPORT.md",
+  "corrected_plot_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/plotting_source_snapshot.py",
+  "report": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/candidates/REPORT.md",
+  "byte_identical_numeric_copies": [
+    "all_runs_long.csv",
+    "seed_results.csv",
+    "condition_results.csv",
+    "noise_windows.csv",
+    "all_commands.json"
+  ],
+  "report_links_checked": 188,
+  "missing_report_links": [],
+  "changes": [
+    "Filter action-range curves to training iterations.",
+    "Preserve undefined B_env windows as gaps and mark isolated defined observations.",
+    "Label skipped projection conditions and absence of zero updates explicitly.",
+    "Rebase report links and remove links to nonexistent prospectively skipped outputs."
+  ],
+  "plot_omissions": {
+    "nonpositive_kl_points": 0,
+    "nonpositive_B_env_points": 0,
+    "undefined_noise_windows": 227,
+    "nonpositive_lower_sd_bands": 60
+  },
+  "numeric_review": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/numeric_review.json",
+  "plot_review": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/plot_review.json",
+  "limitation": "Phase-1 percentile uncertainty remains unreliable; no replacement computed.",
+  "curation_status": "Approved A\u2013C with keep curated; copied under all proposed names; original candidates and earlier curated artifacts preserved.",
+  "final_link_check": {
+    "files": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/candidates/REPORT.md",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/candidates/figs/captions.md",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/experiment.md",
+      "/soalnas/share/data/zbao7/diffusion_policy/complete_experiment.md"
+    ],
+    "count": 240,
+    "missing": []
+  },
+  "report_editorial_addition": "Supported-answer paragraph added from existing Q4/Q5 values; no numerical reanalysis.",
+  "review_completed_utc": "2026-10-11T07:38:57.076608+00:00",
+  "corrected_plot_review": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/plot_correction_review.json",
+  "verification": "Numerical reconstruction passed; corrected figures independently checked against native runs and visually inspected; all 240 reviewed document links resolve.",
+  "curation_groups": {
+    "A": {
+      "suggested_name": "stage3-final-comparison",
+      "files": [
+        "candidates/figs/stage3_phase_comparison.png",
+        "candidates/figs/stage3_phase_comparison.pdf"
+      ]
+    },
+    "B": {
+      "suggested_name": "stage3-batch4-comparison",
+      "files": [
+        "candidates/figs/stage3_batch4_comparison.png",
+        "candidates/figs/stage3_batch4_comparison.pdf"
+      ]
+    },
+    "C": {
+      "suggested_name": "stage3-final-results",
+      "files": [
+        "candidates/REPORT.md",
+        "candidates/all_runs_long.csv",
+        "candidates/seed_results.csv",
+        "candidates/condition_results.csv",
+        "candidates/noise_windows.csv",
+        "candidates/all_commands.json",
+        "candidates/figs/captions.md"
+      ]
+    }
+  },
+  "curation_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/final_analysis_review/curation_record.json",
+  "curated_utc": "2026-10-11T07:48:03.051653+00:00"
+}

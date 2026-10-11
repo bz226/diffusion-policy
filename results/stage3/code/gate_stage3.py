@@ -11,6 +11,7 @@ import time
 import torch
 
 from gate_common import compare, require, rng_comparison
+from source_git import source_git_command
 
 STUDY = Path(__file__).resolve().parents[1]
 CODE = STUDY / "code"
@@ -70,8 +71,7 @@ def main():
             destination.write_bytes(data)
         report["source_snapshot"] = str(output / "source_snapshot")
         report["source_diff"] = subprocess.check_output(
-            ["git", "--git-dir=" + str(EDITED / ".git"), "--work-tree=" + str(EDITED),
-             "diff", "ab46b150fa34b5a5b457cd4062cd4c5ad830d964"], text=True)
+            source_git_command(EDITED, "diff", "ab46b150fa34b5a5b457cd4062cd4c5ad830d964"), text=True)
         (output / "source.diff").write_text(report.pop("source_diff"))
         report["source_diff_path"] = str(output / "source.diff")
         cpulog = {}

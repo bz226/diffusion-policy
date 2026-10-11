@@ -1,0 +1,25 @@
+{
+  "source_directory": "results/stage3/dppo",
+  "archived_git_directory": ".codex-runtime/git-backups/stage3-dppo-1515be04/.git",
+  "commit": "1515be0411a78df94e940de22df45834edadd858",
+  "branch": "stage3-theory",
+  "upstream_url": "https://github.com/irom-lab/dppo.git",
+  "clone_source": ".codex-runtime/git-backups/stage2_noclip-dppo-ab46b150/.git",
+  "original_base_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "stage2_commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+  "tracked_source_count": 402,
+  "local_changes_patch": "results/stage3/provenance/diff_stage2.patch",
+  "upstream_changes_patch": "results/stage3/provenance/diff_cc7234a.patch",
+  "completion_record": "results/stage3/runs/manual_monitor_20261011T072954Z.json",
+  "curation_verification": "results/stage3/runs/final_analysis_review/curation_verification.json",
+  "parent_tracking": "ordinary_files",
+  "linked_reference": {
+    "source_directory": "results/stage3/reference_stage2",
+    "git_pointer": "results/stage3/reference_stage2/.git",
+    "archived_git_directory": ".codex-runtime/git-backups/stage3-dppo-1515be04/.git/worktrees/reference_stage2",
+    "original_git_pointer_backup": ".codex-runtime/git-backups/stage3-dppo-1515be04/reference_stage2.gitpointer.before",
+    "commit": "ab46b150fa34b5a5b457cd4062cd4c5ad830d964",
+    "note": "Existing ignored reference worktree retained; its Git pointer now addresses the relocated metadata. Do not prune the linked-worktree metadata."
+  },
+  "note": "Local Git history is retained in an ignored archive for historical provenance checks. A fresh clone of the parent repository contains the source and records, but not this archive or the ignored reference worktree."
+}

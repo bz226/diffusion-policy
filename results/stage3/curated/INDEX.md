@@ -1,5 +1,21 @@
 # Curated Stage 3 results
 
+## Final comparison
+
+How do the estimator, optimizer and batch size affect returns, gradient noise and stability relative to Stage-1 DPPO and Stage-2 NC4?
+
+The user approved artifacts **A–C** and the names below with “keep curated.” This final selection includes all 30 completed training runs, both fixed-policy noise measurements and all 31 checkpoint-evaluation jobs; both projection conditions were skipped by the prescribed distance rule.
+
+| ID | Curated artifact | What it answers / limitation | Original source |
+| --- | --- | --- | --- |
+| A | Full comparison: [PNG](stage3-final-comparison.png), [PDF](stage3-final-comparison.pdf) | Returns and diagnostics across phases; undefined noise windows remain gaps, with sample-SD bands across three seeds. | [Reviewed candidate](../runs/final_analysis_review/candidates/figs/stage3_phase_comparison.png) |
+| B | BATCH4 comparison: [PNG](stage3-batch4-comparison.png), [PDF](stage3-batch4-comparison.pdf) | Larger batches versus SGD3 by iteration and environment samples; BATCH4 uses four times the samples at equal iteration. | [Reviewed candidate](../runs/final_analysis_review/candidates/figs/stage3_batch4_comparison.png) |
+| C | [Full report](stage3-final-results/REPORT.md), [condition table](stage3-final-results/condition_results.csv), [per-seed table](stage3-final-results/seed_results.csv) | Q1–Q8, final-checkpoint returns, calibration and skips; Phase-1 confidence intervals remain unreliable and its uncertainty conclusions unresolved. | [Reviewed candidate report](../runs/final_analysis_review/candidates/REPORT.md) |
+
+Keep the [figure captions](stage3-final-results/captions.md) and table definitions in the report with exports. The bundle also retains [all iteration records](stage3-final-results/all_runs_long.csv), [noise windows](stage3-final-results/noise_windows.csv) and [exact run commands](stage3-final-results/all_commands.json). Bands show sample SD (ddof=1), not confidence intervals; means require all three seeds. E1→E2 changes multiple estimator components, and split-gradient estimates remain approximate because normalization/LOO couples observations.
+
+[Methods](../methods.md#training-comparisons) · [Final review and source record](../runs/final_analysis_review/review_record.json) · [Numerical checks](../runs/final_analysis_review/numeric_review.json) · [Corrected plot checks](../runs/final_analysis_review/plot_correction_review.json) · [Approval and copy record](../runs/final_analysis_review/curation_record.json). Original candidates and all earlier curated artifacts below are preserved.
+
 ## Phase 1: fixed-policy gradient noise
 
 How noisy are V1–V5 at a batch of 80 HalfCheetah-v2 episodes, and how do their estimated directions differ at the pretrained policy and the NC4 checkpoint?

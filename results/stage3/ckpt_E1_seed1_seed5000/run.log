@@ -1,0 +1,24 @@
+[2026-10-10 22:27:57,600][absl][INFO] - MUJOCO_GL is not set, so an OpenGL backend will be chosen automatically.
+[2026-10-10 22:27:57,604][absl][INFO] - Successfully imported OpenGL backend: glfw
+[2026-10-10 22:27:57,631][absl][INFO] - MuJoCo library version is: 3.2.3
+[2026-10-10 22:28:00,726][root][INFO] - Loaded RL-trained policy from /soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_139.pt
+[2026-10-10 22:28:00,726][root][INFO] - Number of network parameters: 568392
+[2026-10-10 22:28:00,876][root][INFO] - Cloned model for fine-tuning
+[2026-10-10 22:28:00,877][root][INFO] - Turned off gradients of the pretrained network
+[2026-10-10 22:28:00,877][root][INFO] - Number of finetuned parameters: 568392
+[2026-10-10 22:28:00,889][root][INFO] - Loaded critic from /soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_139.pt
+[2026-10-10 22:28:00,894][agent.finetune.train_ppo_diffusion_agent][INFO] - stage2_flags clamp_logprob=False logprob_reduce=mean actor_single_step=True
+[2026-10-10 22:28:00,897][agent.finetune.stage3_support][INFO] - STAGE3_SETTINGS {"actor_beta1": 0.9, "actor_loss": "score", "actor_optimizer": "adamw", "actor_single_step": true, "adv_estimator": "gae", "betas": [0.9, 0.999], "calib_kl_target": null, "ckpt_eval_repeats": 1, "clamp_logprob": false, "decision_discount": false, "denoised_clip_value": 1.0, "gamma_denoising": 0.99, "logprob_reduce": "mean", "lr": 0.0001, "max_grad_norm": null, "min_logprob_denoising_std": 0.1, "min_sampling_denoising_std": 0.1, "mode": "ckpt_eval", "momentum": null, "norm_adv": true, "ns_batches": 25, "ns_warmup_batches": 20, "optimizer_class": "AdamW", "proj_radius": null, "randn_clip_value": 100, "scheduler_max_lr": 0.0001, "scheduler_min_lr": 0.0001, "stage3_diag": true}
+[2026-10-10 22:28:00,914][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 22:28:03,627][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 22:28:06,249][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 22:28:08,845][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 22:28:11,449][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 22:28:14,559][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 13.652610491029918, "mode": "ckpt_eval", "phase": "train", "status": "running", "substage": "train", "target": 1, "total": 1}
+[2026-10-10 22:28:14,568][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=0/500
+[2026-10-10 22:28:17,151][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=100/500
+[2026-10-10 22:28:19,723][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=200/500
+[2026-10-10 22:28:22,291][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=300/500
+[2026-10-10 22:28:24,796][agent.finetune.stage3_support][INFO] - STAGE3_ROLLOUT decision=400/500
+[2026-10-10 22:28:27,676][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 1, "done": 1, "elapsed_seconds": 26.770024944096804, "mode": "ckpt_eval", "phase": "eval", "status": "running", "substage": "eval", "target": 1, "total": 1}
+[2026-10-10 22:28:27,686][agent.finetune.stage3_modes][INFO] - stage3_mode_progress {"completed": 2, "done": 2, "elapsed_seconds": 26.781250997446477, "mode": "ckpt_eval", "phase": "completed", "status": "complete", "substage": "completed", "target": 2, "total": 2}

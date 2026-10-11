@@ -16,6 +16,8 @@ import subprocess
 import sys
 import time
 
+from source_git import source_git_command
+
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "dppo"
 PYTHON = ROOT.parent / "repro_halfcheetah/env/bin/python"
@@ -80,11 +82,9 @@ def command(argv, journal=None, check=True, timeout=60):
 
 
 def validate_source(commit, journal=None):
-    if not (SOURCE / ".git").exists():
-        raise ValueError("Stage-3 Git metadata is missing; do not discover the parent repository")
-    top = command(["git", "-C", SOURCE, "rev-parse", "--show-toplevel"], journal)["stdout"].strip()
-    current = command(["git", "-C", SOURCE, "rev-parse", "HEAD"], journal)["stdout"].strip()
-    dirty = command(["git", "-C", SOURCE, "status", "--porcelain", "--untracked-files=normal"], journal)["stdout"]
+    top = command(source_git_command(SOURCE, "rev-parse", "--show-toplevel"), journal)["stdout"].strip()
+    current = command(source_git_command(SOURCE, "rev-parse", "HEAD"), journal)["stdout"].strip()
+    dirty = command(source_git_command(SOURCE, "status", "--porcelain", "--untracked-files=normal"), journal)["stdout"]
     if Path(top).resolve() != SOURCE or current != commit or dirty:
         raise ValueError("Stage-3 source differs from the passed, committed gate: " + dirty)
     return {"commit": current, "clean": True, "path": str(SOURCE)}

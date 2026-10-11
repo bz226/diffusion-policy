@@ -1,0 +1,56 @@
+{
+  "utc": "2026-10-11T07:29:54.771441+00:00",
+  "campaign_status": "complete",
+  "manifest_status_counts": {
+    "complete": 64,
+    "skipped": 6
+  },
+  "completed_training_runs": 30,
+  "completed_checkpoint_evaluation_jobs": 31,
+  "measurement_jobs_completed": 3,
+  "training_rows_each": 140,
+  "all_saved_checkpoint_tensors_verified_finite": true,
+  "observed_collapses": 0,
+  "observed_nonfinite_runs": 0,
+  "missing_outputs": [],
+  "independent_native_audit": "completion_record_check verified all training pickles and checkpoint-evaluation JSON values, completion counters, final checkpoint existence and manifest finite-tensor checks. No checkpoint tensors reloaded.",
+  "scheduler_verification": {
+    "checked_job_ids": [
+      "17792337",
+      "17798185",
+      "17798186",
+      "17798187",
+      "17803673",
+      "17803674",
+      "17803675",
+      "17803676"
+    ],
+    "all_state": "COMPLETED",
+    "all_exit_code": "0:0",
+    "stage3_active_jobs": 0,
+    "other_user_job_preserved": "17805029 bash, outside campaign"
+  },
+  "campaign_ended_utc": "2026-10-11T05:36:01.104031+00:00",
+  "monitor_status": "paused",
+  "measured_gpu_hours_including_gate": 82.44944444444444,
+  "approved_gpu_hours": 200.0,
+  "finalizer_status": "completed_candidates",
+  "final_artifacts_present": [
+    "all_runs_long.csv",
+    "seed_results.csv",
+    "condition_results.csv",
+    "noise_windows.csv",
+    "all_commands.json",
+    "REPORT.md",
+    "figs/stage3_batch4_comparison.pdf",
+    "figs/stage3_batch4_comparison.png",
+    "figs/stage3_phase_comparison.pdf",
+    "figs/stage3_phase_comparison.png"
+  ],
+  "next_step": "Review generated final report/plots and request separate curation decision; no additional runs.",
+  "scientific_source_or_runs_changed": false,
+  "commands": [
+    "squeue -u zbao7 -o '%.18i %.32j %.12T %.10M %.10l %.20R'",
+    "sacct -j 17792337,17798185,17798186,17798187,17803673,17803674,17803675,17803676 --format=JobIDRaw,JobName%36,State,ExitCode,Elapsed,End -X -P"
+  ]
+}

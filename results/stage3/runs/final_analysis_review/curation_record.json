@@ -1,0 +1,90 @@
+{
+  "curated_utc": "2026-10-11T07:47:38.911378+00:00",
+  "approval": "keep curated",
+  "approved_artifact_ids": [
+    "A",
+    "B",
+    "C"
+  ],
+  "approved_names": [
+    "stage3-final-comparison",
+    "stage3-batch4-comparison",
+    "stage3-final-results"
+  ],
+  "analysis": "final_analysis_review",
+  "files": [
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_phase_comparison.png",
+      "curated": "curated/stage3-final-comparison.png",
+      "bytes": 4660472,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_phase_comparison.pdf",
+      "curated": "curated/stage3-final-comparison.pdf",
+      "bytes": 667885,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_batch4_comparison.png",
+      "curated": "curated/stage3-batch4-comparison.png",
+      "bytes": 2041210,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_batch4_comparison.pdf",
+      "curated": "curated/stage3-batch4-comparison.pdf",
+      "bytes": 221975,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/REPORT.md",
+      "curated": "curated/stage3-final-results/REPORT.md",
+      "bytes": 75268,
+      "preservation": "Markdown links rebased and curation status/provenance updated; scientific content unchanged"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/all_runs_long.csv",
+      "curated": "curated/stage3-final-results/all_runs_long.csv",
+      "bytes": 2219222,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/seed_results.csv",
+      "curated": "curated/stage3-final-results/seed_results.csv",
+      "bytes": 53008,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/condition_results.csv",
+      "curated": "curated/stage3-final-results/condition_results.csv",
+      "bytes": 21541,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/noise_windows.csv",
+      "curated": "curated/stage3-final-results/noise_windows.csv",
+      "bytes": 47890,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/all_commands.json",
+      "curated": "curated/stage3-final-results/all_commands.json",
+      "bytes": 168328,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/captions.md",
+      "curated": "curated/stage3-final-results/captions.md",
+      "bytes": 2249,
+      "preservation": "Markdown links rebased and curation status/provenance updated; scientific content unchanged"
+    }
+  ],
+  "source_candidates_preserved": true,
+  "earlier_curated_files_preserved": true,
+  "scientific_source_or_runs_changed": false,
+  "curated_index": "curated/INDEX.md",
+  "limitation_preserved": "Phase-1 confidence intervals remain unreliable; uncertainty conclusions unresolved.",
+  "validation": "Independent verification passed: nine figure/data copies byte-identical; report/caption scientific content preserved with link and curation-status edits only; all 332 local links and heading anchors resolve.",
+  "verification_record": "runs/final_analysis_review/curation_verification.json"
+}

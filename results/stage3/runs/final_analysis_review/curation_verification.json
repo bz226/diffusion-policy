@@ -1,0 +1,104 @@
+{
+  "verified_utc": "2026-10-11T07:48:55.304184+00:00",
+  "status": "pass",
+  "scope": "Independent verification of final approved Stage-3 A-C curation. Read only except this new record; no hashes, experiments, source edits or artifact edits.",
+  "approval": "keep curated",
+  "non_markdown_byte_comparisons": [
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_phase_comparison.png",
+      "curated": "curated/stage3-final-comparison.png",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_phase_comparison.pdf",
+      "curated": "curated/stage3-final-comparison.pdf",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_batch4_comparison.png",
+      "curated": "curated/stage3-batch4-comparison.png",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/figs/stage3_batch4_comparison.pdf",
+      "curated": "curated/stage3-batch4-comparison.pdf",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/all_runs_long.csv",
+      "curated": "curated/stage3-final-results/all_runs_long.csv",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/seed_results.csv",
+      "curated": "curated/stage3-final-results/seed_results.csv",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/condition_results.csv",
+      "curated": "curated/stage3-final-results/condition_results.csv",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/noise_windows.csv",
+      "curated": "curated/stage3-final-results/noise_windows.csv",
+      "byte_identical": true
+    },
+    {
+      "source": "runs/final_analysis_review/candidates/all_commands.json",
+      "curated": "curated/stage3-final-results/all_commands.json",
+      "byte_identical": true
+    }
+  ],
+  "markdown": {
+    "report": {
+      "source": "runs/final_analysis_review/candidates/REPORT.md",
+      "curated": "curated/stage3-final-results/REPORT.md",
+      "scientific_content_unchanged": true,
+      "existing_links_preserve_target_or_approved_curated_copy": 191,
+      "added_links": 1,
+      "only_non_link_text_change": "Final footer changes review-candidate status to approved A-C curation and records preservation of originals."
+    },
+    "captions": {
+      "candidate_caption_preserved_as_exact_prefix": true,
+      "only_addition": "Links to the curated figures, methods, review and approval record."
+    }
+  },
+  "local_link_checks": {
+    "total": 332,
+    "missing_targets": 0,
+    "directory_targets": 0,
+    "missing_markdown_heading_anchors": 0,
+    "files": [
+      {
+        "file": "curated/stage3-final-results/REPORT.md",
+        "links": 192
+      },
+      {
+        "file": "curated/stage3-final-results/captions.md",
+        "links": 5
+      },
+      {
+        "file": "curated/INDEX.md",
+        "links": 84
+      },
+      {
+        "file": "experiment.md",
+        "links": 14
+      },
+      {
+        "file": "../../complete_experiment.md",
+        "links": 37
+      }
+    ],
+    "method": "Resolve each relative link from its containing Markdown file; verify target is a file and Markdown fragments match heading slugs. No VS Code UI was launched."
+  },
+  "limitations_preserved": [
+    "Phase-1 confidence intervals remain unreliable.",
+    "Undefined noise windows and all-three-seed mean rule retained.",
+    "Sample SD ddof=1 remains unchanged.",
+    "Projection conditions remain marked skipped.",
+    "All raw scientific values and commands copied exactly."
+  ],
+  "final_curated_index": "curated/INDEX.md#final-comparison"
+}

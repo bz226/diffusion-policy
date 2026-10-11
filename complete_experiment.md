@@ -20,6 +20,12 @@
 - Experiment design: [Methods](./results/stage2_noclip/methods.md)
 - Curated results: [Artifact index](./results/stage2_noclip/curated/INDEX.md)
 
+### Stage 3 estimator, SGD and batch-size experiments
+
+- Experiment report: [stage3](./results/stage3/experiment.md)
+- Experiment design: [Methods and execution protocol](./results/stage3/methods.md)
+- Curated results: [Final results and earlier snapshots](./results/stage3/curated/INDEX.md)
+
 ### Stage 3 Phase 1: fixed-policy gradient-noise measurements
 
 - Experiment records: [Pretrained policy](./results/stage3/runs/ns_theta0_seed1000/manifest.json), [NC4 checkpoint](./results/stage3/runs/ns_ckpt_seed2000/manifest.json)
@@ -33,6 +39,12 @@
 - Curated results: [Noise-scale and direction diagnostics](./results/stage3/curated/INDEX.md#phase-1-fixed-policy-gradient-noise)
 
 ## Comparison analyses
+
+### Stage 3 final comparison, including BATCH4 and checkpoint evaluations
+
+- Analysis record: [final_analysis_review](./results/stage3/runs/final_analysis_review/review_record.json)
+- Analysis design: [Training comparisons](./results/stage3/methods.md#training-comparisons)
+- Curated results: [Final plots, report and tables](./results/stage3/curated/INDEX.md#final-comparison)
 
 ### Stage 3 completed Wave-1 comparison against Stage 1 and NC4
 

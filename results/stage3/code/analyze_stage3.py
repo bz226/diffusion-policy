@@ -17,7 +17,7 @@ ROOT = Path(__file__).resolve().parents[1]
 CONDITIONS = ["E0", "E1", "E2", "E2_beta0", "E2_nobase", "SGD03", "SGD1", "SGD3", "SGD10", "PROJ3", "PROJ10", "BATCH4"]
 PHASES = [("Phase 2: AdamW estimator ladder", CONDITIONS[:5]),
           ("Phase 3: plain SGD", CONDITIONS[5:9] + ["E2", "E2_beta0"]),
-          ("Phase 4: projection / batch size", ["SGD3", "SGD10", "PROJ3", "PROJ10", "BATCH4"])]
+          ("Phase 4: batch size (projection skipped)", ["SGD3", "SGD10", "PROJ3", "PROJ10", "BATCH4"])]
 COLORS = dict(zip(CONDITIONS, ["#377eb8", "#ff7f00", "#4daf4a", "#984ea3", "#a65628", "#8c564b",
                               "#17becf", "#e41a1c", "#9467bd", "#f781bf", "#bcbd22", "#000000"]))
 VARIANTS = ["nc4", "mc_critic", "mc_loo", "theory_loo", "theory_nobase"]
@@ -281,6 +281,11 @@ def comparison(grouped, first, second, metric):
 
 def series(run, metric, horizontal):
     source = run["windows"] if metric == "B_env" else run["rows"]
+    if metric == "action_oor_frac":
+        source = [row for row in source if "train_episode_reward" in row]
+    if metric == "B_env":
+        return {row[horizontal]: float(row[metric]) if finite(row.get(metric)) else np.nan
+                for row in source if finite(row.get(horizontal))}
     return {row[horizontal]: float(row[metric]) for row in source
             if finite(row.get(horizontal)) and finite(row.get(metric))}
 
@@ -292,7 +297,9 @@ def plot_group(ax, selected, metric, horizontal, label, color, logscale=False, l
         y = np.array([values[key] for key in x])
         if logscale:
             y = np.where(y > 0, y, np.nan)
-        ax.plot(np.array(x) / (1e6 if horizontal == "step" else 1), y, color=color, alpha=.22, linewidth=.65, linestyle=linestyle)
+        ax.plot(np.array(x) / (1e6 if horizontal == "step" else 1), y, color=color, alpha=.22,
+                linewidth=.65, linestyle=linestyle, marker="." if metric == "B_env" else None,
+                markersize=3)
     if len(selected) != 3:
         return
     common = sorted(set.intersection(*(set(values) for values in maps)))
@@ -302,15 +309,20 @@ def plot_group(ax, selected, metric, horizontal, label, color, logscale=False, l
     mean, sd = ys.mean(axis=0), ys.std(axis=0, ddof=1)
     x = np.array(common) / (1e6 if horizontal == "step" else 1)
     lower, upper = mean - sd, mean + sd
+    if metric == "B_env":
+        supported = np.isfinite(mean)
+        ax.vlines(x[supported], np.where(lower[supported] > 0, lower[supported], mean[supported]),
+                  upper[supported], color=color, alpha=.65, linewidth=1)
     if logscale:
         mean = np.where(mean > 0, mean, np.nan)
         valid = lower > 0
         lower, upper = np.where(valid, lower, np.nan), np.where(valid, upper, np.nan)
-    ax.plot(x, mean, color=color, label=label, linewidth=1.5, linestyle=linestyle)
+    ax.plot(x, mean, color=color, label=label, linewidth=1.5, linestyle=linestyle,
+            marker="o" if metric == "B_env" else None, markersize=3)
     ax.fill_between(x, lower, upper, color=color, alpha=.10)
 
 
-def figures(root, runs, references, anchors):
+def figures(root, runs, references, anchors, figure_directory=None):
     os.environ.setdefault("MPLCONFIGDIR", str(root / "cache/matplotlib"))
     import matplotlib
     matplotlib.use("Agg")
@@ -337,8 +349,8 @@ def figures(root, runs, references, anchors):
                 for x in set.intersection(*(set(m) for m in maps)):
                     ys = np.array([m[x] for m in maps])
                     omissions["nonpositive_lower_sd_bands"] += int(ys.mean() - ys.std(ddof=1) <= 0)
-    figdir = root / "figs"
-    figdir.mkdir(exist_ok=True)
+    figdir = Path(figure_directory) if figure_directory is not None else root / "figs"
+    figdir.mkdir(parents=True, exist_ok=True)
     def draw(rows, filename):
         fig, axes = plt.subplots(len(rows), 8, figsize=(32, 4.1 * len(rows)), squeeze=False)
         for row_index, (title, conditions, horizontal) in enumerate(rows):
@@ -395,12 +407,13 @@ def figures(root, runs, references, anchors):
     if any(run["spec"]["condition"] == "BATCH4" and run["rows"] for run in runs):
         draw([("BATCH4 vs SGD3: iteration", ["SGD3", "BATCH4"], "itr"),
               ("BATCH4 vs SGD3: samples", ["SGD3", "BATCH4"], "step")], "stage3_batch4_comparison")
-    caption = ("The three rows compare the AdamW estimator ladder, the SGD sweep, and projection/batch-size conditions; columns show the eight quantities named on the axes. "
+    caption = ("The three rows compare the AdamW estimator ladder, the SGD sweep, and the batch-size condition; both projection conditions were skipped by the prescribed distance rule, and columns show the eight quantities named on the axes. "
                "Thin lines are individual training seeds; bold curves and bands are the mean ± sample SD (ddof=1) only where all three seeds have finite comparable observations, with no smoothing or extrapolation. "
                "Gray dashed/dotted curves are the Stage-1 DPPO and Stage-2 NC4 1e-4 means where those metrics exist; the distance guide is the fixed projection radius, and B_env=40 marks unit training-batch SNR under the approximate independent-env interpretation. "
                "B_env uses complete nonoverlapping iteration windows [0,9], [10,19], etc., each containing nine training iterations, and equals 10 times summed split-gradient squared differences divided by summed split dots; bottom-axis crosses mark nonpositive denominators, not numerical values. "
+               "Undefined windows remain gaps in individual lines, means and bands; point markers and SD whiskers retain isolated defined estimates. "
                "Log axes omit exact/nonpositive observations and nonpositive lower SD bands without epsilon replacement; raw values and failure prefixes remain in the CSVs. "
-               "In the final panel, solid curves show pre-update x0 saturation and dashed curves the fraction of physical executed action coordinates outside [-1,1]. "
+               "In the final panel, solid curves show pre-update x0 saturation and dashed curves the fraction of physical executed action coordinates outside [-1,1]; both use training iterations only. "
                "BATCH4 has four times as many samples per iteration; its second figure repeats the comparison against iteration and environment samples. "
                "Shared full-batch normalization/LOO coefficients couple split estimates, so noise scales are approximate; three seeds do not establish a general ordering.")
     (figdir / "captions.md").write_text("# Stage-3 figures\n\n" + caption + "\n\nLog/undefined observations: " + json.dumps(omissions) + "\n")
