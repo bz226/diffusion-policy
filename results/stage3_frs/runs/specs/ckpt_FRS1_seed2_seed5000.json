@@ -1,0 +1,29 @@
+{
+  "run_id": "ckpt_FRS1_seed2_seed5000",
+  "condition": "ckpt_FRS1",
+  "training_run": "FRS1_seed2",
+  "seed": 5000,
+  "mode": "ckpt_eval",
+  "overrides": [
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "+model.clamp_logprob=false",
+    "model.randn_clip_value=100",
+    "+train.actor_single_step=true",
+    "+model.actor_loss=score",
+    "+train.stage3_diag=true",
+    "+train.mode=ckpt_eval",
+    "base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/FRS1_seed2/checkpoint/state_139.pt"
+  ],
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/ckpt_FRS1_seed2_seed5000",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/ckpt_FRS1_seed2_seed5000.out",
+  "cap_seconds": 900,
+  "estimate_seconds": 300,
+  "estimate_basis": "Stage3 final 80-episode-per-sampler evaluations took 45-46 s; allow 5 min",
+  "monitor_interval_seconds": 1800,
+  "gpu_type": "a6000",
+  "gpu_count": 1,
+  "cpus": 40,
+  "memory_gib": 64
+}

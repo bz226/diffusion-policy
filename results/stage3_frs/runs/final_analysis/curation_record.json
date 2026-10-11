@@ -1,0 +1,130 @@
+{
+  "curated_utc": "2026-10-11T17:25:28.555888+00:00",
+  "status": "approved_artifacts_curated_and_verified",
+  "approval_text": "keep in curated",
+  "approved_artifacts": [
+    "A",
+    "B",
+    "C"
+  ],
+  "approved_names": [
+    "frs-training-comparison",
+    "frs-update-instability",
+    "frs-results/"
+  ],
+  "run_id": "final_analysis",
+  "source_run_parent_commit": "650e4f1665a6384dce1fb6920e53e790333318a6",
+  "paths_relative_to": "results/stage3_frs",
+  "copies": [
+    {
+      "artifact": "A",
+      "source": "runs/final_analysis/candidates/frs_comparison.png",
+      "destination": "curated/frs-training-comparison.png",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "A",
+      "source": "runs/final_analysis/candidates/frs_comparison.pdf",
+      "destination": "curated/frs-training-comparison.pdf",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "B",
+      "source": "runs/final_analysis/candidates/frs_ratios_kl.png",
+      "destination": "curated/frs-update-instability.png",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "B",
+      "source": "runs/final_analysis/candidates/frs_ratios_kl.pdf",
+      "destination": "curated/frs-update-instability.pdf",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/all_runs_long.csv",
+      "destination": "curated/frs-results/all_runs_long.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/comparisons.csv",
+      "destination": "curated/frs-results/comparisons.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/condition_results.csv",
+      "destination": "curated/frs-results/condition_results.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/noise_windows.csv",
+      "destination": "curated/frs-results/noise_windows.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/ratio_extrema.csv",
+      "destination": "curated/frs-results/ratio_extrema.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/rescale_statistics.csv",
+      "destination": "curated/frs-results/rescale_statistics.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/rescale_statistics.json",
+      "destination": "curated/frs-results/rescale_statistics.json",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/seed_results.csv",
+      "destination": "curated/frs-results/seed_results.csv",
+      "handling": "unchanged copy"
+    },
+    {
+      "artifact": "C",
+      "source": "REPORT.md",
+      "destination": "curated/frs-results/REPORT.md",
+      "handling": "reviewed report; relative links rebased; condition and per-seed table links separated; curation status updated"
+    },
+    {
+      "artifact": "C",
+      "source": "runs/final_analysis/candidates/captions.md",
+      "destination": "curated/frs-results/captions.md",
+      "handling": "caption text preserved; title and export/provenance links added"
+    }
+  ],
+  "new_index": "curated/INDEX.md",
+  "current_records_updated": [
+    "REPORT.md",
+    "experiment.md",
+    "../../complete_experiment.md"
+  ],
+  "original_candidates_preserved": true,
+  "original_measurements_logs_checkpoints_preserved": true,
+  "all_three_reward_collapses_retained": true,
+  "scientific_reanalysis_or_reruns": false,
+  "verification": {
+    "unchanged_copies_checked_by_direct_bytes": 12,
+    "markdown_links": "passed",
+    "original_caption_text_preserved": true,
+    "reviewed_report_text_equal_ignoring_link_targets": true,
+    "curated_files_versionable": 15,
+    "frs_source_files_tracked": 403,
+    "nested_git_in_frs_source": false,
+    "local_markdown_links_checked": 107,
+    "heading_anchors_checked": 19,
+    "markdown_documents_checked": 6,
+    "independent_review": "passed",
+    "original_evidence_files_with_unchanged_size_and_mtime": 38,
+    "all_three_collapsed_seed_rows_preserved": true
+  },
+  "verified_utc": "2026-10-11T17:26:25.550657+00:00"
+}

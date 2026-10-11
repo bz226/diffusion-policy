@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-11T09:29:07.988375+00:00",
+  "status": "submitting",
+  "commit": "650e4f1665a6384dce1fb6920e53e790333318a6",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "results/stage3_frs/code/run_queue.sh",
+    "--commit",
+    "650e4f1665a6384dce1fb6920e53e790333318a6"
+  ],
+  "approved_scope": "FRS1 seeds0,1,2 plus final checkpoint evaluations",
+  "gpu_hour_cap": 14,
+  "controller_cpu_only": true,
+  "monitor_interval_seconds": 1800
+}

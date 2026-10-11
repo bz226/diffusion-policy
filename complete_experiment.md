@@ -26,6 +26,12 @@
 - Experiment design: [Methods and execution protocol](./results/stage3/methods.md)
 - Curated results: [Final results and earlier snapshots](./results/stage3/curated/INDEX.md)
 
+### Stage 3 frozen per-coordinate rescaling (FRS1)
+
+- Experiment report: [stage3_frs](./results/stage3_frs/experiment.md)
+- Experiment design: [Frozen-rescaling methods](./results/stage3_frs/methods.md)
+- Curated results: [Plots, reviewed report and tables](./results/stage3_frs/curated/INDEX.md)
+
 ### Stage 3 Phase 1: fixed-policy gradient-noise measurements
 
 - Experiment records: [Pretrained policy](./results/stage3/runs/ns_theta0_seed1000/manifest.json), [NC4 checkpoint](./results/stage3/runs/ns_ckpt_seed2000/manifest.json)
@@ -39,6 +45,12 @@
 - Curated results: [Noise-scale and direction diagnostics](./results/stage3/curated/INDEX.md#phase-1-fixed-policy-gradient-noise)
 
 ## Comparison analyses
+
+### FRS1 versus Stage 3 E2, E2_beta0 and SGD10
+
+- Analysis record: [Verified final comparison](./results/stage3_frs/runs/final_analysis/review_record.json)
+- Analysis design: [Comparisons and reporting rules](./results/stage3_frs/methods.md#analysis-and-deliverables)
+- Curated results: [Plots, reviewed report and tables](./results/stage3_frs/curated/INDEX.md)
 
 ### Stage 3 final comparison, including BATCH4 and checkpoint evaluations
 

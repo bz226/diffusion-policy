@@ -1,0 +1,48 @@
+{
+  "checked_utc": "2026-10-11T09:33:08.766215+00:00",
+  "status": "all_first_training_updates_finite",
+  "runs": [
+    {
+      "seed": 0,
+      "itr": 1,
+      "step": 80000,
+      "train_episode_reward": 3995.9102071249945,
+      "kl_true_per_action": 0.0042274829156399235,
+      "max_ratio": 295.7926025390625,
+      "median_ratio": 0.5005807876586914,
+      "actor_step_ratio": 1.0,
+      "actor_step_clipfrac": 0.0,
+      "actor_lr": 0.0001,
+      "update_norm": 0.08790508488567594,
+      "time": 55.486716508865356
+    },
+    {
+      "seed": 1,
+      "itr": 1,
+      "step": 80000,
+      "train_episode_reward": 3933.1232527374655,
+      "kl_true_per_action": 0.004980639608734788,
+      "max_ratio": 131.32591247558594,
+      "median_ratio": 0.4646415561437607,
+      "actor_step_ratio": 1.0,
+      "actor_step_clipfrac": 0.0,
+      "actor_lr": 0.0001,
+      "update_norm": 0.07295775756821084,
+      "time": 57.53543972969055
+    },
+    {
+      "seed": 2,
+      "itr": 1,
+      "step": 80000,
+      "train_episode_reward": 3839.4505532186986,
+      "kl_true_per_action": 0.013599221061253804,
+      "max_ratio": 327.01629638671875,
+      "median_ratio": 0.6258512735366821,
+      "actor_step_ratio": 1.0,
+      "actor_step_clipfrac": 0.0,
+      "actor_lr": 0.0001,
+      "update_norm": 0.10683283242173536,
+      "time": 56.31816792488098
+    }
+  ]
+}

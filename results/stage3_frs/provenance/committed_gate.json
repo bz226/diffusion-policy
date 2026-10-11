@@ -1,0 +1,2720 @@
+{
+  "status": "passed",
+  "passed": true,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs.py",
+    "--device",
+    "both",
+    "--timeout-seconds",
+    "3540"
+  ],
+  "started_utc": "2026-10-11T08:53:00Z",
+  "slurm_job_id": "17806033",
+  "allocation_cap_seconds": 3600,
+  "reference": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+  "edited": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+  "processing_seed": 4000,
+  "cached_measurement_seed": 1000,
+  "cached_variant": "V4",
+  "gpu_differential_tolerance": {
+    "atol": 1e-07,
+    "rtol": 1e-05
+  },
+  "cpu_differential_criterion": "bitwise",
+  "formula_criterion": "relative L2 error of updated parameters <= 1e-7; displacement rounding also reported",
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--prepare-cpu"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--convert-stats",
+      "--rescale-source",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--convert-stats",
+      "--rescale-source",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/nc4_adamw_cpu_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/nc4_adamw_cpu_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_adamw_cpu_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "adamw"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_adamw_cpu_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "adamw"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_sgd_cpu_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "sgd",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_sgd_cpu_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "sgd",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "sgd_diag",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_on_cpu",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+      "--e2",
+      "--actor-optimizer",
+      "sgd_diag",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--actor-lr",
+      "0.0001",
+      "--diagnostics"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs_features.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/features_cpu",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--device",
+      "cpu",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--replay-evidence",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu/evidence.pt"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/nc4_adamw_cuda0_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/nc4_adamw_cuda0_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_adamw_cuda0_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "adamw"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_adamw_cuda0_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "adamw"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_sgd_cuda0_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "sgd",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/e2_sgd_cuda0_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "sgd",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cuda0",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "sgd_diag",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--actor-lr",
+      "0.0001"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_on_cuda0",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--device",
+      "cuda:0",
+      "--e2",
+      "--actor-optimizer",
+      "sgd_diag",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--actor-lr",
+      "0.0001",
+      "--diagnostics"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs_features.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/features_cuda0",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--device",
+      "cuda:0",
+      "--rescale-path",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "--replay-evidence",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cuda0/evidence.pt"
+    ]
+  ],
+  "differential": {
+    "nc4_adamw_cpu": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    },
+    "e2_adamw_cpu": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    },
+    "e2_sgd_cpu": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    },
+    "nc4_adamw_cuda0": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    },
+    "e2_adamw_cuda0": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    },
+    "e2_sgd_cuda0": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 168,
+          "tensors": 168,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2,
+          "tensors": 2,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 31,
+          "tensors": 31,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 1,
+      "critic_steps": 20
+    }
+  },
+  "diagnostics": {
+    "cpu": {
+      "passed": true,
+      "comparisons": {
+        "prepared_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568399,
+          "tensors": 19,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        }
+      },
+      "diagnostic_rng_isolation": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "measurement_state_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2410027,
+        "tensors": 66,
+        "first_failure": null
+      },
+      "saved_batch_unchanged": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 10480000,
+        "tensors": 6,
+        "first_failure": null
+      }
+    },
+    "cuda:0": {
+      "passed": true,
+      "comparisons": {
+        "prepared_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568399,
+          "tensors": 19,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        }
+      },
+      "diagnostic_rng_isolation": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "measurement_state_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2410027,
+        "tensors": 66,
+        "first_failure": null
+      },
+      "saved_batch_unchanged": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 10480000,
+        "tensors": 6,
+        "first_failure": null
+      }
+    }
+  },
+  "features": {
+    "cpu": {
+      "status": "passed",
+      "passed": true,
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs_features.py",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/features_cpu",
+        "--repo",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+        "--device",
+        "cpu",
+        "--rescale-path",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+        "--replay-evidence",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu/evidence.pt"
+      ],
+      "device": "cpu",
+      "numeric_settings_before": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "input_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu/evidence.pt",
+      "rescale_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "learning_rate": 0.0001,
+      "raw_gradient_source": "captured immediately before actual full-batch FRS optimizer step",
+      "denominator_formula": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "denominator_one_plain_sgd": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "denominator_one_gradients": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "identity_rng_inert": {
+        "plain": {
+          "passed": true,
+          "states": {
+            "python": true,
+            "numpy": true,
+            "torch_cpu": true,
+            "torch_cuda": true
+          },
+          "cuda_generator_count": 1
+        },
+        "rescaled": {
+          "passed": true,
+          "states": {
+            "python": true,
+            "numpy": true,
+            "torch_cpu": true,
+            "torch_cuda": true
+          },
+          "cuda_generator_count": 1
+        }
+      },
+      "ratio_diagnostic_state_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1705180,
+        "tensors": 40,
+        "first_failure": null
+      },
+      "ratio_diagnostic_rng_inert": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "ratio_metrics": {
+        "max_ratio": 541.7236938476562,
+        "median_ratio": 0.5066910684108734
+      },
+      "ratio_metrics_formula": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "frs_step_rng_inert": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "frozen_denominators": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "step_ratio_metrics": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "mathematical_update": {
+        "max_abs": 3.0043574810179052e-06,
+        "max_rel": 0.0007574127631307836,
+        "relative_l2": 2.1963634497230558e-08,
+        "error_l2": 1.5248865379244696e-05,
+        "reference_l2": 694.2778701388178,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "criterion_relative_l2": 1e-07
+      },
+      "displacement_roundoff": {
+        "max_abs": 3.0043574861167183e-06,
+        "max_rel": 1.0,
+        "relative_l2": 0.0001535502142748629,
+        "error_l2": 1.5248865379598181e-05,
+        "reference_l2": 0.0993086558140643,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "interpretation": "Report only: subtracting stored float32 parameters loses small update bits. The approved 1e-7 relative-L2 criterion applies to updated parameters, not these subtractions."
+      },
+      "actual_training_update": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "actual_training_formula": {
+        "max_abs": 3.0043574810179052e-06,
+        "max_rel": 0.0007574127631307836,
+        "relative_l2": 2.1963634497230558e-08,
+        "error_l2": 1.5248865379244696e-05,
+        "reference_l2": 694.2778701388178,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "criterion_relative_l2": 1e-07
+      },
+      "training_frozen_denominators": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "training_logged_ratio_metrics": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "seconds": 6.961148097063415,
+      "numeric_settings_after": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      }
+    },
+    "cuda:0": {
+      "status": "passed",
+      "passed": true,
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs_features.py",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/features_cuda0",
+        "--repo",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+        "--device",
+        "cuda:0",
+        "--rescale-path",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+        "--replay-evidence",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cuda0/evidence.pt"
+      ],
+      "device": "cuda:0",
+      "numeric_settings_before": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "input_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cuda0/evidence.pt",
+      "rescale_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+      "learning_rate": 0.0001,
+      "raw_gradient_source": "captured immediately before actual full-batch FRS optimizer step",
+      "denominator_formula": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "denominator_one_plain_sgd": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "denominator_one_gradients": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "identity_rng_inert": {
+        "plain": {
+          "passed": true,
+          "states": {
+            "python": true,
+            "numpy": true,
+            "torch_cpu": true,
+            "torch_cuda": true
+          },
+          "cuda_generator_count": 1
+        },
+        "rescaled": {
+          "passed": true,
+          "states": {
+            "python": true,
+            "numpy": true,
+            "torch_cpu": true,
+            "torch_cuda": true
+          },
+          "cuda_generator_count": 1
+        }
+      },
+      "ratio_diagnostic_state_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1705180,
+        "tensors": 40,
+        "first_failure": null
+      },
+      "ratio_diagnostic_rng_inert": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "ratio_metrics": {
+        "max_ratio": 541.7251586914062,
+        "median_ratio": 0.5066908597946167
+      },
+      "ratio_metrics_formula": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "frs_step_rng_inert": {
+        "passed": true,
+        "states": {
+          "python": true,
+          "numpy": true,
+          "torch_cpu": true,
+          "torch_cuda": true
+        },
+        "cuda_generator_count": 1
+      },
+      "frozen_denominators": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "step_ratio_metrics": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "mathematical_update": {
+        "max_abs": 3.004009300866528e-06,
+        "max_rel": 0.001966558899427046,
+        "relative_l2": 2.1962923062301773e-08,
+        "error_l2": 1.5248371445718929e-05,
+        "reference_l2": 694.2778701388785,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "criterion_relative_l2": 1e-07
+      },
+      "displacement_roundoff": {
+        "max_abs": 3.0040092986911577e-06,
+        "max_rel": 1.0,
+        "relative_l2": 0.00015354507228021024,
+        "error_l2": 1.5248371444068798e-05,
+        "reference_l2": 0.09930876463584234,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "interpretation": "Report only: subtracting stored float32 parameters loses small update bits. The approved 1e-7 relative-L2 criterion applies to updated parameters, not these subtractions."
+      },
+      "actual_training_update": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "actual_training_formula": {
+        "max_abs": 3.004009300866528e-06,
+        "max_rel": 0.001966558899427046,
+        "relative_l2": 2.1962923062301773e-08,
+        "error_l2": 1.5248371445718929e-05,
+        "reference_l2": 694.2778701388785,
+        "zero_reference_mismatches": 0,
+        "coordinates": 568392,
+        "criterion_relative_l2": 1e-07
+      },
+      "training_frozen_denominators": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "training_logged_ratio_metrics": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 2,
+        "tensors": 2,
+        "first_failure": null
+      },
+      "seconds": 10.734347371035255,
+      "numeric_settings_after": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      }
+    }
+  },
+  "source_import": {
+    "format_version": 1,
+    "source_directory": "results/stage3_frs/dppo",
+    "source_git_directory": "/soalnas/share/data/zbao7/diffusion_policy/.git",
+    "source_subdirectory": "results/stage3/dppo",
+    "upstream_url": "git@github.com:bz226/diffusion-policy.git",
+    "commit": "c4f3c465e56af756e162dece7656fac9b8e97efa",
+    "source_file_count": 402,
+    "snapshot_file_count": 402,
+    "upstream_gitignores": [
+      {
+        "source_path": ".gitignore",
+        "saved_path": "provenance/upstream_gitignores/.gitignore.txt"
+      }
+    ],
+    "note": "Initial committed source snapshot. Upstream ignore files are preserved separately and replaced with project exclusions. Later source edits belong to the parent repository; each run must record its parent revision and relevant diff or snapshot. No nested Git history is required or included."
+  },
+  "frs_lr": 0.0001,
+  "sgd_differential_lr": 0.0001,
+  "parent_commit": "650e4f1665a6384dce1fb6920e53e790333318a6",
+  "parent_branch": "stage3-theory",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/source_snapshot",
+  "source_file_count": 403,
+  "source_changes": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/source_changes.diff",
+  "gpu_name": "NVIDIA RTX A6000",
+  "cpu_oldlogprob_preparation": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/prepare_cpu/cpu_old_logprobs.pt",
+  "cached_conversion": {
+    "A": {
+      "status": "complete",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A",
+        "--repo",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+        "--fixture",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+        "--device",
+        "cpu",
+        "--convert-stats",
+        "--rescale-source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy"
+      ],
+      "numeric_settings_before": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "cached_conversion_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1841635,
+        "tensors": 54,
+        "first_failure": null
+      },
+      "cached_conversion_rng_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 5697,
+        "tensors": 4,
+        "first_failure": null
+      },
+      "processing_seed": 4000,
+      "seconds": 6.457666967064142,
+      "numeric_settings_after": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      }
+    },
+    "B": {
+      "status": "complete",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B",
+        "--repo",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+        "--fixture",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+        "--device",
+        "cpu",
+        "--convert-stats",
+        "--rescale-source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy"
+      ],
+      "numeric_settings_before": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      },
+      "cached_conversion_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1841635,
+        "tensors": 54,
+        "first_failure": null
+      },
+      "cached_conversion_rng_inert": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 5697,
+        "tensors": 4,
+        "first_failure": null
+      },
+      "processing_seed": 4000,
+      "seconds": 6.401036753086373,
+      "numeric_settings_after": {
+        "deterministic_algorithms": false,
+        "cudnn_deterministic": false,
+        "cudnn_benchmark": false,
+        "cuda_matmul_allow_tf32": false,
+        "cudnn_allow_tf32": true,
+        "float32_matmul_precision": "highest",
+        "torch_num_threads": 40,
+        "OMP_NUM_THREADS": null,
+        "MKL_NUM_THREADS": null,
+        "OPENBLAS_NUM_THREADS": null
+      }
+    },
+    "repeat_comparison": {
+      "parameter_specs": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 0,
+        "tensors": 0,
+        "first_failure": null
+      },
+      "r": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "r_tilde": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "floor": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "epsilon": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "global_median_r": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 1,
+        "tensors": 1,
+        "first_failure": null
+      }
+    }
+  },
+  "rescale_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+  "rescale_repeat_reference_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B/native/rescale.pt",
+  "scientific_source_unchanged_during_gate": true,
+  "requested_checks_passed": true,
+  "elapsed_seconds": 1110.2711176939774,
+  "ended_utc": "2026-10-11T09:11:30Z",
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "original_gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/gate_summary.json",
+  "reference_parent_commit": "c4f3c465e56af756e162dece7656fac9b8e97efa",
+  "committed_source_byte_identical": true,
+  "committed_source_files_compared": 403,
+  "bound_utc": "2026-10-11T09:28:36.830292+00:00",
+  "binding_note": "Original pre-commit numerical gate preserved unchanged; committed and current ordinary source match its full snapshot byte-for-byte. The committed Git executable flag matches; current source retains the gate snapshot's full execute permission bits."
+}

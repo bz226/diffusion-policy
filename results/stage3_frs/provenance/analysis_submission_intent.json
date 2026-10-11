@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-11T09:30:05.993206+00:00",
+  "status": "submitting",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=8G",
+    "--time=00:30:00",
+    "--no-requeue",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--job-name=frs-analysis",
+    "--dependency=afterok:17806457",
+    "--kill-on-invalid-dep=yes",
+    "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/setup/analysis-%j.out",
+    "--wrap=set -eu\n. /soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/environment.sh\nexec python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/analyze_frs.py"
+  ],
+  "dependency_controller": "17806457",
+  "gpu_count": 0,
+  "cpu_count": 2,
+  "memory_gib": 8,
+  "cap_seconds": 1800,
+  "source_commit": "650e4f1665a6384dce1fb6920e53e790333318a6",
+  "scope": "Approved FRS1 candidate plots/tables using completed runs and E2/E2_beta0/SGD10 references; no sampling or curation"
+}

@@ -1,0 +1,40 @@
+{
+  "reviewed_utc": "2026-10-11T17:22:05.147734+00:00",
+  "status": "verified_completed_candidates",
+  "training_runs": 3,
+  "training_rows_per_run": 140,
+  "training_iterations_per_run": 126,
+  "evaluation_iterations_per_run": 14,
+  "training_env_steps_per_run": 10080000,
+  "finite_checkpoints_verified": 15,
+  "final_checkpoint_evaluations": 3,
+  "episodes_per_sampler": 80,
+  "all_metrics_finite": true,
+  "reward_collapse_seeds": [
+    0,
+    1,
+    2
+  ],
+  "first_observed_reward_collapse_itr": [
+    80,
+    70,
+    30
+  ],
+  "independent_numeric_comparisons": 419,
+  "independent_frozen_scale_checks": 9,
+  "inspected_figures": [
+    "candidates/frs_comparison.png",
+    "candidates/frs_ratios_kl.png"
+  ],
+  "figure_limits": [
+    "Logarithmic panels omit zero values; late FRS1 omissions reflect zero-gradient/zero-update stretches, not missing training iterations.",
+    "Mean plus/minus sample SD can extend beyond physical bounds for saturation fractions and distances; all individual measurements respect their definitions."
+  ],
+  "gpu_seconds_including_gate": 23990,
+  "gpu_hours_including_gate": 6.663888888888889,
+  "gpu_hour_cap": 14,
+  "monitor_status": "paused",
+  "raw_evidence_modified": false,
+  "curation_status": "awaiting_user_decision",
+  "scientific_summary": "All three FRS1 seeds reward-collapsed; no numerical failures. Frozen rescaling at the tested LR/floor did not match E2_beta0."
+}
