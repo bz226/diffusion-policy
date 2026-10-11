@@ -77,6 +77,29 @@ def safe(value):
     return value
 
 
+def report_status(status, message, links):
+    """Update only the current runtime notice; retain all scientific evidence."""
+    path = ROOT / 'REPORT.md'
+    text = path.read_text() if path.exists() else '# Addendum G\n'
+    start, end = '<!-- gradmean-runtime-status-start -->', '<!-- gradmean-runtime-status-end -->'
+    references = []
+    for label, destination in links:
+        destination = Path(destination)
+        if destination.exists():
+            references.append('[' + label + '](' + os.path.relpath(str(destination), str(ROOT)) + ')')
+    block = start + '\n**Current runtime status (' + utc() + '): ' + status + '.** ' + message
+    if references:
+        block += ' ' + '; '.join(references) + '.'
+    block += '\n' + end
+    if start in text and end in text:
+        text = text[:text.index(start)] + block + text[text.index(end) + len(end):]
+    else:
+        text = text.rstrip() + '\n\n' + block + '\n'
+    temporary = path.with_name('.REPORT.runtime.tmp')
+    temporary.write_text(text)
+    os.replace(str(temporary), str(path))
+
+
 def command(argv, check=True):
     result = subprocess.run(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=120)
     record = dict(utc=utc(), command=argv, returncode=result.returncode, stdout=result.stdout, stderr=result.stderr)
@@ -107,6 +130,15 @@ def validate_gate(path, commit, full=False):
         raise ValueError('Production requires the full passed G1-G5 gate')
     if gate.get('parent_commit') != commit:
         raise ValueError('Gate reference commit mismatch')
+    offline = read(gate.get('offline_gate'), {}) if gate.get('stage') == 'full' and gate.get('offline_gate') else gate
+    formal_job = str(offline.get('slurm_job_id', ''))
+    if not formal_job.isdigit():
+        raise ValueError('Gate must identify its formal GPU allocation')
+    accounting_text = command(['sacct', '--allocations', '--noheader', '--parsable2', '--jobs=' + formal_job,
+                               '--format=JobIDRaw,State,ExitCode'])['stdout']
+    rows = [line.split('|') for line in accounting_text.splitlines() if line.startswith(formal_job + '|')]
+    if len(rows) != 1 or rows[0][1:3] != ['COMPLETED', '0:0']:
+        raise ValueError('Formal offline gate allocation must be COMPLETED with exit0:0 before any admission or worker')
     branch = command(['git', '-C', str(PARENT), 'branch', '--show-current'])['stdout'].strip()
     if branch != 'stage3-gradmean':
         raise ValueError('Parent branch must be stage3-gradmean')
@@ -222,7 +254,7 @@ def run_spec(run_id, commit):
 
 def accounting(job):
     output = command(['sacct', '--allocations', '--noheader', '--parsable2', '--jobs=' + str(job),
-                      '--format=JobIDRaw,State,ElapsedRaw,AllocTRES%180'])['stdout']
+                      '--format=JobIDRaw,State,ElapsedRaw,AllocTRES%180,ExitCode'])['stdout']
     for line in output.splitlines():
         fields = line.split('|')
         if len(fields) >= 4 and fields[0] == str(job):
@@ -230,7 +262,8 @@ def accounting(job):
             count = int(tres.get('gres/gpu', '0'))
             return dict(job_id=str(job), scheduler_state=fields[1].split()[0].rstrip('+'),
                         elapsed_seconds=int(fields[2]), gpu_count=count,
-                        allocated_gpu_seconds=int(fields[2]) * count, allocated_tres=fields[3])
+                        allocated_gpu_seconds=int(fields[2]) * count, allocated_tres=fields[3],
+                        exit_code=fields[4] if len(fields) > 4 else None)
     return dict(job_id=str(job), scheduler_state=None)
 
 
@@ -299,6 +332,7 @@ def verify(spec):
     if (cleanup.get('status') != 'passed' or cleanup.get('all_children_exited') is not True or
             cleanup.get('remaining_active_children') != [] or cleanup.get('remaining_direct_children') != [] or
             cleanup.get('errors') != [] or cleanup.get('primary_error') is not None or
+            len(cleanup.get('workers', [])) != 40 or
             any(x.get('exitcode') != 0 or x.get('alive') is not False for x in cleanup.get('workers', []))):
         raise ValueError('Missing or failed clean vector-environment/child shutdown')
     if spec['step'] == 'prepare':
@@ -344,6 +378,26 @@ def process_group_members(group):
     return sorted(members)
 
 
+def terminate_owned_group(child):
+    """Reap/stop this worker's private session even if its leader already exited."""
+    for signum, timeout in ((signal.SIGTERM, 10), (signal.SIGKILL, 5)):
+        child.poll()
+        if not process_group_members(child.pid):
+            break
+        try:
+            os.killpg(child.pid, signum)
+        except ProcessLookupError:
+            pass
+        deadline = time.monotonic() + timeout
+        while time.monotonic() < deadline:
+            child.poll()
+            if not process_group_members(child.pid):
+                break
+            time.sleep(.2)
+    child.poll()
+    return process_group_members(child.pid)
+
+
 def worker(args):
     spec = read(args.spec)
     approval()
@@ -374,6 +428,8 @@ def worker(args):
     previous = None
     stalled = 0
     next_monitor = started
+    native_failure = None
+    failure_cleanup_deadline = None
     try:
         manifest['gpu_inventory'] = command(['nvidia-smi', '--query-gpu=name,driver_version,memory.total', '--format=csv,noheader'])['stdout']
         if not manifest['gpu_inventory'] or any('A6000' not in line for line in manifest['gpu_inventory'].splitlines()):
@@ -384,7 +440,14 @@ def worker(args):
             while child.poll() is None:
                 observation = observe(spec)
                 if observation['meta_nonfinite'] or observation['status'] == 'failed':
-                    raise RuntimeError('Scientific collection failed: ' + str(observation))
+                    if native_failure is None:
+                        native_failure = 'Scientific collection failed: ' + str(observation)
+                        # Native finally owns vector-env closure. Give it a
+                        # bounded chance to finish before signalling its group.
+                        failure_cleanup_deadline = min(started + CAP - 30, time.monotonic() + 60)
+                        manifest['native_failure_observation'] = observation
+                    if time.monotonic() >= failure_cleanup_deadline:
+                        raise RuntimeError(native_failure + '; native cleanup grace expired')
                 if stop or time.monotonic() - started >= CAP - 30:
                     raise RuntimeError(stop[0] if stop else 'Approved one-hour allocation cap reached')
                 if time.monotonic() >= next_monitor:
@@ -399,6 +462,8 @@ def worker(args):
                 time.sleep(15)
             if child.returncode:
                 raise RuntimeError('Measurement subprocess exit ' + str(child.returncode))
+            if native_failure is not None:
+                raise RuntimeError(native_failure)
             members = process_group_members(child.pid)
             manifest.update(subprocess_exitcode=child.returncode, subprocess_pid=child.pid,
                             remaining_process_group_members=members)
@@ -408,19 +473,11 @@ def worker(args):
         manifest.update(status='complete', verification=verify(spec))
         returncode = 0
     except Exception as error:
-        if child is not None and child.poll() is None:
+        if child is not None:
             try:
-                os.killpg(child.pid, signal.SIGTERM)
-            except ProcessLookupError:
-                pass
-            try:
-                child.wait(timeout=15)
-            except subprocess.TimeoutExpired:
-                try:
-                    os.killpg(child.pid, signal.SIGKILL)
-                except ProcessLookupError:
-                    pass
-                child.wait(timeout=15)
+                manifest['failure_cleanup_survivors'] = terminate_owned_group(child)
+            except Exception as cleanup_error:
+                manifest['failure_cleanup_error'] = type(cleanup_error).__name__ + ': ' + str(cleanup_error)
         manifest.update(status='failed', failure_reason=type(error).__name__ + ': ' + str(error))
         if child is not None:
             manifest.update(subprocess_exitcode=child.returncode, subprocess_pid=child.pid,
@@ -443,7 +500,8 @@ class Campaign:
         self.source = validate_gate(args.gate, args.commit, full=args.action == 'run')
         self.state = read(STATE, dict(created_utc=utc(), status='prepared', submitted=[],
                                     external=[], points={p: {'status': 'open', 'rounds': []} for p in POINTS}))
-        if self.state.get('pending_submission_intent'):
+        self.state.setdefault('analyses', [])
+        if self.state.get('pending_submission_intent') or self.state.get('pending_analysis_submission_intent'):
             raise RuntimeError('Ambiguous prior submission: inspect Slurm and resolve the recorded intent before resuming')
         self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active')
         self.started = time.monotonic()
@@ -480,6 +538,11 @@ class Campaign:
             raise ValueError('External gate reservations exceed the approved aggregate two hours or duplicate a job')
         if not set(previous).issubset({x['job_id'] for x in external}):
             raise ValueError('Previously recorded external GPU allocations cannot disappear')
+        gate = read(self.args.gate, {})
+        offline = read(gate.get('offline_gate'), {}) if gate.get('stage') == 'full' and gate.get('offline_gate') else gate
+        formal_job = str(offline.get('slurm_job_id', ''))
+        if not formal_job or formal_job not in {x['job_id'] for x in external}:
+            raise ValueError('The formal offline GPU gate must be included in the shared budget ledger')
         self.state['external'] = external
 
     def record(self):
@@ -513,7 +576,7 @@ class Campaign:
             path = ROOT / 'runs' / entry['run_id'] / 'manifest.json'
             manifest = read(path, dict(spec, status='failed', failure_reason='Allocation ended before worker manifest'))
             try:
-                if status['scheduler_state'] != 'COMPLETED' or manifest.get('status') != 'complete':
+                if status['scheduler_state'] != 'COMPLETED' or status.get('exit_code') != '0:0' or manifest.get('status') != 'complete':
                     raise ValueError('Scheduler/worker did not both complete successfully')
                 manifest['final_verification'] = verify(spec)
             except Exception as error:
@@ -521,7 +584,78 @@ class Campaign:
             manifest.update(scheduler_observation=status, monitor_status='paused')
             atomic(path, manifest)
             entry.update(terminal_recorded=True, run_status=manifest['status'])
+        self.inspect_analyses()
         self.record()
+
+    def inspect_analyses(self):
+        for entry in self.state['analyses']:
+            if entry.get('terminal_recorded'):
+                continue
+            status = accounting(entry['job_id'])
+            if status['scheduler_state'] is None:
+                entry.setdefault('unknown_since', time.time())
+                if time.time() - entry['unknown_since'] > 300:
+                    raise RuntimeError('Analysis allocation unobservable for five minutes')
+                continue
+            entry.pop('unknown_since', None)
+            entry.update(status)
+            if status['scheduler_state'] not in TERMINAL:
+                continue
+            marker = read(Path(entry['output']) / 'analysis_status.json', {})
+            outputs = marker.get('outputs', [])
+            completed = (status['scheduler_state'] == 'COMPLETED' and status.get('exit_code') == '0:0' and marker.get('status') == 'complete' and
+                         bool(outputs) and all(Path(path).is_file() for path in outputs))
+            entry.update(terminal_recorded=True, status='complete' if completed else 'failed', terminal_marker=marker)
+            if not completed:
+                self.state.setdefault('analysis_failures', []).append(dict(label=entry['label'], job_id=entry['job_id'],
+                     console_log=entry['console_log'], reason=marker.get('error', 'Missing successful scheduler completion or complete saved output marker')))
+                self.record()
+                report_status('analysis incomplete', 'A CPU analysis job failed. Collection stopping estimates remain unchanged; the complete analysis is pending.',
+                              [('Analysis traceback', Path(entry['console_log'])), ('Campaign record', STATE)])
+                self.monitor(reason='analysis failure; collection stopping estimates remain unchanged')
+
+    def schedule_analysis(self, label, partial):
+        existing = next((x for x in self.state['analyses'] if x['label'] == label), None)
+        if existing:
+            return existing
+        if not (ROOT / 'analyze.py').is_file():
+            raise ValueError('Approved analyzer is not ready; preserve completed round and stop admissions')
+        if len(scheduler_jobs()) >= 20:
+            return None
+        output = ROOT / 'runs/analyses' / label
+        if output.exists():
+            raise ValueError('Unregistered analysis output must be preserved: ' + str(output))
+        log_path = ROOT / 'setup' / ('analysis_' + label + '-%j.out')
+        argv = ['sbatch', '--parsable', '--account=soal', '--partition=soal', '--nodes=1', '--ntasks=1',
+                '--cpus-per-task=4', '--mem=64G', '--time=30', '--no-requeue',
+                '--export=PATH,HOME,USER,LOGNAME,LANG', '--job-name=gm-analysis-' + label,
+                '--output=' + str(log_path), str(ROOT / 'code/run_analysis.sh'), '--output', str(output)]
+        if partial:
+            argv.append('--partial')
+        self.state['pending_analysis_submission_intent'] = dict(utc=utc(), label=label, command=argv)
+        self.record()
+        result = command(argv, check=False)
+        job = result['stdout'].strip().split(';')[0]
+        if result['returncode'] or not job.isdigit():
+            raise RuntimeError('Analysis submission failed or ambiguous; preserve intent, do not retry automatically')
+        entry = dict(label=label, output=str(output), partial=partial, job_id=job, status='pending',
+                     scheduler_state='PENDING', cap_seconds=1800, gpu_count=0, cpus=4, memory_gib=64,
+                     console_log=str(log_path).replace('%j', job), command=argv, submitted_utc=utc())
+        self.state['analyses'].append(entry)
+        self.state.pop('pending_analysis_submission_intent')
+        self.record()
+        return entry
+
+    def round_analysis_barrier(self):
+        waiting = False
+        for target in TARGETS:
+            points = list(self.state['points'].values())
+            reached = any(any(r['target_batches'] == target for r in p['rounds']) for p in points)
+            finished = all(p['status'] != 'open' or any(r['target_batches'] >= target for r in p['rounds']) for p in points)
+            if reached and finished:
+                entry = self.schedule_analysis('round_%04d' % target, partial=True)
+                waiting = waiting or entry is None or not entry.get('terminal_recorded')
+        return waiting
 
     def entry(self, run_id):
         return next((x for x in self.state['submitted'] if x['run_id'] == run_id), None)
@@ -668,6 +802,7 @@ class Campaign:
                                      observation=observe(spec)))
         record = dict(utc=utc(), reason=reason, status=self.state['status'], monitor_status='paused' if terminal else 'active',
                       ledger=self.state['ledger'], points=self.state['points'], runs=observations,
+                      analyses=self.state['analyses'], analysis_failures=self.state.get('analysis_failures', []),
                       next_step='Review terminal records; no automatic expansion' if terminal else 'Complete admitted groups and evaluate the next approved round boundary')
         append(ROOT / 'runs/campaign_monitor_history.jsonl', record)
         atomic(ROOT / 'runs/campaign_progress.json', record)
@@ -680,6 +815,8 @@ class Campaign:
             block = start + '\nLast monitor: ' + record['utc'] + '. **' + record['status'] + '**. ' + status + '. '
             block += 'GPU hours used: %.3f; outstanding reserved: %.3f; cap:125. ' % (record['ledger']['actual_gpu_seconds'] / 3600, record['ledger']['outstanding_reserved_gpu_seconds'] / 3600)
             block += 'Monitor ' + record['monitor_status'] + '. Next: ' + record['next_step'] + '.\n' + end
+            if self.state.get('analysis_failures'):
+                block = block.replace('\n' + end, '\n**Analysis incomplete:** ' + str(len(self.state['analysis_failures'])) + ' CPU analysis job(s) failed; see campaign records and saved tracebacks.\n' + end)
             if start in content and end in content:
                 content = content[:content.index(start)] + block + content[content.index(end) + len(end):]
             else:
@@ -701,16 +838,39 @@ class Campaign:
                 if self.stopping or time.monotonic() - self.started >= self.args.timeout_seconds - 60:
                     raise RuntimeError('Controller interrupted/capped; new admissions stopped; existing allocations retain their own caps')
                 self.inspect()
-                self.dispatch()
+                analysis_waiting = self.round_analysis_barrier()
+                if not analysis_waiting:
+                    self.dispatch()
+                    analysis_waiting = self.round_analysis_barrier()
                 active = [x for x in self.state['submitted'] if not x.get('terminal_recorded')]
                 closed = all(x['status'] != 'open' for x in self.state['points'].values())
                 exhausted = self.state['ledger']['remaining_unreserved_gpu_seconds'] < CAP and not active
                 if (closed or exhausted) and not active:
                     failed = any(x['status'].startswith('failed') for x in self.state['points'].values())
-                    self.state.update(status='budget_exhausted' if exhausted and not closed else ('complete_with_failures' if failed else 'complete'),
+                    if analysis_waiting:
+                        time.sleep(30)
+                        continue
+                    final = self.schedule_analysis('final', partial=failed or not closed)
+                    if final is None or not final.get('terminal_recorded'):
+                        self.state['status'] = 'awaiting_final_analysis'
+                        self.record()
+                        if time.monotonic() >= self.next_monitor:
+                            self.monitor()
+                        time.sleep(30)
+                        continue
+                    terminal_status = 'budget_exhausted' if exhausted and not closed else ('complete_with_failures' if failed else 'complete')
+                    if self.state.get('analysis_failures') and terminal_status == 'complete':
+                        terminal_status = 'complete_with_analysis_failures'
+                    self.state.update(status=terminal_status,
                                       ended_utc=utc(), monitor_status='paused')
                     self.record()
                     self.monitor(reason='verified terminal', terminal=True)
+                    report_status(self.state['status'],
+                                  'Collection and all scheduled analysis outputs were verified.' if self.state['status'] == 'complete' else
+                                  'The campaign stopped within its approved limits. Some measurements or analyses remain incomplete; inspect the preserved records.',
+                                  [('Campaign record', STATE), ('Final analysis', ROOT / 'runs/analyses/final'),
+                                   ('Scientific summary', ROOT / 'runs/analyses/final/candidates/SUMMARY.md'),
+                                   ('Final analysis status', ROOT / 'runs/analyses/final/analysis_status.json')])
                     return 0 if self.state['status'] == 'complete' else 2
                 if time.monotonic() >= self.next_monitor:
                     self.monitor()
@@ -719,6 +879,7 @@ class Campaign:
             self.state.update(status='blocked', failure_reason=type(error).__name__ + ': ' + str(error), monitor_status='paused', ended_utc=utc())
             self.record()
             self.monitor(reason='controller blocked', terminal=True)
+            report_status('blocked', str(error) + '. No further allocations are being admitted.', [('Campaign record', STATE)])
             raise
 
 

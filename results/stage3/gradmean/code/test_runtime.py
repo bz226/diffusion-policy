@@ -13,6 +13,11 @@ PATH = Path(__file__).with_name('campaign.py')
 SPEC = importlib.util.spec_from_file_location('gradmean_runtime', str(PATH))
 c = importlib.util.module_from_spec(SPEC)
 SPEC.loader.exec_module(c)
+import sys
+sys.modules['campaign'] = c
+B_SPEC = importlib.util.spec_from_file_location('gradmean_bootstrap', str(PATH.with_name('bootstrap.py')))
+b = importlib.util.module_from_spec(B_SPEC)
+B_SPEC.loader.exec_module(b)
 
 
 class RuntimeTests(unittest.TestCase):
@@ -126,9 +131,11 @@ class RuntimeTests(unittest.TestCase):
                 path.write_bytes(b'echo fixture\n')
                 path.chmod(0o770)
             gate = root / 'gate.json'
-            c.atomic(gate, dict(passed=True, stage='offline', parent_commit='reference', source_snapshot=str(snapshot)))
+            c.atomic(gate, dict(passed=True, stage='offline', parent_commit='reference', source_snapshot=str(snapshot), slurm_job_id='123'))
             def fake_command(argv, check=True):
-                if 'branch' in argv:
+                if argv[0] == 'sacct':
+                    output = '123|COMPLETED|0:0|\n'
+                elif 'branch' in argv:
                     output = 'stage3-gradmean\n'
                 elif 'rev-parse' in argv:
                     output = 'later-docs-commit\n'
@@ -161,6 +168,51 @@ class RuntimeTests(unittest.TestCase):
         with patch.object(c, 'validate_gate', return_value={'stage': 'offline'}):
             with self.assertRaises(ValueError):
                 campaign.submit('P0_j01')
+
+    def test_global_analysis_barrier_does_not_add_unreached_rounds(self):
+        campaign = c.Campaign.__new__(c.Campaign)
+        campaign.state = dict(points={point: dict(status='closed_rho', rounds=[{'target_batches': 500}]) for point in c.POINTS})
+        labels = []
+        def schedule(label, partial):
+            labels.append(label)
+            return dict(terminal_recorded=False)
+        campaign.schedule_analysis = schedule
+        self.assertTrue(campaign.round_analysis_barrier())
+        self.assertEqual(labels, ['round_0500'])
+
+    def test_formal_nonzero_exit_blocks_live_transition(self):
+        bootstrap = b.Bootstrap.__new__(b.Bootstrap)
+        bootstrap.args = argparse.Namespace(offline=Path('gate'), formal_job='123')
+        bootstrap.check_cap = lambda: None
+        bootstrap.monitor = lambda *args, **kwargs: None
+        bootstrap.formal_status = lambda: dict(state='COMPLETED', exit_code='1:0')
+        with patch.object(b, 'read', return_value={'passed': True, 'status': 'passed'}):
+            with self.assertRaises(RuntimeError):
+                bootstrap.await_offline()
+
+    def test_zero_exit_without_gate_pass_does_not_admit_live_work(self):
+        bootstrap = b.Bootstrap.__new__(b.Bootstrap)
+        bootstrap.args = argparse.Namespace(offline=Path('gate'), formal_job='123')
+        bootstrap.check_cap = lambda: None
+        bootstrap.monitor = lambda *args, **kwargs: None
+        bootstrap.formal_status = lambda: dict(state='COMPLETED', exit_code='0:0')
+        with patch.object(b, 'read', return_value={'passed': False, 'stage': 'offline'}):
+            with self.assertRaises(RuntimeError):
+                bootstrap.await_offline()
+
+    def test_common_gate_validation_rejects_running_allocation(self):
+        with tempfile.TemporaryDirectory() as directory:
+            gate = Path(directory) / 'gate.json'
+            c.atomic(gate, dict(passed=True, stage='offline', parent_commit='reference', slurm_job_id='123'))
+            with patch.object(c, 'command', return_value={'stdout': '123|RUNNING|0:0|\n'}):
+                with self.assertRaises(ValueError):
+                    c.validate_gate(gate, 'reference')
+
+    def test_failure_cleanup_handles_already_exited_leader(self):
+        child = SimpleNamespace(pid=123, poll=lambda: 1)
+        with patch.object(c, 'process_group_members', side_effect=[[456], [], [], []]), patch.object(c.os, 'killpg') as kill:
+            self.assertEqual(c.terminate_owned_group(child), [])
+            kill.assert_called_once_with(123, c.signal.SIGTERM)
 
 
 if __name__ == '__main__':

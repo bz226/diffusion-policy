@@ -1,0 +1,413 @@
+{
+  "stage": "offline",
+  "passed": false,
+  "status": "running",
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_gradients.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G1_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--kind",
+      "reference"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_gradients.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G1_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--kind",
+      "edited"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_gradients.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G1_e2",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+      "--kind",
+      "e2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_prepare_cpu_default",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+      "--device",
+      "cpu",
+      "--prepare-cpu"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_default_cpu_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_prepare_cpu_default/cpu_old_logprobs.pt"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_default_cpu_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+      "--device",
+      "cpu",
+      "--cpu-logprobs",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_prepare_cpu_default/cpu_old_logprobs.pt"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_default_cuda0_reference",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+      "--device",
+      "cuda:0"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_replay.py",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G5_default_cuda0_edited",
+      "--repo",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+      "--fixture",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+      "--device",
+      "cuda:0"
+    ]
+  ],
+  "slurm_job_id": "17812451",
+  "G2": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_G2_G1/gate_summary.json",
+  "reference": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+  "edited": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+  "G1": {
+    "passed": true,
+    "per_variant": [
+      {
+        "variant": "V1",
+        "relative_l2": 5.703358896892093e-07,
+        "max_abs": 7.945345713820939e-10,
+        "passed": true
+      },
+      {
+        "variant": "V2",
+        "relative_l2": 6.290864248792445e-07,
+        "max_abs": 1.4755642040262945e-09,
+        "passed": true
+      },
+      {
+        "variant": "V3",
+        "relative_l2": 5.958685457683714e-07,
+        "max_abs": 5.28598320713794e-10,
+        "passed": true
+      },
+      {
+        "variant": "V4",
+        "relative_l2": 6.340127509621002e-07,
+        "max_abs": 2.7209520342130755e-06,
+        "passed": true
+      },
+      {
+        "variant": "V5",
+        "relative_l2": 6.595915690092984e-07,
+        "max_abs": 1.0919570920364663e-05,
+        "passed": true
+      }
+    ],
+    "V4_vs_negative_E2_loss_gradient": {
+      "relative_l2": 0.0,
+      "max_abs": 0.0,
+      "passed": true
+    },
+    "phase1_reference_sign": "negative native loss gradient, mean over40 envs"
+  },
+  "G5": {
+    "default_cpu": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "constructor_actor_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "constructor_critic_scheduler": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 140,
+          "tensors": 140,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 11367840,
+          "tensors": 240,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5697,
+          "tensors": 4,
+          "first_failure": null
+        },
+        "diagnostic_generator_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5056,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 33,
+          "tensors": 33,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62274,
+          "tensors": 32,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "actor_steps": 20,
+      "critic_steps": 20
+    }
+  },
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "gate_wall_limit_seconds": 7200,
+  "parent_commit": "f425082723799776af35e100983fe20b86888a02",
+  "gpu_name": "NVIDIA RTX A6000",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/source_snapshot",
+  "source_files": 404,
+  "active_phase": "G5_default_cuda0_edited"
+}

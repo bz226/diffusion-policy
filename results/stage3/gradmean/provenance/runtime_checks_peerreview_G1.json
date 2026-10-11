@@ -1,0 +1,17 @@
+{
+  "utc": "2026-10-11T20:49:52.474665+00:00",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scope": "runtime peer-review corrections only; no experiment execution",
+  "tests": 20,
+  "passed": true,
+  "stdout": "test_budget_guard_precedes_spec_or_sbatch (__main__.RuntimeTests) ... ok\ntest_common_gate_validation_rejects_running_allocation (__main__.RuntimeTests) ... ok\ntest_disjoint_all_environment_seed_ranges (__main__.RuntimeTests) ... ok\ntest_duplicate_admission_rejected_before_external_actions (__main__.RuntimeTests) ... ok\ntest_failure_cleanup_handles_already_exited_leader (__main__.RuntimeTests) ... ok\ntest_formal_nonzero_exit_blocks_live_transition (__main__.RuntimeTests) ... ok\ntest_full_gate_is_required_even_when_offline_passed (__main__.RuntimeTests) ... ok\ntest_global_analysis_barrier_does_not_add_unreached_rounds (__main__.RuntimeTests) ... ok\ntest_ledger_charges_terminal_actual_and_full_outstanding_caps (__main__.RuntimeTests) ... ok\ntest_live_gate_failure_prevents_additional_admission (__main__.RuntimeTests) ... ok\ntest_no_undefined_or_negative_rho_closure (__main__.RuntimeTests) ... ok\ntest_offline_gate_prevents_production_before_any_scheduler_call (__main__.RuntimeTests) ... ok\ntest_only_one_named_replacement_slot (__main__.RuntimeTests) ... ok\ntest_round_group_counts_and_priority (__main__.RuntimeTests) ... ok\ntest_slot_limits_count_other_jobs_and_gpus (__main__.RuntimeTests) ... ok\ntest_source_proof_allows_docs_descendant_and_git_mode_normalization (__main__.RuntimeTests) ... ok\ntest_specs_preserve_science_and_score_first_group_each_point (__main__.RuntimeTests) ... ok\ntest_successful_retry_is_one_logical_group_and_failed_original_preserved (__main__.RuntimeTests) ... ok\ntest_unknown_accounting_keeps_full_reservation (__main__.RuntimeTests) ... ok\ntest_zero_exit_without_gate_pass_does_not_admit_live_work (__main__.RuntimeTests) ... ok\n\n----------------------------------------------------------------------\nRan 20 tests in 0.164s\n\nOK\n",
+  "corrections": [
+    "formal allocation completed exit0 enforced in all common admission paths",
+    "production allocations require exit0",
+    "all jobs require exactly40 reaped clean env workers",
+    "private process-group survivors cleaned even after leader exits",
+    "native failure permits bounded finally-cleanup grace inside one-hour cap"
+  ],
+  "scientific_source_edited": false,
+  "jobs_launched": 0
+}

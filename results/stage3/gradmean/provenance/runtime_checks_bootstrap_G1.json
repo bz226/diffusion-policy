@@ -1,0 +1,30 @@
+{
+  "utc": "2026-10-11T20:47:53.003359+00:00",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scope": "runtime-only verification; no Slurm submission or environment sampling",
+  "ast_files": [
+    "results/stage3/gradmean/code/campaign.py",
+    "results/stage3/gradmean/code/bootstrap.py",
+    "results/stage3/gradmean/code/test_runtime.py"
+  ],
+  "shell_syntax": [
+    "results/stage3/gradmean/code/environment.sh",
+    "results/stage3/gradmean/code/run_worker.sh",
+    "results/stage3/gradmean/code/run_queue.sh",
+    "results/stage3/gradmean/code/run_bootstrap.sh",
+    "results/stage3/gradmean/code/run_analysis.sh",
+    "results/stage3/run_queue.sh"
+  ],
+  "mechanical_tests": 18,
+  "result": "passed",
+  "test_command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B results/stage3/gradmean/code/test_runtime.py",
+  "additional_checks": [
+    "formal COMPLETED and exit0:0 alone cannot bypass passed gate",
+    "failed/nonzero formal gate blocks collection",
+    "global CPU analysis barrier does not invent unexecuted rounds",
+    "ledger requires offline GPU gate allocation",
+    "all first-point groups preserve200decision-score samples",
+    "CPU analysis failure recorded separately from scientific stopping"
+  ],
+  "launches": 0
+}

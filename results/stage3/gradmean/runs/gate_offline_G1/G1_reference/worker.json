@@ -1,0 +1,31 @@
+{
+  "kind": "reference",
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/gate_gradients.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/G1_reference",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--kind",
+    "reference"
+  ],
+  "device": "cpu",
+  "inert": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 12407372,
+    "tensors": 68,
+    "first_failure": null
+  },
+  "shape": [
+    5,
+    568392
+  ],
+  "ascent_sign": "negative native loss gradient",
+  "seconds": 36.00542339193635
+}
