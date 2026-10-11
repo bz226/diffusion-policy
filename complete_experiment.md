@@ -22,6 +22,12 @@
 
 ## Comparison analyses
 
+### Stage 3 completed Wave-1 comparison against Stage 1 and NC4
+
+- Analysis record: [completed_wave1_analysis](./results/stage3/runs/completed_wave1_analysis/analysis_record.json)
+- Analysis design: [Training comparisons](./results/stage3/methods.md#training-comparisons)
+- Curated results: [Returns, diagnostics, noise and results tables](./results/stage3/curated/INDEX.md#completed-wave-1-comparison)
+
 ### Stage 3 E0/E1/E2/SGD1/SGD3 comparison against Stage 1 and NC4
 
 - Analysis record: [completed_five_analysis](./results/stage3/runs/completed_five_analysis/analysis_record.json)

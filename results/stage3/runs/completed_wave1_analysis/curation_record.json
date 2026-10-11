@@ -1,0 +1,130 @@
+{
+  "approved_utc": "2026-10-11T00:27:04.188467+00:00",
+  "approval": "keep in curated",
+  "approved_artifact_ids": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "approved_names": [
+    "wave1-returns",
+    "wave1-update-diagnostics",
+    "wave1-noise-saturation",
+    "wave1-results"
+  ],
+  "analysis": "completed_wave1_analysis",
+  "conditions": [
+    "E0",
+    "E1",
+    "E2",
+    "E2_beta0",
+    "E2_nobase",
+    "SGD03",
+    "SGD1",
+    "SGD3",
+    "SGD10"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "files": [
+    {
+      "source": "runs/completed_wave1_analysis/candidates/captions.md",
+      "curated": "curated/wave1-results/captions.md",
+      "bytes": 4033,
+      "preservation": "Markdown links rebased and curation labels updated; scientific content unchanged"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/comparisons.csv",
+      "curated": "curated/wave1-results/comparisons.csv",
+      "bytes": 7754,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/noise_windows.csv",
+      "curated": "curated/wave1-results/noise_windows.csv",
+      "bytes": 38628,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/performance.pdf",
+      "curated": "curated/wave1-returns.pdf",
+      "bytes": 177750,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/performance.png",
+      "curated": "curated/wave1-returns.png",
+      "bytes": 1654307,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/summary.json",
+      "curated": "curated/wave1-results/summary.json",
+      "bytes": 69365,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/seed_results.csv",
+      "curated": "curated/wave1-results/seed_results.csv",
+      "bytes": 39837,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/analysis.md",
+      "curated": "curated/wave1-results/analysis.md",
+      "bytes": 3750,
+      "preservation": "Markdown links rebased and curation labels updated; scientific content unchanged"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/noise_saturation.pdf",
+      "curated": "curated/wave1-noise-saturation.pdf",
+      "bytes": 188798,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/diagnostics.pdf",
+      "curated": "curated/wave1-update-diagnostics.pdf",
+      "bytes": 226566,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/diagnostics.png",
+      "curated": "curated/wave1-update-diagnostics.png",
+      "bytes": 1274030,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/condition_results.csv",
+      "curated": "curated/wave1-results/condition_results.csv",
+      "bytes": 19971,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/noise_saturation.png",
+      "curated": "curated/wave1-noise-saturation.png",
+      "bytes": 1176973,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/all_runs_long.csv",
+      "curated": "curated/wave1-results/all_runs_long.csv",
+      "bytes": 1992225,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/completed_wave1_analysis/candidates/table_caption.md",
+      "curated": "curated/wave1-results/table_caption.md",
+      "bytes": 1684,
+      "preservation": "Markdown links rebased and curation labels updated; scientific content unchanged"
+    }
+  ],
+  "curated_index": "curated/INDEX.md",
+  "source_candidates_preserved": true,
+  "earlier_curated_files_preserved": true,
+  "scientific_source_or_runs_changed": false,
+  "validation": "Twelve figures/data files byte-compared; three Markdown files have only link and curation-label edits. All source candidates and earlier curated artifacts compared byte-for-byte before/after."
+}

@@ -1,10 +1,10 @@
 # Stage 3: score estimators and projected SGD
 
-**Status: campaign running.** At 11:10 PDT on October 10, 17 training runs are complete, six are progressing and one is pending a GPU allocation. Calibration and both fixed-policy noise measurements are complete. No crash, non-finite result or evaluation-collapse threshold crossing has been observed. [Manual check](runs/manual_monitor_20261010T181035Z.json).
+**Status: campaign running.** All 27 Wave-1 training runs are complete and analyzed. BATCH4 seeds 0–2 remain active, with final checkpoint evaluations still pending. No completed Wave-1 run collapsed, produced non-finite values or had a zero actor update. The live monitor record below tracks the remaining jobs.
 
 Does replacing NC4's estimator and AdamW with the specified finite-horizon score estimator, SGD and a Euclidean projection improve the discounted objective, and is progress limited by gradient noise?
 
-**Completed-five analysis.** E1 has the highest final scheduled eval among E0/E1/E2/SGD1/SGD3: **4,670 ± 28** across three seeds. E2 lowers both discounted and undiscounted training return relative to E1; SGD3 improves training return over SGD1, while their eval difference is unresolved. [Approved curated analysis, figures and tables](curated/INDEX.md). Final-checkpoint evaluations remain pending.
+**Completed Wave-1 analysis.** E1 has the highest mean final scheduled eval, **4,670 ± 28** across three seeds. SGD10 reaches **4,458 ± 106**; its differences from SGD3 and E2 remain unresolved under the prescribed pooled-SD rule. Removing LOO lowers returns, while removing Adam momentum leaves returns unresolved despite 14.7× larger median KL. [Approved expanded analysis, figures and tables](curated/INDEX.md#completed-wave-1-comparison). Split-noise estimates are undefined in 207/378 windows, preventing a reliable noise ranking.
 
 The approved campaign includes E0, E1, E2, E2_beta0, E2_nobase, SGD1, SGD3, SGD10 and SGD03, three independent seeds each. PROJ3 and PROJ10 follow the specified skip rule. BATCH4 is included. All normal training runs use 140 iterations and the existing 40 environments; BATCH4 changes only the requested rollout length. Final checkpoints are evaluated with both samplers. Two fixed-policy noise measurements and five calibration batches precede training.
 
@@ -18,8 +18,8 @@ The central duration estimates are 3 hours for normal training (range 2.8–3.4)
 
 **Phase-1 limitation.** Review found an upward bias in the percentile bootstrap distribution of squared signal near zero. Its confidence intervals and derived uncertainty claims are unreliable; raw measurements remain intact. [Audit](runs/noise_ci_review.json). Training comparisons use sample SD across seeds and are unaffected. No replacement uncertainty estimator has been run.
 
-Next: finish remaining wave-1 seeds, apply the projection skip rule, run BATCH4 and final checkpoint evaluations. Full setup: [methods](methods.md). Final deliverables will be in `REPORT.md`, `all_runs_long.csv` and `figs/`. The five-condition interim artifacts are curated; future artifacts require a separate decision.
+Next: finish BATCH4, then final checkpoint evaluations and analysis. PROJ3/PROJ10 were skipped as prescribed: maximum SGD distances 0.0888/0.2571 are below 6.9488. [Methods](methods.md). Wave-1 artifacts A–D are curated under the approved names; earlier curated artifacts remain unchanged.
 
 <!-- stage3-status-start -->
-Last monitor: 2026-10-10T18:19:47.620403+00:00; campaign **running**. Run states: complete 20, planned 4, running 6. [Live record](runs/campaign_progress.json); [command journal](runs/campaign_commands.jsonl).
+Last monitor: 2026-10-11T00:21:28.857970+00:00; campaign **running**. Run states: complete 30, running 3, skipped 6. [Live record](runs/campaign_progress.json); [command journal](runs/campaign_commands.jsonl).
 <!-- stage3-status-end -->

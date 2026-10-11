@@ -1,0 +1,807 @@
+{
+  "status": "complete",
+  "created_utc": "2026-10-11T00:21:55.971575+00:00",
+  "conditions": [
+    "E0",
+    "E1",
+    "E2",
+    "E2_beta0",
+    "E2_nobase",
+    "SGD03",
+    "SGD1",
+    "SGD3",
+    "SGD10"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "scientific_source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "source_script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_completed_wave1.py",
+  "reused_helpers": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_completed_five.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_stage3.py"
+  ],
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_completed_wave1.py",
+  "working_directory": "/soalnas/share/data/zbao7/diffusion_policy",
+  "source_inputs": [
+    {
+      "run": "E0_seed0",
+      "condition": "E0",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E0_seed1",
+      "condition": "E0",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E0_seed2",
+      "condition": "E0",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E1_seed0",
+      "condition": "E1",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E1_seed1",
+      "condition": "E1",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E1_seed2",
+      "condition": "E1",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_seed0",
+      "condition": "E2",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_seed1",
+      "condition": "E2",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_seed2",
+      "condition": "E2",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_beta0_seed0",
+      "condition": "E2_beta0",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_beta0_seed1",
+      "condition": "E2_beta0",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_beta0_seed2",
+      "condition": "E2_beta0",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_nobase_seed0",
+      "condition": "E2_nobase",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_nobase_seed1",
+      "condition": "E2_nobase",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "E2_nobase_seed2",
+      "condition": "E2_nobase",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD03_seed0",
+      "condition": "SGD03",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD03_seed1",
+      "condition": "SGD03",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD03_seed2",
+      "condition": "SGD03",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD1_seed0",
+      "condition": "SGD1",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD1_seed1",
+      "condition": "SGD1",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD1_seed2",
+      "condition": "SGD1",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD3_seed0",
+      "condition": "SGD3",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD3_seed1",
+      "condition": "SGD3",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD3_seed2",
+      "condition": "SGD3",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD10_seed0",
+      "condition": "SGD10",
+      "seed": 0,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed0/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD10_seed1",
+      "condition": "SGD10",
+      "seed": 1,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed1/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "run": "SGD10_seed2",
+      "condition": "SGD10",
+      "seed": 2,
+      "manifest_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed2/manifest.json",
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/result.pkl",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "rows": 140,
+      "status": "complete"
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "rows": 140
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "rows": 140
+    },
+    {
+      "reference": "Stage 1 DPPO",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl",
+      "rows": 140
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 0,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "rows": 140
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 1,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "rows": 140
+    },
+    {
+      "reference": "Stage 2 NC4 1e-4",
+      "seed": 2,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl",
+      "rows": 140
+    }
+  ],
+  "verified": {
+    "completed_runs": 27,
+    "rows_per_run": 140,
+    "expected_step_grid": true,
+    "finite_raw_numeric_values": true,
+    "endpoint_mean_sd_crosschecks_exact": 36,
+    "action_oor_training_points_per_seed": 126,
+    "noise_no_survivor_means_checked": true,
+    "visual_review": "All three PNGs inspected; final noise/saturation panel reinspected after restricting action range to training sampler. Labels and legends readable, no overlap or cropping; PDF uses same figure canvas."
+  },
+  "excluded_conditions": {
+    "BATCH4": "running at requested snapshot",
+    "PROJ3": "prespecified skip",
+    "PROJ10": "prespecified skip"
+  },
+  "checkpoint_evaluations": "not included; pending at snapshot",
+  "aggregation": "arithmetic mean and sample SD ddof=1 over exactly three seeds; no smoothing or interpolation",
+  "action_oor_sampler": "training rows only, 126 observations per seed; eval-sampler values are excluded deliberately",
+  "noise_windows": "[0,9], [10,19], ..., [130,139]; nine training iterations each; undefined unless denominator positive in all three seeds",
+  "log_policy": "No epsilon; preserve raw data, mask nonpositive plot bounds; per-condition counts below",
+  "exclusions_unique_conditions": {
+    "E0": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 0,
+      "noise_defined_windows_per_seed": [
+        8,
+        6,
+        7
+      ],
+      "noise_defined_three_seed_means": 2,
+      "noise_undefined_three_seed_means": 12,
+      "noise_nonpositive_lower_sd": 1,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    "E1": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 1,
+      "noise_defined_windows_per_seed": [
+        7,
+        5,
+        4
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "E2": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 2,
+      "noise_defined_windows_per_seed": [
+        6,
+        4,
+        5
+      ],
+      "noise_defined_three_seed_means": 0,
+      "noise_undefined_three_seed_means": 14,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "E2_beta0": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 5,
+      "noise_defined_windows_per_seed": [
+        5,
+        8,
+        7
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false
+      ]
+    },
+    "E2_nobase": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 0,
+      "noise_defined_windows_per_seed": [
+        5,
+        4,
+        7
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 1,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "SGD03": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 12,
+      "noise_defined_windows_per_seed": [
+        5,
+        9,
+        8
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false
+      ]
+    },
+    "SGD1": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 10,
+      "noise_defined_windows_per_seed": [
+        4,
+        7,
+        7
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 1,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "SGD3": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 7,
+      "noise_defined_windows_per_seed": [
+        6,
+        8,
+        8
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    },
+    "SGD10": {
+      "undefined_first_gradient_cosines": 3,
+      "nonpositive_kl_individual": 0,
+      "nonpositive_kl_mean": 0,
+      "nonpositive_kl_lower_sd": 14,
+      "noise_defined_windows_per_seed": [
+        5,
+        7,
+        9
+      ],
+      "noise_defined_three_seed_means": 1,
+      "noise_undefined_three_seed_means": 13,
+      "noise_nonpositive_lower_sd": 0,
+      "noise_window_steps": [
+        720000,
+        1440000,
+        2160000,
+        2880000,
+        3600000,
+        4320000,
+        5040000,
+        5760000,
+        6480000,
+        7200000,
+        7920000,
+        8640000,
+        9360000,
+        10080000
+      ],
+      "noise_three_seed_mean_defined": [
+        false,
+        false,
+        false,
+        false,
+        true,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ]
+    }
+  },
+  "reference_metrics": {
+    "Stage 1 DPPO": [
+      "eval_episode_reward",
+      "train_episode_reward"
+    ],
+    "Stage 2 NC4 1e-4": [
+      "eval_episode_reward",
+      "train_episode_reward",
+      "kl_true_per_action"
+    ]
+  },
+  "kl_target": 0.000584517336086918,
+  "eta_star": 0.00012107235674859004,
+  "calibration_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/cal_seed3000/calibration.json",
+  "versions": {
+    "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+    "numpy": "1.24.4",
+    "matplotlib": "3.7.5"
+  },
+  "figure_size_inches": [
+    13.5,
+    12.5
+  ],
+  "png_dpi": 180,
+  "outputs": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/performance.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/performance.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/diagnostics.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/diagnostics.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/noise_saturation.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/noise_saturation.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/completed_wave1_analysis/candidates/captions.md"
+  ],
+  "executed_command": "results/repro_halfcheetah/env/bin/python -B results/stage3/code/plot_completed_wave1.py",
+  "visual_review_utc": "2026-10-11T00:22:08.434374+00:00"
+}

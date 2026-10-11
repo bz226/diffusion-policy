@@ -1,0 +1,438 @@
+{
+  "status": "completed_interim_analysis",
+  "created_utc": "2026-10-11T00:19:48.759746+00:00",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_completed_wave1.py"
+  ],
+  "scientific_source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "conditions": [
+    "E0",
+    "E1",
+    "E2",
+    "E2_beta0",
+    "E2_nobase",
+    "SGD03",
+    "SGD1",
+    "SGD3",
+    "SGD10"
+  ],
+  "sample_sd_ddof": 1,
+  "training_average_iterations": [
+    129,
+    131,
+    132,
+    133,
+    134,
+    135,
+    136,
+    137,
+    138,
+    139
+  ],
+  "checkpoint_evaluations": "pending; not used",
+  "scope": "All 27 completed Wave-1 training runs; excludes ongoing BATCH4 and prospectively skipped projection conditions.",
+  "projection_decisions": {
+    "PROJ3": {
+      "skip": true,
+      "seed_maxima": [
+        0.08803893150872384,
+        0.08582158939971225,
+        0.08879894392158379
+      ],
+      "maximum": 0.08879894392158379,
+      "radius": 8.686025494700294,
+      "threshold": 6.948820395760236,
+      "source_condition": "SGD3",
+      "reason": "all matching SGD seeds completed and all distances are below 0.8 R"
+    },
+    "PROJ10": {
+      "skip": true,
+      "seed_maxima": [
+        0.25205655700678503,
+        0.2570544817881902,
+        0.21595977181962747
+      ],
+      "maximum": 0.2570544817881902,
+      "radius": 8.686025494700294,
+      "threshold": 6.948820395760236,
+      "source_condition": "SGD10",
+      "reason": "all matching SGD seeds completed and all distances are below 0.8 R"
+    }
+  },
+  "validation": {
+    "runs": 27,
+    "rows_per_run": 140,
+    "training_rows_per_run": 126,
+    "all_checkpoint_paths_exist": true,
+    "all_values_finite": true,
+    "collapse_runs": [],
+    "nonpositive_noise_windows": 207,
+    "independent_seed_metric_comparisons": 216,
+    "independent_max_abs_difference": 0.0,
+    "markdown_links_checked": 47,
+    "plot_endpoint_comparisons": 36,
+    "visual_review": "All three final PNGs inspected by plot author and primary agent; labels readable, no clipping; undefined noise estimates are explicit."
+  },
+  "inputs": [
+    {
+      "run": "E0_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E0_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E0_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E0_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E1_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E1_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E1_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E1_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD1_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD1_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD1_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD1_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD1_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD3_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD3_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD3_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD3_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD3_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD10_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD10_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD10_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD10_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_beta0_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_beta0_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_beta0_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_beta0_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_beta0_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_nobase_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_nobase_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "E2_nobase_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/E2_nobase_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E2_nobase_seed2/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD03_seed0",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed0/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD03_seed1",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed1/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "run": "SGD03_seed2",
+      "result": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/result.pkl",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/SGD03_seed2/manifest.json",
+      "checkpoints": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/checkpoint/state_0.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/checkpoint/state_35.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/checkpoint/state_70.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/checkpoint/state_105.pt",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD03_seed2/checkpoint/state_139.pt"
+      ]
+    }
+  ],
+  "reference_inputs": {
+    "Stage 1 DPPO": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-06-13_1/result.pkl",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_22-48-33_2/result.pkl"
+    ],
+    "Stage 2 NC4 1e-4": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed1/native/result.pkl",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed2/native/result.pkl"
+    ]
+  },
+  "artifacts": [
+    "runs/completed_wave1_analysis/candidates/all_runs_long.csv",
+    "runs/completed_wave1_analysis/candidates/analysis.md",
+    "runs/completed_wave1_analysis/candidates/captions.md",
+    "runs/completed_wave1_analysis/candidates/comparisons.csv",
+    "runs/completed_wave1_analysis/candidates/condition_results.csv",
+    "runs/completed_wave1_analysis/candidates/diagnostics.pdf",
+    "runs/completed_wave1_analysis/candidates/diagnostics.png",
+    "runs/completed_wave1_analysis/candidates/noise_saturation.pdf",
+    "runs/completed_wave1_analysis/candidates/noise_saturation.png",
+    "runs/completed_wave1_analysis/candidates/noise_windows.csv",
+    "runs/completed_wave1_analysis/candidates/performance.pdf",
+    "runs/completed_wave1_analysis/candidates/performance.png",
+    "runs/completed_wave1_analysis/candidates/seed_results.csv",
+    "runs/completed_wave1_analysis/candidates/summary.json",
+    "runs/completed_wave1_analysis/candidates/table_caption.md"
+  ],
+  "curation": "approved A\u2013D: wave1-returns, wave1-update-diagnostics, wave1-noise-saturation, wave1-results; previous five-condition curated comparison preserved",
+  "plot_record": "runs/completed_wave1_analysis/plot_record.json",
+  "independent_verification": "runs/completed_wave1_analysis/independent_verification.json",
+  "finalized_utc": "2026-10-11T00:23:09.604337+00:00",
+  "curation_record": "runs/completed_wave1_analysis/curation_record.json"
+}

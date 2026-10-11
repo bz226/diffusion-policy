@@ -1,0 +1,49 @@
+{
+  "run_id": "PROJ3_seed1",
+  "condition": "PROJ3",
+  "seed": 1,
+  "mode": "train",
+  "wave": 2,
+  "overrides": [
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "+model.clamp_logprob=false",
+    "model.randn_clip_value=100",
+    "+train.actor_single_step=true",
+    "+model.actor_loss=score",
+    "+train.stage3_diag=true",
+    "+train.adv_estimator=mc_loo",
+    "+train.decision_discount=true",
+    "model.gamma_denoising=1.0",
+    "+model.logprob_reduce=sum",
+    "+model.norm_adv=false",
+    "+train.actor_optimizer=sgd",
+    "train.actor_lr=0.0003632170702457701",
+    "train.actor_lr_scheduler.min_lr=0.0003632170702457701",
+    "+train.proj_radius=8.686025494700294"
+  ],
+  "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/PROJ3_seed1",
+  "console_log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/PROJ3_seed1.out",
+  "cap_seconds": 14400,
+  "estimate_seconds": 10800,
+  "monitor_interval_seconds": 1800,
+  "gpu_type": "a6000",
+  "gpu_count": 1,
+  "cpus": 40,
+  "memory_gib": 64,
+  "estimate_basis": "NC4 1e-4: 8489\u20138674 seconds; central Stage3 estimate includes split-gradient and saturation passes",
+  "skip": {
+    "skip": true,
+    "seed_maxima": [
+      0.08803893150872384,
+      0.08582158939971225,
+      0.08879894392158379
+    ],
+    "maximum": 0.08879894392158379,
+    "radius": 8.686025494700294,
+    "threshold": 6.948820395760236,
+    "source_condition": "SGD3",
+    "reason": "all matching SGD seeds completed and all distances are below 0.8 R"
+  }
+}

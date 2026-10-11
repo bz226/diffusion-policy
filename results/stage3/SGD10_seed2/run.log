@@ -2214,3 +2214,602 @@
 [2026-10-10 11:27:02,578][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1421.500498942903, "J_disc_train_se": 13.979292563504773, "action_oor_frac": 0.10021666666666666, "adv_raw_mean": -2.9103830456733704e-14, "adv_raw_std": 175.54238643788833, "diagnostics_seconds": 0.12169271893799305, "episode_count": 80, "explained_var": 0.3267802596092224, "explained_var_reason": null, "grad_cos_prev": 0.025896766710630226, "grad_cos_prev_reason": null, "grad_norm": 12.517576290818928, "policy_action_oor_frac": 0.10024583333333334, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.847347072325647, "split_diff_sq": 666.7376097198869, "split_dot": -9.994693199727294, "theta_dist": 0.1939426233873023, "theta_dist_preproj": 0.1939426233873023, "update_norm": 0.015155325672786608, "update_seconds": 42.26239987462759, "x0_sat_frac_last": 0.0071446636317653005, "x0_sat_frac_mean": 0.1319634917447391}
 [2026-10-10 11:27:14,721][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4394.5608 | avg best reward   6.2889
 [2026-10-10 11:27:14,722][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_eval": 1527.4866210880057, "J_disc_eval_se": 11.255251483916156, "action_oor_frac": 0.0, "diagnostics_seconds": 0.005191621370613575, "episode_count": 80, "policy_action_oor_frac": 0.0, "rollout_seconds": 12.134789825417101, "update_seconds": 0.0}
+[2026-10-10 11:27:29,396][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:27:31,235][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:27:33,058][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:27:35,015][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:27:36,735][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:27:38,568][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:27:40,360][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:27:42,271][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:27:43,967][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:27:45,777][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:27:47,644][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:27:49,559][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:27:51,278][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:27:53,098][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:27:54,906][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:27:56,798][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:27:58,530][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:00,378][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:02,178][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:04,112][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:11,545][agent.finetune.train_ppo_diffusion_agent][INFO] - 111: step  8000000 | loss  -0.5461 | pg loss  -0.5999 | value loss   0.1077 | bc loss   0.0000 | reward 4124.4765 | eta   1.0000 | t: 56.8232 | kl_true_per_action=0.005411003206801979 | logratio_p99=0.10108116149902334 | clamp_hit_frac=0.0008041666666666667 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:28:11,545][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1444.481963512531, "J_disc_train_se": 11.113739856460851, "action_oor_frac": 0.09827291666666667, "adv_raw_mean": -2.546585164964199e-15, "adv_raw_std": 99.6639004151202, "diagnostics_seconds": 0.12329599913209677, "episode_count": 80, "explained_var": 0.019856035709381104, "explained_var_reason": null, "grad_cos_prev": 0.032866135056940624, "grad_cos_prev_reason": null, "grad_norm": 9.395605241724974, "policy_action_oor_frac": 0.0983, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.704722421243787, "split_diff_sq": 425.48016783270407, "split_dot": -18.092643346593952, "theta_dist": 0.19499107534140017, "theta_dist_preproj": 0.19499107534140017, "update_norm": 0.01137548952118346, "update_seconds": 43.99173589423299, "x0_sat_frac_last": 0.005821859595444501, "x0_sat_frac_mean": 0.13563861865975643}
+[2026-10-10 11:28:26,605][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:28:28,477][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:28:30,403][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:28:32,122][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:28:33,934][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:28:35,744][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:28:37,655][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:28:39,382][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:28:41,262][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:28:43,089][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:28:44,979][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:28:46,711][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:28:48,485][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:28:50,277][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:28:52,201][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:28:53,939][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:28:55,758][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:57,588][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:28:59,499][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:29:01,195][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:29:08,457][agent.finetune.train_ppo_diffusion_agent][INFO] - 112: step  8080000 | loss  -0.2791 | pg loss  -0.3318 | value loss   0.1055 | bc loss   0.0000 | reward 4083.0306 | eta   1.0000 | t: 56.9118 | kl_true_per_action=0.010071021072260412 | logratio_p99=0.13705213189125046 | clamp_hit_frac=0.00078125 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:29:08,457][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1428.1971676030116, "J_disc_train_se": 14.863200468199047, "action_oor_frac": 0.09749583333333334, "adv_raw_mean": 3.637978807091713e-15, "adv_raw_std": 173.64415299755194, "diagnostics_seconds": 0.12311288714408875, "episode_count": 80, "explained_var": 0.29808342456817627, "explained_var_reason": null, "grad_cos_prev": 0.00020605646025000687, "grad_cos_prev_reason": null, "grad_norm": 14.291827587510278, "policy_action_oor_frac": 0.09752291666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.990762462839484, "split_diff_sq": 830.0387734933379, "split_dot": -3.2533614014700047, "theta_dist": 0.19542110861267992, "theta_dist_preproj": 0.19542110861267992, "update_norm": 0.017303457434665506, "update_seconds": 43.68491850886494, "x0_sat_frac_last": 0.005681818181818182, "x0_sat_frac_mean": 0.13490946289099845}
+[2026-10-10 11:29:23,648][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:29:25,500][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:29:27,353][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:29:29,007][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:29:30,795][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:29:32,625][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:29:34,814][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:29:36,478][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:29:38,365][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:29:40,068][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:29:41,970][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:29:43,725][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:29:45,545][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:29:47,242][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:29:49,180][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:29:50,862][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:29:52,532][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:29:54,397][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:29:56,348][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:29:58,047][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:30:05,120][agent.finetune.train_ppo_diffusion_agent][INFO] - 113: step  8160000 | loss   0.2246 | pg loss   0.1695 | value loss   0.1101 | bc loss   0.0000 | reward 4078.3389 | eta   1.0000 | t: 56.6637 | kl_true_per_action=0.011240228864557479 | logratio_p99=0.14485424041747963 | clamp_hit_frac=0.0008395833333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:30:05,120][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1441.0325267345802, "J_disc_train_se": 14.257036183865393, "action_oor_frac": 0.09831666666666666, "adv_raw_mean": 2.0736479200422765e-14, "adv_raw_std": 162.20657216551882, "diagnostics_seconds": 0.12467984668910503, "episode_count": 80, "explained_var": 0.21961838006973267, "explained_var_reason": null, "grad_cos_prev": -0.005156579570773862, "grad_cos_prev_reason": null, "grad_norm": 13.532639411245, "policy_action_oor_frac": 0.09833958333333333, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.959688558243215, "split_diff_sq": 908.0223323109551, "split_dot": -43.873256633732325, "theta_dist": 0.19672429025909635, "theta_dist_preproj": 0.19672429025909635, "update_norm": 0.016384282216389365, "update_seconds": 43.57600524183363, "x0_sat_frac_last": 0.00625948406676783, "x0_sat_frac_mean": 0.13325667514244643}
+[2026-10-10 11:30:20,234][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:30:22,115][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:30:24,100][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:30:25,825][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:30:27,669][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:30:29,932][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:30:31,649][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:30:33,465][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:30:35,259][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:30:37,175][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:30:38,892][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:30:40,722][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:30:42,644][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:30:44,549][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:30:46,238][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:30:48,023][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:30:49,819][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:30:51,732][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:30:53,459][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:30:55,329][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:31:02,627][agent.finetune.train_ppo_diffusion_agent][INFO] - 114: step  8240000 | loss  -0.1203 | pg loss  -0.1765 | value loss   0.1124 | bc loss   0.0000 | reward 4097.2935 | eta   1.0000 | t: 57.5070 | kl_true_per_action=0.09032681296305883 | logratio_p99=0.49575059533119137 | clamp_hit_frac=0.0008395833333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:31:02,628][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1427.3203434082875, "J_disc_train_se": 17.595182106081115, "action_oor_frac": 0.09968958333333333, "adv_raw_mean": 2.4738255888223647e-14, "adv_raw_std": 167.54236283220988, "diagnostics_seconds": 0.11821128521114588, "episode_count": 80, "explained_var": 0.24111509323120117, "explained_var_reason": null, "grad_cos_prev": 0.02849386752224442, "grad_cos_prev_reason": null, "grad_norm": 16.697223718244043, "policy_action_oor_frac": 0.09970625, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.938847839832306, "split_diff_sq": 1060.6384789732292, "split_dot": 13.637669323535663, "theta_dist": 0.19952385083558452, "theta_dist_preproj": 0.19952385083558452, "update_norm": 0.02021571936158313, "update_seconds": 44.444091426208615, "x0_sat_frac_last": 0.007406953966699314, "x0_sat_frac_mean": 0.12951823516555747}
+[2026-10-10 11:31:17,585][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:31:19,504][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:31:21,233][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:31:23,056][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:31:24,875][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:31:26,844][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:31:28,576][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:31:30,412][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:31:32,236][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:31:34,133][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:31:35,849][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:31:37,682][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:31:39,573][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:31:41,520][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:31:43,244][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:31:45,083][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:31:46,924][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:31:48,839][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:31:50,562][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:31:52,442][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:31:59,819][agent.finetune.train_ppo_diffusion_agent][INFO] - 115: step  8320000 | loss   0.0226 | pg loss  -0.0328 | value loss   0.1107 | bc loss   0.0000 | reward 3934.8351 | eta   1.0000 | t: 57.1922 | kl_true_per_action=0.03447177792560882 | logratio_p99=0.28491623401641814 | clamp_hit_frac=0.0007958333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:31:59,820][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1401.6713415632635, "J_disc_train_se": 20.670374245546544, "action_oor_frac": 0.09002916666666666, "adv_raw_mean": 4.729372449219227e-15, "adv_raw_std": 238.40061379876346, "diagnostics_seconds": 0.1300190668553114, "episode_count": 80, "explained_var": 0.4924793839454651, "explained_var_reason": null, "grad_cos_prev": -0.024195970228475173, "grad_cos_prev_reason": null, "grad_norm": 19.847770345862354, "policy_action_oor_frac": 0.09005625, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.88805815577507, "split_diff_sq": 1673.2881222738251, "split_dot": -24.38805300010667, "theta_dist": 0.20158316854990918, "theta_dist_preproj": 0.20158316854990918, "update_norm": 0.024030164743135192, "update_seconds": 44.1697241673246, "x0_sat_frac_last": 0.007108909295956179, "x0_sat_frac_mean": 0.12933329686527537}
+[2026-10-10 11:32:14,804][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:32:16,739][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:32:18,485][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:32:20,321][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:32:22,164][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:32:24,104][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:32:25,874][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:32:27,702][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:32:29,522][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:32:31,440][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:32:33,157][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:32:34,959][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:32:36,766][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:32:38,740][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:32:40,523][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:32:42,411][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:32:44,146][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:32:45,904][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:32:47,605][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:32:49,391][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:32:56,243][agent.finetune.train_ppo_diffusion_agent][INFO] - 116: step  8400000 | loss   0.4269 | pg loss   0.3730 | value loss   0.1077 | bc loss   0.0000 | reward 4083.5924 | eta   1.0000 | t: 56.4234 | kl_true_per_action=0.016397028986256383 | logratio_p99=0.1913035798072813 | clamp_hit_frac=0.0007458333333333334 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:32:56,243][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1440.5392035681136, "J_disc_train_se": 13.175049783576112, "action_oor_frac": 0.08844791666666667, "adv_raw_mean": 1.4551915228366853e-15, "adv_raw_std": 157.36491082869273, "diagnostics_seconds": 0.13705935794860125, "episode_count": 80, "explained_var": 0.2317878007888794, "explained_var_reason": null, "grad_cos_prev": 0.07245646751917693, "grad_cos_prev_reason": null, "grad_norm": 13.502824424749923, "policy_action_oor_frac": 0.0884625, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.873237282037735, "split_diff_sq": 767.0259241075682, "split_dot": -9.430211294546844, "theta_dist": 0.20289671172988416, "theta_dist_preproj": 0.20289671172988416, "update_norm": 0.016348188155461522, "update_seconds": 43.408798303455114, "x0_sat_frac_last": 0.006646474844354704, "x0_sat_frac_mean": 0.13458839963942326}
+[2026-10-10 11:33:10,463][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:33:12,421][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:33:14,198][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:33:16,122][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:33:18,099][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:33:20,551][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:33:22,220][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:33:24,023][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:33:25,838][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:33:27,899][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:33:29,619][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:33:31,630][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:33:33,676][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:33:35,598][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:33:37,309][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:33:39,114][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:33:40,918][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:33:42,785][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:33:44,512][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:33:46,363][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:33:53,613][agent.finetune.train_ppo_diffusion_agent][INFO] - 117: step  8480000 | loss   0.4276 | pg loss   0.3724 | value loss   0.1105 | bc loss   0.0000 | reward 4067.8939 | eta   1.0000 | t: 57.3705 | kl_true_per_action=0.04889404271376248 | logratio_p99=0.361447603702545 | clamp_hit_frac=0.0007375 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:33:53,614][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1428.8045778226367, "J_disc_train_se": 10.506519923557292, "action_oor_frac": 0.0871, "adv_raw_mean": -1.127773430198431e-14, "adv_raw_std": 126.38631204596224, "diagnostics_seconds": 0.14607524126768112, "episode_count": 80, "explained_var": 0.14865058660507202, "explained_var_reason": null, "grad_cos_prev": 0.03901893146991425, "grad_cos_prev_reason": null, "grad_norm": 10.408626016762385, "policy_action_oor_frac": 0.08712291666666666, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.078645061701536, "split_diff_sq": 356.4257383750613, "split_dot": 19.233058865872202, "theta_dist": 0.20440295459161473, "theta_dist_preproj": 0.20440295459161473, "update_norm": 0.012601961290196712, "update_seconds": 45.141060683876276, "x0_sat_frac_last": 0.006627330254831538, "x0_sat_frac_mean": 0.13803940984071336}
+[2026-10-10 11:34:08,610][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:34:10,340][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:34:12,166][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:34:13,992][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:34:15,920][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:34:17,668][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:34:19,561][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:34:21,402][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:34:23,336][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:34:25,069][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:34:26,890][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:34:28,718][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:34:30,669][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:34:32,426][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:34:34,269][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:34:36,109][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:34:38,044][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:34:39,775][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:34:41,601][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:34:43,435][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:34:50,842][agent.finetune.train_ppo_diffusion_agent][INFO] - 118: step  8560000 | loss   0.3721 | pg loss   0.3167 | value loss   0.1106 | bc loss   0.0000 | reward 4057.7413 | eta   1.0000 | t: 57.2289 | kl_true_per_action=0.023578942472326274 | logratio_p99=0.2484614205360411 | clamp_hit_frac=0.0007645833333333334 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:34:50,842][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1417.676005783924, "J_disc_train_se": 12.034334182177188, "action_oor_frac": 0.08221875, "adv_raw_mean": 1.5006662579253317e-14, "adv_raw_std": 109.64969684252564, "diagnostics_seconds": 0.13656901195645332, "episode_count": 80, "explained_var": 0.08415102958679199, "explained_var_reason": null, "grad_cos_prev": 0.06974740031250544, "grad_cos_prev_reason": null, "grad_norm": 10.213547698899045, "policy_action_oor_frac": 0.08223541666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.783181645907462, "split_diff_sq": 416.3025489956856, "split_dot": 0.24092502825122586, "theta_dist": 0.205753029412284, "theta_dist_preproj": 0.205753029412284, "update_norm": 0.012365785205296947, "update_seconds": 44.30316779296845, "x0_sat_frac_last": 0.005958333333333333, "x0_sat_frac_mean": 0.14012215019691956}
+[2026-10-10 11:35:05,848][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:35:07,573][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:35:09,385][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:35:11,194][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:35:13,104][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:35:14,836][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:35:16,719][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:35:18,534][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:35:20,439][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:35:22,155][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:35:23,972][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:35:25,780][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:35:27,714][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:35:29,457][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:35:31,277][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:35:33,106][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:35:35,017][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:35:36,746][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:35:38,562][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:35:40,367][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:35:47,704][agent.finetune.train_ppo_diffusion_agent][INFO] - 119: step  8640000 | loss  -0.6043 | pg loss  -0.6569 | value loss   0.1052 | bc loss   0.0000 | reward 4058.0894 | eta   1.0000 | t: 56.8615 | kl_true_per_action=0.007051885855886161 | logratio_p99=0.11831357836723327 | clamp_hit_frac=0.0008104166666666666 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:35:47,704][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1422.869717174074, "J_disc_train_se": 10.837311546328891, "action_oor_frac": 0.0791375, "adv_raw_mean": 2.6193447411060333e-14, "adv_raw_std": 138.83958519726283, "diagnostics_seconds": 0.12610045447945595, "episode_count": 80, "explained_var": 0.22615957260131836, "explained_var_reason": null, "grad_cos_prev": 0.04192697351787328, "grad_cos_prev_reason": null, "grad_norm": 10.278002324983605, "policy_action_oor_frac": 0.07915416666666666, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.870518083684146, "split_diff_sq": 441.48305107271335, "split_dot": -4.733424800063241, "theta_dist": 0.20566141842889135, "theta_dist_preproj": 0.20566141842889135, "update_norm": 0.012443825668857307, "update_seconds": 43.84190836362541, "x0_sat_frac_last": 0.006654645371801477, "x0_sat_frac_mean": 0.14230644956061433}
+[2026-10-10 11:36:00,620][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4329.7028 | avg best reward   6.1176
+[2026-10-10 11:36:00,620][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_eval": 1508.7187128363807, "J_disc_eval_se": 8.139194872390984, "action_oor_frac": 0.0, "diagnostics_seconds": 0.0155681436881423, "episode_count": 80, "policy_action_oor_frac": 0.0, "rollout_seconds": 12.895905475132167, "update_seconds": 0.0}
+[2026-10-10 11:36:15,592][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:36:17,214][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:36:19,026][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:36:21,097][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:36:22,882][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:36:24,986][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:36:26,726][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:36:28,524][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:36:30,145][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:36:31,891][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:36:33,587][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:36:35,452][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:36:37,170][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:36:38,932][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:36:40,721][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:36:42,529][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:36:44,153][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:36:45,809][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:36:47,485][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:36:49,307][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:36:56,218][agent.finetune.train_ppo_diffusion_agent][INFO] - 121: step  8720000 | loss   0.0380 | pg loss  -0.0173 | value loss   0.1106 | bc loss   0.0000 | reward 4014.6378 | eta   1.0000 | t: 55.5987 | kl_true_per_action=0.006795850394663471 | logratio_p99=0.11662472486495941 | clamp_hit_frac=0.0008104166666666666 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:36:56,219][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1411.2094176859032, "J_disc_train_se": 11.786282717616679, "action_oor_frac": 0.07862083333333333, "adv_raw_mean": 3.128661774098873e-14, "adv_raw_std": 144.54642928042134, "diagnostics_seconds": 0.12925954815000296, "episode_count": 80, "explained_var": 0.22746366262435913, "explained_var_reason": null, "grad_cos_prev": 0.03720669437661445, "grad_cos_prev_reason": null, "grad_norm": 10.510800731913513, "policy_action_oor_frac": 0.07863541666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.704813142307103, "split_diff_sq": 455.1765281558092, "split_dot": -3.3172030751998416, "theta_dist": 0.20622373853068562, "theta_dist_preproj": 0.20622373853068562, "update_norm": 0.01272566826247287, "update_seconds": 42.75909140706062, "x0_sat_frac_last": 0.00638157894736842, "x0_sat_frac_mean": 0.14366937100142937}
+[2026-10-10 11:37:10,933][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:37:12,660][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:37:14,381][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:37:16,163][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:37:17,750][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:37:19,454][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:37:21,226][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:37:23,067][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:37:24,777][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:37:26,593][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:37:28,406][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:37:30,314][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:37:32,026][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:37:33,847][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:37:35,639][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:37:37,572][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:37:39,293][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:37:41,104][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:37:42,903][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:37:44,851][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:37:52,125][agent.finetune.train_ppo_diffusion_agent][INFO] - 122: step  8800000 | loss   0.2341 | pg loss   0.1805 | value loss   0.1073 | bc loss   0.0000 | reward 4033.5027 | eta   1.0000 | t: 55.9065 | kl_true_per_action=0.005841743800355975 | logratio_p99=0.10868077397346486 | clamp_hit_frac=0.0007854166666666667 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:37:52,125][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1401.6301293057695, "J_disc_train_se": 11.466964060229767, "action_oor_frac": 0.07868125, "adv_raw_mean": -9.276845958083869e-15, "adv_raw_std": 108.47654332574871, "diagnostics_seconds": 0.12990931142121553, "episode_count": 80, "explained_var": 0.05527913570404053, "explained_var_reason": null, "grad_cos_prev": -0.006649127497718795, "grad_cos_prev_reason": null, "grad_norm": 9.42589136357769, "policy_action_oor_frac": 0.07869583333333334, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.737400609068573, "split_diff_sq": 401.5387747801593, "split_dot": -11.53726436562501, "theta_dist": 0.20690573735450044, "theta_dist_preproj": 0.20690573735450044, "update_norm": 0.011412139743906292, "update_seconds": 43.034289356321096, "x0_sat_frac_last": 0.005664460285132383, "x0_sat_frac_mean": 0.14422697397825132}
+[2026-10-10 11:38:07,351][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:38:09,223][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:38:11,065][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:38:13,021][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:38:14,783][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:38:16,616][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:38:18,456][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:38:20,389][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:38:22,128][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:38:23,967][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:38:25,793][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:38:27,748][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:38:29,512][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:38:31,352][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:38:33,171][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:38:35,087][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:38:36,829][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:38:38,661][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:38:40,488][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:38:42,440][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:38:49,756][agent.finetune.train_ppo_diffusion_agent][INFO] - 123: step  8880000 | loss  -0.1964 | pg loss  -0.2495 | value loss   0.1062 | bc loss   0.0000 | reward 3928.9257 | eta   1.0000 | t: 57.6315 | kl_true_per_action=0.024768962276695037 | logratio_p99=0.24084766745567202 | clamp_hit_frac=0.0008104166666666666 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:38:49,757][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1387.8216396244447, "J_disc_train_se": 17.54327188475959, "action_oor_frac": 0.07779166666666666, "adv_raw_mean": 8.73114913702011e-15, "adv_raw_std": 175.80034561182387, "diagnostics_seconds": 0.1291444143280387, "episode_count": 80, "explained_var": 0.25054317712783813, "explained_var_reason": null, "grad_cos_prev": 0.04047853829053105, "grad_cos_prev_reason": null, "grad_norm": 15.47070593776765, "policy_action_oor_frac": 0.07782291666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.221977887675166, "split_diff_sq": 958.9765332184745, "split_dot": -0.40139937610373666, "theta_dist": 0.20893206115376006, "theta_dist_preproj": 0.20893206115376006, "update_norm": 0.01873074886265861, "update_seconds": 44.272700439207256, "x0_sat_frac_last": 0.006323117482287032, "x0_sat_frac_mean": 0.14156603086596292}
+[2026-10-10 11:39:04,568][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:39:06,384][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:39:08,230][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:39:10,152][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:39:11,889][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:39:13,735][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:39:15,643][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:39:17,618][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:39:19,390][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:39:21,243][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:39:23,105][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:39:25,041][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:39:26,776][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:39:28,609][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:39:30,452][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:39:32,403][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:39:34,165][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:39:36,001][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:39:37,845][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:39:39,801][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:39:47,077][agent.finetune.train_ppo_diffusion_agent][INFO] - 124: step  8960000 | loss   0.2404 | pg loss   0.1860 | value loss   0.1087 | bc loss   0.0000 | reward 3970.2413 | eta   1.0000 | t: 57.3201 | kl_true_per_action=0.06041885197981454 | logratio_p99=0.40327602148055836 | clamp_hit_frac=0.0007708333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:39:47,077][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1394.7250427902666, "J_disc_train_se": 14.564851948851901, "action_oor_frac": 0.07711458333333333, "adv_raw_mean": 2.9103830456733705e-15, "adv_raw_std": 159.26892206255664, "diagnostics_seconds": 0.11706293188035488, "episode_count": 80, "explained_var": 0.22701019048690796, "explained_var_reason": null, "grad_cos_prev": -0.07688060272361548, "grad_cos_prev_reason": null, "grad_norm": 14.131905415206221, "policy_action_oor_frac": 0.07713125, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.837856222875416, "split_diff_sq": 665.5249193043546, "split_dot": 33.32951082983127, "theta_dist": 0.2079200599738759, "theta_dist_preproj": 0.2079200599738759, "update_norm": 0.01710984100461746, "update_seconds": 44.36103764362633, "x0_sat_frac_last": 0.006170483460559796, "x0_sat_frac_mean": 0.1442786368181603}
+[2026-10-10 11:40:01,283][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:02,944][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:04,690][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:06,297][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:08,123][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:40:09,855][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:40:11,655][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:40:13,337][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:40:14,988][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:40:16,662][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:40:18,538][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:40:20,246][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:40:22,092][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:40:23,937][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:40:25,939][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:40:27,664][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:40:29,404][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:40:31,207][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:40:33,138][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:40:34,863][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:40:41,663][agent.finetune.train_ppo_diffusion_agent][INFO] - 125: step  9040000 | loss  -0.0952 | pg loss  -0.1501 | value loss   0.1098 | bc loss   0.0000 | reward 4004.2828 | eta   1.0000 | t: 54.5868 | kl_true_per_action=0.014437582528807337 | logratio_p99=0.16852645874023417 | clamp_hit_frac=0.0008333333333333334 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:40:41,664][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1408.235241929445, "J_disc_train_se": 17.63736754819445, "action_oor_frac": 0.08132708333333333, "adv_raw_mean": 1.4551915228366853e-15, "adv_raw_std": 184.2578173067533, "diagnostics_seconds": 0.1272556446492672, "episode_count": 80, "explained_var": 0.33530718088150024, "explained_var_reason": null, "grad_cos_prev": -0.024850842146590245, "grad_cos_prev_reason": null, "grad_norm": 16.54887994383841, "policy_action_oor_frac": 0.08134791666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.370747894980013, "split_diff_sq": 1076.9549870384783, "split_dot": 4.626667284645466, "theta_dist": 0.20864725384433114, "theta_dist_preproj": 0.20864725384433114, "update_norm": 0.02003612349501679, "update_seconds": 42.08423078712076, "x0_sat_frac_last": 0.005825734549138805, "x0_sat_frac_mean": 0.14291051871416144}
+[2026-10-10 11:40:56,261][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:57,935][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:40:59,658][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:01,265][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:02,975][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:41:04,717][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:41:06,633][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:41:08,261][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:41:09,928][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:41:11,615][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:41:13,364][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:41:15,060][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:41:16,878][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:41:18,750][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:41:20,669][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:41:22,382][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:41:24,185][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:41:25,992][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:41:27,906][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:41:29,634][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:41:36,934][agent.finetune.train_ppo_diffusion_agent][INFO] - 126: step  9120000 | loss  -0.0974 | pg loss  -0.1520 | value loss   0.1090 | bc loss   0.0000 | reward 4074.0109 | eta   1.0000 | t: 55.2702 | kl_true_per_action=0.0063863787471259755 | logratio_p99=0.1133686721324913 | clamp_hit_frac=0.0008020833333333334 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:41:36,934][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1419.5242732714937, "J_disc_train_se": 13.906203366523336, "action_oor_frac": 0.08359375, "adv_raw_mean": -1.1823431123048067e-14, "adv_raw_std": 103.49041243004959, "diagnostics_seconds": 0.13146858476102352, "episode_count": 80, "explained_var": 0.04048752784729004, "explained_var_reason": null, "grad_cos_prev": 0.029871783912433125, "grad_cos_prev_reason": null, "grad_norm": 9.974617865387541, "policy_action_oor_frac": 0.08361666666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.590762636624277, "split_diff_sq": 399.43974872914777, "split_dot": -0.3669331699711622, "theta_dist": 0.20876260408682085, "theta_dist_preproj": 0.20876260408682085, "update_norm": 0.012076509074519261, "update_seconds": 42.54387965705246, "x0_sat_frac_last": 0.007154882154882155, "x0_sat_frac_mean": 0.14307278599367348}
+[2026-10-10 11:41:52,261][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:54,097][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:56,028][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:57,756][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:41:59,576][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:42:01,553][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:42:03,287][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:42:05,116][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:42:06,950][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:42:08,874][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:42:10,592][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:42:12,419][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:42:14,308][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:42:16,232][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:42:17,957][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:42:19,764][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:42:21,547][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:42:23,438][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:42:25,167][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:42:27,030][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:42:34,348][agent.finetune.train_ppo_diffusion_agent][INFO] - 127: step  9200000 | loss  -0.3788 | pg loss  -0.4321 | value loss   0.1066 | bc loss   0.0000 | reward 4037.4041 | eta   1.0000 | t: 57.4145 | kl_true_per_action=0.00525992019632455 | logratio_p99=0.09554248929023738 | clamp_hit_frac=0.0007791666666666666 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:42:34,348][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1407.980699665321, "J_disc_train_se": 12.80529179563533, "action_oor_frac": 0.08507291666666666, "adv_raw_mean": -1.1823431123048067e-14, "adv_raw_std": 130.26351216297314, "diagnostics_seconds": 0.13161071296781301, "episode_count": 80, "explained_var": 0.15832293033599854, "explained_var_reason": null, "grad_cos_prev": -0.01831830309039817, "grad_cos_prev_reason": null, "grad_norm": 10.30193165950612, "policy_action_oor_frac": 0.08508125, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.235633802600205, "split_diff_sq": 479.8364813017516, "split_dot": -13.829326450826969, "theta_dist": 0.20936593478124652, "theta_dist_preproj": 0.20936593478124652, "update_norm": 0.012472789816436694, "update_seconds": 44.0394699042663, "x0_sat_frac_last": 0.006459468383688295, "x0_sat_frac_mean": 0.144572874647042}
+[2026-10-10 11:42:49,298][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:42:51,211][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:42:52,906][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:42:54,687][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:42:56,493][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:42:58,387][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:00,094][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:01,948][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:03,759][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:43:05,644][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:43:07,364][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:43:09,177][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:43:10,989][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:43:12,923][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:43:14,687][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:43:16,512][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:43:18,360][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:43:20,279][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:43:22,001][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:43:23,821][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:43:31,130][agent.finetune.train_ppo_diffusion_agent][INFO] - 128: step  9280000 | loss   0.5178 | pg loss   0.4651 | value loss   0.1054 | bc loss   0.0000 | reward 4087.1221 | eta   1.0000 | t: 56.7822 | kl_true_per_action=0.0061987498787658595 | logratio_p99=0.10888269066810602 | clamp_hit_frac=0.0007333333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:43:31,131][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1424.1902871081086, "J_disc_train_se": 12.392886914330113, "action_oor_frac": 0.08626875, "adv_raw_mean": -4.656612873077393e-14, "adv_raw_std": 98.67154951783685, "diagnostics_seconds": 0.12113523110747337, "episode_count": 80, "explained_var": 0.022293925285339355, "explained_var_reason": null, "grad_cos_prev": 0.0017411661165941132, "grad_cos_prev_reason": null, "grad_norm": 9.909614140121333, "policy_action_oor_frac": 0.08629583333333334, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.889224354177713, "split_diff_sq": 358.283430528582, "split_dot": 8.629599066014016, "theta_dist": 0.21025099450951285, "theta_dist_preproj": 0.21025099450951285, "update_norm": 0.011997802345411049, "update_seconds": 43.76779576111585, "x0_sat_frac_last": 0.007165069759623466, "x0_sat_frac_mean": 0.14584399902259257}
+[2026-10-10 11:43:45,901][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:43:47,729][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:43:49,399][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:43:51,055][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:43:52,708][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:54,479][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:56,100][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:57,791][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:43:59,434][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:44:01,194][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:44:02,757][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:44:04,413][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:44:06,079][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:44:08,025][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:44:09,766][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:44:11,584][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:44:13,368][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:44:15,154][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:44:16,732][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:44:18,494][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:44:25,269][agent.finetune.train_ppo_diffusion_agent][INFO] - 129: step  9360000 | loss  -0.1365 | pg loss  -0.1895 | value loss   0.1061 | bc loss   0.0000 | reward 3949.0326 | eta   1.0000 | t: 54.1384 | kl_true_per_action=0.017819870165514885 | logratio_p99=0.19667176127433703 | clamp_hit_frac=0.0008020833333333334 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:44:25,269][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1396.3186962065445, "J_disc_train_se": 16.959698655814336, "action_oor_frac": 0.08516041666666667, "adv_raw_mean": -1.8553691916167737e-14, "adv_raw_std": 197.96347697675753, "diagnostics_seconds": 0.12943247612565756, "episode_count": 80, "explained_var": 0.31641459465026855, "explained_var_reason": null, "grad_cos_prev": 0.013754705960638573, "grad_cos_prev_reason": null, "grad_norm": 16.915350863662383, "policy_action_oor_frac": 0.08518958333333333, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.745798263698816, "split_diff_sq": 1144.0930808315584, "split_dot": 0.10581836940276212, "theta_dist": 0.2107446358986016, "theta_dist_preproj": 0.2107446358986016, "update_norm": 0.02047981621713738, "update_seconds": 41.258950516581535, "x0_sat_frac_last": 0.00819672131147541, "x0_sat_frac_mean": 0.1446142337699786}
+[2026-10-10 11:44:38,021][agent.finetune.train_ppo_diffusion_agent][INFO] - eval: success rate   1.0000 | avg episode reward 4337.1168 | avg best reward   6.1960
+[2026-10-10 11:44:38,021][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_eval": 1509.8541895551136, "J_disc_eval_se": 10.28151251804708, "action_oor_frac": 0.0, "diagnostics_seconds": 0.00709892064332962, "episode_count": 80, "policy_action_oor_frac": 0.0, "rollout_seconds": 12.740494378842413, "update_seconds": 0.0}
+[2026-10-10 11:44:53,043][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:44:54,846][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:44:56,453][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:44:58,225][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:44:59,986][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:45:01,901][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:45:03,590][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:45:05,376][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:45:07,183][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:45:09,091][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:45:10,813][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:45:12,631][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:45:14,464][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:45:16,431][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:45:18,159][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:45:19,989][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:45:21,810][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:45:23,721][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:45:25,447][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:45:27,261][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:45:34,619][agent.finetune.train_ppo_diffusion_agent][INFO] - 131: step  9440000 | loss  -0.2367 | pg loss  -0.2909 | value loss   0.1085 | bc loss   0.0000 | reward 4073.7792 | eta   1.0000 | t: 56.5975 | kl_true_per_action=0.008867704624692063 | logratio_p99=0.13881076931953423 | clamp_hit_frac=0.0007958333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:45:34,619][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1428.8851043703999, "J_disc_train_se": 11.851056982596484, "action_oor_frac": 0.087825, "adv_raw_mean": -2.6557245291769505e-14, "adv_raw_std": 110.00186174347407, "diagnostics_seconds": 0.11148422304540873, "episode_count": 80, "explained_var": 0.026992619037628174, "explained_var_reason": null, "grad_cos_prev": -0.039993267346113526, "grad_cos_prev_reason": null, "grad_norm": 9.8168686037139, "policy_action_oor_frac": 0.08784166666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.070828861556947, "split_diff_sq": 430.6219730993627, "split_dot": -11.284583154892042, "theta_dist": 0.21179576097185748, "theta_dist_preproj": 0.21179576097185748, "update_norm": 0.011885507094112754, "update_seconds": 43.41085478384048, "x0_sat_frac_last": 0.007956754130223518, "x0_sat_frac_mean": 0.14938677878965334}
+[2026-10-10 11:45:49,911][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:45:51,648][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:45:53,479][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:45:55,307][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:45:57,231][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:45:58,955][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:46:00,789][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:46:02,651][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:46:04,584][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:46:06,309][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:46:08,133][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:46:09,961][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:46:11,893][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:46:13,633][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:46:15,520][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:46:17,343][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:46:19,304][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:46:21,038][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:46:22,879][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:46:24,702][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:46:32,038][agent.finetune.train_ppo_diffusion_agent][INFO] - 132: step  9520000 | loss  -0.2252 | pg loss  -0.2780 | value loss   0.1056 | bc loss   0.0000 | reward 4078.0606 | eta   1.0000 | t: 57.4199 | kl_true_per_action=0.042748326745241136 | logratio_p99=0.35325184345245353 | clamp_hit_frac=0.0008041666666666667 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:46:32,039][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1426.8744505198406, "J_disc_train_se": 11.217466167839566, "action_oor_frac": 0.086725, "adv_raw_mean": -3.728928277269006e-15, "adv_raw_std": 110.9419867881469, "diagnostics_seconds": 0.11325394641608, "episode_count": 80, "explained_var": 0.04072976112365723, "explained_var_reason": null, "grad_cos_prev": -0.10221987544798786, "grad_cos_prev_reason": null, "grad_norm": 10.055107044868095, "policy_action_oor_frac": 0.08675208333333333, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.1032689018175, "split_diff_sq": 359.78116468364306, "split_dot": 11.159878265460689, "theta_dist": 0.21161872235987958, "theta_dist_preproj": 0.21161872235987958, "update_norm": 0.012173952950678267, "update_seconds": 44.19913914054632, "x0_sat_frac_last": 0.007708119218910586, "x0_sat_frac_mean": 0.1513141481888794}
+[2026-10-10 11:46:47,451][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:46:49,190][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:46:51,065][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:46:52,998][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:46:55,072][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:46:56,876][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:46:58,904][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:01,025][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:02,964][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:47:04,670][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:47:06,471][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:47:08,292][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:47:10,212][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:47:11,937][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:47:13,775][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:47:15,647][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:47:17,609][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:47:19,336][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:47:21,166][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:47:23,010][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:47:30,280][agent.finetune.train_ppo_diffusion_agent][INFO] - 133: step  9600000 | loss   0.5010 | pg loss   0.4463 | value loss   0.1094 | bc loss   0.0000 | reward 4103.8200 | eta   1.0000 | t: 58.2418 | kl_true_per_action=0.08688607098936506 | logratio_p99=0.509905052185058 | clamp_hit_frac=0.0007666666666666667 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:47:30,281][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1437.0952095821165, "J_disc_train_se": 12.070192870046672, "action_oor_frac": 0.09155833333333334, "adv_raw_mean": -1.127773430198431e-14, "adv_raw_std": 119.52247213840042, "diagnostics_seconds": 0.13791015930473804, "episode_count": 80, "explained_var": 0.12221395969390869, "explained_var_reason": null, "grad_cos_prev": 0.18484606243214374, "grad_cos_prev_reason": null, "grad_norm": 10.692109801549453, "policy_action_oor_frac": 0.091575, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.021824686788023, "split_diff_sq": 411.43960664302136, "split_dot": 11.461306478619703, "theta_dist": 0.21082689159531584, "theta_dist_preproj": 0.21082689159531584, "update_norm": 0.0129451841154943, "update_seconds": 45.07791117019951, "x0_sat_frac_last": 0.008812065751567531, "x0_sat_frac_mean": 0.1496821830683966}
+[2026-10-10 11:47:44,702][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:47:46,284][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:47:47,927][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:47:49,665][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:47:51,254][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:53,057][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:54,950][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:56,692][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:47:58,252][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:47:59,935][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:01,583][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:03,426][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:05,083][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:48:06,863][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:48:08,670][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:48:10,605][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:48:12,353][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:48:14,254][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:48:16,115][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:48:18,039][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:48:24,785][agent.finetune.train_ppo_diffusion_agent][INFO] - 134: step  9680000 | loss   0.5166 | pg loss   0.4627 | value loss   0.1078 | bc loss   0.0000 | reward 4027.4724 | eta   1.0000 | t: 54.5044 | kl_true_per_action=0.022739799262784417 | logratio_p99=0.2166556298732755 | clamp_hit_frac=0.00075625 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:48:24,785][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1415.4134106885056, "J_disc_train_se": 21.36354963826746, "action_oor_frac": 0.10015, "adv_raw_mean": -3.055902197957039e-14, "adv_raw_std": 210.40838351254507, "diagnostics_seconds": 0.13131139520555735, "episode_count": 80, "explained_var": 0.388364315032959, "explained_var_reason": null, "grad_cos_prev": -0.007804102127842363, "grad_cos_prev_reason": null, "grad_norm": 19.598451076306297, "policy_action_oor_frac": 0.10017291666666667, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.379106397740543, "split_diff_sq": 1568.608422292046, "split_dot": -8.052810089899848, "theta_dist": 0.2130495828045243, "theta_dist_preproj": 0.2130495828045243, "update_norm": 0.02372831579739372, "update_seconds": 41.989408117718995, "x0_sat_frac_last": 0.01001602564102564, "x0_sat_frac_mean": 0.14583629883181504}
+[2026-10-10 11:48:39,533][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:48:41,339][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:48:43,083][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:48:44,998][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:48:46,598][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:48:48,351][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:48:50,077][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:48:51,915][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:48:53,615][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:55,495][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:57,367][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:48:59,266][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:49:01,028][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:49:02,885][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:49:04,703][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:49:06,620][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:49:08,344][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:49:10,161][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:49:11,991][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:49:13,951][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:49:21,299][agent.finetune.train_ppo_diffusion_agent][INFO] - 135: step  9760000 | loss   0.6139 | pg loss   0.5589 | value loss   0.1100 | bc loss   0.0000 | reward 4010.1206 | eta   1.0000 | t: 56.5142 | kl_true_per_action=0.049694106775031104 | logratio_p99=0.35046530961990346 | clamp_hit_frac=0.0007208333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:49:21,299][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1414.1468234628123, "J_disc_train_se": 17.533517653404253, "action_oor_frac": 0.09918333333333333, "adv_raw_mean": 2.1827872842550278e-14, "adv_raw_std": 213.9185368709027, "diagnostics_seconds": 0.11270895041525364, "episode_count": 80, "explained_var": 0.4372140169143677, "explained_var_reason": null, "grad_cos_prev": -0.027894415325777893, "grad_cos_prev_reason": null, "grad_norm": 18.1365502792266, "policy_action_oor_frac": 0.0991875, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.763332238420844, "split_diff_sq": 1449.0928232655233, "split_dot": -33.33875091168853, "theta_dist": 0.21171798835830238, "theta_dist_preproj": 0.21171798835830238, "update_norm": 0.021958346849529208, "update_seconds": 43.633639972656965, "x0_sat_frac_last": 0.011272040302267002, "x0_sat_frac_mean": 0.14261877029086134}
+[2026-10-10 11:49:36,114][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:49:37,946][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:49:39,765][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:49:41,681][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:49:43,401][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:49:45,225][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:49:47,058][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:49:48,984][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:49:50,708][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:49:52,526][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:49:54,339][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:49:56,255][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:49:57,976][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:49:59,819][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:50:01,624][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:50:03,519][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:50:05,245][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:50:07,065][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:50:08,877][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:50:10,823][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:50:18,308][agent.finetune.train_ppo_diffusion_agent][INFO] - 136: step  9840000 | loss   0.1807 | pg loss   0.1249 | value loss   0.1116 | bc loss   0.0000 | reward 4195.1742 | eta   1.0000 | t: 57.0089 | kl_true_per_action=0.005794586203397532 | logratio_p99=0.1041736245155332 | clamp_hit_frac=0.00085625 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:50:18,308][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1458.3467332286327, "J_disc_train_se": 11.361111530895581, "action_oor_frac": 0.10621041666666667, "adv_raw_mean": 4.365574568510055e-15, "adv_raw_std": 98.89378564754183, "diagnostics_seconds": 0.11801271047443151, "episode_count": 80, "explained_var": 0.01871722936630249, "explained_var_reason": null, "grad_cos_prev": -0.019744984381400568, "grad_cos_prev_reason": null, "grad_norm": 9.228939196784673, "policy_action_oor_frac": 0.10624166666666666, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.865354526787996, "split_diff_sq": 348.68112442363713, "split_dot": -1.9969662470440404, "theta_dist": 0.2115702371896952, "theta_dist_preproj": 0.2115702371896952, "update_norm": 0.011173697532083698, "update_seconds": 44.021145327948034, "x0_sat_frac_last": 0.010922330097087379, "x0_sat_frac_mean": 0.14187396762449692}
+[2026-10-10 11:50:33,334][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:50:35,279][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:50:37,181][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:50:39,231][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:50:41,013][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:50:43,017][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:50:45,095][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:50:47,014][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:50:48,743][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:50:50,554][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:50:52,401][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:50:54,332][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:50:56,078][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:50:57,989][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:50:59,808][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:51:01,761][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:51:03,496][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:51:05,296][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:51:07,095][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:51:08,989][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:51:16,402][agent.finetune.train_ppo_diffusion_agent][INFO] - 137: step  9920000 | loss   0.2073 | pg loss   0.1517 | value loss   0.1114 | bc loss   0.0000 | reward 4066.7404 | eta   1.0000 | t: 58.0946 | kl_true_per_action=0.3151656441330307 | logratio_p99=0.9829498863220207 | clamp_hit_frac=0.0008125 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:51:16,403][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1421.0431744004331, "J_disc_train_se": 21.46034847690374, "action_oor_frac": 0.10439375, "adv_raw_mean": 1.964508555829525e-14, "adv_raw_std": 226.38114396478417, "diagnostics_seconds": 0.11818540189415216, "episode_count": 80, "explained_var": 0.3870418071746826, "explained_var_reason": null, "grad_cos_prev": 0.07208891806064469, "grad_cos_prev_reason": null, "grad_norm": 22.748583139083536, "policy_action_oor_frac": 0.1044125, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 12.933802333660424, "split_diff_sq": 1683.1646231281288, "split_dot": 96.70686428956203, "theta_dist": 0.2158630216449922, "theta_dist_preproj": 0.2158630216449922, "update_norm": 0.027542246835873318, "update_seconds": 44.9325356753543, "x0_sat_frac_last": 0.012189831684886344, "x0_sat_frac_mean": 0.14102703679240322}
+[2026-10-10 11:51:31,494][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:51:33,349][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:51:35,280][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:51:37,019][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:51:38,842][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:51:40,666][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:51:42,578][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:51:44,320][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:51:46,133][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:51:47,957][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:51:49,888][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:51:51,648][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:51:53,534][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:51:55,363][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:51:57,309][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:51:59,045][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:52:00,868][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:52:02,697][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:52:04,605][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:52:06,344][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:52:13,762][agent.finetune.train_ppo_diffusion_agent][INFO] - 138: step 10000000 | loss  -0.0954 | pg loss  -0.1513 | value loss   0.1118 | bc loss   0.0000 | reward 4154.6653 | eta   1.0000 | t: 57.3595 | kl_true_per_action=0.013567204044783803 | logratio_p99=0.1901338708400726 | clamp_hit_frac=0.0007333333333333333 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:52:13,762][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1454.5395525484803, "J_disc_train_se": 8.318023878077572, "action_oor_frac": 0.09214375, "adv_raw_mean": 2.837623469531536e-14, "adv_raw_std": 98.75301093013108, "diagnostics_seconds": 0.11962204240262508, "episode_count": 80, "explained_var": 0.07503247261047363, "explained_var_reason": null, "grad_cos_prev": -0.07375961494725897, "grad_cos_prev_reason": null, "grad_norm": 8.02240024278889, "policy_action_oor_frac": 0.0921625, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.109381812624633, "split_diff_sq": 266.78265779370906, "split_dot": -2.3367569621223994, "theta_dist": 0.215581263173838, "theta_dist_preproj": 0.215581263173838, "update_norm": 0.009712909923416606, "update_seconds": 44.12596226390451, "x0_sat_frac_last": 0.011723233316937203, "x0_sat_frac_mean": 0.15261011395609925}
+[2026-10-10 11:52:29,194][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:52:31,023][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:52:32,955][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:52:34,681][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 0, num_batch: 4
+[2026-10-10 11:52:36,505][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:52:38,400][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:52:40,421][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:52:42,138][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 1, num_batch: 4
+[2026-10-10 11:52:43,945][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:52:45,752][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:52:47,665][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:52:49,385][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 2, num_batch: 4
+[2026-10-10 11:52:51,265][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:52:53,061][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:52:54,964][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:52:56,671][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 3, num_batch: 4
+[2026-10-10 11:52:58,433][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:53:00,195][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:53:02,101][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:53:03,793][agent.finetune.train_ppo_diffusion_agent][INFO] - approx_kl: 0.0, update_epoch: 4, num_batch: 4
+[2026-10-10 11:53:10,993][agent.finetune.train_agent][INFO] - Saved model to /soalnas/share/data/zbao7/diffusion_policy/results/stage3/SGD10_seed2/checkpoint/state_139.pt
+[2026-10-10 11:53:10,993][agent.finetune.train_ppo_diffusion_agent][INFO] - 139: step 10080000 | loss  -0.3559 | pg loss  -0.4114 | value loss   0.1108 | bc loss   0.0000 | reward 4080.6369 | eta   1.0000 | t: 57.2310 | kl_true_per_action=0.014484770507730088 | logratio_p99=0.19035647749900805 | clamp_hit_frac=0.00081875 | actor_step_ratio=1.0 | actor_step_clipfrac=0.0
+[2026-10-10 11:53:10,993][agent.finetune.stage3_support][INFO] - STAGE3_METRICS {"J_disc_train": 1436.9243507307178, "J_disc_train_se": 9.378497738983521, "action_oor_frac": 0.0936625, "adv_raw_mean": -1.6007106751203538e-14, "adv_raw_std": 133.60711671035781, "diagnostics_seconds": 0.11721045710146427, "episode_count": 80, "explained_var": 0.15945148468017578, "explained_var_reason": null, "grad_cos_prev": -0.07327770505148028, "grad_cos_prev_reason": null, "grad_norm": 9.603820643393732, "policy_action_oor_frac": 0.09367916666666666, "proj_active": false, "reward_clip_frac": 0.0, "rollout_seconds": 13.033970979973674, "split_diff_sq": 325.74342108376607, "split_dot": 10.797514205989827, "theta_dist": 0.21595977181962747, "theta_dist_preproj": 0.21595977181962747, "update_norm": 0.011627568815721691, "update_seconds": 44.05213634297252, "x0_sat_frac_last": 0.012557077625570776, "x0_sat_frac_mean": 0.15036106312844752}
