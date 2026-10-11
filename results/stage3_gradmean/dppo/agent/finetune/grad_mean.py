@@ -9,8 +9,13 @@ import hashlib
 import json
 import logging
 import math
+import multiprocessing as mp
+import os
 from pathlib import Path
+import signal
+import threading
 import time
+import traceback
 
 import numpy as np
 import torch
@@ -493,9 +498,211 @@ def collect(agent, config):
             raise terminal_error
 
 
+def _direct_children():
+    """Linux process identities, restricted to children of this job process."""
+    parent = os.getpid()
+    pids = set()
+    for task in Path("/proc/self/task").iterdir():
+        try:
+            pids.update(int(value) for value in (task / "children").read_text().split())
+        except FileNotFoundError:
+            pass  # A completed close thread may disappear during enumeration.
+    result = {}
+    for pid in pids:
+        try:
+            fields = Path("/proc/%d/stat" % pid).read_text().rsplit(")", 1)[1].split()
+        except FileNotFoundError:
+            continue
+        if int(fields[1]) == parent:
+            result[pid] = {"pid": pid, "parent_pid": parent,
+                           "start_ticks": int(fields[19]), "state": fields[0]}
+    return result
+
+
+def cleanup_environment(agent, primary_error=None, close_timeout=10.0, join_timeout=5.0):
+    """Close and reap this job's children; cleanup failures make the job fail.
+
+    AsyncVectorEnv.close() can block in recv()/join() even with its timeout
+    argument, so its graceful call is bounded externally. Only children whose
+    parent is this process are eligible for fallback termination; no process
+    group or scheduler job is signalled.
+    """
+    started, parent = time.monotonic(), os.getpid()
+    path = Path(agent.logdir) / "cleanup.json"
+    errors, actions, workers = [], [], {}
+    record = {"status": "running", "parent_pid": parent,
+              "started_unix": time.time(), "close_timeout_seconds": close_timeout,
+              "join_timeout_seconds": join_timeout,
+              "primary_error": None if primary_error is None else {
+                  "type": type(primary_error).__name__, "message": str(primary_error),
+                  "traceback": "".join(traceback.format_exception(
+                      type(primary_error), primary_error, primary_error.__traceback__))},
+              "errors": errors, "actions": actions}
+    def fail(phase, error):
+        errors.append({"phase": phase, "type": type(error).__name__, "message": str(error)})
+    def discover():
+        for process in list(getattr(agent.venv, "processes", [])) + list(mp.active_children()):
+            if process.pid is None:
+                continue
+            if getattr(process, "_parent_pid", None) != parent:
+                fail("ownership", RuntimeError("Refusing to signal non-owned process %s" % process.pid))
+                continue
+            workers[process.pid] = process
+    def join_workers(timeout):
+        deadline = time.monotonic() + timeout
+        for pid, process in workers.items():
+            try:
+                process.join(max(0.0, deadline - time.monotonic()))
+            except BaseException as error:
+                fail("join_pid_%d" % pid, error)
+    def inspect_children():
+        try:
+            return _direct_children()
+        except BaseException as error:
+            fail("inspect_direct_children", error)
+            return {}
+    def join_other_children(timeout):
+        deadline = time.monotonic() + timeout
+        while True:
+            remaining = [pid for pid in inspect_children() if pid not in workers]
+            if not remaining:
+                return
+            for pid in remaining:
+                try:
+                    reaped, status = os.waitpid(pid, os.WNOHANG)
+                    if reaped:
+                        actions.append({"pid": pid, "action": "reaped direct child",
+                                        "wait_status": status})
+                except ChildProcessError:
+                    pass
+            if time.monotonic() >= deadline:
+                return
+            time.sleep(.02)
+    def stop_owned(signum):
+        # multiprocessing objects are joined only through their own API.
+        for pid, process in workers.items():
+            try:
+                if process.is_alive():
+                    process.terminate() if signum == signal.SIGTERM else process.kill()
+                    actions.append({"pid": pid, "signal": int(signum), "owner": "multiprocessing child"})
+            except BaseException as error:
+                fail("signal_pid_%d" % pid, error)
+        # Inspect/recheck parent+start ticks before signalling any other child.
+        for pid, identity in inspect_children().items():
+            if pid in workers:
+                continue
+            try:
+                current = _direct_children().get(pid)
+                if current is not None and current["start_ticks"] == identity["start_ticks"]:
+                    if current["state"] != "Z":
+                        os.kill(pid, signum)
+                        actions.append({"pid": pid, "signal": int(signum), "owner": "verified direct child"})
+                    os.waitpid(pid, os.WNOHANG)
+            except (ProcessLookupError, ChildProcessError):
+                pass
+            except BaseException as error:
+                fail("signal_direct_child_%d" % pid, error)
+    close_errors = []
+    def close_vector():
+        try:
+            agent.venv.close()
+        except BaseException as error:
+            close_errors.append({"phase": "venv.close", "type": type(error).__name__,
+                                 "message": str(error), "traceback": traceback.format_exc()})
+    close_thread = None
+    try:
+        discover()
+        record["worker_pids_before"] = sorted(workers)
+        record["direct_children_before"] = list(inspect_children().values())
+        try:
+            path.parent.mkdir(parents=True, exist_ok=True)
+            _atomic_json(path, record)
+        except BaseException as error:
+            fail("write_initial_cleanup_record", error)
+        close_thread = threading.Thread(target=close_vector, name="grad-mean-close", daemon=True)
+        close_thread.start()
+        close_thread.join(close_timeout)
+        if close_thread.is_alive():
+            fail("venv.close", TimeoutError("Graceful vector-environment close exceeded its deadline"))
+        # Avoid simultaneous joins with a still-running close thread; terminate
+        # first on that failure path so its blocking reads/joins can unwind.
+        discover()
+        if close_thread.is_alive():
+            stop_owned(signal.SIGTERM)
+            close_thread.join(join_timeout)
+        if not close_thread.is_alive():
+            join_workers(join_timeout)
+            join_other_children(join_timeout)
+        alive = [pid for pid, process in workers.items() if process.is_alive()]
+        remaining = inspect_children()
+        if alive or remaining:
+            fail("graceful_children_exit", RuntimeError("Children remained after vector-environment close"))
+            stop_owned(signal.SIGTERM)
+            close_thread.join(join_timeout)
+            join_workers(join_timeout)
+            join_other_children(join_timeout)
+        if any(process.is_alive() for process in workers.values()) or inspect_children():
+            stop_owned(signal.SIGKILL)
+            close_thread.join(join_timeout)
+            join_workers(join_timeout)
+            join_other_children(join_timeout)
+        # Reap any non-multiprocessing direct-child zombies after signals.
+        for pid in list(inspect_children()):
+            if pid not in workers:
+                try:
+                    os.waitpid(pid, os.WNOHANG)
+                except ChildProcessError:
+                    pass
+    except BaseException as error:
+        fail("cleanup_controller", error)
+        stop_owned(signal.SIGTERM)
+        join_workers(join_timeout)
+        join_other_children(join_timeout)
+        stop_owned(signal.SIGKILL)
+        join_workers(join_timeout)
+        join_other_children(join_timeout)
+    finally:
+        errors.extend(close_errors)
+        if close_thread is not None and close_thread.is_alive():
+            fail("close_thread", RuntimeError("Vector-environment close thread did not finish"))
+        record["workers"] = []
+        for pid, process in workers.items():
+            try:
+                value = {"pid": pid, "exitcode": process.exitcode, "alive": process.is_alive()}
+                record["workers"].append(value)
+                if value["alive"] or value["exitcode"] != 0:
+                    fail("worker_exit", RuntimeError("Worker did not exit cleanly: %r" % value))
+            except BaseException as error:
+                fail("inspect_worker_%d" % pid, error)
+        record["remaining_active_children"] = [process.pid for process in mp.active_children()]
+        record["remaining_direct_children"] = list(inspect_children().values())
+        record["all_children_exited"] = not (record["remaining_active_children"] or record["remaining_direct_children"])
+        if not record["all_children_exited"]:
+            fail("children_remaining", RuntimeError("Job still has live or unreaped children"))
+        record.update(status="failed" if errors else "passed",
+                      elapsed_seconds=time.monotonic() - started, ended_unix=time.time())
+        _atomic_json(path, record)
+        log.info("GRADMEAN_CLEANUP %s", json.dumps(_strict_json(record), sort_keys=True))
+    if errors:
+        raise RuntimeError("grad_mean cleanup failed; see %s: %s" % (path, errors))
+    return record
+
+
 def run_grad_mean(agent):
-    config = settings(agent)
-    _validate(agent, config)
-    Path(agent.logdir).mkdir(parents=True, exist_ok=True)
-    seed_environments(agent)
-    return prepare(agent, config) if config["gm_step"] == "prepare" else collect(agent, config)
+    primary_error = None
+    try:
+        config = settings(agent)
+        _validate(agent, config)
+        Path(agent.logdir).mkdir(parents=True, exist_ok=True)
+        seed_environments(agent)
+        return prepare(agent, config) if config["gm_step"] == "prepare" else collect(agent, config)
+    except BaseException as error:
+        primary_error = error
+        raise
+    finally:
+        try:
+            cleanup_environment(agent, primary_error=primary_error)
+        except BaseException as cleanup_error:
+            if primary_error is not None:
+                raise cleanup_error from primary_error
+            raise

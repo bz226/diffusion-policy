@@ -37,7 +37,7 @@ def main():
     require(HERE in output.parents and not output.exists(), "Use a fresh gate directory inside Addendum G")
     require(0 < args.timeout_seconds <= 7140, "Gate must fit approved two-hour allocation")
     g2 = json.loads(args.g2.read_text())
-    require(g2.get("passed") is True and g2.get("gate") == "G2", "G2 must pass before G1/G5 allocation")
+    require(g2.get("passed") is True and g2.get("gate") == "G2-G1", "G2 must pass before G1/G5 allocation")
     output.mkdir(parents=True)
     started = time.monotonic()
     report = {"stage": "offline", "passed": False, "status": "running", "commands": [],

@@ -1,0 +1,47 @@
+{
+  "shutdown_success": true,
+  "workers": [
+    {
+      "pid": 2724969,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724970,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724971,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724972,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724973,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724974,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724975,
+      "exitcode": 0,
+      "alive": false
+    },
+    {
+      "pid": 2724976,
+      "exitcode": 0,
+      "alive": false
+    }
+  ],
+  "active_child_pids": [],
+  "method": "executor.shutdown(wait=True); explicit process.join(), process.close(), active_children() check"
+}

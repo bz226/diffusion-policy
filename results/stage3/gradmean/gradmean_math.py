@@ -101,7 +101,7 @@ def scalar_statistics(gram, norm_sq_sums, group_size=50, orders=None,
             rho_values.append(_cosine(gram[np.ix_(a, b)].sum(),
                                       gram[np.ix_(a, a)].sum(), gram[np.ix_(b, b)].sum()))
     rho = float(np.mean(rho_values)) if rho_values and all(x is not None for x in rho_values) else None
-    c = math.sqrt(2 * rho / (1 + rho)) if rho is not None and rho >= 0 else None
+    c = math.sqrt(2 * rho / (1 + rho)) if rho is not None and rho > 0 else None
     positive_signal = signal is not None and signal > 0
     valid_trace = trace is not None and trace >= 0
     values = {
@@ -136,6 +136,41 @@ def jackknife_interval(estimate, replicates, critical=CRITICAL_90):
             "valid": True, "reason": None, "replicates": values}
 
 
+def signal_scale_reporting(estimate, signal_interval, episodes_per_batch=80):
+    """G-1 display semantics, after JK, without altering internal U-statistics.
+
+    This is the approved plug-in lower bound using the upper signal limit; it
+    does not incorporate uncertainty of the trace numerator or claim joint
+    confidence coverage. A missing bound never triggers sampling closure.
+    """
+    signal = estimate["signal_sq"]
+    trace = estimate["covariance_trace"]
+    lower = signal_interval.get("lower")
+    upper = signal_interval.get("upper")
+    ci_valid = signal_interval.get("valid", False) and lower is not None and upper is not None
+    unresolved = signal is None or signal <= 0 or (ci_valid and lower <= 0 <= upper)
+    base = {"kind": None, "B_ep": None, "K_needed": None, "reason": None,
+            "signal_ci_lower": lower, "signal_ci_upper": upper,
+            "finite_bound_available": False, "bound_is_stopping_criterion": False,
+            "definition": "Approved plug-in bound; trace uncertainty is not propagated into its numerator."}
+    if not ci_valid:
+        base.update(kind="unavailable", reason="signal_jackknife_interval_unavailable")
+    elif unresolved:
+        if upper <= 0:
+            base.update(kind="unavailable", reason="signal_ci_upper_nonpositive")
+        elif trace is None or trace < 0:
+            base.update(kind="unavailable", reason="covariance_trace_unavailable_or_negative")
+        else:
+            bound = episodes_per_batch * trace / upper
+            base.update(kind="lower_bound", B_ep=bound,
+                        K_needed=4.26 * bound / episodes_per_batch,
+                        finite_bound_available=True, reason="signal_nonpositive_or_interval_includes_zero")
+    else:
+        base.update(kind="point", B_ep=estimate["B_ep"], K_needed=estimate["forecast_batches"],
+                    reason="positive_signal_interval")
+    return base
+
+
 def summarize_gram(gram, norm_sq_sums, group_size=50, orders=None,
                    split_seed=8675310, episodes_per_batch=80):
     gram = np.asarray(gram, dtype=np.float64)
@@ -150,7 +185,17 @@ def summarize_gram(gram, norm_sq_sums, group_size=50, orders=None,
             replicas.append(scalar_statistics(gram[np.ix_(ids, ids)], q[ids], group_size,
                                               orders, ids, episodes_per_batch))
     intervals = {key: jackknife_interval(value, [r[key] for r in replicas]) for key, value in full.items()}
-    return {"estimate": full, "jackknife90": intervals,
+    raw = dict(full)
+    reporting = signal_scale_reporting(raw, intervals["signal_sq"], episodes_per_batch)
+    # Raw ratios remain available for mathematical audit, never mislabel a bound
+    # as a point estimate in the public summary.
+    if reporting["kind"] != "point":
+        for key in ("B_batch", "B_ep", "forecast_batches"):
+            full[key] = None
+    full["B_ep_lower_bound"] = reporting["B_ep"] if reporting["kind"] == "lower_bound" else None
+    full["forecast_batches_lower_bound"] = reporting["K_needed"] if reporting["kind"] == "lower_bound" else None
+    return {"estimate": full, "raw_estimate": raw, "scale_reporting": reporting,
+            "jackknife90": intervals,
             "metadata": {"batch_count": n * group_size, "group_count": n,
                          "group_size": group_size, "episodes_per_batch": episodes_per_batch,
                          "split_count": 0 if orders is None else len(orders),

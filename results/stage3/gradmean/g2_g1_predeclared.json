@@ -1,0 +1,45 @@
+{
+  "gate": "G2-G1",
+  "amendment": "G-1",
+  "status": "predeclared_before_execution",
+  "dimension": 20000,
+  "batches": 2000,
+  "group_size": 50,
+  "replicates": 200,
+  "seed": 8675309,
+  "split_seed": 8675310,
+  "half_splits": 20,
+  "mean": {"basis_coordinate": 0, "value": 1.0, "signal_squared": 1.0},
+  "base_covariance": {"description": "72 U U^T + 0.02 I; U is the first 50 coordinate basis vectors", "rank_component": 50, "rank_eigenvalue_increment": 72.0, "isotropic_eigenvalue": 0.02, "trace": 4000.0},
+  "regimes": {
+    "L": {"covariance_multiplier": 1.0, "covariance_trace": 4000.0, "direction_accuracy_is_gate": false},
+    "T": {"covariance_multiplier": 0.1175, "covariance_trace": 470.0, "direction_accuracy_is_gate": true}
+  },
+  "episode_count_per_batch": 80,
+  "jackknife": {"unit": "50 independent whole batches", "method": "delete one group, recompute entire statistic with retained split order", "normal_critical_value": 1.645, "confidence": 0.90},
+  "criteria": {
+    "mean_bias_max_mc_standard_errors": 3.0,
+    "mean_bias_metrics": ["signal_sq", "covariance_trace"],
+    "required_coverage_metrics": ["signal_sq", "covariance_trace"],
+    "coverage_min": 0.80,
+    "coverage_max": 0.97,
+    "mean_effective_rank_max_relative_error": 0.20,
+    "required_replicates_per_regime": 200,
+    "T_mean_absolute_cosine_error_max": 0.03,
+    "T_absolute_cosine_error_threshold": 0.06,
+    "T_fraction_within_error_threshold_min": 0.95
+  },
+  "interpretations": {
+    "streams": "Both regimes use the identical SeedSequence(8675309, spawn_key=(replicate,)) Gaussian stream and split_seed=8675310+replicate. Only the prescribed covariance multiplier differs. No adaptive design or thresholds.",
+    "within_3SE_on_average": "Within each regime, absolute mean estimator error across 200 independent replicates <= 3 times its Monte Carlo standard error (sample SD / sqrt(200)).",
+    "cosine_reference": "Each replicate's realized cosine between its full-batch sample mean and the known mean.",
+    "L_direction": "rho<=0 means direction unresolved and c is unavailable, not a gate error. Report its fraction and the mean signed c-minus-realized error among rho>0 replicates only, with the denominator explicit.",
+    "T_direction": "Require mean ABSOLUTE c-minus-realized error <=0.03 and at least95% of all200 replicates to have absolute error<=0.06. Unavailable c fails its replicate's tail check. If any c is unavailable, the all200 mean absolute error is unavailable and its mean criterion fails; no exceptions or dropped replicates.",
+    "effective_rank_reference": "trace(Sigma)^2 / trace(Sigma^2), using the approved four-distinct-group, mean-free denominator estimator.",
+    "coverage_scope": "Signal and covariance trace coverage are formal gate criteria in each regime. Other interval coverages are explicitly descriptive; cosine coverage uses a random realized reference, not a fixed population parameter.",
+    "unresolved_scale": "If signal<=0 or its90% interval includes zero, report B_ep lower bound=80*trace/upper(signalCI) and K_needed lower bound=4.26*B_ep_lower_bound/80. If the upper limit is unavailable or nonpositive, no finite bound is available. Never use a missing bound as a stopping condition.",
+    "undefined": "Retain signed signal/rho. c is unavailable for rho<=0; c_U is unavailable for signal<=0. Do not clip or epsilon-adjust, and do not drop undefined jackknife replicates.",
+    "odd_jackknife_split": "Keep each original random group ordering, remove the deleted group, and split the retained ordering into floor(G/2) and ceil(G/2) groups. Recompute the same specified cosine transform; record the unequal deletion halves.",
+    "cleanup": "Use Python3.8-compatible executor.shutdown(wait=True), explicitly join captured worker processes, and require no active child PIDs before a successful program return. Preserve the original failed G2 evidence."
+  }
+}

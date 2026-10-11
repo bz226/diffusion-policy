@@ -1,0 +1,60 @@
+{
+  "status": "failed",
+  "parent_pid": 2,
+  "started_unix": 1791751291.977775,
+  "close_timeout_seconds": 0.2,
+  "join_timeout_seconds": 0.2,
+  "primary_error": {
+    "type": "PrimaryFailure",
+    "message": "intentional synthetic collection failure",
+    "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo/agent/finetune/grad_mean.py\", line 698, in run_grad_mean\n    return prepare(agent, config) if config[\"gm_step\"] == \"prepare\" else collect(agent, config)\n  File \"results/stage3/gradmean/runs/unit_cleanup_20261011T204022Z/test_cleanup.py\", line 77, in primary\n    raise PrimaryFailure(\"intentional synthetic collection failure\")\nmain.<locals>.PrimaryFailure: intentional synthetic collection failure\n"
+  },
+  "errors": [
+    {
+      "phase": "graceful_children_exit",
+      "type": "RuntimeError",
+      "message": "Children remained after vector-environment close"
+    },
+    {
+      "phase": "venv.close",
+      "type": "ValueError",
+      "message": "intentional synthetic close failure",
+      "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo/agent/finetune/grad_mean.py\", line 608, in close_vector\n    agent.venv.close()\n  File \"results/stage3/gradmean/runs/unit_cleanup_20261011T204022Z/test_cleanup.py\", line 35, in close\n    raise ValueError(\"intentional synthetic close failure\")\nValueError: intentional synthetic close failure\n"
+    },
+    {
+      "phase": "worker_exit",
+      "type": "RuntimeError",
+      "message": "Worker did not exit cleanly: {'pid': 10, 'exitcode': -15, 'alive': False}"
+    }
+  ],
+  "actions": [
+    {
+      "pid": 10,
+      "signal": 15,
+      "owner": "multiprocessing child"
+    }
+  ],
+  "worker_pids_before": [
+    10
+  ],
+  "direct_children_before": [
+    {
+      "pid": 10,
+      "parent_pid": 2,
+      "start_ticks": 139287946,
+      "state": "S"
+    }
+  ],
+  "workers": [
+    {
+      "pid": 10,
+      "exitcode": -15,
+      "alive": false
+    }
+  ],
+  "remaining_active_children": [],
+  "remaining_direct_children": [],
+  "all_children_exited": true,
+  "elapsed_seconds": 0.21000807592645288,
+  "ended_unix": 1791751292.1877532
+}

@@ -67,6 +67,16 @@ def append(path, value):
         stream.write(json.dumps(value, allow_nan=False) + '\n')
 
 
+def safe(value):
+    if isinstance(value, float) and not math.isfinite(value):
+        return str(value)
+    if isinstance(value, dict):
+        return {key: safe(item) for key, item in value.items()}
+    if isinstance(value, list):
+        return [safe(item) for item in value]
+    return value
+
+
 def command(argv, check=True):
     result = subprocess.run(argv, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True, timeout=120)
     record = dict(utc=utc(), command=argv, returncode=result.returncode, stdout=result.stdout, stderr=result.stderr)
@@ -169,6 +179,13 @@ def seed_for(point, group=None, retry=False):
     return (1000000 if retry else 100000) + 10000 * POINTS.index(point) + 100 * (90 if group is None else group)
 
 
+def close_status(rho, target):
+    if target not in TARGETS:
+        raise ValueError('Closure is permitted only at an approved round boundary')
+    resolved = isinstance(rho, (int, float)) and math.isfinite(rho) and rho >= .68
+    return 'closed_rho' if resolved else ('closed_cap' if target == 4100 else 'open')
+
+
 def run_spec(run_id, commit):
     point, group, retry = parse_run(run_id)
     registry = read(ROOT / 'provenance/checkpoints.json')[point]
@@ -190,7 +207,7 @@ def run_spec(run_id, commit):
         frozen = read(ROOT / 'prepare' / point / 'grad_mean.json', {})
         if prepare_manifest.get('status') != 'complete' or frozen.get('status') != 'completed':
             raise ValueError('Collection requires verified completed preparation: ' + point)
-        score_sample = 200 if point == 'P0' and group == 0 else 0
+        score_sample = 200 if group == 0 else 0
         expected.update(gm_frozen_path=frozen['frozen_path'], gm_frozen_sha256=frozen['frozen_sha256'],
                         gm_batches=50, gm_score_sample=score_sample)
         overrides += ['+train.' + key + '=' + str(expected[key]) for key in ('gm_frozen_path', 'gm_frozen_sha256', 'gm_batches', 'gm_score_sample')]
@@ -258,7 +275,7 @@ def observe(spec):
     directory = Path(spec['logdir'])
     progress = read(directory / 'stage3_progress.json', {})
     meta = read(directory / ('grad_mean.json' if spec['step'] == 'prepare' else 'meta.json'), {})
-    return dict(utc=utc(), progress=progress, status=meta.get('status'), error=meta.get('error'),
+    return dict(utc=utc(), progress=safe(progress), status=meta.get('status'), error=meta.get('error'),
                 completed_batches=meta.get('completed_batches', meta.get('completed_warmup_batches', 0)),
                 meta_nonfinite=not finite_json(meta))
 
@@ -278,6 +295,12 @@ def verify(spec):
         raise ValueError('Actor changed during measurement')
     if meta.get('actor_optimizer_steps') != 0:
         raise ValueError('Unexpected actor optimizer update')
+    cleanup = read(directory / 'cleanup.json', {})
+    if (cleanup.get('status') != 'passed' or cleanup.get('all_children_exited') is not True or
+            cleanup.get('remaining_active_children') != [] or cleanup.get('remaining_direct_children') != [] or
+            cleanup.get('errors') != [] or cleanup.get('primary_error') is not None or
+            any(x.get('exitcode') != 0 or x.get('alive') is not False for x in cleanup.get('workers', []))):
+        raise ValueError('Missing or failed clean vector-environment/child shutdown')
     if spec['step'] == 'prepare':
         if meta.get('completed_warmup_batches') != expected['gm_warmup_batches'] or not Path(meta['frozen_path']).is_file():
             raise ValueError('Preparation incomplete or frozen state absent')
@@ -297,10 +320,28 @@ def verify(spec):
             rows = list(csv.DictReader(stream))
         if len(rows) != 50:
             raise ValueError('Collection CSV must contain fifty batches')
+        if expected['gm_score_sample'] == 200:
+            with (directory / 'decision_scores.csv').open() as stream:
+                if len(list(csv.DictReader(stream))) != 200:
+                    raise ValueError('First group of each point requires two hundred decision-score samples')
         cross = np.asarray(meta.get('gradient_cross_sum'))
         if cross.shape != (5, 5) or not np.isfinite(cross).all():
             raise ValueError('Missing finite five-estimator cross sums')
-    return dict(verified_utc=utc(), metadata_path=str(directory / ('grad_mean.json' if spec['step'] == 'prepare' else 'meta.json')))
+    return dict(verified_utc=utc(), cleanup_path=str(directory / 'cleanup.json'),
+                metadata_path=str(directory / ('grad_mean.json' if spec['step'] == 'prepare' else 'meta.json')))
+
+
+def process_group_members(group):
+    members = []
+    for path in Path('/proc').iterdir():
+        if not path.name.isdigit():
+            continue
+        try:
+            if os.getpgid(int(path.name)) == group:
+                members.append(int(path.name))
+        except (ProcessLookupError, PermissionError):
+            continue
+    return sorted(members)
 
 
 def worker(args):
@@ -315,7 +356,13 @@ def worker(args):
     if manifest_path.exists() or Path(spec['console_log']).exists() or Path(spec['logdir']).exists():
         raise ValueError('Refusing to overwrite an existing run')
     manifest = dict(spec, source_provenance=source, gate=str(args.gate), status='running', started_utc=utc(),
-                    scheduler_job_id=os.environ.get('SLURM_JOB_ID'), monitor_status='active')
+                    scheduler_job_id=os.environ.get('SLURM_JOB_ID'), monitor_status='active',
+                    environment=dict(python=sys.version, executable=sys.executable,
+                                     CUDA_VISIBLE_DEVICES=os.environ.get('CUDA_VISIBLE_DEVICES'),
+                                     OMP_NUM_THREADS=os.environ.get('OMP_NUM_THREADS'),
+                                     MKL_NUM_THREADS=os.environ.get('MKL_NUM_THREADS'),
+                                     OPENBLAS_NUM_THREADS=os.environ.get('OPENBLAS_NUM_THREADS'),
+                                     DPPO_DATA_DIR=os.environ.get('DPPO_DATA_DIR'), DPPO_LOG_DIR=os.environ.get('DPPO_LOG_DIR')))
     atomic(manifest_path, manifest)
     started = time.monotonic()
     child = None
@@ -328,6 +375,10 @@ def worker(args):
     stalled = 0
     next_monitor = started
     try:
+        manifest['gpu_inventory'] = command(['nvidia-smi', '--query-gpu=name,driver_version,memory.total', '--format=csv,noheader'])['stdout']
+        if not manifest['gpu_inventory'] or any('A6000' not in line for line in manifest['gpu_inventory'].splitlines()):
+            raise ValueError('Allocation does not match the approved A6000 GPU type')
+        atomic(manifest_path, manifest)
         with Path(spec['console_log']).open('x') as log:
             child = subprocess.Popen(spec['command'], cwd=str(SOURCE), stdout=log, stderr=subprocess.STDOUT, start_new_session=True)
             while child.poll() is None:
@@ -348,20 +399,376 @@ def worker(args):
                 time.sleep(15)
             if child.returncode:
                 raise RuntimeError('Measurement subprocess exit ' + str(child.returncode))
+            members = process_group_members(child.pid)
+            manifest.update(subprocess_exitcode=child.returncode, subprocess_pid=child.pid,
+                            remaining_process_group_members=members)
+            if members:
+                raise RuntimeError('Measurement subprocess exited but owned process-group children remain: ' + str(members))
         validate_gate(args.gate, args.commit)
         manifest.update(status='complete', verification=verify(spec))
         returncode = 0
     except Exception as error:
         if child is not None and child.poll() is None:
-            os.killpg(child.pid, signal.SIGTERM)
+            try:
+                os.killpg(child.pid, signal.SIGTERM)
+            except ProcessLookupError:
+                pass
             try:
                 child.wait(timeout=15)
             except subprocess.TimeoutExpired:
-                os.killpg(child.pid, signal.SIGKILL)
+                try:
+                    os.killpg(child.pid, signal.SIGKILL)
+                except ProcessLookupError:
+                    pass
                 child.wait(timeout=15)
         manifest.update(status='failed', failure_reason=type(error).__name__ + ': ' + str(error))
+        if child is not None:
+            manifest.update(subprocess_exitcode=child.returncode, subprocess_pid=child.pid,
+                            remaining_process_group_members=process_group_members(child.pid))
         returncode = 1
     manifest.update(ended_utc=utc(), elapsed_seconds=time.monotonic() - started,
                     last_observation=observe(spec), monitor_status='paused')
     atomic(manifest_path, manifest)
     return returncode
+
+
+class Campaign:
+    def __init__(self, args):
+        self.args = args
+        approval()
+        (ROOT / 'runs').mkdir(parents=True, exist_ok=True)
+        (ROOT / 'setup').mkdir(exist_ok=True)
+        self.lock = (ROOT / 'runs/campaign.lock').open('a+')
+        fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+        self.source = validate_gate(args.gate, args.commit, full=args.action == 'run')
+        self.state = read(STATE, dict(created_utc=utc(), status='prepared', submitted=[],
+                                    external=[], points={p: {'status': 'open', 'rounds': []} for p in POINTS}))
+        if self.state.get('pending_submission_intent'):
+            raise RuntimeError('Ambiguous prior submission: inspect Slurm and resolve the recorded intent before resuming')
+        self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active')
+        self.started = time.monotonic()
+        self.next_monitor = self.started
+        self.stopping = False
+        signal.signal(signal.SIGTERM, self.handle_signal)
+        signal.signal(signal.SIGINT, self.handle_signal)
+        self.load_external()
+        self.record()
+
+    def handle_signal(self, signum, frame):
+        self.stopping = True
+
+    def load_external(self):
+        path = ROOT / 'provenance/external_allocations.json'
+        if not path.exists():
+            raise ValueError('Root must record external GPU gate allocations before runtime submissions')
+        data = read(path)
+        entries = data['allocations'] if isinstance(data, dict) else data
+        external = []
+        previous = {str(x['job_id']): x for x in self.state['external']}
+        for row in entries:
+            if int(row.get('gpu_count', 0)) == 0:
+                continue
+            if int(row['gpu_count']) != 1 or not 0 < int(row['cap_seconds']) <= 7200:
+                raise ValueError('External GPU allocation differs from bounded one-GPU gate')
+            job = str(row['job_id'])
+            if not job.isdigit():
+                raise ValueError('External gate needs its actual Slurm job ID')
+            record = dict(previous.get(job, {}), job_id=job, cap_seconds=int(row['cap_seconds']),
+                          reserved_gpu_count=1, purpose=row.get('purpose', 'GPU gate'), external=True)
+            external.append(record)
+        if sum(x['cap_seconds'] for x in external) > 7200 or len({x['job_id'] for x in external}) != len(external):
+            raise ValueError('External gate reservations exceed the approved aggregate two hours or duplicate a job')
+        if not set(previous).issubset({x['job_id'] for x in external}):
+            raise ValueError('Previously recorded external GPU allocations cannot disappear')
+        self.state['external'] = external
+
+    def record(self):
+        allocations = self.state['external'] + self.state['submitted']
+        if self.state.get('pending_submission_intent'):
+            allocations = allocations + [dict(cap_seconds=CAP, reserved_gpu_count=1)]
+        self.state.update(updated_utc=utc(), ledger=ledger(allocations))
+        atomic(STATE, self.state)
+
+    def inspect(self):
+        self.load_external()
+        for entry in self.state['external'] + self.state['submitted']:
+            if entry.get('scheduler_state') in TERMINAL and entry.get('terminal_recorded'):
+                continue
+            status = accounting(entry['job_id'])
+            if status['scheduler_state'] is None:
+                entry.setdefault('unknown_since', time.time())
+                if time.time() - entry['unknown_since'] > 300:
+                    raise RuntimeError('Owned allocation unobservable for five minutes: ' + entry['job_id'])
+                continue
+            entry.pop('unknown_since', None)
+            entry.update(status)
+            if status['allocated_gpu_seconds'] > entry['cap_seconds'] * entry.get('reserved_gpu_count', 1):
+                raise RuntimeError('Allocation exceeded its approved reservation: ' + entry['job_id'])
+            if status['scheduler_state'] not in TERMINAL:
+                continue
+            if entry.get('external'):
+                entry['terminal_recorded'] = True
+                continue
+            spec = read(ROOT / 'runs/specs' / (entry['run_id'] + '.json'))
+            path = ROOT / 'runs' / entry['run_id'] / 'manifest.json'
+            manifest = read(path, dict(spec, status='failed', failure_reason='Allocation ended before worker manifest'))
+            try:
+                if status['scheduler_state'] != 'COMPLETED' or manifest.get('status') != 'complete':
+                    raise ValueError('Scheduler/worker did not both complete successfully')
+                manifest['final_verification'] = verify(spec)
+            except Exception as error:
+                manifest.update(status='failed', terminal_failure_reason=str(error), last_observation=observe(spec))
+            manifest.update(scheduler_observation=status, monitor_status='paused')
+            atomic(path, manifest)
+            entry.update(terminal_recorded=True, run_status=manifest['status'])
+        self.record()
+
+    def entry(self, run_id):
+        return next((x for x in self.state['submitted'] if x['run_id'] == run_id), None)
+
+    def successful_group(self, point, group):
+        original = '%s_j%02d' % (point, group)
+        for name in (original, original + '_retry1'):
+            entry = self.entry(name)
+            if entry and entry.get('terminal_recorded') and entry.get('run_status') == 'complete':
+                return name
+        return None
+
+    def slots(self):
+        return queue_slots(self.state['external'] + self.state['submitted'], scheduler_jobs())
+
+    def submit(self, run_id):
+        if self.entry(run_id):
+            raise ValueError('Run already admitted: ' + run_id)
+        source = validate_gate(self.args.gate, self.args.commit, full=self.args.action == 'run')
+        if source['stage'] == 'offline' and run_id not in ('prepare_P0', 'P0_j00', 'P0_j01'):
+            raise ValueError('Offline gate authorizes only P0 preparation and the first two collection groups')
+        if source['stage'] == 'offline' and any(x.get('run_status') == 'failed' for x in self.state['submitted']):
+            raise ValueError('A live-gate job failed; further collection is stopped')
+        point, group, retry = parse_run(run_id)
+        if retry:
+            first = self.entry('%s_j%02d' % (point, group))
+            if not first or not first.get('terminal_recorded') or first.get('run_status') != 'failed':
+                raise ValueError('Replacement requires its preserved failed original')
+        slots = self.dispatch_slots if hasattr(self, 'dispatch_slots') else self.slots()
+        if slots <= 0:
+            return False
+        budget = ledger(self.state['external'] + self.state['submitted'])
+        if budget['actual_plus_reserved_gpu_seconds'] + CAP > BUDGET:
+            self.state['budget_admission_wait'] = dict(utc=utc(), requested_run=run_id, ledger=budget)
+            self.record()
+            return False
+        if any(x.get('unknown_since') for x in self.state['external'] + self.state['submitted']):
+            return False
+        spec = run_spec(run_id, self.args.commit)
+        if (ROOT / 'runs' / run_id / 'manifest.json').exists() or Path(spec['logdir']).exists() or Path(spec['console_log']).exists():
+            raise ValueError('Unregistered prior output cannot be overwritten: ' + run_id)
+        spec_path = ROOT / 'runs/specs' / (run_id + '.json')
+        once(spec_path, spec)
+        argv = ['sbatch', '--parsable', '--account=soal', '--partition=soal', '--nodes=1', '--ntasks=1',
+                '--cpus-per-task=40', '--mem=64G', '--gres=gpu:a6000:1', '--no-requeue',
+                '--export=PATH,HOME,USER,LOGNAME,LANG', '--time=60', '--signal=B:TERM@30',
+                '--job-name=gm-' + run_id, '--chdir=' + str(SOURCE),
+                '--output=' + str(ROOT / 'setup' / (run_id + '-%j.out')),
+                str(ROOT / 'code/run_worker.sh'), '--spec', str(spec_path), '--commit', self.args.commit,
+                '--gate', str(self.args.gate)]
+        self.state['pending_submission_intent'] = dict(utc=utc(), run_id=run_id, command=argv, reserved_gpu_seconds=CAP)
+        self.record()
+        result = command(argv, check=False)
+        job = result['stdout'].strip().split(';')[0]
+        if result['returncode'] or not job.isdigit():
+            self.state['submission_failure'] = result
+            self.record()
+            raise RuntimeError('Submission failed or ambiguous; intent retained and automatic resubmission forbidden')
+        self.state['submitted'].append(dict(run_id=run_id, job_id=job, cap_seconds=CAP, reserved_gpu_count=1,
+                                            scheduler_state='PENDING', submitted_utc=utc(), command=argv,
+                                            source_provenance=source))
+        self.state.pop('pending_submission_intent')
+        if hasattr(self, 'dispatch_slots'):
+            self.dispatch_slots -= 1
+        self.state.pop('budget_admission_wait', None)
+        self.record()
+        return True
+
+    def summarize(self, point, target):
+        names = [self.successful_group(point, group) for group in range(target // 50)]
+        if any(name is None for name in names):
+            raise ValueError('Round summary requires every logical group to complete')
+        for name in names:
+            verify(read(ROOT / 'runs/specs' / (name + '.json')))
+        sys.path.insert(0, str(ROOT))
+        from gradmean_math import summarize_group_files
+        summary = summarize_group_files([ROOT / 'collect' / name for name in names], split_seed=8675310)
+        path = ROOT / 'runs/rounds' / ('%s_%04d.json' % (point, target))
+        once(path, summary)
+        estimate = summary['variants']['V4']['estimate']
+        scale = summary['variants']['V4'].get('scale_reporting', {})
+        rho = estimate.get('rho')
+        record = dict(target_batches=target, summary=str(path), rho_V4=rho, groups=names,
+                      scale_reporting=scale, forecast_batches=estimate.get('forecast_batches'),
+                      forecast_batches_lower_bound=estimate.get('forecast_batches_lower_bound'), recorded_utc=utc())
+        forecast = scale.get('K_needed', estimate.get('forecast_batches'))
+        if target >= 1400 and forecast is not None and forecast > 12300:
+            record['forecast_exceeds_12300_flag_continue'] = True
+        self.state['points'][point]['rounds'].append(record)
+        self.state['points'][point]['status'] = close_status(rho, target)
+        self.record()
+        self.monitor(reason='round boundary ' + point + ' ' + str(target))
+
+    def dispatch(self):
+        self.dispatch_slots = self.slots()
+        # Preparation failures do not authorize an implicit rerun.
+        for point in PRIORITY:
+            state = self.state['points'][point]
+            if state['status'] != 'open':
+                continue
+            prepare = self.entry('prepare_' + point)
+            if not prepare:
+                self.submit('prepare_' + point)
+            elif prepare.get('terminal_recorded') and prepare.get('run_status') != 'complete':
+                state.update(status='failed_prepare', failure_run=prepare['run_id'])
+        # Global round barriers preserve the approved per-round priority.
+        unfinished = [p for p in POINTS if self.state['points'][p]['status'] == 'open']
+        if not unfinished:
+            self.record()
+            return
+        round_index = min(len(self.state['points'][p]['rounds']) for p in unfinished)
+        target = TARGETS[round_index]
+        for point in PRIORITY:
+            state = self.state['points'][point]
+            prepare = self.entry('prepare_' + point)
+            if state['status'] != 'open' or len(state['rounds']) != round_index or not prepare or not prepare.get('terminal_recorded') or prepare.get('run_status') != 'complete':
+                continue
+            complete = True
+            for group in range(target // 50):
+                if self.successful_group(point, group):
+                    continue
+                complete = False
+                original = '%s_j%02d' % (point, group)
+                entry = self.entry(original)
+                if not entry:
+                    self.submit(original)
+                elif entry.get('terminal_recorded') and entry.get('run_status') != 'complete':
+                    replacement = self.entry(original + '_retry1')
+                    if replacement is None:
+                        self.submit(original + '_retry1')
+                    elif replacement.get('terminal_recorded') and replacement.get('run_status') != 'complete':
+                        state.update(status='failed_collection', failure_run=replacement['run_id'], failed_group=group)
+                        break
+            if complete:
+                self.summarize(point, target)
+        self.record()
+
+    def monitor(self, reason='periodic', terminal=False):
+        observations = []
+        for entry in self.state['submitted']:
+            spec = read(ROOT / 'runs/specs' / (entry['run_id'] + '.json'))
+            observations.append(dict(run_id=entry['run_id'], job_id=entry['job_id'],
+                                     scheduler_state=entry.get('scheduler_state'), run_status=entry.get('run_status'),
+                                     observation=observe(spec)))
+        record = dict(utc=utc(), reason=reason, status=self.state['status'], monitor_status='paused' if terminal else 'active',
+                      ledger=self.state['ledger'], points=self.state['points'], runs=observations,
+                      next_step='Review terminal records; no automatic expansion' if terminal else 'Complete admitted groups and evaluate the next approved round boundary')
+        append(ROOT / 'runs/campaign_monitor_history.jsonl', record)
+        atomic(ROOT / 'runs/campaign_progress.json', record)
+        report = ROOT / 'experiment.md'
+        start, end = '<!-- gradmean-status-start -->', '<!-- gradmean-status-end -->'
+        if report.exists():
+            content = report.read_text()
+            status = '; '.join(p + ': ' + self.state['points'][p]['status'] + ', ' +
+                               str(sum(self.successful_group(p, j) is not None for j in range(82)) * 50) + ' batches' for p in POINTS)
+            block = start + '\nLast monitor: ' + record['utc'] + '. **' + record['status'] + '**. ' + status + '. '
+            block += 'GPU hours used: %.3f; outstanding reserved: %.3f; cap:125. ' % (record['ledger']['actual_gpu_seconds'] / 3600, record['ledger']['outstanding_reserved_gpu_seconds'] / 3600)
+            block += 'Monitor ' + record['monitor_status'] + '. Next: ' + record['next_step'] + '.\n' + end
+            if start in content and end in content:
+                content = content[:content.index(start)] + block + content[content.index(end) + len(end):]
+            else:
+                content = content.rstrip() + '\n\n' + block + '\n'
+            tmp = report.with_name('.experiment.monitor.tmp')
+            tmp.write_text(content)
+            os.replace(str(tmp), str(report))
+        self.next_monitor = time.monotonic() + 9600
+
+    def run(self):
+        for run_id in ('prepare_P0', 'P0_j00', 'P0_j01'):
+            entry = self.entry(run_id)
+            if not entry or not entry.get('terminal_recorded') or entry.get('run_status') != 'complete':
+                raise ValueError('Production must adopt all three verified live-gate allocations: ' + run_id)
+            verify(read(ROOT / 'runs/specs' / (run_id + '.json')))
+        self.state.update(status='running', monitor_status='active', controller_job_id=os.environ.get('SLURM_JOB_ID'))
+        try:
+            while True:
+                if self.stopping or time.monotonic() - self.started >= self.args.timeout_seconds - 60:
+                    raise RuntimeError('Controller interrupted/capped; new admissions stopped; existing allocations retain their own caps')
+                self.inspect()
+                self.dispatch()
+                active = [x for x in self.state['submitted'] if not x.get('terminal_recorded')]
+                closed = all(x['status'] != 'open' for x in self.state['points'].values())
+                exhausted = self.state['ledger']['remaining_unreserved_gpu_seconds'] < CAP and not active
+                if (closed or exhausted) and not active:
+                    failed = any(x['status'].startswith('failed') for x in self.state['points'].values())
+                    self.state.update(status='budget_exhausted' if exhausted and not closed else ('complete_with_failures' if failed else 'complete'),
+                                      ended_utc=utc(), monitor_status='paused')
+                    self.record()
+                    self.monitor(reason='verified terminal', terminal=True)
+                    return 0 if self.state['status'] == 'complete' else 2
+                if time.monotonic() >= self.next_monitor:
+                    self.monitor()
+                time.sleep(30)
+        except Exception as error:
+            self.state.update(status='blocked', failure_reason=type(error).__name__ + ': ' + str(error), monitor_status='paused', ended_utc=utc())
+            self.record()
+            self.monitor(reason='controller blocked', terminal=True)
+            raise
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('action', choices=('validate', 'submit', 'status', 'run', 'worker'))
+    parser.add_argument('--gate', type=Path, required=True)
+    parser.add_argument('--commit', required=True)
+    parser.add_argument('--run-id')
+    parser.add_argument('--spec', type=Path)
+    parser.add_argument('--timeout-seconds', type=int, default=86400)
+    args = parser.parse_args()
+    args.gate = args.gate.resolve()
+    if not 60 <= args.timeout_seconds <= 86400:
+        raise ValueError('Controller cap must be between one minute and twenty-four hours')
+    if args.action == 'worker':
+        if args.spec is None:
+            parser.error('worker requires --spec')
+        return worker(args)
+    if args.action == 'validate':
+        approval()
+        print(json.dumps(validate_gate(args.gate, args.commit), indent=2))
+        return 0
+    campaign = Campaign(args)
+    campaign.inspect()
+    if args.action == 'status':
+        if campaign.source['stage'] == 'offline':
+            failed = any(x.get('run_status') == 'failed' for x in campaign.state['submitted'])
+            ready = all(campaign.entry(name) and campaign.entry(name).get('terminal_recorded') and
+                        campaign.entry(name).get('run_status') == 'complete'
+                        for name in ('prepare_P0', 'P0_j00', 'P0_j01'))
+            campaign.state['status'] = 'live_gate_failed' if failed else ('live_gate_ready' if ready else 'live_gate_running')
+            campaign.state['monitor_status'] = 'paused' if failed or ready else 'active'
+            campaign.record()
+            campaign.monitor(reason='live-gate status check', terminal=failed or ready)
+        print(json.dumps(campaign.state, indent=2))
+        return 0
+    if args.action == 'submit':
+        if not args.run_id:
+            parser.error('submit requires --run-id')
+        if campaign.source['stage'] != 'offline':
+            raise ValueError('Manual submissions are only the three offline-gated P0 jobs; use run for production')
+        admitted = campaign.submit(args.run_id)
+        campaign.state['status'] = 'live_gate_running'
+        campaign.record()
+        campaign.monitor(reason='manual live-gate admission')
+        print(json.dumps(dict(admitted=admitted, run_id=args.run_id, ledger=campaign.state['ledger']), indent=2))
+        return 0 if admitted else 3
+    return campaign.run()
+
+
+if __name__ == '__main__':
+    sys.exit(main())

@@ -1,7 +1,7 @@
-"""Predeclared G2 synthetic gate. Full execution is reserved for Slurm.
+"""Predeclared G2-G1 synthetic gate. Full execution is reserved for Slurm.
 
 `--self-check-only` runs deterministic algebra/software checks, not a scientific
-synthetic replicate. The full gate always uses all 200 predeclared replicates.
+synthetic replicate. The full gate uses 200 replicates in each fixed regime.
 """
 from __future__ import annotations
 
@@ -9,6 +9,7 @@ import argparse
 import itertools
 import json
 import math
+import multiprocessing
 import os
 import platform
 import random
@@ -21,11 +22,11 @@ import numpy as np
 
 from gradmean_math import (four_group_covariance_square, independent_group_jackknife,
                            jackknife_interval, same_point_cross, scalar_statistics,
-                           split_orders, summarize_groups)
+                           signal_scale_reporting, split_orders, summarize_groups)
 
 
 HERE = Path(__file__).resolve().parent
-CONFIG_PATH = HERE / "g2_predeclared.json"
+CONFIG_PATH = HERE / "g2_g1_predeclared.json"
 
 
 def _json_write(path, value):
@@ -102,6 +103,29 @@ def software_checks():
     assert unavailable["estimate"]["cosine_reliability"] is None
     assert not jackknife_interval(1., [None, 1., 2.])["valid"]
     checks["signed_estimates_preserved_and_undefined_not_dropped"] = {"passed": True}
+    zero = summarize_groups(np.eye(2), [1., 1.], 1, orders=np.array([[0, 1]]))
+    assert zero["estimate"]["rho"] == 0 and zero["estimate"]["signal_sq"] == 0
+    assert zero["estimate"]["cosine_reliability"] is None
+    assert zero["estimate"]["cosine_moment_crosscheck"] is None
+    checks["zero_rho_and_zero_signal_are_direction_unresolved"] = {"passed": True}
+    raw = {"signal_sq": -.05, "covariance_trace": 4000., "B_ep": None, "forecast_batches": None}
+    bound = signal_scale_reporting(raw, {"valid": True, "lower": -1., "upper": 1.})
+    assert bound["kind"] == "lower_bound" and bound["B_ep"] == 320000.
+    _assert_close(checks, "nonpositive_signal_lower_bound_forecast", bound["K_needed"], 17040.)
+    raw.update(signal_sq=.2, B_ep=1600000., forecast_batches=85200.)
+    bound = signal_scale_reporting(raw, {"valid": True, "lower": -.4, "upper": .8})
+    assert bound["kind"] == "lower_bound" and bound["B_ep"] == 400000.
+    _assert_close(checks, "interval_crossing_zero_uses_upper_signal_bound", bound["K_needed"], 21300.)
+    raw.update(signal_sq=1., B_ep=320000., forecast_batches=17040.)
+    point = signal_scale_reporting(raw, {"valid": True, "lower": .5, "upper": 1.5})
+    assert point["kind"] == "point" and point["B_ep"] == 320000.
+    raw["signal_sq"] = -.5
+    for upper in (0., -.1):
+        missing = signal_scale_reporting(raw, {"valid": True, "lower": -1., "upper": upper})
+        assert missing["kind"] == "unavailable" and missing["B_ep"] is None
+        assert missing["reason"] == "signal_ci_upper_nonpositive"
+        assert not missing["bound_is_stopping_criterion"]
+    checks["positive_signal_point_and_nonpositive_upper_bound_unavailable"] = {"passed": True}
     python_before, numpy_before = random.getstate(), np.random.get_state()
     split_orders(6, 19)
     numpy_after = np.random.get_state()
@@ -120,19 +144,24 @@ def _validate_config(config):
         if config[key] != expected:
             raise ValueError("Predeclared G2 setting changed: " + key)
     assert config["mean"] == {"basis_coordinate": 0, "value": 1.0, "signal_squared": 1.0}
-    assert config["covariance"]["rank_component"] == 50
-    assert config["covariance"]["rank_eigenvalue_increment"] == 72.0
-    assert config["covariance"]["isotropic_eigenvalue"] == .02
+    assert config["gate"] == "G2-G1" and config["amendment"] == "G-1"
+    assert config["base_covariance"]["rank_component"] == 50
+    assert config["base_covariance"]["rank_eigenvalue_increment"] == 72.0
+    assert config["base_covariance"]["isotropic_eigenvalue"] == .02
+    assert config["regimes"] == {
+        "L": {"covariance_multiplier": 1., "covariance_trace": 4000., "direction_accuracy_is_gate": False},
+        "T": {"covariance_multiplier": 470. / 4000., "covariance_trace": 470., "direction_accuracy_is_gate": True}}
     assert config["criteria"]["required_coverage_metrics"] == ["signal_sq", "covariance_trace"]
 
 
 def one_replicate(arguments):
-    index, config = arguments
+    regime, index, config = arguments
     # Index-based SeedSequence makes serial/parallel scheduling scientifically identical.
     rng = np.random.default_rng(np.random.SeedSequence(config["seed"], spawn_key=(index,)))
     p, k, m = config["dimension"], config["batches"], config["group_size"]
     variances = np.full(p, .02, dtype=np.float64)
     variances[:50] += 72.
+    variances *= config["regimes"][regime]["covariance_multiplier"]
     standard_deviations = np.sqrt(variances)
     sums, qs = [], []
     for _ in range(k // m):
@@ -146,9 +175,10 @@ def one_replicate(arguments):
                                episodes_per_batch=config["episode_count_per_batch"])
     sample_mean = sums.sum(axis=0, dtype=np.float64) / k
     realized_cosine = float(sample_mean[0] / np.linalg.norm(sample_mean))
-    return {"replicate": index, "seed_entropy": config["seed"], "seed_spawn_key": [index],
+    return {"regime": regime, "replicate": index, "seed_entropy": config["seed"], "seed_spawn_key": [index],
             "split_seed": config["split_seed"] + index, "realized_cosine": realized_cosine,
-            "estimate": summary["estimate"], "jackknife90": summary["jackknife90"],
+            "estimate": summary["estimate"], "raw_estimate": summary["raw_estimate"],
+            "scale_reporting": summary["scale_reporting"], "jackknife90": summary["jackknife90"],
             "metadata": summary["metadata"]}
 
 
@@ -159,17 +189,20 @@ def _mean_and_mcse(values):
     return {"mean": float(array.mean()), "mc_se": float(array.std(ddof=1) / math.sqrt(len(array))), "valid_count": len(array), "count": len(array)}
 
 
-def assess(replicates, config):
+def assess_regime(replicates, config, regime):
     criteria = config["criteria"]
-    trace = config["covariance"]["trace"]
-    trace_sq = 50 * (72.02 ** 2) + (20000 - 50) * (.02 ** 2)
+    trace = config["regimes"][regime]["covariance_trace"]
+    multiplier = config["regimes"][regime]["covariance_multiplier"]
+    trace_sq = (50 * (72.02 ** 2) + (20000 - 50) * (.02 ** 2)) * multiplier ** 2
     rank = trace ** 2 / trace_sq
     truth = {"signal_sq": 1., "signal_norm": 1., "covariance_trace": trace,
              "covariance_trace_squared": trace_sq, "B_batch": trace,
              "B_ep": 80 * trace, "effective_rank": rank,
              "forecast_batches": 4.26 * trace}
-    checks = {"required_replicate_count": {"passed": len(replicates) == criteria["required_replicates"],
-                                          "actual": len(replicates), "required": criteria["required_replicates"]}}
+    required = criteria["required_replicates_per_regime"]
+    checks = {"required_replicate_count": {"passed": len(replicates) == required and
+                                          [row["replicate"] for row in replicates] == list(range(required)),
+                                          "actual": len(replicates), "required": required}}
     means = {key: _mean_and_mcse([row["estimate"][key] for row in replicates]) for key in replicates[0]["estimate"]}
     for key in criteria["mean_bias_metrics"]:
         stats = means[key]
@@ -194,22 +227,79 @@ def assess(replicates, config):
         if key in criteria["required_coverage_metrics"]:
             checks[key + "_90_percent_coverage"] = {"passed": valid == len(replicates) and criteria["coverage_min"] <= fraction <= criteria["coverage_max"],
                                                    **coverage[key], "minimum": .80, "maximum": .97}
-    realized = _mean_and_mcse([row["realized_cosine"] for row in replicates])
-    estimated_c = means["cosine_reliability"]["mean"]
-    cosine_difference = None if estimated_c is None else estimated_c - realized["mean"]
-    checks["mean_cosine_agrees_with_realized_cosine"] = {
-        "passed": cosine_difference is not None and abs(cosine_difference) <= criteria["mean_cosine_max_absolute_error"],
-        "mean_estimate": estimated_c, "mean_realized": realized["mean"],
-        "difference": cosine_difference, "maximum_absolute_difference": .03,
-        "valid_estimates": means["cosine_reliability"]["valid_count"], "required_estimates": len(replicates)}
+    valid_direction = [row for row in replicates if row["estimate"]["cosine_reliability"] is not None]
+    signed_errors = [row["estimate"]["cosine_reliability"] - row["realized_cosine"] for row in valid_direction]
+    nonpositive_rho = sum(row["estimate"]["rho"] is not None and row["estimate"]["rho"] <= 0 for row in replicates)
+    direction = {
+        "replicates": len(replicates), "defined_cosines": len(valid_direction),
+        "nonpositive_rho_count": nonpositive_rho,
+        "nonpositive_rho_fraction": nonpositive_rho / len(replicates),
+        "unavailable_cosine_count": len(replicates) - len(valid_direction),
+        "conditional_mean_signed_error": float(np.mean(signed_errors)) if signed_errors else None,
+        "conditional_mean_absolute_error": float(np.mean(np.abs(signed_errors))) if signed_errors else None,
+        "conditional_error_denominator": len(valid_direction),
+        "conditional_scope": "Descriptive rho>0 subset; not substituted for all-replicate target-regime accuracy.",
+        "mean_realized_cosine_all": float(np.mean([row["realized_cosine"] for row in replicates])),
+        "direction_accuracy_is_gate": config["regimes"][regime]["direction_accuracy_is_gate"],
+        "undefined_replicate_ids": [row["replicate"] for row in replicates if row["estimate"]["cosine_reliability"] is None]}
+    if config["regimes"][regime]["direction_accuracy_is_gate"]:
+        errors = [None if row["estimate"]["cosine_reliability"] is None else
+                  abs(row["estimate"]["cosine_reliability"] - row["realized_cosine"]) for row in replicates]
+        error_mean = _mean_and_mcse(errors)
+        within = sum(error is not None and error <= criteria["T_absolute_cosine_error_threshold"] for error in errors)
+        fraction = within / len(replicates)
+        checks["mean_absolute_cosine_error"] = {
+            "passed": error_mean["mean"] is not None and error_mean["mean"] <= criteria["T_mean_absolute_cosine_error_max"],
+            "mean_absolute_error": error_mean["mean"], "mc_se": error_mean["mc_se"],
+            "defined_count": error_mean["valid_count"], "denominator": len(replicates),
+            "maximum_mean_absolute_error": criteria["T_mean_absolute_cosine_error_max"]}
+        checks["cosine_absolute_error_tail"] = {
+            "passed": fraction >= criteria["T_fraction_within_error_threshold_min"],
+            "within_threshold_count": within, "denominator": len(replicates), "fraction": fraction,
+            "absolute_error_threshold": criteria["T_absolute_cosine_error_threshold"],
+            "minimum_fraction": criteria["T_fraction_within_error_threshold_min"],
+            "unavailable_counted_as_failure": True}
     rank_mean = means["effective_rank"]["mean"]
     rank_error = None if rank_mean is None else (rank_mean - rank) / rank
     checks["mean_effective_rank"] = {"passed": rank_error is not None and abs(rank_error) <= criteria["mean_effective_rank_max_relative_error"],
                                      "mean": rank_mean, "truth": rank, "relative_error": rank_error,
                                      "maximum_relative_error": .20}
-    return {"passed": all(value["passed"] for value in checks.values()), "checks": checks,
+    return {"regime": regime, "passed": all(value["passed"] for value in checks.values()), "checks": checks,
             "known_truth": truth, "mean_estimates": means, "interval_coverage": coverage,
-            "coverage_warning": "Only signal and trace coverage are formal gates. Other intervals are descriptive, and reliability coverage has a random realized reference. No undefined intervals or replicates were silently dropped."}
+            "direction_diagnostics": direction,
+            "coverage_warning": "Only signal and trace coverage are formal gates. Other intervals are descriptive raw-ratio intervals, and reliability coverage has a random realized reference. No undefined intervals or replicates were silently dropped."}
+
+
+def assess(replicates, config):
+    by_regime = {regime: assess_regime([row for row in replicates if row["regime"] == regime], config, regime)
+                 for regime in config["regimes"]}
+    return {"passed": all(value["passed"] for value in by_regime.values()), "regimes": by_regime,
+            "replicate_count": len(replicates), "amendment": config["amendment"],
+            "original_failure_preserved": "Original G2 declaration/source snapshot/run records remain separate and unchanged."}
+
+
+def shutdown_executor(executor):
+    """Python3.8-compatible close/join, with explicit liveness evidence."""
+    processes = list(executor._processes.values()) if executor is not None else []
+    if executor is not None:
+        # shutdown(wait=True) closes the executor queues and joins its workers.
+        # Capture Process objects first so joining/liveness checks are explicit.
+        executor.shutdown(wait=True)
+    records = []
+    for process in processes:
+        process.join()
+        record = {"pid": process.pid, "exitcode": process.exitcode, "alive": process.is_alive()}
+        records.append(record)
+        if process.is_alive():
+            raise RuntimeError("Executor worker remained alive after shutdown: " + str(process.pid))
+        process.close()
+        if record["exitcode"] != 0:
+            raise RuntimeError("Executor worker exited unsuccessfully: " + repr(record))
+    active = [process.pid for process in multiprocessing.active_children()]
+    if active:
+        raise RuntimeError("Child processes remain after G2-G1 cleanup: " + repr(active))
+    return {"shutdown_success": True, "workers": records, "active_child_pids": active,
+            "method": "executor.shutdown(wait=True); explicit process.join(), process.close(), active_children() check"}
 
 
 def main():
@@ -237,7 +327,8 @@ def main():
                                             "workers": args.workers, "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
                                             "config_source": str(CONFIG_PATH), "completed_replicates": 0})
     rows = []
-    payloads = [(i, config) for i in range(config["replicates"])]
+    summary = None
+    payloads = [(regime, i, config) for regime in config["regimes"] for i in range(config["replicates"])]
     executor = ProcessPoolExecutor(max_workers=args.workers) if args.workers > 1 else None
     try:
         iterator = executor.map(one_replicate, payloads) if executor else map(one_replicate, payloads)
@@ -246,24 +337,38 @@ def main():
                 rows.append(row)
                 stream.write(json.dumps(row, allow_nan=False) + "\n")
                 stream.flush()
-                print("G2 replicate %d/%d saved; elapsed %.1fs" % (len(rows), config["replicates"], time.time() - started), flush=True)
+                print("G2-G1 regime=%s replicate=%d/%d total=%d/%d saved; elapsed %.1fs" % (
+                    row["regime"], row["replicate"] + 1, config["replicates"], len(rows), len(payloads), time.time() - started), flush=True)
         summary = assess(rows, config)
-        summary.update({"gate": "G2", "software_checks_passed": software["passed"],
+        scientific_passed = summary["passed"]
+        summary.update({"gate": "G2-G1", "software_checks_passed": software["passed"],
                         "predeclared_config": str(args.out / "predeclared_config.json"),
                         "replicates_path": str(args.out / "replicates.jsonl"),
                         "wall_seconds": time.time() - started, "slurm_job_id": os.environ.get("SLURM_JOB_ID"),
-                        "status": "passed" if summary["passed"] else "failed"})
+                        "scientific_passed": scientific_passed, "passed": False,
+                        "status": "awaiting_executor_cleanup"})
         _json_write(args.out / "gate_summary.json", summary)
-        print(json.dumps({"passed": summary["passed"], "output": str(args.out), "wall_seconds": summary["wall_seconds"]}), flush=True)
-        if not summary["passed"]:
+        print(json.dumps({"scientific_passed": scientific_passed, "awaiting_executor_cleanup": True,
+                          "output": str(args.out), "wall_seconds": summary["wall_seconds"]}), flush=True)
+        if not scientific_passed:
             raise SystemExit(2)
     except Exception as error:
         _json_write(args.out / "failure.json", {"status": "crashed", "error": repr(error),
                                               "completed_replicates": len(rows), "wall_seconds": time.time() - started})
         raise
     finally:
-        if executor:
-            executor.shutdown(wait=True, cancel_futures=True)
+        # No unsupported cancel_futures keyword and no exception suppression.
+        cleanup = shutdown_executor(executor)
+        _json_write(args.out / "executor_shutdown.json", cleanup)
+        print(json.dumps(cleanup, allow_nan=False), flush=True)
+        if summary is not None:
+            summary.update(passed=summary["scientific_passed"],
+                           status="passed" if summary["scientific_passed"] else "failed",
+                           executor_shutdown=cleanup, wall_seconds=time.time() - started,
+                           expected_exit_code=0 if summary["scientific_passed"] else 2)
+            _json_write(args.out / "gate_summary.json", summary)
+            print(json.dumps({"passed": summary["passed"], "expected_exit_code": summary["expected_exit_code"],
+                              "output": str(args.out), "wall_seconds": summary["wall_seconds"]}), flush=True)
 
 
 if __name__ == "__main__":

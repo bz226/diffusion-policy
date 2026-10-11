@@ -1,0 +1,17 @@
+{
+  "approved_utc": "2026-10-11T20:40:09.183044+00:00",
+  "authorization": "User Amendment G-1: make changes, rerun G2, then G3\u2013G5 and continue without waiting",
+  "resume_from_commit": "f1e4ad7",
+  "existing_study_reused": true,
+  "gpu_hour_cap": 125,
+  "changes": {
+    "direction": "rho<=0 gives N/A, direction not resolved; stays open",
+    "signal": "signal<=0 or90%CI includes0 gives B_ep lower bound from trace_ep / signal_CI_upper and forecast from bound",
+    "G2": "200 replicates per regime, same fixed generator; Ltrace4000 and Ttrace470, covariance scaled proportionally",
+    "cleanup": "Python3.8-compatible explicit pool/vector-env joins, exceptions reported, G3zero exit/no children"
+  },
+  "G1": "Criterion/definition unchanged; saved records show formal G1 was not previously executed, so it remains required",
+  "old_evidence_preserved": "runs/gate_G2 and setup/g2_source",
+  "reporting_note": "An upper signal interval endpoint<=0 gives no finite lower-bound value rather than an invalid negative bound",
+  "no_new_approval_required_after_gates": true
+}

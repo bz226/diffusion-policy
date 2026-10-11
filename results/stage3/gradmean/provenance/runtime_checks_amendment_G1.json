@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-11T20:43:07.950030+00:00",
+  "scope": "mechanical runtime verification; no environments, GPU sampling, or Slurm submissions",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "ast_files": [
+    "results/stage3/gradmean/code/campaign.py",
+    "results/stage3/gradmean/code/test_runtime.py"
+  ],
+  "bash_syntax_files": [
+    "results/stage3/gradmean/code/environment.sh",
+    "results/stage3/gradmean/code/run_worker.sh",
+    "results/stage3/gradmean/code/run_queue.sh",
+    "results/stage3/run_queue.sh"
+  ],
+  "tests": 15,
+  "test_command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B results/stage3/gradmean/code/test_runtime.py",
+  "test_result": "15 passed; source snapshot and Git execute flag, exact scopes, seed disjointness, reservation ledger, gate/retry/admission guards",
+  "budget_prototype": {
+    "hard_gpu_seconds": 450000,
+    "example_terminal_actual_seconds": 1200,
+    "example_two_outstanding_full_reservations_seconds": 7200,
+    "example_charged_total_seconds": 8400,
+    "new_job_admission_requires_actual_plus_reservations_plus3600_at_most450000": true
+  },
+  "experiment_jobs_launched": false
+}

@@ -1,0 +1,28 @@
+{
+  "status": "passed",
+  "checks": [
+    "graceful close and zero-exit joins",
+    "primary traceback retained after successful cleanup",
+    "close failure terminates own workers and chains primary traceback",
+    "blocked close is bounded and workers are reaped",
+    "non-multiprocessing direct child ownership checked and reaped",
+    "non-owned process is never signalled"
+  ],
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo/agent/finetune/grad_mean.py",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "results/stage3/gradmean/runs/unit_cleanup_20261011T204022Z/test_cleanup.py"
+  ],
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy",
+  "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scope": "synthetic child-process cleanup fixtures only; no environments, gradients, training, or scientific gates",
+  "expected_failure_cases": [
+    "primary_failure",
+    "primary_and_close_failure",
+    "blocked_close",
+    "other_owned_child",
+    "non_owned_guard"
+  ],
+  "no_remaining_children": true
+}

@@ -1,32 +1,14 @@
-# Addendum G stopped at the synthetic gate
+# Gradient mean along DPPO and NC4 paths
 
-**Question.** Can the proposed estimators support reliable gradient-direction measurements before collecting along the DPPO and NC4 paths?
+The amended synthetic gate **passed in both regimes**. Live-policy measurements have not started; G1/G5 replay and G3/G4 live checks remain before production. Unresolved directions now report N/A and unresolved signal produces a noise-scale lower bound, without stopping collection.
 
-**Answer.** G2 failed: one of200 synthetic replicates had negative split-half correlation, making the prescribed cosine transform undefined. No policy preparation, environment collection or GPU gate was launched. Q1–Q10 about the real training paths remain unanswered by this addendum.
+| G2 regime (200 replicates each) | Mean signal (true 1) | Mean trace (true) | Signal / trace 90% coverage | Mean effective rank (true 61.6922) |
+|---|---:|---:|---:|---:|
+| L | 0.996961 | 4000.1117 (4000) | 96.5% / 90% | 61.6249 |
+| T | 1.003092 | 470.0131 (470) | 92% / 90% | 61.6249 |
 
-## Gate evidence
+Covariance variance splits90% low-rank and10% isotropic in both regimes. L had1/200 nonpositive split cosines, correctly marked N/A; signed cosine error averaged−0.022559 over the other199. T had mean absolute cosine error0.014930;200/200 errors were≤0.06. Every formal criterion passed; complete estimates, Monte-Carlo standard errors and jackknife evidence are in the [gate record](runs/gate_G2_G1/gate_summary.json).
 
-The predeclared setup used20,000 coordinates,2,000 batches in40 groups,200 replicates, squared mean1 and covariance trace4000. [Exact setup](g2_predeclared.json), [saved results](runs/gate_G2/gate_summary.json).
+The Python3.8 cleanup error was an unsupported `cancel_futures` keyword in `ProcessPoolExecutor.shutdown`. The source now calls `shutdown(wait=True)`, explicitly joins/closes workers, and checks for surviving children. Slurm job17812422 completed with exit0:0 in44seconds; all eight workers exited0 and no children remained. New grad_mean jobs also close the vector environment and verify all forty workers at exit. Their live shutdown check is still pending.
 
-| Check | Observed | Requirement | Result |
-| --- | ---: | --- | --- |
-| Mean squared-signal estimate |0.996961; Monte Carlo SE0.033564|Truth1 within3 SE|Pass|
-| Mean noise trace |4000.11165; Monte Carlo SE1.16112|Truth4000 within3 SE|Pass|
-| Signal90% interval coverage |193/200 =96.5%|80–97%|Pass|
-| Trace90% interval coverage |180/200 =90.0%|80–97%|Pass|
-| Mean effective rank |61.62489 vs truth61.69222|Relative error≤20%|Pass (−0.109%)|
-| Mean direction-cosine check |199/200 estimates defined|All-replicate mean error≤0.03|Fail: mean unavailable|
-
-Replicate125 (zero-based) had rho=−0.00706345 and squared signal=−0.05412045, with90% jackknife interval[−1.00596,0.89772]. Its realized cosine was0.505914. The transform sqrt(2*rho/(1+rho)) has no real value there; no clipping, replacement or exclusion was applied.
-
-Among the199 defined cases only, mean estimated/realized cosines were0.559505/0.582064; mean absolute per-replicate error was0.090965. This conditional comparison does **not** replace the failed all200 gate. [Independent saved-record review](runs/gate_G2/failure_review.json).
-
-A secondary Python3.8 cleanup error (`shutdown(cancel_futures=True)`) occurred after all200 results and the scientific failure were saved. It did not cause the negative correlation or alter the statistics. The [log](setup/G2-17812088.out) preserves both failures; neither was retried.
-
-## Execution and remaining work
-
-Only CPU Slurm job17812088 ran:20 allocation seconds,40 CPUs, no GPU, against the125 GPU-hour cap. Synthetic computation took18.9s. The job is terminal; no collection jobs or monitors remain active. G1/G3/G4/G5 were not executed. Deterministic algebra checks and small collector software checks passed, but these do not establish the scientific gate or default-path equivalence.
-
-All five checkpoints are available in the [checkpoint registry](provenance/checkpoints.json), so no DPPO rerun was needed. Distances and path tables/figures were not computed after the stop. Source is on `stage3-gradmean`, starting at `23f57ef4acee74846e35af68fa43076d5c2afcb6`; implementation/evidence commit `0ae03b5db30198b873ee82d5e991e28aa51fc817` is recorded in [revisions](provenance/revisions.json). The executed G2 code is preserved in [its source snapshot](setup/g2_source/gate_synthetic.py). The collector/statistics implementation is prepared; scheduling and full analysis are unfinished and unvalidated. [Methods](methods.md), [approval](provenance/approval.json), [exact submission command](provenance/G2_submission.json).
-
-**Decision.** Collection is blocked by the prescribed gate. Changing the handling of undefined direction estimates or the gate requires a new explicit decision; no threshold, setup or stopping rule was changed. Existing results remain untouched, and no new artifacts were curated.
+The [original failed gate and traceback](provenance/report_before_G1_amendment.md) remain preserved. See the [methods](methods.md), [amendment authorization](provenance/amendment_G1.json), and [current status](experiment.md). The approved125GPU-hour cap and all scientific definitions outside G-1 remain unchanged. The next action is the saved-batch gate, followed automatically by the two P0 live checks and the authorized collection rounds if every gate passes.
