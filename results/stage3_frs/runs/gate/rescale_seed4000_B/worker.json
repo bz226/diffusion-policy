@@ -1,0 +1,61 @@
+{
+  "status": "complete",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_replay.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--device",
+    "cpu",
+    "--convert-stats",
+    "--rescale-source",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "cached_conversion_inert": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 1841635,
+    "tensors": 54,
+    "first_failure": null
+  },
+  "cached_conversion_rng_inert": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 5697,
+    "tensors": 4,
+    "first_failure": null
+  },
+  "processing_seed": 4000,
+  "seconds": 6.401036753086373,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

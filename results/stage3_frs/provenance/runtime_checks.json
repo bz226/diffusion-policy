@@ -1,0 +1,59 @@
+{
+  "utc": "2026-10-11T08:51:23.765093+00:00",
+  "passed": true,
+  "scope": "Mechanical runtime verification only; no Slurm submission, model execution, environment rollout, or gate execution.",
+  "python_tests": {
+    "command": [
+      "results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "results/stage3_frs/code/test_runtime.py"
+    ],
+    "tests": 14,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "elapsed_seconds": 10.87,
+    "result": "OK"
+  },
+  "shell_checks": [
+    {
+      "command": [
+        "bash",
+        "-n",
+        "results/stage3_frs/code/environment.sh",
+        "results/stage3_frs/code/run_worker.sh",
+        "results/stage3_frs/code/run_queue.sh"
+      ],
+      "returncode": 0,
+      "stdout": "",
+      "stderr": ""
+    }
+  ],
+  "python_ast_checked": [
+    "monitor.py",
+    "campaign.py",
+    "test_runtime.py"
+  ],
+  "covered": [
+    "FRS1-only seeds0-2 plus three checkpoint evaluation jobs",
+    "13.75 GPU-hour aggregate reservation inside14; per-training4h and per-evaluation15m",
+    "A6000/40CPU/64GiB specifications reject changes",
+    "startup sgd_diag/floor/artifact/LR/momentum/betas checks",
+    "parent stage3-theory revision and full ordinary source bytes/executable modes",
+    "post-commit binding preserves immutable original numerical gate",
+    "independent repeated rescale payload comparison rejects coordinate mutation",
+    "nonfinite ratio metrics preserve failure iteration and last diagnostics",
+    "accounting does not double-count typed/generic GPU TRES",
+    "admission accounts for other user jobs and own outstanding allocations",
+    "write-once evidence rejects overwrite"
+  ],
+  "unexecuted": [
+    "numerical research gate",
+    "source binding to new parent commit",
+    "Slurm controller and all scientific runs"
+  ],
+  "launch_blockers": [
+    "parent stage3-theory commit required after numerical gate passes",
+    "successful gate allocation provenance and post-commit source binding required"
+  ]
+}

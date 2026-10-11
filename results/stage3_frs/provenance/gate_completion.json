@@ -1,0 +1,22 @@
+{
+  "checked_utc": "2026-10-11T09:12:42.607783+00:00",
+  "job_id": "17806033",
+  "scheduler_state": "COMPLETED",
+  "exit_code": "0:0",
+  "elapsed_seconds": 1123,
+  "gpu_count": 1,
+  "allocated_gpu_hours": 0.31194444444444447,
+  "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+  "gate_passed": true,
+  "training_submitted": false,
+  "monitor_status": "finished",
+  "blocker": "parent .git is read-only; required stage3-theory branch and commit await normal terminal",
+  "accounting_command": [
+    "sacct",
+    "--allocations",
+    "--noheader",
+    "--parsable2",
+    "--jobs=17806033",
+    "--format=JobIDRaw,State,ElapsedRaw,ExitCode,AllocTRES%150"
+  ]
+}

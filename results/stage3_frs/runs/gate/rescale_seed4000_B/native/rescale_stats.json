@@ -1,0 +1,186 @@
+{
+  "mode": "rescale_stats",
+  "status": "completed",
+  "processing_seed": 4000,
+  "source": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy",
+    "summary_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_scale.json",
+    "measurement_seed": 1000,
+    "variant": "theory_loo",
+    "variant_index": 3,
+    "batches": 25,
+    "environments_per_batch": 40,
+    "pairs_per_environment": 5000,
+    "full_batch_pairs": 200000,
+    "vector_sum_divisor": 40,
+    "saved_dtype": "float64",
+    "underlying_gradient_dtype": "float32",
+    "actor_coordinates": 568392
+  },
+  "parameter_count": 568392,
+  "parameter_specs": [
+    {
+      "name": "time_embedding.1.weight",
+      "shape": [
+        32,
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.1.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 32
+    },
+    {
+      "name": "time_embedding.3.weight",
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.3.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 16
+    },
+    {
+      "name": "mlp_mean.layers.0.weight",
+      "shape": [
+        512,
+        57
+      ],
+      "dtype": "torch.float32",
+      "numel": 29184
+    },
+    {
+      "name": "mlp_mean.layers.0.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.2.weight",
+      "shape": [
+        24,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 12288
+    },
+    {
+      "name": "mlp_mean.layers.2.bias",
+      "shape": [
+        24
+      ],
+      "dtype": "torch.float32",
+      "numel": 24
+    }
+  ],
+  "floor": 0.001,
+  "epsilon": 1e-08,
+  "global_median_r": 0.0006266954150870965,
+  "median_convention": "midpoint of the two central values for an even count",
+  "r_min": 0.0,
+  "r_max": 2.2077543857893795,
+  "r_quantiles": {
+    "0": 0.0,
+    "1": 0.0,
+    "10": 1.4529516222564726e-05,
+    "50": 0.0006266954150870965,
+    "90": 0.010439589938383844,
+    "99": 0.0936042468276221,
+    "100": 2.2077543857893795
+  },
+  "r_quantile_convention": "percent levels; NumPy linear interpolation",
+  "r_zero_count": 47798,
+  "r_zero_fraction": 0.08409337217976326,
+  "floor_threshold": 6.266954150870964e-07,
+  "floored_count": 49850,
+  "floored_fraction": 0.08770355670030543,
+  "floor_count_definition": "r strictly below floor*global_median_r, before epsilon",
+  "top1pct_coordinate_count": 5684,
+  "top1pct_squared_mass_share": 0.7901652237461524,
+  "top1pct_definition": "sum of r^2 for ceil(0.01*P) largest coordinates / sum of all r^2",
+  "top1pct_undefined_reason": null,
+  "statistics_dtype": "float64",
+  "denominator_cast": "actor parameter dtype after floor and epsilon",
+  "sampling_performed": false,
+  "actor_updates": 0,
+  "critic_updates": 0,
+  "metadata": {
+    "source": {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_vector_sums.npy",
+      "summary_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_scale.json",
+      "measurement_seed": 1000,
+      "variant": "theory_loo",
+      "variant_index": 3,
+      "batches": 25,
+      "environments_per_batch": 40,
+      "pairs_per_environment": 5000,
+      "full_batch_pairs": 200000,
+      "vector_sum_divisor": 40,
+      "saved_dtype": "float64",
+      "underlying_gradient_dtype": "float32",
+      "actor_coordinates": 568392
+    },
+    "processing_seed": 4000,
+    "sampling_performed": false,
+    "formula": "g_b=V4_batch_vector_sum/40; r=sqrt(sum_b(g_b*g_b)/25)",
+    "estimator": "E2 raw MC-LOO, gamma^k, summed coordinates, no normalization, denoising weight one",
+    "gradient_scale": "code loss gradient; no additional factor2500; sign irrelevant to RMS",
+    "rounding_caveat": "Same E2 estimator/scaling; 40 float32 environment gradients summed in float64 need not equal four shuffled float32 training chunks bitwise.",
+    "reproducibility": "Deterministic conversion of the same cached input; processing seed4000 does not recreate measurement seed1000 rollouts."
+  },
+  "artifacts": {
+    "artifact": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B/native/rescale.pt",
+    "json": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B/native/rescale_stats.json",
+    "csv": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B/native/rescale_stats.csv",
+    "summary": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_B/native/SUMMARY.md"
+  }
+}

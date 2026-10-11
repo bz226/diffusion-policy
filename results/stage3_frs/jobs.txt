@@ -1,0 +1,31 @@
+FRS1 addendum launch sequence — prepared only; no submissions performed by this file.
+
+Prerequisites:
+  1. The numerical gate has passed and its one-GPU allocation has COMPLETED.
+  2. provenance/gate_submission.json records that allocation's job_id and allocation_cap_seconds <= 3600.
+  3. In the parent repository, commit the gated ordinary source on branch stage3-theory.
+     Use python3 scripts/git_add_all.py while legacy nested checkouts remain.
+     Replace PARENT_COMMIT below with that exact parent revision.
+
+Bind the unchanged numerical gate to the committed source:
+results/repro_halfcheetah/env/bin/python -B results/stage3_frs/code/campaign.py bind-source --gate results/stage3_frs/runs/gate/gate_summary.json --commit PARENT_COMMIT
+
+Prepare and inspect the exact six-job plan (does not submit jobs):
+results/repro_halfcheetah/env/bin/python -B results/stage3_frs/code/campaign.py plan --commit PARENT_COMMIT
+
+Submit one CPU-only controller; the script contains its 2 CPU / 8 GiB / 24-hour Slurm limits:
+sbatch --parsable results/stage3_frs/code/run_queue.sh --commit PARENT_COMMIT
+
+The controller submits FRS1 seeds 0,1,2 together, each on one A6000 with 40 CPUs,
+64 GiB and a four-hour limit. Each completed seed receives one final checkpoint
+evaluation using seed5000 and both 80-episode samplers, with a 15-minute limit.
+Only three GPU allocations may be outstanding at once. Numerical failures and
+alignment errors remain recorded; the remaining seeds continue. No retries or FRS3.
+Aggregate caps: 1h gate + 3*4h training + 3*.25h evaluation = 13.75 GPU-hours,
+within the new 14 GPU-hour approval. Actual allocated GPU time is read from sacct.
+All exact sbatch/Python commands are recorded in runs/campaign_commands.jsonl
+and per-run commands.jsonl; the original numerical gate is never rewritten.
+
+The parent revision and source bytes/executable bits must remain unchanged during
+execution. Unrelated parent working-tree files do not invalidate a passed source gate.
+Monitors run every30minutes and pause after terminal output verification.

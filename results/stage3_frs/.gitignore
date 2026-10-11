@@ -1,0 +1,9 @@
+# Keep ordinary source, logs, selected results and figures versionable.
+cache/
+tmp/
+__pycache__/
+*.py[cod]
+*.pt
+*.pth
+**/checkpoint/
+**/checkpoints/

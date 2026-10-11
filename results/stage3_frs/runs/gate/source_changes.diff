@@ -1,0 +1,660 @@
+--- stage3/.gitignore
++++ stage3_frs/.gitignore
+@@ -1,147 +1,33 @@
+-# Custom
+-result/
+-wandb/
+-.vscode/
+-data/
+-log/
+-logs/
+-checkpoints/
+-.github/
+-out/
+-err/
+-*.pkl
+-*.sh
+-
+-# Byte-compiled / optimized / DLL files
++# Ordinary source snapshot; original upstream rules are in ../provenance/.
++# Keep source, result.pkl, run.log, and Hydra configurations versionable.
+ __pycache__/
+ *.py[cod]
+-*$py.class
+-
+-# C extensions
+-*.so
+-
+-# Distribution / packaging
+-.Python
++.pytest_cache/
++.mypy_cache/
++.ruff_cache/
++.venv/
++venv/
++.env
++.env.*
++!.env.example
++wandb/
+ build/
+-develop-eggs/
+ dist/
+-downloads/
+-eggs/
+-.eggs/
+-lib/
+-lib64/
+-parts/
+-sdist/
+-var/
+-wheels/
+-pip-wheel-metadata/
+-share/python-wheels/
+ *.egg-info/
+-.installed.cfg
+-*.egg
+-MANIFEST
+-
+-# PyInstaller
+-#  Usually these files are written by a python script from a template
+-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
+-*.manifest
+-*.spec
+-
+-# Installer logs
+-pip-log.txt
+-pip-delete-this-directory.txt
+-
+-# Unit test / coverage reports
+-htmlcov/
+ .tox/
+ .nox/
+-.coverage
+-.coverage.*
+-.cache
+-nosetests.xml
+-coverage.xml
+-*.cover
+-*.py,cover
+-.hypothesis/
+-.pytest_cache/
+-
+-# Translations
+-*.mo
+-*.pot
+-
+-# Django stuff:
+-*.log
+-local_settings.py
+-db.sqlite3
+-db.sqlite3-journal
+-
+-# Flask stuff:
+-instance/
+-.webassets-cache
+-
+-# Scrapy stuff:
+-.scrapy
+-
+-# Sphinx documentation
+-docs/_build/
+-
+-# PyBuilder
+-target/
+-
+-# Jupyter Notebook
+-.ipynb_checkpoints
+-
+-# IPython
+-profile_default/
+-ipython_config.py
+-
+-# pyenv
+-.python-version
+-
+-# pipenv
+-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
+-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
+-#   install all needed dependencies.
+-#Pipfile.lock
+-
+-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
+-__pypackages__/
+-
+-# Celery stuff
+-celerybeat-schedule
+-celerybeat.pid
+-
+-# SageMath parsed files
+-*.sage.py
+-
+-# Environments
+-.env
+-.venv
+-# env/
+-venv/
+-ENV/
+-env.bak/
+-venv.bak/
+-
+-# Spyder project settings
+-.spyderproject
+-.spyproject
+-
+-# Rope project settings
+-.ropeproject
+-
+-# mkdocs documentation
+-/site
+-
+-# mypy
+-.mypy_cache/
+-.dmypy.json
+-dmypy.json
+-
+-# Pyre type checker
+-.pyre/
+-
+-cfg/robomimic/*.sh
+-
+-*.out
++cache/
++.cache/
++checkpoint/
++checkpoints/
++data/
++datasets/
++*.pt
++*.pth
++*.ckpt
++*.safetensors
++*.onnx
++*.h5
++*.hdf5
++*.zarr/
++*.zarr.zip
+--- stage3/agent/finetune/frs.py
++++ stage3_frs/agent/finetune/frs.py
+@@ -0,0 +1,365 @@
++"""Frozen coordinate rescaling from saved Stage-3 V4 measurements.
++
++The saved environment gradients have the E2 estimator and code-loss scale.
++Their float64 sum divided by 40 is mathematically the full-batch gradient;
++it need not match shuffled float32 training accumulation bit for bit.
++This module never samples an environment or draws a random number.
++"""
++
++import copy
++import csv
++import json
++import logging
++import math
++from pathlib import Path
++
++import numpy as np
++import torch
++
++
++log = logging.getLogger(__name__)
++EPSILON = 1e-8
++FORMAT_VERSION = 1
++VARIANT_ORDER = ("nc4", "mc_critic", "mc_loo", "theory_loo", "theory_nobase")
++
++
++def _named_parameters(named_parameters):
++    named = list(named_parameters)
++    if not named or len({name for name, _ in named}) != len(named):
++        raise ValueError("actor parameter names must be nonempty and unique")
++    if len({id(parameter) for _, parameter in named}) != len(named):
++        raise ValueError("actor parameters must not be duplicated")
++    for name, parameter in named:
++        if not isinstance(name, str) or not name:
++            raise ValueError("actor parameter names must be nonempty strings")
++        if not isinstance(parameter, torch.Tensor) or not parameter.is_floating_point():
++            raise ValueError("actor parameters must be floating-point tensors")
++        if parameter.layout != torch.strided or parameter.numel() == 0:
++            raise ValueError("actor parameters must be nonempty dense tensors")
++    return named
++
++
++def _specs(named):
++    return [{"name": name, "shape": list(parameter.shape),
++             "dtype": str(parameter.dtype), "numel": parameter.numel()}
++            for name, parameter in named]
++
++
++def _valid_floor(floor):
++    floor = float(floor)
++    if not math.isfinite(floor) or floor < 0:
++        raise ValueError("rescale floor must be finite and nonnegative")
++    return floor
++
++
++def build_rescale_artifact(named_parameters, r_by_name, floor=1e-3, metadata=None):
++    """Build validated independent CPU tensors without mutating parameters/r."""
++    named = _named_parameters(named_parameters)
++    floor = _valid_floor(floor)
++    names = [name for name, _ in named]
++    if not isinstance(r_by_name, dict) or set(r_by_name) != set(names):
++        raise ValueError("r names do not match the actor parameters")
++    r = {}
++    for name, parameter in named:
++        value = r_by_name[name]
++        if not torch.is_tensor(value) or tuple(value.shape) != tuple(parameter.shape):
++            raise ValueError("r shape does not match actor parameter " + name)
++        value = value.detach().to(device="cpu", dtype=torch.float64).clone()
++        if not bool(torch.isfinite(value).all()) or bool((value < 0).any()):
++            raise ValueError("r must be finite and nonnegative: " + name)
++        r[name] = value
++    flat = torch.cat([r[name].reshape(-1) for name in names])
++    # NumPy median uses the midpoint of the two central coordinates for even N.
++    median = float(np.median(flat.numpy()))
++    threshold = floor * median
++    r_tilde = {}
++    for name, parameter in named:
++        effective = (torch.clamp(r[name], min=threshold) + EPSILON).to(parameter.dtype)
++        if not bool(torch.isfinite(effective).all()) or not bool((effective > 0).all()):
++            raise ValueError("effective denominator is not finite and positive: " + name)
++        r_tilde[name] = effective
++    metadata = json.loads(json.dumps(metadata or {}, allow_nan=False))
++    return {
++        "format_version": FORMAT_VERSION,
++        "parameter_specs": _specs(named),
++        "parameter_count": flat.numel(),
++        "r": r,
++        "r_tilde": r_tilde,
++        "floor": floor,
++        "epsilon": EPSILON,
++        "global_median_r": median,
++        "median_convention": "midpoint of the two central values for an even count",
++        "source": metadata.get("source", {}),
++        "processing_seed": metadata.get("processing_seed"),
++        "metadata": metadata,
++    }
++
++
++def _load_artifact(named, rescale_path, floor):
++    if rescale_path is None:
++        raise ValueError("sgd_diag requires train.rescale_path")
++    path = Path(rescale_path).expanduser().resolve()
++    artifact = torch.load(path, map_location="cpu", weights_only=True)
++    if not isinstance(artifact, dict) or artifact.get("format_version") != FORMAT_VERSION:
++        raise ValueError("unsupported rescale artifact format")
++    if artifact.get("parameter_specs") != _specs(named):
++        raise ValueError("rescale ordered names, shapes or dtypes differ from the actor")
++    count = sum(parameter.numel() for _, parameter in named)
++    if artifact.get("parameter_count") != count or artifact.get("epsilon") != EPSILON:
++        raise ValueError("rescale parameter count or epsilon differs")
++    rebuilt = build_rescale_artifact(named, artifact.get("r"), floor=artifact.get("floor"),
++                                      metadata=artifact.get("metadata", {}))
++    saved = artifact.get("r_tilde")
++    if not isinstance(saved, dict) or set(saved) != set(rebuilt["r_tilde"]):
++        raise ValueError("saved denominator names differ")
++    for name, value in rebuilt["r_tilde"].items():
++        if (not torch.is_tensor(saved[name]) or saved[name].dtype != value.dtype
++                or not torch.equal(saved[name], value)):
++            raise ValueError("saved denominator does not match r/floor/epsilon: " + name)
++    if artifact.get("global_median_r") != rebuilt["global_median_r"]:
++        raise ValueError("saved global median does not match r")
++    # An explicit floor setting is applied to the saved raw r, never to r_tilde.
++    effective = build_rescale_artifact(named, artifact["r"], floor=floor,
++                                     metadata=artifact.get("metadata", {}))
++    return path, effective
++
++
++class FrozenRescaledSGD(torch.optim.SGD):
++    """SGD with one immutable, validated coordinate denominator per parameter."""
++
++    def __init__(self, named_parameters, lr, rescale_path, floor=1e-3):
++        named = _named_parameters(named_parameters)
++        floor = _valid_floor(floor)
++        path, artifact = _load_artifact(named, rescale_path, floor)
++        super().__init__([parameter for _, parameter in named], lr=lr,
++                         momentum=0, dampening=0, weight_decay=0, nesterov=False)
++        self.parameter_names = tuple(name for name, _ in named)
++        self._frs_parameters = tuple(parameter for _, parameter in named)
++        self._frs_denominators = tuple(
++            artifact["r_tilde"][name].to(device=parameter.device, dtype=parameter.dtype).clone()
++            for name, parameter in named)
++        self.rescale_path = str(path)
++        self.rescale_floor = floor
++        self.global_median_r = artifact["global_median_r"]
++        self.source_metadata = copy.deepcopy(artifact["metadata"])
++        self.last_ratio_metrics = {}
++
++    @torch.no_grad()
++    def ratio_metrics(self):
++        """Read-only |raw gradient / denominator| statistics; no state changes."""
++        values = []
++        for parameter, denominator in zip(self._frs_parameters, self._frs_denominators):
++            if parameter.grad is None:
++                values.append(torch.zeros_like(parameter).reshape(-1).double())
++            else:
++                if parameter.grad.layout != torch.strided:
++                    raise ValueError("sgd_diag requires dense gradients")
++                values.append((parameter.grad.detach() / denominator).abs().reshape(-1).double())
++        return self._ratio_summary(values)
++
++    @staticmethod
++    def _ratio_summary(values):
++        flat = torch.cat(values)
++        if not bool(torch.isfinite(flat).all()):
++            raise FloatingPointError("nonfinite frozen-rescaled gradient")
++        # CPU float64 midpoint median has the same convention as rescale_stats.
++        return {"max_ratio": flat.max().item(),
++                "median_ratio": float(np.median(flat.cpu().numpy()))}
++
++    @torch.no_grad()
++    def step(self, closure=None):
++        loss = None
++        if closure is not None:
++            with torch.enable_grad():
++                loss = closure()
++        for parameter, denominator in zip(self._frs_parameters, self._frs_denominators):
++            if parameter.grad is not None:
++                if parameter.grad.layout != torch.strided:
++                    raise ValueError("sgd_diag requires dense gradients")
++                parameter.grad.div_(denominator)
++        values = [parameter.grad.detach().abs().reshape(-1).double()
++                  if parameter.grad is not None else torch.zeros_like(parameter).reshape(-1).double()
++                  for parameter in self._frs_parameters]
++        self.last_ratio_metrics = self._ratio_summary(values)
++        super().step()
++        return loss
++
++    def state_dict(self):
++        result = super().state_dict()
++        result["frs"] = {
++            "format_version": FORMAT_VERSION,
++            "parameter_names": list(self.parameter_names),
++            "denominators": [value.detach().clone() for value in self._frs_denominators],
++            "rescale_path": self.rescale_path,
++            "floor": self.rescale_floor,
++            "epsilon": EPSILON,
++            "global_median_r": self.global_median_r,
++            "source_metadata": copy.deepcopy(self.source_metadata),
++            "last_ratio_metrics": dict(self.last_ratio_metrics),
++        }
++        return result
++
++    def load_state_dict(self, state_dict):
++        frozen = state_dict.get("frs")
++        if not isinstance(frozen, dict) or frozen.get("format_version") != FORMAT_VERSION:
++            raise ValueError("optimizer state lacks frozen rescaling data")
++        if frozen.get("parameter_names") != list(self.parameter_names):
++            raise ValueError("optimizer frozen parameter order differs")
++        if frozen.get("epsilon") != EPSILON:
++            raise ValueError("optimizer frozen epsilon differs")
++        denominators = frozen.get("denominators", [])
++        if len(denominators) != len(self._frs_parameters):
++            raise ValueError("optimizer frozen denominator count differs")
++        restored = []
++        for parameter, value in zip(self._frs_parameters, denominators):
++            if (not torch.is_tensor(value) or value.shape != parameter.shape
++                    or value.dtype != parameter.dtype):
++                raise ValueError("optimizer frozen denominator shape/dtype differs")
++            value = value.detach().to(parameter.device).clone()
++            if not bool(torch.isfinite(value).all()) or not bool((value > 0).all()):
++                raise ValueError("optimizer frozen denominator is not finite and positive")
++            restored.append(value)
++        for group in state_dict.get("param_groups", []):
++            if any(group.get(key, 0) != 0 for key in ("momentum", "dampening", "weight_decay")):
++                raise ValueError("frozen rescaled SGD requires zero momentum/weight decay")
++            if group.get("nesterov", False):
++                raise ValueError("frozen rescaled SGD does not use Nesterov momentum")
++        super().load_state_dict({key: value for key, value in state_dict.items() if key != "frs"})
++        self._frs_denominators = tuple(restored)
++        self.rescale_path = str(frozen["rescale_path"])
++        self.rescale_floor = _valid_floor(frozen["floor"])
++        self.global_median_r = float(frozen["global_median_r"])
++        self.source_metadata = copy.deepcopy(frozen.get("source_metadata", {}))
++        self.last_ratio_metrics = dict(frozen.get("last_ratio_metrics", {}))
++
++
++def run_rescale_stats(agent):
++    """Convert the approved saved V4 sums; perform no sampling or updates."""
++    source = agent.cfg.train.get("rescale_stats_source", None)
++    if source is None:
++        raise ValueError("rescale_stats requires explicit train.rescale_stats_source")
++    source = Path(source).expanduser().resolve()
++    if not source.is_file():
++        raise FileNotFoundError(str(source))
++    if int(agent.seed) != 4000:
++        raise ValueError("approved cached rescale_stats processing seed is 4000")
++    source_summary_path = source.parent / "noise_scale.json"
++    source_summary = json.loads(source_summary_path.read_text())
++    if (source_summary.get("status") != "completed" or source_summary.get("seed") != 1000
++            or source_summary.get("measurement_batches") != 25
++            or source_summary.get("warmup_batches") != 20
++            or tuple(source_summary.get("variant_order", [])) != VARIANT_ORDER):
++        raise ValueError("saved source is not the approved theta0 seed1000 V4 measurement")
++    named = _named_parameters(agent.model.actor_ft.named_parameters())
++    count = sum(parameter.numel() for _, parameter in named)
++    vectors = np.load(source, mmap_mode="r", allow_pickle=False)
++    if count != 568392 or vectors.shape != (25, 5, count) or vectors.dtype != np.dtype("float64"):
++        raise ValueError("saved V4 vector geometry/dtype differs from the approved source")
++    destination = Path(agent.logdir).expanduser().resolve()
++    paths = {"artifact": destination / "rescale.pt", "json": destination / "rescale_stats.json",
++             "csv": destination / "rescale_stats.csv", "summary": destination / "SUMMARY.md"}
++    if any(path.exists() for path in paths.values()):
++        raise FileExistsError("refusing to overwrite rescale_stats outputs")
++    destination.mkdir(parents=True, exist_ok=True)
++    squared_sum = np.zeros(count, dtype=np.float64)
++    for batch in range(25):
++        gradient = np.asarray(vectors[batch, 3, :], dtype=np.float64) / 40.0
++        if not np.isfinite(gradient).all():
++            raise FloatingPointError("nonfinite source V4 batch gradient")
++        squared_sum += gradient * gradient
++    r_flat = np.sqrt(squared_sum / 25.0)
++    if not np.isfinite(r_flat).all():
++        raise FloatingPointError("nonfinite float64 RMS rescale statistics")
++    r = {}
++    offset = 0
++    for name, parameter in named:
++        end = offset + parameter.numel()
++        r[name] = torch.from_numpy(r_flat[offset:end].copy()).reshape(parameter.shape)
++        offset = end
++    if offset != count:
++        raise ValueError("rescale parameter unflattening mismatch")
++    source_record = {
++        "path": str(source), "summary_path": str(source_summary_path),
++        "measurement_seed": 1000, "variant": "theory_loo", "variant_index": 3,
++        "batches": 25, "environments_per_batch": 40, "pairs_per_environment": 5000,
++        "full_batch_pairs": 200000, "vector_sum_divisor": 40,
++        "saved_dtype": "float64", "underlying_gradient_dtype": "float32",
++        "actor_coordinates": count,
++    }
++    metadata = {
++        "source": source_record, "processing_seed": 4000, "sampling_performed": False,
++        "formula": "g_b=V4_batch_vector_sum/40; r=sqrt(sum_b(g_b*g_b)/25)",
++        "estimator": "E2 raw MC-LOO, gamma^k, summed coordinates, no normalization, denoising weight one",
++        "gradient_scale": "code loss gradient; no additional factor2500; sign irrelevant to RMS",
++        "rounding_caveat": "Same E2 estimator/scaling; 40 float32 environment gradients summed in float64 need not equal four shuffled float32 training chunks bitwise.",
++        "reproducibility": "Deterministic conversion of the same cached input; processing seed4000 does not recreate measurement seed1000 rollouts.",
++    }
++    floor = _valid_floor(agent.cfg.train.get("rescale_floor", 1e-3))
++    artifact = build_rescale_artifact(named, r, floor=floor, metadata=metadata)
++    floor_threshold = floor * artifact["global_median_r"]
++    percentile_levels = (0, 1, 10, 50, 90, 99, 100)
++    quantiles = dict(zip(
++        (str(level) for level in percentile_levels),
++        (float(value) for value in np.percentile(r_flat, percentile_levels)),
++    ))
++    zero_count = int(np.count_nonzero(r_flat == 0))
++    floored_count = int(np.count_nonzero(r_flat < floor_threshold))
++    top_count = int(math.ceil(0.01 * count))
++    squared_sorted = np.sort(r_flat * r_flat)
++    squared_total = float(np.sum(squared_sorted, dtype=np.float64))
++    top_share = (float(np.sum(squared_sorted[-top_count:], dtype=np.float64)) / squared_total
++                 if squared_total > 0 else None)
++    summary = {
++        "mode": "rescale_stats", "status": "completed", "processing_seed": 4000,
++        "source": source_record, "parameter_count": count,
++        "parameter_specs": artifact["parameter_specs"], "floor": floor, "epsilon": EPSILON,
++        "global_median_r": artifact["global_median_r"],
++        "median_convention": artifact["median_convention"],
++        "r_min": float(r_flat.min()), "r_max": float(r_flat.max()),
++        "r_quantiles": quantiles,
++        "r_quantile_convention": "percent levels; NumPy linear interpolation",
++        "r_zero_count": zero_count, "r_zero_fraction": zero_count / count,
++        "floor_threshold": floor_threshold,
++        "floored_count": floored_count, "floored_fraction": floored_count / count,
++        "floor_count_definition": "r strictly below floor*global_median_r, before epsilon",
++        "top1pct_coordinate_count": top_count,
++        "top1pct_squared_mass_share": top_share,
++        "top1pct_definition": "sum of r^2 for ceil(0.01*P) largest coordinates / sum of all r^2",
++        "top1pct_undefined_reason": "all r are zero" if top_share is None else None,
++        "statistics_dtype": "float64", "denominator_cast": "actor parameter dtype after floor and epsilon",
++        "sampling_performed": False, "actor_updates": 0, "critic_updates": 0,
++        "metadata": metadata, "artifacts": {key: str(path) for key, path in paths.items()},
++    }
++    with paths["artifact"].open("xb") as handle:
++        torch.save(artifact, handle)
++    with paths["json"].open("x") as handle:
++        json.dump(summary, handle, indent=2, allow_nan=False)
++        handle.write("\n")
++    with paths["csv"].open("x", newline="") as handle:
++        writer = csv.writer(handle)
++        writer.writerow(["statistic", "value"])
++        for key in ("parameter_count", "floor", "epsilon", "r_min", "global_median_r",
++                    "r_max", "r_zero_count", "r_zero_fraction", "floor_threshold",
++                    "floored_count", "floored_fraction", "top1pct_coordinate_count",
++                    "top1pct_squared_mass_share", "top1pct_undefined_reason"):
++            writer.writerow([key, summary[key]])
++        for level in percentile_levels:
++            writer.writerow(["r_quantile_percent_" + str(level), quantiles[str(level)]])
++    with paths["summary"].open("x") as handle:
++        handle.write(
++            "# Frozen rescale statistics\n\n"
++            "Converted 25 saved theta0 V4 batches from measurement seed1000; no new rollouts or updates. "
++            "Each saved vector sum is divided by40 before the float64 coordinate RMS. "
++            f"The global midpoint median defines max(r, {floor!r}*median(r))+1e-8, then denominators are cast to actor dtype.\n\n"
++            f"Coordinates: {count}; exact zeros: {zero_count}; floored: {floored_count} "
++            f"({summary['floored_fraction']:.9g}), counting r strictly below the floor before epsilon. "
++            f"The largest ceil(0.01*P)={top_count} coordinates contribute "
++            + (f"{top_share:.9g}" if top_share is not None else "an undefined fraction (all r are zero)")
++            + " of the total sum of r squared.\n\n"
++            "| Percentile | r |\n|---|---:|\n"
++            + "\n".join(f"| {level}% | {quantiles[str(level)]:.9g} |" for level in percentile_levels)
++            + "\n\nQuantiles use linear interpolation; the 50th percentile is the global midpoint median.\n\n"
++            + metadata["rounding_caveat"] + " " + metadata["reproducibility"] + "\n\n"
++            "See rescale_stats.json for source, ordered parameter geometry and formulas.\n")
++    log.info("FRS_RESCALE_STATS %s", json.dumps(summary, sort_keys=True, allow_nan=False))
++    return summary
+--- stage3/agent/finetune/stage3_modes.py
++++ stage3_frs/agent/finetune/stage3_modes.py
+@@ -430,6 +430,9 @@
+ 
+ def run_stage3_mode(agent):
+     mode = agent.cfg.train.get("mode", "train")
++    if mode == "rescale_stats":
++        from agent.finetune.frs import run_rescale_stats
++        return run_rescale_stats(agent)
+     dispatch = {"noise_scale": run_noise_scale, "calibrate": run_calibrate,
+                 "ckpt_eval": run_ckpt_eval}
+     if mode not in dispatch:
+--- stage3/agent/finetune/stage3_support.py
++++ stage3_frs/agent/finetune/stage3_support.py
+@@ -32,10 +32,13 @@
+         self.proj_radius = cfg.train.get("proj_radius", None)
+         self.stage3_diag = cfg.train.get("stage3_diag", False)
+         self.stage3_mode = cfg.train.get("mode", "train")
++        self.frs_active = cfg.train.get("actor_optimizer", "adamw") == "sgd_diag"
+         if self.adv_estimator not in ("gae", "mc_loo", "mc_none"):
+             raise ValueError("adv_estimator must be gae, mc_loo or mc_none")
+-        if self.stage3_mode not in ("train", "noise_scale", "calibrate", "ckpt_eval"):
++        if self.stage3_mode not in ("train", "noise_scale", "calibrate", "ckpt_eval", "rescale_stats"):
+             raise ValueError("invalid Stage-3 mode")
++        if self.frs_active and not self.actor_single_step:
++            raise ValueError("sgd_diag requires actor_single_step=true")
+         if self.decision_discount and self.model.norm_adv:
+             raise ValueError("decision_discount is incompatible with norm_adv=true")
+         if self.proj_radius is not None and (
+@@ -80,6 +83,9 @@
+             "min_sampling_denoising_std": self.model.get_min_sampling_denoising_std(),
+             "min_logprob_denoising_std": self.model.min_logprob_denoising_std,
+             "max_grad_norm": self.max_grad_norm,
++            "rescale_path": cfg.train.get("rescale_path", None),
++            "rescale_floor": cfg.train.get("rescale_floor", 1e-3),
++            "rescale_stats_source": cfg.train.get("rescale_stats_source", None),
+         }
+         log.info("STAGE3_SETTINGS " + json.dumps(settings, sort_keys=True))
+ 
+@@ -211,6 +217,19 @@
+                                         grad_cos_prev_reason=reason)
+             self._stage3_current_gradient = gradient.clone()
+         self._stage3_diag_seconds += time.perf_counter() - before
++
++    def _frs_optimizer_step(self):
++        try:
++            self.actor_optimizer.step()
++        except FloatingPointError as error:
++            failure = {"itr": self.itr, "reason": "nonfinite_frozen_rescaled_gradient",
++                       "error": str(error),
++                       "last_diagnostics": {key: repr(value) for key, value in self._stage3_metrics.items()}}
++            (Path(self.logdir) / "failure.json").write_text(json.dumps(failure, indent=2) + "\n")
++            raise
++        values = self.actor_optimizer.last_ratio_metrics
++        self._stage3_metrics.update(values)
++        return values
+ 
+     def _stage3_after_step(self):
+         before = time.perf_counter()
+--- stage3/agent/finetune/train_ppo_agent.py
++++ stage3_frs/agent/finetune/train_ppo_agent.py
+@@ -49,8 +49,15 @@
+                 self.model.actor_ft.parameters(), lr=cfg.train.actor_lr,
+                 momentum=0, dampening=0, weight_decay=0, nesterov=False,
+             )
++        elif actor_optimizer == "sgd_diag":
++            from agent.finetune.frs import FrozenRescaledSGD
++            self.actor_optimizer = FrozenRescaledSGD(
++                self.model.actor_ft.named_parameters(), lr=cfg.train.actor_lr,
++                rescale_path=cfg.train.get("rescale_path", None),
++                floor=cfg.train.get("rescale_floor", 1e-3),
++            )
+         else:
+-            raise ValueError("actor_optimizer must be 'adamw' or 'sgd'")
++            raise ValueError("actor_optimizer must be 'adamw', 'sgd' or 'sgd_diag'")
+         # use cosine scheduler with linear warmup
+         self.actor_lr_scheduler = CosineAnnealingWarmupRestarts(
+             self.actor_optimizer,
+--- stage3/agent/finetune/train_ppo_diffusion_agent.py
++++ stage3_frs/agent/finetune/train_ppo_diffusion_agent.py
+@@ -125,7 +125,10 @@
+             self._stage3_before_step()
+         if self.stage3_active:
+             self._stage3_check_update_numeric(actor=True, losses={"actor_loss": metrics["actor_loss"]})
+-        self.actor_optimizer.step()
++        if self.frs_active:
++            metrics.update(self._frs_optimizer_step())
++        else:
++            self.actor_optimizer.step()
+         if self.stage3_diag or self.proj_radius is not None:
+             self._stage3_after_step()
+         return metrics
+@@ -635,6 +638,11 @@
+                             f" | actor_step_clipfrac={actor_step_metrics['actor_step_clipfrac']!r}"
+                             if actor_step_metrics is not None else ""
+                         )
++                        + (
++                            f" | max_ratio={actor_step_metrics['max_ratio']!r}"
++                            f" | median_ratio={actor_step_metrics['median_ratio']!r}"
++                            if self.frs_active and actor_step_metrics is not None else ""
++                        )
+                     )
+                     if self.use_wandb:
+                         wandb.log(
+@@ -676,6 +684,11 @@
+                             actor_step_ratio=actor_step_metrics["actor_step_ratio"],
+                             actor_step_clipfrac=actor_step_metrics["actor_step_clipfrac"],
+                         )
++                        if self.frs_active:
++                            run_results[-1].update(
++                                max_ratio=actor_step_metrics["max_ratio"],
++                                median_ratio=actor_step_metrics["median_ratio"],
++                            )
+                 if self.stage3_active:
+                     self._stage3_record(run_results[-1], eval_mode)
+                 with open(self.result_path, "wb") as f:

@@ -1,0 +1,29 @@
+{
+  "approved": true,
+  "approval_text": "approve",
+  "approved_utc": "2026-10-11T08:46:56.655533+00:00",
+  "conditions": [
+    "FRS1"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "gpu_hour_cap": 14,
+  "max_parallel_gpu_allocations": 3,
+  "training_cap_seconds": 14400,
+  "gate_cap_seconds": 3600,
+  "ckpt_eval_cap_seconds": 900,
+  "retries": 0,
+  "gpu_type": "a6000",
+  "cpus_per_gpu_job": 40,
+  "memory_gib_per_gpu_job": 64,
+  "n_train_itr": 140,
+  "save_model_freq": 35,
+  "wandb": null,
+  "rescale_floor": 0.001,
+  "actor_lr": 0.0001,
+  "source_reuse": "Stage3 theta0 seed1000 Phase1 V4 batch sums / 40; processing seed4000",
+  "approved_plan": "FRS1 only, ordinary snapshot, same-seed saved-input stats reproducibility, default/inertness gates, three parallel training seeds, final checkpoint evaluations, requested plots/tables against E2/E2_beta0/SGD10; no optional FRS3."
+}

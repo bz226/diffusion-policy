@@ -1,0 +1,10 @@
+{
+  "parent_revision": "c4f3c465e56af756e162dece7656fac9b8e97efa",
+  "source_stage3_revision": "1515be0411a78df94e940de22df45834edadd858",
+  "scaffold_command": "python3 scripts/create_dppo_snapshot.py --source .git --revision HEAD --subdir results/stage3/dppo --study stage3_frs",
+  "requested_parent_branch": "stage3-theory",
+  "branch_command": "git switch -c stage3-theory",
+  "branch_creation_status": "blocked_read_only_parent_git",
+  "branch_error": "cannot create .git/refs/heads/stage3-theory.lock: Read-only file system",
+  "stage3_outputs": "read only; original source and results preserved"
+}

@@ -1,0 +1,213 @@
+{
+  "status": "passed",
+  "passed": true,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/code/gate_frs_features.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/features_cpu",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/dppo",
+    "--device",
+    "cpu",
+    "--rescale-path",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+    "--replay-evidence",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu/evidence.pt"
+  ],
+  "device": "cpu",
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "input_evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/frs_off_cpu/evidence.pt",
+  "rescale_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_frs/runs/gate/rescale_seed4000_A/native/rescale.pt",
+  "learning_rate": 0.0001,
+  "raw_gradient_source": "captured immediately before actual full-batch FRS optimizer step",
+  "denominator_formula": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "denominator_one_plain_sgd": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "denominator_one_gradients": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "identity_rng_inert": {
+    "plain": {
+      "passed": true,
+      "states": {
+        "python": true,
+        "numpy": true,
+        "torch_cpu": true,
+        "torch_cuda": true
+      },
+      "cuda_generator_count": 1
+    },
+    "rescaled": {
+      "passed": true,
+      "states": {
+        "python": true,
+        "numpy": true,
+        "torch_cpu": true,
+        "torch_cuda": true
+      },
+      "cuda_generator_count": 1
+    }
+  },
+  "ratio_diagnostic_state_inert": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 1705180,
+    "tensors": 40,
+    "first_failure": null
+  },
+  "ratio_diagnostic_rng_inert": {
+    "passed": true,
+    "states": {
+      "python": true,
+      "numpy": true,
+      "torch_cpu": true,
+      "torch_cuda": true
+    },
+    "cuda_generator_count": 1
+  },
+  "ratio_metrics": {
+    "max_ratio": 541.7236938476562,
+    "median_ratio": 0.5066910684108734
+  },
+  "ratio_metrics_formula": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 2,
+    "tensors": 2,
+    "first_failure": null
+  },
+  "frs_step_rng_inert": {
+    "passed": true,
+    "states": {
+      "python": true,
+      "numpy": true,
+      "torch_cpu": true,
+      "torch_cuda": true
+    },
+    "cuda_generator_count": 1
+  },
+  "frozen_denominators": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "step_ratio_metrics": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 2,
+    "tensors": 2,
+    "first_failure": null
+  },
+  "mathematical_update": {
+    "max_abs": 3.0043574810179052e-06,
+    "max_rel": 0.0007574127631307836,
+    "relative_l2": 2.1963634497230558e-08,
+    "error_l2": 1.5248865379244696e-05,
+    "reference_l2": 694.2778701388178,
+    "zero_reference_mismatches": 0,
+    "coordinates": 568392,
+    "criterion_relative_l2": 1e-07
+  },
+  "displacement_roundoff": {
+    "max_abs": 3.0043574861167183e-06,
+    "max_rel": 1.0,
+    "relative_l2": 0.0001535502142748629,
+    "error_l2": 1.5248865379598181e-05,
+    "reference_l2": 0.0993086558140643,
+    "zero_reference_mismatches": 0,
+    "coordinates": 568392,
+    "interpretation": "Report only: subtracting stored float32 parameters loses small update bits. The approved 1e-7 relative-L2 criterion applies to updated parameters, not these subtractions."
+  },
+  "actual_training_update": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "actual_training_formula": {
+    "max_abs": 3.0043574810179052e-06,
+    "max_rel": 0.0007574127631307836,
+    "relative_l2": 2.1963634497230558e-08,
+    "error_l2": 1.5248865379244696e-05,
+    "reference_l2": 694.2778701388178,
+    "zero_reference_mismatches": 0,
+    "coordinates": 568392,
+    "criterion_relative_l2": 1e-07
+  },
+  "training_frozen_denominators": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 568392,
+    "tensors": 12,
+    "first_failure": null
+  },
+  "training_logged_ratio_metrics": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 2,
+    "tensors": 2,
+    "first_failure": null
+  },
+  "seconds": 6.961148097063415,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}
