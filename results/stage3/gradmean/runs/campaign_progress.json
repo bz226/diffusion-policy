@@ -1,0 +1,54 @@
+{
+  "utc": "2026-10-11T20:55:25.696536+00:00",
+  "reason": "bootstrap live-gate admission",
+  "status": "live_gate_running",
+  "monitor_status": "active",
+  "ledger": {
+    "actual_gpu_seconds": 629,
+    "outstanding_reserved_gpu_seconds": 3600,
+    "actual_plus_reserved_gpu_seconds": 4229,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 445771
+  },
+  "points": {
+    "P0": {
+      "status": "open",
+      "rounds": []
+    },
+    "D1": {
+      "status": "open",
+      "rounds": []
+    },
+    "D2": {
+      "status": "open",
+      "rounds": []
+    },
+    "N1": {
+      "status": "open",
+      "rounds": []
+    },
+    "N2": {
+      "status": "open",
+      "rounds": []
+    }
+  },
+  "runs": [
+    {
+      "run_id": "prepare_P0",
+      "job_id": "17812544",
+      "scheduler_state": "PENDING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-11T20:55:25.696477+00:00",
+        "progress": {},
+        "status": null,
+        "error": null,
+        "completed_batches": 0,
+        "meta_nonfinite": false
+      }
+    }
+  ],
+  "analyses": [],
+  "analysis_failures": [],
+  "next_step": "Complete admitted groups and evaluate the next approved round boundary"
+}

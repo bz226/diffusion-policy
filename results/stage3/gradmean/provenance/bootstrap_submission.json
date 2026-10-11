@@ -1,0 +1,12 @@
+{
+  "job_id": "17812492",
+  "gpu_count": 0,
+  "cpus": 2,
+  "memory_gib": 8,
+  "wall_cap_seconds": 86400,
+  "formal_gate_job": "17812451",
+  "source_reference_commit": "f425082723799776af35e100983fe20b86888a02",
+  "runtime_commit": "a765f04b374e5d2249af1523b04c4378a8bd96ff",
+  "command": "sbatch --parsable --export=PATH,HOME,USER,LOGNAME,LANG --output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/setup/bootstrap-%j.out results/stage3/gradmean/code/run_bootstrap.sh --formal-job 17812451",
+  "scope": "Gate transition, periodic monitoring, approved adaptive collection and bounded postprocessing; no new scientific settings"
+}

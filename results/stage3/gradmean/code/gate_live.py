@@ -21,6 +21,52 @@ def load(path):
     return json.loads(path.read_text())
 
 
+def attach_pilot_review(report, gate_directory):
+    """Run the reporting-only forecast once, preserving the gate result."""
+    output = ROOT / 'runs/pilot_review'
+    record = output / 'pilot_review.json'
+    markdown = output / 'pilot_review.md'
+    source = output / 'report_pilot_source.py'
+    invocation_log = gate_directory / 'pilot_review.out'
+    command = [sys.executable, '-B', str(ROOT / 'code/report_pilot.py'), '--output', str(output)]
+    review = dict(status='pending', output=str(output), record=str(record), report=str(markdown),
+                  source=str(source), command=command, invocation_log=str(invocation_log),
+                  gate_result_unchanged=True, timeout_seconds=120)
+    started = time.monotonic()
+    try:
+        if output.exists():
+            require(record.is_file() and load(record).get('status') == 'complete'
+                    and markdown.is_file() and source.is_file(),
+                    'Existing pilot review is incomplete; preserving it without overwriting or retrying')
+            review.update(status='complete', reused_existing=True)
+        else:
+            # Output remains in this gate's record even if reporting fails.
+            with invocation_log.open('x') as stream:
+                result = subprocess.run(command, stdout=stream, stderr=subprocess.STDOUT,
+                                        text=True, timeout=120, check=False)
+            review['returncode'] = result.returncode
+            require(result.returncode == 0, 'Pilot reporting process exited ' + str(result.returncode))
+            require(record.is_file() and load(record).get('status') == 'complete'
+                    and markdown.is_file() and source.is_file(),
+                    'Pilot reporting process did not save its complete report and source')
+            review.update(status='complete', reused_existing=False)
+    except Exception as error:
+        review.update(status='failed', error=type(error).__name__ + ': ' + str(error))
+        print('PILOT_REPORT_FAILED ' + json.dumps(review), file=sys.stderr, flush=True)
+    finally:
+        review['elapsed_seconds'] = time.monotonic() - started
+        report['pilot_review'] = review
+        # Keep the already-passed scientific gate record intact if optional
+        # reporting metadata cannot be serialized or persisted.
+        temporary = gate_directory / 'gate_summary.pilot.tmp'
+        try:
+            temporary.write_text(json.dumps(report, indent=2, allow_nan=False) + '\n')
+            temporary.replace(gate_directory / 'gate_summary.json')
+        except Exception as error:
+            review.update(status='failed', persistence_error=type(error).__name__ + ': ' + str(error))
+            print('PILOT_REPORT_PERSISTENCE_FAILED ' + json.dumps(review), file=sys.stderr, flush=True)
+
+
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--offline', type=Path, required=True)
@@ -85,7 +131,9 @@ def main():
     finally:
         report['ended_unix'] = time.time()
         (args.output / 'gate_summary.json').write_text(json.dumps(report, indent=2, allow_nan=False) + '\n')
-    print(json.dumps(dict(passed=True, gate=str(args.output / 'gate_summary.json'))), flush=True)
+    attach_pilot_review(report, args.output)
+    print(json.dumps(dict(passed=True, gate=str(args.output / 'gate_summary.json'),
+                         pilot_review=report['pilot_review'])), flush=True)
 
 
 if __name__ == '__main__':

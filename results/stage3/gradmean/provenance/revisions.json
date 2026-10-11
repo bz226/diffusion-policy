@@ -4,13 +4,17 @@
   "parent_start_commit": "23f57ef4acee74846e35af68fa43076d5c2afcb6",
   "branch": "stage3-gradmean",
   "implementation_and_failed_gate_commit": "0ae03b5db30198b873ee82d5e991e28aa51fc817",
-  "status": "G2-G1 passed; unchanged G1 and G5 allocated before live gates",
+  "status": "offline gates passed; P0 live preparation running",
   "source": "results/stage3_gradmean/dppo",
   "executed_G2_source": "results/stage3/gradmean/setup/g2_source",
-  "default_differential_gate": "not_run",
+  "default_differential_gate": "passed: default and NC4, CPU and CUDA, zero observed replay differences",
   "production_launch_authorized_by_gate": false,
   "amendment_G1_commit": "f425082723799776af35e100983fe20b86888a02",
   "amended_G2_job_id": "17812422",
   "amended_G2_passed": true,
-  "G1_G5_job_id": "17812451"
+  "G1_G5_job_id": "17812451",
+  "runtime_commit": "a765f04b374e5d2249af1523b04c4378a8bd96ff",
+  "G1_G5_passed": true,
+  "bootstrap_job_id": "17812492",
+  "amended_G2_source": "results/stage3/gradmean/setup/g2_g1_source"
 }

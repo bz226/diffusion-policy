@@ -1,0 +1,109 @@
+{
+  "created_utc": "2026-10-11T20:55:24.992576+00:00",
+  "status": "live_gate_running",
+  "submitted": [
+    {
+      "run_id": "prepare_P0",
+      "job_id": "17812544",
+      "cap_seconds": 3600,
+      "reserved_gpu_count": 1,
+      "scheduler_state": "RUNNING",
+      "submitted_utc": "2026-10-11T20:55:25.688084+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--time=60",
+        "--signal=B:TERM@30",
+        "--job-name=gm-prepare_P0",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/setup/prepare_P0-%j.out",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/run_worker.sh",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/prepare_P0.json",
+        "--commit",
+        "f425082723799776af35e100983fe20b86888a02",
+        "--gate",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/gate_summary.json"
+      ],
+      "source_provenance": {
+        "gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/gate_summary.json",
+        "reference_parent_commit": "f425082723799776af35e100983fe20b86888a02",
+        "current_parent_commit": "a765f04b374e5d2249af1523b04c4378a8bd96ff",
+        "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/source_snapshot",
+        "files_compared": 404,
+        "stage": "offline"
+      },
+      "elapsed_seconds": 457,
+      "gpu_count": 1,
+      "allocated_gpu_seconds": 457,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0"
+    }
+  ],
+  "external": [
+    {
+      "job_id": "17812451",
+      "cap_seconds": 7200,
+      "reserved_gpu_count": 1,
+      "purpose": "G1 unchanged batch-gradient and G5 default replay after amended G2",
+      "external": true,
+      "scheduler_state": "COMPLETED",
+      "elapsed_seconds": 629,
+      "gpu_count": 1,
+      "allocated_gpu_seconds": 629,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0",
+      "terminal_recorded": true
+    }
+  ],
+  "points": {
+    "P0": {
+      "status": "open",
+      "rounds": []
+    },
+    "D1": {
+      "status": "open",
+      "rounds": []
+    },
+    "D2": {
+      "status": "open",
+      "rounds": []
+    },
+    "N1": {
+      "status": "open",
+      "rounds": []
+    },
+    "N2": {
+      "status": "open",
+      "rounds": []
+    }
+  },
+  "analyses": [],
+  "source_provenance": {
+    "gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/gate_summary.json",
+    "reference_parent_commit": "f425082723799776af35e100983fe20b86888a02",
+    "current_parent_commit": "a765f04b374e5d2249af1523b04c4378a8bd96ff",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/source_snapshot",
+    "files_compared": 404,
+    "stage": "offline"
+  },
+  "gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/gate_summary.json",
+  "monitor_status": "active",
+  "updated_utc": "2026-10-11T21:03:27.710091+00:00",
+  "ledger": {
+    "actual_gpu_seconds": 629,
+    "outstanding_reserved_gpu_seconds": 3600,
+    "actual_plus_reserved_gpu_seconds": 4229,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 445771
+  }
+}
