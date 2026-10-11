@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-11T09:27:56.628793+00:00",
+  "passed": true,
+  "parent_revision_before_fix": "b7ac3a151092d013b0cd7f1b600138174b7df1fd",
+  "scope": "Mechanical Git executable-mode normalization in post-commit source binding; numerical gate and DPPO scientific source unchanged.",
+  "changed_files": [
+    "code/campaign.py",
+    "code/test_runtime.py"
+  ],
+  "rule": "Committed file bytes and Git executable flag (owner-execute bit) must match the gate snapshot. Current scientific source bytes and all three execute permission bits must still match the gate snapshot exactly.",
+  "new_regression": "Gate/current mode0770 versus committed Git mode0755 is accepted without modifying either source tree; committed nonexecutable mode0644 is rejected.",
+  "command": [
+    "results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "results/stage3_frs/code/test_runtime.py"
+  ],
+  "tests": 15,
+  "failures": 0,
+  "errors": 0,
+  "skipped": 0,
+  "elapsed_seconds": 10.527,
+  "result": "OK",
+  "previous_checks_preserved": "provenance/runtime_checks.json",
+  "experiments_or_submissions_performed": false
+}

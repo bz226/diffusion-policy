@@ -227,6 +227,41 @@ class RuntimeTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 m.validate_rescale(record)
 
+    def test_bind_git_executable_flag_normalizes_local_mode(self):
+        source, snapshot = self.root / "dppo", self.root / "snapshot"
+        source.mkdir(); snapshot.mkdir()
+        for base in (source, snapshot):
+            path = base / "script.sh"
+            path.write_bytes(b"exit 0\n")
+            path.chmod(0o770)
+
+        def archive_bytes(mode):
+            data = io.BytesIO()
+            with tarfile.open(fileobj=data, mode="w:") as archive:
+                entry = tarfile.TarInfo("dppo/script.sh")
+                entry.size, entry.mode = 7, mode
+                archive.addfile(entry, io.BytesIO(b"exit 0\n"))
+            return data.getvalue()
+
+        class Result:
+            returncode = 0
+            stderr = b""
+            stdout = archive_bytes(0o755)
+
+        def mocked(argv, *a, **kw):
+            return {"stdout": "stage3-theory\n" if "branch" in argv else "fixture-commit\n"}
+
+        with patch.object(c, "ROOT", self.root), patch.object(c, "SOURCE", source), patch.object(c, "PARENT", self.root), \
+                patch.object(c, "JOURNAL", self.root / "commands.jsonl"), patch.object(c, "command", mocked), \
+                patch.object(c.subprocess, "run", lambda *a, **kw: Result()):
+            bound = c.bind_source(self.original_gate, "fixture-commit")
+            self.assertTrue(bound["committed_source_byte_identical"])
+            self.assertEqual((source / "script.sh").stat().st_mode & 0o777, 0o770)
+            self.assertEqual((snapshot / "script.sh").stat().st_mode & 0o777, 0o770)
+            Result.stdout = archive_bytes(0o644)
+            with self.assertRaisesRegex(ValueError, "differs"):
+                c.bind_source(self.original_gate, "fixture-commit")
+
 
 if __name__ == "__main__":
     unittest.main()

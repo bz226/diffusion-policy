@@ -115,7 +115,7 @@ def plan(gate, commit):
 
 
 def bind_source(gate, commit):
-    """Bind a passed pre-commit gate to identical committed ordinary source files."""
+    """Match committed bytes/Git execute flags and exact current/gate execute bits."""
     gate = Path(gate).resolve()
     if ROOT not in gate.parents:
         raise ValueError("Original gate must be local to the FRS study")
@@ -153,7 +153,11 @@ def bind_source(gate, commit):
         raise ValueError("Committed scientific source file set differs from numerical gate snapshot")
     for name, path in expected.items():
         data, executable = path.read_bytes(), path.stat().st_mode & 0o111
-        if (committed[name] != (data, executable) or actual[name].read_bytes() != data or
+        # Git records one executable flag (the owner's execute bit), not all
+        # permission bits. Local source must still retain the gate's exact bits.
+        committed_data, committed_executable = committed[name]
+        if (committed_data != data or bool(committed_executable & 0o100) != bool(executable & 0o100) or
+                actual[name].read_bytes() != data or
                 actual[name].stat().st_mode & 0o111 != executable):
             raise ValueError("Committed/current source differs from numerical gate: " + name)
     artifact = Path(original.get("rescale_path", "")).resolve()
@@ -162,7 +166,7 @@ def bind_source(gate, commit):
     bound = dict(original, original_gate_path=str(gate), reference_parent_commit=original.get("parent_commit"),
                  parent_commit=commit, parent_branch=branch, committed_source_byte_identical=True,
                  committed_source_files_compared=len(expected), bound_utc=utc(),
-                 binding_note="Original pre-commit numerical gate preserved unchanged; committed and current ordinary source match its full snapshot byte-for-byte including executable bits.")
+                 binding_note="Original pre-commit numerical gate preserved unchanged; committed and current ordinary source match its full snapshot byte-for-byte. The committed Git executable flag matches; current source retains the gate snapshot's full execute permission bits.")
     destination = ROOT / "provenance/committed_gate.json"
     write_once(destination, bound)
     return bound
