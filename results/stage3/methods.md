@@ -71,6 +71,8 @@ For n=1,000 environment gradients xi, compute their mean gbar, trace covariance 
 
 Retain signed signal estimates. If the signal interval includes zero or positive signal is otherwise unresolved, derived point ratios/cosines are null, not epsilon-clipped. The reported B_env lower bound uses the nonnegative variance fifth percentile divided by the positive signal 95th percentile, combining two one-sided 95% percentile bounds. Undefined cosine quantities have an explicit explanation. Estimated direction cosines outside [-1,1] are preserved as estimation uncertainty, not silently clipped.
 
+**Observed uncertainty limitation and reporting.** The [post-run audit](runs/noise_ci_review.json) found that these percentile intervals are strongly upward shifted; the confidence-based resolution flags, intervals and lower bounds above are not reliable for these measurements. The [curated Phase-1 analysis](curated/phase1-results/analysis.md) therefore displays saved signed moments and point-derived ratios only, without error bars or confidence claims. Negative squared-signal estimates remain negative; corresponding ratios are unavailable, and corrected cosines outside [-1,1] are explicitly marked. No replacement uncertainty estimator or new sampling has been used. The source field `critic_explained_var_after_warmup` describes the first fresh frozen-critic measurement batch, not a rescore of the final warm-up batch.
+
 Along training, ten-iteration windows estimate B_env as `10 * sum(split_diff_sq)/sum(split_dot)`. A nonpositive denominator is marked unresolved. The multiplier remains 40/4 because the split is over 40 environment rollouts, including BATCH4.
 
 ## Calibration, projection and evaluation

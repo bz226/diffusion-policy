@@ -16,10 +16,10 @@ The user approved a **200 allocated GPU-hour maximum**. Per-job caps are 4 hours
 
 The central duration estimates are 3 hours for normal training (range 2.8–3.4) and 12 hours for BATCH4 (range 11–14), based on NC4's observed 2h21m–2h25m plus new diagnostics and BATCH4's fourfold sample count. Their scheduled monitor intervals are 30 minutes and 2 hours, respectively, using the central estimate divided by six. Measurements use 30-minute checks. Monitoring records progress and stops after verified terminal status; it never authorizes retries or configuration changes.
 
-**Phase-1 limitation.** Review found an upward bias in the percentile bootstrap distribution of squared signal near zero. Its confidence intervals and derived uncertainty claims are unreliable; raw measurements remain intact. [Audit](runs/noise_ci_review.json). Training comparisons use sample SD across seeds and are unaffected. No replacement uncertainty estimator has been run.
+**Phase 1 completed.** Both policies have 25 measured batches. [Curated analysis and plots](curated/INDEX.md#phase-1-fixed-policy-gradient-noise) show provisional point estimates only: V5’s B_ep is 114,292 at θ₀ and 24,396 at the NC4 checkpoint. Rankings and policy changes remain inconclusive because percentile-bootstrap intervals are unreliable, two signal estimates are negative, and seven direction estimates exceed cosine bounds. [Audit](runs/noise_ci_review.json). Training-seed SDs are unaffected; no replacement uncertainty method was run.
 
 Next: finish BATCH4, then final checkpoint evaluations and analysis. PROJ3/PROJ10 were skipped as prescribed: maximum SGD distances 0.0888/0.2571 are below 6.9488. [Methods](methods.md). Wave-1 artifacts A–D are curated under the approved names; earlier curated artifacts remain unchanged.
 
 <!-- stage3-status-start -->
-Last monitor: 2026-10-11T00:21:28.857970+00:00; campaign **running**. Run states: complete 30, running 3, skipped 6. [Live record](runs/campaign_progress.json); [command journal](runs/campaign_commands.jsonl).
+Last monitor: 2026-10-11T00:51:37.010663+00:00; campaign **running**. Run states: complete 30, running 3, skipped 6. [Live record](runs/campaign_progress.json); [command journal](runs/campaign_commands.jsonl).
 <!-- stage3-status-end -->

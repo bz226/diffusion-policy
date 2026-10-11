@@ -1,0 +1,133 @@
+{
+  "status": "rendered_pending_visual_review",
+  "created_utc": "2026-10-11T01:10:11.662215+00:00",
+  "script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_phase1_measurements.py",
+  "working_directory": "/soalnas/share/data/zbao7/diffusion_policy",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/plot_phase1_measurements.py",
+  "source_paths": {
+    "theta0": {
+      "measurement": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_scale.json",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/ns_theta0_seed1000/manifest.json"
+    },
+    "nc4_checkpoint": {
+      "measurement": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000/noise_scale.json",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/ns_ckpt_seed2000/manifest.json"
+    }
+  },
+  "validation": {
+    "theta0": {
+      "complete": true,
+      "batches": 25,
+      "per_env_rollouts": 1000,
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "derived_point_formulas_checked": true,
+      "saved_matrix_symmetric": true,
+      "undefined_variants": [
+        "mc_critic"
+      ],
+      "matrix_null_cells": 9,
+      "out_of_range_unique_pairs": [
+        {
+          "row": "nc4",
+          "column": "mc_loo",
+          "saved_value": 1.2135786205526506
+        },
+        {
+          "row": "nc4",
+          "column": "theory_loo",
+          "saved_value": 1.5183821958127586
+        },
+        {
+          "row": "nc4",
+          "column": "theory_nobase",
+          "saved_value": 1.1028690807981032
+        }
+      ],
+      "matrix_out_of_range_cells": 6
+    },
+    "nc4_checkpoint": {
+      "complete": true,
+      "batches": 25,
+      "per_env_rollouts": 1000,
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858",
+      "derived_point_formulas_checked": true,
+      "saved_matrix_symmetric": true,
+      "undefined_variants": [
+        "theory_loo"
+      ],
+      "matrix_null_cells": 9,
+      "out_of_range_unique_pairs": [
+        {
+          "row": "nc4",
+          "column": "mc_critic",
+          "saved_value": 1.5117510784599444
+        },
+        {
+          "row": "nc4",
+          "column": "mc_loo",
+          "saved_value": 1.2790439888723324
+        },
+        {
+          "row": "nc4",
+          "column": "theory_nobase",
+          "saved_value": 1.3186029705048699
+        },
+        {
+          "row": "mc_critic",
+          "column": "theory_nobase",
+          "saved_value": 1.1022353038554729
+        }
+      ],
+      "matrix_out_of_range_cells": 8
+    }
+  },
+  "uncertainty_review": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/noise_ci_review.json",
+  "uncertainty": "none valid; point estimates provisional",
+  "saved_fields_plotted": [
+    "variants.u_sq (availability only)",
+    "variants.B_ep",
+    "variants.expected_batch_cosine",
+    "cosine_matrix"
+  ],
+  "excluded_unreliable_fields": [
+    "all *_ci90 fields",
+    "signal_ci_includes_zero",
+    "signal_resolved_positive",
+    "B_env_lower_bound"
+  ],
+  "new_bootstrap_or_uncertainty_computations": 0,
+  "new_scientific_samples": 0,
+  "negative_signal_policy": "N/A, never zero/epsilon; saved negative signal is preserved in source",
+  "out_of_range_cosine_policy": "preserve and label INVALID, no clipping; full signed color scale [-1.6,1.6]",
+  "training_batch_episodes": 80,
+  "variant_order": [
+    "nc4",
+    "mc_critic",
+    "mc_loo",
+    "theory_loo",
+    "theory_nobase"
+  ],
+  "versions": {
+    "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+    "numpy": "1.24.4",
+    "matplotlib": "3.7.5"
+  },
+  "outputs": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/phase1_analysis/candidates/noise_scale.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/phase1_analysis/candidates/noise_scale.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/phase1_analysis/candidates/direction_cosines.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/phase1_analysis/candidates/direction_cosines.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/phase1_analysis/candidates/figure_captions.md"
+  ],
+  "figure_sizes_inches": {
+    "noise_scale": [
+      13,
+      6.8
+    ],
+    "direction_cosines": [
+      13,
+      7.4
+    ]
+  },
+  "png_dpi": 180
+}

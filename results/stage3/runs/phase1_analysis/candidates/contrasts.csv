@@ -1,0 +1,14 @@
+comparison_type,policy,from_variant,to_variant,B_env_ratio,noise_trace_ratio,corrected_cosine,cosine_status,interpretation
+adjacent_variants,theta0,nc4,mc_critic,,1.0005276643094412,,undefined: nonpositive signal,descriptive point only; no valid confidence interval
+adjacent_variants,theta0,mc_critic,mc_loo,,1.0820747802004802,,undefined: nonpositive signal,descriptive point only; no valid confidence interval
+adjacent_variants,theta0,mc_loo,theory_loo,1.8095156900314628,8027335.921679064,0.7092535112287626,provisional; no validated uncertainty,descriptive point only; no valid confidence interval
+adjacent_variants,theta0,theory_loo,theory_nobase,1.4599460931498558,27.414947960980566,-0.2686383451196186,provisional; no validated uncertainty,descriptive point only; no valid confidence interval
+adjacent_variants,theta_ckpt,nc4,mc_critic,1.9249137151130182,1.0095993694151757,1.5117510784599444,"outside [-1,1]: invalid as a population cosine",descriptive point only; no valid confidence interval
+adjacent_variants,theta_ckpt,mc_critic,mc_loo,7.822706606705549,1.4044148349795338,0.501405188068935,provisional; no validated uncertainty,descriptive point only; no valid confidence interval
+adjacent_variants,theta_ckpt,mc_loo,theory_loo,,3986358.742640621,,undefined: nonpositive signal,descriptive point only; no valid confidence interval
+adjacent_variants,theta_ckpt,theory_loo,theory_nobase,,49.50402058870258,,undefined: nonpositive signal,descriptive point only; no valid confidence interval
+between_policies,theta0_to_theta_ckpt,nc4,nc4,0.3774459096501592,0.9687453675770931,,not estimated across policies,separate measurement seeds; no valid uncertainty on policy difference
+between_policies,theta0_to_theta_ckpt,mc_critic,mc_critic,,0.9775289051150294,,not estimated across policies,separate measurement seeds; no valid uncertainty on policy difference
+between_policies,theta0_to_theta_ckpt,mc_loo,mc_loo,5.419539721333396,1.2687257120164042,,not estimated across policies,separate measurement seeds; no valid uncertainty on policy difference
+between_policies,theta0_to_theta_ckpt,theory_loo,theory_loo,,0.6300466161445566,,not estimated across policies,separate measurement seeds; no valid uncertainty on policy difference
+between_policies,theta0_to_theta_ckpt,theory_nobase,theory_nobase,0.21345721313289853,1.13769468765196,,not estimated across policies,separate measurement seeds; no valid uncertainty on policy difference

@@ -1,0 +1,99 @@
+{
+  "approved_utc": "2026-10-11T01:15:43.587738+00:00",
+  "approval": "keep in curated",
+  "approved_artifact_ids": [
+    "A",
+    "B",
+    "C"
+  ],
+  "approved_names": [
+    "phase1-noise-scale",
+    "phase1-direction-diagnostics",
+    "phase1-results"
+  ],
+  "analysis": "phase1_analysis",
+  "measurement_runs": [
+    "ns_theta0_seed1000",
+    "ns_ckpt_seed2000"
+  ],
+  "files": [
+    {
+      "source": "runs/phase1_analysis/candidates/summary.json",
+      "curated": "curated/phase1-results/summary.json",
+      "bytes": 24749,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/direction_cosines.csv",
+      "curated": "curated/phase1-results/direction_cosines.csv",
+      "bytes": 5007,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/point_estimates.csv",
+      "curated": "curated/phase1-results/point_estimates.csv",
+      "bytes": 2034,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/analysis.md",
+      "curated": "curated/phase1-results/analysis.md",
+      "bytes": 4036,
+      "preservation": "Markdown links rebased and approved names/curation label applied; scientific text unchanged"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/noise_scale.png",
+      "curated": "curated/phase1-noise-scale.png",
+      "bytes": 243027,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/noise_scale.pdf",
+      "curated": "curated/phase1-noise-scale.pdf",
+      "bytes": 33635,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/table_caption.md",
+      "curated": "curated/phase1-results/table_caption.md",
+      "bytes": 1733,
+      "preservation": "Markdown links rebased and approved names/curation label applied; scientific text unchanged"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/direction_cosines.pdf",
+      "curated": "curated/phase1-direction-diagnostics.pdf",
+      "bytes": 34677,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/direction_cosines.png",
+      "curated": "curated/phase1-direction-diagnostics.png",
+      "bytes": 249452,
+      "preservation": "byte-identical copy"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/figure_captions.md",
+      "curated": "curated/phase1-results/figure_captions.md",
+      "bytes": 3044,
+      "preservation": "Markdown links rebased and approved names/curation label applied; scientific text unchanged"
+    },
+    {
+      "source": "runs/phase1_analysis/candidates/contrasts.csv",
+      "curated": "curated/phase1-results/contrasts.csv",
+      "bytes": 2455,
+      "preservation": "byte-identical copy"
+    }
+  ],
+  "curated_index": "curated/INDEX.md#phase-1-fixed-policy-gradient-noise",
+  "source_candidates_preserved": true,
+  "earlier_curated_files_preserved": true,
+  "scientific_source_or_runs_changed": false,
+  "uncertainty_boundary": "Provisional points only; invalid saved uncertainty excluded, negative signals and out-of-range cosine warnings preserved. No replacement uncertainty method or new sampling.",
+  "validation": {
+    "byte_identical_files": 8,
+    "markdown_rebased_files": 3,
+    "candidates_unchanged": 11,
+    "earlier_curated_artifacts_unchanged": 28,
+    "method": "direct byte comparison; no hashes"
+  }
+}

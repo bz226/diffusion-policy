@@ -1,5 +1,21 @@
 # Curated Stage 3 results
 
+## Phase 1: fixed-policy gradient noise
+
+How noisy are V1–V5 at a batch of 80 HalfCheetah-v2 episodes, and how do their estimated directions differ at the pretrained policy and the NC4 checkpoint?
+
+The user approved artifacts **A–C** and their proposed names with “keep in curated.” Both measurement runs completed 25 fresh batches of 40 environment rollouts after 20/five critic warm-ups. **These are provisional point estimates: the saved confidence intervals are unreliable, and estimator rankings or changes between policies remain inconclusive.**
+
+| ID | Curated artifact | What it answers / limitation | Original source |
+| --- | --- | --- | --- |
+| A | Noise scale: [PNG](phase1-noise-scale.png), [PDF](phase1-noise-scale.pdf) | Critical batch size and expected batch-gradient cosine for all five variants at both policies; no valid confidence intervals. | [Candidate](../runs/phase1_analysis/candidates/noise_scale.png) |
+| B | Direction diagnostics: [PNG](phase1-direction-diagnostics.png), [PDF](phase1-direction-diagnostics.pdf) | Corrected cosine matrices; seven unique pairs exceed valid cosine bounds, and nonpositive-signal cases remain N/A. | [Candidate](../runs/phase1_analysis/candidates/direction_cosines.png) |
+| C | [Analysis](phase1-results/analysis.md), [point estimates](phase1-results/point_estimates.csv), [directions](phase1-results/direction_cosines.csv), [contrasts](phase1-results/contrasts.csv) | All ten policy/variant combinations, with signed moments and explicit invalid/undefined labels; raw gradient scales differ across variants. | [Candidate analysis](../runs/phase1_analysis/candidates/analysis.md) |
+
+Keep the [figure captions](phase1-results/figure_captions.md), [table definitions](phase1-results/table_caption.md) and [uncertainty audit](../runs/noise_ci_review.json) with exports. Negative signal estimates and out-of-range cosines are preserved; unavailable values are not zeros or confidence bounds. [Structured summaries](phase1-results/summary.json) retain the measurement protocol and all point comparisons. No replacement uncertainty calculation or fresh sampling was performed, and original measurements and earlier curated artifacts remain unchanged.
+
+[Methods](../methods.md#fixed-policy-noise-measurements-and-uncertainty) · [Analysis sources and command](../runs/phase1_analysis/analysis_record.json) · [Plot sources and command](../runs/phase1_analysis/plot_record.json) · [Independent reconstruction](../runs/phase1_analysis/independent_verification.json) · [Approval and copy record](../runs/phase1_analysis/curation_record.json).
+
 ## Completed Wave-1 comparison
 
 Which estimator and optimizer choices improve HalfCheetah returns without clipping or sample reuse, relative to Stage-1 DPPO and Stage-2 NC4?

@@ -1,0 +1,106 @@
+{
+  "status": "completed_interim_point_analysis",
+  "created_utc": "2026-10-11T01:10:08.429368+00:00",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_phase1_measurements.py"
+  ],
+  "working_directory": "/soalnas/share/data/zbao7/diffusion_policy",
+  "source_script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/code/analyze_phase1_measurements.py",
+  "scientific_source_commit": "1515be0411a78df94e940de22df45834edadd858",
+  "inputs": [
+    {
+      "policy": "theta0",
+      "summary": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_scale.json",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/ns_theta0_seed1000/manifest.json",
+      "measurements": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_measurements.json",
+      "gram": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_gram.npy",
+      "scalar_cross_sums": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_theta0_seed1000/noise_batch_scalar_cross_sums.npy"
+    },
+    {
+      "policy": "theta_ckpt",
+      "summary": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000/noise_scale.json",
+      "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/ns_ckpt_seed2000/manifest.json",
+      "measurements": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000/noise_measurements.json",
+      "gram": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000/noise_batch_gram.npy",
+      "scalar_cross_sums": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ns_ckpt_seed2000/noise_batch_scalar_cross_sums.npy"
+    }
+  ],
+  "metadata": {
+    "theta0": {
+      "run": "ns_theta0_seed1000",
+      "seed": 1000,
+      "warmup_batches": 20,
+      "measurement_batches": 25,
+      "environment_rollouts": 1000,
+      "episodes": 2000,
+      "critic_explained_var_first_measurement": 0.6442080361001856,
+      "critic_explained_var_mean_measurement": 0.47307776691876435,
+      "elapsed_seconds": 1528.048377597006,
+      "sampling": "train sampler; frozen actor, critic and reward scaler during measurement",
+      "gradient_units": "negative mean loss gradient per 5000-pair environment rollout; theory variants equal minus paper estimator / 2500",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858"
+    },
+    "theta_ckpt": {
+      "run": "ns_ckpt_seed2000",
+      "seed": 2000,
+      "warmup_batches": 5,
+      "measurement_batches": 25,
+      "environment_rollouts": 1000,
+      "episodes": 2000,
+      "critic_explained_var_first_measurement": 0.27343092804737235,
+      "critic_explained_var_mean_measurement": 0.19673052038773647,
+      "elapsed_seconds": 660.309999528341,
+      "sampling": "train sampler; frozen actor, critic and reward scaler during measurement",
+      "gradient_units": "negative mean loss gradient per 5000-pair environment rollout; theory variants equal minus paper estimator / 2500",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858"
+    }
+  },
+  "uncertainty_review": "runs/noise_ci_review.json",
+  "scope": "Existing Phase-1 measurements only; no new estimator or resampling",
+  "versions": {
+    "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+    "numpy": "1.24.4"
+  },
+  "validation": {
+    "completed_policy_points": 2,
+    "variants_per_policy": 5,
+    "measurement_batches_per_policy": 25,
+    "warmup_batches": [
+      20,
+      5
+    ],
+    "point_formulas_checked": true,
+    "source_records_unchanged": true,
+    "nonpositive_signal_count": 2,
+    "out_of_range_unique_direction_pairs": 7,
+    "independent_numeric_comparisons": 158,
+    "independent_signed_moment_max_abs_difference": 9.7e-13,
+    "independent_max_relative_difference": 1.65e-13,
+    "markdown_links_checked": 60,
+    "visual_review": "Both final PNGs inspected by plot author and primary agent; clear labels, no cropping; uncertainty, missing points and out-of-range cosines explicitly marked.",
+    "contrasts_cosine_status_added": true
+  },
+  "new_scientific_samples": 0,
+  "replacement_uncertainty_method": null,
+  "artifacts": [
+    "runs/phase1_analysis/candidates/analysis.md",
+    "runs/phase1_analysis/candidates/contrasts.csv",
+    "runs/phase1_analysis/candidates/direction_cosines.csv",
+    "runs/phase1_analysis/candidates/direction_cosines.pdf",
+    "runs/phase1_analysis/candidates/direction_cosines.png",
+    "runs/phase1_analysis/candidates/figure_captions.md",
+    "runs/phase1_analysis/candidates/noise_scale.pdf",
+    "runs/phase1_analysis/candidates/noise_scale.png",
+    "runs/phase1_analysis/candidates/point_estimates.csv",
+    "runs/phase1_analysis/candidates/summary.json",
+    "runs/phase1_analysis/candidates/table_caption.md"
+  ],
+  "curation": "Approved A\u2013C: phase1-noise-scale, phase1-direction-diagnostics, phase1-results; original candidates and prior curated artifacts preserved",
+  "finalized_utc": "2026-10-11T01:12:57.801046+00:00",
+  "plot_record": "runs/phase1_analysis/plot_record.json",
+  "independent_verification": "runs/phase1_analysis/independent_verification.json",
+  "reporting_adjustments": "Added environment name to title/caption and explicit invalid/undefined cosine status to contrast exports; numerical values unchanged.",
+  "curation_record": "runs/phase1_analysis/curation_record.json"
+}

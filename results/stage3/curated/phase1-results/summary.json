@@ -1,0 +1,745 @@
+{
+  "scope": "Existing two-policy Phase-1 measurements; point estimates only",
+  "metadata": {
+    "theta0": {
+      "run": "ns_theta0_seed1000",
+      "seed": 1000,
+      "warmup_batches": 20,
+      "measurement_batches": 25,
+      "environment_rollouts": 1000,
+      "episodes": 2000,
+      "critic_explained_var_first_measurement": 0.6442080361001856,
+      "critic_explained_var_mean_measurement": 0.47307776691876435,
+      "elapsed_seconds": 1528.048377597006,
+      "sampling": "train sampler; frozen actor, critic and reward scaler during measurement",
+      "gradient_units": "negative mean loss gradient per 5000-pair environment rollout; theory variants equal minus paper estimator / 2500",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858"
+    },
+    "theta_ckpt": {
+      "run": "ns_ckpt_seed2000",
+      "seed": 2000,
+      "warmup_batches": 5,
+      "measurement_batches": 25,
+      "environment_rollouts": 1000,
+      "episodes": 2000,
+      "critic_explained_var_first_measurement": 0.27343092804737235,
+      "critic_explained_var_mean_measurement": 0.19673052038773647,
+      "elapsed_seconds": 660.309999528341,
+      "sampling": "train sampler; frozen actor, critic and reward scaler during measurement",
+      "gradient_units": "negative mean loss gradient per 5000-pair environment rollout; theory variants equal minus paper estimator / 2500",
+      "source_commit": "1515be0411a78df94e940de22df45834edadd858"
+    }
+  },
+  "points": [
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V1",
+      "variant": "nc4",
+      "u_sq": 1.0542590688563778e-07,
+      "tr_sigma": 0.0021745641754431044,
+      "B_env": 20626.46876542398,
+      "B_ep": 41252.93753084796,
+      "snr_training_batch": 0.001939255839421809,
+      "expected_batch_cosine": 0.04399434514890001,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V2",
+      "variant": "mc_critic",
+      "u_sq": -6.383054469343535e-08,
+      "tr_sigma": 0.0021757116153470753,
+      "B_env": null,
+      "B_ep": null,
+      "snr_training_batch": null,
+      "expected_batch_cosine": null,
+      "point_status": "undefined: nonpositive signed signal estimate"
+    },
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V3",
+      "variant": "mc_loo",
+      "u_sq": 1.0883613062649151e-07,
+      "tr_sigma": 0.0023542826679563184,
+      "B_env": 21631.444028783477,
+      "B_ep": 43262.888057566954,
+      "snr_training_batch": 0.0018491599519095787,
+      "expected_batch_cosine": 0.04296215626240017,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V4",
+      "variant": "theory_loo",
+      "u_sq": 0.482816582231127,
+      "tr_sigma": 18898.61783027218,
+      "B_env": 39142.4373681211,
+      "B_ep": 78284.8747362422,
+      "snr_training_batch": 0.0010219087693444796,
+      "expected_batch_cosine": 0.03195098649336166,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V5",
+      "variant": "theory_nobase",
+      "u_sq": 9.066356311832806,
+      "tr_sigma": 518104.6243513712,
+      "B_env": 57145.84851195132,
+      "B_ep": 114291.69702390264,
+      "snr_training_batch": 0.0006999633576467854,
+      "expected_batch_cosine": 0.026447566081796527,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V1",
+      "variant": "nc4",
+      "u_sq": 2.7058409246701574e-07,
+      "tr_sigma": 0.0021065989714596084,
+      "B_env": 7785.37626603605,
+      "B_ep": 15570.7525320721,
+      "snr_training_batch": 0.005137837740033358,
+      "expected_batch_cosine": 0.07149528163150881,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V2",
+      "variant": "mc_critic",
+      "u_sq": 1.4191884393760335e-07,
+      "tr_sigma": 0.0021268209931962784,
+      "B_env": 14986.17755180817,
+      "B_ep": 29972.35510361634,
+      "snr_training_batch": 0.0026691262572939266,
+      "expected_batch_cosine": 0.051594776743189595,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V3",
+      "variant": "mc_loo",
+      "u_sq": 2.5478768386668917e-08,
+      "tr_sigma": 0.0029869389541907596,
+      "B_env": 117232.47014379216,
+      "B_ep": 234464.94028758432,
+      "snr_training_batch": 0.00034120239854144304,
+      "expected_batch_cosine": 0.018468514265462508,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V4",
+      "variant": "theory_loo",
+      "u_sq": -0.3188112313704874,
+      "tr_sigma": 11907.010213772168,
+      "B_env": null,
+      "B_ep": null,
+      "snr_training_batch": null,
+      "expected_batch_cosine": null,
+      "point_status": "undefined: nonpositive signed signal estimate"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V5",
+      "variant": "theory_nobase",
+      "u_sq": 48.322309004896624,
+      "tr_sigma": 589444.8787724694,
+      "B_env": 12198.193565475925,
+      "B_ep": 24396.38713095185,
+      "snr_training_batch": 0.003279174066659382,
+      "expected_batch_cosine": 0.057170413937217265,
+      "point_status": "positive signed point; uncertainty unvalidated"
+    }
+  ],
+  "direction_cosines": [
+    {
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "nc4",
+      "corrected_inner_product": 1.0542590688563778e-07,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 3.02661524972907e-08,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 1.2999544538815435e-07,
+      "cosine": 1.2135786205526506,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.0003425672680115173,
+      "cosine": 1.5183821958127586,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 0.0010782364909094067,
+      "cosine": 1.1028690807981032,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "nc4",
+      "corrected_inner_product": 3.02661524972907e-08,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": -6.383054469343535e-08,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 5.401314417504292e-08,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.00020419655630077825,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 0.0002444221842317247,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "nc4",
+      "corrected_inner_product": 1.2999544538815435e-07,
+      "cosine": 1.2135786205526506,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 5.401314417504292e-08,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 1.0883613062649151e-07,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.00016258449628134275,
+      "cosine": 0.7092535112287626,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": -0.00046879641295995145,
+      "cosine": -0.47193408159351663,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "nc4",
+      "corrected_inner_product": 0.0003425672680115173,
+      "cosine": 1.5183821958127586,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 0.00020419655630077825,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 0.00016258449628134275,
+      "cosine": 0.7092535112287626,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.482816582231127,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": -0.5620506878719098,
+      "cosine": -0.2686383451196186,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_nobase",
+      "to_variant": "nc4",
+      "corrected_inner_product": 0.0010782364909094067,
+      "cosine": 1.1028690807981032,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_nobase",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 0.0002444221842317247,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_nobase",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": -0.00046879641295995145,
+      "cosine": -0.47193408159351663,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_nobase",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": -0.5620506878719098,
+      "cosine": -0.2686383451196186,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta0",
+      "from_variant": "theory_nobase",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 9.066356311832806,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "nc4",
+      "corrected_inner_product": 2.7058409246701574e-07,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 2.9624528710341645e-07,
+      "cosine": 1.5117510784599444,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 1.0620032038813525e-07,
+      "cosine": 1.2790439888723324,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.00041054210851917234,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 0.004768030440111478,
+      "cosine": 1.3186029705048699,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "nc4",
+      "corrected_inner_product": 2.9624528710341645e-07,
+      "cosine": 1.5117510784599444,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 1.4191884393760335e-07,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 3.015074662996667e-08,
+      "cosine": 0.501405188068935,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 0.0002220877744231822,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 0.002886477579821172,
+      "cosine": 1.1022353038554729,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "nc4",
+      "corrected_inner_product": 1.0620032038813525e-07,
+      "cosine": 1.2790439888723324,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 3.015074662996667e-08,
+      "cosine": 0.501405188068935,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": 2.5478768386668917e-08,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": -6.382134245529626e-05,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": -0.0007822725707125181,
+      "cosine": -0.7050096280875275,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "nc4",
+      "corrected_inner_product": 0.00041054210851917234,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 0.0002220877744231822,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": -6.382134245529626e-05,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": -0.3188112313704874,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 1.834021577952087,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "nc4",
+      "corrected_inner_product": 0.004768030440111478,
+      "cosine": 1.3186029705048699,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "mc_critic",
+      "corrected_inner_product": 0.002886477579821172,
+      "cosine": 1.1022353038554729,
+      "status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "mc_loo",
+      "corrected_inner_product": -0.0007822725707125181,
+      "cosine": -0.7050096280875275,
+      "status": "provisional; no validated uncertainty"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "theory_loo",
+      "corrected_inner_product": 1.834021577952087,
+      "cosine": null,
+      "status": "undefined: nonpositive signal"
+    },
+    {
+      "policy": "theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "theory_nobase",
+      "corrected_inner_product": 48.322309004896624,
+      "cosine": 1.0,
+      "status": "provisional; no validated uncertainty"
+    }
+  ],
+  "contrasts": [
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta0",
+      "from_variant": "nc4",
+      "to_variant": "mc_critic",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 1.0005276643094412,
+      "corrected_cosine": null,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "undefined: nonpositive signal"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta0",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_loo",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 1.0820747802004802,
+      "corrected_cosine": null,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "undefined: nonpositive signal"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta0",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_loo",
+      "B_env_ratio": 1.8095156900314628,
+      "noise_trace_ratio": 8027335.921679064,
+      "corrected_cosine": 0.7092535112287626,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "provisional; no validated uncertainty"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta0",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_nobase",
+      "B_env_ratio": 1.4599460931498558,
+      "noise_trace_ratio": 27.414947960980566,
+      "corrected_cosine": -0.2686383451196186,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "provisional; no validated uncertainty"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "mc_critic",
+      "B_env_ratio": 1.9249137151130182,
+      "noise_trace_ratio": 1.0095993694151757,
+      "corrected_cosine": 1.5117510784599444,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "outside [-1,1]: invalid as a population cosine"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_loo",
+      "B_env_ratio": 7.822706606705549,
+      "noise_trace_ratio": 1.4044148349795338,
+      "corrected_cosine": 0.501405188068935,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "provisional; no validated uncertainty"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "theory_loo",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 3986358.742640621,
+      "corrected_cosine": null,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "undefined: nonpositive signal"
+    },
+    {
+      "comparison_type": "adjacent_variants",
+      "policy": "theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_nobase",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 49.50402058870258,
+      "corrected_cosine": null,
+      "interpretation": "descriptive point only; no valid confidence interval",
+      "cosine_status": "undefined: nonpositive signal"
+    },
+    {
+      "comparison_type": "between_policies",
+      "policy": "theta0_to_theta_ckpt",
+      "from_variant": "nc4",
+      "to_variant": "nc4",
+      "B_env_ratio": 0.3774459096501592,
+      "noise_trace_ratio": 0.9687453675770931,
+      "corrected_cosine": null,
+      "interpretation": "separate measurement seeds; no valid uncertainty on policy difference",
+      "cosine_status": "not estimated across policies"
+    },
+    {
+      "comparison_type": "between_policies",
+      "policy": "theta0_to_theta_ckpt",
+      "from_variant": "mc_critic",
+      "to_variant": "mc_critic",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 0.9775289051150294,
+      "corrected_cosine": null,
+      "interpretation": "separate measurement seeds; no valid uncertainty on policy difference",
+      "cosine_status": "not estimated across policies"
+    },
+    {
+      "comparison_type": "between_policies",
+      "policy": "theta0_to_theta_ckpt",
+      "from_variant": "mc_loo",
+      "to_variant": "mc_loo",
+      "B_env_ratio": 5.419539721333396,
+      "noise_trace_ratio": 1.2687257120164042,
+      "corrected_cosine": null,
+      "interpretation": "separate measurement seeds; no valid uncertainty on policy difference",
+      "cosine_status": "not estimated across policies"
+    },
+    {
+      "comparison_type": "between_policies",
+      "policy": "theta0_to_theta_ckpt",
+      "from_variant": "theory_loo",
+      "to_variant": "theory_loo",
+      "B_env_ratio": null,
+      "noise_trace_ratio": 0.6300466161445566,
+      "corrected_cosine": null,
+      "interpretation": "separate measurement seeds; no valid uncertainty on policy difference",
+      "cosine_status": "not estimated across policies"
+    },
+    {
+      "comparison_type": "between_policies",
+      "policy": "theta0_to_theta_ckpt",
+      "from_variant": "theory_nobase",
+      "to_variant": "theory_nobase",
+      "B_env_ratio": 0.21345721313289853,
+      "noise_trace_ratio": 1.13769468765196,
+      "corrected_cosine": null,
+      "interpretation": "separate measurement seeds; no valid uncertainty on policy difference",
+      "cosine_status": "not estimated across policies"
+    }
+  ],
+  "uncertainty": "Saved percentile CIs, confidence flags and lower bounds excluded as unreliable; no replacement method computed",
+  "nonpositive_signals": [
+    {
+      "policy": "theta0",
+      "run": "ns_theta0_seed1000",
+      "variant_id": "V2",
+      "variant": "mc_critic",
+      "u_sq": -6.383054469343535e-08,
+      "tr_sigma": 0.0021757116153470753,
+      "B_env": null,
+      "B_ep": null,
+      "snr_training_batch": null,
+      "expected_batch_cosine": null,
+      "point_status": "undefined: nonpositive signed signal estimate"
+    },
+    {
+      "policy": "theta_ckpt",
+      "run": "ns_ckpt_seed2000",
+      "variant_id": "V4",
+      "variant": "theory_loo",
+      "u_sq": -0.3188112313704874,
+      "tr_sigma": 11907.010213772168,
+      "B_env": null,
+      "B_ep": null,
+      "snr_training_batch": null,
+      "expected_batch_cosine": null,
+      "point_status": "undefined: nonpositive signed signal estimate"
+    }
+  ],
+  "out_of_range_unique_direction_pairs": {
+    "theta0": 3,
+    "theta_ckpt": 4
+  }
+}
