@@ -1,0 +1,41 @@
+{
+  "verified_utc": "2026-10-11T20:05:32.936766+00:00",
+  "status": "gate_failed_collection_not_launched",
+  "all_200_unique_replicates_verified": true,
+  "failed_replicate": {
+    "index": 125,
+    "rho": -0.007063454129127192,
+    "signal_sq": -0.054120453970350015,
+    "signal_90_interval": [
+      -1.0059604415682262,
+      0.8977195336275261
+    ],
+    "realized_cosine": 0.5059136019292327
+  },
+  "conditional_defined_cases_only": {
+    "n": 199,
+    "mean_estimated_cosine": 0.5595051393295527,
+    "mean_realized_cosine": 0.5820636857528242,
+    "mean_absolute_error": 0.09096472173978054,
+    "not_a_replacement_gate": true
+  },
+  "all_200_mean_estimated_cosine": null,
+  "gate_rules_changed": false,
+  "reruns": 0,
+  "new_environment_batches": 0,
+  "gpu_hours": 0,
+  "slurm": {
+    "job_id": "17812088",
+    "state": "FAILED",
+    "exit_code": "1:0",
+    "allocated_cpus": 40,
+    "elapsed_seconds": 20,
+    "allocated_cpu_seconds": 800,
+    "gpu_count": 0
+  },
+  "cleanup_error": "Python3.8 does not support ProcessPoolExecutor.shutdown(cancel_futures=True); this secondary error occurred after all results and the scientific failure were saved.",
+  "other_gates": "G1,G3,G4,G5 not run; small deterministic software checks are not substitutes.",
+  "monitor_status": "terminal gate verified; no collection monitors or jobs started",
+  "implementation_status": "collector and statistic helpers implemented but scientific validation incomplete; full scheduler and final analysis remain unfinished",
+  "source_unchanged_during_G2": true
+}

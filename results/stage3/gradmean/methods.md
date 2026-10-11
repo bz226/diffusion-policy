@@ -1,0 +1,47 @@
+# Addendum G methods
+
+## Question and scope
+
+Measure the mean and noise of five gradient estimators at the pretrained policy P0, Stage-1 DPPO seed0 checkpoints70/139 (D1/D2), and Stage-2 NC4 1e-4 seed0 checkpoints70/139 (N1/N2). Policies are fixed during this study. The complete checkpoint identities are in [checkpoints.json](provenance/checkpoints.json); existing training results are references, never rerun or modified. This protocol comes from the user's Stage-3 Addendum G, with the explicit resolutions approved in [approval.json](provenance/approval.json).
+
+## Source, sampling and seeds
+
+The parent branch is `stage3-gradmean`, starting at Stage-3 revision `23f57ef4acee74846e35af68fa43076d5c2afcb6`. Ordinary source files were exported with `scripts/create_dppo_snapshot.py` to `results/stage3_gradmean/dppo`. Only the new `grad_mean` mode and its dispatch/validation/seeding hooks change; existing modes/defaults must pass a differential gate. Outputs live here, outside the source. The explicit `gradmean` launcher dispatch preserves the existing Stage-3 runner path.
+
+Each batch has40 environments ×500 decisions, or80 complete episodes of250 action chunks; each chunk executes4 environment steps. The train sampler has20 denoising transitions, the last10 differentiated, noise floors0.1, `randn_clip_value=100`, no log-probability clamp and the existing x0 clamp. Alignment at0,250,500 is asserted. No deterministic-algorithm settings are enabled.
+
+For point index p in P0,D1,D2,N1,N2 and successful group index j=0…81, use seed `100000+10000*p+100*j`; workers use seed+i for i=0…39, and Torch sampling uses the job seed. Preparation uses slot j=90. A single replacement per failed group uses the separate range `1000000+10000*p+100*j`; failures and used seed ranges remain recorded. The new mode additionally seeds Gym's underlying reset RNG, which the inherited wrapper omitted. Collect loads model/scaler state without restoring preparation RNG or environment state. Dedicated diagnostic generators never advance the sampler RNG.
+
+## Frozen preparation and gradients
+
+Preparation updates only the critic and running reward scaler:20 batches at P0 and5 at each RL checkpoint, standard GAE0.95 targets, five epochs,50,000-pair chunks and critic LR1e-3. One additional batch measures explained variance with the scaler frozen. Save actor, actor_ft, critic and full scaler state. The user explicitly requested SHA-256 for frozen state and actor invariance; its use is restricted to those checks.
+
+V1 uses scaled-reward GAE0.95, V2 scaled MC returns minus critic, and V3 raw MC with a leave-one-out baseline across80 episodes at the same decision index. These three use full-batch advantage normalization, mean coordinate log-probability and weights0.99^(9−i). This matches the Phase-1 measurement definitions; NC4 training's per-chunk normalization is different. V4 uses raw MC/LOO multiplied by0.99^k, summed log-probability, weights1 and no normalization; V5 removes LOO. The critic/scaler stay fixed across groups at a point.
+
+The saved vector is the ascent gradient, negative the native loss gradient. One batch averages200,000 decision/denoising pairs. V4/V5 vectors multiply by2500 for theory units; squared quantities multiply by2500². V1–V3 retain internal moments but publish only dimensionless B/alignment quantities. Model calculations retain the existing float32 numerics; vector accumulation, norms, cross-products and analysis use float64. Each50-batch job saves five float32 group sums, per-batch scalar records and metadata.
+
+## Estimation and uncertainty
+
+For K batches, S=sum(s_b) and Q=sum(||s_b||²), estimate noise trace as `(Q−||S||²/K)/(K−1)` and squared mean as `(||S||²−Q)/(K*(K−1))`. Cross-estimator means subtract same-batch scalar products before division byK(K−1). Different-point data are independent; use products of their sample means. Multiply noise trace by80 for the prescribed equivalent per-episode scale. B_ep is this trace divided by squared mean; it remains a batch-equivalent scale for LOO-coupled estimators.
+
+Twenty dedicated random balanced splits of groups produce mean split cosine rho. Report `sqrt(2*rho/(1+rho))` and the moment-based direction check; undefined derived values stay unavailable. Keep signed signal and out-of-range cosine estimates rather than clipping. Identical split randomization is reused across delete-one-group replicates, with balance restored after deletion, so computational randomness is controlled.
+
+The approved covariance effective-rank denominator uses X_g=S_g/50 and the mean over distinct groups a,b,c,d of `50²*((X_a−X_b)·(X_c−X_d))²/4`. It cancels the unknown mean. The original raw-inner-product variance additionally contains100*uᵀΣ_b*u. The rank estimate is `(trΣ_b)²/tr(Σ_b²)` and, like other ratios, has finite-sample uncertainty.
+
+Use delete-one-group jackknife standard errors and90% intervals `estimate±1.645*SE`, paired across variants at one point and independently over each point for cross-point comparisons. Ratio intervals are unavailable if required deletion replicates are undefined. One pilot group cannot provide group-jackknife uncertainty. Ordinary jackknife can overcover for nearly degenerate quadratic signal estimates; the synthetic gate tests the specified setup and is not a universal coverage guarantee.
+
+The first collect job at each point samples200 decisions with a dedicated generator, storing the squared score norm and decision index. Report the mean, maximum k-decile mean and99th percentile; group-jackknife uncertainty is unavailable because all scores are in one group. The reward maximum and score moments give an empirical plug-in variance-lemma comparison, not a proven reward/score bound.
+
+## Gates and collection
+
+G1 compares all five whole-batch gradients to the sign-corrected mean of40 Phase-1 per-env gradients on a saved batch (CPU relative L2≤1e-6), and V4 to the negative E2 loss gradient. G5 replays complete default and NC4 updates against the imported source, including losses, gradients, parameters, optimizer/RNG states and fixed-noise chains; CPU is bitwise and GPU uses the accepted float tolerance.
+
+G2 is fixed before execution: P=20,000, K=2,000, group size50,200 replicates, seed8675309, u=e1, covariance `72*U*Uᵀ+0.02*I` where U contains the first50 coordinate vectors. Thus signal1 and noise trace4000, with90% of trace in the low-rank component. Require mean signal/trace within3 Monte-Carlo SE, nominal90% jackknife coverage80–97%, mean direction-cosine error≤0.03 and mean effective-rank error≤20%. Do not change this setup or thresholds after observing a failure.
+
+Only after offline gates pass, prepare P0 and run two50-batch P0 collect jobs. G3 requires identical loaded critic/scaler states but distinct first observations/returns; G4 requires unchanged actor hashes. These successful jobs include the pilot and count toward P0's first500 batches. All gates must pass before other policies' production measurements. Reuse P0's frozen preparation, prepare the other four in parallel, then complete500 batches per point. Subsequent900-batch rounds prioritize P0,D2,N2,D1,N1, closing points only at round boundaries when V4 rho≥0.68 orK=4100. K_needed=4.26*trace/signal is a forecast, never an extra stopping criterion.
+
+## Analysis and resources
+
+Produce partial/final JSON, CSV, summaries, path figures, split-convergence figures and cosine matrices. All per-point rewards use raw rewards; discounted returns use gamma0.99 per decision. Path predictions use V4 in theory units and actor_ft displacement in the same parameter order. OLS drift uses all126 saved training observations per seed versus completed actor updates; slope/(eta/2500) is a path-averaged squared-gradient proxy, including BATCH4, not a local P0 measurement. Compare prior Phase-1 signed provisional estimates without treating its old intervals as valid.
+
+The125 GPU-hour hard cap counts actual completed usage plus full outstanding reservations. At most nine A6000/40CPU/64GiB measurement allocations run concurrently, reduced as resources require. One-hour prepare/collect limits and two-hour gate limits bound jobs; no estimator/batch-size change saves time. Expected measurement duration is about15s/batch from prior Phase-1 records, with a12–16h campaign estimate. Monitor groups every30min and campaign progress every2h40m at most, immediately verify terminal states, and preserve failures. If any gate fails, stop and write REPORT.md before production collection. Curation requires separate approval.

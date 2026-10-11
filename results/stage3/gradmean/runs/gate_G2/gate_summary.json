@@ -1,0 +1,241 @@
+{
+  "passed": false,
+  "checks": {
+    "required_replicate_count": {
+      "passed": true,
+      "actual": 200,
+      "required": 200
+    },
+    "signal_sq_mean_bias": {
+      "passed": true,
+      "mean": 0.9969608779590553,
+      "truth": 1.0,
+      "bias": -0.0030391220409446973,
+      "mc_se": 0.03356354369668646,
+      "required_within_mc_se": 3.0
+    },
+    "covariance_trace_mean_bias": {
+      "passed": true,
+      "mean": 4000.1116534356142,
+      "truth": 4000.0,
+      "bias": 0.11165343561424379,
+      "mc_se": 1.1611202768995064,
+      "required_within_mc_se": 3.0
+    },
+    "signal_sq_90_percent_coverage": {
+      "passed": true,
+      "covered": 193,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.965,
+      "reference": 1.0,
+      "formal_gate_metric": true,
+      "undefined_intervals_excluded": false,
+      "minimum": 0.8,
+      "maximum": 0.97
+    },
+    "covariance_trace_90_percent_coverage": {
+      "passed": true,
+      "covered": 180,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.9,
+      "reference": 4000.0,
+      "formal_gate_metric": true,
+      "undefined_intervals_excluded": false,
+      "minimum": 0.8,
+      "maximum": 0.97
+    },
+    "mean_cosine_agrees_with_realized_cosine": {
+      "passed": false,
+      "mean_estimate": null,
+      "mean_realized": 0.5816829353337063,
+      "difference": null,
+      "maximum_absolute_difference": 0.03,
+      "valid_estimates": 199,
+      "required_estimates": 200
+    },
+    "mean_effective_rank": {
+      "passed": true,
+      "mean": 61.62489129157745,
+      "truth": 61.69221752675901,
+      "relative_error": -0.001091324609175511,
+      "maximum_relative_error": 0.2
+    }
+  },
+  "known_truth": {
+    "signal_sq": 1.0,
+    "signal_norm": 1.0,
+    "covariance_trace": 4000.0,
+    "covariance_trace_squared": 259351.99999999997,
+    "B_batch": 4000.0,
+    "B_ep": 320000.0,
+    "effective_rank": 61.69221752675901,
+    "forecast_batches": 17040.0
+  },
+  "mean_estimates": {
+    "signal_sq": {
+      "mean": 0.9969608779590553,
+      "mc_se": 0.03356354369668646,
+      "valid_count": 200,
+      "count": 200
+    },
+    "signal_norm": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    },
+    "covariance_trace": {
+      "mean": 4000.1116534356142,
+      "mc_se": 1.1611202768995064,
+      "valid_count": 200,
+      "count": 200
+    },
+    "covariance_trace_squared": {
+      "mean": 261446.01954740143,
+      "mc_se": 1534.425376603845,
+      "valid_count": 200,
+      "count": 200
+    },
+    "mean_gradient_norm_sq": {
+      "mean": 2.9970167046768625,
+      "mc_se": 0.033532439992241515,
+      "valid_count": 200,
+      "count": 200
+    },
+    "B_batch": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    },
+    "B_ep": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    },
+    "effective_rank": {
+      "mean": 61.62489129157745,
+      "mc_se": 0.3661809050113547,
+      "valid_count": 200,
+      "count": 200
+    },
+    "rho": {
+      "mean": 0.20009491448306874,
+      "mc_se": 0.005675428979564499,
+      "valid_count": 200,
+      "count": 200
+    },
+    "cosine_reliability": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    },
+    "cosine_moment_crosscheck": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    },
+    "forecast_batches": {
+      "mean": null,
+      "mc_se": null,
+      "valid_count": 199,
+      "count": 200
+    }
+  },
+  "interval_coverage": {
+    "signal_sq": {
+      "covered": 193,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.965,
+      "reference": 1.0,
+      "formal_gate_metric": true,
+      "undefined_intervals_excluded": false
+    },
+    "signal_norm": {
+      "covered": 185,
+      "valid_intervals": 190,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.925,
+      "reference": 1.0,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "covariance_trace": {
+      "covered": 180,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.9,
+      "reference": 4000.0,
+      "formal_gate_metric": true,
+      "undefined_intervals_excluded": false
+    },
+    "covariance_trace_squared": {
+      "covered": 188,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.94,
+      "reference": 259351.99999999997,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "B_batch": {
+      "covered": 177,
+      "valid_intervals": 190,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.885,
+      "reference": 4000.0,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "B_ep": {
+      "covered": 177,
+      "valid_intervals": 190,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.885,
+      "reference": 320000.0,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "effective_rank": {
+      "covered": 185,
+      "valid_intervals": 200,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.925,
+      "reference": 61.69221752675901,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "forecast_batches": {
+      "covered": 177,
+      "valid_intervals": 190,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.885,
+      "reference": 17040.0,
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    },
+    "cosine_reliability": {
+      "covered": 181,
+      "valid_intervals": 190,
+      "replicates": 200,
+      "coverage_of_all_replicates": 0.905,
+      "reference": "realized_cosine",
+      "formal_gate_metric": false,
+      "undefined_intervals_excluded": false
+    }
+  },
+  "coverage_warning": "Only signal and trace coverage are formal gates. Other intervals are descriptive, and reliability coverage has a random realized reference. No undefined intervals or replicates were silently dropped.",
+  "gate": "G2",
+  "software_checks_passed": true,
+  "predeclared_config": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_G2/predeclared_config.json",
+  "replicates_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_G2/replicates.jsonl",
+  "wall_seconds": 18.893268823623657,
+  "slurm_job_id": "17812088",
+  "status": "failed"
+}

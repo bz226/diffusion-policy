@@ -1,0 +1,54 @@
+{
+  "gate": "G2",
+  "status": "predeclared_before_execution",
+  "dimension": 20000,
+  "batches": 2000,
+  "group_size": 50,
+  "replicates": 200,
+  "seed": 8675309,
+  "split_seed": 8675310,
+  "half_splits": 20,
+  "mean": {
+    "basis_coordinate": 0,
+    "value": 1.0,
+    "signal_squared": 1.0
+  },
+  "covariance": {
+    "description": "72 U U^T + 0.02 I; U is the first 50 coordinate basis vectors",
+    "rank_component": 50,
+    "rank_eigenvalue_increment": 72.0,
+    "isotropic_eigenvalue": 0.02,
+    "trace": 4000.0
+  },
+  "episode_count_per_batch": 80,
+  "jackknife": {
+    "unit": "50 independent whole batches",
+    "method": "delete one group, recompute entire statistic with retained split order",
+    "normal_critical_value": 1.645,
+    "confidence": 0.9
+  },
+  "criteria": {
+    "mean_bias_max_mc_standard_errors": 3.0,
+    "mean_bias_metrics": [
+      "signal_sq",
+      "covariance_trace"
+    ],
+    "required_coverage_metrics": [
+      "signal_sq",
+      "covariance_trace"
+    ],
+    "coverage_min": 0.8,
+    "coverage_max": 0.97,
+    "mean_cosine_max_absolute_error": 0.03,
+    "mean_effective_rank_max_relative_error": 0.2,
+    "required_replicates": 200
+  },
+  "interpretations": {
+    "within_3SE_on_average": "Across the 200 independent replicates, absolute mean estimator error <= 3 times its Monte Carlo standard error (sample SD / sqrt(200)).",
+    "cosine_reference": "For each replicate, cosine of its full-batch sample mean with the known mean; compare mean split-half reliability with mean realized cosine.",
+    "effective_rank_reference": "trace(Sigma)^2 / trace(Sigma^2), using the approved four-distinct-group, mean-free denominator estimator.",
+    "coverage_scope": "Signal and covariance trace coverage are formal gate criteria. Other interval coverages are explicitly descriptive; cosine coverage uses a random realized reference, not a fixed population parameter.",
+    "undefined": "Retain signed estimates. Do not clip, epsilon-adjust, discard undefined jackknife replicates, or tune the design after results. Any undefined required metric fails the gate.",
+    "odd_jackknife_split": "Keep each original random group ordering, remove the deleted group, and split the retained ordering into floor(G/2) and ceil(G/2) groups. Recompute the same specified cosine transform; record the unequal deletion halves."
+  }
+}

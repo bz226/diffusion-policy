@@ -1,0 +1,81 @@
+{
+  "approved_utc": "2026-10-11T19:59:35.804193+00:00",
+  "approval_text": "approve",
+  "scope": "Stage 3 Addendum G, five policy points, gates G1\u2013G5, prepare/collect, adaptive rounds, all requested analyses",
+  "parent_branch": "stage3-theory",
+  "start_commit": "23f57ef4acee74846e35af68fa43076d5c2afcb6",
+  "new_branch": "stage3-gradmean",
+  "source": "results/stage3_gradmean/dppo",
+  "outputs": "results/stage3/gradmean",
+  "gpu_hour_cap": 125,
+  "max_parallel_gpu_jobs": 9,
+  "gpu_type": "RTX A6000",
+  "cpus_per_gpu_job": 40,
+  "memory_gib_per_gpu_job": 64,
+  "prepare_collect_wall_limit_seconds": 3600,
+  "gate_wall_limit_seconds": 7200,
+  "max_batches_per_point": 4100,
+  "batches_per_collect_job": 50,
+  "round_targets": [
+    500,
+    1400,
+    2300,
+    3200,
+    4100
+  ],
+  "points": [
+    "P0",
+    "D1",
+    "D2",
+    "N1",
+    "N2"
+  ],
+  "within_round_priority": [
+    "P0",
+    "D2",
+    "N2",
+    "D1",
+    "N1"
+  ],
+  "close_rho_V4": 0.68,
+  "at_most_one_replacement_per_failed_collect": true,
+  "resolutions": {
+    "effective_rank": "mean-free four-distinct-group difference U-statistic denominator approved",
+    "pilot_and_live_gate": "two successful P0 jobs include pilot and count within first500 batches",
+    "V1_V2_V3_reporting": "dimensionless B/cosines only; internal moments retained",
+    "score_uncertainty": "group jackknife unavailable with score samples in one group; no invented intervals",
+    "drift": "all126 training observations; path-averaged squared-gradient proxy, not local P0 estimate",
+    "seeding": "underlying Gym environment seed hook restricted to grad_mean",
+    "hash_scope": "explicit user SHA-256 requirements apply only to frozen-state/actor checks",
+    "ascent_sign": "negate native loss gradients in both full-batch and Phase1-reference comparisons"
+  },
+  "estimate": {
+    "gpu_hours": [
+      90,
+      95
+    ],
+    "wall_hours": [
+      12,
+      16
+    ],
+    "basis": "completed Phase1 A6000 measurements14.697\u201315.036s/batch, plus prepare/startup/gates",
+    "queue_delay_excluded": true
+  },
+  "monitor": {
+    "group_interval_seconds": 1800,
+    "group_estimate_seconds": 900,
+    "formula": "max(30 minutes, estimated run time /6)",
+    "campaign_progress_interval_seconds": 9600,
+    "campaign_estimate_hours": 16
+  },
+  "curation_authorized": false,
+  "initial_commands": [
+    "git status --short",
+    "git branch -avv",
+    "git rev-parse HEAD",
+    "git checkout -b stage3-gradmean stage3-theory",
+    "python3 scripts/create_dppo_snapshot.py --source .git --revision 23f57ef4acee74846e35af68fa43076d5c2afcb6 --subdir results/stage3_frs/dppo --study stage3_gradmean"
+  ],
+  "approved": true,
+  "max_parallel_gpu_allocations": 9
+}

@@ -1,0 +1,8 @@
+# Runtime caches and large measurements are preserved locally, not pushed.
+cache/
+tmp/
+**/evidence.pt
+**/sums_V*.npy
+**/group_gradients.npy
+**/initial_observations.npy
+*.lock
