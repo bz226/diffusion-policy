@@ -1,0 +1,39 @@
+{
+  "verified_utc": "2026-10-12T15:21:10.694725+00:00",
+  "status": "passed",
+  "groups_verified": 50,
+  "expected_groups": 50,
+  "groups_per_point": {
+    "P0": 10,
+    "D2": 10,
+    "N2": 10,
+    "D1": 10,
+    "N1": 10
+  },
+  "batches_per_point": {
+    "P0": 500,
+    "D2": 500,
+    "N2": 500,
+    "D1": 500,
+    "N1": 500
+  },
+  "total_batches": 2500,
+  "new_V6_allocated_GPU_hours": 10.381388888888889,
+  "last_job_completion_PDT": "2026-10-12T03:47:52",
+  "checks_performed": [
+    "All 50 fixed-plan names are present exactly once in campaign.json; no missing logical groups.",
+    "Native meta.json status completed with gm_batches = completed_batches = 50 and all V1\u2013V6 enabled.",
+    "Native batches.csv has 50 rows for every group.",
+    "All six saved group vectors per job have float32 dtype, expected length 568392 and finite entries.",
+    "Existing recorded before/after actor, critic and scaler state identifiers agree, and recorded frozen state agrees with the job specification; no new checksums computed.",
+    "Every job records zero actor optimizer steps and zero critic optimizer steps during collection.",
+    "Every cleanup record passes: 40 workers per job exited with code 0, no alive workers and no remaining active or direct children.",
+    "All campaign scheduler terminal records are COMPLETED, exit 0:0, run status complete.",
+    "Independent current sacct accounting confirms all 50 jobs COMPLETED with exit 0:0."
+  ],
+  "actor_updates": 0,
+  "frozen_actor_critic_scaler_unchanged": true,
+  "clean_exit_workers_verified": 2000,
+  "issues": [],
+  "scope": "Read-only completion verification and bookkeeping; no new scientific estimates, actor updates, runs or checksums."
+}

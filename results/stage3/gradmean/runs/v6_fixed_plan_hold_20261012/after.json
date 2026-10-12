@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-12T08:14:51.798026+00:00",
+  "controller_job_id": "17821138",
+  "scheduler_state": "FAILED",
+  "exit_code": "1:0",
+  "expected_administrative_stop": true,
+  "controller_lock_released": true,
+  "all_gpu_jobs_unchanged_running": [
+    "17821076",
+    "17821077",
+    "17821078",
+    "17821196",
+    "17821197",
+    "17821198",
+    "17821202",
+    "17821209"
+  ],
+  "campaign_status": "blocked",
+  "failure_reason": "RuntimeError: Controller interrupted/capped; new admissions stopped; existing allocations retain their own caps",
+  "ledger": {
+    "actual_gpu_seconds": 203907,
+    "outstanding_reserved_gpu_seconds": 18000,
+    "actual_plus_reserved_gpu_seconds": 221907,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 228093
+  },
+  "new_admissions_disabled": true,
+  "no_gpu_job_signalled": true
+}

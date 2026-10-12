@@ -1,0 +1,58 @@
+{
+  "utc": "2026-10-12T09:01:49.473972+00:00",
+  "seed": 0,
+  "note": "iteration70 evaluates; preceding train iteration69",
+  "comparison": {
+    "E0": {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E0_seed0/result.pkl",
+      "rows": [
+        {
+          "itr": 69,
+          "step": 5040000,
+          "train_episode_reward": 4240.278163734891,
+          "J_disc_train": 1489.254782930233
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "eval_episode_reward": 4525.675791289493,
+          "J_disc_eval": 1586.9877298617675
+        }
+      ]
+    },
+    "E1": {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/E1_seed0/result.pkl",
+      "rows": [
+        {
+          "itr": 69,
+          "step": 5040000,
+          "train_episode_reward": 4313.443767237203,
+          "J_disc_train": 1516.7923144021981
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "eval_episode_reward": 4570.316049988846,
+          "J_disc_eval": 1595.9449278211941
+        }
+      ]
+    },
+    "E1C": {
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+      "rows": [
+        {
+          "itr": 69,
+          "step": 5040000,
+          "train_episode_reward": 4178.887011135488,
+          "J_disc_train": 1449.8491168769563
+        },
+        {
+          "itr": 70,
+          "step": 5040000,
+          "eval_episode_reward": 4494.664635761044,
+          "J_disc_eval": 1573.308897420784
+        }
+      ]
+    }
+  }
+}

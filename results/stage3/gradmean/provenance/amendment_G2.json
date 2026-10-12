@@ -1,0 +1,68 @@
+{
+  "approved": true,
+  "authorization": "User Stage 3 addendum G2 explicitly requests V6, CPU gates, future-launch switch and bounded top-ups; existing G aggregate125GPUhour cap retained.",
+  "recorded_utc": "2026-10-12T08:11:14.328524+00:00",
+  "gm_include_critic": true,
+  "min_v6_batches_per_point": 500,
+  "max_topup_groups_per_point": 10,
+  "topup_group_indices": [
+    82,
+    83,
+    84,
+    85,
+    86,
+    87,
+    88,
+    89,
+    91,
+    92
+  ],
+  "gpu_hour_cap": 125,
+  "gate_cpu_wall_limit_seconds": 7200,
+  "gate_cpu_count": 40,
+  "gate_memory_gib": 64,
+  "batches_per_collect_job": 50,
+  "prior_round_stopping_unchanged": false,
+  "max_parallel": 5,
+  "topup_priority": [
+    "P0",
+    "D2",
+    "N2",
+    "D1",
+    "N1"
+  ],
+  "topup_timing": "Replaced by fixed plan: exactly10 NEW V6 groups perpoint after all alreadyadmittedjobs; nofurther originalrounds.",
+  "consistency_failure": "Paired V6/V4 cosine90% interval upper below1 with both own signals resolved, at scheduled analyses. This diagnostic is not a multiple-look calibrated hypothesis test.",
+  "curation_authorized": false,
+  "superseded_collection_plan": "After original planned rounds close; topups do not alter prior closure decisions.",
+  "fixed_v6_groups_per_point": 10,
+  "plan_decision": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/provenance/fixed_v6_plan_20261012.json",
+  "fixed_v6_plan": {
+    "approved": true,
+    "new_groups_per_point": 10,
+    "batches_per_group": 50,
+    "legacy_admissions_closed": true,
+    "adaptive_stopping": false,
+    "group_indices": [
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      91,
+      92
+    ],
+    "point_order": [
+      "P0",
+      "D2",
+      "N2",
+      "D1",
+      "N1"
+    ],
+    "decision_utc": "2026-10-12T08:13:09.557576+00:00",
+    "stopping_reason": "user compute-driven fixed plan"
+  }
+}

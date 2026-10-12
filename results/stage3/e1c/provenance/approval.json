@@ -1,0 +1,45 @@
+{
+  "approved": true,
+  "approval_text": "Approve 16 GPU-hours (recommended)",
+  "normalization_approval": "Match E1: per-chunk normalization (recommended)",
+  "approved_utc": "2026-10-12T07:41:30.433751+00:00",
+  "scope": "E1C A1/A3 and reuse A2/A4/A5; seeds 0,1,2; 140 iterations; requested analysis and Q1-Q4; E1C priority over G and paused C",
+  "gpu_hour_cap": 16,
+  "max_parallel_training_jobs": 3,
+  "training_wall_limit_seconds": 14400,
+  "combined_gate_wall_limit_seconds": 3600,
+  "cpus_per_gpu_job": 40,
+  "memory_gib_per_gpu_job": 64,
+  "gpu_type": "RTX A6000",
+  "conditions": [
+    "E1C"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "training_iterations": 140,
+  "save_model_freq": 35,
+  "retries_authorized": true,
+  "max_retries_per_seed": 1,
+  "retry_policy": "Same seed after fixing the cause, at most one retry per seed and only within remaining aggregate cap; preserve prior attempts. No automatic scientific changes.",
+  "curation_authorized": false,
+  "normalization": "per shuffled 50000-pair chunk, exactly as E1",
+  "branch": "stage3-e1c",
+  "base_branch": "stage3-critic",
+  "base_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+  "main_commit": "c7f6e58cf653d01fa4325bf8300569eafc404582",
+  "parent_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+  "source_relative": "results/stage3_e1c/dppo",
+  "output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c",
+  "estimate_seconds_per_iteration": [
+    60,
+    65
+  ],
+  "estimate_wall_hours_per_seed": 2.5,
+  "monitor_per_job_seconds": 1800,
+  "monitor_campaign_seconds": 1800,
+  "interim_iteration": 70,
+  "critic_campaign_remains_paused": true
+}

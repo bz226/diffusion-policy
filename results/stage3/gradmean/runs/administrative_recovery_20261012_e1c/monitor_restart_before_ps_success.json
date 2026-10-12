@@ -1,0 +1,34 @@
+{
+  "observed_utc": "2026-10-12T07:53:18.235029+00:00",
+  "command": [
+    "srun",
+    "--jobid=17821085",
+    "--overlap",
+    "--exact",
+    "--cpu-bind=none",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--time=00:01:00",
+    "/bin/ps",
+    "-u",
+    "zbao7",
+    "-o",
+    "pid=,ppid=,pgid=,sid=,stat=,comm=,args="
+  ],
+  "returncode": 0,
+  "stderr": "",
+  "controllers": [
+    {
+      "pid": "3094431",
+      "ppid": "3094422",
+      "pgid": "3094431",
+      "sid": "3094421",
+      "stat": "R",
+      "comm": "python",
+      "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py run --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json --commit f425082723799776af35e100983fe20b86888a02 --timeout-seconds 86400 --max-parallel 5 --respect-free-a6000 --administrative-recovery /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/recovery.json"
+    }
+  ],
+  "direct_children": [],
+  "no_scientific_worker_children": true
+}

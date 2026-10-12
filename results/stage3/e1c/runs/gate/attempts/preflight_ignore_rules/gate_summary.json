@@ -1,0 +1,39 @@
+{
+  "status": "failed",
+  "passed": false,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py"
+  ],
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo",
+  "parent_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+  "slurm_job_id": null,
+  "cpu_only": true,
+  "cpu_logprobs": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt",
+  "device": "cpu",
+  "python_version": "3.8.20",
+  "torch_version": "2.4.0+cu121",
+  "numpy_version": "1.24.4",
+  "configured_training_stage3_diag": true,
+  "gate_stage3_diag": false,
+  "gate_scope": "Saved-batch A1/A3 only. Training diagnostics are separately covered by reused C4; no rollout or optimizer update.",
+  "normalization_amendment": "User approved per-chunk normalization matching the existing E1 runs.",
+  "gate_wall_limit_seconds": 1200,
+  "checks": {},
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "error": "AssertionError: Scientific source differs from passed critic gate: ['.gitignore']",
+  "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py\", line 218, in main\n    report['source_comparison'] = check_source()\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py\", line 51, in check_source\n    require(not differences, 'Scientific source differs from passed critic gate: ' + repr(differences))\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_common.py\", line 14, in require\n    raise AssertionError(message)\nAssertionError: Scientific source differs from passed critic gate: ['.gitignore']\n",
+  "elapsed_seconds": 1.0347642861306667
+}

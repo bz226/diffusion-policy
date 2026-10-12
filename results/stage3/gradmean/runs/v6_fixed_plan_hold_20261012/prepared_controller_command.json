@@ -1,0 +1,24 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--time=06:00:00",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/setup/v6-fixed-controller-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean/code/run_queue.sh",
+    "--gate",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/gate_summary.json",
+    "--commit",
+    "<NEW_SOURCE_COMMIT>",
+    "--max-parallel",
+    "5",
+    "--respect-free-a6000",
+    "--monitor-interval-seconds",
+    "1800",
+    "--timeout-seconds",
+    "21600",
+    "--administrative-recovery",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/recovery.json"
+  ],
+  "status": "prepared_only_not_submitted"
+}

@@ -44,7 +44,31 @@
 - Analysis design: [Fixed-policy methods and reporting limits](./results/stage3/methods.md#fixed-policy-noise-measurements-and-uncertainty)
 - Curated results: [Noise-scale and direction diagnostics](./results/stage3/curated/INDEX.md#phase-1-fixed-policy-gradient-noise)
 
+### Stage 3 Monte Carlo returns with a critic under AdamW (E1C)
+
+- Experiment: [E1C](./results/stage3/e1c/experiment.md) ([folder](./results/stage3/e1c/)).
+- Experiment design: [Methods and execution protocol](./results/stage3/e1c/methods.md).
+- Curated: —
+
+### Stage 3 gradient-mean measurements along DPPO and without_PPO paths
+
+- Experiment folder: [Gradient-mean measurements](./results/stage3/gradmean/)
+- Experiment design: [Methods](./results/stage3/gradmean/methods.md)
+- Curated results: [Round 2 and approved clean figures](./results/stage3/gradmean/curated/INDEX.md)
+
+#### Analysis: frozen-critic and LOO gradient-noise comparison
+
+- Analysis folder: [Final V6 analysis](./results/stage3/gradmean/runs/analyses/reportfix_20261012/final_v6_fixed/)
+- Analysis design: [Gradient-mean methods](./results/stage3/gradmean/methods.md)
+- Curated: —
+
 ## Comparison analyses
+
+### DPPO and without_PPO: returns and gradient noise
+
+- Analysis folder: [Clean figures and tables](./results/stage3/gradmean/figs_clean/)
+- Analysis design: [Measurement and comparison methods](./results/stage3/gradmean/methods.md)
+- Curated results: [Five clean figures and checkpoint table](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v2)
 
 ### FRS1 versus Stage 3 E2, E2_beta0 and SGD10
 

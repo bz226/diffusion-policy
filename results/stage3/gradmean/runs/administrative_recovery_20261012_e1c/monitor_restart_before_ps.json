@@ -1,0 +1,23 @@
+{
+  "observed_utc": "2026-10-12T07:53:04.498991+00:00",
+  "command": [
+    "srun",
+    "--jobid=17821085",
+    "--overlap",
+    "--exact",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--time=00:01:00",
+    "/bin/ps",
+    "-u",
+    "zbao7",
+    "-o",
+    "pid=,ppid=,pgid=,sid=,stat=,comm=,args="
+  ],
+  "returncode": 192,
+  "stderr": "srun: error: CPU binding outside of job step allocation, allocated CPUs are: 0x0000000200000002.\nsrun: error: Task launch for StepId=17821085.0 failed on node soal-2: Unable to satisfy cpu bind request\nsrun: error: Application launch failed: Unable to satisfy cpu bind request\nsrun: Job step aborted\n",
+  "controllers": [],
+  "direct_children": [],
+  "no_scientific_worker_children": true
+}

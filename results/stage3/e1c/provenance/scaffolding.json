@@ -1,0 +1,23 @@
+{
+  "worktree_command": [
+    "git",
+    "-C",
+    "/soalnas/share/data/zbao7/diffusion_policy",
+    "worktree",
+    "add",
+    "-b",
+    "stage3-e1c",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+    "stage3-critic"
+  ],
+  "snapshot_helper": "/soalnas/share/data/zbao7/diffusion_policy/scripts/create_dppo_snapshot.py",
+  "snapshot_function": "create_snapshot",
+  "snapshot_arguments": {
+    "root": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.git",
+    "revision": "0f5118492ca41abed24896176225ebcfc813b1f5",
+    "study": "stage3_e1c",
+    "subdir": "results/stage3_critic/dppo"
+  },
+  "scientific_source_changes": false
+}

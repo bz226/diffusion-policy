@@ -1,0 +1,17 @@
+- train.n_train_itr=140
+- train.save_model_freq=35
+- wandb=null
+- model.randn_clip_value=100
+- +model.clamp_logprob=false
+- +train.mode=grad_mean
+- +train.gm_include_critic=true
+- seed=109100
+- logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j91
+- base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt
+- +train.gm_step=collect
+- +train.gm_point=P0
+- +train.gm_parent_commit=ce909d3b356fd7754963d4ec3f6bf38619022853
+- +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt
+- +train.gm_frozen_sha256=beb93651fc7d5daec89a40be55484f30b2cecf53affb7b75ce890f07329ff951
+- +train.gm_batches=50
+- +train.gm_score_sample=0

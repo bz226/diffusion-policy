@@ -1,0 +1,142 @@
+{
+  "observed_utc": "2026-10-12T07:55:09.605641+00:00",
+  "nodes": [
+    {
+      "inspection_job": "17821090",
+      "command": [
+        "srun",
+        "--jobid=17821090",
+        "--overlap",
+        "--exact",
+        "--cpu-bind=none",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=1",
+        "--time=00:01:00",
+        "/bin/ps",
+        "-u",
+        "zbao7",
+        "-o",
+        "pid=,ppid=,pgid=,sid=,stat=,comm=,args="
+      ],
+      "wrappers": [
+        {
+          "pid": "2550280",
+          "ppid": "2550271",
+          "pgid": "2550280",
+          "sid": "2550270",
+          "stat": "S",
+          "comm": "python",
+          "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py worker --spec /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/N2_j51_retry1.json --commit f425082723799776af35e100983fe20b86888a02 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
+        }
+      ],
+      "native_children": [
+        {
+          "pid": "2550299",
+          "ppid": "2550280",
+          "pgid": "2550299",
+          "sid": "2550299",
+          "stat": "Rsl",
+          "comm": "pt_main_thread",
+          "args": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 wandb=null model.randn_clip_value=100 +model.clamp_logprob=false +train.mode=grad_mean seed=1045100 logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j51_retry1 base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt +train.gm_step=collect +train.gm_point=N2 +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02 +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9 +train.gm_batches=50 +train.gm_score_sample=0"
+        }
+      ]
+    },
+    {
+      "inspection_job": "17821091",
+      "command": [
+        "srun",
+        "--jobid=17821091",
+        "--overlap",
+        "--exact",
+        "--cpu-bind=none",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=1",
+        "--time=00:01:00",
+        "/bin/ps",
+        "-u",
+        "zbao7",
+        "-o",
+        "pid=,ppid=,pgid=,sid=,stat=,comm=,args="
+      ],
+      "wrappers": [
+        {
+          "pid": "766884",
+          "ppid": "766875",
+          "pgid": "766884",
+          "sid": "766874",
+          "stat": "S",
+          "comm": "python",
+          "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py worker --spec /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/N2_j52_retry1.json --commit f425082723799776af35e100983fe20b86888a02 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
+        },
+        {
+          "pid": "766926",
+          "ppid": "766898",
+          "pgid": "766926",
+          "sid": "766897",
+          "stat": "S",
+          "comm": "python",
+          "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py worker --spec /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/N2_j53.json --commit f425082723799776af35e100983fe20b86888a02 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
+        },
+        {
+          "pid": "766927",
+          "ppid": "766896",
+          "pgid": "766927",
+          "sid": "766895",
+          "stat": "S",
+          "comm": "python",
+          "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py worker --spec /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/N2_j55.json --commit f425082723799776af35e100983fe20b86888a02 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
+        },
+        {
+          "pid": "766928",
+          "ppid": "766900",
+          "pgid": "766928",
+          "sid": "766899",
+          "stat": "S",
+          "comm": "python",
+          "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py worker --spec /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/specs/N2_j54.json --commit f425082723799776af35e100983fe20b86888a02 --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
+        }
+      ],
+      "native_children": [
+        {
+          "pid": "766968",
+          "ppid": "766926",
+          "pgid": "766968",
+          "sid": "766968",
+          "stat": "Rsl",
+          "comm": "pt_main_thread",
+          "args": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 wandb=null model.randn_clip_value=100 +model.clamp_logprob=false +train.mode=grad_mean seed=145300 logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j53 base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt +train.gm_step=collect +train.gm_point=N2 +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02 +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9 +train.gm_batches=50 +train.gm_score_sample=0"
+        },
+        {
+          "pid": "766969",
+          "ppid": "766884",
+          "pgid": "766969",
+          "sid": "766969",
+          "stat": "Rsl",
+          "comm": "pt_main_thread",
+          "args": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 wandb=null model.randn_clip_value=100 +model.clamp_logprob=false +train.mode=grad_mean seed=1045200 logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j52_retry1 base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt +train.gm_step=collect +train.gm_point=N2 +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02 +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9 +train.gm_batches=50 +train.gm_score_sample=0"
+        },
+        {
+          "pid": "766970",
+          "ppid": "766927",
+          "pgid": "766970",
+          "sid": "766970",
+          "stat": "Rsl",
+          "comm": "pt_main_thread",
+          "args": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 wandb=null model.randn_clip_value=100 +model.clamp_logprob=false +train.mode=grad_mean seed=145500 logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j55 base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt +train.gm_step=collect +train.gm_point=N2 +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02 +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9 +train.gm_batches=50 +train.gm_score_sample=0"
+        },
+        {
+          "pid": "766971",
+          "ppid": "766928",
+          "pgid": "766971",
+          "sid": "766971",
+          "stat": "Rsl",
+          "comm": "pt_main_thread",
+          "args": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B script/run.py --config-dir=cfg/gym/finetune/halfcheetah-v2 --config-name=ft_ppo_diffusion_mlp train.n_train_itr=140 train.save_model_freq=35 wandb=null model.randn_clip_value=100 +model.clamp_logprob=false +train.mode=grad_mean seed=145400 logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j54 base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt +train.gm_step=collect +train.gm_point=N2 +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02 +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9 +train.gm_batches=50 +train.gm_score_sample=0"
+        }
+      ]
+    }
+  ],
+  "identical_wrapper_and_native_pids": true
+}

@@ -1,19 +1,15 @@
-# Mean gradient and noise along DPPO and NC4 paths
+# Mean gradient and noise along DPPO and without_PPO paths
 
-**Question.** How do the discounted-objective gradient, its noise and alignment with training movement change along the DPPO and NC4 paths?
+**Question.** How do the discounted-objective gradient, its noise and alignment with training movement change along the DPPO and without_PPO paths?
 
-**Status.** G1–G5 passed and production collection is running. The requested [Round 2 analysis](curated/round2-gradient-analysis.md) freezes all five policies at 1,400 batches each. V4's gradient signal is resolved at every point, but its estimated mean-direction cosine is only 0.75–0.81, below the 0.9 target. The [plot](curated/round2-gradient-signal-and-noise.png) and [estimate table](curated/round2-gradient-estimates.csv) are [curated with user approval](curated/INDEX.md). [Offline gate evidence](runs/gate_offline_G1/gate_summary.json), [amended G2](runs/gate_G2_G1/gate_summary.json), and [live gates](runs/gate_live_G1/gate_summary.json).
+**Status.** The fixed continuation is complete: ten new V6 groups (500 batches) at each point, with every already-admitted legacy group retained. Final analysis and all requested clean figures were verified. A report-formatting failure was fixed without changing any numerical table; the original failure is retained in the [recovery record](runs/postprocess_recovery_20261012/recovery.json). [Final V6 report](V6_NOTE.md), [curated clean figures and table](curated/INDEX.md#clean-figures-v2). Earlier approved artifacts: [curated Round 2 analysis](curated/round2-gradient-analysis.md); [plot](curated/round2-gradient-signal-and-noise.png); [table](curated/round2-gradient-estimates.csv).
 
 **Scope.** All five required checkpoints exist. The scientific source is an ordinary snapshot; this study never updates the actor. Sampling uncertainty is conditional on these seed-0 training paths. Round 2 supports smaller mean-gradient norms than at P0 and persistently large noise relative to an 80-episode training batch. [Methods](methods.md), [amendment](provenance/amendment_G1.json), [revisions](provenance/revisions.json), [source provenance](../../stage3_gradmean/provenance/dppo_source_snapshot.json). The [original failed G2 evidence](provenance/report_before_G1_amendment.md) is preserved.
 
-**Resources and monitoring.** The hard cap remains 125 GPU-hours, counting actual usage and outstanding reservations. Each collection job reserves one A6000 and 40 CPU cores for at most one hour, with explicit child cleanup. One-hour jobs have 30-minute monitors; the campaign's original 12–16 hour estimate gives a 2 hour 40 minute monitor, following `max(30 minutes, estimate/6)`. Current counters and monitor status are below. Rendering the Round 2 review used 1.4 CPU seconds and no new scientific samples.
+**Resources and monitoring.** The user replaced adaptive stopping for compute reasons at 08:13 UTC on October 12, before new V6 data: stop old admissions, retain all running jobs, then collect exactly ten new 50-batch V6 groups per point in order P0, D2, N2, D1, N1. There are no further adaptive rounds. [Decision record](provenance/fixed_v6_plan_20261012.json). All five previously running collection jobs finished naturally; their data count. E1C keeps priority on three A6000s; gradient-mean uses at most five further allocations, each one A6000/40 CPUs with a one-hour cap. The aggregate 125 GPU-hour limit remains. Existing usage is 57.673 GPU-hours; all 50 one-hour reservations fit below that limit. Comparable completed jobs predict about 10.1 additional GPU-hours and 2.1 hours elapsed at five concurrent workers. A 30-minute scheduled monitor checks jobs, counters, errors and resources, satisfying `max(30 minutes, estimate/6)`.
 
-**Next step.** Continue the approved collection and stopping checks at round boundaries. Round 2 artifacts are curated; retain this snapshot separately from later rounds. The critic study remains paused at the user's request.
-
-<!-- gradmean-bootstrap-start -->
-Gate transition monitor: 2026-10-12T05:56:36.874086+00:00. **blocked**; phase: stopped. Monitor paused.
-<!-- gradmean-bootstrap-end -->
+**Next step.** The five clean figures and checkpoint table are now curated under the approved names. Earlier Round 2 artifacts remain preserved. No further collection or training is queued; the full reports and E1C artifacts were not part of this selection.
 
 <!-- gradmean-status-start -->
-Last monitor: 2026-10-12T05:56:37.404136+00:00. **blocked**. P0: closed_rho, 3200 batches; D1: open, 2300 batches; D2: open, 3100 batches; N1: open, 2300 batches; N2: open, 2300 batches. GPU hours used: 54.188; outstanding reserved: 9.000; cap:125. Monitor paused. Next: Review terminal records; no automatic expansion.
+Verified 2026-10-12T15:28:28.625135+00:00. **Complete**: all five policies have 500/500 new V6 batches; final analysis and clean figures passed. Total gradient-mean usage: 68.054 GPU-hours of 125. Monitor paused; no further collection queued.
 <!-- gradmean-status-end -->

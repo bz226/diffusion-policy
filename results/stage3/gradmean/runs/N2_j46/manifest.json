@@ -158,5 +158,34 @@
   "failure_cleanup_survivors": [],
   "failure_reason": "ValueError: Parent branch must be stage3-gradmean",
   "ended_utc": "2026-10-12T06:02:57.323914+00:00",
-  "elapsed_seconds": 721.3264145149151
+  "elapsed_seconds": 721.3264145149151,
+  "scientific_status": "complete",
+  "administrative_recovery": {
+    "kind": "completed_native_branch_guard_failure",
+    "scientific_status": "complete",
+    "config_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/recovery.json",
+    "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j46.json",
+    "original_worker_status": "failed",
+    "original_failure_reason": "ValueError: Parent branch must be stage3-gradmean",
+    "scheduler_state": "FAILED",
+    "scheduler_exit_code": "1:0",
+    "native_subprocess_exitcode": 0,
+    "job_id": "17819445",
+    "run_id": "N2_j46",
+    "verification": {
+      "verified_utc": "2026-10-12T07:49:01.803560+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j46/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j46/meta.json"
+    },
+    "verified_utc": "2026-10-12T07:49:01.804272+00:00"
+  },
+  "scheduler_observation": {
+    "job_id": "17819445",
+    "scheduler_state": "FAILED",
+    "elapsed_seconds": 724,
+    "gpu_count": 1,
+    "allocated_gpu_seconds": 724,
+    "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+    "exit_code": "1:0"
+  }
 }

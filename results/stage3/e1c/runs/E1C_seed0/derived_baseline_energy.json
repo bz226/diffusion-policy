@@ -1,0 +1,3660 @@
+{
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+  "original_keys": "baseline_energy_* remain gamma^(2k)-weighted; never overwritten",
+  "rows": [
+    {
+      "itr": 1,
+      "step": 80000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 317552098.369804,
+      "baseline_unweighted_bin_energy_critic": [
+        107247773.47545142,
+        91910510.23553783,
+        70774359.82513468,
+        39293982.472305484,
+        8325472.3613743195
+      ],
+      "baseline_unweighted_energy_loo": 10203180.810719179,
+      "baseline_unweighted_bin_energy_loo": [
+        1713283.3913052415,
+        2537178.425491924,
+        2692564.7339223474,
+        2455700.524510455,
+        804453.7354892073
+      ],
+      "baseline_unweighted_energy_ratio": 31.122853182822418,
+      "baseline_unweighted_bin_energy_ratio": [
+        62.59780140268924,
+        36.225481547565046,
+        26.285109855849353,
+        16.001129649202138,
+        10.349224565799801
+      ]
+    },
+    {
+      "itr": 2,
+      "step": 160000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 171873670.79356664,
+      "baseline_unweighted_bin_energy_critic": [
+        66951967.596011885,
+        52055815.68877753,
+        35138141.33134193,
+        15701148.57066976,
+        2026597.6067654793
+      ],
+      "baseline_unweighted_energy_loo": 11425863.307163972,
+      "baseline_unweighted_bin_energy_loo": [
+        1630435.0081605534,
+        2448875.7305677594,
+        3948992.9265944767,
+        2751747.0902260453,
+        645812.5516151439
+      ],
+      "baseline_unweighted_energy_ratio": 15.042510677140914,
+      "baseline_unweighted_bin_energy_ratio": [
+        41.06386777817453,
+        21.25702625045357,
+        8.898000574957798,
+        5.705883591714809,
+        3.1380585615703245
+      ]
+    },
+    {
+      "itr": 3,
+      "step": 240000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 121927463.48278135,
+      "baseline_unweighted_bin_energy_critic": [
+        49983416.602570236,
+        37851327.21973045,
+        23227516.948891852,
+        7742142.731243536,
+        3123059.9803452767
+      ],
+      "baseline_unweighted_energy_loo": 11252088.526038636,
+      "baseline_unweighted_bin_energy_loo": [
+        2288548.614907716,
+        2935498.1711196946,
+        2906720.595183411,
+        2284852.9560803883,
+        836468.188747424
+      ],
+      "baseline_unweighted_energy_ratio": 10.835985088512864,
+      "baseline_unweighted_bin_energy_ratio": [
+        21.84066192737871,
+        12.894345359204474,
+        7.990969956789472,
+        3.3884643257415568,
+        3.7336267204876346
+      ]
+    },
+    {
+      "itr": 4,
+      "step": 320000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 76924942.292025,
+      "baseline_unweighted_bin_energy_critic": [
+        30707683.78094709,
+        22893099.27007609,
+        12451811.979785327,
+        3252539.3613532707,
+        7619807.899863278
+      ],
+      "baseline_unweighted_energy_loo": 16284037.9939167,
+      "baseline_unweighted_bin_energy_loo": [
+        2326079.2553462805,
+        4140098.2118260935,
+        4587105.226916688,
+        4162444.116745873,
+        1068311.1830817543
+      ],
+      "baseline_unweighted_energy_ratio": 4.723947605671406,
+      "baseline_unweighted_bin_energy_ratio": [
+        13.201477856082628,
+        5.529602946297865,
+        2.7145250356846633,
+        0.7814013281927373,
+        7.132573374250787
+      ]
+    },
+    {
+      "itr": 5,
+      "step": 400000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 61430219.74673144,
+      "baseline_unweighted_bin_energy_critic": [
+        23501731.208314482,
+        15422476.005301287,
+        7276894.140047774,
+        1772583.617286811,
+        13456534.775781076
+      ],
+      "baseline_unweighted_energy_loo": 8134294.646147101,
+      "baseline_unweighted_bin_energy_loo": [
+        981395.7820881039,
+        1668482.0433153291,
+        2483584.947606706,
+        2218751.0355762527,
+        782080.8375607083
+      ],
+      "baseline_unweighted_energy_ratio": 7.552003267527141,
+      "baseline_unweighted_bin_energy_ratio": [
+        23.947251085907595,
+        9.243417432684092,
+        2.929996071630292,
+        0.7989105532187105,
+        17.206066341878024
+      ]
+    },
+    {
+      "itr": 6,
+      "step": 480000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52702392.27084264,
+      "baseline_unweighted_bin_energy_critic": [
+        17152447.109480962,
+        11122530.550553763,
+        5073938.862828874,
+        2265140.976539496,
+        17088334.771439552
+      ],
+      "baseline_unweighted_energy_loo": 8032342.839108668,
+      "baseline_unweighted_bin_energy_loo": [
+        1164233.0645147748,
+        1674245.4962618407,
+        1881695.0799730637,
+        2393944.199565508,
+        918224.9987934828
+      ],
+      "baseline_unweighted_energy_ratio": 6.56127276020142,
+      "baseline_unweighted_bin_energy_ratio": [
+        14.732829389817839,
+        6.643309225192787,
+        2.696472407687598,
+        0.9461962300335198,
+        18.61018246496562
+      ]
+    },
+    {
+      "itr": 7,
+      "step": 560000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51073529.101263605,
+      "baseline_unweighted_bin_energy_critic": [
+        15841353.274092577,
+        10402706.031760423,
+        4311016.826197034,
+        1594926.361398969,
+        18923526.6078146
+      ],
+      "baseline_unweighted_energy_loo": 12228818.93162165,
+      "baseline_unweighted_bin_energy_loo": [
+        2066128.4366427003,
+        3378419.1340510612,
+        3716182.857587852,
+        2410830.8653935366,
+        657257.6379464964
+      ],
+      "baseline_unweighted_energy_ratio": 4.176489110423913,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.667167729337077,
+        3.079163839356587,
+        1.1600658502028838,
+        0.6615670905385634,
+        28.79164199131765
+      ]
+    },
+    {
+      "itr": 8,
+      "step": 640000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51146808.6154799,
+      "baseline_unweighted_bin_energy_critic": [
+        14555028.482475314,
+        9859291.041749347,
+        3755331.4347557523,
+        1754426.3076744815,
+        21222731.34882503
+      ],
+      "baseline_unweighted_energy_loo": 5939892.928451852,
+      "baseline_unweighted_bin_energy_loo": [
+        1490600.959244129,
+        1632293.5516964898,
+        1651247.3222450193,
+        880748.8228551879,
+        285002.2724110301
+      ],
+      "baseline_unweighted_energy_ratio": 8.610729053799727,
+      "baseline_unweighted_bin_energy_ratio": [
+        9.764537176908865,
+        6.0401458006755595,
+        2.2742392276222083,
+        1.9919712205655062,
+        74.46513029277753
+      ]
+    },
+    {
+      "itr": 9,
+      "step": 720000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 49045576.64398258,
+      "baseline_unweighted_bin_energy_critic": [
+        12351282.528889032,
+        8207284.369315274,
+        3132992.9127258016,
+        2080141.0016370132,
+        23273875.83141547
+      ],
+      "baseline_unweighted_energy_loo": 7666102.990438699,
+      "baseline_unweighted_bin_energy_loo": [
+        1124069.7344289555,
+        1862917.0594340833,
+        2435007.1485214056,
+        1681569.423592309,
+        562539.6244619503
+      ],
+      "baseline_unweighted_energy_ratio": 6.39771950691937,
+      "baseline_unweighted_bin_energy_ratio": [
+        10.988003813805797,
+        4.405609110589433,
+        1.2866462895717696,
+        1.2370235640900524,
+        41.37286480694783
+      ]
+    },
+    {
+      "itr": 11,
+      "step": 800000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 47825582.82801174,
+      "baseline_unweighted_bin_energy_critic": [
+        9603880.553674677,
+        5631726.200859637,
+        2682671.624260489,
+        4004517.352281655,
+        25902787.09693529
+      ],
+      "baseline_unweighted_energy_loo": 14155021.481351864,
+      "baseline_unweighted_bin_energy_loo": [
+        2718294.805895461,
+        3183976.6806546915,
+        4048343.9378511473,
+        3169202.634402951,
+        1035203.4225476152
+      ],
+      "baseline_unweighted_energy_ratio": 3.37870083002122,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.5330533438998963,
+        1.7687711832429744,
+        0.662659019451901,
+        1.263572517834938,
+        25.021929538437035
+      ]
+    },
+    {
+      "itr": 12,
+      "step": 880000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 48572180.64993708,
+      "baseline_unweighted_bin_energy_critic": [
+        9189305.31177656,
+        5467457.505417395,
+        1894607.552438168,
+        3930167.829774425,
+        28090642.450530514
+      ],
+      "baseline_unweighted_energy_loo": 14442466.413612364,
+      "baseline_unweighted_bin_energy_loo": [
+        3187984.7235650592,
+        3971078.353687652,
+        3908286.5400363165,
+        2542194.3151346357,
+        832922.4811886966
+      ],
+      "baseline_unweighted_energy_ratio": 3.363149981374141,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.88248097421883,
+        1.376819346901117,
+        0.48476679819401447,
+        1.5459745961890727,
+        33.725398323312454
+      ]
+    },
+    {
+      "itr": 13,
+      "step": 960000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 48541952.852061376,
+      "baseline_unweighted_bin_energy_critic": [
+        7856335.960800548,
+        4393165.186855185,
+        1683330.7638486715,
+        4637160.014807816,
+        29971960.92574914
+      ],
+      "baseline_unweighted_energy_loo": 5703941.004646822,
+      "baseline_unweighted_bin_energy_loo": [
+        1184503.5002531002,
+        1058957.6208162599,
+        1420479.872313973,
+        1509320.2461522494,
+        530679.7651112444
+      ],
+      "baseline_unweighted_energy_ratio": 8.510248057004056,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.632598349537875,
+        4.148575070897426,
+        1.1850437282905757,
+        3.072349971206874,
+        56.478431808053266
+      ]
+    },
+    {
+      "itr": 14,
+      "step": 1040000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50260364.82707871,
+      "baseline_unweighted_bin_energy_critic": [
+        8540325.191371968,
+        4960812.79681205,
+        1800575.4981484918,
+        4307180.434801081,
+        30651470.905945133
+      ],
+      "baseline_unweighted_energy_loo": 9581814.940121237,
+      "baseline_unweighted_bin_energy_loo": [
+        2340897.7181110717,
+        2599683.9210334234,
+        2548683.3512805877,
+        1693671.8016895165,
+        398878.1480066348
+      ],
+      "baseline_unweighted_energy_ratio": 5.245390893183204,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.648311981039209,
+        1.9082369039848635,
+        0.7064728135975744,
+        2.5431021703877152,
+        76.84419680326857
+      ]
+    },
+    {
+      "itr": 15,
+      "step": 1120000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 49449521.76369802,
+      "baseline_unweighted_bin_energy_critic": [
+        7554254.63677829,
+        4035464.3566519427,
+        1354079.166476605,
+        4316207.621067079,
+        32189515.982724104
+      ],
+      "baseline_unweighted_energy_loo": 8051442.504004856,
+      "baseline_unweighted_bin_energy_loo": [
+        1938423.8524304586,
+        2326513.6840170408,
+        2087494.89549194,
+        1287360.170470238,
+        411649.9015951779
+      ],
+      "baseline_unweighted_energy_ratio": 6.141697185206429,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.8971118867045105,
+        1.7345543180662353,
+        0.6486622647081981,
+        3.3527583966579333,
+        78.19634076915123
+      ]
+    },
+    {
+      "itr": 16,
+      "step": 1200000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 48462542.35218966,
+      "baseline_unweighted_bin_energy_critic": [
+        7238751.101427423,
+        4042078.065697711,
+        1437105.1595767594,
+        4467666.754998994,
+        31276941.270488776
+      ],
+      "baseline_unweighted_energy_loo": 12374156.800528772,
+      "baseline_unweighted_bin_energy_loo": [
+        2237371.454143221,
+        3887658.3314391756,
+        3224061.452941874,
+        2388550.2705649594,
+        636515.2914395428
+      ],
+      "baseline_unweighted_energy_ratio": 3.9164318937770983,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.2353818978169766,
+        1.0397205003870211,
+        0.44574372435284615,
+        1.8704512147204106,
+        49.13776886609096
+      ]
+    },
+    {
+      "itr": 17,
+      "step": 1280000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53194368.3042177,
+      "baseline_unweighted_bin_energy_critic": [
+        6659343.373752134,
+        4154077.451661781,
+        1559060.5057841584,
+        6564849.564047166,
+        34257037.408972465
+      ],
+      "baseline_unweighted_energy_loo": 13210029.87409801,
+      "baseline_unweighted_bin_energy_loo": [
+        2300908.232337039,
+        3936198.1365347425,
+        3529849.3176352377,
+        2741826.055476041,
+        701248.1321149544
+      ],
+      "baseline_unweighted_energy_ratio": 4.026816654557328,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.894223802653885,
+        1.0553527306221555,
+        0.4416790535491255,
+        2.3943348087073906,
+        48.8515203679099
+      ]
+    },
+    {
+      "itr": 18,
+      "step": 1360000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 49628389.12646069,
+      "baseline_unweighted_bin_energy_critic": [
+        7075721.255815307,
+        4007296.24869163,
+        1159756.64882292,
+        4776324.346064609,
+        32609290.627066232
+      ],
+      "baseline_unweighted_energy_loo": 7256613.237942041,
+      "baseline_unweighted_bin_energy_loo": [
+        1480814.4856144853,
+        1919656.3620613173,
+        1897867.6498678445,
+        1522597.6858994819,
+        435677.0544989103
+      ],
+      "baseline_unweighted_energy_ratio": 6.839056664474402,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.778263127861782,
+        2.0875070808968204,
+        0.6110840494613404,
+        3.1369575760539608,
+        74.84739049333568
+      ]
+    },
+    {
+      "itr": 19,
+      "step": 1440000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50246694.65800154,
+      "baseline_unweighted_bin_energy_critic": [
+        6751880.026114901,
+        3980392.976491309,
+        1427649.6957086236,
+        5143077.439468706,
+        32943694.52021797
+      ],
+      "baseline_unweighted_energy_loo": 13359722.358147692,
+      "baseline_unweighted_bin_energy_loo": [
+        2839538.6248611766,
+        3718020.3352762526,
+        3802992.8313176455,
+        2397707.531224064,
+        601463.0354685414
+      ],
+      "baseline_unweighted_energy_ratio": 3.76105829979001,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.3778088338013,
+        1.070567833835035,
+        0.37540162683240647,
+        2.1449978250029065,
+        54.77260043845377
+      ]
+    },
+    {
+      "itr": 21,
+      "step": 1520000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50260579.6268548,
+      "baseline_unweighted_bin_energy_critic": [
+        7221367.398530193,
+        3748204.770255972,
+        1389010.4296215014,
+        5274310.413501326,
+        32627686.614945825
+      ],
+      "baseline_unweighted_energy_loo": 14893217.393665772,
+      "baseline_unweighted_bin_energy_loo": [
+        4097578.738215755,
+        4215475.6166626,
+        3420136.980622433,
+        2417214.046902678,
+        742812.0112622967
+      ],
+      "baseline_unweighted_energy_ratio": 3.3747294690152785,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.7623498802306496,
+        0.8891534695255652,
+        0.406127133939739,
+        2.181979051569561,
+        43.924554423265185
+      ]
+    },
+    {
+      "itr": 22,
+      "step": 1600000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51423077.780775525,
+      "baseline_unweighted_bin_energy_critic": [
+        6292625.724220166,
+        3892104.7359005734,
+        1413492.1353243806,
+        6714016.289562419,
+        33110838.895768005
+      ],
+      "baseline_unweighted_energy_loo": 11205859.560097724,
+      "baseline_unweighted_bin_energy_loo": [
+        1428012.7536398126,
+        3025267.0026476854,
+        3221664.7702341364,
+        2673345.1971489848,
+        857569.8364271136
+      ],
+      "baseline_unweighted_energy_ratio": 4.58894540887206,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.406561291683921,
+        1.2865326374479475,
+        0.43874587709560303,
+        2.511466269572163,
+        38.61007872398758
+      ]
+    },
+    {
+      "itr": 23,
+      "step": 1680000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50987139.53731912,
+      "baseline_unweighted_bin_energy_critic": [
+        7202726.8478252655,
+        3514572.1956944196,
+        1430171.7733917148,
+        6343147.1819753125,
+        32496521.53843239
+      ],
+      "baseline_unweighted_energy_loo": 14779789.402495654,
+      "baseline_unweighted_bin_energy_loo": [
+        3172513.44888435,
+        4034823.3884157953,
+        3784717.036209879,
+        2864437.5350768343,
+        923297.993908786
+      ],
+      "baseline_unweighted_energy_ratio": 3.4497879603554864,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.270353448102225,
+        0.8710597360432067,
+        0.3778807661731902,
+        2.214447724657807,
+        35.196135757707246
+      ]
+    },
+    {
+      "itr": 24,
+      "step": 1760000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 47860968.125661224,
+      "baseline_unweighted_bin_energy_critic": [
+        6438509.420629662,
+        3833957.1557097514,
+        1795592.6452620835,
+        4274869.373156713,
+        31518039.53090301
+      ],
+      "baseline_unweighted_energy_loo": 15044441.758336525,
+      "baseline_unweighted_bin_energy_loo": [
+        2796832.398403913,
+        3709216.1818784536,
+        4578182.80731137,
+        3186866.2627219735,
+        773344.1080208266
+      ],
+      "baseline_unweighted_energy_ratio": 3.1813056871412453,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.302071952650423,
+        1.0336300090678796,
+        0.39220641045493365,
+        1.3414021865810748,
+        40.75551776241659
+      ]
+    },
+    {
+      "itr": 25,
+      "step": 1840000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 49392050.62182671,
+      "baseline_unweighted_bin_energy_critic": [
+        6839526.720805207,
+        4769503.782060138,
+        1087151.0068936036,
+        4865940.01692031,
+        31829929.09514747
+      ],
+      "baseline_unweighted_energy_loo": 18015243.300894167,
+      "baseline_unweighted_bin_energy_loo": [
+        3422492.802298395,
+        5543618.0330663705,
+        4980236.003118918,
+        3187690.58532055,
+        881205.8770899249
+      ],
+      "baseline_unweighted_energy_ratio": 2.7416810196160486,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.998404997729165,
+        0.8603593814745489,
+        0.21829307009000484,
+        1.5264781466959716,
+        36.12087699671493
+      ]
+    },
+    {
+      "itr": 26,
+      "step": 1920000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50550335.98176295,
+      "baseline_unweighted_bin_energy_critic": [
+        6584715.775767619,
+        4920246.193944479,
+        1146340.1939442183,
+        4729385.219941515,
+        33169648.598165087
+      ],
+      "baseline_unweighted_energy_loo": 12551077.756293189,
+      "baseline_unweighted_bin_energy_loo": [
+        1771022.418760256,
+        3716146.638161463,
+        4073284.223038155,
+        2343190.5014064796,
+        647433.974926831
+      ],
+      "baseline_unweighted_energy_ratio": 4.027569342116194,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.718030729603652,
+        1.3240183106387684,
+        0.28142897258693955,
+        2.01835284715551,
+        51.23248065860881
+      ]
+    },
+    {
+      "itr": 27,
+      "step": 2000000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 55596764.785468705,
+      "baseline_unweighted_bin_energy_critic": [
+        7243073.768995444,
+        4339922.24069498,
+        2883980.8136516474,
+        6926348.358047898,
+        34203439.604078725
+      ],
+      "baseline_unweighted_energy_loo": 15196595.522034738,
+      "baseline_unweighted_bin_energy_loo": [
+        2435954.7570873247,
+        4110709.68019326,
+        4707330.218506572,
+        3106794.346217027,
+        835806.5200305629
+      ],
+      "baseline_unweighted_energy_ratio": 3.6585013205658194,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.9734024196968254,
+        1.0557598512991908,
+        0.6126574257130845,
+        2.229419648095386,
+        40.92267622275549
+      ]
+    },
+    {
+      "itr": 28,
+      "step": 2080000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50814116.4079902,
+      "baseline_unweighted_bin_energy_critic": [
+        7523571.428824614,
+        5124624.67337812,
+        1118040.8853315886,
+        4410639.652734063,
+        32637239.767721828
+      ],
+      "baseline_unweighted_energy_loo": 13158001.503107684,
+      "baseline_unweighted_bin_energy_loo": [
+        2361623.990803518,
+        3895981.6273426902,
+        4005996.285047342,
+        2215603.2316635647,
+        678796.3682505544
+      ],
+      "baseline_unweighted_energy_ratio": 3.8618415111131292,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.1857617716124222,
+        1.3153616119266567,
+        0.27909184277198495,
+        1.9907172862455051,
+        48.08104653216841
+      ]
+    },
+    {
+      "itr": 29,
+      "step": 2160000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50747072.83896366,
+      "baseline_unweighted_bin_energy_critic": [
+        7031365.184369775,
+        4059619.069731457,
+        1286587.412656371,
+        5225206.862960553,
+        33144294.30924551
+      ],
+      "baseline_unweighted_energy_loo": 16718958.984222436,
+      "baseline_unweighted_bin_energy_loo": [
+        3545478.3274625004,
+        4701978.961907725,
+        4815785.624525675,
+        2913454.2433564104,
+        742261.8269701247
+      ],
+      "baseline_unweighted_energy_ratio": 3.0353009949275735,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.9831922620726112,
+        0.8633852049572667,
+        0.2671604413003936,
+        1.7934748331385892,
+        44.65310366900968
+      ]
+    },
+    {
+      "itr": 31,
+      "step": 2240000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50513931.01327942,
+      "baseline_unweighted_bin_energy_critic": [
+        5566649.515684241,
+        2948218.315948181,
+        1882765.23256457,
+        6360101.784741499,
+        33756196.16434093
+      ],
+      "baseline_unweighted_energy_loo": 10628585.65633282,
+      "baseline_unweighted_bin_energy_loo": [
+        1963987.4393241976,
+        2737731.8841552115,
+        2921619.3748407275,
+        2431431.3655942357,
+        573815.5924184488
+      ],
+      "baseline_unweighted_energy_ratio": 4.752648437582263,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.8343610576245384,
+        1.0768835082102715,
+        0.6444252282750587,
+        2.615785037052488,
+        58.827603519920714
+      ]
+    },
+    {
+      "itr": 32,
+      "step": 2320000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50868964.56704,
+      "baseline_unweighted_bin_energy_critic": [
+        7024296.590733176,
+        4224980.712729166,
+        1972560.9586964722,
+        4823820.505657504,
+        32823305.799223687
+      ],
+      "baseline_unweighted_energy_loo": 13610234.457819201,
+      "baseline_unweighted_bin_energy_loo": [
+        3477585.7192690736,
+        3461276.962428468,
+        3502695.7136657373,
+        2525610.2762110457,
+        643065.7862448578
+      ],
+      "baseline_unweighted_energy_ratio": 3.7375524076894444,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.019877339561182,
+        1.2206421961000415,
+        0.5631551010841571,
+        1.9099623370610703,
+        51.04190971019204
+      ]
+    },
+    {
+      "itr": 33,
+      "step": 2400000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51953707.01021928,
+      "baseline_unweighted_bin_energy_critic": [
+        7236800.822923125,
+        4507348.390410067,
+        2536448.67994324,
+        5426038.4211032605,
+        32247070.69583958
+      ],
+      "baseline_unweighted_energy_loo": 14224984.53719457,
+      "baseline_unweighted_bin_energy_loo": [
+        2073252.5123097273,
+        3194546.5649684505,
+        4173435.6071209842,
+        3692611.131763851,
+        1091138.7210315734
+      ],
+      "baseline_unweighted_energy_ratio": 3.6522856579825507,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.4905544693448345,
+        1.4109509123572852,
+        0.6077603487197425,
+        1.4694313122842704,
+        29.553593942072627
+      ]
+    },
+    {
+      "itr": 34,
+      "step": 2480000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50837453.5541389,
+      "baseline_unweighted_bin_energy_critic": [
+        5922215.054726318,
+        3336163.3608924984,
+        2252007.6152209877,
+        6279868.046875521,
+        33047199.476423588
+      ],
+      "baseline_unweighted_energy_loo": 9032433.02128276,
+      "baseline_unweighted_bin_energy_loo": [
+        1242975.1745710808,
+        1853352.9093762639,
+        2557060.4987396514,
+        2481594.697900975,
+        897449.7406947984
+      ],
+      "baseline_unweighted_energy_ratio": 5.628323335955289,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.76454813891993,
+        1.800069130932687,
+        0.8807017340148889,
+        2.5305776371086166,
+        36.82345425921981
+      ]
+    },
+    {
+      "itr": 35,
+      "step": 2560000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 49746027.62206468,
+      "baseline_unweighted_bin_energy_critic": [
+        7321026.109154287,
+        3876606.769524605,
+        1395360.1821265314,
+        4580172.874195689,
+        32572861.687063564
+      ],
+      "baseline_unweighted_energy_loo": 13143819.309205333,
+      "baseline_unweighted_bin_energy_loo": [
+        2847275.8121353965,
+        3881255.250639695,
+        3273542.2666639304,
+        2425639.274527149,
+        716106.7052391716
+      ],
+      "baseline_unweighted_energy_ratio": 3.7847467658981606,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.5712388234224743,
+        0.9988023253264974,
+        0.426253907376166,
+        1.8882333091710608,
+        45.486044815324824
+      ]
+    },
+    {
+      "itr": 36,
+      "step": 2640000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51121842.87015468,
+      "baseline_unweighted_bin_energy_critic": [
+        7191372.0385670755,
+        3720533.501614187,
+        996170.1566532351,
+        5567651.111566875,
+        33646116.061753295
+      ],
+      "baseline_unweighted_energy_loo": 14876012.206597479,
+      "baseline_unweighted_bin_energy_loo": [
+        3236057.661580555,
+        4579820.970514411,
+        3884044.9343214496,
+        2416459.6959255817,
+        759628.9442554798
+      ],
+      "baseline_unweighted_energy_ratio": 3.4365286986980457,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.2222632569083043,
+        0.8123753145739869,
+        0.25647750566698013,
+        2.304052958530428,
+        44.2928304880881
+      ]
+    },
+    {
+      "itr": 37,
+      "step": 2720000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52875492.884425096,
+      "baseline_unweighted_bin_energy_critic": [
+        6743083.495082955,
+        3958916.256649662,
+        1376087.5642137844,
+        6120037.158278935,
+        34677368.41019977
+      ],
+      "baseline_unweighted_energy_loo": 8110812.114543858,
+      "baseline_unweighted_bin_energy_loo": [
+        1429551.861152809,
+        1879585.3268251575,
+        2138153.2027578293,
+        1998638.1324209163,
+        664883.5913871517
+      ],
+      "baseline_unweighted_energy_ratio": 6.5191366952776155,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.716921210291206,
+        2.1062711014757394,
+        0.643586980782706,
+        3.062103668994766,
+        52.15554851918079
+      ]
+    },
+    {
+      "itr": 38,
+      "step": 2800000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51503438.61493563,
+      "baseline_unweighted_bin_energy_critic": [
+        6492656.687864018,
+        4400799.888634274,
+        2452618.049099575,
+        4641111.794399843,
+        33516252.19493792
+      ],
+      "baseline_unweighted_energy_loo": 14476615.94973825,
+      "baseline_unweighted_bin_energy_loo": [
+        1867955.7809639915,
+        3816176.3018926145,
+        4808487.308560628,
+        3200657.835377744,
+        783338.7229432694
+      ],
+      "baseline_unweighted_energy_ratio": 3.5576987601074586,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.475808557156191,
+        1.1531961682304137,
+        0.5100602105641703,
+        1.4500493439505993,
+        42.78641054409513
+      ]
+    },
+    {
+      "itr": 39,
+      "step": 2880000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51482365.526466295,
+      "baseline_unweighted_bin_energy_critic": [
+        6601321.979505357,
+        3684333.147096636,
+        1020272.7382065277,
+        5270420.553899028,
+        34906017.10775875
+      ],
+      "baseline_unweighted_energy_loo": 11507754.901818492,
+      "baseline_unweighted_bin_energy_loo": [
+        2338481.647831191,
+        3919865.910746256,
+        3019035.75002942,
+        1801855.698038103,
+        428515.8951735228
+      ],
+      "baseline_unweighted_energy_ratio": 4.473710638234995,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.822909465903959,
+        0.939913055953289,
+        0.3379465573392383,
+        2.9249959137335853,
+        81.45792840105486
+      ]
+    },
+    {
+      "itr": 41,
+      "step": 2960000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52052039.798572816,
+      "baseline_unweighted_bin_energy_critic": [
+        7763154.242919373,
+        4346414.94791368,
+        1250206.6516148932,
+        5601136.390871763,
+        33091127.565253112
+      ],
+      "baseline_unweighted_energy_loo": 13671256.170712179,
+      "baseline_unweighted_bin_energy_loo": [
+        2872256.7673731097,
+        3866699.6379494877,
+        3584403.395922675,
+        2580977.1737733334,
+        766919.1956935668
+      ],
+      "baseline_unweighted_energy_ratio": 3.807407245435389,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.7028064938704452,
+        1.1240632464068467,
+        0.3487907228960408,
+        2.1701611497334636,
+        43.14812792673288
+      ]
+    },
+    {
+      "itr": 42,
+      "step": 3040000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50905148.259735994,
+      "baseline_unweighted_bin_energy_critic": [
+        7831314.18168038,
+        3602683.1481458694,
+        918402.7371324794,
+        4807324.942391685,
+        33745423.250385575
+      ],
+      "baseline_unweighted_energy_loo": 14941628.741555024,
+      "baseline_unweighted_bin_energy_loo": [
+        3459847.308570937,
+        4876169.471177099,
+        3791342.45394062,
+        2216348.9471813757,
+        597920.5606849932
+      ],
+      "baseline_unweighted_energy_ratio": 3.4069343536933663,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.2634854903221275,
+        0.7388346876459541,
+        0.24223681935614022,
+        2.169028910589807,
+        56.43797097682333
+      ]
+    },
+    {
+      "itr": 43,
+      "step": 3120000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 59359650.231219634,
+      "baseline_unweighted_bin_energy_critic": [
+        7571739.6141774375,
+        5211315.833265521,
+        3351872.5253305463,
+        8011819.500914363,
+        35212902.75753178
+      ],
+      "baseline_unweighted_energy_loo": 11917807.611633683,
+      "baseline_unweighted_bin_energy_loo": [
+        2734601.789564016,
+        2623887.0860216324,
+        2788319.2843193477,
+        2891221.597097899,
+        879777.854630791
+      ],
+      "baseline_unweighted_energy_ratio": 4.98075251468862,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.768863694550795,
+        1.9861052181048604,
+        1.202112162757131,
+        2.771084550888915,
+        40.02476599312594
+      ]
+    },
+    {
+      "itr": 44,
+      "step": 3200000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52041811.46387152,
+      "baseline_unweighted_bin_energy_critic": [
+        6339511.566762766,
+        3981386.4917908036,
+        1694298.015701,
+        5478431.974113377,
+        34548183.415503584
+      ],
+      "baseline_unweighted_energy_loo": 12430586.914523808,
+      "baseline_unweighted_bin_energy_loo": [
+        1929464.9460045965,
+        3220342.015171872,
+        3860563.0255050575,
+        2599603.1049840795,
+        820613.822858211
+      ],
+      "baseline_unweighted_energy_ratio": 4.186593265605684,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.2856318949407144,
+        1.236324114964638,
+        0.43887329503689265,
+        2.1074109211555694,
+        42.100416119206606
+      ]
+    },
+    {
+      "itr": 45,
+      "step": 3280000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53190285.028946795,
+      "baseline_unweighted_bin_energy_critic": [
+        6404441.617266597,
+        3401540.3493773593,
+        1605111.0831399444,
+        6187279.682631382,
+        35591912.29653152
+      ],
+      "baseline_unweighted_energy_loo": 5505470.895912291,
+      "baseline_unweighted_bin_energy_loo": [
+        819013.5357354726,
+        1154036.5758061511,
+        1497303.0467381885,
+        1605855.1454412283,
+        429262.5921912519
+      ],
+      "baseline_unweighted_energy_ratio": 9.661350688174483,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.819701797132597,
+        2.9475152007216208,
+        1.0720014806866327,
+        3.8529500622743598,
+        82.91407857098818
+      ]
+    },
+    {
+      "itr": 46,
+      "step": 3360000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51531062.85042354,
+      "baseline_unweighted_bin_energy_critic": [
+        7216177.65151115,
+        4273235.165070308,
+        1391090.8153583105,
+        5251906.12174281,
+        33398653.096740957
+      ],
+      "baseline_unweighted_energy_loo": 22544317.878631994,
+      "baseline_unweighted_bin_energy_loo": [
+        4509201.27099739,
+        6771805.788449678,
+        6192243.072098029,
+        4082805.2902415073,
+        988262.456845397
+      ],
+      "baseline_unweighted_energy_ratio": 2.285767222048702,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.6003228105883605,
+        0.6310333312214811,
+        0.22465055056163794,
+        1.2863474372132373,
+        33.79532720827198
+      ]
+    },
+    {
+      "itr": 47,
+      "step": 3440000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51274211.72645412,
+      "baseline_unweighted_bin_energy_critic": [
+        5655898.654554612,
+        3198340.458070149,
+        1910396.55942546,
+        6505537.839668543,
+        34004038.21473532
+      ],
+      "baseline_unweighted_energy_loo": 10457949.038039226,
+      "baseline_unweighted_bin_energy_loo": [
+        1411149.6605999637,
+        2292930.1647951836,
+        2842084.910342242,
+        2941538.3784941994,
+        970245.9238076339
+      ],
+      "baseline_unweighted_energy_ratio": 4.902893630476859,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.008007663871706,
+        1.3948704182867433,
+        0.6721813808143442,
+        2.2116107296885885,
+        35.046824088979264
+      ]
+    },
+    {
+      "itr": 48,
+      "step": 3520000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52486188.906342685,
+      "baseline_unweighted_bin_energy_critic": [
+        7264426.908652542,
+        3889458.0002483074,
+        1501144.1938722753,
+        5333113.686227806,
+        34498046.11734174
+      ],
+      "baseline_unweighted_energy_loo": 16294130.366538098,
+      "baseline_unweighted_bin_energy_loo": [
+        3984250.273029286,
+        4707551.257885271,
+        4262568.511358772,
+        2636228.467710707,
+        703531.8565540616
+      ],
+      "baseline_unweighted_energy_ratio": 3.221171533899668,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.823285790510667,
+        0.8262168136211717,
+        0.35216893051034104,
+        2.0230089127514304,
+        49.035513880373664
+      ]
+    },
+    {
+      "itr": 49,
+      "step": 3600000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50736065.267130286,
+      "baseline_unweighted_bin_energy_critic": [
+        6529137.639750314,
+        4824855.6088904245,
+        1832041.9689602612,
+        5611542.383865478,
+        31938487.665663805
+      ],
+      "baseline_unweighted_energy_loo": 20714908.687894486,
+      "baseline_unweighted_bin_energy_loo": [
+        2916007.5207397677,
+        5560325.1151543055,
+        6776890.893457693,
+        4305364.562339493,
+        1156320.5962032133
+      ],
+      "baseline_unweighted_energy_ratio": 2.4492536284642066,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.23906748981701,
+        0.8677290462279973,
+        0.2703366481418325,
+        1.3033837907599215,
+        27.620789399180513
+      ]
+    },
+    {
+      "itr": 51,
+      "step": 3680000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51808895.16724611,
+      "baseline_unweighted_bin_energy_critic": [
+        6741903.346838268,
+        3586961.3402962647,
+        1862348.3026120681,
+        5532129.414388995,
+        34085552.763110526
+      ],
+      "baseline_unweighted_energy_loo": 12331641.141553363,
+      "baseline_unweighted_bin_energy_loo": [
+        2461695.4143359526,
+        2846365.6569161075,
+        3439313.1325045186,
+        2681059.936983084,
+        903207.0008137092
+      ],
+      "baseline_unweighted_energy_ratio": 4.2012976677263225,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.7387236079557433,
+        1.2601899308265807,
+        0.5414884399478626,
+        2.0634113165758365,
+        37.73836200605451
+      ]
+    },
+    {
+      "itr": 52,
+      "step": 3760000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51886128.46850189,
+      "baseline_unweighted_bin_energy_critic": [
+        6864005.707034727,
+        4048633.5078747063,
+        1142718.1700736936,
+        5558529.285674352,
+        34272241.79784441
+      ],
+      "baseline_unweighted_energy_loo": 7108105.722319318,
+      "baseline_unweighted_bin_energy_loo": [
+        1104008.0925033032,
+        2052182.2023803457,
+        1962453.524585681,
+        1476769.711452772,
+        512692.1913972171
+      ],
+      "baseline_unweighted_energy_ratio": 7.299571854366266,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.217350899548944,
+        1.972843104856215,
+        0.5822905642134621,
+        3.763978393222969,
+        66.84759856483049
+      ]
+    },
+    {
+      "itr": 53,
+      "step": 3840000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50420443.27355091,
+      "baseline_unweighted_bin_energy_critic": [
+        6774653.350926693,
+        4274417.908005128,
+        1837222.9050436628,
+        4795956.957971102,
+        32738192.15160432
+      ],
+      "baseline_unweighted_energy_loo": 15215564.45644312,
+      "baseline_unweighted_bin_energy_loo": [
+        2735514.537509091,
+        3958706.343992989,
+        4627245.27790631,
+        3140582.364782508,
+        753515.9322522236
+      ],
+      "baseline_unweighted_energy_ratio": 3.313741229770814,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.4765554187460346,
+        1.079751195612477,
+        0.39704463340550455,
+        1.5270916030579036,
+        43.44724610367747
+      ]
+    },
+    {
+      "itr": 54,
+      "step": 3920000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51464856.7464736,
+      "baseline_unweighted_bin_energy_critic": [
+        7223500.462271666,
+        3863778.4013910443,
+        1020289.766566279,
+        5039131.846058122,
+        34318156.27018649
+      ],
+      "baseline_unweighted_energy_loo": 12028551.589299219,
+      "baseline_unweighted_bin_energy_loo": [
+        3279092.0250480194,
+        3560768.609851758,
+        2885198.942309588,
+        1745110.2621464645,
+        558381.7499433885
+      ],
+      "baseline_unweighted_energy_ratio": 4.278558092751377,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.2028965357158237,
+        1.0850967374574505,
+        0.35362891328025436,
+        2.8875721811755612,
+        61.46002492679217
+      ]
+    },
+    {
+      "itr": 55,
+      "step": 4000000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52283450.45889203,
+      "baseline_unweighted_bin_energy_critic": [
+        7063004.366361139,
+        4536687.244239532,
+        1506311.4217027936,
+        4823652.599047225,
+        34353794.8275413
+      ],
+      "baseline_unweighted_energy_loo": 9059197.739729382,
+      "baseline_unweighted_bin_energy_loo": [
+        1220205.4467870048,
+        2152638.5616011107,
+        2950944.1980487993,
+        2120080.2535231737,
+        615329.2797692954
+      ],
+      "baseline_unweighted_energy_ratio": 5.771311319279565,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.788373085007246,
+        2.1075006855146134,
+        0.5104506627738963,
+        2.2752217002310284,
+        55.82993684360596
+      ]
+    },
+    {
+      "itr": 56,
+      "step": 4080000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53841766.42195083,
+      "baseline_unweighted_bin_energy_critic": [
+        6526744.7099817395,
+        3647780.4807225983,
+        1132417.855349306,
+        6754497.782490039,
+        35780325.59340715
+      ],
+      "baseline_unweighted_energy_loo": 7868548.39400991,
+      "baseline_unweighted_bin_energy_loo": [
+        1192963.391273629,
+        1894669.3058557285,
+        2035977.1608437493,
+        2047835.6287325835,
+        697102.9073042177
+      ],
+      "baseline_unweighted_energy_ratio": 6.842655560578233,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.471035203363341,
+        1.925286101088272,
+        0.5562036142291545,
+        3.298359344724574,
+        51.3271788404585
+      ]
+    },
+    {
+      "itr": 57,
+      "step": 4160000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52392595.21621465,
+      "baseline_unweighted_bin_energy_critic": [
+        6731941.079707176,
+        3284347.2218516124,
+        1364067.4771978061,
+        5474745.233215383,
+        35537494.20424266
+      ],
+      "baseline_unweighted_energy_loo": 8986201.310842637,
+      "baseline_unweighted_bin_energy_loo": [
+        1766265.1474690922,
+        2543955.529420293,
+        2511180.1990814786,
+        1731881.2900815061,
+        432919.14479026623
+      ],
+      "baseline_unweighted_energy_ratio": 5.830338471607397,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.811398922383469,
+        1.2910395578337948,
+        0.5431977672079228,
+        3.161155019440004,
+        82.08806339913495
+      ]
+    },
+    {
+      "itr": 58,
+      "step": 4240000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53418483.170788325,
+      "baseline_unweighted_bin_energy_critic": [
+        6775136.430145971,
+        3786930.5950035797,
+        1342256.8126170249,
+        5563484.401174689,
+        35950674.93184706
+      ],
+      "baseline_unweighted_energy_loo": 10144714.697728826,
+      "baseline_unweighted_bin_energy_loo": [
+        2050791.8781720386,
+        2821833.4091287255,
+        2751052.3400815288,
+        1866300.0303827932,
+        654737.0399637294
+      ],
+      "baseline_unweighted_energy_ratio": 5.265646670452696,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.3036684522980213,
+        1.342010688069938,
+        0.48790667958620026,
+        2.9810235817408057,
+        54.9085705214396
+      ]
+    },
+    {
+      "itr": 59,
+      "step": 4320000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52199924.78371469,
+      "baseline_unweighted_bin_energy_critic": [
+        7240806.999745954,
+        3286091.3455080376,
+        979237.8683573792,
+        5067609.402437149,
+        35626179.167666174
+      ],
+      "baseline_unweighted_energy_loo": 12273048.110995224,
+      "baseline_unweighted_bin_energy_loo": [
+        3364929.2313118814,
+        3792013.1471787496,
+        2920853.162950614,
+        1712321.23643124,
+        482931.3331227417
+      ],
+      "baseline_unweighted_energy_ratio": 4.253216015420784,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.1518452549811835,
+        0.866582265927238,
+        0.33525747914289666,
+        2.9594969066662298,
+        73.77069310723608
+      ]
+    },
+    {
+      "itr": 61,
+      "step": 4400000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51274093.30197792,
+      "baseline_unweighted_bin_energy_critic": [
+        5786880.417123912,
+        3183064.933612141,
+        843057.9659640152,
+        5768552.13460571,
+        35692537.850672156
+      ],
+      "baseline_unweighted_energy_loo": 7142282.935632721,
+      "baseline_unweighted_bin_energy_loo": [
+        1384032.426490467,
+        2171203.175445877,
+        1738788.6718699555,
+        1326065.9605763052,
+        522192.70125010837
+      ],
+      "baseline_unweighted_energy_ratio": 7.178950170984181,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.181174014685393,
+        1.4660373426169426,
+        0.4848536107940941,
+        4.350124583620796,
+        68.35127677048273
+      ]
+    },
+    {
+      "itr": 62,
+      "step": 4480000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51311521.01430511,
+      "baseline_unweighted_bin_energy_critic": [
+        5471873.158458788,
+        3063949.9418661827,
+        1706679.8294973124,
+        5959634.416479772,
+        35109383.66800304
+      ],
+      "baseline_unweighted_energy_loo": 6374775.639663107,
+      "baseline_unweighted_bin_energy_loo": [
+        1043477.3534829529,
+        1378565.2730783764,
+        1617216.6510882538,
+        1823047.9101040005,
+        512468.45190952497
+      ],
+      "baseline_unweighted_energy_ratio": 8.049149321436639,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.243883003492687,
+        2.2225642860017016,
+        1.055319229089595,
+        3.2690498057946207,
+        68.5103317817533
+      ]
+    },
+    {
+      "itr": 63,
+      "step": 4560000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50651682.762502074,
+      "baseline_unweighted_bin_energy_critic": [
+        6852234.816216123,
+        4029794.971148305,
+        1400441.607551479,
+        4707510.177114725,
+        33661701.19047147
+      ],
+      "baseline_unweighted_energy_loo": 15760470.915657792,
+      "baseline_unweighted_bin_energy_loo": [
+        2828251.32690345,
+        4800080.357394708,
+        4696157.345319177,
+        2806139.127083675,
+        629842.7589567868
+      ],
+      "baseline_unweighted_energy_ratio": 3.2138432305458835,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.4227814377862904,
+        0.8395265643710008,
+        0.2982101119221118,
+        1.677575474316229,
+        53.444610915628516
+      ]
+    },
+    {
+      "itr": 64,
+      "step": 4640000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52775270.22379729,
+      "baseline_unweighted_bin_energy_critic": [
+        6599946.053347366,
+        3521161.340820861,
+        1645059.5021513323,
+        6597183.72911796,
+        34411919.598359786
+      ],
+      "baseline_unweighted_energy_loo": 5494744.4272009805,
+      "baseline_unweighted_bin_energy_loo": [
+        609643.6462927567,
+        844310.4910589575,
+        1512746.5510230833,
+        1765823.2835098486,
+        762220.4553163367
+      ],
+      "baseline_unweighted_energy_ratio": 9.604681513946407,
+      "baseline_unweighted_bin_energy_ratio": [
+        10.825908042315607,
+        4.170457880257444,
+        1.0874653794707148,
+        3.7360384760614496,
+        45.14693794733986
+      ]
+    },
+    {
+      "itr": 65,
+      "step": 4720000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53097104.3957259,
+      "baseline_unweighted_bin_energy_critic": [
+        7463939.5120032355,
+        4505953.01618721,
+        2060272.444756119,
+        6008079.724044506,
+        33058859.698734835
+      ],
+      "baseline_unweighted_energy_loo": 14946833.1332123,
+      "baseline_unweighted_bin_energy_loo": [
+        2194562.831521497,
+        3670220.925078667,
+        4483801.531323268,
+        3540054.514067611,
+        1058193.3312212573
+      ],
+      "baseline_unweighted_energy_ratio": 3.5523982854764453,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.401105406869788,
+        1.2277062084731671,
+        0.45949233710799137,
+        1.697171526644394,
+        31.240850535867313
+      ]
+    },
+    {
+      "itr": 66,
+      "step": 4800000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51493509.61783913,
+      "baseline_unweighted_bin_energy_critic": [
+        7584150.182914332,
+        3822980.652313664,
+        1238286.043027305,
+        5021816.681003704,
+        33826276.05858013
+      ],
+      "baseline_unweighted_energy_loo": 9238750.746561576,
+      "baseline_unweighted_bin_energy_loo": [
+        2040323.070328408,
+        2735163.385371944,
+        2073029.8477041053,
+        1786425.0795370962,
+        603809.3636200246
+      ],
+      "baseline_unweighted_energy_ratio": 5.573644211259156,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.717132003851525,
+        1.3977156438842107,
+        0.5973315070203717,
+        2.8110983989907776,
+        56.02144997517279
+      ]
+    },
+    {
+      "itr": 67,
+      "step": 4880000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53880470.615550496,
+      "baseline_unweighted_bin_energy_critic": [
+        7103845.162378801,
+        4411703.071431936,
+        1710764.358784056,
+        5406911.022572849,
+        35247247.00038288
+      ],
+      "baseline_unweighted_energy_loo": 8400463.405637424,
+      "baseline_unweighted_bin_energy_loo": [
+        1494325.8118485017,
+        1923675.8786303068,
+        2666530.7822390106,
+        1837141.291503997,
+        478789.64141561324
+      ],
+      "baseline_unweighted_energy_ratio": 6.4139878973095845,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.753879713548711,
+        2.2933713108536513,
+        0.6415693267743099,
+        2.943111151862696,
+        73.61739676775194
+      ]
+    },
+    {
+      "itr": 68,
+      "step": 4960000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52048306.44825929,
+      "baseline_unweighted_bin_energy_critic": [
+        6827018.084280342,
+        3464280.111770044,
+        978916.9229121773,
+        5771807.940634566,
+        35006283.38866215
+      ],
+      "baseline_unweighted_energy_loo": 3219910.2586699086,
+      "baseline_unweighted_bin_energy_loo": [
+        595007.1019502778,
+        646219.3252135237,
+        694770.7313237186,
+        948225.4843158678,
+        335687.6158665233
+      ],
+      "baseline_unweighted_energy_ratio": 16.164520830390963,
+      "baseline_unweighted_bin_energy_ratio": [
+        11.473843021206235,
+        5.360842637482834,
+        1.4089783561363998,
+        6.086957201744952,
+        104.28232003226897
+      ]
+    },
+    {
+      "itr": 69,
+      "step": 5040000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52454016.45884095,
+      "baseline_unweighted_bin_energy_critic": [
+        6428262.4023989765,
+        3733723.479874501,
+        1116720.8493470564,
+        5352124.5008424595,
+        35823185.22637794
+      ],
+      "baseline_unweighted_energy_loo": 4068618.0770771545,
+      "baseline_unweighted_bin_energy_loo": [
+        1240782.835362033,
+        918330.3071426658,
+        1018994.9018481954,
+        620086.989408495,
+        270423.0433157641
+      ],
+      "baseline_unweighted_energy_ratio": 12.89234218231741,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.180811838457897,
+        4.065773993119944,
+        1.095904255577345,
+        8.631247860800766,
+        132.47090479840648
+      ]
+    },
+    {
+      "itr": 71,
+      "step": 5120000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52777651.99670563,
+      "baseline_unweighted_bin_energy_critic": [
+        6811585.52874832,
+        3983326.705312106,
+        896199.5660964306,
+        5435930.982764752,
+        35650609.21378404
+      ],
+      "baseline_unweighted_energy_loo": 6680221.110326405,
+      "baseline_unweighted_bin_energy_loo": [
+        1358748.4930328603,
+        1807365.9742400937,
+        1836137.5830058614,
+        1141413.1961679081,
+        536555.8638796823
+      ],
+      "baseline_unweighted_energy_ratio": 7.90058459518967,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.013131984083524,
+        2.203940298802457,
+        0.4880895497108126,
+        4.76245675187121,
+        66.4434248393162
+      ]
+    },
+    {
+      "itr": 72,
+      "step": 5200000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52025729.52694312,
+      "baseline_unweighted_bin_energy_critic": [
+        6177288.437151035,
+        3756786.444502525,
+        1438300.7502264432,
+        5284929.85545536,
+        35368424.03960774
+      ],
+      "baseline_unweighted_energy_loo": 6262452.928533955,
+      "baseline_unweighted_bin_energy_loo": [
+        1103887.8674653366,
+        1381643.8892432132,
+        2079269.6456278833,
+        1325782.2470230195,
+        371869.27917450794
+      ],
+      "baseline_unweighted_energy_ratio": 8.307564163859094,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.595938336866457,
+        2.7190699960756755,
+        0.6917336350534349,
+        3.98627290968967,
+        95.10983030951131
+      ]
+    },
+    {
+      "itr": 73,
+      "step": 5280000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52160079.00521624,
+      "baseline_unweighted_bin_energy_critic": [
+        6707257.978769007,
+        3764500.1597955055,
+        1305798.4351881,
+        5370242.392255627,
+        35012280.03920799
+      ],
+      "baseline_unweighted_energy_loo": 11752093.121371662,
+      "baseline_unweighted_bin_energy_loo": [
+        1984544.943193462,
+        3538066.963389694,
+        3277259.5183554823,
+        2246654.1574614607,
+        705567.538971556
+      ],
+      "baseline_unweighted_energy_ratio": 4.438365018599198,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.37974607316069,
+        1.063999126853403,
+        0.3984421825230811,
+        2.39032891396314,
+        49.622861179586465
+      ]
+    },
+    {
+      "itr": 74,
+      "step": 5360000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52326114.118346125,
+      "baseline_unweighted_bin_energy_critic": [
+        6432931.909155671,
+        3841439.3640166908,
+        1432575.4455244911,
+        5667105.81056147,
+        34952061.58908781
+      ],
+      "baseline_unweighted_energy_loo": 6648701.727095983,
+      "baseline_unweighted_bin_energy_loo": [
+        818674.1307693685,
+        1327663.784648488,
+        2043717.7693640448,
+        1907296.1768997898,
+        551349.8654142893
+      ],
+      "baseline_unweighted_energy_ratio": 7.870125065935406,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.857744207832938,
+        2.8933826533754172,
+        0.7009654008979301,
+        2.971277287292136,
+        63.393615890020236
+      ]
+    },
+    {
+      "itr": 75,
+      "step": 5440000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53356001.72654754,
+      "baseline_unweighted_bin_energy_critic": [
+        6470926.719714534,
+        3564054.5869424916,
+        1322777.2624475686,
+        6053384.181788766,
+        35944858.97565417
+      ],
+      "baseline_unweighted_energy_loo": 5934021.395594456,
+      "baseline_unweighted_bin_energy_loo": [
+        814677.1148885137,
+        1026146.4279901383,
+        1801631.2961952675,
+        1649487.157714481,
+        642079.3988060531
+      ],
+      "baseline_unweighted_energy_ratio": 8.991541851561266,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.94293420234354,
+        3.473241722356552,
+        0.7342108594810961,
+        3.6698583274672454,
+        55.981953388465115
+      ]
+    },
+    {
+      "itr": 76,
+      "step": 5520000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51426377.82959883,
+      "baseline_unweighted_bin_energy_critic": [
+        6788659.036313958,
+        3728296.1559021627,
+        3001674.681121438,
+        4687147.7145807035,
+        33220600.24168056
+      ],
+      "baseline_unweighted_energy_loo": 18835455.547814917,
+      "baseline_unweighted_bin_energy_loo": [
+        3423753.7298105913,
+        4595261.752030267,
+        5502952.237783215,
+        4326727.806591024,
+        986760.0215998157
+      ],
+      "baseline_unweighted_energy_ratio": 2.730296471940906,
+      "baseline_unweighted_bin_energy_ratio": [
+        1.9828117242210406,
+        0.8113348829922334,
+        0.5454662427400278,
+        1.0833008046960204,
+        33.666341880998196
+      ]
+    },
+    {
+      "itr": 77,
+      "step": 5600000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50800636.6867367,
+      "baseline_unweighted_bin_energy_critic": [
+        6427115.255399372,
+        3707570.9565810384,
+        995102.2441378421,
+        4754855.667634957,
+        34915992.562983476
+      ],
+      "baseline_unweighted_energy_loo": 2990663.467296274,
+      "baseline_unweighted_bin_energy_loo": [
+        831714.5469754098,
+        723648.4705677361,
+        703348.2532088892,
+        591817.9591153874,
+        140134.23742885137
+      ],
+      "baseline_unweighted_energy_ratio": 16.986410287301,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.727549408354155,
+        5.123441985128879,
+        1.4148073015009026,
+        8.034321355746314,
+        249.1610416099131
+      ]
+    },
+    {
+      "itr": 78,
+      "step": 5680000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52040601.462421864,
+      "baseline_unweighted_bin_energy_critic": [
+        7453965.332211306,
+        3875746.427975534,
+        1093180.7119568053,
+        5181296.906015447,
+        34436412.08426276
+      ],
+      "baseline_unweighted_energy_loo": 13241487.268711327,
+      "baseline_unweighted_bin_energy_loo": [
+        2781977.498418621,
+        3917407.192907881,
+        3506419.2499532807,
+        2326657.4218587284,
+        709025.9055728217
+      ],
+      "baseline_unweighted_energy_ratio": 3.9301175469458047,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.679376571682703,
+        0.989365219676992,
+        0.31176554599720807,
+        2.226927289483036,
+        48.56862325282966
+      ]
+    },
+    {
+      "itr": 79,
+      "step": 5760000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54553825.95319777,
+      "baseline_unweighted_bin_energy_critic": [
+        7655853.034821706,
+        4047998.3605135083,
+        1264456.4452437982,
+        5568860.693431273,
+        36016657.41918747
+      ],
+      "baseline_unweighted_energy_loo": 8377464.135162715,
+      "baseline_unweighted_bin_energy_loo": [
+        2128422.094821642,
+        2262946.220350073,
+        2077885.0934395546,
+        1521476.888096156,
+        386733.8384552883
+      ],
+      "baseline_unweighted_energy_ratio": 6.511973679984984,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.596961830760948,
+        1.7888177474616658,
+        0.6085304953753359,
+        3.660167786314297,
+        93.13034919066563
+      ]
+    },
+    {
+      "itr": 81,
+      "step": 5840000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52441612.478045605,
+      "baseline_unweighted_bin_energy_critic": [
+        6359299.332013689,
+        3401774.650233351,
+        1217948.4590653912,
+        5317986.846328863,
+        36144603.19040432
+      ],
+      "baseline_unweighted_energy_loo": 5127495.3242,
+      "baseline_unweighted_bin_energy_loo": [
+        731231.5396660761,
+        1093171.743865191,
+        1681159.2345603686,
+        1206678.916861883,
+        415253.8892464808
+      ],
+      "baseline_unweighted_energy_ratio": 10.227530043867496,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.696697266255397,
+        3.111839168295275,
+        0.7244694220675002,
+        4.407126678038714,
+        87.0421785958279
+      ]
+    },
+    {
+      "itr": 82,
+      "step": 5920000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51532632.915087454,
+      "baseline_unweighted_bin_energy_critic": [
+        6047831.783589273,
+        3703577.993275088,
+        1896973.9333107446,
+        5569455.819519434,
+        34314793.38539293
+      ],
+      "baseline_unweighted_energy_loo": 13311905.551228361,
+      "baseline_unweighted_bin_energy_loo": [
+        1994056.532071966,
+        3574224.2045645937,
+        4154479.020903553,
+        2803656.482419781,
+        785489.3112684718
+      ],
+      "baseline_unweighted_energy_ratio": 3.871168760683722,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.032928949765104,
+        1.0361907315565986,
+        0.4566093422944218,
+        1.9864972240509815,
+        43.68588202680775
+      ]
+    },
+    {
+      "itr": 83,
+      "step": 6000000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51385237.92985996,
+      "baseline_unweighted_bin_energy_critic": [
+        6199295.20657904,
+        3536763.898161112,
+        1963281.4823142888,
+        5046282.09671677,
+        34639615.24608876
+      ],
+      "baseline_unweighted_energy_loo": 6995595.464721431,
+      "baseline_unweighted_bin_energy_loo": [
+        909347.4705221715,
+        1256600.0225865827,
+        1975118.9457783953,
+        2219767.733155498,
+        634761.2926787827
+      ],
+      "baseline_unweighted_energy_ratio": 7.345370124529657,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.817300765151125,
+        2.814550242392201,
+        0.9940067085633462,
+        2.2733378908716984,
+        54.57108939315545
+      ]
+    },
+    {
+      "itr": 84,
+      "step": 6080000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51866876.56624294,
+      "baseline_unweighted_bin_energy_critic": [
+        6172397.79101559,
+        3566126.840428239,
+        1779268.979065221,
+        5889779.10486311,
+        34459303.850870796
+      ],
+      "baseline_unweighted_energy_loo": 6131971.332521043,
+      "baseline_unweighted_bin_energy_loo": [
+        639945.035997934,
+        1215863.1727139612,
+        1869341.397378749,
+        1788822.102911376,
+        617999.6235190197
+      ],
+      "baseline_unweighted_energy_ratio": 8.458434287056406,
+      "baseline_unweighted_bin_energy_ratio": [
+        9.645199890316073,
+        2.933000127364817,
+        0.9518159612578898,
+        3.2925460252739893,
+        55.759425312676214
+      ]
+    },
+    {
+      "itr": 85,
+      "step": 6160000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52606678.719998114,
+      "baseline_unweighted_bin_energy_critic": [
+        5593695.309468803,
+        3008839.6936652395,
+        1288383.1325112926,
+        6503720.292764144,
+        36212040.29158865
+      ],
+      "baseline_unweighted_energy_loo": 4545562.616596217,
+      "baseline_unweighted_bin_energy_loo": [
+        673889.8465670873,
+        936954.2109413292,
+        1152559.6091428883,
+        1291963.840905148,
+        490195.10903976415
+      ],
+      "baseline_unweighted_energy_ratio": 11.573194158172383,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.300607789187008,
+        3.2112985442931627,
+        1.1178451181968894,
+        5.0339801214619495,
+        73.87270828247118
+      ]
+    },
+    {
+      "itr": 86,
+      "step": 6240000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53103953.50882813,
+      "baseline_unweighted_bin_energy_critic": [
+        6762808.841531952,
+        3963427.813448168,
+        1514185.004756333,
+        5369405.918733865,
+        35494125.93035781
+      ],
+      "baseline_unweighted_energy_loo": 12860242.53254784,
+      "baseline_unweighted_bin_energy_loo": [
+        2341621.988507536,
+        3604042.8415390975,
+        3915754.7035284005,
+        2381173.945006588,
+        617649.0539662202
+      ],
+      "baseline_unweighted_energy_ratio": 4.129311976382089,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.8880873491636105,
+        1.09971717532514,
+        0.38669046439296473,
+        2.25494064807559,
+        57.466494447669
+      ]
+    },
+    {
+      "itr": 87,
+      "step": 6320000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52861113.81426402,
+      "baseline_unweighted_bin_energy_critic": [
+        6512534.7576645175,
+        3300731.325449774,
+        868498.793866944,
+        5723858.748837696,
+        36455490.18844507
+      ],
+      "baseline_unweighted_energy_loo": 3131818.9872985953,
+      "baseline_unweighted_bin_energy_loo": [
+        757089.741605806,
+        595536.0608415119,
+        662275.1997337074,
+        644698.5375149308,
+        472219.44760263944
+      ],
+      "baseline_unweighted_energy_ratio": 16.878725759262444,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.602064457842568,
+        5.542454172776259,
+        1.3113865568515273,
+        8.878349206283309,
+        77.20031517872053
+      ]
+    },
+    {
+      "itr": 88,
+      "step": 6400000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53049820.05065949,
+      "baseline_unweighted_bin_energy_critic": [
+        6124862.439280148,
+        3627341.23575873,
+        1824778.814791247,
+        6727935.3189953985,
+        34744902.24183397
+      ],
+      "baseline_unweighted_energy_loo": 14802371.504121603,
+      "baseline_unweighted_bin_energy_loo": [
+        2299410.8221509703,
+        3320394.6893641963,
+        4495568.490802501,
+        3578373.4529899624,
+        1108624.0488139784
+      ],
+      "baseline_unweighted_energy_ratio": 3.5838730324994335,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.663666005342482,
+        1.0924427892195279,
+        0.405906131454691,
+        1.8801657812919927,
+        31.340563357798843
+      ]
+    },
+    {
+      "itr": 89,
+      "step": 6480000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53450028.91515107,
+      "baseline_unweighted_bin_energy_critic": [
+        5960242.883999618,
+        3023939.327591734,
+        1379074.5706944547,
+        6139178.045951139,
+        36947594.086914144
+      ],
+      "baseline_unweighted_energy_loo": 4335891.950347225,
+      "baseline_unweighted_bin_energy_loo": [
+        662095.3523736044,
+        888474.3464035889,
+        1161133.9773015603,
+        1301417.8580680112,
+        322770.41620046255
+      ],
+      "baseline_unweighted_energy_ratio": 12.327343376458147,
+      "baseline_unweighted_bin_energy_ratio": [
+        9.002091409692296,
+        3.403519009673366,
+        1.187696336213829,
+        4.717299680415412,
+        114.47019997014583
+      ]
+    },
+    {
+      "itr": 91,
+      "step": 6560000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52477210.51171085,
+      "baseline_unweighted_bin_energy_critic": [
+        6712763.702789984,
+        3590581.739865617,
+        872681.514885212,
+        5184642.914327109,
+        36116540.63984292
+      ],
+      "baseline_unweighted_energy_loo": 7931976.380613437,
+      "baseline_unweighted_bin_energy_loo": [
+        2380128.92675851,
+        2364763.9216116094,
+        1854928.492711144,
+        1001078.2885273141,
+        331076.751004858
+      ],
+      "baseline_unweighted_energy_ratio": 6.615906048329964,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.8203361705838663,
+        1.5183679466061037,
+        0.4704663917312035,
+        5.179058395077408,
+        109.0881208971178
+      ]
+    },
+    {
+      "itr": 92,
+      "step": 6640000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53135083.19075006,
+      "baseline_unweighted_bin_energy_critic": [
+        6393233.60822833,
+        3504085.008232974,
+        1471156.6761428285,
+        6001373.69458154,
+        35765234.203564405
+      ],
+      "baseline_unweighted_energy_loo": 12905643.088284763,
+      "baseline_unweighted_bin_energy_loo": [
+        2400089.0134056187,
+        3823476.924842165,
+        3391376.568243902,
+        2583545.8220737707,
+        707154.7597193085
+      ],
+      "baseline_unweighted_energy_ratio": 4.117197634187173,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.663748541207902,
+        0.9164655827961155,
+        0.43379337167049314,
+        2.3229213290145303,
+        50.57624757805594
+      ]
+    },
+    {
+      "itr": 93,
+      "step": 6720000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52055970.80807326,
+      "baseline_unweighted_bin_energy_critic": [
+        7025411.3614696385,
+        3991612.129593653,
+        1111666.2634516153,
+        5511189.534043973,
+        34416091.51951437
+      ],
+      "baseline_unweighted_energy_loo": 7679103.294247201,
+      "baseline_unweighted_bin_energy_loo": [
+        1390471.6822712375,
+        2067336.115270557,
+        1860069.353930901,
+        1712783.998516399,
+        648442.1442581075
+      ],
+      "baseline_unweighted_energy_ratio": 6.778912695063105,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.0525382509006755,
+        1.9307997863091855,
+        0.5976477495864986,
+        3.217679251334509,
+        53.0750381113651
+      ]
+    },
+    {
+      "itr": 94,
+      "step": 6800000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51803681.56397104,
+      "baseline_unweighted_bin_energy_critic": [
+        6716510.08443798,
+        3504078.893521831,
+        1189510.783959153,
+        5914311.651934684,
+        34479270.1501174
+      ],
+      "baseline_unweighted_energy_loo": 9362589.50395343,
+      "baseline_unweighted_bin_energy_loo": [
+        2100303.271728289,
+        2383645.3024407057,
+        1989684.2359030715,
+        2229803.5668834355,
+        659153.1269979307
+      ],
+      "baseline_unweighted_energy_ratio": 5.53305060978018,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.197876313791163,
+        1.4700504684710727,
+        0.5978389748960653,
+        2.6523913315830923,
+        52.3084375054867
+      ]
+    },
+    {
+      "itr": 95,
+      "step": 6880000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52480272.91715694,
+      "baseline_unweighted_bin_energy_critic": [
+        6377356.392392791,
+        3669638.8067803616,
+        956406.5724186463,
+        5900344.553027351,
+        35576526.59253778
+      ],
+      "baseline_unweighted_energy_loo": 6046959.938867769,
+      "baseline_unweighted_bin_energy_loo": [
+        739023.6931326321,
+        1408745.9191545504,
+        1752338.548805227,
+        1482713.891996343,
+        664137.8857790228
+      ],
+      "baseline_unweighted_energy_ratio": 8.678786274046878,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.629434281545086,
+        2.6048975595135504,
+        0.545788696522564,
+        3.9794221831179177,
+        53.567982424021935
+      ]
+    },
+    {
+      "itr": 96,
+      "step": 6960000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52023675.38508871,
+      "baseline_unweighted_bin_energy_critic": [
+        6444987.629430334,
+        3409739.729089919,
+        861624.2504830743,
+        5204986.965143475,
+        36102336.810941905
+      ],
+      "baseline_unweighted_energy_loo": 2659208.480788755,
+      "baseline_unweighted_bin_energy_loo": [
+        537041.8541914526,
+        670817.1846723018,
+        636725.0873915728,
+        541817.0026674999,
+        272807.35186592827
+      ],
+      "baseline_unweighted_energy_ratio": 19.56359411491416,
+      "baseline_unweighted_bin_energy_ratio": [
+        12.000903801312905,
+        5.082964192033329,
+        1.3532123479111373,
+        9.606540473108131,
+        132.33637790188467
+      ]
+    },
+    {
+      "itr": 97,
+      "step": 7040000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51288479.277647935,
+      "baseline_unweighted_bin_energy_critic": [
+        7014159.1162098665,
+        3831741.6979730353,
+        958885.0938310625,
+        4762030.358879041,
+        34721663.01075493
+      ],
+      "baseline_unweighted_energy_loo": 6746988.191511491,
+      "baseline_unweighted_bin_energy_loo": [
+        1311097.0867430912,
+        2265579.332978756,
+        1795431.0930601784,
+        1082921.4524208116,
+        291959.22630864923
+      ],
+      "baseline_unweighted_energy_ratio": 7.601685051438937,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.3498396016070835,
+        1.691285598432392,
+        0.5340695599722038,
+        4.3973922099647975,
+        118.92641123130112
+      ]
+    },
+    {
+      "itr": 98,
+      "step": 7120000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 50593871.89277204,
+      "baseline_unweighted_bin_energy_critic": [
+        6969696.153378001,
+        3663113.552229854,
+        930162.9297195296,
+        4505994.330103922,
+        34524904.92734072
+      ],
+      "baseline_unweighted_energy_loo": 7619875.722752476,
+      "baseline_unweighted_bin_energy_loo": [
+        2130941.64952718,
+        2360117.8944324125,
+        1849159.7989268529,
+        984147.2805920341,
+        295509.09927399585
+      ],
+      "baseline_unweighted_energy_ratio": 6.639724023543045,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.2707118728119373,
+        1.5520892243863098,
+        0.5030192254121808,
+        4.578577230222338,
+        116.83195208594661
+      ]
+    },
+    {
+      "itr": 99,
+      "step": 7200000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52637590.473580666,
+      "baseline_unweighted_bin_energy_critic": [
+        8073953.6992040565,
+        4305067.8030346725,
+        1053879.8449199712,
+        4497713.90682954,
+        34706975.21959243
+      ],
+      "baseline_unweighted_energy_loo": 7552318.144631298,
+      "baseline_unweighted_bin_energy_loo": [
+        2179109.8152427925,
+        2167390.1966713467,
+        1663697.034785127,
+        1169283.8466850854,
+        372837.2512469524
+      ],
+      "baseline_unweighted_energy_ratio": 6.9697263099276405,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.7051614575488805,
+        1.9862910746972773,
+        0.6334565866772035,
+        3.8465543841904073,
+        93.08880779352148
+      ]
+    },
+    {
+      "itr": 101,
+      "step": 7280000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53503901.201289415,
+      "baseline_unweighted_bin_energy_critic": [
+        6167249.561629135,
+        3265864.8616995765,
+        1531404.910191449,
+        6098745.288680667,
+        36440636.57908859
+      ],
+      "baseline_unweighted_energy_loo": 5632195.655992615,
+      "baseline_unweighted_bin_energy_loo": [
+        923954.7047369877,
+        1176228.5272765746,
+        1584986.5182252978,
+        1457311.7368187204,
+        489714.16893503634
+      ],
+      "baseline_unweighted_energy_ratio": 9.499652439162276,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.674839718885029,
+        2.7765564139660177,
+        0.966194281517395,
+        4.184928409342324,
+        74.4120527660752
+      ]
+    },
+    {
+      "itr": 102,
+      "step": 7360000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53115161.06232233,
+      "baseline_unweighted_bin_energy_critic": [
+        6893232.855744505,
+        3445208.6294390685,
+        1284660.0644391812,
+        5348579.470814975,
+        36143480.04188463
+      ],
+      "baseline_unweighted_energy_loo": 3932806.2976238113,
+      "baseline_unweighted_bin_energy_loo": [
+        737877.5020419527,
+        822214.876303652,
+        1172130.023493509,
+        829940.7729552551,
+        370643.1228294405
+      ],
+      "baseline_unweighted_energy_ratio": 13.505664160071738,
+      "baseline_unweighted_bin_energy_ratio": [
+        9.34197456443466,
+        4.190156039169887,
+        1.096004742383681,
+        6.444531519724884,
+        97.51558255275341
+      ]
+    },
+    {
+      "itr": 103,
+      "step": 7440000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52791334.46458817,
+      "baseline_unweighted_bin_energy_critic": [
+        6568024.970763014,
+        3854939.1240318823,
+        998305.0752634308,
+        5035028.70178381,
+        36335036.592746034
+      ],
+      "baseline_unweighted_energy_loo": 3290925.3732496337,
+      "baseline_unweighted_bin_energy_loo": [
+        980584.3888394856,
+        788869.4457659435,
+        774342.344000771,
+        544738.584481358,
+        202390.61016207517
+      ],
+      "baseline_unweighted_energy_ratio": 16.041486353262158,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.698072134858503,
+        4.886662989322618,
+        1.2892296062559596,
+        9.243018293954021,
+        179.5292605899493
+      ]
+    },
+    {
+      "itr": 104,
+      "step": 7520000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52375753.73941653,
+      "baseline_unweighted_bin_energy_critic": [
+        6221612.0857457705,
+        3292663.832395468,
+        1113298.704855111,
+        5932014.296285093,
+        35816164.820135094
+      ],
+      "baseline_unweighted_energy_loo": 5373800.307696577,
+      "baseline_unweighted_bin_energy_loo": [
+        899449.8223824468,
+        1299655.7180736223,
+        1454903.9514989883,
+        1286995.3217248165,
+        432795.49401670555
+      ],
+      "baseline_unweighted_energy_ratio": 9.74650168232002,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.917130818110647,
+        2.5334892822815607,
+        0.7652042622525553,
+        4.609196471930508,
+        82.75540137382443
+      ]
+    },
+    {
+      "itr": 105,
+      "step": 7600000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51654702.180521816,
+      "baseline_unweighted_bin_energy_critic": [
+        6075980.3856064025,
+        4091314.0102083776,
+        2244746.868089033,
+        5039206.58986962,
+        34203454.32674836
+      ],
+      "baseline_unweighted_energy_loo": 13152216.547604833,
+      "baseline_unweighted_bin_energy_loo": [
+        2030798.6589544755,
+        3278666.770704212,
+        3951040.1028556195,
+        3104943.935125621,
+        786767.0799649046
+      ],
+      "baseline_unweighted_energy_ratio": 3.9274522278093666,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.9919166820479015,
+        1.2478590525775268,
+        0.5681407451335762,
+        1.6229621839100106,
+        43.47341824250461
+      ]
+    },
+    {
+      "itr": 106,
+      "step": 7680000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52949053.46961002,
+      "baseline_unweighted_bin_energy_critic": [
+        6268540.812874238,
+        3850554.1728913463,
+        1668266.3750680191,
+        5675068.454293156,
+        35486623.65448325
+      ],
+      "baseline_unweighted_energy_loo": 6613111.780422606,
+      "baseline_unweighted_bin_energy_loo": [
+        854216.8767779946,
+        1281073.7558497826,
+        2058173.5149006285,
+        1836615.8358628312,
+        583031.7970313709
+      ],
+      "baseline_unweighted_energy_ratio": 8.00667752605663,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.338348121285587,
+        3.0057240305708506,
+        0.8105567207964802,
+        3.0899594479577392,
+        60.86567462558794
+      ]
+    },
+    {
+      "itr": 107,
+      "step": 7760000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53526319.74180883,
+      "baseline_unweighted_bin_energy_critic": [
+        7116370.719697058,
+        3720468.0342795793,
+        1898029.8222079217,
+        5704570.76379175,
+        35086880.401832536
+      ],
+      "baseline_unweighted_energy_loo": 11013060.327345978,
+      "baseline_unweighted_bin_energy_loo": [
+        2243568.0954714385,
+        2544278.0693221083,
+        2989665.026326081,
+        2500292.1229806533,
+        735257.0132456936
+      ],
+      "baseline_unweighted_energy_ratio": 4.860258470472582,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.1718986974637393,
+        1.4622882927536502,
+        0.6348637073031421,
+        2.2815617068741574,
+        47.720565420989594
+      ]
+    },
+    {
+      "itr": 108,
+      "step": 7840000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53250344.17082518,
+      "baseline_unweighted_bin_energy_critic": [
+        7363824.034600357,
+        4523759.446349035,
+        1402611.8614226393,
+        5959598.084379703,
+        34000550.744073436
+      ],
+      "baseline_unweighted_energy_loo": 12278332.141150024,
+      "baseline_unweighted_bin_energy_loo": [
+        1575328.1274833414,
+        2999791.758017634,
+        3716109.115961822,
+        2970029.521630125,
+        1017073.6180571025
+      ],
+      "baseline_unweighted_energy_ratio": 4.336936284070712,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.6744699762102275,
+        1.5080244934530027,
+        0.3774409786295008,
+        2.0065787363314587,
+        33.42978339072847
+      ]
+    },
+    {
+      "itr": 109,
+      "step": 7920000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52981542.88776717,
+      "baseline_unweighted_bin_energy_critic": [
+        7006180.542602503,
+        3951960.1768827946,
+        1209913.360055803,
+        4859830.016657183,
+        35953658.79156891
+      ],
+      "baseline_unweighted_energy_loo": 5071595.21164718,
+      "baseline_unweighted_bin_energy_loo": [
+        1156847.7527055736,
+        1342713.0943880375,
+        1394847.4397612328,
+        912284.666848469,
+        264902.2579438664
+      ],
+      "baseline_unweighted_energy_ratio": 10.4467215297649,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.056268446921233,
+        2.943264792307669,
+        0.867416267590464,
+        5.327098210962701,
+        135.7242443708713
+      ]
+    },
+    {
+      "itr": 111,
+      "step": 8000000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52630726.26261784,
+      "baseline_unweighted_bin_energy_critic": [
+        6805856.449321427,
+        3614337.049381643,
+        1349473.7370344102,
+        5295205.477935516,
+        35565853.54894485
+      ],
+      "baseline_unweighted_energy_loo": 4430886.017325217,
+      "baseline_unweighted_bin_energy_loo": [
+        631554.5200179245,
+        912479.2028491283,
+        1331069.8912488709,
+        1162369.8057744799,
+        393412.59743481403
+      ],
+      "baseline_unweighted_energy_ratio": 11.878149439373146,
+      "baseline_unweighted_bin_energy_ratio": [
+        10.776356171321941,
+        3.96100759129219,
+        1.0138263557056888,
+        4.555525661136176,
+        90.40344356242403
+      ]
+    },
+    {
+      "itr": 112,
+      "step": 8080000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51977217.22087584,
+      "baseline_unweighted_bin_energy_critic": [
+        7051803.563051032,
+        4153044.7697259653,
+        1250564.9590413468,
+        4720759.371592032,
+        34801044.557465464
+      ],
+      "baseline_unweighted_energy_loo": 7027985.966461854,
+      "baseline_unweighted_bin_energy_loo": [
+        1028770.9980857804,
+        1654477.861684942,
+        2304640.260125741,
+        1583987.7729758588,
+        456109.0735895266
+      ],
+      "baseline_unweighted_energy_ratio": 7.395748578456977,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.8545901626039445,
+        2.510184551817726,
+        0.542629138559402,
+        2.980300386235355,
+        76.29982952013034
+      ]
+    },
+    {
+      "itr": 113,
+      "step": 8160000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 51787261.724556156,
+      "baseline_unweighted_bin_energy_critic": [
+        6469799.192567418,
+        3768369.7302481644,
+        2015513.3116879605,
+        5118492.60093598,
+        34415086.88911664
+      ],
+      "baseline_unweighted_energy_loo": 12785603.202214187,
+      "baseline_unweighted_bin_energy_loo": [
+        2226340.8068525204,
+        3105110.6417283136,
+        3885657.7370848036,
+        2829855.408763144,
+        738638.6077853988
+      ],
+      "baseline_unweighted_energy_ratio": 4.050435548913932,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.906023719573316,
+        1.2136024010244861,
+        0.5187058274463694,
+        1.8087470423703165,
+        46.59259145998426
+      ]
+    },
+    {
+      "itr": 114,
+      "step": 8240000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52790220.92562415,
+      "baseline_unweighted_bin_energy_critic": [
+        6924167.962943127,
+        3580094.917998613,
+        1119037.722301684,
+        5274967.262338426,
+        35891953.0600423
+      ],
+      "baseline_unweighted_energy_loo": 7401882.8995559765,
+      "baseline_unweighted_bin_energy_loo": [
+        1646413.5944417603,
+        2191358.01544682,
+        2038641.4946479267,
+        1230974.7381046358,
+        294495.056914836
+      ],
+      "baseline_unweighted_energy_ratio": 7.131998930811364,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.205606650916208,
+        1.6337334624295192,
+        0.5489134432118198,
+        4.285195381393798,
+        121.87624959159083
+      ]
+    },
+    {
+      "itr": 115,
+      "step": 8320000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53734903.8508039,
+      "baseline_unweighted_bin_energy_critic": [
+        6736255.916526782,
+        4128734.561162119,
+        1737919.8991053372,
+        5435806.64990907,
+        35696186.82410059
+      ],
+      "baseline_unweighted_energy_loo": 9277627.847451601,
+      "baseline_unweighted_bin_energy_loo": [
+        1390435.9779977493,
+        2361337.48896462,
+        2904891.1538187563,
+        2061348.5839400447,
+        559614.6427304341
+      ],
+      "baseline_unweighted_energy_ratio": 5.791879641471491,
+      "baseline_unweighted_bin_energy_ratio": [
+        4.844707719824038,
+        1.7484728804997935,
+        0.5982736726023885,
+        2.637014764149746,
+        63.78708507328214
+      ]
+    },
+    {
+      "itr": 116,
+      "step": 8400000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53256966.27447608,
+      "baseline_unweighted_bin_energy_critic": [
+        7507497.936468706,
+        4044081.209475261,
+        1293768.9908767254,
+        5382362.143675723,
+        35029255.99397968
+      ],
+      "baseline_unweighted_energy_loo": 11308775.072845578,
+      "baseline_unweighted_bin_energy_loo": [
+        2188652.9626046927,
+        3246569.0876736543,
+        3280177.7204343355,
+        2092038.5315994623,
+        501336.7705334356
+      ],
+      "baseline_unweighted_energy_ratio": 4.709348796082763,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.4301911105788614,
+        1.2456476668953527,
+        0.3944203946075869,
+        2.5727834656853346,
+        69.87170710958947
+      ]
+    },
+    {
+      "itr": 117,
+      "step": 8480000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52454854.59627764,
+      "baseline_unweighted_bin_energy_critic": [
+        7350841.602936125,
+        3809696.973592367,
+        1038384.5957512888,
+        5764113.441148298,
+        34491817.98284956
+      ],
+      "baseline_unweighted_energy_loo": 11492399.070769902,
+      "baseline_unweighted_bin_energy_loo": [
+        2151241.688928284,
+        3335842.0493062297,
+        3063214.602577358,
+        2163084.238355322,
+        779016.4916027104
+      ],
+      "baseline_unweighted_energy_ratio": 4.5643084853964755,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.4170226621994306,
+        1.1420495686792747,
+        0.3389852591057781,
+        2.66476604976373,
+        44.276107572367025
+      ]
+    },
+    {
+      "itr": 118,
+      "step": 8560000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53417022.23905659,
+      "baseline_unweighted_bin_energy_critic": [
+        6897333.493615181,
+        3783055.5151503743,
+        1623394.572696043,
+        5268835.237628335,
+        35844403.41996665
+      ],
+      "baseline_unweighted_energy_loo": 5477827.9108309895,
+      "baseline_unweighted_bin_energy_loo": [
+        862157.240444425,
+        1083976.562943105,
+        1507285.95145068,
+        1575985.070230416,
+        448423.08576235926
+      ],
+      "baseline_unweighted_energy_ratio": 9.751496963502309,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.000087652293846,
+        3.4899790682549443,
+        1.0770315819195522,
+        3.3432012378505642,
+        79.93434004190031
+      ]
+    },
+    {
+      "itr": 119,
+      "step": 8640000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52035542.32237499,
+      "baseline_unweighted_bin_energy_critic": [
+        5833193.009049324,
+        3415061.707723156,
+        1451111.277925879,
+        6564002.41902442,
+        34772173.908652216
+      ],
+      "baseline_unweighted_energy_loo": 9948675.924431244,
+      "baseline_unweighted_bin_energy_loo": [
+        1522649.9527100397,
+        2284789.1916820942,
+        2861772.7410966204,
+        2448505.3158425028,
+        830958.7230999884
+      ],
+      "baseline_unweighted_energy_ratio": 5.230398770412235,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.8309481431811054,
+        1.4946944427765518,
+        0.5070672653656694,
+        2.6808201626329007,
+        41.845849790144285
+      ]
+    },
+    {
+      "itr": 121,
+      "step": 8720000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53575759.92223237,
+      "baseline_unweighted_bin_energy_critic": [
+        7124119.398725233,
+        3650527.396988981,
+        1226321.2199559687,
+        5711169.167781896,
+        35863622.73878029
+      ],
+      "baseline_unweighted_energy_loo": 8641685.164655566,
+      "baseline_unweighted_bin_energy_loo": [
+        2110663.670390418,
+        2177922.8220655816,
+        2030338.3160538094,
+        1804990.4759989243,
+        517769.8801468404
+      ],
+      "baseline_unweighted_energy_ratio": 6.199688938143322,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.3752982527090434,
+        1.6761509452969294,
+        0.6039984618619925,
+        3.1640993366578294,
+        69.26556393857693
+      ]
+    },
+    {
+      "itr": 122,
+      "step": 8800000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53566455.12863269,
+      "baseline_unweighted_bin_energy_critic": [
+        6378080.896691146,
+        3659682.2303099115,
+        801025.9507428324,
+        6165428.260319814,
+        36562237.79056899
+      ],
+      "baseline_unweighted_energy_loo": 5671875.825722003,
+      "baseline_unweighted_bin_energy_loo": [
+        715941.5653522272,
+        1499069.85555817,
+        1696423.440213986,
+        1264670.8517493377,
+        495770.1128482781
+      ],
+      "baseline_unweighted_energy_ratio": 9.44422211884618,
+      "baseline_unweighted_bin_energy_ratio": [
+        8.908661272590415,
+        2.4413019958614606,
+        0.47218514655856875,
+        4.875124821443915,
+        73.74837014783552
+      ]
+    },
+    {
+      "itr": 123,
+      "step": 8880000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53964904.486106776,
+      "baseline_unweighted_bin_energy_critic": [
+        6418841.832679268,
+        3329202.5030351356,
+        1154483.729722845,
+        5852613.104470352,
+        37209763.316199176
+      ],
+      "baseline_unweighted_energy_loo": 3273022.3491464634,
+      "baseline_unweighted_bin_energy_loo": [
+        397109.77967385214,
+        675389.2596428993,
+        1074265.414886344,
+        796290.4486192558,
+        329967.44632411166
+      ],
+      "baseline_unweighted_energy_ratio": 16.487789794707545,
+      "baseline_unweighted_bin_energy_ratio": [
+        16.16389764551024,
+        4.929309217613848,
+        1.0746727146987114,
+        7.349847175259493,
+        112.76798281382509
+      ]
+    },
+    {
+      "itr": 124,
+      "step": 8960000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54124956.42489309,
+      "baseline_unweighted_bin_energy_critic": [
+        5468499.096473788,
+        3275892.909155288,
+        1622002.9942661766,
+        6551424.284794431,
+        37207137.1402034
+      ],
+      "baseline_unweighted_energy_loo": 6448787.644434197,
+      "baseline_unweighted_bin_energy_loo": [
+        1011969.9332600902,
+        1639866.0273892211,
+        1787118.147026488,
+        1524309.4357432795,
+        485524.10101512
+      ],
+      "baseline_unweighted_energy_ratio": 8.393043686530307,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.403815782210901,
+        1.997658866298202,
+        0.9076081494471757,
+        4.297962166454637,
+        76.63293554822876
+      ]
+    },
+    {
+      "itr": 125,
+      "step": 9040000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54175089.83944945,
+      "baseline_unweighted_bin_energy_critic": [
+        6210931.199124771,
+        3616112.003079187,
+        829609.2922163722,
+        6017180.3115157625,
+        37501257.03351335
+      ],
+      "baseline_unweighted_energy_loo": 6516437.15317912,
+      "baseline_unweighted_bin_energy_loo": [
+        1028940.5837271417,
+        1906624.3542288411,
+        1831477.4731468845,
+        1331959.7588267487,
+        417434.98324950563
+      ],
+      "baseline_unweighted_energy_ratio": 8.313605819557317,
+      "baseline_unweighted_bin_energy_ratio": [
+        6.036238921227942,
+        1.8966043285132432,
+        0.4529726979338269,
+        4.517539116058559,
+        89.83736039942399
+      ]
+    },
+    {
+      "itr": 126,
+      "step": 9120000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54453559.18620402,
+      "baseline_unweighted_bin_energy_critic": [
+        6586457.4306713175,
+        3144607.046266781,
+        894370.5839233168,
+        6383258.135363729,
+        37444865.98997888
+      ],
+      "baseline_unweighted_energy_loo": 8763253.89917193,
+      "baseline_unweighted_bin_energy_loo": [
+        2436867.925809288,
+        2521743.911104429,
+        1870900.183932824,
+        1398271.5135205458,
+        535470.3648048505
+      ],
+      "baseline_unweighted_energy_ratio": 6.213851591285005,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.702837261270097,
+        1.2469969818979603,
+        0.47804291837913987,
+        4.5651063285213205,
+        69.92892315081801
+      ]
+    },
+    {
+      "itr": 127,
+      "step": 9200000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54078371.65697758,
+      "baseline_unweighted_bin_energy_critic": [
+        6753244.321086007,
+        3506210.680605273,
+        1587012.1781656498,
+        5776285.032740503,
+        36455619.44438014
+      ],
+      "baseline_unweighted_energy_loo": 10970901.904053412,
+      "baseline_unweighted_bin_energy_loo": [
+        2125534.8073334964,
+        2703184.807111751,
+        3340823.261354101,
+        2278088.8859448587,
+        523270.14230920904
+      ],
+      "baseline_unweighted_energy_ratio": 4.929254871652556,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.177197709388733,
+        1.2970665828621333,
+        0.4750362572375058,
+        2.535583694024623,
+        69.6688316354154
+      ]
+    },
+    {
+      "itr": 128,
+      "step": 9280000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 54178791.10135898,
+      "baseline_unweighted_bin_energy_critic": [
+        7254603.534166961,
+        3507003.7224654127,
+        884749.9750600955,
+        5454435.174369634,
+        37077998.69529687
+      ],
+      "baseline_unweighted_energy_loo": 7433703.762029407,
+      "baseline_unweighted_bin_energy_loo": [
+        2080049.4730181077,
+        2145235.723150568,
+        1785049.0707868012,
+        1091949.4490656492,
+        331420.04600829043
+      ],
+      "baseline_unweighted_energy_ratio": 7.288263406203872,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.4877072051755986,
+        1.6347871166879995,
+        0.4956446237470221,
+        4.995135240955379,
+        111.87614974372843
+      ]
+    },
+    {
+      "itr": 129,
+      "step": 9360000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52813356.606595084,
+      "baseline_unweighted_bin_energy_critic": [
+        6615376.949122642,
+        3244742.2313432135,
+        860023.8574193333,
+        5926269.261432883,
+        36166944.30727701
+      ],
+      "baseline_unweighted_energy_loo": 2710062.6944443514,
+      "baseline_unweighted_bin_energy_loo": [
+        478738.6136949291,
+        555036.2416812012,
+        619268.959631161,
+        734453.8603863734,
+        322565.0190506845
+      ],
+      "baseline_unweighted_energy_ratio": 19.487872629243174,
+      "baseline_unweighted_bin_energy_ratio": [
+        13.818348384444748,
+        5.846000653065303,
+        1.3887727522005413,
+        8.068946983701954,
+        112.12295869439615
+      ]
+    },
+    {
+      "itr": 131,
+      "step": 9440000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52550987.51003737,
+      "baseline_unweighted_bin_energy_critic": [
+        7610742.30232838,
+        3920481.3949671513,
+        845119.1991106517,
+        4835631.096477464,
+        35339013.51715373
+      ],
+      "baseline_unweighted_energy_loo": 6375169.52658852,
+      "baseline_unweighted_bin_energy_loo": [
+        1440215.8686073243,
+        2001518.1540094027,
+        1636280.9180105492,
+        1064543.194575325,
+        232611.3913859224
+      ],
+      "baseline_unweighted_energy_ratio": 8.24307295529417,
+      "baseline_unweighted_bin_energy_ratio": [
+        5.284445525300245,
+        1.9587538524762906,
+        0.5164878413042786,
+        4.542447052518642,
+        151.92297035239883
+      ]
+    },
+    {
+      "itr": 132,
+      "step": 9520000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53354201.24207295,
+      "baseline_unweighted_bin_energy_critic": [
+        7234926.4077422675,
+        3895242.1024524197,
+        1112676.020788754,
+        5625944.236983589,
+        35485412.4741059
+      ],
+      "baseline_unweighted_energy_loo": 7916717.547610298,
+      "baseline_unweighted_bin_energy_loo": [
+        1852176.3790079344,
+        2222385.6648065085,
+        2011375.453214545,
+        1302227.4769696624,
+        528552.5736116457
+      ],
+      "baseline_unweighted_energy_ratio": 6.73943473683461,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.9061757237274835,
+        1.7527300342767276,
+        0.5531916077679554,
+        4.320246912678725,
+        67.1369590192911
+      ]
+    },
+    {
+      "itr": 133,
+      "step": 9600000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53864574.29826566,
+      "baseline_unweighted_bin_energy_critic": [
+        6258920.594997967,
+        3468925.01156899,
+        1320708.5804284364,
+        5621250.399204906,
+        37194769.71206538
+      ],
+      "baseline_unweighted_energy_loo": 4900189.941920378,
+      "baseline_unweighted_bin_energy_loo": [
+        862106.8955301155,
+        1016033.1533352814,
+        1441413.1349676335,
+        1126129.9555112242,
+        454506.8025761242
+      ],
+      "baseline_unweighted_energy_ratio": 10.992344161491054,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.260028457549122,
+        3.414184862158998,
+        0.916259570826023,
+        4.991653380406751,
+        81.8354521895978
+      ]
+    },
+    {
+      "itr": 134,
+      "step": 9680000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53044619.9332223,
+      "baseline_unweighted_bin_energy_critic": [
+        6698871.817259578,
+        3314738.660176034,
+        1145973.0030056525,
+        5508373.415111163,
+        36376663.03766986
+      ],
+      "baseline_unweighted_energy_loo": 12336715.317159895,
+      "baseline_unweighted_bin_energy_loo": [
+        2837711.606343112,
+        3527667.291354463,
+        3109949.7009534305,
+        2251058.551356824,
+        610328.1671520621
+      ],
+      "baseline_unweighted_energy_ratio": 4.299736078001191,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.3606598367098504,
+        0.9396403873743223,
+        0.36848602492005794,
+        2.4470147219364837,
+        59.60180931417948
+      ]
+    },
+    {
+      "itr": 135,
+      "step": 9760000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53845076.71459643,
+      "baseline_unweighted_bin_energy_critic": [
+        6050962.755262575,
+        3045761.7272921572,
+        767594.6593252235,
+        5786688.162205903,
+        38194069.410510585
+      ],
+      "baseline_unweighted_energy_loo": 7156394.743554181,
+      "baseline_unweighted_bin_energy_loo": [
+        1621470.7658179128,
+        2364010.563402168,
+        1846141.380940338,
+        1062679.6368092748,
+        262092.39658449174
+      ],
+      "baseline_unweighted_energy_ratio": 7.524050676927107,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.7317741909520703,
+        1.2883875285687583,
+        0.4157832478324313,
+        5.445374091838811,
+        145.72749880669588
+      ]
+    },
+    {
+      "itr": 136,
+      "step": 9840000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53547670.09185026,
+      "baseline_unweighted_bin_energy_critic": [
+        6004426.7161147585,
+        3548679.748966941,
+        1380738.0042283866,
+        5927442.804175149,
+        36686382.81836504
+      ],
+      "baseline_unweighted_energy_loo": 5792561.79926922,
+      "baseline_unweighted_bin_energy_loo": [
+        777375.3964956438,
+        1151062.7148529831,
+        1844264.9513735569,
+        1522126.6851561985,
+        497732.05139083706
+      ],
+      "baseline_unweighted_energy_ratio": 9.244212137470116,
+      "baseline_unweighted_bin_energy_ratio": [
+        7.7239731835896945,
+        3.0829595148689948,
+        0.7486657506558652,
+        3.8941849334747607,
+        73.70709343682104
+      ]
+    },
+    {
+      "itr": 137,
+      "step": 9920000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 52527645.64994627,
+      "baseline_unweighted_bin_energy_critic": [
+        6674276.095720338,
+        3518289.0201393706,
+        947803.4937015335,
+        5551195.478137573,
+        35836081.5622475
+      ],
+      "baseline_unweighted_energy_loo": 9812818.034095472,
+      "baseline_unweighted_bin_energy_loo": [
+        2198094.9840075914,
+        2570163.6204041922,
+        2742575.8246143227,
+        1732808.1313173093,
+        569175.4737520545
+      ],
+      "baseline_unweighted_energy_ratio": 5.35296236691993,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.036391122439906,
+        1.368896902986306,
+        0.34558880202877135,
+        3.2035834653646638,
+        62.96139453447092
+      ]
+    },
+    {
+      "itr": 138,
+      "step": 10000000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53168765.69125475,
+      "baseline_unweighted_bin_energy_critic": [
+        7799562.879269334,
+        3663378.8403008236,
+        1149678.7478926536,
+        5717376.044386619,
+        34838769.17940531
+      ],
+      "baseline_unweighted_energy_loo": 16270257.880029006,
+      "baseline_unweighted_bin_energy_loo": [
+        3405231.0979340114,
+        5024794.832447427,
+        4256571.21490966,
+        2755296.3576493687,
+        828364.3770885428
+      ],
+      "baseline_unweighted_energy_ratio": 3.267850213764403,
+      "baseline_unweighted_bin_energy_ratio": [
+        2.290465068289024,
+        0.7290603820567338,
+        0.2700950342063181,
+        2.0750493965971395,
+        42.057300075907825
+      ]
+    },
+    {
+      "itr": 139,
+      "step": 10080000,
+      "energy_definition": "sum_k E_episode[(G_k - b_k)^2], no gamma weights",
+      "baseline_unweighted_energy_critic": 53195896.06635432,
+      "baseline_unweighted_bin_energy_critic": [
+        6929528.008604821,
+        3921537.4425270637,
+        1439267.5669224672,
+        4997767.888293309,
+        35907795.16000667
+      ],
+      "baseline_unweighted_energy_loo": 12301102.024612539,
+      "baseline_unweighted_bin_energy_loo": [
+        1910576.0443652263,
+        3241834.1673480384,
+        3793031.943866541,
+        2722783.7880882625,
+        632876.0809444694
+      ],
+      "baseline_unweighted_energy_ratio": 4.324482144763765,
+      "baseline_unweighted_bin_energy_ratio": [
+        3.626931275016118,
+        1.2096662691833655,
+        0.37945042072472146,
+        1.8355360826510474,
+        56.73748185651108
+      ]
+    }
+  ]
+}

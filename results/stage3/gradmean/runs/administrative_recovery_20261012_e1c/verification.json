@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "native_verified_groups": [
+    "D2_j62",
+    "D2_j63",
+    "N2_j46",
+    "N2_j47",
+    "N2_j48",
+    "N2_j49",
+    "N2_j50"
+  ],
+  "recovered_groups": 7,
+  "pre_sampling_failures_preserved": 2,
+  "scheduler_failures_preserved": 9,
+  "simulated_ledger": {
+    "actual_gpu_seconds": 200206,
+    "outstanding_reserved_gpu_seconds": 0,
+    "actual_plus_reserved_gpu_seconds": 200206,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 249794
+  },
+  "defaults_max_parallel": 9,
+  "priority_max_parallel": 5,
+  "live_resource_limit_checked": true,
+  "negative_recovery_guards_passed": true,
+  "scientific_sampling": false,
+  "scheduler_mutations": false,
+  "campaign_state_mutations": false,
+  "existing_runtime_tests": {
+    "passed": true,
+    "count": 20
+  },
+  "scientific_source_snapshot_comparison": {
+    "differences": []
+  },
+  "diff_whitespace_check": "passed",
+  "recorded_utc": "2026-10-12T07:43:42.616977+00:00"
+}

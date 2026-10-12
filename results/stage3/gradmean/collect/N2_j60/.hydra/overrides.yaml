@@ -1,0 +1,16 @@
+- train.n_train_itr=140
+- train.save_model_freq=35
+- wandb=null
+- model.randn_clip_value=100
+- +model.clamp_logprob=false
+- +train.mode=grad_mean
+- seed=146000
+- logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j60
+- base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt
+- +train.gm_step=collect
+- +train.gm_point=N2
+- +train.gm_parent_commit=f425082723799776af35e100983fe20b86888a02
+- +train.gm_frozen_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt
+- +train.gm_frozen_sha256=55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9
+- +train.gm_batches=50
+- +train.gm_score_sample=0

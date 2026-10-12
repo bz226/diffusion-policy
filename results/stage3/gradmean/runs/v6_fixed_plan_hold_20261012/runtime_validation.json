@@ -1,0 +1,85 @@
+{
+  "utc": "2026-10-12T08:20:50.098451+00:00",
+  "python_version": "Python 3.8.20",
+  "test_command": [
+    "results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean/code/test_runtime.py"
+  ],
+  "tests_passed": 32,
+  "scientific_jobs_launched": 0,
+  "actual_gpu_stops": 0,
+  "legacy_final_verification": {
+    "N2_j56": {
+      "verified_utc": "2026-10-12T08:20:49.076598+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j56/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j56/meta.json"
+    },
+    "N2_j57": {
+      "verified_utc": "2026-10-12T08:20:49.202864+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j57/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j57/meta.json"
+    },
+    "N2_j58": {
+      "verified_utc": "2026-10-12T08:20:49.267323+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j58/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j58/meta.json"
+    },
+    "N2_j59": {
+      "verified_utc": "2026-10-12T08:20:49.767388+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j59/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j59/meta.json"
+    },
+    "N2_j60": {
+      "verified_utc": "2026-10-12T08:20:49.913340+00:00",
+      "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j60/cleanup.json",
+      "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j60/meta.json"
+    }
+  },
+  "source_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6",
+  "runtime_path": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean/code/campaign.py",
+  "plan": {
+    "approved": true,
+    "new_groups_per_point": 10,
+    "batches_per_group": 50,
+    "legacy_admissions_closed": true,
+    "adaptive_stopping": false,
+    "group_indices": [
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      91,
+      92
+    ],
+    "point_order": [
+      "P0",
+      "D2",
+      "N2",
+      "D1",
+      "N1"
+    ],
+    "decision_utc": "2026-10-12T08:13:09.557576+00:00",
+    "decision_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/provenance/fixed_v6_plan_20261012.json",
+    "stopping_reason": "user compute-driven fixed plan"
+  },
+  "legacy_final_gpu_seconds": 3715,
+  "G_actual_gpu_seconds_after_existing_finish": 207622,
+  "G_budget_gpu_seconds": 450000,
+  "fixed_new_groups": 50,
+  "full_new_gpu_reservation_seconds": 180000,
+  "expected_gpu_seconds_at_725_per_group": 36250,
+  "expected_collection_wall_seconds_at_MAX_PAR5": 7250,
+  "monitor_interval_seconds": 1800,
+  "source_gate_pending": false,
+  "controller_switch_pending": true,
+  "validated_utc": "2026-10-12T08:25:13.954449+00:00",
+  "cpu_gate_job_id": "17821352",
+  "cpu_gate_exit_code": "0:0",
+  "analysis_schedule": "Only final_v6_fixed afterall50newlogicalgroups; then clean_v6_fixed; nointerimanalyses",
+  "future_controller_wall_seconds": 21600
+}

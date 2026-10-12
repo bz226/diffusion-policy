@@ -1,0 +1,244 @@
+diff --git a/results/stage3/gradmean/analysis_core.py b/results/stage3/gradmean/analysis_core.py
+index 7ba6f6c..55748eb 100644
+--- a/results/stage3/gradmean/analysis_core.py
++++ b/results/stage3/gradmean/analysis_core.py
+@@ -249,6 +249,39 @@ class PointData:
+         return row
+ 
+ 
++def verified_administrative_recovery(root, run_id, entry, manifest):
++    """Narrow exception for seven successful measurements rejected only by the old branch guard."""
++    allowed_ids = {'D2_j62', 'D2_j63', 'N2_j46', 'N2_j47', 'N2_j48', 'N2_j49', 'N2_j50'}
++    record = entry.get('administrative_recovery', {})
++    if (run_id not in allowed_ids or not record or manifest.get('administrative_recovery') != record or
++            record.get('kind') != 'completed_native_branch_guard_failure' or
++            record.get('scientific_status') != 'complete' or record.get('run_id') != run_id or
++            record.get('job_id') != str(entry.get('job_id')) or
++            record.get('scheduler_state') != 'FAILED' or record.get('scheduler_exit_code') != '1:0' or
++            record.get('native_subprocess_exitcode') != 0 or
++            record.get('original_worker_status') != 'failed' or
++            record.get('original_failure_reason') != 'ValueError: Parent branch must be stage3-gradmean' or
++            entry.get('scheduler_state') != 'FAILED' or entry.get('exit_code') != '1:0' or
++            entry.get('terminal_recorded') is not True or entry.get('run_status') != 'complete' or
++            manifest.get('status') != 'failed' or manifest.get('scientific_status') != 'complete' or
++            manifest.get('subprocess_exitcode') != 0 or manifest.get('remaining_process_group_members') != [] or
++            not record.get('verification')):
++        return False
++    config_path = Path(record.get('config_path', '')).resolve()
++    original_path = Path(record.get('original_manifest', '')).resolve()
++    if (Path(root).resolve() / 'runs' not in config_path.parents or
++            config_path.parent not in original_path.parents or not config_path.is_file() or not original_path.is_file()):
++        return False
++    config, original = read_json(config_path), read_json(original_path)
++    approved = config.get('runs', {}).get(run_id, {})
++    return (config.get('approved') is True and config.get('kind') == record['kind'] and
++            set(config.get('runs', {})) == allowed_ids and approved.get('job_id') == record['job_id'] and
++            approved.get('original_manifest') == str(original_path) and
++            original.get('failure_reason') == record['original_failure_reason'] and
++            original.get('subprocess_exitcode') == 0 and original.get('failure_cleanup_survivors') == [] and
++            all(manifest.get(key) == value for key, value in original.items()))
++
++
+ def discover(root):
+     root = Path(root)
+     campaign_path = root / "runs/campaign.json"
+@@ -270,6 +303,8 @@ def discover(root):
+                            and manifest.get("remaining_process_group_members") == [])
+         terminal_complete = (entry.get("terminal_recorded") is True and entry.get("run_status") == "complete"
+                              and entry.get("scheduler_state") == "COMPLETED" and entry.get("exit_code") == "0:0")
++        recovered = verified_administrative_recovery(root, run_id, entry, manifest)
++        worker_complete, terminal_complete = worker_complete or recovered, terminal_complete or recovered
+         cleanup_complete = (cleanup.get("status") == "passed" and cleanup.get("all_children_exited") is True
+                             and cleanup.get("remaining_active_children") == [] and cleanup.get("remaining_direct_children") == []
+                             and cleanup.get("errors") == [] and cleanup.get("primary_error") is None
+@@ -285,6 +320,7 @@ def discover(root):
+                   "completed_batches": meta.get("completed_batches"), "seed": meta.get("seed"),
+                   "error": meta.get("error"), "worker_status": manifest.get("status"),
+                   "scheduler_state": entry.get("scheduler_state"), "scheduler_exit_code": entry.get("exit_code"),
++                  "administrative_recovery": entry.get("administrative_recovery") if recovered else None,
+                   "manifest": str(manifest_path), "cleanup": str(cleanup_path),
+                   "exclusion_reasons": reasons, "included": not reasons}
+         inventory.append(record)
+diff --git a/results/stage3/gradmean/code/analysis_report.py b/results/stage3/gradmean/code/analysis_report.py
+index c4319cf..190cb16 100644
+--- a/results/stage3/gradmean/code/analysis_report.py
++++ b/results/stage3/gradmean/code/analysis_report.py
+@@ -346,7 +346,7 @@ def provenance_section(root, candidates, payload, campaign, status, inventory, l
+               "Original collection seeds follow 100000 + 10000 × point_index + 100 × group_index; authorized replacement seeds start at 1000000. Preparation uses group_index 90. Point indices are P0 = 0, D1 = 1, D2 = 2, N1 = 3, N2 = 4; each run seeds its 40 environments with seed + 0…39. Exact seeds and native commands are in the inventory; no global RNG is used for the diagnostic splits.", "",
+               "Analysis command: `" + shlex.join([str(arg) for arg in status.get("command", [])]) + "`. Python: `" + str(status.get("python", "unavailable")).splitlines()[0] + "`; NumPy: `" + str(status.get("numpy", "unavailable")) + "`. The metadata snapshot preserves existing worker environment and GPU inventories.", ""]
+     excluded = payload.get("failed_or_incomplete_groups", [])
+-    lines += ["**Exclusions and deviations.** %d group records were excluded from the verified measurement set. No native-complete group is admitted unless the worker, cleanup and terminal scheduler records also passed. At most one approved independent-seed replacement is selected for a group; original failures remain stored." % len(excluded), ""]
++    lines += ["**Exclusions and deviations.** %d group records were excluded from the verified measurement set. Native, worker, cleanup and terminal scheduler success are normally required. The explicit administrative recovery admits seven fully completed measurements whose wrappers failed only at the obsolete branch-name check; their original FAILED scheduler states, failed manifests, zero native exit codes and successful cleanup records remain preserved. Other failed jobs remain excluded. At most one approved independent-seed replacement is selected for a group; original failures remain stored." % len(excluded), ""]
+     if excluded:
+         lines += [table(["Point / group", "Recorded state", "Exclusion reason", "Native record"],
+                         [["%s / %s%s" % (row["point"], row["group"], " retry" if row.get("retry") else ""), row.get("status"),
+diff --git a/results/stage3/gradmean/code/campaign.py b/results/stage3/gradmean/code/campaign.py
+index d6b6867..e9584c7 100644
+--- a/results/stage3/gradmean/code/campaign.py
++++ b/results/stage3/gradmean/code/campaign.py
+@@ -275,11 +275,69 @@ def ledger(entries):
+                 remaining_unreserved_gpu_seconds=BUDGET - actual - reserved)
+ 
+ 
+-def queue_slots(entries, jobs):
++def queue_slots(entries, jobs, max_parallel=MAX_PAR, free_slots=None):
++    if not 1 <= max_parallel <= MAX_PAR:
++        raise ValueError('Admission limit must be between one and the approved nine GPU jobs')
+     owned = {str(x['job_id']) for x in entries if x.get('scheduler_state') not in TERMINAL}
+     others = [j for j in jobs if j['job_id'] not in owned]
+-    return max(0, min(MAX_PAR - len(owned), 12 - len(owned) - sum(j['gpus'] for j in others),
+-                      12 - len(jobs), 20 - len(jobs)))
++    limits = [max_parallel - len(owned), 12 - len(owned) - sum(j['gpus'] for j in others),
++              12 - len(jobs), 20 - len(jobs)]
++    if free_slots is not None:
++        # Queued owned jobs have not yet consumed the live free-node inventory.
++        pending = sum(j['gpus'] for j in jobs if j['job_id'] in owned and j['state'] == 'PENDING')
++        limits.append(free_slots - pending)
++    return max(0, min(limits))
++
++
++def free_a6000_slots(node_text):
++    """Count presently allocatable 1-A6000/40-CPU/64-GiB slots, including other users."""
++    def tres(text):
++        return dict(item.split('=', 1) for item in text.split(',') if '=' in item)
++    def memory_mib(value):
++        match = re.fullmatch(r'(\d+(?:\.\d+)?)([KMGT]?)', value)
++        if match is None:
++            raise ValueError('Unrecognized Slurm memory unit: ' + value)
++        return float(match[1]) * {'': 1, 'K': 1 / 1024, 'M': 1, 'G': 1024, 'T': 1024 ** 2}[match[2]]
++    slots = 0
++    for line in node_text.splitlines():
++        fields = dict(item.split('=', 1) for item in line.split() if '=' in item)
++        if 'soal' not in fields.get('Partitions', '').split(','):
++            continue
++        if any(flag in fields.get('State', '') for flag in ('DOWN', 'DRAIN', 'FAIL', 'MAINT', 'NOT_RESPONDING')):
++            continue
++        cfg, allocated = tres(fields.get('CfgTRES', '')), tres(fields.get('AllocTRES', ''))
++        count = int(cfg.get('gres/gpu:a6000', 0))
++        if not count:
++            continue
++        gpu_free = count - int(allocated.get('gres/gpu', allocated.get('gres/gpu:a6000', 0)))
++        cpu_free = int(cfg['cpu']) - int(allocated.get('cpu', 0))
++        mem_free = memory_mib(cfg['mem']) - memory_mib(allocated.get('mem', '0'))
++        slots += max(0, min(gpu_free, cpu_free // 40, int(mem_free // (64 * 1024))))
++    return slots
++
++
++def branch_guard_recovery(entry, status, spec, manifest, recovery):
++    """Accept only explicitly listed native successes rejected by the obsolete branch guard."""
++    if recovery is None or entry['run_id'] not in recovery['runs']:
++        return None
++    allowed = recovery['runs'][entry['run_id']]
++    original_path = Path(allowed['original_manifest'])
++    original = read(original_path, {})
++    if (allowed['job_id'] != str(entry['job_id']) or status.get('scheduler_state') != 'FAILED' or
++            status.get('exit_code') != '1:0' or spec.get('step') != 'collect' or
++            original.get('status') != 'failed' or
++            original.get('failure_reason') != 'ValueError: Parent branch must be stage3-gradmean' or
++            original.get('subprocess_exitcode') != 0 or original.get('remaining_process_group_members') != [] or
++            original.get('failure_cleanup_survivors') != [] or
++            any(manifest.get(key) != value for key, value in original.items())):
++        raise ValueError('Administrative recovery evidence does not match the approved branch-only failure: ' + entry['run_id'])
++    verification = verify(spec)
++    return dict(kind='completed_native_branch_guard_failure', scientific_status='complete',
++                config_path=recovery['config_path'], original_manifest=str(original_path),
++                original_worker_status='failed', original_failure_reason=original['failure_reason'],
++                scheduler_state='FAILED', scheduler_exit_code='1:0', native_subprocess_exitcode=0,
++                job_id=str(entry['job_id']), run_id=entry['run_id'], verification=verification,
++                verified_utc=utc())
+ 
+ 
+ def scheduler_jobs():
+@@ -498,12 +556,31 @@ class Campaign:
+         self.lock = (ROOT / 'runs/campaign.lock').open('a+')
+         fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
+         self.source = validate_gate(args.gate, args.commit, full=args.action == 'run')
++        self.recovery = None
++        recovery_path = getattr(args, 'administrative_recovery', None)
++        if recovery_path is not None:
++            recovery_path = Path(recovery_path).resolve()
++            recovery = read(recovery_path, {})
++            allowed_ids = {'D2_j62', 'D2_j63', 'N2_j46', 'N2_j47', 'N2_j48', 'N2_j49', 'N2_j50'}
++            if (ROOT / 'runs' not in recovery_path.parents or recovery.get('approved') is not True or
++                    recovery.get('kind') != 'completed_native_branch_guard_failure' or
++                    recovery.get('reference_commit') != args.commit or set(recovery.get('runs', {})) != allowed_ids):
++                raise ValueError('Unrecognized explicit administrative-recovery record')
++            for item in recovery['runs'].values():
++                original = Path(item['original_manifest']).resolve()
++                if recovery_path.parent not in original.parents or not original.is_file():
++                    raise ValueError('Recovery requires an immutable original manifest in its record folder')
++            self.recovery = dict(recovery, config_path=str(recovery_path))
+         self.state = read(STATE, dict(created_utc=utc(), status='prepared', submitted=[],
+                                     external=[], points={p: {'status': 'open', 'rounds': []} for p in POINTS}))
+         self.state.setdefault('analyses', [])
+         if self.state.get('pending_submission_intent') or self.state.get('pending_analysis_submission_intent'):
+             raise RuntimeError('Ambiguous prior submission: inspect Slurm and resolve the recorded intent before resuming')
+-        self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active')
++        self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active',
++                          admission_limit=getattr(args, 'max_parallel', MAX_PAR),
++                          respect_free_a6000=getattr(args, 'respect_free_a6000', False))
++        if self.recovery is not None:
++            self.state['administrative_recovery_config'] = self.recovery['config_path']
+         self.started = time.monotonic()
+         self.next_monitor = self.started
+         self.stopping = False
+@@ -555,7 +632,9 @@ class Campaign:
+     def inspect(self):
+         self.load_external()
+         for entry in self.state['external'] + self.state['submitted']:
+-            if entry.get('scheduler_state') in TERMINAL and entry.get('terminal_recorded'):
++            needs_recovery = (self.recovery is not None and entry.get('run_id') in self.recovery['runs']
++                              and not entry.get('administrative_recovery'))
++            if entry.get('scheduler_state') in TERMINAL and entry.get('terminal_recorded') and not needs_recovery:
+                 continue
+             status = accounting(entry['job_id'])
+             if status['scheduler_state'] is None:
+@@ -575,6 +654,16 @@ class Campaign:
+             spec = read(ROOT / 'runs/specs' / (entry['run_id'] + '.json'))
+             path = ROOT / 'runs' / entry['run_id'] / 'manifest.json'
+             manifest = read(path, dict(spec, status='failed', failure_reason='Allocation ended before worker manifest'))
++            recovered = branch_guard_recovery(entry, status, spec, manifest, self.recovery)
++            if recovered is not None:
++                # Preserve the failed wrapper and real Slurm outcome. Only the
++                # scientific group status changes, after native verification.
++                manifest.update(scientific_status='complete', administrative_recovery=recovered,
++                                scheduler_observation=status, monitor_status='paused')
++                atomic(path, manifest)
++                entry.update(terminal_recorded=True, run_status='complete', wrapper_status='failed',
++                             administrative_recovery=recovered)
++                continue
+             try:
+                 if status['scheduler_state'] != 'COMPLETED' or status.get('exit_code') != '0:0' or manifest.get('status') != 'complete':
+                     raise ValueError('Scheduler/worker did not both complete successfully')
+@@ -669,7 +758,11 @@ class Campaign:
+         return None
+ 
+     def slots(self):
+-        return queue_slots(self.state['external'] + self.state['submitted'], scheduler_jobs())
++        free_slots = None
++        if getattr(self.args, 'respect_free_a6000', False):
++            free_slots = free_a6000_slots(command(['scontrol', 'show', 'nodes', '--oneliner'])['stdout'])
++        return queue_slots(self.state['external'] + self.state['submitted'], scheduler_jobs(),
++                           max_parallel=getattr(self.args, 'max_parallel', MAX_PAR), free_slots=free_slots)
+ 
+     def submit(self, run_id):
+         if self.entry(run_id):
+@@ -891,10 +984,18 @@ def main():
+     parser.add_argument('--run-id')
+     parser.add_argument('--spec', type=Path)
+     parser.add_argument('--timeout-seconds', type=int, default=86400)
++    parser.add_argument('--max-parallel', type=int, default=MAX_PAR,
++                        help='Admission-only limit, no greater than the approved nine GPU jobs')
++    parser.add_argument('--respect-free-a6000', action='store_true',
++                        help='Further limit new admissions to live A6000/CPU/memory availability')
++    parser.add_argument('--administrative-recovery', type=Path,
++                        help='Explicit approved record for the seven completed branch-guard failures')
+     args = parser.parse_args()
+     args.gate = args.gate.resolve()
+     if not 60 <= args.timeout_seconds <= 86400:
+         raise ValueError('Controller cap must be between one minute and twenty-four hours')
++    if not 1 <= args.max_parallel <= MAX_PAR:
++        raise ValueError('Admission limit must be between one and the approved nine GPU jobs')
+     if args.action == 'worker':
+         if args.spec is None:
+             parser.error('worker requires --spec')

@@ -1,0 +1,54 @@
+{
+  "status": "submitted",
+  "recorded_utc": "2026-10-12T07:55:32.495794+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/setup/controller_monitor50m-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/run_queue.sh",
+    "--gate",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json",
+    "--commit",
+    "f425082723799776af35e100983fe20b86888a02",
+    "--timeout-seconds",
+    "86400",
+    "--max-parallel",
+    "5",
+    "--respect-free-a6000",
+    "--administrative-recovery",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/recovery.json",
+    "--monitor-interval-seconds",
+    "3000"
+  ],
+  "prior_controller_accounting": "17821085|FAILED|340|1:0",
+  "lock_released": true,
+  "priority_e1c_running": [
+    [
+      "17821076",
+      "RUNNING",
+      "gres/gpu:a6000:1"
+    ],
+    [
+      "17821077",
+      "RUNNING",
+      "gres/gpu:a6000:1"
+    ],
+    [
+      "17821078",
+      "RUNNING",
+      "gres/gpu:a6000:1"
+    ]
+  ],
+  "remaining_estimate_seconds": 17520.8,
+  "estimate_basis": "At most121remaining50-batch groups,724seconds median observed allocation per group,5parallel jobs; closure may be earlier.",
+  "monitor_interval_seconds": 3000,
+  "monitor_rule": "max(1800, remaining_estimate_seconds/6), rounded up to50minutes",
+  "cpu_only_controller": true,
+  "unchanged_gpu_hour_cap": 125,
+  "returncode": 0,
+  "stdout": "17821138\n",
+  "stderr": "",
+  "submitted_utc": "2026-10-12T07:55:32.523560+00:00",
+  "job_id": "17821138"
+}

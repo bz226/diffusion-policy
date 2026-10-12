@@ -1,0 +1,229 @@
+{
+  "status": "passed",
+  "passed": true,
+  "device": "cpu",
+  "parent_commit": "44b2998228e1a93aaef544e8030c30640d17dc06",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/source_snapshot",
+  "slurm_job_id": "17821352",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean/code/v6_gate.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3_gradmean/dppo",
+    "--reference",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+    "--parent",
+    "/soalnas/share/data/zbao7/diffusion_policy",
+    "--prepare",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6",
+    "--seed",
+    "2900000"
+  ],
+  "seed": 2900000,
+  "cuda_generator_count": 0,
+  "workers": [
+    {
+      "name": "old",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/v6_gate.py",
+        "--worker",
+        "old",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/reference_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old",
+        "--seed",
+        "2900000"
+      ],
+      "seconds": 247.0231987060979
+    },
+    {
+      "name": "new",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/v6_gate.py",
+        "--worker",
+        "new",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/source_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/new",
+        "--seed",
+        "2900000"
+      ],
+      "seconds": 180.93344138469547
+    },
+    {
+      "name": "identities",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/v6_gate.py",
+        "--worker",
+        "identities",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/source_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/identities",
+        "--seed",
+        "2900000",
+        "--batch",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt"
+      ],
+      "seconds": 44.75251022912562
+    }
+  ],
+  "source_files": 404,
+  "reference_files": 404,
+  "H1": {
+    "passed": true,
+    "relative_l2": 2.575700524426552e-15,
+    "max_abs": 3.154809746774845e-12,
+    "divisor": 472.05479903660165,
+    "float64_definition": "gamma^k*(raw MC G-c*pre-update frozen V)",
+    "actor_cast": "float32 residual then float32 gamma^k, identical to V4/V5"
+  },
+  "H2": {
+    "passed": true,
+    "comparisons": [
+      {
+        "name": "LOO_to_V4",
+        "passed": true,
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      },
+      {
+        "name": "zero_to_V5",
+        "passed": true,
+        "relative_l2": 0.0,
+        "max_abs": 0.0
+      }
+    ]
+  },
+  "H3": {
+    "passed": true,
+    "sums": [
+      {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      }
+    ],
+    "scalar_differences": [],
+    "rng": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 22724,
+      "tensors": 12,
+      "first_failure": null
+    },
+    "excluded_keys": [
+      "diagnostic_seconds",
+      "gradient_seconds",
+      "rollout_seconds",
+      "seconds"
+    ],
+    "actual_rollouts_per_source": 2,
+    "decisions_per_rollout": 500,
+    "envs": 40
+  },
+  "H4": {
+    "passed": true,
+    "states": {
+      "old": {
+        "actor": {
+          "prepare": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "before": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "after": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "passed": true
+        },
+        "critic": {
+          "prepare": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "before": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "after": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "passed": true
+        },
+        "scaler": {
+          "prepare": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "before": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "after": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "passed": true
+        }
+      },
+      "new": {
+        "actor": {
+          "prepare": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "before": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "after": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+          "passed": true
+        },
+        "critic": {
+          "prepare": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "before": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "after": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+          "passed": true
+        },
+        "scaler": {
+          "prepare": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "before": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "after": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+          "passed": true
+        }
+      }
+    },
+    "prepare_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json"
+  },
+  "seconds": 507.7881016070023
+}

@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "checks": [
+    "fixed-plan pilot report receives its caller context",
+    "legacy pilot report retains default context",
+    "all-five source moments bitwise unchanged",
+    "all-five summaries and published rows unchanged",
+    "mixed file reader includes old/new V4 without fabricated V6",
+    "runtime original-round summaries accept mixed matrices",
+    "V6 B uses all-V4 signal rather than paired-only or own signal",
+    "V6 B reports independent legacy/new strata",
+    "joint stratified jackknife matches explicit group deletion",
+    "paired mean dot excludes same-batch noise",
+    "V6/V4 and V5/V6 variance ratios use identical new cohort",
+    "per-bin energies are pooled ratios",
+    "partial points unavailable without failing consistency",
+    "undefined paired cosine interval never triggers consistency stop",
+    "V5 reference helper shares all-V4 signal",
+    "fixed500-batch plan completes independently of legacy rho/status",
+    "fixed plan waits for previously admitted jobs",
+    "fixed plan rejects nine instead of ten groups",
+    "all-five data alone do not invent V6 evidence",
+    "note is a concise candidate report",
+    "resolved paired cosine interval below1 triggers stop"
+  ],
+  "count": 21,
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "new_scientific_samples": 0
+}

@@ -249,6 +249,39 @@ class PointData:
         return row
 
 
+def verified_administrative_recovery(root, run_id, entry, manifest):
+    """Narrow exception for seven successful measurements rejected only by the old branch guard."""
+    allowed_ids = {'D2_j62', 'D2_j63', 'N2_j46', 'N2_j47', 'N2_j48', 'N2_j49', 'N2_j50'}
+    record = entry.get('administrative_recovery', {})
+    if (run_id not in allowed_ids or not record or manifest.get('administrative_recovery') != record or
+            record.get('kind') != 'completed_native_branch_guard_failure' or
+            record.get('scientific_status') != 'complete' or record.get('run_id') != run_id or
+            record.get('job_id') != str(entry.get('job_id')) or
+            record.get('scheduler_state') != 'FAILED' or record.get('scheduler_exit_code') != '1:0' or
+            record.get('native_subprocess_exitcode') != 0 or
+            record.get('original_worker_status') != 'failed' or
+            record.get('original_failure_reason') != 'ValueError: Parent branch must be stage3-gradmean' or
+            entry.get('scheduler_state') != 'FAILED' or entry.get('exit_code') != '1:0' or
+            entry.get('terminal_recorded') is not True or entry.get('run_status') != 'complete' or
+            manifest.get('status') != 'failed' or manifest.get('scientific_status') != 'complete' or
+            manifest.get('subprocess_exitcode') != 0 or manifest.get('remaining_process_group_members') != [] or
+            not record.get('verification')):
+        return False
+    config_path = Path(record.get('config_path', '')).resolve()
+    original_path = Path(record.get('original_manifest', '')).resolve()
+    if (Path(root).resolve() / 'runs' not in config_path.parents or
+            config_path.parent not in original_path.parents or not config_path.is_file() or not original_path.is_file()):
+        return False
+    config, original = read_json(config_path), read_json(original_path)
+    approved = config.get('runs', {}).get(run_id, {})
+    return (config.get('approved') is True and config.get('kind') == record['kind'] and
+            set(config.get('runs', {})) == allowed_ids and approved.get('job_id') == record['job_id'] and
+            approved.get('original_manifest') == str(original_path) and
+            original.get('failure_reason') == record['original_failure_reason'] and
+            original.get('subprocess_exitcode') == 0 and original.get('failure_cleanup_survivors') == [] and
+            all(manifest.get(key) == value for key, value in original.items()))
+
+
 def discover(root):
     root = Path(root)
     campaign_path = root / "runs/campaign.json"
@@ -270,6 +303,8 @@ def discover(root):
                            and manifest.get("remaining_process_group_members") == [])
         terminal_complete = (entry.get("terminal_recorded") is True and entry.get("run_status") == "complete"
                              and entry.get("scheduler_state") == "COMPLETED" and entry.get("exit_code") == "0:0")
+        recovered = verified_administrative_recovery(root, run_id, entry, manifest)
+        worker_complete, terminal_complete = worker_complete or recovered, terminal_complete or recovered
         cleanup_complete = (cleanup.get("status") == "passed" and cleanup.get("all_children_exited") is True
                             and cleanup.get("remaining_active_children") == [] and cleanup.get("remaining_direct_children") == []
                             and cleanup.get("errors") == [] and cleanup.get("primary_error") is None
@@ -285,6 +320,7 @@ def discover(root):
                   "completed_batches": meta.get("completed_batches"), "seed": meta.get("seed"),
                   "error": meta.get("error"), "worker_status": manifest.get("status"),
                   "scheduler_state": entry.get("scheduler_state"), "scheduler_exit_code": entry.get("exit_code"),
+                  "administrative_recovery": entry.get("administrative_recovery") if recovered else None,
                   "manifest": str(manifest_path), "cleanup": str(cleanup_path),
                   "exclusion_reasons": reasons, "included": not reasons}
         inventory.append(record)

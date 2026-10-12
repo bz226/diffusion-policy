@@ -1,0 +1,48 @@
+{
+  "approved": true,
+  "kind": "completed_native_branch_guard_failure",
+  "created_utc": "2026-10-12T07:41:29.337090+00:00",
+  "authority": "User approved E1C with gradient-mean resumed in remaining capacity; explicit administrative recovery authorized by coordinating agent. Preserve completed science and truthful failed wrapper records.",
+  "reference_commit": "f425082723799776af35e100983fe20b86888a02",
+  "branch_guard_fix_commit": "c7f6e58cf653d01fa4325bf8300569eafc404582",
+  "runs": {
+    "D2_j62": {
+      "job_id": "17819422",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/D2_j62.json"
+    },
+    "D2_j63": {
+      "job_id": "17819426",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/D2_j63.json"
+    },
+    "N2_j46": {
+      "job_id": "17819445",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j46.json"
+    },
+    "N2_j47": {
+      "job_id": "17819529",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j47.json"
+    },
+    "N2_j48": {
+      "job_id": "17819573",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j48.json"
+    },
+    "N2_j49": {
+      "job_id": "17819574",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j49.json"
+    },
+    "N2_j50": {
+      "job_id": "17819729",
+      "original_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/original_manifests/N2_j50.json"
+    }
+  },
+  "not_recovered": [
+    "N2_j51",
+    "N2_j52"
+  ],
+  "not_recovered_action": "Existing one independent-seed replacement per group; no original data overwritten.",
+  "scheduler_status_policy": "Actual FAILED / 1:0 remains unchanged; only scientific completion is accepted after native-output verification.",
+  "admission_limit_while_e1c": 5,
+  "respect_live_a6000_resources": true,
+  "gpu_hour_cap_unchanged": 125,
+  "launch_requires_three_e1c_seeds_running": true
+}

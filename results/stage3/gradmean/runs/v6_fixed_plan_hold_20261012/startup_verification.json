@@ -1,0 +1,228 @@
+{
+  "utc": "2026-10-12T08:31:18.354184+00:00",
+  "controller_job_id": "17821491",
+  "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+  "controller_status": "running",
+  "monitor_status": "active",
+  "monitor_interval_seconds": 1800,
+  "max_parallel": 5,
+  "effective_fixed_plan": {
+    "approved": true,
+    "new_groups_per_point": 10,
+    "batches_per_group": 50,
+    "legacy_admissions_closed": true,
+    "adaptive_stopping": false,
+    "group_indices": [
+      82,
+      83,
+      84,
+      85,
+      86,
+      87,
+      88,
+      89,
+      91,
+      92
+    ],
+    "point_order": [
+      "P0",
+      "D2",
+      "N2",
+      "D1",
+      "N1"
+    ],
+    "decision_utc": "2026-10-12T08:13:09.557576+00:00",
+    "decision_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/provenance/fixed_v6_plan_20261012.json",
+    "stopping_reason": "user compute-driven fixed plan"
+  },
+  "ledger": {
+    "actual_gpu_seconds": 207622,
+    "outstanding_reserved_gpu_seconds": 18000,
+    "actual_plus_reserved_gpu_seconds": 225622,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 224378
+  },
+  "first_five_jobs": [
+    {
+      "run_id": "P0_j82",
+      "job_id": "17821493",
+      "scheduler_state": "RUNNING",
+      "node": "soal-10",
+      "variants": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "effective_gm_include_critic": true,
+      "startup_flag_seen": true,
+      "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+      "seed": 108200,
+      "completed_batches_at_check": 4,
+      "all_saved_batch_scalars_finite": true,
+      "cross_moments_finite": true,
+      "cross_moment_shape": [
+        6,
+        6
+      ],
+      "first_batch_timing": {
+        "rollout_seconds": 14.091480626957491,
+        "gradient_seconds": 0.5699264530558139,
+        "diagnostic_seconds": 0.44510452600661665,
+        "seconds": 15.122230137931183
+      },
+      "progress_status": "running",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j82"
+    },
+    {
+      "run_id": "P0_j83",
+      "job_id": "17821494",
+      "scheduler_state": "RUNNING",
+      "node": "soal-11",
+      "variants": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "effective_gm_include_critic": true,
+      "startup_flag_seen": true,
+      "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+      "seed": 108300,
+      "completed_batches_at_check": 4,
+      "all_saved_batch_scalars_finite": true,
+      "cross_moments_finite": true,
+      "cross_moment_shape": [
+        6,
+        6
+      ],
+      "first_batch_timing": {
+        "rollout_seconds": 13.812726456671953,
+        "gradient_seconds": 0.5474851606413722,
+        "diagnostic_seconds": 0.24714443925768137,
+        "seconds": 14.624010131694376
+      },
+      "progress_status": "running",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j83"
+    },
+    {
+      "run_id": "P0_j84",
+      "job_id": "17821495",
+      "scheduler_state": "RUNNING",
+      "node": "soal-11",
+      "variants": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "effective_gm_include_critic": true,
+      "startup_flag_seen": true,
+      "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+      "seed": 108400,
+      "completed_batches_at_check": 4,
+      "all_saved_batch_scalars_finite": true,
+      "cross_moments_finite": true,
+      "cross_moment_shape": [
+        6,
+        6
+      ],
+      "first_batch_timing": {
+        "rollout_seconds": 13.952885976061225,
+        "gradient_seconds": 0.5751063534989953,
+        "diagnostic_seconds": 0.41219803411513567,
+        "seconds": 14.956861848011613
+      },
+      "progress_status": "running",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j84"
+    },
+    {
+      "run_id": "P0_j85",
+      "job_id": "17821496",
+      "scheduler_state": "RUNNING",
+      "node": "soal-11",
+      "variants": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "effective_gm_include_critic": true,
+      "startup_flag_seen": true,
+      "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+      "seed": 108500,
+      "completed_batches_at_check": 4,
+      "all_saved_batch_scalars_finite": true,
+      "cross_moments_finite": true,
+      "cross_moment_shape": [
+        6,
+        6
+      ],
+      "first_batch_timing": {
+        "rollout_seconds": 14.07423575501889,
+        "gradient_seconds": 0.5617474932223558,
+        "diagnostic_seconds": 0.4312112405896187,
+        "seconds": 15.084125643596053
+      },
+      "progress_status": "running",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j85"
+    },
+    {
+      "run_id": "P0_j86",
+      "job_id": "17821497",
+      "scheduler_state": "RUNNING",
+      "node": "soal-11",
+      "variants": [
+        "V1",
+        "V2",
+        "V3",
+        "V4",
+        "V5",
+        "V6"
+      ],
+      "effective_gm_include_critic": true,
+      "startup_flag_seen": true,
+      "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+      "seed": 108600,
+      "completed_batches_at_check": 4,
+      "all_saved_batch_scalars_finite": true,
+      "cross_moments_finite": true,
+      "cross_moment_shape": [
+        6,
+        6
+      ],
+      "first_batch_timing": {
+        "rollout_seconds": 13.772286688908935,
+        "gradient_seconds": 0.5522826137021184,
+        "diagnostic_seconds": 0.4624822773039341,
+        "seconds": 14.80508726555854
+      },
+      "progress_status": "running",
+      "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j86"
+    }
+  ],
+  "unchanged_E1C_running_jobs": [
+    "17821076",
+    "17821077",
+    "17821078"
+  ],
+  "E1C_node": "soal-10",
+  "critic_study_remains_paused": true,
+  "final_hooks": {
+    "after_exactly50groups": "final_v6_fixed, CPU4/64GiB/30minutes",
+    "after_final_analysis": "clean_v6_fixed, CPU2/32GiB/10minutes",
+    "after_verified_clean_outputs": "update current experiment and completed-experiment catalog; no curation",
+    "interim_analysis_jobs": 0
+  },
+  "estimated_final_outputs": "2026-10-12 03:45 PDT, subject to queue and analysis time",
+  "estimated_collection_seconds": 7561.0,
+  "no_running_GPU_jobs_interrupted": true
+}

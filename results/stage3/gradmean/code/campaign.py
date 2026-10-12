@@ -275,11 +275,69 @@ def ledger(entries):
                 remaining_unreserved_gpu_seconds=BUDGET - actual - reserved)
 
 
-def queue_slots(entries, jobs):
+def queue_slots(entries, jobs, max_parallel=MAX_PAR, free_slots=None):
+    if not 1 <= max_parallel <= MAX_PAR:
+        raise ValueError('Admission limit must be between one and the approved nine GPU jobs')
     owned = {str(x['job_id']) for x in entries if x.get('scheduler_state') not in TERMINAL}
     others = [j for j in jobs if j['job_id'] not in owned]
-    return max(0, min(MAX_PAR - len(owned), 12 - len(owned) - sum(j['gpus'] for j in others),
-                      12 - len(jobs), 20 - len(jobs)))
+    limits = [max_parallel - len(owned), 12 - len(owned) - sum(j['gpus'] for j in others),
+              12 - len(jobs), 20 - len(jobs)]
+    if free_slots is not None:
+        # Queued owned jobs have not yet consumed the live free-node inventory.
+        pending = sum(j['gpus'] for j in jobs if j['job_id'] in owned and j['state'] == 'PENDING')
+        limits.append(free_slots - pending)
+    return max(0, min(limits))
+
+
+def free_a6000_slots(node_text):
+    """Count presently allocatable 1-A6000/40-CPU/64-GiB slots, including other users."""
+    def tres(text):
+        return dict(item.split('=', 1) for item in text.split(',') if '=' in item)
+    def memory_mib(value):
+        match = re.fullmatch(r'(\d+(?:\.\d+)?)([KMGT]?)', value)
+        if match is None:
+            raise ValueError('Unrecognized Slurm memory unit: ' + value)
+        return float(match[1]) * {'': 1, 'K': 1 / 1024, 'M': 1, 'G': 1024, 'T': 1024 ** 2}[match[2]]
+    slots = 0
+    for line in node_text.splitlines():
+        fields = dict(item.split('=', 1) for item in line.split() if '=' in item)
+        if 'soal' not in fields.get('Partitions', '').split(','):
+            continue
+        if any(flag in fields.get('State', '') for flag in ('DOWN', 'DRAIN', 'FAIL', 'MAINT', 'NOT_RESPONDING')):
+            continue
+        cfg, allocated = tres(fields.get('CfgTRES', '')), tres(fields.get('AllocTRES', ''))
+        count = int(cfg.get('gres/gpu:a6000', 0))
+        if not count:
+            continue
+        gpu_free = count - int(allocated.get('gres/gpu', allocated.get('gres/gpu:a6000', 0)))
+        cpu_free = int(cfg['cpu']) - int(allocated.get('cpu', 0))
+        mem_free = memory_mib(cfg['mem']) - memory_mib(allocated.get('mem', '0'))
+        slots += max(0, min(gpu_free, cpu_free // 40, int(mem_free // (64 * 1024))))
+    return slots
+
+
+def branch_guard_recovery(entry, status, spec, manifest, recovery):
+    """Accept only explicitly listed native successes rejected by the obsolete branch guard."""
+    if recovery is None or entry['run_id'] not in recovery['runs']:
+        return None
+    allowed = recovery['runs'][entry['run_id']]
+    original_path = Path(allowed['original_manifest'])
+    original = read(original_path, {})
+    if (allowed['job_id'] != str(entry['job_id']) or status.get('scheduler_state') != 'FAILED' or
+            status.get('exit_code') != '1:0' or spec.get('step') != 'collect' or
+            original.get('status') != 'failed' or
+            original.get('failure_reason') != 'ValueError: Parent branch must be stage3-gradmean' or
+            original.get('subprocess_exitcode') != 0 or original.get('remaining_process_group_members') != [] or
+            original.get('failure_cleanup_survivors') != [] or
+            any(manifest.get(key) != value for key, value in original.items())):
+        raise ValueError('Administrative recovery evidence does not match the approved branch-only failure: ' + entry['run_id'])
+    verification = verify(spec)
+    return dict(kind='completed_native_branch_guard_failure', scientific_status='complete',
+                config_path=recovery['config_path'], original_manifest=str(original_path),
+                original_worker_status='failed', original_failure_reason=original['failure_reason'],
+                scheduler_state='FAILED', scheduler_exit_code='1:0', native_subprocess_exitcode=0,
+                job_id=str(entry['job_id']), run_id=entry['run_id'], verification=verification,
+                verified_utc=utc())
 
 
 def scheduler_jobs():
@@ -498,12 +556,32 @@ class Campaign:
         self.lock = (ROOT / 'runs/campaign.lock').open('a+')
         fcntl.flock(self.lock, fcntl.LOCK_EX | fcntl.LOCK_NB)
         self.source = validate_gate(args.gate, args.commit, full=args.action == 'run')
+        self.recovery = None
+        recovery_path = getattr(args, 'administrative_recovery', None)
+        if recovery_path is not None:
+            recovery_path = Path(recovery_path).resolve()
+            recovery = read(recovery_path, {})
+            allowed_ids = {'D2_j62', 'D2_j63', 'N2_j46', 'N2_j47', 'N2_j48', 'N2_j49', 'N2_j50'}
+            if (ROOT / 'runs' not in recovery_path.parents or recovery.get('approved') is not True or
+                    recovery.get('kind') != 'completed_native_branch_guard_failure' or
+                    recovery.get('reference_commit') != args.commit or set(recovery.get('runs', {})) != allowed_ids):
+                raise ValueError('Unrecognized explicit administrative-recovery record')
+            for item in recovery['runs'].values():
+                original = Path(item['original_manifest']).resolve()
+                if recovery_path.parent not in original.parents or not original.is_file():
+                    raise ValueError('Recovery requires an immutable original manifest in its record folder')
+            self.recovery = dict(recovery, config_path=str(recovery_path))
         self.state = read(STATE, dict(created_utc=utc(), status='prepared', submitted=[],
                                     external=[], points={p: {'status': 'open', 'rounds': []} for p in POINTS}))
         self.state.setdefault('analyses', [])
         if self.state.get('pending_submission_intent') or self.state.get('pending_analysis_submission_intent'):
             raise RuntimeError('Ambiguous prior submission: inspect Slurm and resolve the recorded intent before resuming')
-        self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active')
+        self.state.update(source_provenance=self.source, gate=str(args.gate), monitor_status='active',
+                          admission_limit=getattr(args, 'max_parallel', MAX_PAR),
+                          respect_free_a6000=getattr(args, 'respect_free_a6000', False),
+                          monitor_interval_seconds=getattr(args, 'monitor_interval_seconds', 9600))
+        if self.recovery is not None:
+            self.state['administrative_recovery_config'] = self.recovery['config_path']
         self.started = time.monotonic()
         self.next_monitor = self.started
         self.stopping = False
@@ -555,7 +633,9 @@ class Campaign:
     def inspect(self):
         self.load_external()
         for entry in self.state['external'] + self.state['submitted']:
-            if entry.get('scheduler_state') in TERMINAL and entry.get('terminal_recorded'):
+            needs_recovery = (self.recovery is not None and entry.get('run_id') in self.recovery['runs']
+                              and not entry.get('administrative_recovery'))
+            if entry.get('scheduler_state') in TERMINAL and entry.get('terminal_recorded') and not needs_recovery:
                 continue
             status = accounting(entry['job_id'])
             if status['scheduler_state'] is None:
@@ -575,6 +655,16 @@ class Campaign:
             spec = read(ROOT / 'runs/specs' / (entry['run_id'] + '.json'))
             path = ROOT / 'runs' / entry['run_id'] / 'manifest.json'
             manifest = read(path, dict(spec, status='failed', failure_reason='Allocation ended before worker manifest'))
+            recovered = branch_guard_recovery(entry, status, spec, manifest, self.recovery)
+            if recovered is not None:
+                # Preserve the failed wrapper and real Slurm outcome. Only the
+                # scientific group status changes, after native verification.
+                manifest.update(scientific_status='complete', administrative_recovery=recovered,
+                                scheduler_observation=status, monitor_status='paused')
+                atomic(path, manifest)
+                entry.update(terminal_recorded=True, run_status='complete', wrapper_status='failed',
+                             administrative_recovery=recovered)
+                continue
             try:
                 if status['scheduler_state'] != 'COMPLETED' or status.get('exit_code') != '0:0' or manifest.get('status') != 'complete':
                     raise ValueError('Scheduler/worker did not both complete successfully')
@@ -669,7 +759,11 @@ class Campaign:
         return None
 
     def slots(self):
-        return queue_slots(self.state['external'] + self.state['submitted'], scheduler_jobs())
+        free_slots = None
+        if getattr(self.args, 'respect_free_a6000', False):
+            free_slots = free_a6000_slots(command(['scontrol', 'show', 'nodes', '--oneliner'])['stdout'])
+        return queue_slots(self.state['external'] + self.state['submitted'], scheduler_jobs(),
+                           max_parallel=getattr(self.args, 'max_parallel', MAX_PAR), free_slots=free_slots)
 
     def submit(self, run_id):
         if self.entry(run_id):
@@ -824,7 +918,7 @@ class Campaign:
             tmp = report.with_name('.experiment.monitor.tmp')
             tmp.write_text(content)
             os.replace(str(tmp), str(report))
-        self.next_monitor = time.monotonic() + 9600
+        self.next_monitor = time.monotonic() + getattr(self.args, 'monitor_interval_seconds', 9600)
 
     def run(self):
         for run_id in ('prepare_P0', 'P0_j00', 'P0_j01'):
@@ -891,10 +985,22 @@ def main():
     parser.add_argument('--run-id')
     parser.add_argument('--spec', type=Path)
     parser.add_argument('--timeout-seconds', type=int, default=86400)
+    parser.add_argument('--max-parallel', type=int, default=MAX_PAR,
+                        help='Admission-only limit, no greater than the approved nine GPU jobs')
+    parser.add_argument('--respect-free-a6000', action='store_true',
+                        help='Further limit new admissions to live A6000/CPU/memory availability')
+    parser.add_argument('--administrative-recovery', type=Path,
+                        help='Explicit approved record for the seven completed branch-guard failures')
+    parser.add_argument('--monitor-interval-seconds', type=int, default=9600,
+                        help='Campaign monitor interval, bounded between thirty and one hundred sixty minutes')
     args = parser.parse_args()
     args.gate = args.gate.resolve()
     if not 60 <= args.timeout_seconds <= 86400:
         raise ValueError('Controller cap must be between one minute and twenty-four hours')
+    if not 1 <= args.max_parallel <= MAX_PAR:
+        raise ValueError('Admission limit must be between one and the approved nine GPU jobs')
+    if not 1800 <= args.monitor_interval_seconds <= 9600:
+        raise ValueError('Campaign monitor interval must be between 1800 and 9600 seconds')
     if args.action == 'worker':
         if args.spec is None:
             parser.error('worker requires --spec')

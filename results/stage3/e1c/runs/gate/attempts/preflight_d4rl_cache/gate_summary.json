@@ -1,0 +1,112 @@
+{
+  "status": "failed",
+  "passed": false,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py"
+  ],
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo",
+  "parent_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+  "slurm_job_id": null,
+  "cpu_only": true,
+  "cpu_logprobs": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt",
+  "device": "cpu",
+  "python_version": "3.8.20",
+  "torch_version": "2.4.0+cu121",
+  "numpy_version": "1.24.4",
+  "configured_training_stage3_diag": true,
+  "gate_stage3_diag": false,
+  "gate_scope": "Saved-batch A1/A3 only. Training diagnostics are separately covered by reused C4; no rollout or optimizer update.",
+  "normalization_amendment": "User approved per-chunk normalization matching the existing E1 runs.",
+  "gate_wall_limit_seconds": 1200,
+  "checks": {
+    "A2": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C2",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C2.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    },
+    "A4": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C4",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C4.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    },
+    "A5": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C5",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C5.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    }
+  },
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "source_comparison": {
+    "passed": true,
+    "comparison": "all ordinary file contents and executable bits",
+    "files": 405,
+    "scientific_files_identical": 404,
+    "administrative_ignore_policy_difference": [
+      {
+        "path": ".gitignore",
+        "reason": "Current snapshot helper implements required runtime-log exclusions.",
+        "diff": "--- critic-gate/.gitignore\n+++ e1c/.gitignore\n@@ -1,5 +1,16 @@\n # Ordinary source snapshot; original upstream rules are in ../provenance/.\n-# Keep source, result.pkl, run.log, and Hydra configurations versionable.\n+# Keep source, measurements, result.pkl, and Hydra configurations versionable.\n+# Runtime logs and command/monitor transcripts stay local.\n+*.log\n+*.log.*\n+*.out\n+*.err\n+commands.jsonl\n+*_commands.jsonl\n+monitor_history.jsonl\n+*_monitor_history.jsonl\n+*_monitor.jsonl\n+events.jsonl\n __pycache__/\n *.py[cod]\n .pytest_cache/\n"
+      }
+    ],
+    "reference_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/source_snapshot",
+    "differences": []
+  },
+  "source_parent_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+  "parent_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/runs/gate/source_snapshot",
+  "error": "OSError: [Errno 30] Read-only file system: '/sailhome/zbao7/.d4rl'",
+  "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py\", line 259, in main\n    agent, saved, cfg = make_agent(SOURCE, FIXTURE, 'cpu', directory, overrides())\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_replay.py\", line 39, in make_agent\n    cls.__init__(agent, cfg)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/agent/finetune/train_ppo_diffusion_agent.py\", line 25, in __init__\n    super().__init__(cfg)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/agent/finetune/train_ppo_agent.py\", line 19, in __init__\n    super().__init__(cfg)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/agent/finetune/train_agent.py\", line 43, in __init__\n    self.venv = make_async(\n  File \"/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/env/gym_utils/__init__.py\", line 130, in make_async\n    import d4rl.gym_mujoco\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/__init__.py\", line 7, in <module>\n    from d4rl.offline_env import set_dataset_path, get_keys\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/offline_env.py\", line 17, in <module>\n    set_dataset_path(os.environ.get('D4RL_DATASET_DIR', os.path.expanduser('~/.d4rl/datasets')))\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/site-packages/d4rl/offline_env.py\", line 14, in set_dataset_path\n    os.makedirs(path, exist_ok=True)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/os.py\", line 213, in makedirs\n    makedirs(head, exist_ok=exist_ok)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/os.py\", line 223, in makedirs\n    mkdir(name, mode)\nOSError: [Errno 30] Read-only file system: '/sailhome/zbao7/.d4rl'\n",
+  "A2": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C2",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C2.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "A4": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C4",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C4.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "A5": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C5",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C5.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "elapsed_seconds": 3.3789167692884803
+}

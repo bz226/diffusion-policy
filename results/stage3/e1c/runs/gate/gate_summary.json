@@ -1,0 +1,452 @@
+{
+  "status": "passed",
+  "passed": true,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/code/gate_e1c.py"
+  ],
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo",
+  "parent_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+  "slurm_job_id": null,
+  "cpu_only": true,
+  "cpu_logprobs": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt",
+  "device": "cpu",
+  "python_version": "3.8.20",
+  "torch_version": "2.4.0+cu121",
+  "numpy_version": "1.24.4",
+  "configured_training_stage3_diag": true,
+  "gate_stage3_diag": false,
+  "gate_scope": "Saved-batch A1/A3 only. Training diagnostics are separately covered by reused C4; no rollout or optimizer update.",
+  "normalization_amendment": "User approved per-chunk normalization matching the existing E1 runs.",
+  "gate_wall_limit_seconds": 1200,
+  "checks": {
+    "A2": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C2",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C2.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    },
+    "A4": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C4",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C4.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    },
+    "A5": {
+      "passed": true,
+      "reused": true,
+      "source_gate": "C5",
+      "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+      "copied_evidence": "reused_C5.json",
+      "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+    },
+    "A1": {
+      "passed": true,
+      "raw_advantages": {
+        "max_abs": 3.865352482534945e-12,
+        "relative_l2": 5.876020558220972e-16
+      },
+      "nonunit_divisors": {
+        "scalar": {
+          "max_abs": 3.865352482534945e-12,
+          "relative_l2": 5.877186187985341e-16
+        },
+        "per_environment": {
+          "max_abs": 3.865352482534945e-12,
+          "relative_l2": 5.877308947625728e-16
+        }
+      },
+      "native_float32_cast": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 20000,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "divisor": 1.000000005,
+      "normalization": "per shuffled 50000-pair chunk, matching E1",
+      "chunk_moment_tolerance": 2e-06,
+      "std_ddof": 1,
+      "epsilon": 1e-08,
+      "normalization_capture_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/model/diffusion/diffusion_ppo.py",
+      "normalization_capture_line": 149,
+      "chunks": [
+        {
+          "index": 0,
+          "pairs": 50000,
+          "mean": -2.4781375919701533e-07,
+          "std_ddof1": 1.000000026170101,
+          "expected_std_epsilon_adjusted": 1.0,
+          "formula_comparison": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 50000,
+            "tensors": 1,
+            "first_failure": null
+          }
+        },
+        {
+          "index": 1,
+          "pairs": 50000,
+          "mean": 3.0442648858297616e-08,
+          "std_ddof1": 0.9999999923603833,
+          "expected_std_epsilon_adjusted": 1.0,
+          "formula_comparison": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 50000,
+            "tensors": 1,
+            "first_failure": null
+          }
+        },
+        {
+          "index": 2,
+          "pairs": 50000,
+          "mean": -1.009680603601737e-07,
+          "std_ddof1": 1.0000000218874652,
+          "expected_std_epsilon_adjusted": 1.0,
+          "formula_comparison": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 50000,
+            "tensors": 1,
+            "first_failure": null
+          }
+        },
+        {
+          "index": 3,
+          "pairs": 50000,
+          "mean": -2.608391097965068e-07,
+          "std_ddof1": 1.000000027293912,
+          "expected_std_epsilon_adjusted": 1.0,
+          "formula_comparison": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 50000,
+            "tensors": 1,
+            "first_failure": null
+          }
+        }
+      ]
+    },
+    "A3": {
+      "passed": true,
+      "relative_l2_tolerance": 1e-06,
+      "gradient_comparison": {
+        "max_abs": 0.0,
+        "relative_l2": 0.0
+      },
+      "bitwise_gradient_comparison": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "coefficient_comparison": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 20000,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "global_rng": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 5681,
+        "tensors": 3,
+        "first_failure": null
+      },
+      "zero_critic_values": 20000,
+      "gradient_norm": 0.006970148247764001,
+      "pairs": 200000,
+      "chunk_size": 50000,
+      "chunk_weights": [
+        0.25,
+        0.25,
+        0.25,
+        0.25
+      ],
+      "loss_path": "configured_actor_gradient calls unchanged model.loss for every chunk; same final-epoch permutation as training",
+      "optimizer_step_applied": false
+    }
+  },
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": "2",
+    "MKL_NUM_THREADS": "2",
+    "OPENBLAS_NUM_THREADS": "2"
+  },
+  "source_comparison": {
+    "passed": true,
+    "comparison": "all ordinary file contents and executable bits",
+    "files": 405,
+    "scientific_files_identical": 404,
+    "administrative_ignore_policy_difference": [
+      {
+        "path": ".gitignore",
+        "reason": "Current snapshot helper implements required runtime-log exclusions.",
+        "diff": "--- critic-gate/.gitignore\n+++ e1c/.gitignore\n@@ -1,5 +1,16 @@\n # Ordinary source snapshot; original upstream rules are in ../provenance/.\n-# Keep source, result.pkl, run.log, and Hydra configurations versionable.\n+# Keep source, measurements, result.pkl, and Hydra configurations versionable.\n+# Runtime logs and command/monitor transcripts stay local.\n+*.log\n+*.log.*\n+*.out\n+*.err\n+commands.jsonl\n+*_commands.jsonl\n+monitor_history.jsonl\n+*_monitor_history.jsonl\n+*_monitor.jsonl\n+events.jsonl\n __pycache__/\n *.py[cod]\n .pytest_cache/\n"
+      }
+    ],
+    "reference_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/source_snapshot",
+    "differences": []
+  },
+  "source_parent_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+  "parent_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/runs/gate/source_snapshot",
+  "effective_overrides": {
+    "model.clip_ploss_coef": 1000000.0,
+    "model.clip_ploss_coef_base": 1000000.0,
+    "train.target_kl": null,
+    "model.clamp_logprob": false,
+    "model.randn_clip_value": 100,
+    "train.actor_single_step": true,
+    "model.actor_loss": "score",
+    "train.stage3_diag": false,
+    "train.adv_estimator": "mc_critic",
+    "train.baseline_diag": true,
+    "train.decision_discount": false,
+    "model.gamma_denoising": 0.99,
+    "model.logprob_reduce": "mean",
+    "model.norm_adv": true,
+    "train.actor_optimizer": "adamw",
+    "train.actor_lr": 0.0001,
+    "train.actor_lr_scheduler.min_lr": 0.0001,
+    "train.critic_init_path": null
+  },
+  "model_optimizer_unchanged": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 1841635,
+    "tensors": 54,
+    "first_failure": null
+  },
+  "source_comparison_after": {
+    "passed": true,
+    "comparison": "all ordinary file contents and executable bits",
+    "files": 405,
+    "scientific_files_identical": 404,
+    "administrative_ignore_policy_difference": [
+      {
+        "path": ".gitignore",
+        "reason": "Current snapshot helper implements required runtime-log exclusions.",
+        "diff": "--- critic-gate/.gitignore\n+++ e1c/.gitignore\n@@ -1,5 +1,16 @@\n # Ordinary source snapshot; original upstream rules are in ../provenance/.\n-# Keep source, result.pkl, run.log, and Hydra configurations versionable.\n+# Keep source, measurements, result.pkl, and Hydra configurations versionable.\n+# Runtime logs and command/monitor transcripts stay local.\n+*.log\n+*.log.*\n+*.out\n+*.err\n+commands.jsonl\n+*_commands.jsonl\n+monitor_history.jsonl\n+*_monitor_history.jsonl\n+*_monitor.jsonl\n+events.jsonl\n __pycache__/\n *.py[cod]\n .pytest_cache/\n"
+      }
+    ],
+    "reference_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/source_snapshot",
+    "differences": []
+  },
+  "cleanup": {
+    "status": "passed",
+    "all_children_exited": true,
+    "workers": 40,
+    "evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/runs/gate/native/cleanup.json"
+  },
+  "A2": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C2",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C2.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "A4": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C4",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C4.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "A5": {
+    "passed": true,
+    "reused": true,
+    "source_gate": "C5",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "copied_evidence": "reused_C5.json",
+    "source_parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "reference_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21"
+  },
+  "A1": {
+    "passed": true,
+    "raw_advantages": {
+      "max_abs": 3.865352482534945e-12,
+      "relative_l2": 5.876020558220972e-16
+    },
+    "nonunit_divisors": {
+      "scalar": {
+        "max_abs": 3.865352482534945e-12,
+        "relative_l2": 5.877186187985341e-16
+      },
+      "per_environment": {
+        "max_abs": 3.865352482534945e-12,
+        "relative_l2": 5.877308947625728e-16
+      }
+    },
+    "native_float32_cast": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 20000,
+      "tensors": 1,
+      "first_failure": null
+    },
+    "divisor": 1.000000005,
+    "normalization": "per shuffled 50000-pair chunk, matching E1",
+    "chunk_moment_tolerance": 2e-06,
+    "std_ddof": 1,
+    "epsilon": 1e-08,
+    "normalization_capture_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo/model/diffusion/diffusion_ppo.py",
+    "normalization_capture_line": 149,
+    "chunks": [
+      {
+        "index": 0,
+        "pairs": 50000,
+        "mean": -2.4781375919701533e-07,
+        "std_ddof1": 1.000000026170101,
+        "expected_std_epsilon_adjusted": 1.0,
+        "formula_comparison": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 50000,
+          "tensors": 1,
+          "first_failure": null
+        }
+      },
+      {
+        "index": 1,
+        "pairs": 50000,
+        "mean": 3.0442648858297616e-08,
+        "std_ddof1": 0.9999999923603833,
+        "expected_std_epsilon_adjusted": 1.0,
+        "formula_comparison": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 50000,
+          "tensors": 1,
+          "first_failure": null
+        }
+      },
+      {
+        "index": 2,
+        "pairs": 50000,
+        "mean": -1.009680603601737e-07,
+        "std_ddof1": 1.0000000218874652,
+        "expected_std_epsilon_adjusted": 1.0,
+        "formula_comparison": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 50000,
+          "tensors": 1,
+          "first_failure": null
+        }
+      },
+      {
+        "index": 3,
+        "pairs": 50000,
+        "mean": -2.608391097965068e-07,
+        "std_ddof1": 1.000000027293912,
+        "expected_std_epsilon_adjusted": 1.0,
+        "formula_comparison": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 50000,
+          "tensors": 1,
+          "first_failure": null
+        }
+      }
+    ]
+  },
+  "A3": {
+    "passed": true,
+    "relative_l2_tolerance": 1e-06,
+    "gradient_comparison": {
+      "max_abs": 0.0,
+      "relative_l2": 0.0
+    },
+    "bitwise_gradient_comparison": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 568392,
+      "tensors": 1,
+      "first_failure": null
+    },
+    "coefficient_comparison": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 20000,
+      "tensors": 1,
+      "first_failure": null
+    },
+    "global_rng": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 5681,
+      "tensors": 3,
+      "first_failure": null
+    },
+    "zero_critic_values": 20000,
+    "gradient_norm": 0.006970148247764001,
+    "pairs": 200000,
+    "chunk_size": 50000,
+    "chunk_weights": [
+      0.25,
+      0.25,
+      0.25,
+      0.25
+    ],
+    "loss_path": "configured_actor_gradient calls unchanged model.loss for every chunk; same final-epoch permutation as training",
+    "optimizer_step_applied": false
+  },
+  "elapsed_seconds": 37.155051867477596
+}

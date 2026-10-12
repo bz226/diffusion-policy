@@ -1,0 +1,23 @@
+{
+  "requested_utc": "2026-10-12T08:09:10.817748+00:00",
+  "scope": "User Stage3 Addendum G2: six-variant future groups and up to500 V6 batches minimum eachpoint, mixedcohort analysis, CPU H1-H4 gate",
+  "base_branch": "stage3-gradmean",
+  "base_commit": "44b2998228e1a93aaef544e8030c30640d17dc06",
+  "branch": "stage3-gradmean-v6",
+  "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3_gradmean/dppo",
+  "outputs": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean",
+  "cpu_gate_limit_seconds": 7200,
+  "cpu_gate_cpus": 40,
+  "cpu_gate_memory_gib": 64,
+  "gpu_hour_cap_including_existing_G": 125,
+  "max_parallel": 5,
+  "collection_group_cap_seconds": 3600,
+  "priority": "E1C first; criticaddendumpaused",
+  "topup_max_groups": 50,
+  "topup_group_batches": 50,
+  "original_rounds_and_stopping_unchanged": true,
+  "consistency_failure": "finite paired cosine 90% jackknife upper < 1 at scheduled analysis; unresolved signal does not fail",
+  "timing_exclusion_H3": "Scientific perbatch scalars exact; observed wall-clocktimings excluded",
+  "study_creation": "Continuation of existing ordinary-source G study in requested isolatedworktree; no new nestedcheckout/source study"
+}

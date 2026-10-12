@@ -1,0 +1,120 @@
+{
+  "status": "curated",
+  "approved_utc": "2026-10-12T15:30:32.764666+00:00",
+  "approval": "User: keep in curated; accepts the immediately preceding five-figure and checkpoint-table selection and proposed names.",
+  "scope": "Five clean figures in PNG/PDF with captions, and points_table in CSV/Markdown. E1C and the full reports were not selected in this curation.",
+  "source_run": "runs/analyses/reportfix_20261012/final_v6_fixed",
+  "render_record": "../../figs_clean/render_record.json",
+  "recovery_record": "../postprocess_recovery_20261012/recovery.json",
+  "plot_source": "../postprocess_recovery_20261012/final_plot_source.py",
+  "collection_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+  "analysis_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+  "files": [
+    {
+      "source": "../../figs_clean/eval_reward.png",
+      "curated": "../../curated/eval_reward.png",
+      "bytes": 188475,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/eval_reward.pdf",
+      "curated": "../../curated/eval_reward.pdf",
+      "bytes": 15846,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/eval_reward.caption.md",
+      "curated": "../../curated/eval_reward.caption.md",
+      "bytes": 708,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/train_reward.png",
+      "curated": "../../curated/train_reward.png",
+      "bytes": 270118,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/train_reward.pdf",
+      "curated": "../../curated/train_reward.pdf",
+      "bytes": 21950,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/train_reward.caption.md",
+      "curated": "../../curated/train_reward.caption.md",
+      "bytes": 724,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V6.png",
+      "curated": "../../curated/gradient_noise_V6.png",
+      "bytes": 294380,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V6.pdf",
+      "curated": "../../curated/gradient_noise_V6.pdf",
+      "bytes": 25761,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V6.caption.md",
+      "curated": "../../curated/gradient_noise_V6.caption.md",
+      "bytes": 1982,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V4.png",
+      "curated": "../../curated/gradient_noise_V4.png",
+      "bytes": 272527,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V4.pdf",
+      "curated": "../../curated/gradient_noise_V4.pdf",
+      "bytes": 22997,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V4.caption.md",
+      "curated": "../../curated/gradient_noise_V4.caption.md",
+      "bytes": 1453,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V5.png",
+      "curated": "../../curated/gradient_noise_V5.png",
+      "bytes": 266904,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V5.pdf",
+      "curated": "../../curated/gradient_noise_V5.pdf",
+      "bytes": 23108,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/gradient_noise_V5.caption.md",
+      "curated": "../../curated/gradient_noise_V5.caption.md",
+      "bytes": 1466,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/points_table.csv",
+      "curated": "../../curated/points_table.csv",
+      "bytes": 14253,
+      "identical_copy_verified": true
+    },
+    {
+      "source": "../../figs_clean/points_table.md",
+      "curated": "../../curated/points_table.md",
+      "bytes": 5423,
+      "identical_copy_verified": true
+    }
+  ],
+  "existing_curated_artifacts_preserved": true,
+  "new_scientific_samples": 0,
+  "rerendered": false,
+  "limitations": "Reward bands are sample SD over three seeds. Gradient intervals condition on one training seed per path. V6 has500batches per point; the shared V4 signal uses all completed batches. V1 is the warmed/frozen full-batch-normalized measurement proxy."
+}

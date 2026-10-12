@@ -1,0 +1,39 @@
+{
+  "verified_utc": "2026-10-12T07:50:15.544961+00:00",
+  "controller_job_id": "17821085",
+  "status": "running",
+  "recovered_groups": [
+    "D2_j62",
+    "D2_j63",
+    "N2_j46",
+    "N2_j47",
+    "N2_j48",
+    "N2_j49",
+    "N2_j50"
+  ],
+  "preserved_scheduler_state": "FAILED / 1:0",
+  "replacements": [
+    {
+      "run_id": "N2_j51_retry1",
+      "seed": 1045100,
+      "job_id": "17821090"
+    },
+    {
+      "run_id": "N2_j52_retry1",
+      "seed": 1045200,
+      "job_id": "17821091"
+    }
+  ],
+  "ledger": {
+    "actual_gpu_seconds": 200206,
+    "outstanding_reserved_gpu_seconds": 18000,
+    "actual_plus_reserved_gpu_seconds": 218206,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 231794
+  },
+  "max_parallel": 5,
+  "respect_free_a6000": true,
+  "other_jobs_stopped": false,
+  "critic_still_paused": true,
+  "historical_failure_reason_in_state": "ValueError: Parent branch must be stage3-gradmean"
+}

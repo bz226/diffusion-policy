@@ -1,0 +1,128 @@
+{
+  "decision_recorded_utc": "2026-10-12T08:13:12.774052+00:00",
+  "reason": "User replaced adaptive continuation with exactly10new V6-enabled50-batch jobs at each of five points, determined before V6 observations. Stop only new G admissions; existing independent jobs finish and count.",
+  "ordered_points": [
+    "P0",
+    "D2",
+    "N2",
+    "D1",
+    "N1"
+  ],
+  "new_groups_per_point": 10,
+  "new_batches_per_point": 500,
+  "new_total_batches": 2500,
+  "adaptive_V6_stopping": false,
+  "rho_early_stop": false,
+  "gpu_hour_cap": 125,
+  "max_parallel": 5,
+  "e1c_priority": true,
+  "jobs_before": [
+    {
+      "job_id": "17821209",
+      "state": "RUNNING",
+      "name": "gm-N2_j60",
+      "node_or_reason": "soal-11",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821196",
+      "state": "RUNNING",
+      "name": "gm-N2_j56",
+      "node_or_reason": "soal-10",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821197",
+      "state": "RUNNING",
+      "name": "gm-N2_j57",
+      "node_or_reason": "soal-11",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821198",
+      "state": "RUNNING",
+      "name": "gm-N2_j58",
+      "node_or_reason": "soal-11",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821202",
+      "state": "RUNNING",
+      "name": "gm-N2_j59",
+      "node_or_reason": "soal-11",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821076",
+      "state": "RUNNING",
+      "name": "e1c-E1C_seed0",
+      "node_or_reason": "soal-10",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821077",
+      "state": "RUNNING",
+      "name": "e1c-E1C_seed1",
+      "node_or_reason": "soal-10",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821078",
+      "state": "RUNNING",
+      "name": "e1c-E1C_seed2",
+      "node_or_reason": "soal-10",
+      "gres": "gres/gpu:a6000:1"
+    },
+    {
+      "job_id": "17821138",
+      "state": "RUNNING",
+      "name": "gm-controller",
+      "node_or_reason": "soal-2",
+      "gres": "N/A"
+    },
+    {
+      "job_id": "17821073",
+      "state": "RUNNING",
+      "name": "e1c-controller",
+      "node_or_reason": "soal-2",
+      "gres": "N/A"
+    },
+    {
+      "job_id": "17819731",
+      "state": "RUNNING",
+      "name": "bash",
+      "node_or_reason": "soal-12",
+      "gres": "gres/gpu:1"
+    }
+  ],
+  "ps_command": [
+    "srun",
+    "--jobid=17821138",
+    "--overlap",
+    "--exact",
+    "--cpu-bind=none",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=1",
+    "--time=00:01:00",
+    "/bin/ps",
+    "-u",
+    "zbao7",
+    "-o",
+    "pid=,ppid=,pgid=,sid=,stat=,comm=,args="
+  ],
+  "controllers": [
+    {
+      "pid": "3099476",
+      "ppid": "3099467",
+      "pgid": "3099476",
+      "sid": "3099466",
+      "stat": "S",
+      "comm": "python",
+      "args": "python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/campaign.py run --gate /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json --commit f425082723799776af35e100983fe20b86888a02 --timeout-seconds 86400 --max-parallel 5 --respect-free-a6000 --administrative-recovery /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/administrative_recovery_20261012_e1c/recovery.json --monitor-interval-seconds 3000"
+    }
+  ],
+  "direct_children": [],
+  "controller_to_stop": "17821138",
+  "scientific_jobs_to_stop": []
+}

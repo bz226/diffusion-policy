@@ -1,0 +1,26 @@
+{
+  "decision_utc": "2026-10-12T08:13:09.557576+00:00",
+  "authorization": "Latest user message replaces prior G2 top-up and original adaptive stopping plans for compute reasons, before any new V6 data.",
+  "plan": "Stop new original admissions now. Let every running job finish and count. After H1-H4 CPUgate and source switch, run exactly10 new V6-enabled50-batch collect jobs at eachpoint, ordered P0,D2,N2,D1,N1, then stopcollection and run analysis+cleanfiguresv2.",
+  "points": [
+    "P0",
+    "D2",
+    "N2",
+    "D1",
+    "N1"
+  ],
+  "groups_per_point": 10,
+  "batches_per_group": 50,
+  "v6_batches_per_point": 500,
+  "total_new_groups": 50,
+  "adaptive_stopping_replaced": true,
+  "reason": "compute",
+  "decision_before_new_v6_data": true,
+  "gpu_hour_cap_total_G": 125,
+  "max_parallel": 5,
+  "E1C_priority": true,
+  "do_not_stop_running_workers": true,
+  "no_new_training": true,
+  "new_figures": "Requested cleanfiguresv2 for DPPO and without_PPO only; no othertrainingmethods",
+  "status": "holding original admissions; implementing CPUgate"
+}

@@ -1,0 +1,15 @@
+{
+  "recorded_utc": "2026-10-12T07:54:02.230407+00:00",
+  "reason": "Replace only the CPU controller to apply the approved 50-minute continuation monitor; independent GPU jobs retain their allocations and caps.",
+  "command": [
+    "scancel",
+    "--batch",
+    "--signal=TERM",
+    "17821085"
+  ],
+  "returncode": 0,
+  "stdout": "",
+  "stderr": "",
+  "controller_pid": "3094431",
+  "gpu_workers_targeted": false
+}

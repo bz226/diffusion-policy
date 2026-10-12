@@ -1,0 +1,48 @@
+{
+  "status": "failed",
+  "partial": false,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean/analyze.py",
+    "--root",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/analyses/final_v6_fixed"
+  ],
+  "started_utc": "2026-10-12T10:49:02.797415+00:00",
+  "outputs": [],
+  "slurm_job_id": "17823140",
+  "new_scientific_samples": 0,
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "numpy": "1.24.4",
+  "analysis_source_root": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean",
+  "analysis_source_parent_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+  "parent_commit": "c7f6e58cf653d01fa4325bf8300569eafc404582",
+  "v6_consistency_failure": false,
+  "v6_consistency_stop": false,
+  "v6_consistency_points": [],
+  "v6_counts": {
+    "P0": {
+      "K_all": 3700,
+      "K_V6": 500
+    },
+    "D1": {
+      "K_all": 2800,
+      "K_V6": 500
+    },
+    "D2": {
+      "K_all": 3700,
+      "K_V6": 500
+    },
+    "N1": {
+      "K_all": 2800,
+      "K_V6": 500
+    },
+    "N2": {
+      "K_all": 3550,
+      "K_V6": 500
+    }
+  },
+  "elapsed_seconds_at_report": 123.47075806930661,
+  "error": "NameError: name 'fixed_plan' is not defined",
+  "elapsed_seconds": 124.65429115202278
+}

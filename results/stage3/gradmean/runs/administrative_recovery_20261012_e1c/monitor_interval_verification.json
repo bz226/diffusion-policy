@@ -1,0 +1,45 @@
+{
+  "verified_utc": "2026-10-12T07:57:09.854090+00:00",
+  "status": "passed",
+  "controller_job_id": "17821138",
+  "monitor_interval_seconds": 3000,
+  "interval_bounds_seconds": [
+    1800,
+    9600
+  ],
+  "default_interval_seconds": 9600,
+  "parser_checks": {
+    "1799": "rejected",
+    "1800": "accepted",
+    "3000": "accepted",
+    "9600": "accepted",
+    "9601": "rejected"
+  },
+  "existing_runtime_tests_passed": 20,
+  "estimated_remaining_seconds": 17520.8,
+  "estimate_basis": {
+    "maximum_remaining_groups": 121,
+    "batches_per_group": 50,
+    "median_observed_group_allocation_seconds": 724,
+    "parallel_gpu_jobs": 5
+  },
+  "minimum_interval_seconds": 1800,
+  "rounding": "max(1800, estimate/6) rounded up to50minutes",
+  "before_after_gpu_process_ids_identical": true,
+  "old_controller_terminal_state": "FAILED",
+  "old_controller_exit_code": "1:0",
+  "old_controller_expected_exit_reason": "Explicit operator batch SIGTERM to replace only the monitor interval; no scientific process failed.",
+  "gpu_jobs_stopped": false,
+  "active_e1c_seeds": 3,
+  "max_parallel_g_jobs": 5,
+  "respect_live_resources": true,
+  "ledger": {
+    "actual_gpu_seconds": 200206,
+    "outstanding_reserved_gpu_seconds": 18000,
+    "actual_plus_reserved_gpu_seconds": 218206,
+    "budget_gpu_seconds": 450000,
+    "remaining_unreserved_gpu_seconds": 231794
+  },
+  "scientific_code_changed": false,
+  "parent_revision_at_verification": "c7f6e58cf653d01fa4325bf8300569eafc404582"
+}
