@@ -1,5 +1,21 @@
 # Curated results
 
+## Clean figures v5: gradient noise point estimates
+
+How do the as-run and paper-form gradient estimates change along without_PPO_and_GAE on the same 500 batches per checkpoint?
+
+Latest user-approved presentation ("save to curated"): both figures in PNG/PDF with captions, the estimates table and the comparison note. Each panel shows five filled circles on a two-decade log span; uncertainty is retained in the table.
+
+| Artifact | Files |
+|---|---|
+| As-run gradient noise | [PNG](clean-v5-gradient-noise-point-estimates/gradient-noise-as-run.png), [PDF](clean-v5-gradient-noise-point-estimates/gradient-noise-as-run.pdf), [caption](clean-v5-gradient-noise-point-estimates/gradient-noise-as-run.caption.md) |
+| Paper-form gradient noise | [PNG](clean-v5-gradient-noise-point-estimates/gradient-noise-paper-form.png), [PDF](clean-v5-gradient-noise-point-estimates/gradient-noise-paper-form.pdf), [caption](clean-v5-gradient-noise-point-estimates/gradient-noise-paper-form.caption.md) |
+| Estimates and log comparison | [CSV](clean-v5-gradient-noise-point-estimates/gradient-noise-estimates.csv), [table](clean-v5-gradient-noise-point-estimates/gradient-noise-estimates.md), [note](clean-v5-gradient-noise-point-estimates/gradient-noise-estimates-note.md) |
+
+All ten squared-mean point estimates are positive. Their 90% intervals reach zero at updates 32/95/126 for as run and 0/95/126 for paper form; the corresponding B intervals are [0, ∞). Each point uses 40,000 episodes and ten measurement groups from one training seed. Only B is directly comparable between the two forms. Final-checkpoint intervals condition on the fitted reward scale. The previous figure version and all reward artifacts remain preserved below.
+
+[Saved statistics](../runs/gradient_point_estimates_20261012T205936.853570Z/candidates/render_record.json) · [Verification](../runs/gradient_point_estimates_20261012T205936.853570Z/verification.json) · [Plot source](../runs/gradient_point_estimates_20261012T205936.853570Z/plot_clean.py) · [Interval calculation](../runs/gradient_point_estimates_20261012T205936.853570Z/clean_v5_point_estimates.py) · [Methods](../methods.md#clean-figures-version-5) · [Curation record](../runs/curation_gradient_point_estimates_20261012T210120Z/manifest.json).
+
 ## Clean figures v5: gradient noise
 
 How do the as-run and paper-form gradient estimators compare along without_PPO_and_GAE, using the same checkpoints, critic, reward scale and measurement batches?

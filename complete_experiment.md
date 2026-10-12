@@ -66,7 +66,7 @@
 
 - Experiment folder: [Exact-critic measurements](./results/stage3/gradmean/runs/clean_v5_20261012/)
 - Experiment design: [Version 5 methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
-- Curated results: [Gradient figures, estimates and limitations](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise)
+- Curated results: [Gradient figures, estimates and limitations](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise-point-estimates)
 
 ## Comparison analyses
 
@@ -74,7 +74,7 @@
 
 - Analysis folder: [Verified clean figures](./results/stage3/gradmean/figs_clean/)
 - Analysis design: [Version 5 methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
-- Curated results: [Gradient figures and estimates](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise); [single-seed rewards](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-individual-starting-values); [three-seed rewards](./results/stage3/gradmean/curated/INDEX.md#three-seed-reward-comparison)
+- Curated results: [Gradient figures and estimates](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise-point-estimates); [single-seed rewards](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-individual-starting-values); [three-seed rewards](./results/stage3/gradmean/curated/INDEX.md#three-seed-reward-comparison)
 
 ### DPPO, without_PPO and without_PPO_and_GAE: three-seed rewards
 

@@ -51,6 +51,8 @@ def json_safe(x):
 
 
 def metric_cell(m):
+    if m.get("hi") == "inf" and finite(m.get("value")):
+        return "%s [%s, ∞)" % (fmt(m["value"]), fmt(m["lo"]))
     if finite(m.get("lower_bound")) and not finite(m.get("value")):
         return "≥%s" % fmt(m["lower_bound"])
     if not finite(m.get("value")):
@@ -400,7 +402,7 @@ def plot_noise(stats, variant, output, plt):
         return False
     is_run = variant == "V2"
     filename = "gradient_noise_as_run" if is_run else "gradient_noise_paper_form"
-    fig, axes = plt.subplots(1, 3, figsize=(7.25, 3.15))
+    fig, axes = plt.subplots(1, 3, figsize=(7.25, 3.45))
     panels = (("u_norm", "Mean gradient norm", "Gradient norm\n(training-loss units)" if is_run else "Gradient norm (paper units)"),
               ("trace_ep", "Gradient variance\n(per episode)", "Variance trace\n(training-loss units²)" if is_run else "Variance trace (paper units²)"),
               ("B_ep", "Relative variance\n(per episode)", "Relative variance = B (episodes)"))
@@ -408,21 +410,34 @@ def plot_noise(stats, variant, output, plt):
         ys = []
         for name, x in zip(POINTS, UPDATES):
             p = stats["points"].get(name)
-            metric = p["estimators"][variant][field] if p else UNAVAILABLE
-            ys.append(metric["value"] if finite(metric.get("value")) and metric["value"] > 0 else np.nan)
-            error_point(ax, x, metric)
-        ax.plot(UPDATES, ys, color=GREEN, lw=1.2)
+            if p is None or (p["K"], p["groups"]) != (500, 10):
+                raise ValueError("Point-estimate figures require all five complete 500-batch points")
+            estimates = p["estimators"][variant]
+            signal = estimates["u_sq"]["value"]
+            if not finite(signal) or signal <= 0:
+                raise ValueError("Nonpositive squared-mean estimate at " + name + " / " + variant)
+            trace = estimates["trace_ep"]["value"]
+            value = {"u_norm": math.sqrt(signal), "trace_ep": trace, "B_ep": trace / signal}[field]
+            if not finite(value) or value <= 0:
+                raise ValueError("Nonpositive log-axis estimate at " + name + " / " + field)
+            ys.append(value)
+        ax.plot(UPDATES, ys, color=GREEN, lw=1.2, marker="o", ms=4,
+                markerfacecolor=GREEN, markeredgecolor=GREEN)
         ax.set_yscale("log")
         style_axes(ax)
         ax.set_title(title, fontsize=10)
-        ax.set_xlabel("Updates (one update = 80 episodes)", fontsize=8)
-        ax.set_ylabel(ylabel, fontsize=8.5)
-        ax.tick_params(labelsize=8)
+        ax.set_xlabel("Updates\n(one update = 80 episodes)", fontsize=8)
+        ax.set_ylabel(ylabel, fontsize=8)
+        ax.tick_params(which="both", labelsize=7.5)
         ax.set_xlim(-5, 132)
         ax.set_xticks(UPDATES)
-        ax.margins(y=.22)
+        log_values = np.log10(ys)
+        if np.ptp(log_values) >= 2.0:
+            raise ValueError("Two-decade span does not contain the current data")
+        center = (log_values.min() + log_values.max()) / 2.0
+        ax.set_ylim(10.0 ** (center - 1.0), 10.0 ** (center + 1.0))
     fig.suptitle(("As run" if is_run else "Paper’s form") + "\neach point: m = 40,000 episodes (500 batches of 80)", fontsize=11, y=.99)
-    fig.subplots_adjust(left=.085, right=.99, bottom=.21, top=.72, wspace=.62)
+    fig.subplots_adjust(left=.085, right=.99, bottom=.225, top=.70, wspace=.95)
     norm = stats.get("normalization", stats.get("runmetadata", {}).get("normalization", "pending"))
     if is_run:
         estimator = "Raw Monte Carlo return minus the critic, normalized %s; mean coordinate log-probability and 0.99 denoising weights, without decision discount." % ("per quarter" if norm == "quarter" else "per batch")
@@ -431,15 +446,7 @@ def plot_noise(stats, variant, output, plt):
     caption = (estimator + " The critic and reward scale at each point are the run's own; at update 0 the critic is untrained. "
                "The scale at update 126 uses the specified least-squares fallback. "
                "One update averages 80 episodes, so its relative variance is B/80. "
-               "Error bars are 90% delete-one-group jackknife intervals with t(9) quantiles; intervals are conditional on the measured checkpoints (one training seed).")
-    unresolved = any(p["estimators"][variant]["B_ep"].get("value") is None or
-                     (finite(p["estimators"][variant]["u_norm"].get("lo")) and p["estimators"][variant]["u_norm"]["lo"] <= 0)
-                     for p in stats["points"].values())
-    if unresolved:
-        caption += " Open triangles mark lower bounds where the signal is unresolved; nonpositive interval endpoints are omitted on log axes and retained in the table."
-    pending = [str(x) for name, x in zip(POINTS, UPDATES) if name not in stats["points"]]
-    if pending:
-        caption += " Pending checkpoints (updates): " + ", ".join(pending) + "."
+               "Points are estimates from one training seed; 90% intervals are in points_table.")
     save_figure(fig, output, filename, caption, plt)
     return True
 
@@ -455,7 +462,8 @@ def build_table(stats, rewards):
                "status": "measured" if p else "pending ten complete 50-batch jobs",
                "scale_fallback": itr == 139, "point": name}
         for variant, prefix in (("V2", "as_run"), ("V6", "paper_form")):
-            for field in ("u_norm", "trace_ep", "B_ep", "B_update"):
+            row[prefix + "_u_norm"] = p["estimators"][variant]["u_norm"]["value"] if p else None
+            for field in ("u_sq", "trace_ep", "B_ep", "B_update"):
                 add_metric(row, prefix + "_" + field, p["estimators"][variant][field] if p else UNAVAILABLE)
         add_metric(row, "mean_direction_cosine", p["cos_V2_V6"] if p else UNAVAILABLE)
         add_metric(row, "critic_explained_variance_measured", p["explained_var"] if p else UNAVAILABLE)
@@ -482,8 +490,11 @@ def write_tables(rows, output):
              "Brackets are 90% delete-one-group jackknife intervals using t(0.95,9)=1.833113, with joint deletions for ratios and cosines. "
              "Each estimator uses its own pairwise squared-mean estimate. Only B is comparable across their different units. "
              "A dagger marks every estimate affected by the fitted scale at update 126. Gradient intervals condition on that scale; c has its own five-fit-batch jackknife interval with t(4) quantiles. "
-             "Bounds indicate an unresolved signal; they are upper-signal plug-in bounds, not two-sided confidence intervals.", "",
-             "| Updates | Checkpoint | K | m | As run: ‖u‖ | Trace/episode | B | B/80 | Paper form: ‖u‖ | Trace/episode | B | B/80 | Mean-direction cosine | Critic EV measured | Critic EV logged | c and source |",
+             "Squared-mean intervals are reported without truncation, including negative lower endpoints. "
+             "B retains its ratio point estimate. If the squared-mean interval reaches zero, its B interval extends to infinity; "
+             "the lower endpoint is the joint ratio jackknife lower endpoint intersected with B ≥ 0. "
+             "All six such intervals are [0, ∞), not the former positive plug-in bounds. Norm point estimates are also retained in the CSV.", "",
+             "| Updates | Checkpoint | K | m | As run: ‖u‖² | Trace/episode | B | B/80 | Paper form: ‖u‖² | Trace/episode | B | B/80 | Mean-direction cosine | Critic EV measured | Critic EV logged | c and source |",
              "|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|"]
     def cell(row, field):
         metric = {key: row.get(field if key == "value" else field + "_" + key)
@@ -493,14 +504,14 @@ def write_tables(rows, output):
         mark = "†" if row["scale_fallback"] and row["K"] else ""
         values = [str(row["update_number"]), row["checkpoint_file"], str(row["K"]), format(row["m"], ",")]
         fields = [prefix + "_" + field for prefix in ("as_run", "paper_form")
-                  for field in ("u_norm", "trace_ep", "B_ep", "B_update")]
+                  for field in ("u_sq", "trace_ep", "B_ep", "B_update")]
         fields += ["mean_direction_cosine", "critic_explained_variance_measured"]
         values += [cell(row, field) + mark for field in fields]
         values += [fmt(row["critic_explained_variance_logged"])]
         c = cell(row, "c") if row["scale_fallback"] and row["K"] else fmt(row["c"])
         values += [c + mark + "; " + str(row["c_source"])]
         lines.append("| " + " | ".join(values) + " |")
-    lines += ["", "As-run norm/trace use training-loss units/squared units; paper-form norm/trace use paper units/squared units; B is in episodes. "
+    lines += ["", "As-run squared norm/trace use squared training-loss units; paper-form squared norm/trace use squared paper units; B is in episodes. "
               "Exact logged c and logged EV are fixed reference values without sampling intervals. Measured EV uses DPPO's scaled-reward GAE targets. "
               "The final policy has no next training rollout, so its logged EV is unavailable. Selected jobs and normalization are in [render_record.json](render_record.json)."]
     (output / "points_table.md").write_text("\n".join(lines) + "\n")
@@ -576,9 +587,14 @@ def main(args):
         return render_three_seed_rewards(args)
     if args.rewards_only:
         return render_rewards_only(args)
+    if args.gradients_only:
+        from clean_v5_point_estimates import render
+        return render(args, sys.modules[__name__])
     root = args.root.resolve(); project = root.parents[2]
     rewards = load_reward_data(project)
     stats = build_statistics(root, analysis_source=args.analysis_source)
+    from clean_v5_point_estimates import restore_point_estimates
+    stats = restore_point_estimates(stats, root, args.analysis_source)
     if any(p["K"] != 500 or p["groups"] != 10 for p in stats["points"].values()):
         raise ValueError("Every rendered point must contain exactly10x50 complete batches")
     run = root / "runs" / ("clean_v5_render_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
@@ -618,6 +634,7 @@ if __name__ == "__main__":
     parser.add_argument("--analysis-source", type=Path)
     parser.add_argument("--candidates-only", action="store_true")
     parser.add_argument("--rewards-only", action="store_true", help="Render only the two reward figures from existing runs")
+    parser.add_argument("--gradients-only", action="store_true", help="Replot saved 500-batch gradient measurements only")
     parser.add_argument("--reward-seeds", type=int, choices=(1, 3), default=1, help="Use 3 to render only new three-seed reward files")
     parser.add_argument("--after-finalizer", type=Path, help="Require a successful finalizer record before a reward-only refresh")
     main(parser.parse_args())

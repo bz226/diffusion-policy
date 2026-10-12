@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "python_version": "3.8.20",
+  "same_selected_50_jobs": true,
+  "squared_signal_and_variance_metrics_unchanged": true,
+  "same_t9_resolved_intervals": true,
+  "all_10_positive_points": true,
+  "six_unbounded_B_intervals": true,
+  "reward_function_bodies_byte_identical": true,
+  "changed_functions": [
+    "metric_cell",
+    "plot_noise",
+    "build_table",
+    "write_tables",
+    "main"
+  ],
+  "figure_checks": [
+    {
+      "figure": "gradient_noise_as_run",
+      "five_positive_filled_points_per_panel": true,
+      "error_bars_absent": true,
+      "centered_two_decade_spans": true,
+      "adjacent_axis_text_disjoint": true
+    },
+    {
+      "figure": "gradient_noise_paper_form",
+      "five_positive_filled_points_per_panel": true,
+      "error_bars_absent": true,
+      "centered_two_decade_spans": true,
+      "adjacent_axis_text_disjoint": true
+    }
+  ],
+  "published": true,
+  "protected_files_unchanged": 189,
+  "published_artifacts": [
+    "NOTE.md",
+    "gradient_noise_as_run.caption.md",
+    "gradient_noise_as_run.pdf",
+    "gradient_noise_as_run.png",
+    "gradient_noise_paper_form.caption.md",
+    "gradient_noise_paper_form.pdf",
+    "gradient_noise_paper_form.png",
+    "points_table.csv",
+    "points_table.md",
+    "render_record.json"
+  ],
+  "previous_artifacts_preserved": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/before_point_estimates_20261012T210015.557097Z",
+  "no_jobs_launched": true,
+  "curated": false
+}
