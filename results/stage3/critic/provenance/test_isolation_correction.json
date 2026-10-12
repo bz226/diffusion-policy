@@ -1,0 +1,10 @@
+{
+  "status": "corrected",
+  "recorded_utc": "2026-10-11T22:58:00.227567+00:00",
+  "issue": "A runtime software test redirected ROOT but not the import-time STATE constant; it wrote a synthetic fixture to runs/campaign.json.",
+  "effect": "No production admitted; scientific source and running C gate unaffected.",
+  "evidence": "runs/unit_runtime_C/accidental_campaign_fixture.json",
+  "correction": "Preserved fixture outside live state; redirect all nine path constants in tests, deny external writes with an audit hook and disallow subprocess calls.",
+  "verification": "provenance/runtime_checks_isolated.json",
+  "checks_passed": 46
+}

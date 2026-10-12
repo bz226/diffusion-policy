@@ -1,0 +1,24 @@
+{
+  "status": "prepared_not_submitted",
+  "supersedes": "controller_scheduling_adaptation.json",
+  "reason": "The login-host fallback is unavailable and the existing interactive TitanV job17810633 expires at16:15:53 PDT. One CPU-only controller will replace that job slot; there is no direct calG submission.",
+  "scientific_gate": "C1-C5 passed; gate17813670 completed0:0 with783 allocated GPU-seconds. No scientific retry is involved.",
+  "durable_controller": {
+    "wrapper": "code/run_controller.sh",
+    "partition": "soal",
+    "cpus": 1,
+    "memory_gib": 2,
+    "gpus": 0,
+    "wall_limit_seconds": 172800,
+    "nice": 1000,
+    "job_name": "critic-controller",
+    "required_submission_dependency": "afterany:17810633",
+    "command_template": "sbatch --parsable --dependency=afterany:17810633 /soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_controller.sh"
+  },
+  "guard": "While G is active, an inherited Slurm ID is accepted only when the live scheduler identifies it as RUNNING critic-controller on soal with zero GPUs. Interactive bash, unknown IDs, other controller names, pending entries and GPU allocations are rejected.",
+  "capacity": "All existing jobs remain counted by jobs()/capacity(). Once the interactive allocation exits,9 G GPU jobs + G CPU bootstrap + C CPU controller + calG occupy12 job slots. The existing9-GPU reservation and A6000 checks remain unchanged. Three-seed C training cohorts still wait for G terminal.",
+  "budget_change": false,
+  "scientific_changes": [],
+  "submissions_by_implementation_agent": 0,
+  "checks": "provenance/runtime_checks_verified_controller.json"
+}

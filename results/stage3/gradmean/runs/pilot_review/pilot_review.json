@@ -1,0 +1,82 @@
+{
+  "status": "complete",
+  "recorded_utc": "2026-10-11T21:29:01.617179+00:00",
+  "run_id": "P0_j00",
+  "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/P0_j00/manifest.json",
+  "source_parent_commit": "f425082723799776af35e100983fe20b86888a02",
+  "verification": {
+    "verified_utc": "2026-10-11T21:29:01.612065+00:00",
+    "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j00/cleanup.json",
+    "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j00/meta.json"
+  },
+  "timing": {
+    "batch_count": 50,
+    "components_mean_seconds": {
+      "rollout_seconds": 12.788216681056657,
+      "gradient_seconds": 0.4072135225008242,
+      "diagnostic_seconds": 0.23872658675303682
+    },
+    "measured_components_mean_seconds": 13.434156790310517,
+    "row_wall_mean_seconds": 13.438887608498336,
+    "row_wall_median_seconds": 13.359436669037677,
+    "row_wall_min_seconds": 13.12958373897709,
+    "row_wall_max_seconds": 14.550078650005162,
+    "one_time_score_diagnostic_seconds": 0.7627988400636241,
+    "score_sample_count": 200,
+    "recurring_components_seconds_per_batch_excluding_score_sample": 13.418900813509245,
+    "allocation_seconds": 696.0,
+    "worker_seconds": 693.4657597619807,
+    "native_collection_seconds": 673.3439581069397,
+    "cleanup_seconds": 0.06485915707889944,
+    "startup_before_collection_seconds_estimate": 11.367720603942871,
+    "startup_estimate_definition": "cleanup.started_unix - native_collection_elapsed - worker_started_utc; includes initialization and small terminal-write timing differences",
+    "allocation_seconds_outside_measured_batch_components": 24.292160484474152,
+    "projection": {
+      "maximum_batches": 20500,
+      "maximum_collection_jobs": 410,
+      "first_group_score_samples": 5,
+      "max_parallel_A6000_jobs": 9,
+      "collection_batch_work_gpu_hours": 76.41424463087218,
+      "collection_batch_work_ideal_wall_hours_at9": 8.490471625652464,
+      "collection_including_observed_allocation_overhead_gpu_hours": 79.1808517971595,
+      "collection_including_observed_allocation_overhead_ideal_wall_hours_at9": 8.797872421906611,
+      "formula": "20500 * mean(rollout+gradient+diagnostic, excluding the one pilot score sample) + 5 * score_sample_seconds + 410 * observed allocation overhead",
+      "scope": "Maximum collection only; assumes pilot P0 timing transfers to all points, no early closing and no retries. Preparations, offline gates, CPU analysis barriers, queue delays and reduced GPU availability are excluded.",
+      "approved_gpu_hour_cap": 125,
+      "admission_policy_changed": false,
+      "cap_applies_to_actual_allocation_time_plus_outstanding_full_reservations": true
+    }
+  },
+  "available_prepare_explained_variances": {
+    "P0": {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/grad_mean.json",
+      "status": "completed",
+      "completed_warmup_batches": 20,
+      "warmup_explained_variance_preupdate": [
+        -0.2322140012594951,
+        0.308967143534685,
+        0.2675567278226505,
+        0.3862562605231913,
+        0.24728392160760904,
+        0.31485249400602966,
+        0.28341147596967153,
+        0.341374173205252,
+        0.4257093745025293,
+        0.3992704147060294,
+        0.08232809907229988,
+        0.5379004321688976,
+        0.5364505202571228,
+        0.3869350095394002,
+        0.5130595544947151,
+        0.6181198685574872,
+        0.2155903162520093,
+        0.14026449209674008,
+        0.5727783298969693,
+        0.5415114107950527
+      ],
+      "frozen_critic_extra_batch_explained_variance": 0.1471032143228952,
+      "native_prepare_elapsed_seconds": 1175.1608954269905
+    }
+  },
+  "interpretation": "Observed one-group timing forecast, not a compute-budget increase or a scientific result about gradient direction."
+}

@@ -1,0 +1,27 @@
+{
+  "status": "blocked",
+  "reason": "RuntimeError: Do not add a C CPU-controller allocation while G still needs its job headroom",
+  "active_jobs": [],
+  "utc": "2026-10-11T23:07:23.713293+00:00",
+  "ledger": {
+    "actual_gpu_seconds": 783,
+    "outstanding_reserved_gpu_seconds": 0,
+    "actual_plus_reserved_gpu_seconds": 783,
+    "budget_gpu_seconds": 216000,
+    "remaining_unreserved_gpu_seconds": 215217
+  },
+  "observation": {
+    "utc": "2026-10-11T23:07:23.703844+00:00",
+    "reason": "controller blocked",
+    "status": "blocked",
+    "ledger": {
+      "actual_gpu_seconds": 783,
+      "outstanding_reserved_gpu_seconds": 0,
+      "actual_plus_reserved_gpu_seconds": 783,
+      "budget_gpu_seconds": 216000,
+      "remaining_unreserved_gpu_seconds": 215217
+    },
+    "waiting_reason": "inspect recorded failure; no retries or new admissions",
+    "runs": []
+  }
+}

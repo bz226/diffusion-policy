@@ -1,0 +1,220 @@
+{
+  "status": "complete",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/code/checkpoint_distances.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/checkpoint_distances",
+    "--gradient-meta",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j00/meta.json"
+  ],
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+  "parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21",
+  "torch_version": "2.4.0+cu121",
+  "numpy_version": "1.24.4",
+  "mapping": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/provenance/checkpoints.json",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+  "actor_config": {
+    "_target_": "model.diffusion.mlp_diffusion.DiffusionMLP",
+    "time_dim": 16,
+    "mlp_dims": [
+      512,
+      512,
+      512
+    ],
+    "activation_type": "ReLU",
+    "residual_style": true,
+    "cond_dim": 17,
+    "horizon_steps": 4,
+    "action_dim": 6
+  },
+  "parameter_specs": [
+    {
+      "name": "time_embedding.1.weight",
+      "shape": [
+        32,
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.1.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 32
+    },
+    {
+      "name": "time_embedding.3.weight",
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.3.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 16
+    },
+    {
+      "name": "mlp_mean.layers.0.weight",
+      "shape": [
+        512,
+        57
+      ],
+      "dtype": "torch.float32",
+      "numel": 29184
+    },
+    {
+      "name": "mlp_mean.layers.0.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.2.weight",
+      "shape": [
+        24,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 12288
+    },
+    {
+      "name": "mlp_mean.layers.2.bias",
+      "shape": [
+        24
+      ],
+      "dtype": "torch.float32",
+      "numel": 24
+    }
+  ],
+  "parameter_count": 568392,
+  "sources": {
+    "P0": {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt",
+      "state_container": "ema",
+      "parameter_prefix": "network.",
+      "index": 0
+    },
+    "D1": {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+      "state_container": "model",
+      "parameter_prefix": "actor_ft.",
+      "index": 1
+    },
+    "D2": {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt",
+      "state_container": "model",
+      "parameter_prefix": "actor_ft.",
+      "index": 2
+    },
+    "N1": {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+      "state_container": "model",
+      "parameter_prefix": "actor_ft.",
+      "index": 3
+    },
+    "N2": {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+      "state_container": "model",
+      "parameter_prefix": "actor_ft.",
+      "index": 4
+    }
+  },
+  "flatten_order": "registered actor_ft.named_parameters(); each tensor row-major",
+  "arithmetic_dtype": "float64 converted from exact saved float32 parameters",
+  "gradient_meta_checked": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j00/meta.json",
+  "distance_from_P0": {
+    "P0": 0.0,
+    "D1": 5.054327863910276,
+    "D2": 6.8584590635538865,
+    "N1": 0.6353193220381764,
+    "N2": 0.9097471263899936
+  },
+  "path_increment_distance": {
+    "D2_minus_D1": 4.658567386803425,
+    "N2_minus_N1": 0.5521170735150172
+  },
+  "pairwise_euclidean": {
+    "P0": {
+      "P0": 0.0,
+      "D1": 5.054327863910276,
+      "D2": 6.8584590635538865,
+      "N1": 0.6353193220381764,
+      "N2": 0.9097471263899936
+    },
+    "D1": {
+      "P0": 5.054327863910276,
+      "D1": 0.0,
+      "D2": 4.658567386803425,
+      "N1": 5.0618320566318795,
+      "N2": 5.096732677054244
+    },
+    "D2": {
+      "P0": 6.8584590635538865,
+      "D1": 4.658567386803425,
+      "D2": 0.0,
+      "N1": 6.861990069386274,
+      "N2": 6.868988694633533
+    },
+    "N1": {
+      "P0": 0.6353193220381764,
+      "D1": 5.0618320566318795,
+      "D2": 6.861990069386274,
+      "N1": 0.0,
+      "N2": 0.5521170735150172
+    },
+    "N2": {
+      "P0": 0.9097471263899936,
+      "D1": 5.096732677054244,
+      "D2": 6.868988694633533,
+      "N1": 0.5521170735150172,
+      "N2": 0.0
+    }
+  },
+  "units": "Euclidean distance of native actor_ft parameters; no coordinate scaling",
+  "elapsed_seconds": 16.142038616351783
+}

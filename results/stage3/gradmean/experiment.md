@@ -2,18 +2,18 @@
 
 **Question.** How do the discounted-objective gradient, its noise and alignment with training movement change along the DPPO and NC4 paths?
 
-**Status.** Amendment G-1 is implemented and committed at `f425082`. Both amended G2 regimes passed 200 replicates, including weak-signal N/A handling and clean Python 3.8 worker shutdown. [Results](REPORT.md) and [gate evidence](runs/gate_G2_G1/gate_summary.json). The saved-batch G1/G5 gate passed on CPU and GPU with zero replay differences (Slurm 17812451, 629 GPU-seconds). P0 preparation is now admitted; G3/G4 live checks follow. No production measurements have begun.
+**Status.** G1–G5 passed and production collection is running. The requested [Round 2 analysis](curated/round2-gradient-analysis.md) freezes all five policies at 1,400 batches each. V4's gradient signal is resolved at every point, but its estimated mean-direction cosine is only 0.75–0.81, below the 0.9 target. The [plot](curated/round2-gradient-signal-and-noise.png) and [estimate table](curated/round2-gradient-estimates.csv) are [curated with user approval](curated/INDEX.md). [Offline gate evidence](runs/gate_offline_G1/gate_summary.json), [amended G2](runs/gate_G2_G1/gate_summary.json), and [live gates](runs/gate_live_G1/gate_summary.json).
 
-**Scope.** All five required checkpoints exist. The scientific source is an ordinary snapshot, with no changes to earlier studies. This study does not update the actor. Q1–Q10 remain unmeasured. [Methods](methods.md), [amendment](provenance/amendment_G1.json), [revisions](provenance/revisions.json), [source provenance](../../stage3_gradmean/provenance/dppo_source_snapshot.json). The [original failed G2 evidence](provenance/report_before_G1_amendment.md) is preserved.
+**Scope.** All five required checkpoints exist. The scientific source is an ordinary snapshot; this study never updates the actor. Sampling uncertainty is conditional on these seed-0 training paths. Round 2 supports smaller mean-gradient norms than at P0 and persistently large noise relative to an 80-episode training batch. [Methods](methods.md), [amendment](provenance/amendment_G1.json), [revisions](provenance/revisions.json), [source provenance](../../stage3_gradmean/provenance/dppo_source_snapshot.json). The [original failed G2 evidence](provenance/report_before_G1_amendment.md) is preserved.
 
-**Resources and monitoring.** The hard cap is 125 GPU-hours, counting actual usage and outstanding reservations. G1/G5 used 629 GPU-seconds. P0 preparation has one A6000 reserved for at most one hour. Gate progress is checked during execution; subsequent one-hour jobs have 30-minute monitors and the 12–16 hour campaign has a 2 hour 40 minute monitor, following `max(30 minutes, estimate/6)`. Each job has its own enforced cap and explicit child cleanup.
+**Resources and monitoring.** The hard cap remains 125 GPU-hours, counting actual usage and outstanding reservations. Each collection job reserves one A6000 and 40 CPU cores for at most one hour, with explicit child cleanup. One-hour jobs have 30-minute monitors; the campaign's original 12–16 hour estimate gives a 2 hour 40 minute monitor, following `max(30 minutes, estimate/6)`. Current counters and monitor status are below. Rendering the Round 2 review used 1.4 CPU seconds and no new scientific samples.
 
-**Next step.** Finish P0 preparation and run two independent 50-batch groups for G3/G4 and the pilot. If all gates pass, continue the approved collection automatically. Unresolved directions stay open. No automatic curation.
+**Next step.** Continue the approved collection and stopping checks at round boundaries. Round 2 artifacts are curated; retain this snapshot separately from later rounds. The critic study remains paused at the user's request.
 
 <!-- gradmean-bootstrap-start -->
-Gate transition monitor: 2026-10-11T20:50:51.460516+00:00. **running**; phase: await_offline_G1_G2_G5. Monitor active.
+Gate transition monitor: 2026-10-11T21:29:02.538573+00:00. **production**; phase: full_campaign_controller_active. Monitor paused.
 <!-- gradmean-bootstrap-end -->
 
 <!-- gradmean-status-start -->
-Last monitor: 2026-10-11T20:55:25.696536+00:00. **live_gate_running**. P0: open, 0 batches; D1: open, 0 batches; D2: open, 0 batches; N1: open, 0 batches; N2: open, 0 batches. GPU hours used: 0.175; outstanding reserved: 1.000; cap:125. Monitor active. Next: Complete admitted groups and evaluate the next approved round boundary.
+Last monitor: 2026-10-12T05:26:53.748642+00:00. **running**. P0: closed_rho, 3200 batches; D1: open, 2300 batches; D2: open, 2300 batches; N1: open, 2300 batches; N2: open, 2300 batches. GPU hours used: 50.947; outstanding reserved: 8.000; cap:125. Monitor active. Next: Complete admitted groups and evaluate the next approved round boundary.
 <!-- gradmean-status-end -->

@@ -316,8 +316,8 @@
   "environment_seeding": "explicit grad_mean-only hook seeds private Gym and action-space RNGs with run seed+i",
   "diagnostic_rng": "owned CPU generators from SeedSequence; no global RNG consumption",
   "actor_optimizer_steps": 0,
-  "status": "running",
-  "completed_warmup_batches": 8,
+  "status": "completed",
+  "completed_warmup_batches": 20,
   "actor_before_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
   "warmup": [
     {
@@ -375,6 +375,119 @@
       "explained_var_preupdate": 0.341374173205252,
       "critic_steps": 20,
       "update_seconds": 44.072614906937815
+    },
+    {
+      "batch": 8,
+      "seconds": 56.59037633193657,
+      "explained_var_preupdate": 0.4257093745025293,
+      "critic_steps": 20,
+      "update_seconds": 43.72567541291937
+    },
+    {
+      "batch": 9,
+      "seconds": 56.593521284055896,
+      "explained_var_preupdate": 0.3992704147060294,
+      "critic_steps": 20,
+      "update_seconds": 43.58403678506147
+    },
+    {
+      "batch": 10,
+      "seconds": 56.78175702597946,
+      "explained_var_preupdate": 0.08232809907229988,
+      "critic_steps": 20,
+      "update_seconds": 44.009143352042884
+    },
+    {
+      "batch": 11,
+      "seconds": 58.98493492405396,
+      "explained_var_preupdate": 0.5379004321688976,
+      "critic_steps": 20,
+      "update_seconds": 46.02415115304757
+    },
+    {
+      "batch": 12,
+      "seconds": 58.74614970898256,
+      "explained_var_preupdate": 0.5364505202571228,
+      "critic_steps": 20,
+      "update_seconds": 45.91184145992156
+    },
+    {
+      "batch": 13,
+      "seconds": 59.86850357602816,
+      "explained_var_preupdate": 0.3869350095394002,
+      "critic_steps": 20,
+      "update_seconds": 46.936670183902606
+    },
+    {
+      "batch": 14,
+      "seconds": 60.00938356097322,
+      "explained_var_preupdate": 0.5130595544947151,
+      "critic_steps": 20,
+      "update_seconds": 46.99358177301474
+    },
+    {
+      "batch": 15,
+      "seconds": 59.15310687501915,
+      "explained_var_preupdate": 0.6181198685574872,
+      "critic_steps": 20,
+      "update_seconds": 46.215036917012185
+    },
+    {
+      "batch": 16,
+      "seconds": 57.88319567893632,
+      "explained_var_preupdate": 0.2155903162520093,
+      "critic_steps": 20,
+      "update_seconds": 44.911083033075556
+    },
+    {
+      "batch": 17,
+      "seconds": 59.52962543896865,
+      "explained_var_preupdate": 0.14026449209674008,
+      "critic_steps": 20,
+      "update_seconds": 45.41604715096764
+    },
+    {
+      "batch": 18,
+      "seconds": 56.40501937910449,
+      "explained_var_preupdate": 0.5727783298969693,
+      "critic_steps": 20,
+      "update_seconds": 43.361585175967775
+    },
+    {
+      "batch": 19,
+      "seconds": 56.29544861300383,
+      "explained_var_preupdate": 0.5415114107950527,
+      "critic_steps": 20,
+      "update_seconds": 43.37622625997756
     }
-  ]
+  ],
+  "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+  "frozen_sha256": "beb93651fc7d5daec89a40be55484f30b2cecf53affb7b75ce890f07329ff951",
+  "actor_after_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+  "actor_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+  "critic_sha256": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+  "scaler_sha256": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+  "frozen_ev_batch": {
+    "batch": 20,
+    "n_episodes": 80,
+    "return_mean": 3937.8575075876784,
+    "return_se": 47.38020594038276,
+    "return_sum": 315028.60060701426,
+    "return_sumsq": 1254725406.3476744,
+    "J_disc_mean": 1379.9744551519154,
+    "J_disc_se": 20.718266156284844,
+    "J_disc_sum": 110397.95641215323,
+    "J_disc_sumsq": 155059197.96168923,
+    "max_abs_reward": 27.34914746194638,
+    "max_abs_R": 27.34914746194638,
+    "explained_variance": 0.1471032143228952,
+    "x0_sat_frac_mean": 0.06627218110758674,
+    "x0_sat_frac_last": 0.02188594297148574,
+    "x0_sat_pairs": 20000,
+    "x0_sat_last_pairs": 1999,
+    "action_oor_frac": 0.14065208333333334,
+    "policy_action_oor_frac": 0.1406875
+  },
+  "elapsed_seconds": 1175.1608954269905,
+  "critic_optimizer_steps": 400
 }

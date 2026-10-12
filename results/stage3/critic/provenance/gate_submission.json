@@ -1,0 +1,121 @@
+{
+  "job_id": "17813670",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_gate.sh"
+  ],
+  "parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+  "capacity_reason": "available",
+  "jobs_before": [
+    {
+      "job_id": "17813667",
+      "state": "PENDING",
+      "gpus": 1,
+      "name": "gm-N1_j09",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813666",
+      "state": "PENDING",
+      "gpus": 1,
+      "name": "gm-N1_j08",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813619",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j05",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813623",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j06",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813649",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j07",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813618",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j04",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813517",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j02",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813589",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j03",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17813516",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "gm-N1_j01",
+      "gres": "gres/gpu:a6000:1",
+      "partition": "soal",
+      "a6000_gpus": 1
+    },
+    {
+      "job_id": "17812492",
+      "state": "RUNNING",
+      "gpus": 0,
+      "name": "gm-bootstrap",
+      "gres": "N/A",
+      "partition": "soal",
+      "a6000_gpus": 0
+    },
+    {
+      "job_id": "17810633",
+      "state": "RUNNING",
+      "gpus": 1,
+      "name": "bash",
+      "gres": "gres/gpu:1",
+      "partition": "soal-interactive",
+      "a6000_gpus": 0,
+      "gpu_type_resolution": {
+        "source": "scontrol AllocTRES",
+        "allocated_types": [
+          [
+            "titanv",
+            "1"
+          ]
+        ]
+      }
+    }
+  ]
+}

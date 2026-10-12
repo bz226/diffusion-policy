@@ -1,0 +1,107 @@
+--- a/results/stage3/critic/code/campaign.py
++++ b/results/stage3/critic/code/campaign.py
+@@ -523,7 +523,61 @@
+     return bool(active or state.get('status') in ('running', 'prepared', 'waiting', None))
+ 
+ 
+-def capacity(all_jobs, own_active, count, g_active):
++def parallel_approval():
++    """The explicit scheduling amendment changes concurrency, never run specs."""
++    path = ROOT / 'provenance/parallel_approval.json'
++    item = read(path)
++    if item is None:
++        return None
++    required = dict(schema_version=1, approved=True,
++                    gradient_mean_max_parallel=4, critic_max_parallel=3)
++    if not isinstance(item, dict) or any(type(item.get(key)) is not type(value) or
++                                        item.get(key) != value for key, value in required.items()):
++        raise ValueError('Invalid four-G/three-C scheduling approval')
++    return item
++
++
++def parallel_permission(all_jobs):
++    """Wait for G's live controller to acknowledge and drain to four jobs.
++
++    A round-boundary vacancy alone is insufficient. The acknowledged controller
++    must keep reserving four G slots throughout the three-seed C cohort.
++    """
++    if parallel_approval() is None:
++        return False, 'gradient-mean campaign retains priority; wait for its terminal state'
++    state = read(G_ROOT / 'runs/campaign.json', {})
++    path = str(ROOT / 'provenance/parallel_approval.json')
++    if (state.get('effective_max_parallel') != 4 or
++            state.get('scheduling_approval') != path):
++        return False, 'wait for G controller acknowledgment of the four-G/three-C amendment'
++    controller_id = str(state.get('controller_job_id', ''))
++    controllers = [j for j in all_jobs if j['job_id'] == controller_id]
++    if not (len(controllers) == 1 and controllers[0]['name'].strip() in ('gm-bootstrap', 'gm-controller')
++            and controllers[0]['gpus'] == 0 and controllers[0].get('state') == 'RUNNING'):
++        return False, 'wait for the acknowledged G controller to be live in Slurm'
++    try:
++        updated = datetime.datetime.fromisoformat(state['updated_utc'])
++        age = (datetime.datetime.now(datetime.timezone.utc) - updated).total_seconds()
++    except (KeyError, TypeError, ValueError):
++        return False, 'wait for a valid G controller heartbeat'
++    if not 0 <= age <= 180:
++        return False, 'wait for a fresh G controller heartbeat'
++    submitted = state.get('submitted', [])
++    submitted_ids = {str(e['job_id']) for e in submitted}
++    active_ids = {j['job_id'] for j in all_jobs if j['gpus'] > 0 and
++                  (j['job_id'] in submitted_ids or j['name'].startswith('gm-'))}
++    # Keep in-flight and not-yet-reconciled submissions counted, even if a
++    # scheduler snapshot briefly omits them. G refreshes terminal records.
++    active_ids.update(str(e['job_id']) for e in submitted
++                      if e.get('scheduler_state') not in TERMINAL)
++    if state.get('pending_submission_intent') or len(active_ids) > 4:
++        return False, 'wait for existing G allocations to drain naturally to four (currently %d)' % len(active_ids)
++    return True, 'approved four-G/three-C overlap acknowledged'
++
++
++def capacity(all_jobs, own_active, count, g_active, g_limit=9):
++    if g_limit not in (4, 9):
++        raise ValueError('Only the original or explicitly amended G reservation is supported')
+     if len(own_active) + count > 3:
+         return False, 'C total allocation cap3'
+     if len(all_jobs) + count > 12 or sum(j['gpus'] for j in all_jobs) + count > 12:
+@@ -532,16 +586,17 @@
+     if a6000 + count > 10:
+         return False, 'No extra A6000 capacity'
+     if g_active:
+-        # Only calG can enter this path. Reserve9 G allocations plus all
+-        # unrelated users' jobs/controllers; never exploit a round vacancy.
++        # Reserve the acknowledged G limit plus all other jobs/controllers;
++        # never exploit a round vacancy to reduce G's reserved capacity.
+         others = [j for j in all_jobs if not j['name'].startswith('gm-') and j['job_id'] not in own_active]
+         g_control = sum(j['gpus'] == 0 for j in all_jobs if j['name'].startswith('gm-'))
+-        if 9 + g_control + len(others) + len(own_active) + count > 12:
+-            return False, 'Preserve nine G jobs and their controller headroom'
++        if g_limit + g_control + len(others) + len(own_active) + count > 12:
++            return False, 'Preserve %d G jobs and their controller headroom' % g_limit
+         other_gpu = sum(j['gpus'] for j in others)
+         other_a6000 = sum(a6000_count(j) for j in others)
+-        if 9 + other_gpu + len(own_active) + count > 12 or 9 + other_a6000 + len(own_active) + count > 10:
+-            return False, 'Preserve nine G GPU slots'
++        if (g_limit + other_gpu + len(own_active) + count > 12 or
++                g_limit + other_a6000 + len(own_active) + count > 10):
++            return False, 'Preserve %d G GPU slots' % g_limit
+     return True, 'available'
+ 
+ 
+@@ -883,9 +938,14 @@
+                 reason = 'waiting for admitted runs'
+                 if cohort:
+                     count = len(cohort)
+-                    allowed, reason = capacity(all_jobs, active, count, g_active)
+-                    if g_active and cohort[0]['mode'] != 'calibrate':
+-                        allowed, reason = False, 'gradient-mean campaign retains priority; wait for its terminal state'
++                    overlap, overlap_reason = parallel_permission(all_jobs) if g_active else (False, 'G terminal')
++                    g_limit = 4 if overlap else 9
++                    allowed, reason = capacity(all_jobs, active, count, g_active, g_limit=g_limit)
++                    self.state['parallel_admission'] = dict(utc=utc(), gradient_mean_active=g_active,
++                        overlap_acknowledged=overlap, reserved_g_slots=g_limit if g_active else 0,
++                        reason=overlap_reason, approval=str(ROOT / 'provenance/parallel_approval.json') if overlap else None)
++                    if g_active and cohort[0]['mode'] != 'calibrate' and not overlap:
++                        allowed, reason = False, overlap_reason
+                     needed = sum(s['cap_seconds'] for s in cohort)
+                     if self.state['ledger']['actual_plus_reserved_gpu_seconds'] + needed > BUDGET:
+                         allowed, reason = False, '60 GPU-hour actual-plus-reserved budget'

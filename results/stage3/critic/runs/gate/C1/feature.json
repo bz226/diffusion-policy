@@ -1,0 +1,51 @@
+{
+  "feature": "C1",
+  "passed": true,
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_features.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/C1",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic/results/stage3_critic/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--frozen",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+    "--feature",
+    "C1"
+  ],
+  "helper": {
+    "max_abs": 3.865352482534945e-12,
+    "relative_l2": 5.876020558220973e-16
+  },
+  "preparation": {
+    "max_abs": 3.865352482534945e-12,
+    "relative_l2": 5.876020558220973e-16
+  },
+  "nonunit_divisor_checks": {
+    "nonunit_scalar": {
+      "max_abs": 3.865352482534945e-12,
+      "relative_l2": 5.877186187985341e-16
+    },
+    "per_environment": {
+      "max_abs": 3.865352482534945e-12,
+      "relative_l2": 5.877308947625729e-16
+    }
+  },
+  "post_discount": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 20000,
+    "tensors": 1,
+    "first_failure": null
+  },
+  "norm_adv": false,
+  "divisor": 1.000000005,
+  "pairs": 200000,
+  "episodes": 80,
+  "precision": "G and cV float64; native float32 cast before decision discount",
+  "seconds": 7.6182026425376534
+}

@@ -1,0 +1,1076 @@
+{
+  "feature": "C3",
+  "passed": true,
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_features.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/C3",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic/results/stage3_critic/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--frozen",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+    "--feature",
+    "C3"
+  ],
+  "comparisons": {
+    "critic": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 136449,
+      "tensors": 8,
+      "first_failure": null
+    },
+    "scaler": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 46,
+      "tensors": 7,
+      "first_failure": null
+    },
+    "actor_and_actor_ft": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 1136784,
+      "tensors": 24,
+      "first_failure": null
+    },
+    "fresh_optimizer_states": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 10,
+      "tensors": 10,
+      "first_failure": null
+    }
+  },
+  "hashes": {
+    "stored_critic": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+    "loaded_critic": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+    "stored_scaler": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+    "loaded_scaler": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+    "actor_cold": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+    "actor_warm": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2"
+  },
+  "constructor_audit": {
+    "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+    "critic_sha256": "1e56a025f8a3364cfc88788b56084edce0d8a4a5d0d22dcdb01ecc86fa3b3670",
+    "scaler_sha256": "6113a9311bb7567fbd39e8cfd0b9022e678678386c357c093fb3a502af61a44c",
+    "actor_before_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+    "actor_after_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+    "optimizer_state_loaded": false
+  },
+  "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+  "cold_cleanup": {
+    "status": "passed",
+    "parent_pid": 639361,
+    "started_unix": 1791759250.9590678,
+    "close_timeout_seconds": 10.0,
+    "join_timeout_seconds": 5.0,
+    "primary_error": null,
+    "errors": [],
+    "actions": [],
+    "worker_pids_before": [
+      639410,
+      639411,
+      639412,
+      639413,
+      639414,
+      639415,
+      639416,
+      639417,
+      639418,
+      639419,
+      639420,
+      639421,
+      639422,
+      639423,
+      639424,
+      639425,
+      639426,
+      639427,
+      639428,
+      639429,
+      639430,
+      639431,
+      639432,
+      639433,
+      639434,
+      639435,
+      639436,
+      639437,
+      639438,
+      639439,
+      639440,
+      639441,
+      639442,
+      639443,
+      639444,
+      639445,
+      639446,
+      639447,
+      639448,
+      639449
+    ],
+    "direct_children_before": [
+      {
+        "pid": 639410,
+        "parent_pid": 639361,
+        "start_ticks": 561391039,
+        "state": "S"
+      },
+      {
+        "pid": 639411,
+        "parent_pid": 639361,
+        "start_ticks": 561391040,
+        "state": "S"
+      },
+      {
+        "pid": 639412,
+        "parent_pid": 639361,
+        "start_ticks": 561391041,
+        "state": "S"
+      },
+      {
+        "pid": 639413,
+        "parent_pid": 639361,
+        "start_ticks": 561391041,
+        "state": "S"
+      },
+      {
+        "pid": 639414,
+        "parent_pid": 639361,
+        "start_ticks": 561391042,
+        "state": "S"
+      },
+      {
+        "pid": 639415,
+        "parent_pid": 639361,
+        "start_ticks": 561391042,
+        "state": "S"
+      },
+      {
+        "pid": 639416,
+        "parent_pid": 639361,
+        "start_ticks": 561391043,
+        "state": "S"
+      },
+      {
+        "pid": 639417,
+        "parent_pid": 639361,
+        "start_ticks": 561391044,
+        "state": "S"
+      },
+      {
+        "pid": 639418,
+        "parent_pid": 639361,
+        "start_ticks": 561391044,
+        "state": "S"
+      },
+      {
+        "pid": 639419,
+        "parent_pid": 639361,
+        "start_ticks": 561391045,
+        "state": "S"
+      },
+      {
+        "pid": 639420,
+        "parent_pid": 639361,
+        "start_ticks": 561391045,
+        "state": "S"
+      },
+      {
+        "pid": 639421,
+        "parent_pid": 639361,
+        "start_ticks": 561391046,
+        "state": "S"
+      },
+      {
+        "pid": 639422,
+        "parent_pid": 639361,
+        "start_ticks": 561391047,
+        "state": "S"
+      },
+      {
+        "pid": 639423,
+        "parent_pid": 639361,
+        "start_ticks": 561391047,
+        "state": "S"
+      },
+      {
+        "pid": 639424,
+        "parent_pid": 639361,
+        "start_ticks": 561391048,
+        "state": "S"
+      },
+      {
+        "pid": 639425,
+        "parent_pid": 639361,
+        "start_ticks": 561391048,
+        "state": "S"
+      },
+      {
+        "pid": 639426,
+        "parent_pid": 639361,
+        "start_ticks": 561391049,
+        "state": "S"
+      },
+      {
+        "pid": 639427,
+        "parent_pid": 639361,
+        "start_ticks": 561391050,
+        "state": "S"
+      },
+      {
+        "pid": 639428,
+        "parent_pid": 639361,
+        "start_ticks": 561391050,
+        "state": "S"
+      },
+      {
+        "pid": 639429,
+        "parent_pid": 639361,
+        "start_ticks": 561391051,
+        "state": "S"
+      },
+      {
+        "pid": 639430,
+        "parent_pid": 639361,
+        "start_ticks": 561391051,
+        "state": "S"
+      },
+      {
+        "pid": 639431,
+        "parent_pid": 639361,
+        "start_ticks": 561391052,
+        "state": "S"
+      },
+      {
+        "pid": 639432,
+        "parent_pid": 639361,
+        "start_ticks": 561391053,
+        "state": "S"
+      },
+      {
+        "pid": 639433,
+        "parent_pid": 639361,
+        "start_ticks": 561391053,
+        "state": "S"
+      },
+      {
+        "pid": 639434,
+        "parent_pid": 639361,
+        "start_ticks": 561391054,
+        "state": "S"
+      },
+      {
+        "pid": 639435,
+        "parent_pid": 639361,
+        "start_ticks": 561391054,
+        "state": "S"
+      },
+      {
+        "pid": 639436,
+        "parent_pid": 639361,
+        "start_ticks": 561391055,
+        "state": "S"
+      },
+      {
+        "pid": 639437,
+        "parent_pid": 639361,
+        "start_ticks": 561391056,
+        "state": "S"
+      },
+      {
+        "pid": 639438,
+        "parent_pid": 639361,
+        "start_ticks": 561391057,
+        "state": "S"
+      },
+      {
+        "pid": 639439,
+        "parent_pid": 639361,
+        "start_ticks": 561391057,
+        "state": "S"
+      },
+      {
+        "pid": 639440,
+        "parent_pid": 639361,
+        "start_ticks": 561391058,
+        "state": "S"
+      },
+      {
+        "pid": 639441,
+        "parent_pid": 639361,
+        "start_ticks": 561391058,
+        "state": "S"
+      },
+      {
+        "pid": 639442,
+        "parent_pid": 639361,
+        "start_ticks": 561391059,
+        "state": "S"
+      },
+      {
+        "pid": 639443,
+        "parent_pid": 639361,
+        "start_ticks": 561391060,
+        "state": "S"
+      },
+      {
+        "pid": 639444,
+        "parent_pid": 639361,
+        "start_ticks": 561391060,
+        "state": "S"
+      },
+      {
+        "pid": 639445,
+        "parent_pid": 639361,
+        "start_ticks": 561391061,
+        "state": "S"
+      },
+      {
+        "pid": 639446,
+        "parent_pid": 639361,
+        "start_ticks": 561391062,
+        "state": "S"
+      },
+      {
+        "pid": 639447,
+        "parent_pid": 639361,
+        "start_ticks": 561391062,
+        "state": "S"
+      },
+      {
+        "pid": 639448,
+        "parent_pid": 639361,
+        "start_ticks": 561391063,
+        "state": "S"
+      },
+      {
+        "pid": 639449,
+        "parent_pid": 639361,
+        "start_ticks": 561391063,
+        "state": "S"
+      }
+    ],
+    "workers": [
+      {
+        "pid": 639410,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639411,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639412,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639413,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639414,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639415,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639416,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639417,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639418,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639419,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639420,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639421,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639422,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639423,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639424,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639425,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639426,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639427,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639428,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639429,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639430,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639431,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639432,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639433,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639434,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639435,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639436,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639437,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639438,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639439,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639440,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639441,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639442,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639443,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639444,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639445,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639446,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639447,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639448,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639449,
+        "exitcode": 0,
+        "alive": false
+      }
+    ],
+    "remaining_active_children": [],
+    "remaining_direct_children": [],
+    "all_children_exited": true,
+    "elapsed_seconds": 0.06966610718518496,
+    "ended_unix": 1791759251.0285785
+  },
+  "warm_cleanup": {
+    "status": "passed",
+    "parent_pid": 639361,
+    "started_unix": 1791759252.9837015,
+    "close_timeout_seconds": 10.0,
+    "join_timeout_seconds": 5.0,
+    "primary_error": null,
+    "errors": [],
+    "actions": [],
+    "worker_pids_before": [
+      639494,
+      639495,
+      639496,
+      639497,
+      639498,
+      639499,
+      639500,
+      639501,
+      639502,
+      639503,
+      639504,
+      639505,
+      639506,
+      639507,
+      639508,
+      639509,
+      639510,
+      639511,
+      639512,
+      639513,
+      639514,
+      639515,
+      639516,
+      639517,
+      639518,
+      639519,
+      639520,
+      639521,
+      639522,
+      639523,
+      639524,
+      639525,
+      639526,
+      639527,
+      639528,
+      639529,
+      639530,
+      639531,
+      639532,
+      639533
+    ],
+    "direct_children_before": [
+      {
+        "pid": 639494,
+        "parent_pid": 639361,
+        "start_ticks": 561391199,
+        "state": "S"
+      },
+      {
+        "pid": 639495,
+        "parent_pid": 639361,
+        "start_ticks": 561391200,
+        "state": "S"
+      },
+      {
+        "pid": 639496,
+        "parent_pid": 639361,
+        "start_ticks": 561391201,
+        "state": "S"
+      },
+      {
+        "pid": 639497,
+        "parent_pid": 639361,
+        "start_ticks": 561391203,
+        "state": "S"
+      },
+      {
+        "pid": 639498,
+        "parent_pid": 639361,
+        "start_ticks": 561391204,
+        "state": "S"
+      },
+      {
+        "pid": 639499,
+        "parent_pid": 639361,
+        "start_ticks": 561391205,
+        "state": "S"
+      },
+      {
+        "pid": 639500,
+        "parent_pid": 639361,
+        "start_ticks": 561391207,
+        "state": "S"
+      },
+      {
+        "pid": 639501,
+        "parent_pid": 639361,
+        "start_ticks": 561391208,
+        "state": "S"
+      },
+      {
+        "pid": 639502,
+        "parent_pid": 639361,
+        "start_ticks": 561391209,
+        "state": "S"
+      },
+      {
+        "pid": 639503,
+        "parent_pid": 639361,
+        "start_ticks": 561391211,
+        "state": "S"
+      },
+      {
+        "pid": 639504,
+        "parent_pid": 639361,
+        "start_ticks": 561391212,
+        "state": "S"
+      },
+      {
+        "pid": 639505,
+        "parent_pid": 639361,
+        "start_ticks": 561391213,
+        "state": "S"
+      },
+      {
+        "pid": 639506,
+        "parent_pid": 639361,
+        "start_ticks": 561391215,
+        "state": "S"
+      },
+      {
+        "pid": 639507,
+        "parent_pid": 639361,
+        "start_ticks": 561391216,
+        "state": "S"
+      },
+      {
+        "pid": 639508,
+        "parent_pid": 639361,
+        "start_ticks": 561391217,
+        "state": "S"
+      },
+      {
+        "pid": 639509,
+        "parent_pid": 639361,
+        "start_ticks": 561391219,
+        "state": "S"
+      },
+      {
+        "pid": 639510,
+        "parent_pid": 639361,
+        "start_ticks": 561391220,
+        "state": "S"
+      },
+      {
+        "pid": 639511,
+        "parent_pid": 639361,
+        "start_ticks": 561391221,
+        "state": "S"
+      },
+      {
+        "pid": 639512,
+        "parent_pid": 639361,
+        "start_ticks": 561391223,
+        "state": "S"
+      },
+      {
+        "pid": 639513,
+        "parent_pid": 639361,
+        "start_ticks": 561391224,
+        "state": "S"
+      },
+      {
+        "pid": 639514,
+        "parent_pid": 639361,
+        "start_ticks": 561391226,
+        "state": "S"
+      },
+      {
+        "pid": 639515,
+        "parent_pid": 639361,
+        "start_ticks": 561391227,
+        "state": "S"
+      },
+      {
+        "pid": 639516,
+        "parent_pid": 639361,
+        "start_ticks": 561391228,
+        "state": "S"
+      },
+      {
+        "pid": 639517,
+        "parent_pid": 639361,
+        "start_ticks": 561391230,
+        "state": "S"
+      },
+      {
+        "pid": 639518,
+        "parent_pid": 639361,
+        "start_ticks": 561391231,
+        "state": "S"
+      },
+      {
+        "pid": 639519,
+        "parent_pid": 639361,
+        "start_ticks": 561391232,
+        "state": "S"
+      },
+      {
+        "pid": 639520,
+        "parent_pid": 639361,
+        "start_ticks": 561391234,
+        "state": "S"
+      },
+      {
+        "pid": 639521,
+        "parent_pid": 639361,
+        "start_ticks": 561391235,
+        "state": "S"
+      },
+      {
+        "pid": 639522,
+        "parent_pid": 639361,
+        "start_ticks": 561391237,
+        "state": "S"
+      },
+      {
+        "pid": 639523,
+        "parent_pid": 639361,
+        "start_ticks": 561391238,
+        "state": "S"
+      },
+      {
+        "pid": 639524,
+        "parent_pid": 639361,
+        "start_ticks": 561391240,
+        "state": "S"
+      },
+      {
+        "pid": 639525,
+        "parent_pid": 639361,
+        "start_ticks": 561391241,
+        "state": "S"
+      },
+      {
+        "pid": 639526,
+        "parent_pid": 639361,
+        "start_ticks": 561391243,
+        "state": "S"
+      },
+      {
+        "pid": 639527,
+        "parent_pid": 639361,
+        "start_ticks": 561391244,
+        "state": "S"
+      },
+      {
+        "pid": 639528,
+        "parent_pid": 639361,
+        "start_ticks": 561391246,
+        "state": "S"
+      },
+      {
+        "pid": 639529,
+        "parent_pid": 639361,
+        "start_ticks": 561391247,
+        "state": "S"
+      },
+      {
+        "pid": 639530,
+        "parent_pid": 639361,
+        "start_ticks": 561391249,
+        "state": "S"
+      },
+      {
+        "pid": 639531,
+        "parent_pid": 639361,
+        "start_ticks": 561391251,
+        "state": "S"
+      },
+      {
+        "pid": 639532,
+        "parent_pid": 639361,
+        "start_ticks": 561391252,
+        "state": "S"
+      },
+      {
+        "pid": 639533,
+        "parent_pid": 639361,
+        "start_ticks": 561391254,
+        "state": "S"
+      }
+    ],
+    "workers": [
+      {
+        "pid": 639494,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639495,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639496,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639497,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639498,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639499,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639500,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639501,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639502,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639503,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639504,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639505,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639506,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639507,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639508,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639509,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639510,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639511,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639512,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639513,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639514,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639515,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639516,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639517,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639518,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639519,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639520,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639521,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639522,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639523,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639524,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639525,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639526,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639527,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639528,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639529,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639530,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639531,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639532,
+        "exitcode": 0,
+        "alive": false
+      },
+      {
+        "pid": 639533,
+        "exitcode": 0,
+        "alive": false
+      }
+    ],
+    "remaining_active_children": [],
+    "remaining_direct_children": [],
+    "all_children_exited": true,
+    "elapsed_seconds": 0.11092127487063408,
+    "ended_unix": 1791759253.094062
+  },
+  "seconds": 5.313940322957933
+}

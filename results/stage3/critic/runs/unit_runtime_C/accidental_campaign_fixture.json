@@ -1,0 +1,35 @@
+{
+  "status": "blocked",
+  "submitted": [
+    {
+      "run_id": "SGDC3_seed0",
+      "scheduler_state": "RUNNING",
+      "job_id": "fixture",
+      "cap_seconds": 14400,
+      "reserved_gpu_count": 1
+    }
+  ],
+  "external": [],
+  "ledger": {
+    "actual_gpu_seconds": 0,
+    "outstanding_reserved_gpu_seconds": 14400,
+    "actual_plus_reserved_gpu_seconds": 14400,
+    "budget_gpu_seconds": 216000,
+    "remaining_unreserved_gpu_seconds": 201600
+  },
+  "failure_reason": "Mechanical fixture blocker",
+  "waiting_reason": "inspect fixture",
+  "blocked_report": {
+    "identity": {
+      "status": "blocked",
+      "reason": "Mechanical fixture blocker",
+      "active_jobs": [
+        "SGDC3_seed0"
+      ]
+    },
+    "record": "/soalnas/share/data/zbao7/temp/codex/tmp/critic-runtime-4ok5i6_n/C/runs/controller_reports/20261011T225200566466Z",
+    "utc": "2026-10-11T22:52:00.566439+00:00"
+  },
+  "updated_utc": "2026-10-11T22:52:00.572252+00:00",
+  "source_provenance": {}
+}

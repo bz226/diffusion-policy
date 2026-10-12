@@ -1,0 +1,16 @@
+{
+  "requested_utc": "2026-10-12T05:08:17.849040+00:00",
+  "user_text": "pause them for now. Focues on gradient mean first",
+  "scope": "Pause critic campaign only; preserve completed gate/calibration and all results. Keep gradient-mean running with its existing nine-allocation cap and monitors.",
+  "controller_job_id": "17813817",
+  "training_started": 0,
+  "training_total": 15,
+  "overlap_activated": false,
+  "resume_requires_user_request": true,
+  "command": [
+    "scancel",
+    "--batch",
+    "--signal=TERM",
+    "17813817"
+  ]
+}

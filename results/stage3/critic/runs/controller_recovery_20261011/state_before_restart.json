@@ -1,0 +1,65 @@
+{
+  "created_utc": "2026-10-11T23:07:22.087400+00:00",
+  "status": "blocked",
+  "submitted": [],
+  "external": [
+    {
+      "reserved_gpu_count": 1,
+      "job_id": "17813670",
+      "gpu_count": 1,
+      "cap_seconds": 7200,
+      "kind": "C1-C5 gate",
+      "submitted_utc": "2026-10-11T22:49:18.833987+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_gate.sh"
+      ],
+      "parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "scheduler_state": "COMPLETED",
+      "elapsed_seconds": 783,
+      "allocated_gpu_seconds": 783,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0"
+    }
+  ],
+  "monitor_status": "paused",
+  "controller_pid": 2079646,
+  "controller_job_id": "17810633",
+  "updated_utc": "2026-10-11T23:07:23.721559+00:00",
+  "ledger": {
+    "actual_gpu_seconds": 783,
+    "outstanding_reserved_gpu_seconds": 0,
+    "actual_plus_reserved_gpu_seconds": 783,
+    "budget_gpu_seconds": 216000,
+    "remaining_unreserved_gpu_seconds": 215217
+  },
+  "source_provenance": {
+    "gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "current_parent_commit": "51ab03f747bb019c5aece6173afcce0db934ff14",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/source_snapshot",
+    "files_compared": 405,
+    "gate_allocation": {
+      "job_id": "17813670",
+      "scheduler_state": "COMPLETED",
+      "elapsed_seconds": 783,
+      "gpu_count": 1,
+      "allocated_gpu_seconds": 783,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0"
+    }
+  },
+  "failure_reason": "RuntimeError: Do not add a C CPU-controller allocation while G still needs its job headroom",
+  "waiting_reason": "inspect recorded failure; no retries or new admissions",
+  "blocked_report": {
+    "identity": {
+      "status": "blocked",
+      "reason": "RuntimeError: Do not add a C CPU-controller allocation while G still needs its job headroom",
+      "active_jobs": []
+    },
+    "record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/controller_reports/20261011T230723713362Z",
+    "utc": "2026-10-11T23:07:23.713293+00:00"
+  }
+}

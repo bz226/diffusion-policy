@@ -1,0 +1,13 @@
+{
+  "source_parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21",
+  "source_parent_branch": "stage3-gradmean",
+  "branch": "stage3-critic",
+  "commands": [
+    "git -C /soalnas/share/data/zbao7/diffusion_policy worktree add -b stage3-critic /soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic fa8e70833275dcd27a3984e935b9618f20c62a21",
+    "python3 scripts/create_dppo_snapshot.py --source /soalnas/share/data/zbao7/diffusion_policy/.git --revision fa8e70833275dcd27a3984e935b9618f20c62a21 --subdir results/stage3_gradmean/dppo --study stage3_critic"
+  ],
+  "worktree_first_source_snapshot": true,
+  "original_G_worktree_unchanged": true,
+  "implementation_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+  "gate_job_id": "17813670"
+}

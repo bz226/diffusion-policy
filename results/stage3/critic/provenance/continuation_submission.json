@@ -1,0 +1,11 @@
+{
+  "pid": 2079646,
+  "command": [
+    "/bin/bash",
+    "-c",
+    "source /soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/environment.sh\nexec python -B \"$CRITIC_OUTPUT/code/continue_after_gate.py\" --gate-job 17813670"
+  ],
+  "log": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/setup/continuation.out",
+  "controller_kind": "lightweight process; no Slurm/GPU allocation",
+  "lifetime_cap_seconds": 172800
+}

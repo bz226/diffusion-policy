@@ -1,0 +1,59 @@
+{
+  "approved": true,
+  "approval_text": "approve",
+  "approved_utc": "2026-10-11T22:42:53.905266+00:00",
+  "scope": "Stage3 AddendumC: C1-C5, calG five batches, five conditions times seeds0-2, final checkpoint evaluations, requested tables/figures/Q1-Q5",
+  "branch": "stage3-critic",
+  "base_branch": "stage3-gradmean",
+  "base_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21",
+  "parent_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic",
+  "source_relative": "results/stage3_critic/dppo",
+  "output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic",
+  "gpu_hour_cap": 60,
+  "max_parallel_training_jobs": 3,
+  "gpu_type": "RTX A6000",
+  "cpus_per_gpu_job": 40,
+  "memory_gib_per_gpu_job": 64,
+  "training_wall_limit_seconds": 14400,
+  "combined_gate_wall_limit_seconds": 7200,
+  "calibration_wall_limit_seconds": 3600,
+  "checkpoint_eval_wall_limit_seconds": 900,
+  "conditions": [
+    "SGDC3",
+    "SGDC10",
+    "SGDC3w",
+    "SGDG3",
+    "SGDG10"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "training_iterations": 140,
+  "save_model_freq": 35,
+  "final_eval_seed": 5000,
+  "final_eval_episodes_per_sampler": 80,
+  "calibration_seed": 3001,
+  "calibration_batches": 5,
+  "KL_star": 0.000584517336086918,
+  "eta_star_E2": 0.00012107235674859004,
+  "frozen_critic": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/P0/frozen_P0.pt",
+  "preserve_gradient_mean_priority": true,
+  "training_cohorts_wait_for_three_slots_without_reducing_G_capacity": true,
+  "new_prepare_required": false,
+  "curation_authorized": false,
+  "estimate_gpu_hours": [
+    35,
+    40
+  ],
+  "estimate_compute_wall_hours_at3": [
+    11,
+    14
+  ],
+  "monitor_per_job_seconds": 1800,
+  "monitor_campaign_seconds": 8400,
+  "gate_failure_stops_production": true,
+  "nonfinite_run_records_collapse_then_continues_other_runs": true,
+  "retries_authorized": false
+}

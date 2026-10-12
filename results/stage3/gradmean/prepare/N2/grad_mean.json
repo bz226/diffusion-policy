@@ -1,0 +1,388 @@
+{
+  "format_version": 1,
+  "mode": "grad_mean",
+  "step": "prepare",
+  "point": "N2",
+  "seed": 149000,
+  "settings": {
+    "mode": "grad_mean",
+    "gm_step": "prepare",
+    "gm_point": "N2",
+    "gm_warmup_batches": 5,
+    "gm_batches": 50,
+    "gm_frozen_path": null,
+    "gm_frozen_sha256": null,
+    "gm_score_sample": 0,
+    "gm_parent_commit": "f425082723799776af35e100983fe20b86888a02",
+    "seed": 149000,
+    "environment_seeds": [
+      149000,
+      149001,
+      149002,
+      149003,
+      149004,
+      149005,
+      149006,
+      149007,
+      149008,
+      149009,
+      149010,
+      149011,
+      149012,
+      149013,
+      149014,
+      149015,
+      149016,
+      149017,
+      149018,
+      149019,
+      149020,
+      149021,
+      149022,
+      149023,
+      149024,
+      149025,
+      149026,
+      149027,
+      149028,
+      149029,
+      149030,
+      149031,
+      149032,
+      149033,
+      149034,
+      149035,
+      149036,
+      149037,
+      149038,
+      149039
+    ],
+    "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+    "gradient_sign": "ascent = negative inherited Phase1 loss gradient",
+    "stored_vector": "float32 group SUM after float64 accumulation; not a mean",
+    "model_parameter_dtype": "float32",
+    "statistics_dtype": "float64"
+  },
+  "variant_order": [
+    "nc4",
+    "mc_critic",
+    "mc_loo",
+    "theory_loo",
+    "theory_nobase"
+  ],
+  "variant_ids": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "parameter_specs": [
+    {
+      "name": "time_embedding.1.weight",
+      "shape": [
+        32,
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.1.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 32
+    },
+    {
+      "name": "time_embedding.3.weight",
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.3.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 16
+    },
+    {
+      "name": "mlp_mean.layers.0.weight",
+      "shape": [
+        512,
+        57
+      ],
+      "dtype": "torch.float32",
+      "numel": 29184
+    },
+    {
+      "name": "mlp_mean.layers.0.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.2.weight",
+      "shape": [
+        24,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 12288
+    },
+    {
+      "name": "mlp_mean.layers.2.bias",
+      "shape": [
+        24
+      ],
+      "dtype": "torch.float32",
+      "numel": 24
+    }
+  ],
+  "parameter_count": 568392,
+  "parent_commit": "f425082723799776af35e100983fe20b86888a02",
+  "source_checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+  "config": {
+    "_target_": "agent.finetune.train_ppo_diffusion_agent.TrainPPODiffusionAgent",
+    "name": "halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10",
+    "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2",
+    "base_policy_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+    "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+    "seed": 149000,
+    "device": "cuda:0",
+    "env_name": "halfcheetah-medium-v2",
+    "obs_dim": 17,
+    "action_dim": 6,
+    "denoising_steps": 20,
+    "ft_denoising_steps": 10,
+    "cond_steps": 1,
+    "horizon_steps": 4,
+    "act_steps": 4,
+    "env": {
+      "n_envs": 40,
+      "name": "halfcheetah-medium-v2",
+      "max_episode_steps": 1000,
+      "reset_at_iteration": false,
+      "save_video": false,
+      "best_reward_threshold_for_success": 3,
+      "wrappers": {
+        "mujoco_locomotion_lowdim": {
+          "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz"
+        },
+        "multi_step": {
+          "n_obs_steps": 1,
+          "n_action_steps": 4,
+          "max_episode_steps": 1000,
+          "reset_within_step": true
+        }
+      }
+    },
+    "wandb": null,
+    "train": {
+      "n_train_itr": 140,
+      "n_critic_warmup_itr": 0,
+      "n_steps": 500,
+      "gamma": 0.99,
+      "actor_lr": 0.0001,
+      "actor_weight_decay": 0,
+      "actor_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.0001
+      },
+      "critic_lr": 0.001,
+      "critic_weight_decay": 0,
+      "critic_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.001
+      },
+      "save_model_freq": 35,
+      "val_freq": 10,
+      "render": {
+        "freq": 1,
+        "num": 0
+      },
+      "reward_scale_running": true,
+      "reward_scale_const": 1.0,
+      "gae_lambda": 0.95,
+      "batch_size": 50000,
+      "update_epochs": 5,
+      "vf_coef": 0.5,
+      "target_kl": 1,
+      "mode": "grad_mean",
+      "gm_step": "prepare",
+      "gm_point": "N2",
+      "gm_parent_commit": "f425082723799776af35e100983fe20b86888a02",
+      "gm_warmup_batches": 5
+    },
+    "model": {
+      "_target_": "model.diffusion.diffusion_ppo.PPODiffusion",
+      "gamma_denoising": 0.99,
+      "clip_ploss_coef": 0.01,
+      "clip_ploss_coef_base": 0.01,
+      "clip_ploss_coef_rate": 3,
+      "randn_clip_value": 100,
+      "min_sampling_denoising_std": 0.1,
+      "min_logprob_denoising_std": 0.1,
+      "network_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+      "actor": {
+        "_target_": "model.diffusion.mlp_diffusion.DiffusionMLP",
+        "time_dim": 16,
+        "mlp_dims": [
+          512,
+          512,
+          512
+        ],
+        "activation_type": "ReLU",
+        "residual_style": true,
+        "cond_dim": 17,
+        "horizon_steps": 4,
+        "action_dim": 6
+      },
+      "critic": {
+        "_target_": "model.common.critic.CriticObs",
+        "cond_dim": 17,
+        "mlp_dims": [
+          256,
+          256,
+          256
+        ],
+        "activation_type": "Mish",
+        "residual_style": true
+      },
+      "ft_denoising_steps": 10,
+      "horizon_steps": 4,
+      "obs_dim": 17,
+      "action_dim": 6,
+      "denoising_steps": 20,
+      "device": "cuda:0",
+      "clamp_logprob": false
+    }
+  },
+  "gradient_units": "CODE ASCENT = -inherited Phase1 loss gradient; V4=-native E2 loss gradient",
+  "theory_multiplier_V4_V5": 2500,
+  "group_vector_kind": "sum",
+  "group_accumulation_dtype": "float64",
+  "stored_vector_dtype": "float32",
+  "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+  "pairs_per_batch": 200000,
+  "episodes_per_batch": 80,
+  "decisions_per_episode": 250,
+  "critic_and_scaler_frozen_during_collection": true,
+  "policy_rng": "run seed initializes global Torch once; preparation RNG is never restored",
+  "environment_seeding": "explicit grad_mean-only hook seeds private Gym and action-space RNGs with run seed+i",
+  "diagnostic_rng": "owned CPU generators from SeedSequence; no global RNG consumption",
+  "actor_optimizer_steps": 0,
+  "status": "completed",
+  "completed_warmup_batches": 5,
+  "actor_before_sha256": "e52702e017bee200216b8122a0661fd95fedffa2ad71cd26fc7f64db2405678f",
+  "warmup": [
+    {
+      "batch": 0,
+      "seconds": 56.478089725016616,
+      "explained_var_preupdate": 0.3964268713246506,
+      "critic_steps": 20,
+      "update_seconds": 43.20553332590498
+    },
+    {
+      "batch": 1,
+      "seconds": 57.93463989603333,
+      "explained_var_preupdate": 0.4862528864111554,
+      "critic_steps": 20,
+      "update_seconds": 44.533732312964275
+    },
+    {
+      "batch": 2,
+      "seconds": 56.362596128019504,
+      "explained_var_preupdate": 0.29062219698545433,
+      "critic_steps": 20,
+      "update_seconds": 43.349460168974474
+    },
+    {
+      "batch": 3,
+      "seconds": 56.10958873399068,
+      "explained_var_preupdate": 0.2827454103487641,
+      "critic_steps": 20,
+      "update_seconds": 43.067107067094184
+    },
+    {
+      "batch": 4,
+      "seconds": 56.68847198889125,
+      "explained_var_preupdate": 0.19797667168087252,
+      "critic_steps": 20,
+      "update_seconds": 43.592939186957665
+    }
+  ],
+  "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/N2/frozen_N2.pt",
+  "frozen_sha256": "55f6120c105adf52801fc12d454460c00d772b674a64df45b72a947d12333de9",
+  "actor_after_sha256": "e52702e017bee200216b8122a0661fd95fedffa2ad71cd26fc7f64db2405678f",
+  "actor_sha256": "e52702e017bee200216b8122a0661fd95fedffa2ad71cd26fc7f64db2405678f",
+  "critic_sha256": "f38c97be6c5f58d88e40415171f6513a56713b62c9246995f3c1df903791caf7",
+  "scaler_sha256": "5802aaa06df72552133e93e296a5ef9f9614afc3f0aa58936038bee469779a92",
+  "frozen_ev_batch": {
+    "batch": 5,
+    "n_episodes": 80,
+    "return_mean": 4362.401792955754,
+    "return_se": 29.065616368684015,
+    "return_sum": 348992.1434364603,
+    "return_sumsq": 1527783151.8016,
+    "J_disc_mean": 1519.922577743739,
+    "J_disc_se": 14.968515336473947,
+    "J_disc_sum": 121593.80621949912,
+    "J_disc_sumsq": 186229208.15952438,
+    "max_abs_reward": 27.020228591279693,
+    "max_abs_R": 27.020228591279693,
+    "explained_variance": 0.012856365966918082,
+    "x0_sat_frac_mean": 0.15389413776425268,
+    "x0_sat_frac_last": 0.06701140619679945,
+    "x0_sat_pairs": 20000,
+    "x0_sat_last_pairs": 1958,
+    "action_oor_frac": 0.16905,
+    "policy_action_oor_frac": 0.169075
+  },
+  "elapsed_seconds": 297.34420198295265,
+  "critic_optimizer_steps": 100
+}

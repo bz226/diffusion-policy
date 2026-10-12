@@ -1,0 +1,47 @@
+{
+  "status": "complete",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_replay.py",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/C4_gae_off",
+    "--repo",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic/results/stage3_critic/dppo",
+    "--fixture",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/nc4/training_batch.pt",
+    "--device",
+    "cpu",
+    "--cpu-logprobs",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/prepare_cpu_nc4/cpu_old_logprobs.pt",
+    "--overrides",
+    "{\"model.actor_loss\": \"score\", \"train.actor_lr\": 0.0001, \"train.actor_lr_scheduler.min_lr\": 0.0001, \"train.actor_optimizer\": \"sgd\", \"train.baseline_diag\": false, \"train.stage3_diag\": true}"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "actor_steps": 1,
+  "critic_steps": 20,
+  "loss_calls": 24,
+  "permutations": 5,
+  "seconds": 44.68663991615176,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 40,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

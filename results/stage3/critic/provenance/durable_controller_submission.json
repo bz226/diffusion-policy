@@ -1,0 +1,23 @@
+{
+  "status": "submitted",
+  "utc": "2026-10-11T23:12:08.110142+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterany:17810633",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_controller.sh"
+  ],
+  "parent_commit": "0f394de8e0c5f6be5e0ae6e50f87b62d18fb86c3",
+  "queue_before": "17813794|gm-P0_j17|PENDING\n17813795|gm-P0_j18|PENDING\n17813787|gm-P0_j10|RUNNING\n17813788|gm-P0_j11|RUNNING\n17813789|gm-P0_j12|RUNNING\n17813790|gm-P0_j13|RUNNING\n17813791|gm-P0_j14|RUNNING\n17813792|gm-P0_j15|RUNNING\n17813793|gm-P0_j16|RUNNING\n17812492|gm-bootstrap|RUNNING\n17810633|bash|RUNNING\n",
+  "cpus": 1,
+  "memory_gib": 2,
+  "gpus": 0,
+  "wall_limit_seconds": 172800,
+  "dependency": "afterany:17810633",
+  "scientific_gate_job": "17813670",
+  "GPU_hour_cap_unchanged": 60,
+  "returncode": 0,
+  "stdout": "17813817\n",
+  "stderr": "",
+  "job_id": "17813817"
+}

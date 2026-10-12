@@ -1,0 +1,127 @@
+{
+  "created_utc": "2026-10-11T23:07:22.087400+00:00",
+  "status": "paused",
+  "submitted": [
+    {
+      "run_id": "calG_seed3001",
+      "job_id": "17813978",
+      "scheduler_state": "COMPLETED",
+      "gpu_count": 1,
+      "reserved_gpu_count": 1,
+      "cap_seconds": 3600,
+      "submitted_utc": "2026-10-11T23:19:52.963545+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--nice=1000",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--time=60",
+        "--signal=B:TERM@30",
+        "--job-name=crit-calG_seed3001",
+        "--chdir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-critic/results/stage3_critic/dppo",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/setup/calG_seed3001-%j.out",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_worker.sh",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/specs/calG_seed3001.json",
+        "--gate",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json"
+      ],
+      "elapsed_seconds": 126,
+      "allocated_gpu_seconds": 126,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0",
+      "run_status": "complete",
+      "terminal_recorded": true
+    }
+  ],
+  "external": [
+    {
+      "reserved_gpu_count": 1,
+      "job_id": "17813670",
+      "gpu_count": 1,
+      "cap_seconds": 7200,
+      "kind": "C1-C5 gate",
+      "submitted_utc": "2026-10-11T22:49:18.833987+00:00",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_gate.sh"
+      ],
+      "parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+      "scheduler_state": "COMPLETED",
+      "elapsed_seconds": 783,
+      "allocated_gpu_seconds": 783,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0"
+    }
+  ],
+  "monitor_status": "paused",
+  "controller_pid": 2798984,
+  "controller_job_id": "17813817",
+  "updated_utc": "2026-10-12T05:09:31.178509+00:00",
+  "ledger": {
+    "actual_gpu_seconds": 909,
+    "outstanding_reserved_gpu_seconds": 0,
+    "actual_plus_reserved_gpu_seconds": 909,
+    "budget_gpu_seconds": 216000,
+    "remaining_unreserved_gpu_seconds": 215091
+  },
+  "source_provenance": {
+    "gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/gate_summary.json",
+    "parent_commit": "052c461456ad57a68f14f18f581f5495ad8f6719",
+    "current_parent_commit": "0f5118492ca41abed24896176225ebcfc813b1f5",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/gate/source_snapshot",
+    "files_compared": 405,
+    "gate_allocation": {
+      "job_id": "17813670",
+      "scheduler_state": "COMPLETED",
+      "elapsed_seconds": 783,
+      "gpu_count": 1,
+      "allocated_gpu_seconds": 783,
+      "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+      "exit_code": "0:0"
+    }
+  },
+  "waiting_reason": "Paused by user; await an explicit resume request. Gradient-mean continues unchanged.",
+  "blocked_report": {
+    "identity": {
+      "status": "blocked",
+      "reason": "RuntimeError: Controller stopped/capped; existing workers retain their own caps",
+      "active_jobs": []
+    },
+    "record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/runs/controller_reports/20261012T050849484236Z",
+    "utc": "2026-10-12T05:08:49.484167+00:00"
+  },
+  "controller_recovery": {
+    "reason": "Resume approved campaign after replacing the expiring inherited interactive host with a bounded CPU-only controller; no experiment was submitted or retried.",
+    "prior_failure_reason": "RuntimeError: Do not add a C CPU-controller allocation while G still needs its job headroom",
+    "record": "results/stage3/critic/runs/controller_recovery_20261011/state_before_restart.json",
+    "recorded_utc": "2026-10-11T23:11:17.382917+00:00"
+  },
+  "paused_utc": "2026-10-12T05:09:31.178509+00:00",
+  "user_pause": {
+    "requested_utc": "2026-10-12T05:08:17.849040+00:00",
+    "confirmed_utc": "2026-10-12T05:09:31.178509+00:00",
+    "reason": "User requested pausing critic runs and focusing on gradient-mean first.",
+    "resume_requires_user_request": true,
+    "controller_job_id": "17813817",
+    "controller_scheduler_state": "FAILED",
+    "controller_exit_code": "1:0",
+    "controller_exit_explanation": "Expected existing controller SIGTERM handler returned1 after the explicit user pause; no scientific run failed.",
+    "original_shutdown_message": "RuntimeError: Controller stopped/capped; existing workers retain their own caps",
+    "training_started": 0,
+    "training_total": 15,
+    "overlap_activated": false,
+    "unused_overlap_patch": "runs/overlap_proposal_withdrawn_20261012/campaign.patch",
+    "gradient_mean_unchanged": true
+  }
+}

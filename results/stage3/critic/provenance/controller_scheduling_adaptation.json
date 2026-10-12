@@ -1,0 +1,26 @@
+{
+  "status": "prepared_not_submitted",
+  "reason": "The prior lightweight continuation inherited SLURM_JOB_ID=17810633 from an existing interactive TitanV allocation. The persistent-controller guard blocked before any C production submission. That interactive allocation expires at 16:15:53 PDT, and SSH to login host sc was denied.",
+  "scientific_gate": "C1-C5 passed; allocation17813670 completed with exit0:0 and783 GPU-seconds. No scientific retry is needed.",
+  "one_shot": {
+    "action": "campaign.py submit-cal",
+    "behavior": "May run briefly from the existing interactive allocation and exits immediately. The calG submission still requires the unchanged G-priority capacity check, passed gate and60 GPU-hour budget check.",
+    "adds_controller_allocation": false
+  },
+  "durable_controller": {
+    "wrapper": "code/run_controller.sh",
+    "partition": "soal",
+    "cpus": 1,
+    "memory_gib": 2,
+    "gpus": 0,
+    "wall_limit_seconds": 86400,
+    "nice": 1000,
+    "required_submission_dependency": "afterany:17812492",
+    "submission_headroom": "The existing G controller conservatively counts dependency-pending jobs in its12-total-job admission check. Root must submit this dependent job only when its additional pending entry leaves room for all9 G GPU jobs plus G's CPU controller and other current jobs, for example after the interactive job expires or calG completes.",
+    "reason": "The controller does not occupy a running allocation until the existing gradient-mean bootstrap terminates. Training still requires G to be terminal; no G configuration, admission order or job is changed.",
+    "command_template": "sbatch --parsable --dependency=afterany:17812492 /soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/run_controller.sh"
+  },
+  "scientific_changes": [],
+  "budget_change": false,
+  "submissions_by_implementation_agent": 0
+}

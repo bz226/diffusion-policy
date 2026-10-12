@@ -1,0 +1,31 @@
+{
+  "run_id": "round2_review_20261012",
+  "created_utc": "2026-10-12T05:43:16.428448+00:00",
+  "user_request": "we should first do an analysis and plot using the round 2 data",
+  "question": "How do mean-gradient magnitude and gradient noise change along the DPPO and NC4 checkpoint paths at the Round2 sample count?",
+  "source_run": "round_1400",
+  "source_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/analyses/round_1400",
+  "points": [
+    "P0",
+    "D1",
+    "D2",
+    "N1",
+    "N2"
+  ],
+  "batches_per_point": 1400,
+  "groups_per_point": 28,
+  "episodes_per_batch": 80,
+  "primary_estimator": "V4 theory_loo",
+  "uncertainty": "Reuse existing 90% delete-one-group jackknife intervals; no new statistical tests or sampling",
+  "parent_commit": "fa8e70833275dcd27a3984e935b9618f20c62a21",
+  "scientific_source_modified": false,
+  "new_scientific_samples": 0,
+  "cpu_wall_limit_seconds": 300,
+  "gpu_seconds": 0,
+  "deliverables": [
+    "one three-panel V4 signal/noise plot in PNG/PDF with caption",
+    "concise interpretation",
+    "CSV of plotted estimates"
+  ],
+  "curation_authorized": false
+}

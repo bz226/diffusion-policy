@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "checks": [
+    {
+      "name": "Python38_AST",
+      "passed": true,
+      "version": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]"
+    },
+    {
+      "name": "MCcritic_float64_bruteforce",
+      "passed": true,
+      "relative_l2": 5.052803273918683e-16,
+      "max_abs": 1.5987211554602254e-14
+    },
+    {
+      "name": "diagnostic_input_inert",
+      "passed": true
+    },
+    {
+      "name": "diagnostic_RNG_inert",
+      "passed": true
+    },
+    {
+      "name": "residual_energy",
+      "passed": true,
+      "full": 1805.7321223099411,
+      "sum_bins": 1805.7321223099414
+    },
+    {
+      "name": "energy_bin_partition",
+      "passed": true
+    },
+    {
+      "name": "diagnostic_schema",
+      "passed": true
+    },
+    {
+      "name": "undefined_ratios_None",
+      "passed": true
+    },
+    {
+      "name": "calibration_chunk_normalization",
+      "passed": true,
+      "actual": -1.0825318098068237,
+      "expected": -1.0825318098068237,
+      "calls": [
+        4,
+        4
+      ]
+    },
+    {
+      "name": "calibration_not_fullbatch_normalized",
+      "passed": true,
+      "fullbatch_gradient": -2.1089413166046143
+    },
+    {
+      "name": "calibration_existing_grad_inert",
+      "passed": true
+    },
+    {
+      "name": "critic_init_selective",
+      "passed": true
+    },
+    {
+      "name": "critic_init_exact",
+      "passed": true
+    },
+    {
+      "name": "divisor_epsilon",
+      "passed": true
+    }
+  ],
+  "scope": "Small CPU software checks only; formal C1-C5 not executed here."
+}

@@ -1,0 +1,14 @@
+{
+  "ready": true,
+  "reviewed_utc": "2026-10-11T22:58:24.579137+00:00",
+  "parent_commit": "f45eb5f3b751507783c14d1bf45cddad4b6c3ed1",
+  "required_gate_job": "17813670",
+  "required_gate": "All C1-C5 passed AND Slurm COMPLETED with exit 0:0",
+  "gate_status": "still running; this record does not waive the gate",
+  "runtime_checks": "provenance/runtime_checks_isolated.json",
+  "analysis_checks": "runs/unit_analysis_C/checks_catalog_links.json",
+  "gpu_hour_cap": 60,
+  "max_C_gpu_allocations": 3,
+  "priority": "Gradient-mean jobs retain priority; three-seed C cohorts wait for G to finish",
+  "test_isolation_correction": "provenance/test_isolation_correction.json"
+}
