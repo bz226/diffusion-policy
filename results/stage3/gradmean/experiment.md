@@ -19,5 +19,5 @@ Verified 2026-10-12T15:28:28.625135+00:00. **Complete**: all five policies have 
 <!-- clean-v3-status-end -->
 
 <!-- clean-v5-status-start -->
-**Clean figures version 5 collection (2026-10-12T17:47:40.315821+00:00): running.** 16/56 fixed jobs verified; 30-minute monitor active. [Current collection record](runs/clean_v5_20261012/experiment.md).
+**Clean figures version 5 collection (2026-10-12T18:28:08.679591+00:00): running.** 34/56 fixed jobs verified; 30-minute monitor active. [Current collection record](runs/clean_v5_20261012/experiment.md).
 <!-- clean-v5-status-end -->

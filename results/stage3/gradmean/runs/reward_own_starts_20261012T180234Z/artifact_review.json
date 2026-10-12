@@ -1,0 +1,33 @@
+{
+  "status": "complete",
+  "published_utc": "2026-10-12T18:04:53.263265+00:00",
+  "candidate_directory": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates",
+  "published_directory": "results/stage3/gradmean/figs_clean",
+  "archived_previous_rewards": "results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z",
+  "artifacts": [
+    "REWARD_NOTE.md",
+    "eval_reward.caption.md",
+    "eval_reward.pdf",
+    "eval_reward.png",
+    "reward_render_record.json",
+    "train_reward.caption.md",
+    "train_reward.pdf",
+    "train_reward.png"
+  ],
+  "checks": {
+    "all_420_native_curve_values_match": true,
+    "individual_initial_values": true,
+    "final_eval_native_log_matches": true,
+    "final_eval_million_steps": 9.36,
+    "png_dpi": 300,
+    "pdf_present": true,
+    "three_lines_only": true,
+    "no_bands_annotations_or_secondary_axes": true,
+    "gradient_and_table_functions_unchanged": true,
+    "existing_gradient_artifacts_table_and_curated_files_unchanged": true,
+    "visually_inspected": true
+  },
+  "standard_errors": "unavailable: original episode dispersions not saved",
+  "refresh_after_existing_finalizer": "17826906",
+  "curated": false
+}

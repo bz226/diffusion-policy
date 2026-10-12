@@ -1,0 +1,48 @@
+{
+  "status": "complete",
+  "curated_utc": "2026-10-12T18:27:02.212664+00:00",
+  "user_approval": "keep in curated",
+  "approved_directory": "curated/clean-v5-own-starts/",
+  "source_run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z",
+  "scope": [
+    "evaluation reward with individual initial means",
+    "training reward with individual initial means"
+  ],
+  "files": [
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/eval_reward.png",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.png",
+      "bytes": 153292
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/eval_reward.pdf",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.pdf",
+      "bytes": 14281
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/eval_reward.caption.md",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.caption.md",
+      "bytes": 237
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/train_reward.png",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.png",
+      "bytes": 225074
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/train_reward.pdf",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.pdf",
+      "bytes": 15975
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/train_reward.caption.md",
+      "curated": "results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.caption.md",
+      "bytes": 226
+    }
+  ],
+  "verification_record": "results/stage3/gradmean/runs/reward_own_starts_20261012T180234Z/artifact_review.json",
+  "copies_verified_byte_equal": true,
+  "earlier_curated_files_unchanged": true,
+  "gradient_work_changed": false,
+  "new_sampling": false
+}

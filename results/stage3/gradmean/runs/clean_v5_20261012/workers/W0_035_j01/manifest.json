@@ -144,7 +144,7 @@
     "+train.gm_batches=50",
     "+train.gm_score_sample=0"
   ],
-  "status": "running",
+  "status": "complete",
   "started_utc": "2026-10-12T17:37:02.786049+00:00",
   "scheduler_job_id": "17826382",
   "source_provenance": {
@@ -158,7 +158,7 @@
     "files_compared": 405,
     "stage": "v5"
   },
-  "monitor_status": "active",
+  "monitor_status": "paused",
   "environment": {
     "CUDA_VISIBLE_DEVICES": "0",
     "OMP_NUM_THREADS": null,
@@ -170,12 +170,35 @@
   "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
   "gpu_inventory": "NVIDIA RTX A6000, 580.82.07, 49140 MiB\n",
   "last_observation": {
-    "utc": "2026-10-12T17:37:02.822571+00:00",
-    "progress": {},
-    "status": null,
+    "utc": "2026-10-12T17:49:10.474029+00:00",
+    "progress": {
+      "mode": "grad_mean",
+      "step": "collect",
+      "phase": "completed",
+      "substage": "completed",
+      "completed": 50,
+      "done": 50,
+      "target": 50,
+      "total": 50,
+      "status": "complete",
+      "elapsed_seconds": 706.0097231819527
+    },
+    "status": "completed",
     "error": null,
-    "completed_batches": 0,
-    "meta_nonfinite": false,
-    "suspected_stall_confirmed": false
-  }
+    "completed_batches": 50,
+    "meta_nonfinite": false
+  },
+  "subprocess_exitcode": 0,
+  "subprocess_pid": 2657715,
+  "remaining_process_group_members": [],
+  "verification": {
+    "verified_utc": "2026-10-12T17:49:10.471793+00:00",
+    "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01/meta.json",
+    "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01/cleanup.json",
+    "external_point_id": "W0_035",
+    "collector_point": "D1",
+    "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+  },
+  "ended_utc": "2026-10-12T17:49:10.471914+00:00",
+  "elapsed_seconds": 727.6813027469907
 }

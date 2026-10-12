@@ -83,20 +83,17 @@ def plot_rewards(rewards, output, plt):
     for sampler, filename, ylabel in (("eval", "eval_reward", "Evaluation reward (episode return)"),
                                       ("train", "train_reward", "Training reward (episode return)")):
         fig, ax = plt.subplots(figsize=(4.8, 3.3))
-        start = rewards["pooled_start"][sampler]
         for method, color in METHODS:
             rows = rewards["curves"][method][sampler]
             if not rows or rows[0]["update"] != 0:
                 raise ValueError("First rollout must use the pretrained actor")
             xx = [r["env_steps"] / 1e6 for r in rows]
-            yy = [start["mean"]] + [r["reward"] for r in rows[1:]]
-            ax.plot(xx, yy, color=color, lw=1.1, label=method)
+            yy = [r["reward"] for r in rows]
+            ax.plot(xx, yy, color=color, lw=1.1, label=method,
+                    marker="o" if sampler == "eval" else None, ms=3)
             if sampler == "eval":
                 if xx[-1] != 9.36:
                     raise ValueError("Final evaluation must be at 9.36M")
-                ax.plot(xx[1:], yy[1:], color=color, marker="o", ms=3, lw=0)
-        ax.errorbar(0, start["mean"], yerr=start.get("se"), color=GRAY,
-                    marker="o", ms=4.5, lw=.9, capsize=2, zorder=5)
         style_axes(ax)
         ax.set_xlabel("Training env steps (millions)")
         ax.set_ylabel(ylabel)
@@ -104,13 +101,88 @@ def plot_rewards(rewards, output, plt):
         ax.set_xticks([0, 2.5, 5, 7.5, 10])
         ax.legend(frameon=False, fontsize=8.5, loc="best")
         fig.tight_layout()
-        caption = "One seed per method (seed 0), 80 episodes per point; the shared starting point pools 240 original episodes. "
+        caption = "One seed per method (seed 0), 80 episodes per point. "
         if sampler == "eval":
             caption += "Evaluation keeps the DDPM's noise at every denoising step except the last. "
+            caption += "All three runs start from the same pretrained policy; their values at x = 0 differ only by evaluation noise."
         else:
             caption += "Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns. "
-        caption += "DPPO retains its ±3σ truncation of this nominal Gaussian noise. The pooled starting-point standard error is unavailable because original episode spreads were not saved."
+            caption += "Values at x = 0 differ only by sampling noise."
         save_figure(fig, output, filename, caption, plt)
+
+
+def write_reward_note(rewards, output):
+    lines = ["# Reward figures: each run starts from its own value", "",
+             "Each curve uses its own saved mean at zero training steps: iteration 0 for evaluation and iteration 1 for training. "
+             "There is one seed per method (seed 0), 80 episodes per point, no pooling, no bands and no smoothing.", "",
+             "| Method | Initial evaluation | Evaluation s.e. | Initial training | Training s.e. | Final evaluation at 9.36M | Matches own log |",
+             "|---|---:|---:|---:|---:|---:|---|"]
+    for method, _ in METHODS:
+        curves = rewards["curves"][method]
+        check = rewards["final_eval_checks"][method]
+        if not check["final_eval_matches_log"]:
+            raise ValueError("Final evaluation differs from the native log: " + method)
+        lines.append("| %s | %.6f | unavailable | %.6f | unavailable | %.6f | yes |" %
+                     (method, curves["eval"][0]["reward"], curves["train"][0]["reward"], curves["eval"][-1]["reward"]))
+    lines += ["", "The requested standard errors (episode sd / √80) cannot be recovered: the original undiscounted episode returns, "
+              "SDs and sums of squares were not saved. Discounted-return errors and dispersion across run means are not substitutes. "
+              "This is the only unavailable requested quantity.", "",
+              "The final evaluation is iteration 130, after 117 updates × 80,000 training environment steps = 9.36M. "
+              + ("DPPO uses the measured seed-0 rerun." if rewards["DPPO_measured_seed_is_rerun"] else "DPPO uses the original Stage-1 seed-0 run.")
+              + " DPPO retains its original ±3σ truncation of nominal Gaussian sampling noise.", "",
+              "This reward-only note supersedes earlier pooled-start reward descriptions. Gradient measurements, gradient figures, the checkpoint table "
+              "and existing curated copies are unchanged. A separate reward-only refresh follows the existing finalizer so its archived renderer cannot leave the old reward figures in place.", "",
+              "[Evaluation PNG](eval_reward.png) · [PDF](eval_reward.pdf) · [Training PNG](train_reward.png) · [PDF](train_reward.pdf) · "
+              "[Saved inputs and provenance](reward_render_record.json)."]
+    (output / "REWARD_NOTE.md").write_text("\n".join(lines) + "\n")
+
+
+def render_rewards_only(args):
+    """Read existing runs and replace only reward artifacts, never gradient work."""
+    root = args.root.resolve()
+    project = root.parents[2]
+    if args.after_finalizer:
+        finalizer = json.loads(args.after_finalizer.read_text())
+        if finalizer.get("status") != "complete":
+            raise ValueError("Reward refresh requires successful completion of the existing finalizer")
+    rewards = load_reward_data(project)
+    run = root / "runs" / ("clean_v5_reward_origins_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    candidates = run / "candidates"
+    candidates.mkdir(parents=True)
+    sources = [Path(__file__)] + [Path(__file__).with_name(name) for name in
+              ("clean_v5_stats.py", "clean_v5_rewards.py", "clean_v3_stats.py", "clean_v3_rewards.py")]
+    for path in sources:
+        shutil.copy2(str(path), str(run / path.name))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "pdf.fonttype": 42,
+                         "savefig.facecolor": "white", "axes.spines.top": False, "axes.spines.right": False})
+    plot_rewards(rewards, candidates, plt)
+    write_reward_note(rewards, candidates)
+    record = {"status": "complete", "version": "5, own-start reward amendment", "run": str(run),
+              "utc": datetime.now(timezone.utc).isoformat(), "command": sys.argv,
+              "methods": [method for method, _ in METHODS], "curves": rewards["curves"],
+              "initial_standard_errors": {method: {"eval": None, "train": None} for method, _ in METHODS},
+              "standard_error_status": "unavailable: original episode dispersion was not saved",
+              "final_eval_checks": rewards["final_eval_checks"],
+              "parent_revision": subprocess.check_output(["git", "-C", str(project), "rev-parse", "HEAD"], universal_newlines=True).strip(),
+              "render_source_snapshot": [str(run / path.name) for path in sources],
+              "gradient_work_modified": False, "sampling_performed": False, "curated": False,
+              "after_finalizer": str(args.after_finalizer) if args.after_finalizer else None}
+    (candidates / "reward_render_record.json").write_text(json.dumps(json_safe(record), indent=2, allow_nan=False) + "\n")
+    output = args.output.resolve() if args.output else root / "figs_clean"
+    if not args.candidates_only:
+        output.mkdir(parents=True, exist_ok=True)
+        existing = [output / path.name for path in candidates.iterdir() if (output / path.name).is_file()]
+        if existing:
+            archive = output / "history" / ("reward_own_starts_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+            archive.mkdir(parents=True)
+            for path in existing:
+                shutil.copy2(str(path), str(archive / path.name))
+        for path in candidates.iterdir():
+            shutil.copy2(str(path), str(output / path.name))
+    print(json.dumps({"status": "complete", "scope": "reward figures only", "run": str(run), "output": str(output)}, indent=2))
 
 
 def error_point(ax, x, metric):
@@ -251,8 +323,8 @@ def write_note(rewards, stats, rows, output):
              "Checkpoint state_0/35/70/105/139 contains 0/32/63/95/126 actor updates, verified from native counters and save order. "
              "The final evaluation is iteration130, 117 updates, 9.36M training env steps. DPPO uses the original Stage-1 seed0 run.", "",
              "Final seed0 evaluation matches each native log: " + "; ".join(m + " " + fmt(rewards["curves"][m]["eval"][-1]["reward"], 9) for m, _ in METHODS) + ". "
-             "Pooled original evaluation/training means are %.6f/%.6f (240 episodes each). Episode spreads were not saved, so the requested starting-point standard errors are unavailable. " %
-             (rewards["pooled_start"]["eval"]["mean"], rewards["pooled_start"]["train"]["mean"]) +
+             "Each curve starts from its own saved evaluation or first-training mean (80 episodes), without pooling. "
+             "Episode spreads were not saved, so the requested starting-point standard errors are unavailable. " +
              "DPPO retains its original ±3σ truncation of nominal Gaussian noise.", "",
              "The critic has no warm-up. Scales come from the next training iteration's start log; the final scale uses the authorized through-origin least-squares fit over five fresh batches. "
              "The native initial c is 1.000000005 (nominal1 plus the scaler epsilon). All final-point estimates are marked †. "
@@ -309,6 +381,8 @@ def publish(candidates, output):
 
 
 def main(args):
+    if args.rewards_only:
+        return render_rewards_only(args)
     root = args.root.resolve(); project = root.parents[2]
     rewards = load_reward_data(project)
     stats = build_statistics(root, analysis_source=args.analysis_source)
@@ -350,4 +424,6 @@ if __name__ == "__main__":
     parser.add_argument("--output", type=Path)
     parser.add_argument("--analysis-source", type=Path)
     parser.add_argument("--candidates-only", action="store_true")
+    parser.add_argument("--rewards-only", action="store_true", help="Render only the two reward figures from existing runs")
+    parser.add_argument("--after-finalizer", type=Path, help="Require a successful finalizer record before a reward-only refresh")
     main(parser.parse_args())

@@ -1,0 +1,3458 @@
+{
+  "status": "complete",
+  "version": "5, own-start reward amendment",
+  "run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z",
+  "utc": "2026-10-12T18:03:39.285144+00:00",
+  "command": [
+    "results/stage3/gradmean/plot_clean.py",
+    "--rewards-only",
+    "--candidates-only"
+  ],
+  "methods": [
+    "DPPO",
+    "without_PPO",
+    "without_PPO_and_GAE"
+  ],
+  "curves": {
+    "DPPO": {
+      "eval": [
+        {
+          "itr": 0,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 0,
+          "reward": 4286.896956658653,
+          "episodes": 80
+        },
+        {
+          "itr": 10,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 720000,
+          "reward": 4475.588559808406,
+          "episodes": 80
+        },
+        {
+          "itr": 20,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1440000,
+          "reward": 4510.175482304081,
+          "episodes": 80
+        },
+        {
+          "itr": 30,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2160000,
+          "reward": 4529.552125960205,
+          "episodes": 80
+        },
+        {
+          "itr": 40,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2880000,
+          "reward": 4480.450596191774,
+          "episodes": 80
+        },
+        {
+          "itr": 50,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3600000,
+          "reward": 4497.392319035627,
+          "episodes": 80
+        },
+        {
+          "itr": 60,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4320000,
+          "reward": 4567.939355363847,
+          "episodes": 80
+        },
+        {
+          "itr": 70,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5040000,
+          "reward": 4549.16837029026,
+          "episodes": 80
+        },
+        {
+          "itr": 80,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5760000,
+          "reward": 4668.026744418287,
+          "episodes": 80
+        },
+        {
+          "itr": 90,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6480000,
+          "reward": 4565.196542196399,
+          "episodes": 80
+        },
+        {
+          "itr": 100,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7200000,
+          "reward": 4619.443888827633,
+          "episodes": 80
+        },
+        {
+          "itr": 110,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 7920000,
+          "reward": 4673.863218633073,
+          "episodes": 80
+        },
+        {
+          "itr": 120,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8640000,
+          "reward": 4688.817055330243,
+          "episodes": 80
+        },
+        {
+          "itr": 130,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9360000,
+          "reward": 4636.273298273394,
+          "episodes": 80
+        }
+      ],
+      "train": [
+        {
+          "itr": 1,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 80000,
+          "reward": 3841.496354067624,
+          "episodes": 80
+        },
+        {
+          "itr": 2,
+          "update": 1,
+          "env_steps": 80000,
+          "logged_env_steps": 160000,
+          "reward": 3934.994390785364,
+          "episodes": 80
+        },
+        {
+          "itr": 3,
+          "update": 2,
+          "env_steps": 160000,
+          "logged_env_steps": 240000,
+          "reward": 4066.8199641738515,
+          "episodes": 80
+        },
+        {
+          "itr": 4,
+          "update": 3,
+          "env_steps": 240000,
+          "logged_env_steps": 320000,
+          "reward": 4030.1049976809727,
+          "episodes": 80
+        },
+        {
+          "itr": 5,
+          "update": 4,
+          "env_steps": 320000,
+          "logged_env_steps": 400000,
+          "reward": 4153.113341843631,
+          "episodes": 80
+        },
+        {
+          "itr": 6,
+          "update": 5,
+          "env_steps": 400000,
+          "logged_env_steps": 480000,
+          "reward": 3975.8863268035248,
+          "episodes": 80
+        },
+        {
+          "itr": 7,
+          "update": 6,
+          "env_steps": 480000,
+          "logged_env_steps": 560000,
+          "reward": 3940.820800672387,
+          "episodes": 80
+        },
+        {
+          "itr": 8,
+          "update": 7,
+          "env_steps": 560000,
+          "logged_env_steps": 640000,
+          "reward": 4076.5818913244248,
+          "episodes": 80
+        },
+        {
+          "itr": 9,
+          "update": 8,
+          "env_steps": 640000,
+          "logged_env_steps": 720000,
+          "reward": 4065.170994425348,
+          "episodes": 80
+        },
+        {
+          "itr": 11,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 800000,
+          "reward": 4116.39619438231,
+          "episodes": 80
+        },
+        {
+          "itr": 12,
+          "update": 10,
+          "env_steps": 800000,
+          "logged_env_steps": 880000,
+          "reward": 4153.504262286658,
+          "episodes": 80
+        },
+        {
+          "itr": 13,
+          "update": 11,
+          "env_steps": 880000,
+          "logged_env_steps": 960000,
+          "reward": 4205.262830612395,
+          "episodes": 80
+        },
+        {
+          "itr": 14,
+          "update": 12,
+          "env_steps": 960000,
+          "logged_env_steps": 1040000,
+          "reward": 4048.922336068025,
+          "episodes": 80
+        },
+        {
+          "itr": 15,
+          "update": 13,
+          "env_steps": 1040000,
+          "logged_env_steps": 1120000,
+          "reward": 4190.074612614045,
+          "episodes": 80
+        },
+        {
+          "itr": 16,
+          "update": 14,
+          "env_steps": 1120000,
+          "logged_env_steps": 1200000,
+          "reward": 4149.297649697691,
+          "episodes": 80
+        },
+        {
+          "itr": 17,
+          "update": 15,
+          "env_steps": 1200000,
+          "logged_env_steps": 1280000,
+          "reward": 4239.872032992758,
+          "episodes": 80
+        },
+        {
+          "itr": 18,
+          "update": 16,
+          "env_steps": 1280000,
+          "logged_env_steps": 1360000,
+          "reward": 4161.986253058162,
+          "episodes": 80
+        },
+        {
+          "itr": 19,
+          "update": 17,
+          "env_steps": 1360000,
+          "logged_env_steps": 1440000,
+          "reward": 4245.551703118862,
+          "episodes": 80
+        },
+        {
+          "itr": 21,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1520000,
+          "reward": 4258.476640826771,
+          "episodes": 80
+        },
+        {
+          "itr": 22,
+          "update": 19,
+          "env_steps": 1520000,
+          "logged_env_steps": 1600000,
+          "reward": 4098.2156090078615,
+          "episodes": 80
+        },
+        {
+          "itr": 23,
+          "update": 20,
+          "env_steps": 1600000,
+          "logged_env_steps": 1680000,
+          "reward": 4226.457826539382,
+          "episodes": 80
+        },
+        {
+          "itr": 24,
+          "update": 21,
+          "env_steps": 1680000,
+          "logged_env_steps": 1760000,
+          "reward": 4187.543828163211,
+          "episodes": 80
+        },
+        {
+          "itr": 25,
+          "update": 22,
+          "env_steps": 1760000,
+          "logged_env_steps": 1840000,
+          "reward": 4153.36690086366,
+          "episodes": 80
+        },
+        {
+          "itr": 26,
+          "update": 23,
+          "env_steps": 1840000,
+          "logged_env_steps": 1920000,
+          "reward": 4114.151879217365,
+          "episodes": 80
+        },
+        {
+          "itr": 27,
+          "update": 24,
+          "env_steps": 1920000,
+          "logged_env_steps": 2000000,
+          "reward": 4206.578822216776,
+          "episodes": 80
+        },
+        {
+          "itr": 28,
+          "update": 25,
+          "env_steps": 2000000,
+          "logged_env_steps": 2080000,
+          "reward": 4158.612576417814,
+          "episodes": 80
+        },
+        {
+          "itr": 29,
+          "update": 26,
+          "env_steps": 2080000,
+          "logged_env_steps": 2160000,
+          "reward": 4196.893974559406,
+          "episodes": 80
+        },
+        {
+          "itr": 31,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2240000,
+          "reward": 4209.457794157288,
+          "episodes": 80
+        },
+        {
+          "itr": 32,
+          "update": 28,
+          "env_steps": 2240000,
+          "logged_env_steps": 2320000,
+          "reward": 4183.917465433222,
+          "episodes": 80
+        },
+        {
+          "itr": 33,
+          "update": 29,
+          "env_steps": 2320000,
+          "logged_env_steps": 2400000,
+          "reward": 4168.111104529761,
+          "episodes": 80
+        },
+        {
+          "itr": 34,
+          "update": 30,
+          "env_steps": 2400000,
+          "logged_env_steps": 2480000,
+          "reward": 4183.547256656852,
+          "episodes": 80
+        },
+        {
+          "itr": 35,
+          "update": 31,
+          "env_steps": 2480000,
+          "logged_env_steps": 2560000,
+          "reward": 4122.254813859179,
+          "episodes": 80
+        },
+        {
+          "itr": 36,
+          "update": 32,
+          "env_steps": 2560000,
+          "logged_env_steps": 2640000,
+          "reward": 4293.7792123049485,
+          "episodes": 80
+        },
+        {
+          "itr": 37,
+          "update": 33,
+          "env_steps": 2640000,
+          "logged_env_steps": 2720000,
+          "reward": 4259.631570717141,
+          "episodes": 80
+        },
+        {
+          "itr": 38,
+          "update": 34,
+          "env_steps": 2720000,
+          "logged_env_steps": 2800000,
+          "reward": 4247.147415122944,
+          "episodes": 80
+        },
+        {
+          "itr": 39,
+          "update": 35,
+          "env_steps": 2800000,
+          "logged_env_steps": 2880000,
+          "reward": 4226.405019597789,
+          "episodes": 80
+        },
+        {
+          "itr": 41,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2960000,
+          "reward": 4268.885146156699,
+          "episodes": 80
+        },
+        {
+          "itr": 42,
+          "update": 37,
+          "env_steps": 2960000,
+          "logged_env_steps": 3040000,
+          "reward": 4136.7475630236095,
+          "episodes": 80
+        },
+        {
+          "itr": 43,
+          "update": 38,
+          "env_steps": 3040000,
+          "logged_env_steps": 3120000,
+          "reward": 4230.817078674857,
+          "episodes": 80
+        },
+        {
+          "itr": 44,
+          "update": 39,
+          "env_steps": 3120000,
+          "logged_env_steps": 3200000,
+          "reward": 4163.016213834063,
+          "episodes": 80
+        },
+        {
+          "itr": 45,
+          "update": 40,
+          "env_steps": 3200000,
+          "logged_env_steps": 3280000,
+          "reward": 4243.231487568295,
+          "episodes": 80
+        },
+        {
+          "itr": 46,
+          "update": 41,
+          "env_steps": 3280000,
+          "logged_env_steps": 3360000,
+          "reward": 4216.676570656359,
+          "episodes": 80
+        },
+        {
+          "itr": 47,
+          "update": 42,
+          "env_steps": 3360000,
+          "logged_env_steps": 3440000,
+          "reward": 4353.516491436378,
+          "episodes": 80
+        },
+        {
+          "itr": 48,
+          "update": 43,
+          "env_steps": 3440000,
+          "logged_env_steps": 3520000,
+          "reward": 4302.282946890833,
+          "episodes": 80
+        },
+        {
+          "itr": 49,
+          "update": 44,
+          "env_steps": 3520000,
+          "logged_env_steps": 3600000,
+          "reward": 4291.01414598528,
+          "episodes": 80
+        },
+        {
+          "itr": 51,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3680000,
+          "reward": 4223.075241828972,
+          "episodes": 80
+        },
+        {
+          "itr": 52,
+          "update": 46,
+          "env_steps": 3680000,
+          "logged_env_steps": 3760000,
+          "reward": 4340.8116007088465,
+          "episodes": 80
+        },
+        {
+          "itr": 53,
+          "update": 47,
+          "env_steps": 3760000,
+          "logged_env_steps": 3840000,
+          "reward": 4252.866974217536,
+          "episodes": 80
+        },
+        {
+          "itr": 54,
+          "update": 48,
+          "env_steps": 3840000,
+          "logged_env_steps": 3920000,
+          "reward": 4201.303639588863,
+          "episodes": 80
+        },
+        {
+          "itr": 55,
+          "update": 49,
+          "env_steps": 3920000,
+          "logged_env_steps": 4000000,
+          "reward": 4302.111988893089,
+          "episodes": 80
+        },
+        {
+          "itr": 56,
+          "update": 50,
+          "env_steps": 4000000,
+          "logged_env_steps": 4080000,
+          "reward": 4265.828784146773,
+          "episodes": 80
+        },
+        {
+          "itr": 57,
+          "update": 51,
+          "env_steps": 4080000,
+          "logged_env_steps": 4160000,
+          "reward": 4312.566662507741,
+          "episodes": 80
+        },
+        {
+          "itr": 58,
+          "update": 52,
+          "env_steps": 4160000,
+          "logged_env_steps": 4240000,
+          "reward": 4290.772373797187,
+          "episodes": 80
+        },
+        {
+          "itr": 59,
+          "update": 53,
+          "env_steps": 4240000,
+          "logged_env_steps": 4320000,
+          "reward": 4262.190615596775,
+          "episodes": 80
+        },
+        {
+          "itr": 61,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4400000,
+          "reward": 4297.3571965043975,
+          "episodes": 80
+        },
+        {
+          "itr": 62,
+          "update": 55,
+          "env_steps": 4400000,
+          "logged_env_steps": 4480000,
+          "reward": 4338.953846237403,
+          "episodes": 80
+        },
+        {
+          "itr": 63,
+          "update": 56,
+          "env_steps": 4480000,
+          "logged_env_steps": 4560000,
+          "reward": 4219.80960467321,
+          "episodes": 80
+        },
+        {
+          "itr": 64,
+          "update": 57,
+          "env_steps": 4560000,
+          "logged_env_steps": 4640000,
+          "reward": 4300.158711395624,
+          "episodes": 80
+        },
+        {
+          "itr": 65,
+          "update": 58,
+          "env_steps": 4640000,
+          "logged_env_steps": 4720000,
+          "reward": 4262.640627404405,
+          "episodes": 80
+        },
+        {
+          "itr": 66,
+          "update": 59,
+          "env_steps": 4720000,
+          "logged_env_steps": 4800000,
+          "reward": 4401.060049753001,
+          "episodes": 80
+        },
+        {
+          "itr": 67,
+          "update": 60,
+          "env_steps": 4800000,
+          "logged_env_steps": 4880000,
+          "reward": 4347.78878474757,
+          "episodes": 80
+        },
+        {
+          "itr": 68,
+          "update": 61,
+          "env_steps": 4880000,
+          "logged_env_steps": 4960000,
+          "reward": 4345.173266309253,
+          "episodes": 80
+        },
+        {
+          "itr": 69,
+          "update": 62,
+          "env_steps": 4960000,
+          "logged_env_steps": 5040000,
+          "reward": 4261.768075822818,
+          "episodes": 80
+        },
+        {
+          "itr": 71,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5120000,
+          "reward": 4333.642709302584,
+          "episodes": 80
+        },
+        {
+          "itr": 72,
+          "update": 64,
+          "env_steps": 5120000,
+          "logged_env_steps": 5200000,
+          "reward": 4363.6566253940355,
+          "episodes": 80
+        },
+        {
+          "itr": 73,
+          "update": 65,
+          "env_steps": 5200000,
+          "logged_env_steps": 5280000,
+          "reward": 4359.823346890667,
+          "episodes": 80
+        },
+        {
+          "itr": 74,
+          "update": 66,
+          "env_steps": 5280000,
+          "logged_env_steps": 5360000,
+          "reward": 4375.504075033905,
+          "episodes": 80
+        },
+        {
+          "itr": 75,
+          "update": 67,
+          "env_steps": 5360000,
+          "logged_env_steps": 5440000,
+          "reward": 4317.658588209917,
+          "episodes": 80
+        },
+        {
+          "itr": 76,
+          "update": 68,
+          "env_steps": 5440000,
+          "logged_env_steps": 5520000,
+          "reward": 4196.207416091461,
+          "episodes": 80
+        },
+        {
+          "itr": 77,
+          "update": 69,
+          "env_steps": 5520000,
+          "logged_env_steps": 5600000,
+          "reward": 4377.14890361524,
+          "episodes": 80
+        },
+        {
+          "itr": 78,
+          "update": 70,
+          "env_steps": 5600000,
+          "logged_env_steps": 5680000,
+          "reward": 4266.226379614382,
+          "episodes": 80
+        },
+        {
+          "itr": 79,
+          "update": 71,
+          "env_steps": 5680000,
+          "logged_env_steps": 5760000,
+          "reward": 4355.9385153088715,
+          "episodes": 80
+        },
+        {
+          "itr": 81,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5840000,
+          "reward": 4337.718428747445,
+          "episodes": 80
+        },
+        {
+          "itr": 82,
+          "update": 73,
+          "env_steps": 5840000,
+          "logged_env_steps": 5920000,
+          "reward": 4377.945464726681,
+          "episodes": 80
+        },
+        {
+          "itr": 83,
+          "update": 74,
+          "env_steps": 5920000,
+          "logged_env_steps": 6000000,
+          "reward": 4228.4690555444195,
+          "episodes": 80
+        },
+        {
+          "itr": 84,
+          "update": 75,
+          "env_steps": 6000000,
+          "logged_env_steps": 6080000,
+          "reward": 4432.407270682617,
+          "episodes": 80
+        },
+        {
+          "itr": 85,
+          "update": 76,
+          "env_steps": 6080000,
+          "logged_env_steps": 6160000,
+          "reward": 4424.4479754914755,
+          "episodes": 80
+        },
+        {
+          "itr": 86,
+          "update": 77,
+          "env_steps": 6160000,
+          "logged_env_steps": 6240000,
+          "reward": 4392.55666817558,
+          "episodes": 80
+        },
+        {
+          "itr": 87,
+          "update": 78,
+          "env_steps": 6240000,
+          "logged_env_steps": 6320000,
+          "reward": 4396.8673349226965,
+          "episodes": 80
+        },
+        {
+          "itr": 88,
+          "update": 79,
+          "env_steps": 6320000,
+          "logged_env_steps": 6400000,
+          "reward": 4355.560213097882,
+          "episodes": 80
+        },
+        {
+          "itr": 89,
+          "update": 80,
+          "env_steps": 6400000,
+          "logged_env_steps": 6480000,
+          "reward": 4362.9711006945945,
+          "episodes": 80
+        },
+        {
+          "itr": 91,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6560000,
+          "reward": 4314.813519612927,
+          "episodes": 80
+        },
+        {
+          "itr": 92,
+          "update": 82,
+          "env_steps": 6560000,
+          "logged_env_steps": 6640000,
+          "reward": 4382.049589505106,
+          "episodes": 80
+        },
+        {
+          "itr": 93,
+          "update": 83,
+          "env_steps": 6640000,
+          "logged_env_steps": 6720000,
+          "reward": 4359.863534843777,
+          "episodes": 80
+        },
+        {
+          "itr": 94,
+          "update": 84,
+          "env_steps": 6720000,
+          "logged_env_steps": 6800000,
+          "reward": 4384.555213754798,
+          "episodes": 80
+        },
+        {
+          "itr": 95,
+          "update": 85,
+          "env_steps": 6800000,
+          "logged_env_steps": 6880000,
+          "reward": 4329.434030850887,
+          "episodes": 80
+        },
+        {
+          "itr": 96,
+          "update": 86,
+          "env_steps": 6880000,
+          "logged_env_steps": 6960000,
+          "reward": 4366.189805330605,
+          "episodes": 80
+        },
+        {
+          "itr": 97,
+          "update": 87,
+          "env_steps": 6960000,
+          "logged_env_steps": 7040000,
+          "reward": 4314.865555999013,
+          "episodes": 80
+        },
+        {
+          "itr": 98,
+          "update": 88,
+          "env_steps": 7040000,
+          "logged_env_steps": 7120000,
+          "reward": 4391.088432243787,
+          "episodes": 80
+        },
+        {
+          "itr": 99,
+          "update": 89,
+          "env_steps": 7120000,
+          "logged_env_steps": 7200000,
+          "reward": 4331.620447543974,
+          "episodes": 80
+        },
+        {
+          "itr": 101,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7280000,
+          "reward": 4360.465230960806,
+          "episodes": 80
+        },
+        {
+          "itr": 102,
+          "update": 91,
+          "env_steps": 7280000,
+          "logged_env_steps": 7360000,
+          "reward": 4242.423347955485,
+          "episodes": 80
+        },
+        {
+          "itr": 103,
+          "update": 92,
+          "env_steps": 7360000,
+          "logged_env_steps": 7440000,
+          "reward": 4365.771275392665,
+          "episodes": 80
+        },
+        {
+          "itr": 104,
+          "update": 93,
+          "env_steps": 7440000,
+          "logged_env_steps": 7520000,
+          "reward": 4270.175210396865,
+          "episodes": 80
+        },
+        {
+          "itr": 105,
+          "update": 94,
+          "env_steps": 7520000,
+          "logged_env_steps": 7600000,
+          "reward": 4444.2574747474955,
+          "episodes": 80
+        },
+        {
+          "itr": 106,
+          "update": 95,
+          "env_steps": 7600000,
+          "logged_env_steps": 7680000,
+          "reward": 4401.974749050865,
+          "episodes": 80
+        },
+        {
+          "itr": 107,
+          "update": 96,
+          "env_steps": 7680000,
+          "logged_env_steps": 7760000,
+          "reward": 4374.529874676783,
+          "episodes": 80
+        },
+        {
+          "itr": 108,
+          "update": 97,
+          "env_steps": 7760000,
+          "logged_env_steps": 7840000,
+          "reward": 4333.49143296667,
+          "episodes": 80
+        },
+        {
+          "itr": 109,
+          "update": 98,
+          "env_steps": 7840000,
+          "logged_env_steps": 7920000,
+          "reward": 4343.845295973147,
+          "episodes": 80
+        },
+        {
+          "itr": 111,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 8000000,
+          "reward": 4306.187808015198,
+          "episodes": 80
+        },
+        {
+          "itr": 112,
+          "update": 100,
+          "env_steps": 8000000,
+          "logged_env_steps": 8080000,
+          "reward": 4386.439757003067,
+          "episodes": 80
+        },
+        {
+          "itr": 113,
+          "update": 101,
+          "env_steps": 8080000,
+          "logged_env_steps": 8160000,
+          "reward": 4427.6371217027,
+          "episodes": 80
+        },
+        {
+          "itr": 114,
+          "update": 102,
+          "env_steps": 8160000,
+          "logged_env_steps": 8240000,
+          "reward": 4456.8737785594185,
+          "episodes": 80
+        },
+        {
+          "itr": 115,
+          "update": 103,
+          "env_steps": 8240000,
+          "logged_env_steps": 8320000,
+          "reward": 4376.80311647332,
+          "episodes": 80
+        },
+        {
+          "itr": 116,
+          "update": 104,
+          "env_steps": 8320000,
+          "logged_env_steps": 8400000,
+          "reward": 4419.777822624882,
+          "episodes": 80
+        },
+        {
+          "itr": 117,
+          "update": 105,
+          "env_steps": 8400000,
+          "logged_env_steps": 8480000,
+          "reward": 4342.635573659091,
+          "episodes": 80
+        },
+        {
+          "itr": 118,
+          "update": 106,
+          "env_steps": 8480000,
+          "logged_env_steps": 8560000,
+          "reward": 4418.744957086995,
+          "episodes": 80
+        },
+        {
+          "itr": 119,
+          "update": 107,
+          "env_steps": 8560000,
+          "logged_env_steps": 8640000,
+          "reward": 4364.989847475724,
+          "episodes": 80
+        },
+        {
+          "itr": 121,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8720000,
+          "reward": 4305.451812067712,
+          "episodes": 80
+        },
+        {
+          "itr": 122,
+          "update": 109,
+          "env_steps": 8720000,
+          "logged_env_steps": 8800000,
+          "reward": 4424.69116942479,
+          "episodes": 80
+        },
+        {
+          "itr": 123,
+          "update": 110,
+          "env_steps": 8800000,
+          "logged_env_steps": 8880000,
+          "reward": 4435.741675485087,
+          "episodes": 80
+        },
+        {
+          "itr": 124,
+          "update": 111,
+          "env_steps": 8880000,
+          "logged_env_steps": 8960000,
+          "reward": 4355.067467844627,
+          "episodes": 80
+        },
+        {
+          "itr": 125,
+          "update": 112,
+          "env_steps": 8960000,
+          "logged_env_steps": 9040000,
+          "reward": 4275.268508924957,
+          "episodes": 80
+        },
+        {
+          "itr": 126,
+          "update": 113,
+          "env_steps": 9040000,
+          "logged_env_steps": 9120000,
+          "reward": 4410.3213082138,
+          "episodes": 80
+        },
+        {
+          "itr": 127,
+          "update": 114,
+          "env_steps": 9120000,
+          "logged_env_steps": 9200000,
+          "reward": 4364.76572971785,
+          "episodes": 80
+        },
+        {
+          "itr": 128,
+          "update": 115,
+          "env_steps": 9200000,
+          "logged_env_steps": 9280000,
+          "reward": 4390.381321945778,
+          "episodes": 80
+        },
+        {
+          "itr": 129,
+          "update": 116,
+          "env_steps": 9280000,
+          "logged_env_steps": 9360000,
+          "reward": 4437.989922318614,
+          "episodes": 80
+        },
+        {
+          "itr": 131,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9440000,
+          "reward": 4391.449846520144,
+          "episodes": 80
+        },
+        {
+          "itr": 132,
+          "update": 118,
+          "env_steps": 9440000,
+          "logged_env_steps": 9520000,
+          "reward": 4417.93258467486,
+          "episodes": 80
+        },
+        {
+          "itr": 133,
+          "update": 119,
+          "env_steps": 9520000,
+          "logged_env_steps": 9600000,
+          "reward": 4366.664215718245,
+          "episodes": 80
+        },
+        {
+          "itr": 134,
+          "update": 120,
+          "env_steps": 9600000,
+          "logged_env_steps": 9680000,
+          "reward": 4348.15375172184,
+          "episodes": 80
+        },
+        {
+          "itr": 135,
+          "update": 121,
+          "env_steps": 9680000,
+          "logged_env_steps": 9760000,
+          "reward": 4421.865388831812,
+          "episodes": 80
+        },
+        {
+          "itr": 136,
+          "update": 122,
+          "env_steps": 9760000,
+          "logged_env_steps": 9840000,
+          "reward": 4345.283981967659,
+          "episodes": 80
+        },
+        {
+          "itr": 137,
+          "update": 123,
+          "env_steps": 9840000,
+          "logged_env_steps": 9920000,
+          "reward": 4314.831625485247,
+          "episodes": 80
+        },
+        {
+          "itr": 138,
+          "update": 124,
+          "env_steps": 9920000,
+          "logged_env_steps": 10000000,
+          "reward": 4454.503967730959,
+          "episodes": 80
+        },
+        {
+          "itr": 139,
+          "update": 125,
+          "env_steps": 10000000,
+          "logged_env_steps": 10080000,
+          "reward": 4285.90194015741,
+          "episodes": 80
+        }
+      ]
+    },
+    "without_PPO": {
+      "eval": [
+        {
+          "itr": 0,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 0,
+          "reward": 4316.39629852191,
+          "episodes": 80
+        },
+        {
+          "itr": 10,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 720000,
+          "reward": 4342.085272698847,
+          "episodes": 80
+        },
+        {
+          "itr": 20,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1440000,
+          "reward": 4438.1103448111,
+          "episodes": 80
+        },
+        {
+          "itr": 30,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2160000,
+          "reward": 4482.2306337582895,
+          "episodes": 80
+        },
+        {
+          "itr": 40,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2880000,
+          "reward": 4493.846820580245,
+          "episodes": 80
+        },
+        {
+          "itr": 50,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3600000,
+          "reward": 4497.01293990496,
+          "episodes": 80
+        },
+        {
+          "itr": 60,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4320000,
+          "reward": 4539.110892644962,
+          "episodes": 80
+        },
+        {
+          "itr": 70,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5040000,
+          "reward": 4547.596168273354,
+          "episodes": 80
+        },
+        {
+          "itr": 80,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5760000,
+          "reward": 4451.098660992608,
+          "episodes": 80
+        },
+        {
+          "itr": 90,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6480000,
+          "reward": 4499.288016830988,
+          "episodes": 80
+        },
+        {
+          "itr": 100,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7200000,
+          "reward": 4555.072274468055,
+          "episodes": 80
+        },
+        {
+          "itr": 110,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 7920000,
+          "reward": 4584.782114466596,
+          "episodes": 80
+        },
+        {
+          "itr": 120,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8640000,
+          "reward": 4527.419069090579,
+          "episodes": 80
+        },
+        {
+          "itr": 130,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9360000,
+          "reward": 4624.0873515240455,
+          "episodes": 80
+        }
+      ],
+      "train": [
+        {
+          "itr": 1,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 80000,
+          "reward": 3614.2219290576104,
+          "episodes": 80
+        },
+        {
+          "itr": 2,
+          "update": 1,
+          "env_steps": 80000,
+          "logged_env_steps": 160000,
+          "reward": 4048.681067093354,
+          "episodes": 80
+        },
+        {
+          "itr": 3,
+          "update": 2,
+          "env_steps": 160000,
+          "logged_env_steps": 240000,
+          "reward": 3962.8448059753273,
+          "episodes": 80
+        },
+        {
+          "itr": 4,
+          "update": 3,
+          "env_steps": 240000,
+          "logged_env_steps": 320000,
+          "reward": 4033.119180475437,
+          "episodes": 80
+        },
+        {
+          "itr": 5,
+          "update": 4,
+          "env_steps": 320000,
+          "logged_env_steps": 400000,
+          "reward": 3980.3400260547496,
+          "episodes": 80
+        },
+        {
+          "itr": 6,
+          "update": 5,
+          "env_steps": 400000,
+          "logged_env_steps": 480000,
+          "reward": 3910.92577663101,
+          "episodes": 80
+        },
+        {
+          "itr": 7,
+          "update": 6,
+          "env_steps": 480000,
+          "logged_env_steps": 560000,
+          "reward": 3919.0279858138906,
+          "episodes": 80
+        },
+        {
+          "itr": 8,
+          "update": 7,
+          "env_steps": 560000,
+          "logged_env_steps": 640000,
+          "reward": 3924.73218368542,
+          "episodes": 80
+        },
+        {
+          "itr": 9,
+          "update": 8,
+          "env_steps": 640000,
+          "logged_env_steps": 720000,
+          "reward": 4073.944925291379,
+          "episodes": 80
+        },
+        {
+          "itr": 11,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 800000,
+          "reward": 3857.213166007166,
+          "episodes": 80
+        },
+        {
+          "itr": 12,
+          "update": 10,
+          "env_steps": 800000,
+          "logged_env_steps": 880000,
+          "reward": 4100.698508101768,
+          "episodes": 80
+        },
+        {
+          "itr": 13,
+          "update": 11,
+          "env_steps": 880000,
+          "logged_env_steps": 960000,
+          "reward": 4170.733745627616,
+          "episodes": 80
+        },
+        {
+          "itr": 14,
+          "update": 12,
+          "env_steps": 960000,
+          "logged_env_steps": 1040000,
+          "reward": 4066.4527352357954,
+          "episodes": 80
+        },
+        {
+          "itr": 15,
+          "update": 13,
+          "env_steps": 1040000,
+          "logged_env_steps": 1120000,
+          "reward": 4114.67344838134,
+          "episodes": 80
+        },
+        {
+          "itr": 16,
+          "update": 14,
+          "env_steps": 1120000,
+          "logged_env_steps": 1200000,
+          "reward": 4136.198787258778,
+          "episodes": 80
+        },
+        {
+          "itr": 17,
+          "update": 15,
+          "env_steps": 1200000,
+          "logged_env_steps": 1280000,
+          "reward": 4149.472609277009,
+          "episodes": 80
+        },
+        {
+          "itr": 18,
+          "update": 16,
+          "env_steps": 1280000,
+          "logged_env_steps": 1360000,
+          "reward": 4158.839126927293,
+          "episodes": 80
+        },
+        {
+          "itr": 19,
+          "update": 17,
+          "env_steps": 1360000,
+          "logged_env_steps": 1440000,
+          "reward": 4063.8126423805325,
+          "episodes": 80
+        },
+        {
+          "itr": 21,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1520000,
+          "reward": 4134.43390788909,
+          "episodes": 80
+        },
+        {
+          "itr": 22,
+          "update": 19,
+          "env_steps": 1520000,
+          "logged_env_steps": 1600000,
+          "reward": 4112.60848305946,
+          "episodes": 80
+        },
+        {
+          "itr": 23,
+          "update": 20,
+          "env_steps": 1600000,
+          "logged_env_steps": 1680000,
+          "reward": 4272.015471926364,
+          "episodes": 80
+        },
+        {
+          "itr": 24,
+          "update": 21,
+          "env_steps": 1680000,
+          "logged_env_steps": 1760000,
+          "reward": 4128.231931479577,
+          "episodes": 80
+        },
+        {
+          "itr": 25,
+          "update": 22,
+          "env_steps": 1760000,
+          "logged_env_steps": 1840000,
+          "reward": 4165.2381649771,
+          "episodes": 80
+        },
+        {
+          "itr": 26,
+          "update": 23,
+          "env_steps": 1840000,
+          "logged_env_steps": 1920000,
+          "reward": 4137.859110094796,
+          "episodes": 80
+        },
+        {
+          "itr": 27,
+          "update": 24,
+          "env_steps": 1920000,
+          "logged_env_steps": 2000000,
+          "reward": 4162.299126361274,
+          "episodes": 80
+        },
+        {
+          "itr": 28,
+          "update": 25,
+          "env_steps": 2000000,
+          "logged_env_steps": 2080000,
+          "reward": 4094.5755480183107,
+          "episodes": 80
+        },
+        {
+          "itr": 29,
+          "update": 26,
+          "env_steps": 2080000,
+          "logged_env_steps": 2160000,
+          "reward": 4196.637254387734,
+          "episodes": 80
+        },
+        {
+          "itr": 31,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2240000,
+          "reward": 4086.6169921015207,
+          "episodes": 80
+        },
+        {
+          "itr": 32,
+          "update": 28,
+          "env_steps": 2240000,
+          "logged_env_steps": 2320000,
+          "reward": 4051.3501513207348,
+          "episodes": 80
+        },
+        {
+          "itr": 33,
+          "update": 29,
+          "env_steps": 2320000,
+          "logged_env_steps": 2400000,
+          "reward": 4209.3196884559175,
+          "episodes": 80
+        },
+        {
+          "itr": 34,
+          "update": 30,
+          "env_steps": 2400000,
+          "logged_env_steps": 2480000,
+          "reward": 4199.45539194561,
+          "episodes": 80
+        },
+        {
+          "itr": 35,
+          "update": 31,
+          "env_steps": 2480000,
+          "logged_env_steps": 2560000,
+          "reward": 4188.365923652507,
+          "episodes": 80
+        },
+        {
+          "itr": 36,
+          "update": 32,
+          "env_steps": 2560000,
+          "logged_env_steps": 2640000,
+          "reward": 4216.058362876254,
+          "episodes": 80
+        },
+        {
+          "itr": 37,
+          "update": 33,
+          "env_steps": 2640000,
+          "logged_env_steps": 2720000,
+          "reward": 4275.426421614163,
+          "episodes": 80
+        },
+        {
+          "itr": 38,
+          "update": 34,
+          "env_steps": 2720000,
+          "logged_env_steps": 2800000,
+          "reward": 4251.106736622008,
+          "episodes": 80
+        },
+        {
+          "itr": 39,
+          "update": 35,
+          "env_steps": 2800000,
+          "logged_env_steps": 2880000,
+          "reward": 4207.318557688884,
+          "episodes": 80
+        },
+        {
+          "itr": 41,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2960000,
+          "reward": 4272.66378642402,
+          "episodes": 80
+        },
+        {
+          "itr": 42,
+          "update": 37,
+          "env_steps": 2960000,
+          "logged_env_steps": 3040000,
+          "reward": 4183.630273384867,
+          "episodes": 80
+        },
+        {
+          "itr": 43,
+          "update": 38,
+          "env_steps": 3040000,
+          "logged_env_steps": 3120000,
+          "reward": 4262.128533910827,
+          "episodes": 80
+        },
+        {
+          "itr": 44,
+          "update": 39,
+          "env_steps": 3120000,
+          "logged_env_steps": 3200000,
+          "reward": 4169.8299043312745,
+          "episodes": 80
+        },
+        {
+          "itr": 45,
+          "update": 40,
+          "env_steps": 3200000,
+          "logged_env_steps": 3280000,
+          "reward": 4180.785497363399,
+          "episodes": 80
+        },
+        {
+          "itr": 46,
+          "update": 41,
+          "env_steps": 3280000,
+          "logged_env_steps": 3360000,
+          "reward": 4207.554349817944,
+          "episodes": 80
+        },
+        {
+          "itr": 47,
+          "update": 42,
+          "env_steps": 3360000,
+          "logged_env_steps": 3440000,
+          "reward": 4166.346290376844,
+          "episodes": 80
+        },
+        {
+          "itr": 48,
+          "update": 43,
+          "env_steps": 3440000,
+          "logged_env_steps": 3520000,
+          "reward": 4204.769276576349,
+          "episodes": 80
+        },
+        {
+          "itr": 49,
+          "update": 44,
+          "env_steps": 3520000,
+          "logged_env_steps": 3600000,
+          "reward": 4158.989634249678,
+          "episodes": 80
+        },
+        {
+          "itr": 51,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3680000,
+          "reward": 4104.10741813845,
+          "episodes": 80
+        },
+        {
+          "itr": 52,
+          "update": 46,
+          "env_steps": 3680000,
+          "logged_env_steps": 3760000,
+          "reward": 4136.540680952088,
+          "episodes": 80
+        },
+        {
+          "itr": 53,
+          "update": 47,
+          "env_steps": 3760000,
+          "logged_env_steps": 3840000,
+          "reward": 4257.688858549208,
+          "episodes": 80
+        },
+        {
+          "itr": 54,
+          "update": 48,
+          "env_steps": 3840000,
+          "logged_env_steps": 3920000,
+          "reward": 4261.597611878919,
+          "episodes": 80
+        },
+        {
+          "itr": 55,
+          "update": 49,
+          "env_steps": 3920000,
+          "logged_env_steps": 4000000,
+          "reward": 4153.65198984799,
+          "episodes": 80
+        },
+        {
+          "itr": 56,
+          "update": 50,
+          "env_steps": 4000000,
+          "logged_env_steps": 4080000,
+          "reward": 4120.981356693309,
+          "episodes": 80
+        },
+        {
+          "itr": 57,
+          "update": 51,
+          "env_steps": 4080000,
+          "logged_env_steps": 4160000,
+          "reward": 4149.592508455506,
+          "episodes": 80
+        },
+        {
+          "itr": 58,
+          "update": 52,
+          "env_steps": 4160000,
+          "logged_env_steps": 4240000,
+          "reward": 4200.6373429467685,
+          "episodes": 80
+        },
+        {
+          "itr": 59,
+          "update": 53,
+          "env_steps": 4240000,
+          "logged_env_steps": 4320000,
+          "reward": 4247.133556272643,
+          "episodes": 80
+        },
+        {
+          "itr": 61,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4400000,
+          "reward": 4289.194372856516,
+          "episodes": 80
+        },
+        {
+          "itr": 62,
+          "update": 55,
+          "env_steps": 4400000,
+          "logged_env_steps": 4480000,
+          "reward": 4145.131783374886,
+          "episodes": 80
+        },
+        {
+          "itr": 63,
+          "update": 56,
+          "env_steps": 4480000,
+          "logged_env_steps": 4560000,
+          "reward": 4308.846556616001,
+          "episodes": 80
+        },
+        {
+          "itr": 64,
+          "update": 57,
+          "env_steps": 4560000,
+          "logged_env_steps": 4640000,
+          "reward": 4216.058223914146,
+          "episodes": 80
+        },
+        {
+          "itr": 65,
+          "update": 58,
+          "env_steps": 4640000,
+          "logged_env_steps": 4720000,
+          "reward": 4309.161302530748,
+          "episodes": 80
+        },
+        {
+          "itr": 66,
+          "update": 59,
+          "env_steps": 4720000,
+          "logged_env_steps": 4800000,
+          "reward": 4252.748725412223,
+          "episodes": 80
+        },
+        {
+          "itr": 67,
+          "update": 60,
+          "env_steps": 4800000,
+          "logged_env_steps": 4880000,
+          "reward": 4226.687009944937,
+          "episodes": 80
+        },
+        {
+          "itr": 68,
+          "update": 61,
+          "env_steps": 4880000,
+          "logged_env_steps": 4960000,
+          "reward": 4226.705945424246,
+          "episodes": 80
+        },
+        {
+          "itr": 69,
+          "update": 62,
+          "env_steps": 4960000,
+          "logged_env_steps": 5040000,
+          "reward": 4215.682449769609,
+          "episodes": 80
+        },
+        {
+          "itr": 71,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5120000,
+          "reward": 4205.65782230922,
+          "episodes": 80
+        },
+        {
+          "itr": 72,
+          "update": 64,
+          "env_steps": 5120000,
+          "logged_env_steps": 5200000,
+          "reward": 4229.197795572295,
+          "episodes": 80
+        },
+        {
+          "itr": 73,
+          "update": 65,
+          "env_steps": 5200000,
+          "logged_env_steps": 5280000,
+          "reward": 4315.946223255016,
+          "episodes": 80
+        },
+        {
+          "itr": 74,
+          "update": 66,
+          "env_steps": 5280000,
+          "logged_env_steps": 5360000,
+          "reward": 4263.592187801686,
+          "episodes": 80
+        },
+        {
+          "itr": 75,
+          "update": 67,
+          "env_steps": 5360000,
+          "logged_env_steps": 5440000,
+          "reward": 4271.129559365461,
+          "episodes": 80
+        },
+        {
+          "itr": 76,
+          "update": 68,
+          "env_steps": 5440000,
+          "logged_env_steps": 5520000,
+          "reward": 4307.933520127559,
+          "episodes": 80
+        },
+        {
+          "itr": 77,
+          "update": 69,
+          "env_steps": 5520000,
+          "logged_env_steps": 5600000,
+          "reward": 4269.372884743039,
+          "episodes": 80
+        },
+        {
+          "itr": 78,
+          "update": 70,
+          "env_steps": 5600000,
+          "logged_env_steps": 5680000,
+          "reward": 4223.37906561812,
+          "episodes": 80
+        },
+        {
+          "itr": 79,
+          "update": 71,
+          "env_steps": 5680000,
+          "logged_env_steps": 5760000,
+          "reward": 4375.1180176946,
+          "episodes": 80
+        },
+        {
+          "itr": 81,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5840000,
+          "reward": 4327.666359115918,
+          "episodes": 80
+        },
+        {
+          "itr": 82,
+          "update": 73,
+          "env_steps": 5840000,
+          "logged_env_steps": 5920000,
+          "reward": 4271.435160505544,
+          "episodes": 80
+        },
+        {
+          "itr": 83,
+          "update": 74,
+          "env_steps": 5920000,
+          "logged_env_steps": 6000000,
+          "reward": 4332.496696353704,
+          "episodes": 80
+        },
+        {
+          "itr": 84,
+          "update": 75,
+          "env_steps": 6000000,
+          "logged_env_steps": 6080000,
+          "reward": 4356.381692159446,
+          "episodes": 80
+        },
+        {
+          "itr": 85,
+          "update": 76,
+          "env_steps": 6080000,
+          "logged_env_steps": 6160000,
+          "reward": 4323.681426343534,
+          "episodes": 80
+        },
+        {
+          "itr": 86,
+          "update": 77,
+          "env_steps": 6160000,
+          "logged_env_steps": 6240000,
+          "reward": 4289.056202356658,
+          "episodes": 80
+        },
+        {
+          "itr": 87,
+          "update": 78,
+          "env_steps": 6240000,
+          "logged_env_steps": 6320000,
+          "reward": 4360.177348937335,
+          "episodes": 80
+        },
+        {
+          "itr": 88,
+          "update": 79,
+          "env_steps": 6320000,
+          "logged_env_steps": 6400000,
+          "reward": 4240.279614385123,
+          "episodes": 80
+        },
+        {
+          "itr": 89,
+          "update": 80,
+          "env_steps": 6400000,
+          "logged_env_steps": 6480000,
+          "reward": 4316.651898707234,
+          "episodes": 80
+        },
+        {
+          "itr": 91,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6560000,
+          "reward": 4320.756907979257,
+          "episodes": 80
+        },
+        {
+          "itr": 92,
+          "update": 82,
+          "env_steps": 6560000,
+          "logged_env_steps": 6640000,
+          "reward": 4320.223881347571,
+          "episodes": 80
+        },
+        {
+          "itr": 93,
+          "update": 83,
+          "env_steps": 6640000,
+          "logged_env_steps": 6720000,
+          "reward": 4366.496478227304,
+          "episodes": 80
+        },
+        {
+          "itr": 94,
+          "update": 84,
+          "env_steps": 6720000,
+          "logged_env_steps": 6800000,
+          "reward": 4248.268928420115,
+          "episodes": 80
+        },
+        {
+          "itr": 95,
+          "update": 85,
+          "env_steps": 6800000,
+          "logged_env_steps": 6880000,
+          "reward": 4315.256744020211,
+          "episodes": 80
+        },
+        {
+          "itr": 96,
+          "update": 86,
+          "env_steps": 6880000,
+          "logged_env_steps": 6960000,
+          "reward": 4273.67309297759,
+          "episodes": 80
+        },
+        {
+          "itr": 97,
+          "update": 87,
+          "env_steps": 6960000,
+          "logged_env_steps": 7040000,
+          "reward": 4282.954164466887,
+          "episodes": 80
+        },
+        {
+          "itr": 98,
+          "update": 88,
+          "env_steps": 7040000,
+          "logged_env_steps": 7120000,
+          "reward": 4295.963149655655,
+          "episodes": 80
+        },
+        {
+          "itr": 99,
+          "update": 89,
+          "env_steps": 7120000,
+          "logged_env_steps": 7200000,
+          "reward": 4365.439243968886,
+          "episodes": 80
+        },
+        {
+          "itr": 101,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7280000,
+          "reward": 4352.945400410623,
+          "episodes": 80
+        },
+        {
+          "itr": 102,
+          "update": 91,
+          "env_steps": 7280000,
+          "logged_env_steps": 7360000,
+          "reward": 4289.102504316442,
+          "episodes": 80
+        },
+        {
+          "itr": 103,
+          "update": 92,
+          "env_steps": 7360000,
+          "logged_env_steps": 7440000,
+          "reward": 4282.894094488773,
+          "episodes": 80
+        },
+        {
+          "itr": 104,
+          "update": 93,
+          "env_steps": 7440000,
+          "logged_env_steps": 7520000,
+          "reward": 4290.010014567915,
+          "episodes": 80
+        },
+        {
+          "itr": 105,
+          "update": 94,
+          "env_steps": 7520000,
+          "logged_env_steps": 7600000,
+          "reward": 4361.0935475905935,
+          "episodes": 80
+        },
+        {
+          "itr": 106,
+          "update": 95,
+          "env_steps": 7600000,
+          "logged_env_steps": 7680000,
+          "reward": 4265.162776272731,
+          "episodes": 80
+        },
+        {
+          "itr": 107,
+          "update": 96,
+          "env_steps": 7680000,
+          "logged_env_steps": 7760000,
+          "reward": 4302.849054340423,
+          "episodes": 80
+        },
+        {
+          "itr": 108,
+          "update": 97,
+          "env_steps": 7760000,
+          "logged_env_steps": 7840000,
+          "reward": 4281.866177681065,
+          "episodes": 80
+        },
+        {
+          "itr": 109,
+          "update": 98,
+          "env_steps": 7840000,
+          "logged_env_steps": 7920000,
+          "reward": 4303.368077539526,
+          "episodes": 80
+        },
+        {
+          "itr": 111,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 8000000,
+          "reward": 4222.503851158183,
+          "episodes": 80
+        },
+        {
+          "itr": 112,
+          "update": 100,
+          "env_steps": 8000000,
+          "logged_env_steps": 8080000,
+          "reward": 4395.047929784765,
+          "episodes": 80
+        },
+        {
+          "itr": 113,
+          "update": 101,
+          "env_steps": 8080000,
+          "logged_env_steps": 8160000,
+          "reward": 4285.260002235223,
+          "episodes": 80
+        },
+        {
+          "itr": 114,
+          "update": 102,
+          "env_steps": 8160000,
+          "logged_env_steps": 8240000,
+          "reward": 4334.595250923422,
+          "episodes": 80
+        },
+        {
+          "itr": 115,
+          "update": 103,
+          "env_steps": 8240000,
+          "logged_env_steps": 8320000,
+          "reward": 4329.753175554169,
+          "episodes": 80
+        },
+        {
+          "itr": 116,
+          "update": 104,
+          "env_steps": 8320000,
+          "logged_env_steps": 8400000,
+          "reward": 4304.997546073346,
+          "episodes": 80
+        },
+        {
+          "itr": 117,
+          "update": 105,
+          "env_steps": 8400000,
+          "logged_env_steps": 8480000,
+          "reward": 4337.597590245334,
+          "episodes": 80
+        },
+        {
+          "itr": 118,
+          "update": 106,
+          "env_steps": 8480000,
+          "logged_env_steps": 8560000,
+          "reward": 4283.421690478343,
+          "episodes": 80
+        },
+        {
+          "itr": 119,
+          "update": 107,
+          "env_steps": 8560000,
+          "logged_env_steps": 8640000,
+          "reward": 4213.974352244714,
+          "episodes": 80
+        },
+        {
+          "itr": 121,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8720000,
+          "reward": 4375.85091306053,
+          "episodes": 80
+        },
+        {
+          "itr": 122,
+          "update": 109,
+          "env_steps": 8720000,
+          "logged_env_steps": 8800000,
+          "reward": 4353.201293668431,
+          "episodes": 80
+        },
+        {
+          "itr": 123,
+          "update": 110,
+          "env_steps": 8800000,
+          "logged_env_steps": 8880000,
+          "reward": 4345.231945314006,
+          "episodes": 80
+        },
+        {
+          "itr": 124,
+          "update": 111,
+          "env_steps": 8880000,
+          "logged_env_steps": 8960000,
+          "reward": 4365.744990106299,
+          "episodes": 80
+        },
+        {
+          "itr": 125,
+          "update": 112,
+          "env_steps": 8960000,
+          "logged_env_steps": 9040000,
+          "reward": 4242.688426096854,
+          "episodes": 80
+        },
+        {
+          "itr": 126,
+          "update": 113,
+          "env_steps": 9040000,
+          "logged_env_steps": 9120000,
+          "reward": 4255.87817184939,
+          "episodes": 80
+        },
+        {
+          "itr": 127,
+          "update": 114,
+          "env_steps": 9120000,
+          "logged_env_steps": 9200000,
+          "reward": 4282.823371611283,
+          "episodes": 80
+        },
+        {
+          "itr": 128,
+          "update": 115,
+          "env_steps": 9200000,
+          "logged_env_steps": 9280000,
+          "reward": 4379.119725300689,
+          "episodes": 80
+        },
+        {
+          "itr": 129,
+          "update": 116,
+          "env_steps": 9280000,
+          "logged_env_steps": 9360000,
+          "reward": 4272.929358604289,
+          "episodes": 80
+        },
+        {
+          "itr": 131,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9440000,
+          "reward": 4323.3525438350025,
+          "episodes": 80
+        },
+        {
+          "itr": 132,
+          "update": 118,
+          "env_steps": 9440000,
+          "logged_env_steps": 9520000,
+          "reward": 4180.379501220329,
+          "episodes": 80
+        },
+        {
+          "itr": 133,
+          "update": 119,
+          "env_steps": 9520000,
+          "logged_env_steps": 9600000,
+          "reward": 4240.384534423038,
+          "episodes": 80
+        },
+        {
+          "itr": 134,
+          "update": 120,
+          "env_steps": 9600000,
+          "logged_env_steps": 9680000,
+          "reward": 4293.9014556324355,
+          "episodes": 80
+        },
+        {
+          "itr": 135,
+          "update": 121,
+          "env_steps": 9680000,
+          "logged_env_steps": 9760000,
+          "reward": 4364.592837261645,
+          "episodes": 80
+        },
+        {
+          "itr": 136,
+          "update": 122,
+          "env_steps": 9760000,
+          "logged_env_steps": 9840000,
+          "reward": 4326.555314499312,
+          "episodes": 80
+        },
+        {
+          "itr": 137,
+          "update": 123,
+          "env_steps": 9840000,
+          "logged_env_steps": 9920000,
+          "reward": 4368.6494256395235,
+          "episodes": 80
+        },
+        {
+          "itr": 138,
+          "update": 124,
+          "env_steps": 9920000,
+          "logged_env_steps": 10000000,
+          "reward": 4290.254322927372,
+          "episodes": 80
+        },
+        {
+          "itr": 139,
+          "update": 125,
+          "env_steps": 10000000,
+          "logged_env_steps": 10080000,
+          "reward": 4374.462483856731,
+          "episodes": 80
+        }
+      ]
+    },
+    "without_PPO_and_GAE": {
+      "eval": [
+        {
+          "itr": 0,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 0,
+          "reward": 4293.057226041284,
+          "episodes": 80
+        },
+        {
+          "itr": 10,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 720000,
+          "reward": 4281.6286822741,
+          "episodes": 80
+        },
+        {
+          "itr": 20,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1440000,
+          "reward": 4227.179377010886,
+          "episodes": 80
+        },
+        {
+          "itr": 30,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2160000,
+          "reward": 4496.894908439519,
+          "episodes": 80
+        },
+        {
+          "itr": 40,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2880000,
+          "reward": 4318.039205381782,
+          "episodes": 80
+        },
+        {
+          "itr": 50,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3600000,
+          "reward": 4440.013163963738,
+          "episodes": 80
+        },
+        {
+          "itr": 60,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4320000,
+          "reward": 4512.443448248969,
+          "episodes": 80
+        },
+        {
+          "itr": 70,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5040000,
+          "reward": 4494.664635761044,
+          "episodes": 80
+        },
+        {
+          "itr": 80,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5760000,
+          "reward": 4483.589968450302,
+          "episodes": 80
+        },
+        {
+          "itr": 90,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6480000,
+          "reward": 4464.982498263889,
+          "episodes": 80
+        },
+        {
+          "itr": 100,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7200000,
+          "reward": 4581.247054426414,
+          "episodes": 80
+        },
+        {
+          "itr": 110,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 7920000,
+          "reward": 4543.009239107889,
+          "episodes": 80
+        },
+        {
+          "itr": 120,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8640000,
+          "reward": 4492.527578033098,
+          "episodes": 80
+        },
+        {
+          "itr": 130,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9360000,
+          "reward": 4490.688112242096,
+          "episodes": 80
+        }
+      ],
+      "train": [
+        {
+          "itr": 1,
+          "update": 0,
+          "env_steps": 0,
+          "logged_env_steps": 80000,
+          "reward": 3964.482818309721,
+          "episodes": 80
+        },
+        {
+          "itr": 2,
+          "update": 1,
+          "env_steps": 80000,
+          "logged_env_steps": 160000,
+          "reward": 3951.953921108122,
+          "episodes": 80
+        },
+        {
+          "itr": 3,
+          "update": 2,
+          "env_steps": 160000,
+          "logged_env_steps": 240000,
+          "reward": 4019.3299470596976,
+          "episodes": 80
+        },
+        {
+          "itr": 4,
+          "update": 3,
+          "env_steps": 240000,
+          "logged_env_steps": 320000,
+          "reward": 3910.070593401252,
+          "episodes": 80
+        },
+        {
+          "itr": 5,
+          "update": 4,
+          "env_steps": 320000,
+          "logged_env_steps": 400000,
+          "reward": 4045.330054113173,
+          "episodes": 80
+        },
+        {
+          "itr": 6,
+          "update": 5,
+          "env_steps": 400000,
+          "logged_env_steps": 480000,
+          "reward": 3982.7480925446157,
+          "episodes": 80
+        },
+        {
+          "itr": 7,
+          "update": 6,
+          "env_steps": 480000,
+          "logged_env_steps": 560000,
+          "reward": 3987.7919811878555,
+          "episodes": 80
+        },
+        {
+          "itr": 8,
+          "update": 7,
+          "env_steps": 560000,
+          "logged_env_steps": 640000,
+          "reward": 4105.712781162686,
+          "episodes": 80
+        },
+        {
+          "itr": 9,
+          "update": 8,
+          "env_steps": 640000,
+          "logged_env_steps": 720000,
+          "reward": 4102.476924222728,
+          "episodes": 80
+        },
+        {
+          "itr": 11,
+          "update": 9,
+          "env_steps": 720000,
+          "logged_env_steps": 800000,
+          "reward": 3912.4493823083294,
+          "episodes": 80
+        },
+        {
+          "itr": 12,
+          "update": 10,
+          "env_steps": 800000,
+          "logged_env_steps": 880000,
+          "reward": 3978.9825716974133,
+          "episodes": 80
+        },
+        {
+          "itr": 13,
+          "update": 11,
+          "env_steps": 880000,
+          "logged_env_steps": 960000,
+          "reward": 4073.745432044416,
+          "episodes": 80
+        },
+        {
+          "itr": 14,
+          "update": 12,
+          "env_steps": 960000,
+          "logged_env_steps": 1040000,
+          "reward": 4102.208208796954,
+          "episodes": 80
+        },
+        {
+          "itr": 15,
+          "update": 13,
+          "env_steps": 1040000,
+          "logged_env_steps": 1120000,
+          "reward": 4095.9466333243267,
+          "episodes": 80
+        },
+        {
+          "itr": 16,
+          "update": 14,
+          "env_steps": 1120000,
+          "logged_env_steps": 1200000,
+          "reward": 4036.5963041908194,
+          "episodes": 80
+        },
+        {
+          "itr": 17,
+          "update": 15,
+          "env_steps": 1200000,
+          "logged_env_steps": 1280000,
+          "reward": 3981.6283182940633,
+          "episodes": 80
+        },
+        {
+          "itr": 18,
+          "update": 16,
+          "env_steps": 1280000,
+          "logged_env_steps": 1360000,
+          "reward": 4106.219687680271,
+          "episodes": 80
+        },
+        {
+          "itr": 19,
+          "update": 17,
+          "env_steps": 1360000,
+          "logged_env_steps": 1440000,
+          "reward": 4008.4563401848836,
+          "episodes": 80
+        },
+        {
+          "itr": 21,
+          "update": 18,
+          "env_steps": 1440000,
+          "logged_env_steps": 1520000,
+          "reward": 4008.7842773576804,
+          "episodes": 80
+        },
+        {
+          "itr": 22,
+          "update": 19,
+          "env_steps": 1520000,
+          "logged_env_steps": 1600000,
+          "reward": 4006.0012354047094,
+          "episodes": 80
+        },
+        {
+          "itr": 23,
+          "update": 20,
+          "env_steps": 1600000,
+          "logged_env_steps": 1680000,
+          "reward": 3944.675493671438,
+          "episodes": 80
+        },
+        {
+          "itr": 24,
+          "update": 21,
+          "env_steps": 1680000,
+          "logged_env_steps": 1760000,
+          "reward": 3959.8779033824817,
+          "episodes": 80
+        },
+        {
+          "itr": 25,
+          "update": 22,
+          "env_steps": 1760000,
+          "logged_env_steps": 1840000,
+          "reward": 3984.3249776347575,
+          "episodes": 80
+        },
+        {
+          "itr": 26,
+          "update": 23,
+          "env_steps": 1840000,
+          "logged_env_steps": 1920000,
+          "reward": 4067.7226779540483,
+          "episodes": 80
+        },
+        {
+          "itr": 27,
+          "update": 24,
+          "env_steps": 1920000,
+          "logged_env_steps": 2000000,
+          "reward": 4035.374990930772,
+          "episodes": 80
+        },
+        {
+          "itr": 28,
+          "update": 25,
+          "env_steps": 2000000,
+          "logged_env_steps": 2080000,
+          "reward": 4085.489788980056,
+          "episodes": 80
+        },
+        {
+          "itr": 29,
+          "update": 26,
+          "env_steps": 2080000,
+          "logged_env_steps": 2160000,
+          "reward": 4010.825326496619,
+          "episodes": 80
+        },
+        {
+          "itr": 31,
+          "update": 27,
+          "env_steps": 2160000,
+          "logged_env_steps": 2240000,
+          "reward": 3976.4613351032904,
+          "episodes": 80
+        },
+        {
+          "itr": 32,
+          "update": 28,
+          "env_steps": 2240000,
+          "logged_env_steps": 2320000,
+          "reward": 4051.5342262500503,
+          "episodes": 80
+        },
+        {
+          "itr": 33,
+          "update": 29,
+          "env_steps": 2320000,
+          "logged_env_steps": 2400000,
+          "reward": 4032.1539355350606,
+          "episodes": 80
+        },
+        {
+          "itr": 34,
+          "update": 30,
+          "env_steps": 2400000,
+          "logged_env_steps": 2480000,
+          "reward": 4011.585968864097,
+          "episodes": 80
+        },
+        {
+          "itr": 35,
+          "update": 31,
+          "env_steps": 2480000,
+          "logged_env_steps": 2560000,
+          "reward": 4061.857243116927,
+          "episodes": 80
+        },
+        {
+          "itr": 36,
+          "update": 32,
+          "env_steps": 2560000,
+          "logged_env_steps": 2640000,
+          "reward": 4018.9006139673975,
+          "episodes": 80
+        },
+        {
+          "itr": 37,
+          "update": 33,
+          "env_steps": 2640000,
+          "logged_env_steps": 2720000,
+          "reward": 4098.900871381126,
+          "episodes": 80
+        },
+        {
+          "itr": 38,
+          "update": 34,
+          "env_steps": 2720000,
+          "logged_env_steps": 2800000,
+          "reward": 4006.2504659405313,
+          "episodes": 80
+        },
+        {
+          "itr": 39,
+          "update": 35,
+          "env_steps": 2800000,
+          "logged_env_steps": 2880000,
+          "reward": 4051.45236112993,
+          "episodes": 80
+        },
+        {
+          "itr": 41,
+          "update": 36,
+          "env_steps": 2880000,
+          "logged_env_steps": 2960000,
+          "reward": 4101.580682777773,
+          "episodes": 80
+        },
+        {
+          "itr": 42,
+          "update": 37,
+          "env_steps": 2960000,
+          "logged_env_steps": 3040000,
+          "reward": 4061.2484393592376,
+          "episodes": 80
+        },
+        {
+          "itr": 43,
+          "update": 38,
+          "env_steps": 3040000,
+          "logged_env_steps": 3120000,
+          "reward": 4079.415983185627,
+          "episodes": 80
+        },
+        {
+          "itr": 44,
+          "update": 39,
+          "env_steps": 3120000,
+          "logged_env_steps": 3200000,
+          "reward": 4052.325210127904,
+          "episodes": 80
+        },
+        {
+          "itr": 45,
+          "update": 40,
+          "env_steps": 3200000,
+          "logged_env_steps": 3280000,
+          "reward": 4134.580361059181,
+          "episodes": 80
+        },
+        {
+          "itr": 46,
+          "update": 41,
+          "env_steps": 3280000,
+          "logged_env_steps": 3360000,
+          "reward": 3945.0384631733264,
+          "episodes": 80
+        },
+        {
+          "itr": 47,
+          "update": 42,
+          "env_steps": 3360000,
+          "logged_env_steps": 3440000,
+          "reward": 4022.2854317705737,
+          "episodes": 80
+        },
+        {
+          "itr": 48,
+          "update": 43,
+          "env_steps": 3440000,
+          "logged_env_steps": 3520000,
+          "reward": 4036.6163410117792,
+          "episodes": 80
+        },
+        {
+          "itr": 49,
+          "update": 44,
+          "env_steps": 3520000,
+          "logged_env_steps": 3600000,
+          "reward": 3960.779760875045,
+          "episodes": 80
+        },
+        {
+          "itr": 51,
+          "update": 45,
+          "env_steps": 3600000,
+          "logged_env_steps": 3680000,
+          "reward": 4059.314049665295,
+          "episodes": 80
+        },
+        {
+          "itr": 52,
+          "update": 46,
+          "env_steps": 3680000,
+          "logged_env_steps": 3760000,
+          "reward": 4138.27616828402,
+          "episodes": 80
+        },
+        {
+          "itr": 53,
+          "update": 47,
+          "env_steps": 3760000,
+          "logged_env_steps": 3840000,
+          "reward": 4040.5121728186523,
+          "episodes": 80
+        },
+        {
+          "itr": 54,
+          "update": 48,
+          "env_steps": 3840000,
+          "logged_env_steps": 3920000,
+          "reward": 4113.649111711401,
+          "episodes": 80
+        },
+        {
+          "itr": 55,
+          "update": 49,
+          "env_steps": 3920000,
+          "logged_env_steps": 4000000,
+          "reward": 4171.699618235849,
+          "episodes": 80
+        },
+        {
+          "itr": 56,
+          "update": 50,
+          "env_steps": 4000000,
+          "logged_env_steps": 4080000,
+          "reward": 4139.000816476691,
+          "episodes": 80
+        },
+        {
+          "itr": 57,
+          "update": 51,
+          "env_steps": 4080000,
+          "logged_env_steps": 4160000,
+          "reward": 4130.029571241052,
+          "episodes": 80
+        },
+        {
+          "itr": 58,
+          "update": 52,
+          "env_steps": 4160000,
+          "logged_env_steps": 4240000,
+          "reward": 4135.808214875164,
+          "episodes": 80
+        },
+        {
+          "itr": 59,
+          "update": 53,
+          "env_steps": 4240000,
+          "logged_env_steps": 4320000,
+          "reward": 4112.977470680727,
+          "episodes": 80
+        },
+        {
+          "itr": 61,
+          "update": 54,
+          "env_steps": 4320000,
+          "logged_env_steps": 4400000,
+          "reward": 4116.814882823697,
+          "episodes": 80
+        },
+        {
+          "itr": 62,
+          "update": 55,
+          "env_steps": 4400000,
+          "logged_env_steps": 4480000,
+          "reward": 4083.7570305610534,
+          "episodes": 80
+        },
+        {
+          "itr": 63,
+          "update": 56,
+          "env_steps": 4480000,
+          "logged_env_steps": 4560000,
+          "reward": 4018.014886706997,
+          "episodes": 80
+        },
+        {
+          "itr": 64,
+          "update": 57,
+          "env_steps": 4560000,
+          "logged_env_steps": 4640000,
+          "reward": 4151.335680551903,
+          "episodes": 80
+        },
+        {
+          "itr": 65,
+          "update": 58,
+          "env_steps": 4640000,
+          "logged_env_steps": 4720000,
+          "reward": 4073.68049660879,
+          "episodes": 80
+        },
+        {
+          "itr": 66,
+          "update": 59,
+          "env_steps": 4720000,
+          "logged_env_steps": 4800000,
+          "reward": 4159.7975784572845,
+          "episodes": 80
+        },
+        {
+          "itr": 67,
+          "update": 60,
+          "env_steps": 4800000,
+          "logged_env_steps": 4880000,
+          "reward": 4160.761092807186,
+          "episodes": 80
+        },
+        {
+          "itr": 68,
+          "update": 61,
+          "env_steps": 4880000,
+          "logged_env_steps": 4960000,
+          "reward": 4206.468741864547,
+          "episodes": 80
+        },
+        {
+          "itr": 69,
+          "update": 62,
+          "env_steps": 4960000,
+          "logged_env_steps": 5040000,
+          "reward": 4178.887011135488,
+          "episodes": 80
+        },
+        {
+          "itr": 71,
+          "update": 63,
+          "env_steps": 5040000,
+          "logged_env_steps": 5120000,
+          "reward": 4175.6480693055955,
+          "episodes": 80
+        },
+        {
+          "itr": 72,
+          "update": 64,
+          "env_steps": 5120000,
+          "logged_env_steps": 5200000,
+          "reward": 4152.655369226291,
+          "episodes": 80
+        },
+        {
+          "itr": 73,
+          "update": 65,
+          "env_steps": 5200000,
+          "logged_env_steps": 5280000,
+          "reward": 4125.899019258123,
+          "episodes": 80
+        },
+        {
+          "itr": 74,
+          "update": 66,
+          "env_steps": 5280000,
+          "logged_env_steps": 5360000,
+          "reward": 4185.509082596361,
+          "episodes": 80
+        },
+        {
+          "itr": 75,
+          "update": 67,
+          "env_steps": 5360000,
+          "logged_env_steps": 5440000,
+          "reward": 4171.326707454354,
+          "episodes": 80
+        },
+        {
+          "itr": 76,
+          "update": 68,
+          "env_steps": 5440000,
+          "logged_env_steps": 5520000,
+          "reward": 4014.248970667587,
+          "episodes": 80
+        },
+        {
+          "itr": 77,
+          "update": 69,
+          "env_steps": 5520000,
+          "logged_env_steps": 5600000,
+          "reward": 4220.440815856659,
+          "episodes": 80
+        },
+        {
+          "itr": 78,
+          "update": 70,
+          "env_steps": 5600000,
+          "logged_env_steps": 5680000,
+          "reward": 4137.465908590658,
+          "episodes": 80
+        },
+        {
+          "itr": 79,
+          "update": 71,
+          "env_steps": 5680000,
+          "logged_env_steps": 5760000,
+          "reward": 4236.382827517164,
+          "episodes": 80
+        },
+        {
+          "itr": 81,
+          "update": 72,
+          "env_steps": 5760000,
+          "logged_env_steps": 5840000,
+          "reward": 4202.406976780861,
+          "episodes": 80
+        },
+        {
+          "itr": 82,
+          "update": 73,
+          "env_steps": 5840000,
+          "logged_env_steps": 5920000,
+          "reward": 4064.2556057463166,
+          "episodes": 80
+        },
+        {
+          "itr": 83,
+          "update": 74,
+          "env_steps": 5920000,
+          "logged_env_steps": 6000000,
+          "reward": 4172.415628086545,
+          "episodes": 80
+        },
+        {
+          "itr": 84,
+          "update": 75,
+          "env_steps": 6000000,
+          "logged_env_steps": 6080000,
+          "reward": 4172.886995958996,
+          "episodes": 80
+        },
+        {
+          "itr": 85,
+          "update": 76,
+          "env_steps": 6080000,
+          "logged_env_steps": 6160000,
+          "reward": 4170.199618737,
+          "episodes": 80
+        },
+        {
+          "itr": 86,
+          "update": 77,
+          "env_steps": 6160000,
+          "logged_env_steps": 6240000,
+          "reward": 4125.103731192497,
+          "episodes": 80
+        },
+        {
+          "itr": 87,
+          "update": 78,
+          "env_steps": 6240000,
+          "logged_env_steps": 6320000,
+          "reward": 4243.686405105228,
+          "episodes": 80
+        },
+        {
+          "itr": 88,
+          "update": 79,
+          "env_steps": 6320000,
+          "logged_env_steps": 6400000,
+          "reward": 4069.9167141550015,
+          "episodes": 80
+        },
+        {
+          "itr": 89,
+          "update": 80,
+          "env_steps": 6400000,
+          "logged_env_steps": 6480000,
+          "reward": 4169.556724267288,
+          "episodes": 80
+        },
+        {
+          "itr": 91,
+          "update": 81,
+          "env_steps": 6480000,
+          "logged_env_steps": 6560000,
+          "reward": 4179.836987059984,
+          "episodes": 80
+        },
+        {
+          "itr": 92,
+          "update": 82,
+          "env_steps": 6560000,
+          "logged_env_steps": 6640000,
+          "reward": 4075.789825638368,
+          "episodes": 80
+        },
+        {
+          "itr": 93,
+          "update": 83,
+          "env_steps": 6640000,
+          "logged_env_steps": 6720000,
+          "reward": 4223.398890769759,
+          "episodes": 80
+        },
+        {
+          "itr": 94,
+          "update": 84,
+          "env_steps": 6720000,
+          "logged_env_steps": 6800000,
+          "reward": 4177.184780151959,
+          "episodes": 80
+        },
+        {
+          "itr": 95,
+          "update": 85,
+          "env_steps": 6800000,
+          "logged_env_steps": 6880000,
+          "reward": 4209.049378956588,
+          "episodes": 80
+        },
+        {
+          "itr": 96,
+          "update": 86,
+          "env_steps": 6880000,
+          "logged_env_steps": 6960000,
+          "reward": 4231.749747564027,
+          "episodes": 80
+        },
+        {
+          "itr": 97,
+          "update": 87,
+          "env_steps": 6960000,
+          "logged_env_steps": 7040000,
+          "reward": 4218.4416880877425,
+          "episodes": 80
+        },
+        {
+          "itr": 98,
+          "update": 88,
+          "env_steps": 7040000,
+          "logged_env_steps": 7120000,
+          "reward": 4196.596354533848,
+          "episodes": 80
+        },
+        {
+          "itr": 99,
+          "update": 89,
+          "env_steps": 7120000,
+          "logged_env_steps": 7200000,
+          "reward": 4265.484517783216,
+          "episodes": 80
+        },
+        {
+          "itr": 101,
+          "update": 90,
+          "env_steps": 7200000,
+          "logged_env_steps": 7280000,
+          "reward": 4163.346271245877,
+          "episodes": 80
+        },
+        {
+          "itr": 102,
+          "update": 91,
+          "env_steps": 7280000,
+          "logged_env_steps": 7360000,
+          "reward": 4238.628971995194,
+          "episodes": 80
+        },
+        {
+          "itr": 103,
+          "update": 92,
+          "env_steps": 7360000,
+          "logged_env_steps": 7440000,
+          "reward": 4257.975775637575,
+          "episodes": 80
+        },
+        {
+          "itr": 104,
+          "update": 93,
+          "env_steps": 7440000,
+          "logged_env_steps": 7520000,
+          "reward": 4182.1464906782,
+          "episodes": 80
+        },
+        {
+          "itr": 105,
+          "update": 94,
+          "env_steps": 7520000,
+          "logged_env_steps": 7600000,
+          "reward": 4090.533049080865,
+          "episodes": 80
+        },
+        {
+          "itr": 106,
+          "update": 95,
+          "env_steps": 7600000,
+          "logged_env_steps": 7680000,
+          "reward": 4197.962229139241,
+          "episodes": 80
+        },
+        {
+          "itr": 107,
+          "update": 96,
+          "env_steps": 7680000,
+          "logged_env_steps": 7760000,
+          "reward": 4154.951848296486,
+          "episodes": 80
+        },
+        {
+          "itr": 108,
+          "update": 97,
+          "env_steps": 7760000,
+          "logged_env_steps": 7840000,
+          "reward": 4169.018279764211,
+          "episodes": 80
+        },
+        {
+          "itr": 109,
+          "update": 98,
+          "env_steps": 7840000,
+          "logged_env_steps": 7920000,
+          "reward": 4235.6478614265725,
+          "episodes": 80
+        },
+        {
+          "itr": 111,
+          "update": 99,
+          "env_steps": 7920000,
+          "logged_env_steps": 8000000,
+          "reward": 4248.620906721632,
+          "episodes": 80
+        },
+        {
+          "itr": 112,
+          "update": 100,
+          "env_steps": 8000000,
+          "logged_env_steps": 8080000,
+          "reward": 4233.088171347963,
+          "episodes": 80
+        },
+        {
+          "itr": 113,
+          "update": 101,
+          "env_steps": 8080000,
+          "logged_env_steps": 8160000,
+          "reward": 4114.069960745505,
+          "episodes": 80
+        },
+        {
+          "itr": 114,
+          "update": 102,
+          "env_steps": 8160000,
+          "logged_env_steps": 8240000,
+          "reward": 4182.174139863188,
+          "episodes": 80
+        },
+        {
+          "itr": 115,
+          "update": 103,
+          "env_steps": 8240000,
+          "logged_env_steps": 8320000,
+          "reward": 4176.9867269408805,
+          "episodes": 80
+        },
+        {
+          "itr": 116,
+          "update": 104,
+          "env_steps": 8320000,
+          "logged_env_steps": 8400000,
+          "reward": 4170.469827601169,
+          "episodes": 80
+        },
+        {
+          "itr": 117,
+          "update": 105,
+          "env_steps": 8400000,
+          "logged_env_steps": 8480000,
+          "reward": 4177.523147966109,
+          "episodes": 80
+        },
+        {
+          "itr": 118,
+          "update": 106,
+          "env_steps": 8480000,
+          "logged_env_steps": 8560000,
+          "reward": 4262.853655251148,
+          "episodes": 80
+        },
+        {
+          "itr": 119,
+          "update": 107,
+          "env_steps": 8560000,
+          "logged_env_steps": 8640000,
+          "reward": 4093.887359416893,
+          "episodes": 80
+        },
+        {
+          "itr": 121,
+          "update": 108,
+          "env_steps": 8640000,
+          "logged_env_steps": 8720000,
+          "reward": 4218.62985973889,
+          "episodes": 80
+        },
+        {
+          "itr": 122,
+          "update": 109,
+          "env_steps": 8720000,
+          "logged_env_steps": 8800000,
+          "reward": 4228.421885324998,
+          "episodes": 80
+        },
+        {
+          "itr": 123,
+          "update": 110,
+          "env_steps": 8800000,
+          "logged_env_steps": 8880000,
+          "reward": 4294.1223204019625,
+          "episodes": 80
+        },
+        {
+          "itr": 124,
+          "update": 111,
+          "env_steps": 8880000,
+          "logged_env_steps": 8960000,
+          "reward": 4173.079401675345,
+          "episodes": 80
+        },
+        {
+          "itr": 125,
+          "update": 112,
+          "env_steps": 8960000,
+          "logged_env_steps": 9040000,
+          "reward": 4231.467733632629,
+          "episodes": 80
+        },
+        {
+          "itr": 126,
+          "update": 113,
+          "env_steps": 9040000,
+          "logged_env_steps": 9120000,
+          "reward": 4190.037701930577,
+          "episodes": 80
+        },
+        {
+          "itr": 127,
+          "update": 114,
+          "env_steps": 9120000,
+          "logged_env_steps": 9200000,
+          "reward": 4179.630229404513,
+          "episodes": 80
+        },
+        {
+          "itr": 128,
+          "update": 115,
+          "env_steps": 9200000,
+          "logged_env_steps": 9280000,
+          "reward": 4240.801952938838,
+          "episodes": 80
+        },
+        {
+          "itr": 129,
+          "update": 116,
+          "env_steps": 9280000,
+          "logged_env_steps": 9360000,
+          "reward": 4253.791428593994,
+          "episodes": 80
+        },
+        {
+          "itr": 131,
+          "update": 117,
+          "env_steps": 9360000,
+          "logged_env_steps": 9440000,
+          "reward": 4272.782058315585,
+          "episodes": 80
+        },
+        {
+          "itr": 132,
+          "update": 118,
+          "env_steps": 9440000,
+          "logged_env_steps": 9520000,
+          "reward": 4256.573444754332,
+          "episodes": 80
+        },
+        {
+          "itr": 133,
+          "update": 119,
+          "env_steps": 9520000,
+          "logged_env_steps": 9600000,
+          "reward": 4241.386814751958,
+          "episodes": 80
+        },
+        {
+          "itr": 134,
+          "update": 120,
+          "env_steps": 9600000,
+          "logged_env_steps": 9680000,
+          "reward": 4185.970102005989,
+          "episodes": 80
+        },
+        {
+          "itr": 135,
+          "update": 121,
+          "env_steps": 9680000,
+          "logged_env_steps": 9760000,
+          "reward": 4198.1503729778715,
+          "episodes": 80
+        },
+        {
+          "itr": 136,
+          "update": 122,
+          "env_steps": 9760000,
+          "logged_env_steps": 9840000,
+          "reward": 4215.959482797963,
+          "episodes": 80
+        },
+        {
+          "itr": 137,
+          "update": 123,
+          "env_steps": 9840000,
+          "logged_env_steps": 9920000,
+          "reward": 4203.559063671955,
+          "episodes": 80
+        },
+        {
+          "itr": 138,
+          "update": 124,
+          "env_steps": 9920000,
+          "logged_env_steps": 10000000,
+          "reward": 4156.141970585321,
+          "episodes": 80
+        },
+        {
+          "itr": 139,
+          "update": 125,
+          "env_steps": 10000000,
+          "logged_env_steps": 10080000,
+          "reward": 4194.993359230709,
+          "episodes": 80
+        }
+      ]
+    }
+  },
+  "initial_standard_errors": {
+    "DPPO": {
+      "eval": null,
+      "train": null
+    },
+    "without_PPO": {
+      "eval": null,
+      "train": null
+    },
+    "without_PPO_and_GAE": {
+      "eval": null,
+      "train": null
+    }
+  },
+  "standard_error_status": "unavailable: original episode dispersion was not saved",
+  "final_eval_checks": {
+    "DPPO": {
+      "status": "complete",
+      "iterations_saved": 140,
+      "last_iteration": 139,
+      "final_eval": 4636.273298273394,
+      "final_eval_log_rounded": 4636.2733,
+      "final_eval_matches_log": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl",
+      "log_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/run.log",
+      "config_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/.hydra/config.yaml"
+    },
+    "without_PPO": {
+      "status": "complete",
+      "iterations_saved": 140,
+      "last_iteration": 139,
+      "final_eval": 4624.0873515240455,
+      "final_eval_log_rounded": 4624.0874,
+      "final_eval_matches_log": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl",
+      "log_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/run.log",
+      "config_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/.hydra/config.yaml"
+    },
+    "without_PPO_and_GAE": {
+      "status": "complete",
+      "iterations_saved": 140,
+      "last_iteration": 139,
+      "final_eval": 4490.688112242096,
+      "final_eval_log_rounded": 4490.6881,
+      "final_eval_matches_log": true,
+      "result_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+      "log_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/run.log",
+      "config_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/.hydra/config.yaml"
+    }
+  },
+  "parent_revision": "b621a3a8fca93b7bf19be5713b2e8ee4a52ad620",
+  "render_source_snapshot": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/plot_clean.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/clean_v5_stats.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/clean_v5_rewards.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/clean_v3_stats.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/clean_v3_rewards.py"
+  ],
+  "gradient_work_modified": false,
+  "sampling_performed": false,
+  "curated": false,
+  "after_finalizer": null
+}

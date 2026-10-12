@@ -66,9 +66,9 @@
 
 ### DPPO, without_PPO and without_PPO_and_GAE: seed-0 rewards
 
-- Analysis folder: [Verified reward comparison](./results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/)
-- Analysis design: [Reward comparison methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
-- Curated results: [Evaluation and training plots](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-three-method-reward-curves)
+- Analysis folder: [Verified reward comparison](./results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/)
+- Analysis design: [Reward comparison methods](./results/stage3/gradmean/methods.md#clean-figures-version-5), [individual starting values](./results/stage3/gradmean/runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/REWARD_NOTE.md)
+- Curated results: [Evaluation and training plots with individual starting values](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-individual-starting-values); [earlier pooled-start plots](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-three-method-reward-curves)
 
 ### DPPO and without_PPO: returns and gradient noise
 

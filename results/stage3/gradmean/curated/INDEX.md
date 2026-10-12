@@ -1,5 +1,20 @@
 # Curated results
 
+## Clean figures v5: individual starting values
+
+How do evaluation and training rewards compare for DPPO, without_PPO and without_PPO_and_GAE when each curve starts from its own run's value?
+
+User-approved selection: both revised reward figures ("keep in curated"), with PNG, PDF and original captions under `clean-v5-own-starts/`.
+
+| Artifact | Files |
+|---|---|
+| Evaluation reward | [PNG](clean-v5-own-starts/eval_reward.png), [PDF](clean-v5-own-starts/eval_reward.pdf), [caption](clean-v5-own-starts/eval_reward.caption.md) |
+| Training reward | [PNG](clean-v5-own-starts/train_reward.png), [PDF](clean-v5-own-starts/train_reward.pdf), [caption](clean-v5-own-starts/train_reward.caption.md) |
+
+Each curve is seed 0, with 80 episodes per point and training environment steps in millions. Each starts at its own recorded mean; there is no pooling, smoothing or seed band. Original episode spreads were not saved, so starting-point standard errors are unavailable. All 420 curve values and the final evaluations at 9.36M steps match native results and logs. Earlier curated versions remain below; no gradient-noise artifact is included in this selection.
+
+[Original candidates](../runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/) · [Starting values and limitations](../runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/REWARD_NOTE.md) · [Render inputs](../runs/clean_v5_reward_origins_20261012T180336.159971Z/candidates/reward_render_record.json) · [Plot source snapshot](../runs/clean_v5_reward_origins_20261012T180336.159971Z/plot_clean.py) · [Methods](../methods.md#clean-figures-version-5) · [Curation record](../runs/curation_reward_own_starts_20261012T182702Z/manifest.json).
+
 ## Clean figures v5: three-method reward curves
 
 How do evaluation and training rewards compare for DPPO, without_PPO and without_PPO_and_GAE on seed 0?

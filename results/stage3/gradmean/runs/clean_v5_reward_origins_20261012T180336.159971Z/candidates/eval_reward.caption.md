@@ -1,0 +1,1 @@
+One seed per method (seed 0), 80 episodes per point. Evaluation keeps the DDPM's noise at every denoising step except the last. All three runs start from the same pretrained policy; their values at x = 0 differ only by evaluation noise.

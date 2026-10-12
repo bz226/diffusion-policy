@@ -1,0 +1,1 @@
+One seed per method (seed 0), 80 episodes per point. Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns. Values at x = 0 differ only by sampling noise.
