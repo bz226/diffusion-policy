@@ -62,7 +62,25 @@
 - Analysis design: [Gradient-mean methods](./results/stage3/gradmean/methods.md)
 - Curated: —
 
+### Stage 3 exact-critic gradient measurements along without_PPO_and_GAE
+
+- Experiment folder: [Exact-critic measurements](./results/stage3/gradmean/runs/clean_v5_20261012/)
+- Experiment design: [Version 5 methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
+- Curated results: [Gradient figures, estimates and limitations](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise)
+
 ## Comparison analyses
+
+### DPPO, without_PPO and without_PPO_and_GAE: rewards and exact-critic gradient noise
+
+- Analysis folder: [Verified clean figures](./results/stage3/gradmean/figs_clean/)
+- Analysis design: [Version 5 methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
+- Curated results: [Gradient figures and estimates](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise); [single-seed rewards](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-individual-starting-values); [three-seed rewards](./results/stage3/gradmean/curated/INDEX.md#three-seed-reward-comparison)
+
+### DPPO, without_PPO and without_PPO_and_GAE: three-seed rewards
+
+- Analysis folder: [Verified three-seed reward comparison](./results/stage3/gradmean/runs/clean_rewards_3seed_20261012T193300.153408Z/candidates/REWARD_3SEED_NOTE.md)
+- Analysis design: [Seed aggregation, uncertainty and source runs](./results/stage3/gradmean/curated/clean-v5-3seed/reward-three-seed-note.md)
+- Curated results: [Three-seed evaluation and training plots with statistics](./results/stage3/gradmean/curated/INDEX.md#three-seed-reward-comparison)
 
 ### DPPO, without_PPO and without_PPO_and_GAE: seed-0 rewards
 

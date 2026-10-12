@@ -1,0 +1,65 @@
+{
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "python38_compile": "passed",
+  "unchanged_existing_functions": [
+    "finite",
+    "fmt",
+    "json_safe",
+    "metric_cell",
+    "add_metric",
+    "style_axes",
+    "save_figure",
+    "plot_rewards",
+    "write_reward_note",
+    "render_rewards_only",
+    "error_point",
+    "plot_noise",
+    "build_table",
+    "write_tables",
+    "write_note",
+    "publish"
+  ],
+  "main_change": "three-seed dispatch only",
+  "single_seed_outputs_byte_identical": true,
+  "before_record": "results/stage3/gradmean/runs/rewards_3seed_20261012T192833Z/single_seed_before.json",
+  "plot_review": "two PNGs visually inspected: three method means and SD bands, required colors and labels, no extra axes or annotations",
+  "images": {
+    "eval_reward_3seed.png": {
+      "pixels": [
+        1410,
+        960
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    },
+    "train_reward_3seed.png": {
+      "pixels": [
+        1410,
+        960
+      ],
+      "dpi": [
+        299.9994,
+        299.9994
+      ]
+    }
+  },
+  "new_scope": "two reward figures, captions, statistics note and provenance only",
+  "gradient_work_modified": false,
+  "sampling_performed": false,
+  "independent_audit": "passed: all 1260 raw rewards, sample SD bands, pairwise unpaired standard errors, plot structure and single-seed hashes",
+  "published_files": [
+    "results/stage3/gradmean/figs_clean/REWARD_3SEED_NOTE.md",
+    "results/stage3/gradmean/figs_clean/eval_reward_3seed.caption.md",
+    "results/stage3/gradmean/figs_clean/eval_reward_3seed.pdf",
+    "results/stage3/gradmean/figs_clean/eval_reward_3seed.png",
+    "results/stage3/gradmean/figs_clean/reward_3seed_record.json",
+    "results/stage3/gradmean/figs_clean/train_reward_3seed.caption.md",
+    "results/stage3/gradmean/figs_clean/train_reward_3seed.pdf",
+    "results/stage3/gradmean/figs_clean/train_reward_3seed.png"
+  ],
+  "publication_byte_match": true,
+  "single_seed_after_publication_unchanged": true,
+  "curated": false
+}

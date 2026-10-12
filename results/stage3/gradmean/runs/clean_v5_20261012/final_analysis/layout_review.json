@@ -1,0 +1,38 @@
+{
+  "status": "passed",
+  "scope": "layout and uncertainty explanation only",
+  "source_statistics": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_gradient_final_20261012T201214.011889Z/candidates/render_record.json",
+  "candidates": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/layout_candidates",
+  "numeric_analysis_recomputed": false,
+  "reward_code_changed": false,
+  "gradient_plot_code_changed": false,
+  "checks": [
+    {
+      "figure": "gradient_noise_as_run",
+      "adjacent_axis_text_boxes_disjoint": true,
+      "all_plotted_values_unchanged": true,
+      "unresolved_signal_updates": [
+        "32",
+        "95",
+        "126"
+      ],
+      "png_dpi": 300
+    },
+    {
+      "figure": "gradient_noise_paper_form",
+      "adjacent_axis_text_boxes_disjoint": true,
+      "all_plotted_values_unchanged": true,
+      "unresolved_signal_updates": [
+        "0",
+        "95",
+        "126"
+      ],
+      "png_dpi": 300
+    }
+  ],
+  "published_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean",
+  "original_layout_archive": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/before_gradient_layout_20261012T201451Z",
+  "visual_review": "both figures inspected; no axis-text overlap",
+  "protected_files_byte_identical": 95,
+  "note_summary_added": true
+}

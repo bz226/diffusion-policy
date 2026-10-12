@@ -1,0 +1,1 @@
+Mean over 3 seeds; band: ±1 sd across seeds; 80 episodes per point per seed. Evaluation keeps the DDPM's noise at every denoising step except the last. All runs start from the same pretrained policy; values at x = 0 differ only by evaluation noise.

@@ -1,0 +1,26 @@
+{
+  "passed": true,
+  "checks": [
+    "all new wrapper and analysis snapshot sources compile on Python3.8",
+    "allowlisted gradient publication preserves and archives expected targets",
+    "unexpected reward candidate rejected before publication",
+    "curated byte changes detected",
+    "independent raw-moment numeric checker functions unchanged",
+    "gradient rendering and table functions unchanged",
+    "all numerical analysis source snapshots byte-identical to validated pinned files"
+  ],
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scientific_sampling": false,
+  "publication_targets": [
+    "gradient_noise_as_run.png",
+    "gradient_noise_as_run.pdf",
+    "gradient_noise_as_run.caption.md",
+    "gradient_noise_paper_form.png",
+    "gradient_noise_paper_form.pdf",
+    "gradient_noise_paper_form.caption.md",
+    "points_table.csv",
+    "points_table.md",
+    "NOTE.md",
+    "render_record.json"
+  ]
+}

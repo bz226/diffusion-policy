@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "version": 5,
+  "complete": true,
+  "points": [
+    "W0_000",
+    "W0_035",
+    "W0_070",
+    "W0_105",
+    "W0_139"
+  ],
+  "numeric_checks": {
+    "W0_000": {
+      "groups": 10,
+      "K": 500,
+      "own_V2_and_V6_signals_verified": true
+    },
+    "W0_035": {
+      "groups": 10,
+      "K": 500,
+      "own_V2_and_V6_signals_verified": true
+    },
+    "W0_070": {
+      "groups": 10,
+      "K": 500,
+      "own_V2_and_V6_signals_verified": true
+    },
+    "W0_105": {
+      "groups": 10,
+      "K": 500,
+      "own_V2_and_V6_signals_verified": true
+    },
+    "W0_139": {
+      "groups": 10,
+      "K": 500,
+      "own_V2_and_V6_signals_verified": true
+    }
+  },
+  "figures_checked": [
+    "gradient_noise_as_run",
+    "gradient_noise_paper_form"
+  ],
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_gradient_final_20261012T201214.011889Z/candidates",
+  "sampling_performed": false,
+  "figures_written": false
+}

@@ -1,0 +1,28 @@
+{
+  "purpose": "CPU gradient-only recovery finalizer; preserve all existing reward and curated artifacts",
+  "pinned_numerical_analysis": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/finalize_source_snapshot",
+  "current_renderer_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/plot_clean.py",
+  "snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/recovery_controller_17826164/code/analysis_snapshot",
+  "unchanged_gradient_functions": [
+    "error_point",
+    "plot_noise",
+    "build_table",
+    "write_tables",
+    "metric_cell",
+    "add_metric",
+    "style_axes",
+    "save_figure"
+  ],
+  "copied_files": [
+    "analysis_core.py",
+    "analysis_v6.py",
+    "check_clean_v5_outputs.py",
+    "clean_v3_rewards.py",
+    "clean_v3_stats.py",
+    "clean_v5_rewards.py",
+    "clean_v5_stats.py",
+    "gradmean_math.py",
+    "plot_clean.py"
+  ],
+  "scientific_source_modified": false
+}

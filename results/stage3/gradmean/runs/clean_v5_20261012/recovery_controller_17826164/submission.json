@@ -1,0 +1,38 @@
+{
+  "utc": "2026-10-12T19:58:59.698753+00:00",
+  "status": "submitted",
+  "controller_job_id": "17828455",
+  "approval": "User approved resuming the two unlaunched collection jobs and final analysis under the existing budget",
+  "remaining_run_ids": [
+    "W0_139_j08",
+    "W0_139_j09"
+  ],
+  "seeds": [
+    210800,
+    210900
+  ],
+  "max_parallel": 2,
+  "per_job_gpu": 1,
+  "per_job_gpu_type": "RTX A6000",
+  "per_job_cpu_cores": 40,
+  "per_job_cap_minutes": 30,
+  "controller_cap_minutes": 60,
+  "original_deadline_utc": "2026-10-12T21:03:08.135993+00:00",
+  "aggregate_cap_gpu_hours": 125,
+  "estimated_collection_minutes_after_allocation": [
+    12,
+    15
+  ],
+  "estimate_basis": "48 completed groups: median 726 seconds, mean 740.08 seconds",
+  "monitor_interval_seconds": 1800,
+  "monitor_implementation": "recovered controller q.record monitoring, status polled every 15s; monitor record every30min and completion/failure",
+  "scientific_config_changed": false,
+  "scientific_jobs_restarted": false,
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/final-two-controller-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/recovery_controller_17826164/code/run_recovery.sh"
+  ]
+}

@@ -1,12 +1,15 @@
 {
   "version": 5,
-  "status": "interim",
-  "utc": "2026-10-12T16:47:07.211256+00:00",
+  "status": "complete",
+  "run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_gradient_final_20261012T201214.011889Z",
+  "utc": "2026-10-12T20:12:19.075135+00:00",
   "command": [
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/plot_clean.py",
-    "--candidates-only"
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/source/render_gradients_only.py",
+    "--root",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean",
+    "--snapshot",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/source"
   ],
-  "run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z",
   "rewards": {
     "version": 5,
     "methods": [
@@ -4321,38 +4324,3564 @@
     "scientific_sampling_performed": false
   },
   "statistics": {
-    "points": {},
-    "availability": {
+    "points": {
       "W0_000": {
-        "complete_groups": 0,
-        "complete_batches": 0,
-        "status": "pending"
+        "K": 500,
+        "m": 40000,
+        "groups": 10,
+        "estimators": {
+          "V2": {
+            "u_sq": {
+              "value": 3.312896252069184e-08,
+              "lo": 1.989089977112225e-08,
+              "hi": 4.636702527026143e-08,
+              "se": 7.221629673631745e-09,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 0.00018201363278801903,
+              "lo": 0.00014593525590190725,
+              "hi": 0.0002180920096741308,
+              "se": 1.9681480744279265e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": true
+            },
+            "trace_ep": {
+              "value": 0.004495813901121805,
+              "lo": 0.004467422136878016,
+              "hi": 0.004524205665365594,
+              "se": 1.5488278838712267e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": 135706.45015864258,
+              "lo": 83146.94077681808,
+              "hi": 188265.95954046707,
+              "se": 28672.27023800372,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "B_update": {
+              "value": 1696.3306269830323,
+              "lo": 1039.336759710226,
+              "hi": 2353.3244942558385,
+              "se": 358.4033779750465,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "signal_estimator": "V2",
+            "gradient_multiplier": 1.0,
+            "gradient_units": "V2 code units with selected advantage normalization"
+          },
+          "V6": {
+            "u_sq": {
+              "value": 17703667.548206776,
+              "lo": -5690247.790533068,
+              "hi": 41097582.886946626,
+              "se": 12761851.668830117,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 4207.57264324774,
+              "lo": 1557.3030458679855,
+              "hi": 6857.842240627497,
+              "se": 1445.775407597609,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 6471022095794.309,
+              "lo": 6439746404263.509,
+              "hi": 6502297787325.107,
+              "se": 17061519218.853611,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 157455.05310117954,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 365518.7309733324
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 1968.1881637647443,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 4568.984137166655
+            },
+            "signal_estimator": "V6",
+            "gradient_multiplier": 2500.0,
+            "gradient_units": "paper units"
+          }
+        },
+        "cos_V2_V6": {
+          "value": 0.7830281578327666,
+          "lo": 0.2787497533948252,
+          "hi": 1.2873065622707078,
+          "se": 0.2750940192800575,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "same_batch_pairs_excluded": true,
+          "clipped": false
+        },
+        "explained_var": {
+          "value": -0.0006069226595955018,
+          "lo": -0.0006121945403921365,
+          "hi": -0.0006016507787988671,
+          "se": 2.875917082207829e-06,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "mean of collection batches' explained_variance, jackknifed over whole50-batch groups"
+        },
+        "J_disc": {
+          "value": 1389.8275412801102,
+          "lo": 1388.1513385958774,
+          "hi": 1391.503743964343,
+          "se": 0.9144023013390234,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "return": {
+          "value": 3906.858081217701,
+          "lo": 3902.480458211136,
+          "hi": 3911.235704224266,
+          "se": 2.3880814589136263,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "predicted_consecutive_cos": {
+          "value": 0.0005891604052284603,
+          "lo": 0.0003552008136997923,
+          "hi": 0.0008231199967571283,
+          "se": 0.00012762966610572413,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "1 / (1 + B_V2 / 80)",
+          "estimator": "V2",
+          "bound_is_joint_confidence_limit": false
+        },
+        "point": "W0_000",
+        "collector_point": "P0",
+        "selected_jobs": [
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 2,
+            "run_id": "W0_000_j02",
+            "job_id": "17825897",
+            "seed": 170200,
+            "started_utc": "2026-10-12T17:07:03.709454+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j02/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 0,
+            "run_id": "W0_000_j00",
+            "job_id": "17825895",
+            "seed": 170000,
+            "started_utc": "2026-10-12T17:07:03.710104+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j00/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 3,
+            "run_id": "W0_000_j03",
+            "job_id": "17825898",
+            "seed": 170300,
+            "started_utc": "2026-10-12T17:07:03.711681+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j03/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 1,
+            "run_id": "W0_000_j01",
+            "job_id": "17825896",
+            "seed": 170100,
+            "started_utc": "2026-10-12T17:07:03.713604+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j01/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 4,
+            "run_id": "W0_000_j04",
+            "job_id": "17825899",
+            "seed": 170400,
+            "started_utc": "2026-10-12T17:07:04.313912+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j04/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 7,
+            "run_id": "W0_000_j07",
+            "job_id": "17826172",
+            "seed": 170700,
+            "started_utc": "2026-10-12T17:24:03.938066+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j07",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j07/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 8,
+            "run_id": "W0_000_j08",
+            "job_id": "17826173",
+            "seed": 170800,
+            "started_utc": "2026-10-12T17:24:03.939915+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j08",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j08/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 5,
+            "run_id": "W0_000_j05",
+            "job_id": "17826170",
+            "seed": 170500,
+            "started_utc": "2026-10-12T17:24:03.940088+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j05",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j05/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 6,
+            "run_id": "W0_000_j06",
+            "job_id": "17826171",
+            "seed": 170600,
+            "started_utc": "2026-10-12T17:24:03.940334+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j06",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j06/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_000",
+            "collector_point": "P0",
+            "group": 9,
+            "run_id": "W0_000_j09",
+            "job_id": "17826174",
+            "seed": 170900,
+            "started_utc": "2026-10-12T17:24:04.389489+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j09",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j09/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "normalization": "full"
+          }
+        ],
+        "checkpoint_itr": 0,
+        "update_number": 0,
+        "training_env_steps": 0,
+        "checkpoint_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "logged_consecutive_cos": {
+          "n": 10,
+          "mean": -0.001759413675048973,
+          "sample_sd": 0.06594894087684275,
+          "sample_se": 0.020854886244660507,
+          "requested_window": [
+            -10,
+            10
+          ],
+          "observed_window": [
+            0,
+            10
+          ],
+          "iteration_span": [
+            1,
+            12
+          ],
+          "training_rows": 11,
+          "selected_rows": [
+            {
+              "itr": 1,
+              "update_before_rollout": 0,
+              "grad_cos_prev": null,
+              "missing_reason": "first_training_iteration"
+            },
+            {
+              "itr": 2,
+              "update_before_rollout": 1,
+              "grad_cos_prev": -0.03329156033166726,
+              "missing_reason": null
+            },
+            {
+              "itr": 3,
+              "update_before_rollout": 2,
+              "grad_cos_prev": -0.07728212035938643,
+              "missing_reason": null
+            },
+            {
+              "itr": 4,
+              "update_before_rollout": 3,
+              "grad_cos_prev": -0.03567640471087389,
+              "missing_reason": null
+            },
+            {
+              "itr": 5,
+              "update_before_rollout": 4,
+              "grad_cos_prev": 0.049205674151014095,
+              "missing_reason": null
+            },
+            {
+              "itr": 6,
+              "update_before_rollout": 5,
+              "grad_cos_prev": -0.050101378010458344,
+              "missing_reason": null
+            },
+            {
+              "itr": 7,
+              "update_before_rollout": 6,
+              "grad_cos_prev": 0.017511138469723023,
+              "missing_reason": null
+            },
+            {
+              "itr": 8,
+              "update_before_rollout": 7,
+              "grad_cos_prev": 0.13713338981655046,
+              "missing_reason": null
+            },
+            {
+              "itr": 9,
+              "update_before_rollout": 8,
+              "grad_cos_prev": 0.03866271106610272,
+              "missing_reason": null
+            },
+            {
+              "itr": 11,
+              "update_before_rollout": 9,
+              "grad_cos_prev": -0.07218855467703193,
+              "missing_reason": null
+            },
+            {
+              "itr": 12,
+              "update_before_rollout": 10,
+              "grad_cos_prev": 0.00843296783553783,
+              "missing_reason": null
+            }
+          ],
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "grad_cos_prev",
+          "window_rule": "inclusive +/-10 actor updates, centered on pre-rollout policy",
+          "uncertainty_note": "Sample sd/sqrt(n) is descriptive; adjacent training gradients may be dependent.",
+          "value": -0.001759413675048973,
+          "se": 0.020854886244660507,
+          "lo": null,
+          "hi": null,
+          "status": "logged_window_mean"
+        },
+        "logged_explained_var": {
+          "value": -0.19543111324310303,
+          "itr": 1,
+          "update_before_rollout": 0,
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "explained_var",
+          "status": "exact_checkpoint_critic_on_next_batch",
+          "definition": "1 - Var(GAE target - pre-update critic value) / Var(GAE target), using scaled-reward DPPO targets; not raw-MC explained variance.",
+          "lo": null,
+          "hi": null,
+          "se": null
+        },
+        "divisor_source": {
+          "effective_divisor": 1.000000005,
+          "source": "provided",
+          "fallback_batches": 0,
+          "prepare_metadata": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_000/grad_mean.json",
+          "original_log_source": {
+            "file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+            "key": "baseline_divisor",
+            "itr": 1,
+            "value": 1.000000005
+          }
+        },
+        "divisor": {
+          "value": 1.000000005,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "fixed_provided",
+          "reason": "Exact logged divisor; no sampling interval.",
+          "conditional_measurement_note": "Gradient-measurement intervals condition on this frozen scale; scale-fit uncertainty is not propagated."
+        },
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
       },
       "W0_035": {
-        "complete_groups": 0,
-        "complete_batches": 0,
-        "status": "pending"
+        "K": 500,
+        "m": 40000,
+        "groups": 10,
+        "estimators": {
+          "V2": {
+            "u_sq": {
+              "value": 2.2124848208489648e-08,
+              "lo": -2.488429682035918e-08,
+              "hi": 6.913399323733848e-08,
+              "se": 2.564443477074699e-08,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 0.00014874423756397977,
+              "lo": 9.321995469273921e-06,
+              "hi": 0.0002881664796586856,
+              "se": 7.605763922732067e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 0.004340466073433576,
+              "lo": 0.004313861246838779,
+              "hi": 0.004367070900028374,
+              "se": 1.4513468385324146e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 62783.3844131159,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 196180.60347948837
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 784.7923051639488,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 2452.2575434936048
+            },
+            "signal_estimator": "V2",
+            "gradient_multiplier": 1.0,
+            "gradient_units": "V2 code units with selected advantage normalization"
+          },
+          "V6": {
+            "u_sq": {
+              "value": 2820813.0581626864,
+              "lo": 208457.3869277219,
+              "hi": 5433168.729397651,
+              "se": 1425092.5977884466,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 1679.5276294728487,
+              "lo": 939.0768006394406,
+              "hi": 2419.9784583062565,
+              "se": 403.9308302525168,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": true
+            },
+            "trace_ep": {
+              "value": 390466678369.09985,
+              "lo": 385912149236.8181,
+              "hi": 395021207501.3816,
+              "se": 2484587311.098491,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": 138423.45108237237,
+              "lo": 30287.670059735407,
+              "hi": 246559.23210500932,
+              "se": 58990.24500694481,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "B_update": {
+              "value": 1730.2931385296547,
+              "lo": 378.5958757466926,
+              "hi": 3081.9904013126165,
+              "se": 737.3780625868102,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "signal_estimator": "V6",
+            "gradient_multiplier": 2500.0,
+            "gradient_units": "paper units"
+          }
+        },
+        "cos_V2_V6": {
+          "value": 1.0125754838468037,
+          "lo": 0.8542927304060003,
+          "hi": 1.1708582372876073,
+          "se": 0.08634642777391335,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "same_batch_pairs_excluded": true,
+          "clipped": false
+        },
+        "explained_var": {
+          "value": 0.3720596115547862,
+          "lo": 0.3576182370366987,
+          "hi": 0.38650098607287364,
+          "se": 0.00787806046252807,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "mean of collection batches' explained_variance, jackknifed over whole50-batch groups"
+        },
+        "J_disc": {
+          "value": 1435.9427304674075,
+          "lo": 1434.2910775061416,
+          "hi": 1437.5943834286734,
+          "se": 0.9010099333460228,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "return": {
+          "value": 4063.814770909882,
+          "lo": 4057.446553615068,
+          "hi": 4070.1829882046964,
+          "se": 3.473990708033297,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "predicted_consecutive_cos": {
+          "value": null,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "upper_bound",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": "own signal unresolved; transform of plug-in lower bound on B",
+          "definition": "1 / (1 + B_V2 / 80)",
+          "estimator": "V2",
+          "bound_is_joint_confidence_limit": false,
+          "raw_value": 0.0004076212881326485,
+          "upper_bound": 0.0012726009066624275
+        },
+        "point": "W0_035",
+        "collector_point": "D1",
+        "selected_jobs": [
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 0,
+            "run_id": "W0_035_j00",
+            "job_id": "17826379",
+            "seed": 180000,
+            "started_utc": "2026-10-12T17:37:02.785991+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j00",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j00/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 1,
+            "run_id": "W0_035_j01",
+            "job_id": "17826382",
+            "seed": 180100,
+            "started_utc": "2026-10-12T17:37:02.786049+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j01/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 2,
+            "run_id": "W0_035_j02",
+            "job_id": "17826385",
+            "seed": 180200,
+            "started_utc": "2026-10-12T17:37:02.973382+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j02",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j02/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 3,
+            "run_id": "W0_035_j03",
+            "job_id": "17826386",
+            "seed": 180300,
+            "started_utc": "2026-10-12T17:37:04.332103+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j03",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j03/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 4,
+            "run_id": "W0_035_j04",
+            "job_id": "17826392",
+            "seed": 180400,
+            "started_utc": "2026-10-12T17:38:03.793898+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j04",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j04/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 6,
+            "run_id": "W0_035_j06",
+            "job_id": "17826558",
+            "seed": 180600,
+            "started_utc": "2026-10-12T17:49:21.823380+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j06",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j06/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 5,
+            "run_id": "W0_035_j05",
+            "job_id": "17826556",
+            "seed": 180500,
+            "started_utc": "2026-10-12T17:49:21.830523+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j05",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j05/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 7,
+            "run_id": "W0_035_j07",
+            "job_id": "17826559",
+            "seed": 180700,
+            "started_utc": "2026-10-12T17:49:22.030846+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j07",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j07/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 8,
+            "run_id": "W0_035_j08",
+            "job_id": "17826572",
+            "seed": 180800,
+            "started_utc": "2026-10-12T17:50:22.817103+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j08",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j08/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_035",
+            "collector_point": "D1",
+            "group": 9,
+            "run_id": "W0_035_j09",
+            "job_id": "17826615",
+            "seed": 180900,
+            "started_utc": "2026-10-12T17:52:21.166956+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j09",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j09/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+            "normalization": "full"
+          }
+        ],
+        "checkpoint_itr": 35,
+        "update_number": 32,
+        "training_env_steps": 2560000,
+        "checkpoint_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt",
+        "logged_consecutive_cos": {
+          "n": 21,
+          "mean": -0.006824841092749261,
+          "sample_sd": 0.03654755892257532,
+          "sample_se": 0.007975331201360005,
+          "requested_window": [
+            22,
+            42
+          ],
+          "observed_window": [
+            22,
+            42
+          ],
+          "iteration_span": [
+            25,
+            47
+          ],
+          "training_rows": 21,
+          "selected_rows": [
+            {
+              "itr": 25,
+              "update_before_rollout": 22,
+              "grad_cos_prev": -0.021496261999525937,
+              "missing_reason": null
+            },
+            {
+              "itr": 26,
+              "update_before_rollout": 23,
+              "grad_cos_prev": -0.04420403618632961,
+              "missing_reason": null
+            },
+            {
+              "itr": 27,
+              "update_before_rollout": 24,
+              "grad_cos_prev": -0.02551850300602854,
+              "missing_reason": null
+            },
+            {
+              "itr": 28,
+              "update_before_rollout": 25,
+              "grad_cos_prev": 0.018789714578133183,
+              "missing_reason": null
+            },
+            {
+              "itr": 29,
+              "update_before_rollout": 26,
+              "grad_cos_prev": -0.0038174469239254994,
+              "missing_reason": null
+            },
+            {
+              "itr": 31,
+              "update_before_rollout": 27,
+              "grad_cos_prev": 0.03624751669500629,
+              "missing_reason": null
+            },
+            {
+              "itr": 32,
+              "update_before_rollout": 28,
+              "grad_cos_prev": -0.03705042950937348,
+              "missing_reason": null
+            },
+            {
+              "itr": 33,
+              "update_before_rollout": 29,
+              "grad_cos_prev": -0.06877516614514445,
+              "missing_reason": null
+            },
+            {
+              "itr": 34,
+              "update_before_rollout": 30,
+              "grad_cos_prev": -0.06610397149363657,
+              "missing_reason": null
+            },
+            {
+              "itr": 35,
+              "update_before_rollout": 31,
+              "grad_cos_prev": -0.0022692974228654857,
+              "missing_reason": null
+            },
+            {
+              "itr": 36,
+              "update_before_rollout": 32,
+              "grad_cos_prev": -0.01652316254437052,
+              "missing_reason": null
+            },
+            {
+              "itr": 37,
+              "update_before_rollout": 33,
+              "grad_cos_prev": -0.04542157888494302,
+              "missing_reason": null
+            },
+            {
+              "itr": 38,
+              "update_before_rollout": 34,
+              "grad_cos_prev": 0.03529705405783092,
+              "missing_reason": null
+            },
+            {
+              "itr": 39,
+              "update_before_rollout": 35,
+              "grad_cos_prev": 0.03386264770030483,
+              "missing_reason": null
+            },
+            {
+              "itr": 41,
+              "update_before_rollout": 36,
+              "grad_cos_prev": 0.08056581296674944,
+              "missing_reason": null
+            },
+            {
+              "itr": 42,
+              "update_before_rollout": 37,
+              "grad_cos_prev": 0.006039379988463375,
+              "missing_reason": null
+            },
+            {
+              "itr": 43,
+              "update_before_rollout": 38,
+              "grad_cos_prev": 0.019356258847708554,
+              "missing_reason": null
+            },
+            {
+              "itr": 44,
+              "update_before_rollout": 39,
+              "grad_cos_prev": -0.008243178180528239,
+              "missing_reason": null
+            },
+            {
+              "itr": 45,
+              "update_before_rollout": 40,
+              "grad_cos_prev": 0.0020059842701351163,
+              "missing_reason": null
+            },
+            {
+              "itr": 46,
+              "update_before_rollout": 41,
+              "grad_cos_prev": -0.010505918215445843,
+              "missing_reason": null
+            },
+            {
+              "itr": 47,
+              "update_before_rollout": 42,
+              "grad_cos_prev": -0.025557081539949022,
+              "missing_reason": null
+            }
+          ],
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "grad_cos_prev",
+          "window_rule": "inclusive +/-10 actor updates, centered on pre-rollout policy",
+          "uncertainty_note": "Sample sd/sqrt(n) is descriptive; adjacent training gradients may be dependent.",
+          "value": -0.006824841092749261,
+          "se": 0.007975331201360005,
+          "lo": null,
+          "hi": null,
+          "status": "logged_window_mean"
+        },
+        "logged_explained_var": {
+          "value": 0.47398585081100464,
+          "itr": 36,
+          "update_before_rollout": 32,
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "explained_var",
+          "status": "exact_checkpoint_critic_on_next_batch",
+          "definition": "1 - Var(GAE target - pre-update critic value) / Var(GAE target), using scaled-reward DPPO targets; not raw-MC explained variance.",
+          "lo": null,
+          "hi": null,
+          "se": null
+        },
+        "divisor_source": {
+          "effective_divisor": 476.76547228150207,
+          "source": "provided",
+          "fallback_batches": 0,
+          "prepare_metadata": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_035/grad_mean.json",
+          "original_log_source": {
+            "file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+            "key": "baseline_divisor",
+            "itr": 36,
+            "value": 476.76547228150207
+          }
+        },
+        "divisor": {
+          "value": 476.76547228150207,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "fixed_provided",
+          "reason": "Exact logged divisor; no sampling interval.",
+          "conditional_measurement_note": "Gradient-measurement intervals condition on this frozen scale; scale-fit uncertainty is not propagated."
+        },
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
       },
       "W0_070": {
-        "complete_groups": 0,
-        "complete_batches": 0,
-        "status": "pending"
+        "K": 500,
+        "m": 40000,
+        "groups": 10,
+        "estimators": {
+          "V2": {
+            "u_sq": {
+              "value": 4.287080054340143e-08,
+              "lo": 4.876409289879091e-09,
+              "hi": 8.086519179692377e-08,
+              "se": 2.072670514550419e-08,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 0.00020705265162127587,
+              "lo": 0.00011572133068195695,
+              "hi": 0.00029838397256059477,
+              "se": 4.9823073806536695e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": true
+            },
+            "trace_ep": {
+              "value": 0.004285021113275186,
+              "lo": 0.004256845762633311,
+              "hi": 0.004313196463917061,
+              "se": 1.5370220863091186e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": 99951.97334692007,
+              "lo": 10950.316436111476,
+              "hi": 188953.63025772868,
+              "se": 48552.19518961599,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "B_update": {
+              "value": 1249.399666836501,
+              "lo": 136.87895545139347,
+              "hi": 2361.9203782216086,
+              "se": 606.9024398701998,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "signal_estimator": "V2",
+            "gradient_multiplier": 1.0,
+            "gradient_units": "V2 code units with selected advantage normalization"
+          },
+          "V6": {
+            "u_sq": {
+              "value": 3625581.102459307,
+              "lo": 1018228.2823997943,
+              "hi": 6232933.92251882,
+              "se": 1422363.4417793786,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 1904.0958753327802,
+              "lo": 1196.4414576605784,
+              "hi": 2611.750293004982,
+              "se": 386.0397278676081,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": true
+            },
+            "trace_ep": {
+              "value": 382679254676.725,
+              "lo": 379370742642.9723,
+              "hi": 385987766710.4776,
+              "se": 1804859905.1468182,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": 105549.77088145833,
+              "lo": 16701.96722389778,
+              "hi": 194397.57453901888,
+              "se": 48468.26514335019,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "B_update": {
+              "value": 1319.3721360182292,
+              "lo": 208.77459029872227,
+              "hi": 2429.969681737736,
+              "se": 605.8533142918774,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": null,
+              "bound_is_joint_confidence_limit": false
+            },
+            "signal_estimator": "V6",
+            "gradient_multiplier": 2500.0,
+            "gradient_units": "paper units"
+          }
+        },
+        "cos_V2_V6": {
+          "value": 1.014756176701643,
+          "lo": 0.9241007459828716,
+          "hi": 1.1054116074204146,
+          "se": 0.04945436208752167,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "same_batch_pairs_excluded": true,
+          "clipped": false
+        },
+        "explained_var": {
+          "value": 0.31213153574506836,
+          "lo": 0.30285295960872916,
+          "hi": 0.32141011188140756,
+          "se": 0.005061650033152863,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "mean of collection batches' explained_variance, jackknifed over whole50-batch groups"
+        },
+        "J_disc": {
+          "value": 1455.2764464603424,
+          "lo": 1454.157843421504,
+          "hi": 1456.395049499181,
+          "se": 0.6102204719156059,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "return": {
+          "value": 4128.232336466182,
+          "lo": 4124.422506508254,
+          "hi": 4132.042166424109,
+          "se": 2.078338922857521,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "predicted_consecutive_cos": {
+          "value": 0.000799744294982092,
+          "lo": 9.285715416644167e-05,
+          "hi": 0.0015066314357977425,
+          "se": 0.0003856211628993055,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "1 / (1 + B_V2 / 80)",
+          "estimator": "V2",
+          "bound_is_joint_confidence_limit": false
+        },
+        "point": "W0_070",
+        "collector_point": "D2",
+        "selected_jobs": [
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 0,
+            "run_id": "W0_070_j00",
+            "job_id": "17826855",
+            "seed": 190000,
+            "started_utc": "2026-10-12T18:01:24.131117+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j00",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j00/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 1,
+            "run_id": "W0_070_j01",
+            "job_id": "17826886",
+            "seed": 190100,
+            "started_utc": "2026-10-12T18:02:23.748019+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j01",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j01/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 2,
+            "run_id": "W0_070_j02",
+            "job_id": "17826887",
+            "seed": 190200,
+            "started_utc": "2026-10-12T18:02:23.753217+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j02",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j02/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 3,
+            "run_id": "W0_070_j03",
+            "job_id": "17826898",
+            "seed": 190300,
+            "started_utc": "2026-10-12T18:03:21.542196+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j03",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j03/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 4,
+            "run_id": "W0_070_j04",
+            "job_id": "17826914",
+            "seed": 190400,
+            "started_utc": "2026-10-12T18:06:11.856100+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j04",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j04/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 5,
+            "run_id": "W0_070_j05",
+            "job_id": "17827019",
+            "seed": 190500,
+            "started_utc": "2026-10-12T18:13:21.870173+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j05",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j05/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 6,
+            "run_id": "W0_070_j06",
+            "job_id": "17827033",
+            "seed": 190600,
+            "started_utc": "2026-10-12T18:15:21.467425+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j06",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j06/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 7,
+            "run_id": "W0_070_j07",
+            "job_id": "17827034",
+            "seed": 190700,
+            "started_utc": "2026-10-12T18:15:21.538280+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j07",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j07/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 8,
+            "run_id": "W0_070_j08",
+            "job_id": "17827042",
+            "seed": 190800,
+            "started_utc": "2026-10-12T18:16:21.486426+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j08",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j08/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_070",
+            "collector_point": "D2",
+            "group": 9,
+            "run_id": "W0_070_j09",
+            "job_id": "17827118",
+            "seed": 190900,
+            "started_utc": "2026-10-12T18:21:22.599837+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j09",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j09/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+            "normalization": "full"
+          }
+        ],
+        "checkpoint_itr": 70,
+        "update_number": 63,
+        "training_env_steps": 5040000,
+        "checkpoint_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt",
+        "logged_consecutive_cos": {
+          "n": 21,
+          "mean": 0.0016482222074663021,
+          "sample_sd": 0.04933660424942882,
+          "sample_se": 0.010766129690718454,
+          "requested_window": [
+            53,
+            73
+          ],
+          "observed_window": [
+            53,
+            73
+          ],
+          "iteration_span": [
+            59,
+            82
+          ],
+          "training_rows": 21,
+          "selected_rows": [
+            {
+              "itr": 59,
+              "update_before_rollout": 53,
+              "grad_cos_prev": 0.05012807660781857,
+              "missing_reason": null
+            },
+            {
+              "itr": 61,
+              "update_before_rollout": 54,
+              "grad_cos_prev": 0.027759466124937054,
+              "missing_reason": null
+            },
+            {
+              "itr": 62,
+              "update_before_rollout": 55,
+              "grad_cos_prev": 0.02189095767742843,
+              "missing_reason": null
+            },
+            {
+              "itr": 63,
+              "update_before_rollout": 56,
+              "grad_cos_prev": 0.048253739950365436,
+              "missing_reason": null
+            },
+            {
+              "itr": 64,
+              "update_before_rollout": 57,
+              "grad_cos_prev": -0.03242489043711764,
+              "missing_reason": null
+            },
+            {
+              "itr": 65,
+              "update_before_rollout": 58,
+              "grad_cos_prev": 0.015311600793711385,
+              "missing_reason": null
+            },
+            {
+              "itr": 66,
+              "update_before_rollout": 59,
+              "grad_cos_prev": 0.0788131812900182,
+              "missing_reason": null
+            },
+            {
+              "itr": 67,
+              "update_before_rollout": 60,
+              "grad_cos_prev": -0.06647337738616174,
+              "missing_reason": null
+            },
+            {
+              "itr": 68,
+              "update_before_rollout": 61,
+              "grad_cos_prev": -0.06657747741492706,
+              "missing_reason": null
+            },
+            {
+              "itr": 69,
+              "update_before_rollout": 62,
+              "grad_cos_prev": -0.0703762164819237,
+              "missing_reason": null
+            },
+            {
+              "itr": 71,
+              "update_before_rollout": 63,
+              "grad_cos_prev": 0.07530515874420017,
+              "missing_reason": null
+            },
+            {
+              "itr": 72,
+              "update_before_rollout": 64,
+              "grad_cos_prev": -0.011241828042895401,
+              "missing_reason": null
+            },
+            {
+              "itr": 73,
+              "update_before_rollout": 65,
+              "grad_cos_prev": -0.030197317764934173,
+              "missing_reason": null
+            },
+            {
+              "itr": 74,
+              "update_before_rollout": 66,
+              "grad_cos_prev": 0.07387583708107401,
+              "missing_reason": null
+            },
+            {
+              "itr": 75,
+              "update_before_rollout": 67,
+              "grad_cos_prev": 0.012549030833105468,
+              "missing_reason": null
+            },
+            {
+              "itr": 76,
+              "update_before_rollout": 68,
+              "grad_cos_prev": -0.030532594261243332,
+              "missing_reason": null
+            },
+            {
+              "itr": 77,
+              "update_before_rollout": 69,
+              "grad_cos_prev": -0.037220587637020984,
+              "missing_reason": null
+            },
+            {
+              "itr": 78,
+              "update_before_rollout": 70,
+              "grad_cos_prev": 0.036077253336299325,
+              "missing_reason": null
+            },
+            {
+              "itr": 79,
+              "update_before_rollout": 71,
+              "grad_cos_prev": 0.029487827927986907,
+              "missing_reason": null
+            },
+            {
+              "itr": 81,
+              "update_before_rollout": 72,
+              "grad_cos_prev": -0.06074139334928969,
+              "missing_reason": null
+            },
+            {
+              "itr": 82,
+              "update_before_rollout": 73,
+              "grad_cos_prev": -0.029053781234638875,
+              "missing_reason": null
+            }
+          ],
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "grad_cos_prev",
+          "window_rule": "inclusive +/-10 actor updates, centered on pre-rollout policy",
+          "uncertainty_note": "Sample sd/sqrt(n) is descriptive; adjacent training gradients may be dependent.",
+          "value": 0.0016482222074663021,
+          "se": 0.010766129690718454,
+          "lo": null,
+          "hi": null,
+          "status": "logged_window_mean"
+        },
+        "logged_explained_var": {
+          "value": 0.2499687671661377,
+          "itr": 71,
+          "update_before_rollout": 63,
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "explained_var",
+          "status": "exact_checkpoint_critic_on_next_batch",
+          "definition": "1 - Var(GAE target - pre-update critic value) / Var(GAE target), using scaled-reward DPPO targets; not raw-MC explained variance.",
+          "lo": null,
+          "hi": null,
+          "se": null
+        },
+        "divisor_source": {
+          "effective_divisor": 480.3848633341828,
+          "source": "provided",
+          "fallback_batches": 0,
+          "prepare_metadata": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_070/grad_mean.json",
+          "original_log_source": {
+            "file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+            "key": "baseline_divisor",
+            "itr": 71,
+            "value": 480.3848633341828
+          }
+        },
+        "divisor": {
+          "value": 480.3848633341828,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "fixed_provided",
+          "reason": "Exact logged divisor; no sampling interval.",
+          "conditional_measurement_note": "Gradient-measurement intervals condition on this frozen scale; scale-fit uncertainty is not propagated."
+        },
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
       },
       "W0_105": {
-        "complete_groups": 0,
-        "complete_batches": 0,
-        "status": "pending"
+        "K": 500,
+        "m": 40000,
+        "groups": 10,
+        "estimators": {
+          "V2": {
+            "u_sq": {
+              "value": 2.053026107575627e-08,
+              "lo": -8.668929476278497e-09,
+              "hi": 4.972945162779104e-08,
+              "se": 1.5928746141006007e-08,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 0.00014328384792347068,
+              "lo": 4.097226238704421e-05,
+              "hi": 0.00024559543345989714,
+              "se": 5.581302914508336e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 0.004236688258201851,
+              "lo": 0.004223295781599593,
+              "hi": 0.004250080734804109,
+              "se": 7.305865538175173e-06,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 85194.75118913638,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 206363.0970190078
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 1064.9343898642048,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 2579.538712737598
+            },
+            "signal_estimator": "V2",
+            "gradient_multiplier": 1.0,
+            "gradient_units": "V2 code units with selected advantage normalization"
+          },
+          "V6": {
+            "u_sq": {
+              "value": 2424245.1591669912,
+              "lo": -1304616.1975463931,
+              "hi": 6153106.515880376,
+              "se": 2034168.921232499,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 1556.998766591352,
+              "lo": 311.2919211444351,
+              "hi": 2802.7056120382686,
+              "se": 679.5581566508391,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 376863605733.7318,
+              "lo": 373898248468.46204,
+              "hi": 379828962999.0015,
+              "se": 1617662072.2309146,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 61247.69736410305,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 155456.06198641562
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 765.5962170512881,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 1943.2007748301953
+            },
+            "signal_estimator": "V6",
+            "gradient_multiplier": 2500.0,
+            "gradient_units": "paper units"
+          }
+        },
+        "cos_V2_V6": {
+          "value": 1.140134134284118,
+          "lo": 0.8010193217328009,
+          "hi": 1.479248946835435,
+          "se": 0.18499395564266244,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "same_batch_pairs_excluded": true,
+          "clipped": false
+        },
+        "explained_var": {
+          "value": 0.2926808143875143,
+          "lo": 0.28026895431738513,
+          "hi": 0.3050926744576435,
+          "se": 0.006770919482937509,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "mean of collection batches' explained_variance, jackknifed over whole50-batch groups"
+        },
+        "J_disc": {
+          "value": 1474.3542152134214,
+          "lo": 1472.4420996100278,
+          "hi": 1476.266330816815,
+          "se": 1.0430975469829302,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "return": {
+          "value": 4189.354288371177,
+          "lo": 4183.867057647795,
+          "hi": 4194.841519094559,
+          "se": 2.9933948016167338,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "predicted_consecutive_cos": {
+          "value": null,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "upper_bound",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": "own signal unresolved; transform of plug-in lower bound on B",
+          "definition": "1 / (1 + B_V2 / 80)",
+          "estimator": "V2",
+          "bound_is_joint_confidence_limit": false,
+          "raw_value": 0.00038751598457483985,
+          "upper_bound": 0.0009381440448012898
+        },
+        "point": "W0_105",
+        "collector_point": "N1",
+        "selected_jobs": [
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 0,
+            "run_id": "W0_105_j00",
+            "job_id": "17827206",
+            "seed": 200000,
+            "started_utc": "2026-10-12T18:26:22.389773+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j00",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j00/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 1,
+            "run_id": "W0_105_j01",
+            "job_id": "17827253",
+            "seed": 200100,
+            "started_utc": "2026-10-12T18:28:20.949725+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j01",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j01/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 2,
+            "run_id": "W0_105_j02",
+            "job_id": "17827254",
+            "seed": 200200,
+            "started_utc": "2026-10-12T18:28:21.906466+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j02",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j02/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 3,
+            "run_id": "W0_105_j03",
+            "job_id": "17827263",
+            "seed": 200300,
+            "started_utc": "2026-10-12T18:29:22.845511+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j03",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j03/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 4,
+            "run_id": "W0_105_j04",
+            "job_id": "17827350",
+            "seed": 200400,
+            "started_utc": "2026-10-12T18:36:37.765295+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j04",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j04/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 5,
+            "run_id": "W0_105_j05",
+            "job_id": "17827407",
+            "seed": 200500,
+            "started_utc": "2026-10-12T18:38:36.331872+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j05",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j05/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 7,
+            "run_id": "W0_105_j07",
+            "job_id": "17827431",
+            "seed": 200700,
+            "started_utc": "2026-10-12T18:41:37.584843+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j07",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j07/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 6,
+            "run_id": "W0_105_j06",
+            "job_id": "17827430",
+            "seed": 200600,
+            "started_utc": "2026-10-12T18:41:37.587883+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j06",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j06/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 8,
+            "run_id": "W0_105_j08",
+            "job_id": "17827434",
+            "seed": 200800,
+            "started_utc": "2026-10-12T18:42:36.900880+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j08",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j08/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_105",
+            "collector_point": "N1",
+            "group": 9,
+            "run_id": "W0_105_j09",
+            "job_id": "17827553",
+            "seed": 200900,
+            "started_utc": "2026-10-12T18:50:36.766483+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j09",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j09/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+            "normalization": "full"
+          }
+        ],
+        "checkpoint_itr": 105,
+        "update_number": 95,
+        "training_env_steps": 7600000,
+        "checkpoint_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt",
+        "logged_consecutive_cos": {
+          "n": 21,
+          "mean": -0.005405649566373938,
+          "sample_sd": 0.04393641891755606,
+          "sample_se": 0.009587712640713827,
+          "requested_window": [
+            85,
+            105
+          ],
+          "observed_window": [
+            85,
+            105
+          ],
+          "iteration_span": [
+            95,
+            117
+          ],
+          "training_rows": 21,
+          "selected_rows": [
+            {
+              "itr": 95,
+              "update_before_rollout": 85,
+              "grad_cos_prev": 0.03817359003064869,
+              "missing_reason": null
+            },
+            {
+              "itr": 96,
+              "update_before_rollout": 86,
+              "grad_cos_prev": -0.12037731973504247,
+              "missing_reason": null
+            },
+            {
+              "itr": 97,
+              "update_before_rollout": 87,
+              "grad_cos_prev": -0.0797813832181829,
+              "missing_reason": null
+            },
+            {
+              "itr": 98,
+              "update_before_rollout": 88,
+              "grad_cos_prev": 0.019799627612003604,
+              "missing_reason": null
+            },
+            {
+              "itr": 99,
+              "update_before_rollout": 89,
+              "grad_cos_prev": 0.0206979234863369,
+              "missing_reason": null
+            },
+            {
+              "itr": 101,
+              "update_before_rollout": 90,
+              "grad_cos_prev": -0.03452026085028103,
+              "missing_reason": null
+            },
+            {
+              "itr": 102,
+              "update_before_rollout": 91,
+              "grad_cos_prev": 0.04760472964378318,
+              "missing_reason": null
+            },
+            {
+              "itr": 103,
+              "update_before_rollout": 92,
+              "grad_cos_prev": 0.003468541440334808,
+              "missing_reason": null
+            },
+            {
+              "itr": 104,
+              "update_before_rollout": 93,
+              "grad_cos_prev": 0.021263642166521362,
+              "missing_reason": null
+            },
+            {
+              "itr": 105,
+              "update_before_rollout": 94,
+              "grad_cos_prev": -0.0071196300740047356,
+              "missing_reason": null
+            },
+            {
+              "itr": 106,
+              "update_before_rollout": 95,
+              "grad_cos_prev": -0.009703076074452276,
+              "missing_reason": null
+            },
+            {
+              "itr": 107,
+              "update_before_rollout": 96,
+              "grad_cos_prev": -0.009753062393703873,
+              "missing_reason": null
+            },
+            {
+              "itr": 108,
+              "update_before_rollout": 97,
+              "grad_cos_prev": 0.036775199318050684,
+              "missing_reason": null
+            },
+            {
+              "itr": 109,
+              "update_before_rollout": 98,
+              "grad_cos_prev": -0.0010084442232587987,
+              "missing_reason": null
+            },
+            {
+              "itr": 111,
+              "update_before_rollout": 99,
+              "grad_cos_prev": 0.045754361204923835,
+              "missing_reason": null
+            },
+            {
+              "itr": 112,
+              "update_before_rollout": 100,
+              "grad_cos_prev": 0.009281088169464971,
+              "missing_reason": null
+            },
+            {
+              "itr": 113,
+              "update_before_rollout": 101,
+              "grad_cos_prev": -0.0443817242451197,
+              "missing_reason": null
+            },
+            {
+              "itr": 114,
+              "update_before_rollout": 102,
+              "grad_cos_prev": -0.040092613034275956,
+              "missing_reason": null
+            },
+            {
+              "itr": 115,
+              "update_before_rollout": 103,
+              "grad_cos_prev": -0.03278416216723923,
+              "missing_reason": null
+            },
+            {
+              "itr": 116,
+              "update_before_rollout": 104,
+              "grad_cos_prev": -0.030077134833620626,
+              "missing_reason": null
+            },
+            {
+              "itr": 117,
+              "update_before_rollout": 105,
+              "grad_cos_prev": 0.053261466883260854,
+              "missing_reason": null
+            }
+          ],
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "grad_cos_prev",
+          "window_rule": "inclusive +/-10 actor updates, centered on pre-rollout policy",
+          "uncertainty_note": "Sample sd/sqrt(n) is descriptive; adjacent training gradients may be dependent.",
+          "value": -0.005405649566373938,
+          "se": 0.009587712640713827,
+          "lo": null,
+          "hi": null,
+          "status": "logged_window_mean"
+        },
+        "logged_explained_var": {
+          "value": 0.2554284930229187,
+          "itr": 106,
+          "update_before_rollout": 95,
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "explained_var",
+          "status": "exact_checkpoint_critic_on_next_batch",
+          "definition": "1 - Var(GAE target - pre-update critic value) / Var(GAE target), using scaled-reward DPPO targets; not raw-MC explained variance.",
+          "lo": null,
+          "hi": null,
+          "se": null
+        },
+        "divisor_source": {
+          "effective_divisor": 481.72847498236365,
+          "source": "provided",
+          "fallback_batches": 0,
+          "prepare_metadata": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_105/grad_mean.json",
+          "original_log_source": {
+            "file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+            "key": "baseline_divisor",
+            "itr": 106,
+            "value": 481.72847498236365
+          }
+        },
+        "divisor": {
+          "value": 481.72847498236365,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "fixed_provided",
+          "reason": "Exact logged divisor; no sampling interval.",
+          "conditional_measurement_note": "Gradient-measurement intervals condition on this frozen scale; scale-fit uncertainty is not propagated."
+        },
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
       },
       "W0_139": {
-        "complete_groups": 0,
-        "complete_batches": 0,
-        "status": "pending"
+        "K": 500,
+        "m": 40000,
+        "groups": 10,
+        "estimators": {
+          "V2": {
+            "u_sq": {
+              "value": 1.1806129518068758e-08,
+              "lo": -1.0602647599065328e-08,
+              "hi": 3.421490663520284e-08,
+              "se": 1.2224438940973978e-08,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 0.00010865601464285702,
+              "lo": -4.713150829997709e-06,
+              "hi": 0.00022202518011571175,
+              "se": 6.184516155736261e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 0.004209074781601835,
+              "lo": 0.004182198249176018,
+              "hi": 0.004235951314027651,
+              "se": 1.4661689384794024e-05,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 123018.7422832604,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 356516.0601668847
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V2",
+              "variance_estimator": "V2",
+              "lower_bound": 1537.7342785407552,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 4456.450752086059
+            },
+            "signal_estimator": "V2",
+            "gradient_multiplier": 1.0,
+            "gradient_units": "V2 code units with selected advantage normalization"
+          },
+          "V6": {
+            "u_sq": {
+              "value": 2271565.248308597,
+              "lo": -1257615.3797544918,
+              "hi": 5800745.876371685,
+              "se": 1925239.0647608438,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "u_norm": {
+              "value": 1507.171273713972,
+              "lo": 362.77827977991075,
+              "hi": 2651.5642676480334,
+              "se": 624.2894114971007,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null,
+              "signal_resolved": false
+            },
+            "trace_ep": {
+              "value": 597182934331.5348,
+              "lo": 593350908045.0623,
+              "hi": 601014960618.0072,
+              "se": 2090447466.826352,
+              "status": "point",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": null
+            },
+            "B_ep": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 102949.33566458306,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 262894.90683844365
+            },
+            "B_update": {
+              "value": null,
+              "lo": null,
+              "hi": null,
+              "se": null,
+              "status": "lower_bound",
+              "groups": 10,
+              "df": 9,
+              "critical": 1.8331129326536335,
+              "reason": "signal_nonpositive_or_interval_includes_zero",
+              "signal_estimator": "V6",
+              "variance_estimator": "V6",
+              "lower_bound": 1286.8666958072884,
+              "bound_is_joint_confidence_limit": false,
+              "raw_value": 3286.186335480546
+            },
+            "signal_estimator": "V6",
+            "gradient_multiplier": 2500.0,
+            "gradient_units": "paper units"
+          }
+        },
+        "cos_V2_V6": {
+          "value": 1.0652386436367929,
+          "lo": 0.7578236844144857,
+          "hi": 1.3726536028591,
+          "se": 0.16770104762574017,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "same_batch_pairs_excluded": true,
+          "clipped": false
+        },
+        "explained_var": {
+          "value": 0.2940082571082245,
+          "lo": 0.2806857030662071,
+          "hi": 0.30733081115024186,
+          "se": 0.0072677213742262615,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null,
+          "definition": "mean of collection batches' explained_variance, jackknifed over whole50-batch groups"
+        },
+        "J_disc": {
+          "value": 1485.0171381874038,
+          "lo": 1483.8019166957445,
+          "hi": 1486.2323596790632,
+          "se": 0.6629277825781033,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "return": {
+          "value": 4227.657682476031,
+          "lo": 4223.678467993588,
+          "hi": 4231.636896958475,
+          "se": 2.170741590199341,
+          "status": "point",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": null
+        },
+        "predicted_consecutive_cos": {
+          "value": null,
+          "lo": null,
+          "hi": null,
+          "se": null,
+          "status": "upper_bound",
+          "groups": 10,
+          "df": 9,
+          "critical": 1.8331129326536335,
+          "reason": "own signal unresolved; transform of plug-in lower bound on B",
+          "definition": "1 / (1 + B_V2 / 80)",
+          "estimator": "V2",
+          "bound_is_joint_confidence_limit": false,
+          "raw_value": 0.00022434347693735176,
+          "upper_bound": 0.0006498847877414814
+        },
+        "point": "W0_139",
+        "collector_point": "N2",
+        "selected_jobs": [
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 0,
+            "run_id": "W0_139_j00",
+            "job_id": "17827554",
+            "seed": 210000,
+            "started_utc": "2026-10-12T18:50:37.894195+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j00",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j00/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 1,
+            "run_id": "W0_139_j01",
+            "job_id": "17827617",
+            "seed": 210100,
+            "started_utc": "2026-10-12T18:54:39.121158+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j01",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j01/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 2,
+            "run_id": "W0_139_j02",
+            "job_id": "17827618",
+            "seed": 210200,
+            "started_utc": "2026-10-12T18:54:39.121163+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j02",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j02/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 3,
+            "run_id": "W0_139_j03",
+            "job_id": "17827627",
+            "seed": 210300,
+            "started_utc": "2026-10-12T18:55:37.702548+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j03",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j03/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 4,
+            "run_id": "W0_139_j04",
+            "job_id": "17827724",
+            "seed": 210400,
+            "started_utc": "2026-10-12T19:02:39.316767+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j04",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j04/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 5,
+            "run_id": "W0_139_j05",
+            "job_id": "17827762",
+            "seed": 210500,
+            "started_utc": "2026-10-12T19:05:39.166586+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j05",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j05/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 6,
+            "run_id": "W0_139_j06",
+            "job_id": "17827787",
+            "seed": 210600,
+            "started_utc": "2026-10-12T19:09:30.100598+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j06",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j06/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 7,
+            "run_id": "W0_139_j07",
+            "job_id": "17827788",
+            "seed": 210700,
+            "started_utc": "2026-10-12T19:09:30.103723+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j07",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j07/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 9,
+            "run_id": "W0_139_j09",
+            "job_id": "17828462",
+            "seed": 210900,
+            "started_utc": "2026-10-12T19:59:24.300463+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j09",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j09/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          },
+          {
+            "point": "W0_139",
+            "collector_point": "N2",
+            "group": 8,
+            "run_id": "W0_139_j08",
+            "job_id": "17828461",
+            "seed": 210800,
+            "started_utc": "2026-10-12T19:59:24.302293+00:00",
+            "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j08",
+            "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j08/manifest.json",
+            "included": true,
+            "exclusion_reasons": [],
+            "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+            "normalization": "full"
+          }
+        ],
+        "checkpoint_itr": 139,
+        "update_number": 126,
+        "training_env_steps": 10080000,
+        "checkpoint_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt",
+        "logged_consecutive_cos": {
+          "n": 10,
+          "mean": -0.004785617991637367,
+          "sample_sd": 0.06814776638439335,
+          "sample_se": 0.021550215922774073,
+          "requested_window": [
+            116,
+            136
+          ],
+          "observed_window": [
+            116,
+            125
+          ],
+          "iteration_span": [
+            129,
+            139
+          ],
+          "training_rows": 10,
+          "selected_rows": [
+            {
+              "itr": 129,
+              "update_before_rollout": 116,
+              "grad_cos_prev": -0.09887266816655516,
+              "missing_reason": null
+            },
+            {
+              "itr": 131,
+              "update_before_rollout": 117,
+              "grad_cos_prev": -0.12204130750555472,
+              "missing_reason": null
+            },
+            {
+              "itr": 132,
+              "update_before_rollout": 118,
+              "grad_cos_prev": 0.020692355092497828,
+              "missing_reason": null
+            },
+            {
+              "itr": 133,
+              "update_before_rollout": 119,
+              "grad_cos_prev": -0.0474183977736499,
+              "missing_reason": null
+            },
+            {
+              "itr": 134,
+              "update_before_rollout": 120,
+              "grad_cos_prev": 0.02690663864523872,
+              "missing_reason": null
+            },
+            {
+              "itr": 135,
+              "update_before_rollout": 121,
+              "grad_cos_prev": -0.025163334520146952,
+              "missing_reason": null
+            },
+            {
+              "itr": 136,
+              "update_before_rollout": 122,
+              "grad_cos_prev": 0.07008410418131204,
+              "missing_reason": null
+            },
+            {
+              "itr": 137,
+              "update_before_rollout": 123,
+              "grad_cos_prev": 0.005917174742593762,
+              "missing_reason": null
+            },
+            {
+              "itr": 138,
+              "update_before_rollout": 124,
+              "grad_cos_prev": 0.08256928614271461,
+              "missing_reason": null
+            },
+            {
+              "itr": 139,
+              "update_before_rollout": 125,
+              "grad_cos_prev": 0.03946996924517611,
+              "missing_reason": null
+            }
+          ],
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "grad_cos_prev",
+          "window_rule": "inclusive +/-10 actor updates, centered on pre-rollout policy",
+          "uncertainty_note": "Sample sd/sqrt(n) is descriptive; adjacent training gradients may be dependent.",
+          "value": -0.004785617991637367,
+          "se": 0.021550215922774073,
+          "lo": null,
+          "hi": null,
+          "status": "logged_window_mean"
+        },
+        "logged_explained_var": {
+          "value": null,
+          "itr": null,
+          "update_before_rollout": null,
+          "source_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+          "source_key": "explained_var",
+          "status": "unavailable_no_rollout_from_final_policy",
+          "definition": "1 - Var(GAE target - pre-update critic value) / Var(GAE target), using scaled-reward DPPO targets; not raw-MC explained variance.",
+          "lo": null,
+          "hi": null,
+          "se": null
+        },
+        "divisor_source": {
+          "effective_divisor": 438.77586162684565,
+          "source": "least_squares_five_batches",
+          "fallback_batches": 5,
+          "prepare_metadata": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_139/grad_mean.json",
+          "original_log_source": {
+            "file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl",
+            "key": "baseline_divisor",
+            "itr": null,
+            "value": null
+          }
+        },
+        "divisor": {
+          "value": 438.77586162684565,
+          "lo": 436.8276863413149,
+          "hi": 440.7240369123764,
+          "se": 0.9138439509754956,
+          "status": "point",
+          "groups": 5,
+          "df": 4,
+          "critical": 2.13184678133629,
+          "reason": null,
+          "source": "least_squares_five_batches",
+          "fit_batches": 5,
+          "interval_method": "delete-one-fit-batch Student-t, df=4",
+          "definition": "sum(V*G) / sum(V^2), through-origin least squares",
+          "conditional_measurement_note": "Gradient-measurement intervals condition on this frozen scale; scale-fit uncertainty is not propagated."
+        },
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
       }
     },
-    "inventory": [],
+    "availability": {
+      "W0_000": {
+        "complete_groups": 10,
+        "complete_batches": 500,
+        "status": "complete"
+      },
+      "W0_035": {
+        "complete_groups": 10,
+        "complete_batches": 500,
+        "status": "complete"
+      },
+      "W0_070": {
+        "complete_groups": 10,
+        "complete_batches": 500,
+        "status": "complete"
+      },
+      "W0_105": {
+        "complete_groups": 10,
+        "complete_batches": 500,
+        "status": "complete"
+      },
+      "W0_139": {
+        "complete_groups": 10,
+        "complete_batches": 500,
+        "status": "complete"
+      }
+    },
+    "inventory": [
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 0,
+        "run_id": "W0_000_j00",
+        "job_id": "17825895",
+        "seed": 170000,
+        "started_utc": "2026-10-12T17:07:03.710104+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j00/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 1,
+        "run_id": "W0_000_j01",
+        "job_id": "17825896",
+        "seed": 170100,
+        "started_utc": "2026-10-12T17:07:03.713604+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j01/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 2,
+        "run_id": "W0_000_j02",
+        "job_id": "17825897",
+        "seed": 170200,
+        "started_utc": "2026-10-12T17:07:03.709454+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j02/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 3,
+        "run_id": "W0_000_j03",
+        "job_id": "17825898",
+        "seed": 170300,
+        "started_utc": "2026-10-12T17:07:03.711681+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j03/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 4,
+        "run_id": "W0_000_j04",
+        "job_id": "17825899",
+        "seed": 170400,
+        "started_utc": "2026-10-12T17:07:04.313912+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j04/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 5,
+        "run_id": "W0_000_j05",
+        "job_id": "17826170",
+        "seed": 170500,
+        "started_utc": "2026-10-12T17:24:03.940088+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j05",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j05/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 6,
+        "run_id": "W0_000_j06",
+        "job_id": "17826171",
+        "seed": 170600,
+        "started_utc": "2026-10-12T17:24:03.940334+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j06",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j06/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 7,
+        "run_id": "W0_000_j07",
+        "job_id": "17826172",
+        "seed": 170700,
+        "started_utc": "2026-10-12T17:24:03.938066+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j07",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j07/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 8,
+        "run_id": "W0_000_j08",
+        "job_id": "17826173",
+        "seed": 170800,
+        "started_utc": "2026-10-12T17:24:03.939915+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j08",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j08/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_000",
+        "collector_point": "P0",
+        "group": 9,
+        "run_id": "W0_000_j09",
+        "job_id": "17826174",
+        "seed": 170900,
+        "started_utc": "2026-10-12T17:24:04.389489+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j09",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_000_j09/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 0,
+        "run_id": "W0_035_j00",
+        "job_id": "17826379",
+        "seed": 180000,
+        "started_utc": "2026-10-12T17:37:02.785991+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j00",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j00/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 1,
+        "run_id": "W0_035_j01",
+        "job_id": "17826382",
+        "seed": 180100,
+        "started_utc": "2026-10-12T17:37:02.786049+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j01/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 2,
+        "run_id": "W0_035_j02",
+        "job_id": "17826385",
+        "seed": 180200,
+        "started_utc": "2026-10-12T17:37:02.973382+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j02",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j02/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 3,
+        "run_id": "W0_035_j03",
+        "job_id": "17826386",
+        "seed": 180300,
+        "started_utc": "2026-10-12T17:37:04.332103+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j03",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j03/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 4,
+        "run_id": "W0_035_j04",
+        "job_id": "17826392",
+        "seed": 180400,
+        "started_utc": "2026-10-12T17:38:03.793898+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j04",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j04/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 5,
+        "run_id": "W0_035_j05",
+        "job_id": "17826556",
+        "seed": 180500,
+        "started_utc": "2026-10-12T17:49:21.830523+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j05",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j05/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 6,
+        "run_id": "W0_035_j06",
+        "job_id": "17826558",
+        "seed": 180600,
+        "started_utc": "2026-10-12T17:49:21.823380+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j06",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j06/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 7,
+        "run_id": "W0_035_j07",
+        "job_id": "17826559",
+        "seed": 180700,
+        "started_utc": "2026-10-12T17:49:22.030846+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j07",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j07/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 8,
+        "run_id": "W0_035_j08",
+        "job_id": "17826572",
+        "seed": 180800,
+        "started_utc": "2026-10-12T17:50:22.817103+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j08",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j08/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_035",
+        "collector_point": "D1",
+        "group": 9,
+        "run_id": "W0_035_j09",
+        "job_id": "17826615",
+        "seed": 180900,
+        "started_utc": "2026-10-12T17:52:21.166956+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j09",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_035_j09/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "3caa8e083b90d551d6a4034780a0b835f261ec0ab57989e8cfcce05f8b06c7b4",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 0,
+        "run_id": "W0_070_j00",
+        "job_id": "17826855",
+        "seed": 190000,
+        "started_utc": "2026-10-12T18:01:24.131117+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j00",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j00/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 1,
+        "run_id": "W0_070_j01",
+        "job_id": "17826886",
+        "seed": 190100,
+        "started_utc": "2026-10-12T18:02:23.748019+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j01",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j01/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 2,
+        "run_id": "W0_070_j02",
+        "job_id": "17826887",
+        "seed": 190200,
+        "started_utc": "2026-10-12T18:02:23.753217+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j02",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j02/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 3,
+        "run_id": "W0_070_j03",
+        "job_id": "17826898",
+        "seed": 190300,
+        "started_utc": "2026-10-12T18:03:21.542196+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j03",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j03/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 4,
+        "run_id": "W0_070_j04",
+        "job_id": "17826914",
+        "seed": 190400,
+        "started_utc": "2026-10-12T18:06:11.856100+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j04",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j04/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 5,
+        "run_id": "W0_070_j05",
+        "job_id": "17827019",
+        "seed": 190500,
+        "started_utc": "2026-10-12T18:13:21.870173+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j05",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j05/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 6,
+        "run_id": "W0_070_j06",
+        "job_id": "17827033",
+        "seed": 190600,
+        "started_utc": "2026-10-12T18:15:21.467425+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j06",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j06/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 7,
+        "run_id": "W0_070_j07",
+        "job_id": "17827034",
+        "seed": 190700,
+        "started_utc": "2026-10-12T18:15:21.538280+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j07",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j07/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 8,
+        "run_id": "W0_070_j08",
+        "job_id": "17827042",
+        "seed": 190800,
+        "started_utc": "2026-10-12T18:16:21.486426+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j08",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j08/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_070",
+        "collector_point": "D2",
+        "group": 9,
+        "run_id": "W0_070_j09",
+        "job_id": "17827118",
+        "seed": 190900,
+        "started_utc": "2026-10-12T18:21:22.599837+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j09",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_070_j09/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "774e316c70893a5e7deaf6247dc580da733d23a591c62bed0d2f648f4f8877cc",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 0,
+        "run_id": "W0_105_j00",
+        "job_id": "17827206",
+        "seed": 200000,
+        "started_utc": "2026-10-12T18:26:22.389773+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j00",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j00/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 1,
+        "run_id": "W0_105_j01",
+        "job_id": "17827253",
+        "seed": 200100,
+        "started_utc": "2026-10-12T18:28:20.949725+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j01",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j01/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 2,
+        "run_id": "W0_105_j02",
+        "job_id": "17827254",
+        "seed": 200200,
+        "started_utc": "2026-10-12T18:28:21.906466+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j02",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j02/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 3,
+        "run_id": "W0_105_j03",
+        "job_id": "17827263",
+        "seed": 200300,
+        "started_utc": "2026-10-12T18:29:22.845511+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j03",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j03/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 4,
+        "run_id": "W0_105_j04",
+        "job_id": "17827350",
+        "seed": 200400,
+        "started_utc": "2026-10-12T18:36:37.765295+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j04",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j04/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 5,
+        "run_id": "W0_105_j05",
+        "job_id": "17827407",
+        "seed": 200500,
+        "started_utc": "2026-10-12T18:38:36.331872+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j05",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j05/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 6,
+        "run_id": "W0_105_j06",
+        "job_id": "17827430",
+        "seed": 200600,
+        "started_utc": "2026-10-12T18:41:37.587883+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j06",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j06/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 7,
+        "run_id": "W0_105_j07",
+        "job_id": "17827431",
+        "seed": 200700,
+        "started_utc": "2026-10-12T18:41:37.584843+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j07",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j07/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 8,
+        "run_id": "W0_105_j08",
+        "job_id": "17827434",
+        "seed": 200800,
+        "started_utc": "2026-10-12T18:42:36.900880+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j08",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j08/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_105",
+        "collector_point": "N1",
+        "group": 9,
+        "run_id": "W0_105_j09",
+        "job_id": "17827553",
+        "seed": 200900,
+        "started_utc": "2026-10-12T18:50:36.766483+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j09",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_105_j09/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "89a52d82f7723e63aecdacffdec97ae9522e8b35bb6c87d6821557bde7b74dc8",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 0,
+        "run_id": "W0_139_j00",
+        "job_id": "17827554",
+        "seed": 210000,
+        "started_utc": "2026-10-12T18:50:37.894195+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j00",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j00/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 1,
+        "run_id": "W0_139_j01",
+        "job_id": "17827617",
+        "seed": 210100,
+        "started_utc": "2026-10-12T18:54:39.121158+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j01",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j01/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 2,
+        "run_id": "W0_139_j02",
+        "job_id": "17827618",
+        "seed": 210200,
+        "started_utc": "2026-10-12T18:54:39.121163+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j02",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j02/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 3,
+        "run_id": "W0_139_j03",
+        "job_id": "17827627",
+        "seed": 210300,
+        "started_utc": "2026-10-12T18:55:37.702548+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j03",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j03/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 4,
+        "run_id": "W0_139_j04",
+        "job_id": "17827724",
+        "seed": 210400,
+        "started_utc": "2026-10-12T19:02:39.316767+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j04",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j04/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 5,
+        "run_id": "W0_139_j05",
+        "job_id": "17827762",
+        "seed": 210500,
+        "started_utc": "2026-10-12T19:05:39.166586+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j05",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j05/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 6,
+        "run_id": "W0_139_j06",
+        "job_id": "17827787",
+        "seed": 210600,
+        "started_utc": "2026-10-12T19:09:30.100598+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j06",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j06/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 7,
+        "run_id": "W0_139_j07",
+        "job_id": "17827788",
+        "seed": 210700,
+        "started_utc": "2026-10-12T19:09:30.103723+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j07",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j07/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 8,
+        "run_id": "W0_139_j08",
+        "job_id": "17828461",
+        "seed": 210800,
+        "started_utc": "2026-10-12T19:59:24.302293+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j08",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j08/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      },
+      {
+        "point": "W0_139",
+        "collector_point": "N2",
+        "group": 9,
+        "run_id": "W0_139_j09",
+        "job_id": "17828462",
+        "seed": 210900,
+        "started_utc": "2026-10-12T19:59:24.300463+00:00",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j09",
+        "manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/workers/W0_139_j09/manifest.json",
+        "included": true,
+        "exclusion_reasons": [],
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+        "normalization": "full"
+      }
+    ],
     "K": 500,
     "m": 40000,
-    "normalization": null,
+    "normalization": "full",
     "interval": {
       "level": 0.9,
       "method": "delete-one-50-batch-group Student-t",
@@ -4363,30 +7892,657 @@
     },
     "runmetadata": {
       "campaign": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/campaign.json",
-      "status": "not_started",
-      "analysis_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean",
+      "status": "complete",
+      "analysis_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/source",
       "log_audit": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
-      "normalization_selection": {},
-      "normalization": null,
-      "source_provenance": {},
+      "normalization_selection": {
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "selected_normalization": "full",
+        "comparison_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000/normalization_check.json",
+        "scheduler_job_id": "17825869",
+        "frozen_before_first_collect": true,
+        "comparison_seed": 179100,
+        "comparison_batches": 2
+      },
+      "normalization_check": {
+        "format_version": 1,
+        "mode": "grad_mean",
+        "step": "norm_check",
+        "point": "P0",
+        "seed": 179100,
+        "settings": {
+          "mode": "grad_mean",
+          "gm_step": "norm_check",
+          "gm_point": "P0",
+          "gm_warmup_batches": 0,
+          "gm_batches": 50,
+          "gm_frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_000/frozen_P0.pt",
+          "gm_frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+          "gm_score_sample": 0,
+          "gm_include_critic": true,
+          "gm_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+          "seed": 179100,
+          "environment_seeds": [
+            179100,
+            179101,
+            179102,
+            179103,
+            179104,
+            179105,
+            179106,
+            179107,
+            179108,
+            179109,
+            179110,
+            179111,
+            179112,
+            179113,
+            179114,
+            179115,
+            179116,
+            179117,
+            179118,
+            179119,
+            179120,
+            179121,
+            179122,
+            179123,
+            179124,
+            179125,
+            179126,
+            179127,
+            179128,
+            179129,
+            179130,
+            179131,
+            179132,
+            179133,
+            179134,
+            179135,
+            179136,
+            179137,
+            179138,
+            179139
+          ],
+          "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+          "gradient_sign": "ascent = negative inherited Phase1 loss gradient",
+          "stored_vector": "float32 group SUM after float64 accumulation; not a mean",
+          "model_parameter_dtype": "float32",
+          "statistics_dtype": "float64",
+          "gm_warmup": 0,
+          "gm_scaler_c": 1.000000005,
+          "gm_v2_raw": true,
+          "gm_normalization": "full"
+        },
+        "variant_order": [
+          "nc4",
+          "mc_critic",
+          "mc_loo",
+          "theory_loo",
+          "theory_nobase"
+        ],
+        "variant_ids": [
+          "V1",
+          "V2",
+          "V3",
+          "V4",
+          "V5"
+        ],
+        "parameter_specs": [
+          {
+            "name": "time_embedding.1.weight",
+            "shape": [
+              32,
+              16
+            ],
+            "dtype": "torch.float32",
+            "numel": 512
+          },
+          {
+            "name": "time_embedding.1.bias",
+            "shape": [
+              32
+            ],
+            "dtype": "torch.float32",
+            "numel": 32
+          },
+          {
+            "name": "time_embedding.3.weight",
+            "shape": [
+              16,
+              32
+            ],
+            "dtype": "torch.float32",
+            "numel": 512
+          },
+          {
+            "name": "time_embedding.3.bias",
+            "shape": [
+              16
+            ],
+            "dtype": "torch.float32",
+            "numel": 16
+          },
+          {
+            "name": "mlp_mean.layers.0.weight",
+            "shape": [
+              512,
+              57
+            ],
+            "dtype": "torch.float32",
+            "numel": 29184
+          },
+          {
+            "name": "mlp_mean.layers.0.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 512
+          },
+          {
+            "name": "mlp_mean.layers.1.l1.weight",
+            "shape": [
+              512,
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 262144
+          },
+          {
+            "name": "mlp_mean.layers.1.l1.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 512
+          },
+          {
+            "name": "mlp_mean.layers.1.l2.weight",
+            "shape": [
+              512,
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 262144
+          },
+          {
+            "name": "mlp_mean.layers.1.l2.bias",
+            "shape": [
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 512
+          },
+          {
+            "name": "mlp_mean.layers.2.weight",
+            "shape": [
+              24,
+              512
+            ],
+            "dtype": "torch.float32",
+            "numel": 12288
+          },
+          {
+            "name": "mlp_mean.layers.2.bias",
+            "shape": [
+              24
+            ],
+            "dtype": "torch.float32",
+            "numel": 24
+          }
+        ],
+        "parameter_count": 568392,
+        "parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "source_checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "config": {
+          "_target_": "agent.finetune.train_ppo_diffusion_agent.TrainPPODiffusionAgent",
+          "name": "halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10",
+          "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000",
+          "base_policy_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+          "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+          "seed": 179100,
+          "device": "cuda:0",
+          "env_name": "halfcheetah-medium-v2",
+          "obs_dim": 17,
+          "action_dim": 6,
+          "denoising_steps": 20,
+          "ft_denoising_steps": 10,
+          "cond_steps": 1,
+          "horizon_steps": 4,
+          "act_steps": 4,
+          "env": {
+            "n_envs": 40,
+            "name": "halfcheetah-medium-v2",
+            "max_episode_steps": 1000,
+            "reset_at_iteration": false,
+            "save_video": false,
+            "best_reward_threshold_for_success": 3,
+            "wrappers": {
+              "mujoco_locomotion_lowdim": {
+                "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz"
+              },
+              "multi_step": {
+                "n_obs_steps": 1,
+                "n_action_steps": 4,
+                "max_episode_steps": 1000,
+                "reset_within_step": true
+              }
+            }
+          },
+          "wandb": null,
+          "train": {
+            "n_train_itr": 140,
+            "n_critic_warmup_itr": 0,
+            "n_steps": 500,
+            "gamma": 0.99,
+            "actor_lr": 0.0001,
+            "actor_weight_decay": 0,
+            "actor_lr_scheduler": {
+              "first_cycle_steps": 1000,
+              "warmup_steps": 10,
+              "min_lr": 0.0001
+            },
+            "critic_lr": 0.001,
+            "critic_weight_decay": 0,
+            "critic_lr_scheduler": {
+              "first_cycle_steps": 1000,
+              "warmup_steps": 10,
+              "min_lr": 0.001
+            },
+            "save_model_freq": 35,
+            "val_freq": 10,
+            "render": {
+              "freq": 1,
+              "num": 0
+            },
+            "reward_scale_running": true,
+            "reward_scale_const": 1.0,
+            "gae_lambda": 0.95,
+            "batch_size": 50000,
+            "update_epochs": 5,
+            "vf_coef": 0.5,
+            "target_kl": 1,
+            "mode": "grad_mean",
+            "gm_step": "norm_check",
+            "gm_point": "P0",
+            "gm_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+            "gm_include_critic": true,
+            "gm_warmup": 0,
+            "gm_scaler_c": 1.000000005,
+            "gm_v2_raw": true,
+            "gm_normalization": "full",
+            "gm_frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_000/frozen_P0.pt",
+            "gm_frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+            "gm_batches": 50,
+            "gm_score_sample": 0
+          },
+          "model": {
+            "_target_": "model.diffusion.diffusion_ppo.PPODiffusion",
+            "gamma_denoising": 0.99,
+            "clip_ploss_coef": 0.01,
+            "clip_ploss_coef_base": 0.01,
+            "clip_ploss_coef_rate": 3,
+            "randn_clip_value": 100,
+            "min_sampling_denoising_std": 0.1,
+            "min_logprob_denoising_std": 0.1,
+            "network_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+            "actor": {
+              "_target_": "model.diffusion.mlp_diffusion.DiffusionMLP",
+              "time_dim": 16,
+              "mlp_dims": [
+                512,
+                512,
+                512
+              ],
+              "activation_type": "ReLU",
+              "residual_style": true,
+              "cond_dim": 17,
+              "horizon_steps": 4,
+              "action_dim": 6
+            },
+            "critic": {
+              "_target_": "model.common.critic.CriticObs",
+              "cond_dim": 17,
+              "mlp_dims": [
+                256,
+                256,
+                256
+              ],
+              "activation_type": "Mish",
+              "residual_style": true
+            },
+            "ft_denoising_steps": 10,
+            "horizon_steps": 4,
+            "obs_dim": 17,
+            "action_dim": 6,
+            "denoising_steps": 20,
+            "device": "cuda:0",
+            "clamp_logprob": false
+          }
+        },
+        "gradient_units": "CODE ASCENT = -inherited Phase1 loss gradient; V4=-native E2 loss gradient",
+        "theory_multiplier_V4_V5": 2500,
+        "group_vector_kind": "sum",
+        "group_accumulation_dtype": "float64",
+        "stored_vector_dtype": "float32",
+        "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+        "pairs_per_batch": 200000,
+        "episodes_per_batch": 80,
+        "decisions_per_episode": 250,
+        "critic_and_scaler_frozen_during_collection": true,
+        "policy_rng": "run seed initializes global Torch once; preparation RNG is never restored",
+        "environment_seeding": "explicit grad_mean-only hook seeds private Gym and action-space RNGs with run seed+i",
+        "diagnostic_rng": "owned CPU generators from SeedSequence; no global RNG consumption",
+        "actor_optimizer_steps": 0,
+        "status": "completed",
+        "batch_count": 2,
+        "rows": [
+          {
+            "batch": 0,
+            "cosine": 0.9999912421997208,
+            "quarter_over_full_norm": 1.0001758172653916,
+            "full_norm": 0.007696436817842617,
+            "quarter_norm": 0.0076977899843171885,
+            "full_acceptable": true,
+            "state_and_rng_unchanged": true
+          },
+          {
+            "batch": 1,
+            "cosine": 0.9999940305844568,
+            "quarter_over_full_norm": 0.9999304964568113,
+            "full_norm": 0.007778429564336639,
+            "quarter_norm": 0.007777888935921474,
+            "full_acceptable": true,
+            "state_and_rng_unchanged": true
+          }
+        ],
+        "frozen_sha256": "f26efe6a6a179eb0c327f6262d0ac6d1f04d48af40ecd6068a201eb62a708732",
+        "actor_before_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+        "critic_before_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+        "scaler_before_sha256": "70bc7098edf87ed768738d2a25ea9f6b29171b9b6e5e4d39dc00f3d68b9de674",
+        "critic_optimizer_steps": 0,
+        "permutation": "dedicated CPU SeedSequence(seed,batch,95107), fifth of five full pair permutations",
+        "selected_normalization": "full",
+        "elapsed_seconds": 28.975207009003498,
+        "actor_after_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+        "critic_after_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+        "scaler_after_sha256": "70bc7098edf87ed768738d2a25ea9f6b29171b9b6e5e4d39dc00f3d68b9de674"
+      },
+      "normalization_check_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000/normalization_check.json",
+      "gate": {
+        "passed": true,
+        "status": "passed",
+        "device": "cpu",
+        "base_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+        "slurm_job_id": "17825755",
+        "expected_gpu_count": 0,
+        "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+        "saved_batch_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "seed": 4900000,
+        "F3_protocol": "identical saved CPU batch/model/optimizer/scheduler/scaler/RNG and identical provenance; exact old/new frozen-file bytes",
+        "workers": [
+          {
+            "name": "old",
+            "command": [
+              "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+              "-B",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+              "--worker",
+              "old",
+              "--source",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/reference_snapshot",
+              "--prepare",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+              "--checkpoint",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+              "--batch",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+              "--output",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old",
+              "--divisor-audit",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+              "--base-commit",
+              "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+              "--seed",
+              "4900000"
+            ]
+          },
+          {
+            "name": "new",
+            "command": [
+              "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+              "-B",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+              "--worker",
+              "new",
+              "--source",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+              "--prepare",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+              "--checkpoint",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+              "--batch",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+              "--output",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/new",
+              "--divisor-audit",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+              "--base-commit",
+              "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+              "--seed",
+              "4900000",
+              "--initial",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old/initial.pt"
+            ]
+          },
+          {
+            "name": "features",
+            "command": [
+              "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+              "-B",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+              "--worker",
+              "features",
+              "--source",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+              "--prepare",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+              "--checkpoint",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+              "--batch",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+              "--output",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/features",
+              "--divisor-audit",
+              "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+              "--base-commit",
+              "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+              "--seed",
+              "4900000"
+            ]
+          }
+        ],
+        "source_files": 405,
+        "reference_files": 404,
+        "F3": {
+          "passed": true,
+          "identical_saved_inputs": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 1847374,
+            "tensors": 76,
+            "first_failure": null
+          },
+          "final_states": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 2256729,
+            "tensors": 108,
+            "first_failure": null
+          },
+          "frozen_files_byte_identical": true,
+          "frozen_file_bytes": 5105459,
+          "old_frozen": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old/frozen_D1.pt",
+          "new_frozen": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/new/frozen_D1.pt",
+          "warmup_batches": 5,
+          "critic_steps": 100
+        },
+        "F1": {
+          "passed": true,
+          "checkpoint_critic": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 136449,
+            "tensors": 8,
+            "first_failure": null
+          },
+          "frozen_critic": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 136449,
+            "tensors": 8,
+            "first_failure": null
+          },
+          "critic_optimizer_steps": 0,
+          "completed_warmup_batches": 0
+        },
+        "F2": {
+          "passed": true,
+          "requested": 1.000000005,
+          "effective": 1.000000005,
+          "supplied_divisors": [
+            {
+              "checkpoint_itr": 0,
+              "requested": 1.000000005,
+              "effective": 1.000000005,
+              "passed": true
+            },
+            {
+              "checkpoint_itr": 35,
+              "requested": 476.76547228150207,
+              "effective": 476.76547228150207,
+              "passed": true
+            },
+            {
+              "checkpoint_itr": 70,
+              "requested": 480.3848633341828,
+              "effective": 480.3848633341828,
+              "passed": true
+            },
+            {
+              "checkpoint_itr": 105,
+              "requested": 481.72847498236365,
+              "effective": 481.72847498236365,
+              "passed": true
+            }
+          ],
+          "synthetic_fitted_divisor": 512.25,
+          "synthetic_fit_exact": true
+        },
+        "quarter_native_gradient": {
+          "passed": true,
+          "relative_l2": 3.0337205680327193e-07,
+          "max_abs": 3.2014213502407074e-10,
+          "pairs": 200000,
+          "chunk_size": 50000,
+          "definition": "four native model.loss score terms weighted by chunk_size/full_size",
+          "inert": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 1847374,
+            "tensors": 76,
+            "first_failure": null
+          }
+        },
+        "raw_V2_definition": {
+          "passed": true,
+          "max_abs": 0.0,
+          "relative_l2": 0.0,
+          "definition": "float64 raw MC return - frozen divisor * pre-update V"
+        },
+        "other_estimators_unchanged": {
+          "passed": true,
+          "comparisons": {
+            "V1": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "V3": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "V4": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "V5": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "V6": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 1,
+              "first_failure": null
+            }
+          }
+        },
+        "seconds": 821.782994334586
+      },
+      "normalization": "full",
+      "source_provenance": {
+        "gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_summary.json",
+        "cpu_gate_job_id": "17825755",
+        "source_repository": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5",
+        "source_path": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5/results/stage3_gradmean/dppo",
+        "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+        "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "current_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+        "files_compared": 405,
+        "stage": "v5"
+      },
       "scientific_sampling_performed_by_analysis": false
     }
   },
-  "pending_points": [
-    "W0_000",
-    "W0_035",
-    "W0_070",
-    "W0_105",
-    "W0_139"
-  ],
-  "curated": false,
+  "pending_points": [],
+  "artifacts_scope": "gradient figures and table only",
+  "reward_artifacts_rendered": false,
   "simulation_launched_by_renderer": false,
-  "parent_revision": "5df994bb42309be8af30fe6fa693afb228dc9e57",
-  "render_source_snapshot": [
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/plot_clean.py",
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/clean_v5_stats.py",
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/clean_v5_rewards.py",
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/clean_v3_stats.py",
-    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/clean_v3_rewards.py"
-  ]
+  "curated": false,
+  "analysis_source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/source"
 }

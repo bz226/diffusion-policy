@@ -1,0 +1,29 @@
+{
+  "utc": "2026-10-12T20:02:46.348435+00:00",
+  "status": "submitted",
+  "job_id": "17828506",
+  "dependency": "afterok:17828455",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:17828455",
+    "--kill-on-invalid-dep=yes",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/gradient-finalizer-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/recovery_controller_17826164/code/run_finalizer.sh",
+    "--commit",
+    "30b5956e113ae0b392daf6056f03d8a894a99f73"
+  ],
+  "cpus": 4,
+  "memory_gib": 64,
+  "gpu_count": 0,
+  "cap_minutes": 30,
+  "publication_scope": "two gradient figure bundles, points table, note and render record",
+  "preserved_byte_identical": "all reward artifacts, including history and three-seed outputs, and all curated files",
+  "scientific_source_changes": false,
+  "curation": false,
+  "mechanical_checks": [
+    "code/mechanical_checks.json",
+    "code/mechanical_refinement_checks.json"
+  ]
+}

@@ -1,0 +1,623 @@
+#!/usr/bin/env python
+"""Clean figures v5. Read saved evidence only; Python 3.8 compatible."""
+from __future__ import annotations
+
+import argparse
+import csv
+from datetime import datetime, timezone
+import json
+import math
+from pathlib import Path
+import shutil
+import subprocess
+import sys
+
+import numpy as np
+from clean_v5_rewards import load_reward_data
+from clean_v5_stats import build_statistics
+
+POINTS = ("W0_000", "W0_035", "W0_070", "W0_105", "W0_139")
+ITRS = (0, 35, 70, 105, 139)
+UPDATES = (0, 32, 63, 95, 126)
+METHODS = (("DPPO", "#0072B2"), ("without_PPO", "#D55E00"),
+           ("without_PPO_and_GAE", "#009E73"))
+GREEN = "#009E73"
+GRAY = "#383838"
+UNAVAILABLE = {"value": None, "lo": None, "hi": None, "se": None, "status": "unavailable"}
+
+
+def finite(x):
+    return x is not None and math.isfinite(float(x))
+
+
+def fmt(x, digits=5):
+    return ("%." + str(digits) + "g") % x if finite(x) else "N/A"
+
+
+def json_safe(x):
+    if isinstance(x, dict):
+        return {str(k): json_safe(v) for k, v in x.items()}
+    if isinstance(x, (list, tuple)):
+        return [json_safe(v) for v in x]
+    if isinstance(x, np.ndarray):
+        return json_safe(x.tolist())
+    if isinstance(x, np.generic):
+        return json_safe(x.item())
+    if isinstance(x, Path):
+        return str(x)
+    if isinstance(x, float) and not math.isfinite(x):
+        raise ValueError("Missing estimates must be explicit, not NaN/inf")
+    return x
+
+
+def metric_cell(m):
+    if finite(m.get("lower_bound")) and not finite(m.get("value")):
+        return "≥%s" % fmt(m["lower_bound"])
+    if not finite(m.get("value")):
+        return "N/A (upper %s)" % fmt(m["upper_bound"]) if finite(m.get("upper_bound")) else "N/A"
+    if not finite(m.get("lo")) or not finite(m.get("hi")):
+        return fmt(m["value"]) + " (interval unresolved)"
+    return "%s [%s, %s]" % (fmt(m["value"]), fmt(m["lo"]), fmt(m["hi"]))
+
+
+def add_metric(row, name, m):
+    for key in ("value", "lo", "hi", "se", "status", "lower_bound", "upper_bound", "reason"):
+        row[name if key == "value" else name + "_" + key] = m.get(key)
+
+
+def style_axes(ax):
+    ax.grid(axis="y", which="major", color="#dddddd", linewidth=.55)
+    ax.set_axisbelow(True)
+    ax.spines["right"].set_visible(False)
+    ax.spines["top"].set_visible(False)
+
+
+def save_figure(fig, output, name, caption, plt):
+    fig.savefig(output / (name + ".png"), dpi=300, bbox_inches="tight", metadata={"Description": caption})
+    fig.savefig(output / (name + ".pdf"), bbox_inches="tight", metadata={"Subject": caption, "Title": name})
+    (output / (name + ".caption.md")).write_text(caption + "\n")
+    plt.close(fig)
+
+
+def plot_rewards(rewards, output, plt):
+    for sampler, filename, ylabel in (("eval", "eval_reward", "Evaluation reward (episode return)"),
+                                      ("train", "train_reward", "Training reward (episode return)")):
+        fig, ax = plt.subplots(figsize=(4.8, 3.3))
+        for method, color in METHODS:
+            rows = rewards["curves"][method][sampler]
+            if not rows or rows[0]["update"] != 0:
+                raise ValueError("First rollout must use the pretrained actor")
+            xx = [r["env_steps"] / 1e6 for r in rows]
+            yy = [r["reward"] for r in rows]
+            ax.plot(xx, yy, color=color, lw=1.1, label=method,
+                    marker="o" if sampler == "eval" else None, ms=3)
+            if sampler == "eval":
+                if xx[-1] != 9.36:
+                    raise ValueError("Final evaluation must be at 9.36M")
+        style_axes(ax)
+        ax.set_xlabel("Training env steps (millions)")
+        ax.set_ylabel(ylabel)
+        ax.set_xlim(-.22, 10.2)
+        ax.set_xticks([0, 2.5, 5, 7.5, 10])
+        ax.legend(frameon=False, fontsize=8.5, loc="best")
+        fig.tight_layout()
+        caption = "One seed per method (seed 0), 80 episodes per point. "
+        if sampler == "eval":
+            caption += "Evaluation keeps the DDPM's noise at every denoising step except the last. "
+            caption += "All three runs start from the same pretrained policy; their values at x = 0 differ only by evaluation noise."
+        else:
+            caption += "Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns. "
+            caption += "Values at x = 0 differ only by sampling noise."
+        save_figure(fig, output, filename, caption, plt)
+
+
+def write_reward_note(rewards, output):
+    lines = ["# Reward figures: each run starts from its own value", "",
+             "Each curve uses its own saved mean at zero training steps: iteration 0 for evaluation and iteration 1 for training. "
+             "There is one seed per method (seed 0), 80 episodes per point, no pooling, no bands and no smoothing.", "",
+             "| Method | Initial evaluation | Evaluation s.e. | Initial training | Training s.e. | Final evaluation at 9.36M | Matches own log |",
+             "|---|---:|---:|---:|---:|---:|---|"]
+    for method, _ in METHODS:
+        curves = rewards["curves"][method]
+        check = rewards["final_eval_checks"][method]
+        if not check["final_eval_matches_log"]:
+            raise ValueError("Final evaluation differs from the native log: " + method)
+        lines.append("| %s | %.6f | unavailable | %.6f | unavailable | %.6f | yes |" %
+                     (method, curves["eval"][0]["reward"], curves["train"][0]["reward"], curves["eval"][-1]["reward"]))
+    lines += ["", "The requested standard errors (episode sd / √80) cannot be recovered: the original undiscounted episode returns, "
+              "SDs and sums of squares were not saved. Discounted-return errors and dispersion across run means are not substitutes. "
+              "This is the only unavailable requested quantity.", "",
+              "The final evaluation is iteration 130, after 117 updates × 80,000 training environment steps = 9.36M. "
+              + ("DPPO uses the measured seed-0 rerun." if rewards["DPPO_measured_seed_is_rerun"] else "DPPO uses the original Stage-1 seed-0 run.")
+              + " DPPO retains its original ±3σ truncation of nominal Gaussian sampling noise.", "",
+              "This reward-only note supersedes earlier pooled-start reward descriptions. Gradient measurements, gradient figures, the checkpoint table "
+              "and existing curated copies are unchanged. A separate reward-only refresh follows the existing finalizer so its archived renderer cannot leave the old reward figures in place.", "",
+              "[Evaluation PNG](eval_reward.png) · [PDF](eval_reward.pdf) · [Training PNG](train_reward.png) · [PDF](train_reward.pdf) · "
+              "[Saved inputs and provenance](reward_render_record.json)."]
+    (output / "REWARD_NOTE.md").write_text("\n".join(lines) + "\n")
+
+
+def render_rewards_only(args):
+    """Read existing runs and replace only reward artifacts, never gradient work."""
+    root = args.root.resolve()
+    project = root.parents[2]
+    if args.after_finalizer:
+        finalizer = json.loads(args.after_finalizer.read_text())
+        if finalizer.get("status") != "complete":
+            raise ValueError("Reward refresh requires successful completion of the existing finalizer")
+    rewards = load_reward_data(project)
+    run = root / "runs" / ("clean_v5_reward_origins_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    candidates = run / "candidates"
+    candidates.mkdir(parents=True)
+    sources = [Path(__file__)] + [Path(__file__).with_name(name) for name in
+              ("clean_v5_stats.py", "clean_v5_rewards.py", "clean_v3_stats.py", "clean_v3_rewards.py")]
+    for path in sources:
+        shutil.copy2(str(path), str(run / path.name))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "pdf.fonttype": 42,
+                         "savefig.facecolor": "white", "axes.spines.top": False, "axes.spines.right": False})
+    plot_rewards(rewards, candidates, plt)
+    write_reward_note(rewards, candidates)
+    record = {"status": "complete", "version": "5, own-start reward amendment", "run": str(run),
+              "utc": datetime.now(timezone.utc).isoformat(), "command": sys.argv,
+              "methods": [method for method, _ in METHODS], "curves": rewards["curves"],
+              "initial_standard_errors": {method: {"eval": None, "train": None} for method, _ in METHODS},
+              "standard_error_status": "unavailable: original episode dispersion was not saved",
+              "final_eval_checks": rewards["final_eval_checks"],
+              "parent_revision": subprocess.check_output(["git", "-C", str(project), "rev-parse", "HEAD"], universal_newlines=True).strip(),
+              "render_source_snapshot": [str(run / path.name) for path in sources],
+              "gradient_work_modified": False, "sampling_performed": False, "curated": False,
+              "after_finalizer": str(args.after_finalizer) if args.after_finalizer else None}
+    (candidates / "reward_render_record.json").write_text(json.dumps(json_safe(record), indent=2, allow_nan=False) + "\n")
+    output = args.output.resolve() if args.output else root / "figs_clean"
+    if not args.candidates_only:
+        output.mkdir(parents=True, exist_ok=True)
+        existing = [output / path.name for path in candidates.iterdir() if (output / path.name).is_file()]
+        if existing:
+            archive = output / "history" / ("reward_own_starts_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+            archive.mkdir(parents=True)
+            for path in existing:
+                shutil.copy2(str(path), str(archive / path.name))
+        for path in candidates.iterdir():
+            shutil.copy2(str(path), str(output / path.name))
+    print(json.dumps({"status": "complete", "scope": "reward figures only", "run": str(run), "output": str(output)}, indent=2))
+
+
+def load_three_seed_rewards(project):
+    """Require nine complete original runs before computing seed summaries."""
+    import pickle
+    import re
+    from clean_v3_rewards import _config_number
+    references = json.loads((project / "results/stage3/analysis_record.json").read_text())["reference_sources"]
+    paths = {"DPPO": references["Stage 1 DPPO"],
+             "without_PPO": references["Stage 2 NC4 1e-4"],
+             "without_PPO_and_GAE": [str(project / ("results/stage3/e1c/E1C_seed%d/result.pkl" % seed)) for seed in range(3)]}
+    data = {"runs": {}, "curves": {}, "summary": {}, "comparisons": []}
+    for method, _ in METHODS:
+        if len(paths[method]) != 3:
+            raise ValueError("Exactly three original seeds are required: " + method)
+        samples = {"eval": [], "train": []}
+        data["runs"][method] = []
+        for seed, name in enumerate(paths[method]):
+            path = Path(name)
+            if method == "DPPO":
+                manifest_path = project / "results/repro_halfcheetah/runs" / ("seed0_handoff" if seed == 0 else "seed%d" % seed) / "manifest.json"
+            elif method == "without_PPO":
+                manifest_path = path.parent.parent / "manifest.json"
+            else:
+                manifest_path = project / ("results/stage3/e1c/runs/E1C_seed%d/manifest.json" % seed)
+            manifest = json.loads(manifest_path.read_text())
+            if manifest.get("status") != "complete" or Path(manifest["logdir"]).resolve() != path.parent.resolve():
+                raise ValueError("Run is missing, unfinished or misidentified: %s seed%d" % (method, seed))
+            with path.open("rb") as stream:
+                rows = pickle.load(stream)
+            if [row["itr"] for row in rows] != list(range(140)) or not (path.parent / "checkpoint/state_139.pt").is_file():
+                raise ValueError("Run does not contain all 140 iterations and its final checkpoint: " + str(path))
+            config = (path.parent / ".hydra/config.yaml").read_text()
+            for key, expected in (("seed", seed), ("n_envs", 40), ("n_steps", 500), ("val_freq", 10), ("max_episode_steps", 1000)):
+                if _config_number(config, key) != expected:
+                    raise ValueError("Unexpected native configuration: " + key)
+            log = (path.parent / "run.log").read_text()
+            curves = {"eval": [], "train": []}
+            for row in rows:
+                itr = int(row["itr"])
+                kind = "eval" if itr % 10 == 0 else "train"
+                update = sum(j % 10 != 0 for j in range(itr))
+                value = float(row[kind + "_episode_reward"])
+                if (not math.isfinite(value) or row["step"] != (update + int(kind == "train")) * 80000 or
+                        row.get("episode_count", 80) != 80):
+                    raise ValueError("Invalid native reward, episode count or step mapping")
+                curves[kind].append({"itr": itr, "update": update, "env_steps": update * 80000, "reward": value})
+            for kind, count in (("eval", 14), ("train", 126)):
+                if kind == "eval":
+                    logged = [float(x) for x in re.findall(r"eval:.*?avg episode reward\s+([-+0-9.eE]+)", log)]
+                else:
+                    entries = re.findall(r" - (\d+): step\s+(\d+).*?\| reward\s+([-+0-9.eE]+)", log)
+                    expected = [(row["itr"], row["env_steps"] + 80000) for row in curves[kind]]
+                    if [(int(itr), int(step)) for itr, step, _ in entries] != expected:
+                        raise ValueError("Native training log iterations or steps differ from saved results")
+                    logged = [float(value) for _, _, value in entries]
+                values = [row["reward"] for row in curves[kind]]
+                if len(logged) != count or not np.allclose(logged, values, rtol=0, atol=.00005001):
+                    raise ValueError("Saved reward curve differs from native logs: %s seed%d %s" % (method, seed, kind))
+                samples[kind].append(curves[kind])
+            data["runs"][method].append({"seed": seed, "directory": str(path.parent), "result": str(path),
+                                        "completion_manifest": str(manifest_path), "iterations": 140, "all_rewards_match_log": True})
+        data["curves"][method] = {}
+        for kind in ("eval", "train"):
+            x = [row["env_steps"] / 1e6 for row in samples[kind][0]]
+            if any([row["env_steps"] / 1e6 for row in sample] != x for sample in samples[kind]):
+                raise ValueError("Seed curves are not aligned at identical training steps")
+            values = np.asarray([[row["reward"] for row in sample] for sample in samples[kind]], dtype=np.float64)
+            data["curves"][method][kind] = {"x_millions": x, "per_seed": values.tolist(),
+                                           "mean": values.mean(axis=0).tolist(), "sd": values.std(axis=0, ddof=1).tolist()}
+        if data["curves"][method]["eval"]["x_millions"][-1] != 9.36:
+            raise ValueError("Final evaluation must be at 9.36M training steps")
+        metrics = {"eval_final": [sample[-1]["reward"] for sample in samples["eval"]],
+                   "train_last10": [float(np.mean([row["reward"] for row in sample[-10:]])) for sample in samples["train"]],
+                   "eval_initial": [sample[0]["reward"] for sample in samples["eval"]],
+                   "train_initial": [sample[0]["reward"] for sample in samples["train"]]}
+        data["summary"][method] = {key: {"per_seed": values, "mean": float(np.mean(values)), "sd": float(np.std(values, ddof=1))}
+                                   for key, values in metrics.items()}
+    dppo = data["summary"]["DPPO"]["eval_final"]
+    if ([round(x) for x in dppo["per_seed"]] != [4636, 4796, 4843] or
+            round(dppo["mean"]) != 4758 or round(dppo["sd"]) != 108):
+        raise ValueError("The original DPPO final-evaluation sanity check failed")
+    for i, (first, _) in enumerate(METHODS):
+        for second, _ in METHODS[i + 1:]:
+            pair = {"first": first, "second": second, "direction": "second minus first"}
+            for metric in ("eval_final", "train_last10"):
+                a, b = data["summary"][first][metric], data["summary"][second][metric]
+                pooled = math.sqrt((a["sd"] ** 2 + b["sd"] ** 2) / 2)
+                pair[metric] = {"difference": b["mean"] - a["mean"], "pooled_sd": pooled, "se": pooled * math.sqrt(2.0 / 3.0)}
+            data["comparisons"].append(pair)
+    return data
+
+
+def plot_three_seed_rewards(data, output, plt):
+    for kind, ylabel in (("eval", "Evaluation reward (episode return)"), ("train", "Training reward (episode return)")):
+        fig, ax = plt.subplots(figsize=(4.8, 3.3))
+        for method, color in METHODS:
+            curve = data["curves"][method][kind]
+            mean, sd = np.asarray(curve["mean"]), np.asarray(curve["sd"])
+            ax.fill_between(curve["x_millions"], mean - sd, mean + sd, color=color, alpha=.16, linewidth=0)
+            ax.plot(curve["x_millions"], mean, color=color, lw=1.1, label=method,
+                    marker="o" if kind == "eval" else None, ms=3)
+        style_axes(ax)
+        ax.set_xlabel("Training env steps (millions)")
+        ax.set_ylabel(ylabel)
+        ax.set_xlim(-.22, 10.2)
+        ax.set_xticks([0, 2.5, 5, 7.5, 10])
+        ax.legend(frameon=False, fontsize=8.5, loc="best")
+        fig.tight_layout()
+        caption = "Mean over 3 seeds; band: ±1 sd across seeds; 80 episodes per point per seed. "
+        if kind == "eval":
+            caption += ("Evaluation keeps the DDPM's noise at every denoising step except the last. "
+                        "All runs start from the same pretrained policy; values at x = 0 differ only by evaluation noise.")
+        else:
+            caption += "Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns."
+        save_figure(fig, output, kind + "_reward_3seed", caption, plt)
+
+
+def write_three_seed_note(data, output):
+    def cell(metric):
+        return "%.2f ± %.2f<br>[%s]" % (metric["mean"], metric["sd"], ", ".join("%.2f" % x for x in metric["per_seed"]))
+    lines = ["# Three-seed reward comparison", "",
+             "Each cell is mean ± sample sd (ddof = 1); brackets give seed 0, 1, 2. "
+             "Each method retains its own mean at x = 0. Training is averaged within each seed over its last ten training updates "
+             "(iterations 129 and 131–139), then summarized across seeds. No smoothing is applied.", "",
+             "| Method | Evaluation at 9.36M | Last-ten-update training | Initial evaluation | Initial training |",
+             "|---|---:|---:|---:|---:|"]
+    for method, _ in METHODS:
+        lines.append("| " + method + " | " + " | ".join(cell(data["summary"][method][key]) for key in
+                     ("eval_final", "train_last10", "eval_initial", "train_initial")) + " |")
+    lines += ["", "DPPO matches the required 4,758 ± 108 check. All nine original runs finished 140 iterations, "
+              "and all 1,260 reward means match their native logs. The final evaluation is iteration 130, after 117 updates = 9.36M training steps.", "",
+              "| Difference (second minus first) | Evaluation difference ± s.e. | Last-ten-training difference ± s.e. |",
+              "|---|---:|---:|"]
+    for pair in data["comparisons"]:
+        lines.append("| %s − %s | %+.2f ± %.2f | %+.2f ± %.2f |" %
+                     (pair["second"], pair["first"], pair["eval_final"]["difference"], pair["eval_final"]["se"],
+                      pair["train_last10"]["difference"], pair["train_last10"]["se"]))
+    lines += ["", "The difference s.e. is sd_pooled × √(2/3), where sd_pooled² = (sd_first² + sd_second²)/2. "
+              "These are the requested unpaired seed-level standard errors, not episode-level errors or confidence intervals; only three seeds are available.", "",
+              "| Method | Seed 0 run directory | Seed 1 run directory | Seed 2 run directory |", "|---|---|---|---|"]
+    for method, _ in METHODS:
+        links = ["[seed %d](%s/)" % (row["seed"], row["directory"]) for row in data["runs"][method]]
+        lines.append("| " + method + " | " + " | ".join(links) + " |")
+    lines += ["", "Original Stage-1 runs are used, including seed 0's successfully completed watchdog handoff; it did not restart training. "
+              "No requested run was missing or replaced. DPPO retains its original ±3σ truncation of nominal Gaussian noise. "
+              "The single-seed PNGs, PDFs and captions passed before/after SHA-256 equality checks. No training, gradient analysis or running-job change was performed.", "",
+              "[Evaluation PNG](eval_reward_3seed.png) · [PDF](eval_reward_3seed.pdf) · [Training PNG](train_reward_3seed.png) · "
+              "[PDF](train_reward_3seed.pdf) · [Exact inputs, values and checks](reward_3seed_record.json)."]
+    (output / "REWARD_3SEED_NOTE.md").write_text("\n".join(lines) + "\n")
+
+
+def render_three_seed_rewards(args):
+    import hashlib
+    root = args.root.resolve()
+    project = root.parents[2]
+    output = args.output.resolve() if args.output else root / "figs_clean"
+    single_names = [base + suffix for base in ("eval_reward", "train_reward") for suffix in (".png", ".pdf", ".caption.md")]
+    before = {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}
+    data = load_three_seed_rewards(project)
+    run = root / "runs" / ("clean_rewards_3seed_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    candidates = run / "candidates"
+    candidates.mkdir(parents=True)
+    for name in ("plot_clean.py", "clean_v5_rewards.py", "clean_v5_stats.py", "clean_v3_rewards.py", "clean_v3_stats.py"):
+        shutil.copy2(str(Path(__file__).with_name(name)), str(run / name))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "pdf.fonttype": 42,
+                         "savefig.facecolor": "white", "axes.spines.top": False, "axes.spines.right": False})
+    plot_three_seed_rewards(data, candidates, plt)
+    write_three_seed_note(data, candidates)
+    after = {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}
+    if before != after:
+        raise ValueError("Single-seed outputs changed during rendering; refusing publication")
+    record = {"status": "complete", "run": str(run), "command": sys.argv,
+              "utc": datetime.now(timezone.utc).isoformat(), "data": data,
+              "single_seed_sha256_before": before, "single_seed_sha256_after": after,
+              "single_seed_byte_identical": True, "sampling_performed": False, "curated": False,
+              "parent_revision": subprocess.check_output(["git", "-C", str(project), "rev-parse", "HEAD"], universal_newlines=True).strip()}
+    (candidates / "reward_3seed_record.json").write_text(json.dumps(json_safe(record), indent=2, allow_nan=False) + "\n")
+    if not args.candidates_only:
+        output.mkdir(parents=True, exist_ok=True)
+        for path in candidates.iterdir():
+            if (output / path.name).exists():
+                raise ValueError("Three-seed output already exists; preserve it before publishing a revision")
+        for path in candidates.iterdir():
+            shutil.copy2(str(path), str(output / path.name))
+        if before != {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}:
+            raise ValueError("Single-seed outputs changed during publication")
+    print(json.dumps({"status": "complete", "scope": "three-seed rewards only", "run": str(run), "output": str(output)}, indent=2))
+
+
+def error_point(ax, x, metric):
+    value = metric.get("value")
+    if not finite(value) or value <= 0:
+        bound = metric.get("lower_bound")
+        if finite(bound) and bound > 0:
+            ax.plot(x, bound, marker="^", color=GREEN, mfc="none", ms=5, ls="none")
+        return
+    ax.plot(x, value, marker="o", color=GREEN, ms=4, ls="none", zorder=4)
+    lo, hi = metric.get("lo"), metric.get("hi")
+    if finite(lo) and finite(hi) and hi > 0:
+        # A nonpositive endpoint cannot appear on log axes. Its full interval
+        # remains in the table; there is no invented finite lower endpoint.
+        bottom = lo if lo > 0 else value
+        ax.vlines(x, bottom, hi, color=GREEN, lw=.9)
+        ax.hlines(hi, x - 1.4, x + 1.4, color=GREEN, lw=.9)
+        if lo > 0:
+            ax.hlines(lo, x - 1.4, x + 1.4, color=GREEN, lw=.9)
+
+
+def plot_noise(stats, variant, output, plt):
+    if not stats["points"]:
+        return False
+    is_run = variant == "V2"
+    filename = "gradient_noise_as_run" if is_run else "gradient_noise_paper_form"
+    fig, axes = plt.subplots(1, 3, figsize=(7.25, 3.15))
+    panels = (("u_norm", "Mean gradient norm", "Gradient norm\n(training-loss units)" if is_run else "Gradient norm (paper units)"),
+              ("trace_ep", "Gradient variance\n(per episode)", "Variance trace\n(training-loss units²)" if is_run else "Variance trace (paper units²)"),
+              ("B_ep", "Relative variance\n(per episode)", "Relative variance = B (episodes)"))
+    for ax, (field, title, ylabel) in zip(axes, panels):
+        ys = []
+        for name, x in zip(POINTS, UPDATES):
+            p = stats["points"].get(name)
+            metric = p["estimators"][variant][field] if p else UNAVAILABLE
+            ys.append(metric["value"] if finite(metric.get("value")) and metric["value"] > 0 else np.nan)
+            error_point(ax, x, metric)
+        ax.plot(UPDATES, ys, color=GREEN, lw=1.2)
+        ax.set_yscale("log")
+        style_axes(ax)
+        ax.set_title(title, fontsize=10)
+        ax.set_xlabel("Updates (one update = 80 episodes)", fontsize=8)
+        ax.set_ylabel(ylabel, fontsize=8.5)
+        ax.tick_params(labelsize=8)
+        ax.set_xlim(-5, 132)
+        ax.set_xticks(UPDATES)
+        ax.margins(y=.22)
+    fig.suptitle(("As run" if is_run else "Paper’s form") + "\neach point: m = 40,000 episodes (500 batches of 80)", fontsize=11, y=.99)
+    fig.subplots_adjust(left=.085, right=.99, bottom=.21, top=.72, wspace=.62)
+    norm = stats.get("normalization", stats.get("runmetadata", {}).get("normalization", "pending"))
+    if is_run:
+        estimator = "Raw Monte Carlo return minus the critic, normalized %s; mean coordinate log-probability and 0.99 denoising weights, without decision discount." % ("per quarter" if norm == "quarter" else "per batch")
+    else:
+        estimator = "Discounted raw Monte Carlo return minus the critic, summed coordinate log-probabilities, unit denoising weights and no normalization, in paper units."
+    caption = (estimator + " The critic and reward scale at each point are the run's own; at update 0 the critic is untrained. "
+               "The scale at update 126 uses the specified least-squares fallback. "
+               "One update averages 80 episodes, so its relative variance is B/80. "
+               "Error bars are 90% delete-one-group jackknife intervals with t(9) quantiles; intervals are conditional on the measured checkpoints (one training seed).")
+    unresolved = any(p["estimators"][variant]["B_ep"].get("value") is None or
+                     (finite(p["estimators"][variant]["u_norm"].get("lo")) and p["estimators"][variant]["u_norm"]["lo"] <= 0)
+                     for p in stats["points"].values())
+    if unresolved:
+        caption += " Open triangles mark lower bounds where the signal is unresolved; nonpositive interval endpoints are omitted on log axes and retained in the table."
+    pending = [str(x) for name, x in zip(POINTS, UPDATES) if name not in stats["points"]]
+    if pending:
+        caption += " Pending checkpoints (updates): " + ", ".join(pending) + "."
+    save_figure(fig, output, filename, caption, plt)
+    return True
+
+
+def build_table(stats, rewards):
+    rows = []
+    for name, itr, update in zip(POINTS, ITRS, UPDATES):
+        p = stats["points"].get(name)
+        checkpoint = rewards["checkpoints"][str(itr)]
+        row = {"method": "without_PPO_and_GAE", "update_number": update,
+               "checkpoint_file": checkpoint["checkpoint_file"], "K": 500 if p else 0,
+               "m": 40000 if p else 0, "groups": 10 if p else 0,
+               "status": "measured" if p else "pending ten complete 50-batch jobs",
+               "scale_fallback": itr == 139, "point": name}
+        for variant, prefix in (("V2", "as_run"), ("V6", "paper_form")):
+            for field in ("u_norm", "trace_ep", "B_ep", "B_update"):
+                add_metric(row, prefix + "_" + field, p["estimators"][variant][field] if p else UNAVAILABLE)
+        add_metric(row, "mean_direction_cosine", p["cos_V2_V6"] if p else UNAVAILABLE)
+        add_metric(row, "critic_explained_variance_measured", p["explained_var"] if p else UNAVAILABLE)
+        row["critic_explained_variance_logged"] = checkpoint["logged_explained_var"]["value"]
+        row["logged_explained_variance_itr"] = checkpoint["logged_explained_var"]["itr"]
+        divisor = p.get("divisor", {}) if p else {}
+        if isinstance(divisor, (int, float)):
+            divisor = {"value": divisor, "status": "fixed"}
+        add_metric(row, "c", divisor if divisor else dict(UNAVAILABLE, value=checkpoint["divisor"]))
+        source = p.get("divisor_source", {}) if p else {}
+        row["c_source"] = source.get("source", checkpoint["divisor_status"]) if isinstance(source, dict) else str(source)
+        row["normalization"] = p.get("normalization") if p else "pending check"
+        row["selected_jobs"] = ";".join(j["run_id"] if isinstance(j, dict) else str(j) for j in p["selected_jobs"]) if p else ""
+        rows.append(row)
+    return rows
+
+
+def write_tables(rows, output):
+    with (output / "points_table.csv").open("w", newline="") as stream:
+        writer = csv.DictWriter(stream, fieldnames=list(rows[0]))
+        writer.writeheader(); writer.writerows(rows)
+    lines = ["# Gradient noise of without_PPO_and_GAE", "",
+             "Each row uses the same 500 batches (40,000 episodes, ten independent jobs) for both estimators. "
+             "Brackets are 90% delete-one-group jackknife intervals using t(0.95,9)=1.833113, with joint deletions for ratios and cosines. "
+             "Each estimator uses its own pairwise squared-mean estimate. Only B is comparable across their different units. "
+             "A dagger marks every estimate affected by the fitted scale at update 126. Gradient intervals condition on that scale; c has its own five-fit-batch jackknife interval with t(4) quantiles. "
+             "Bounds indicate an unresolved signal; they are upper-signal plug-in bounds, not two-sided confidence intervals.", "",
+             "| Updates | Checkpoint | K | m | As run: ‖u‖ | Trace/episode | B | B/80 | Paper form: ‖u‖ | Trace/episode | B | B/80 | Mean-direction cosine | Critic EV measured | Critic EV logged | c and source |",
+             "|---:|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|---|"]
+    def cell(row, field):
+        metric = {key: row.get(field if key == "value" else field + "_" + key)
+                  for key in ("value", "lo", "hi", "se", "status", "lower_bound", "upper_bound")}
+        return metric_cell(metric)
+    for row in rows:
+        mark = "†" if row["scale_fallback"] and row["K"] else ""
+        values = [str(row["update_number"]), row["checkpoint_file"], str(row["K"]), format(row["m"], ",")]
+        fields = [prefix + "_" + field for prefix in ("as_run", "paper_form")
+                  for field in ("u_norm", "trace_ep", "B_ep", "B_update")]
+        fields += ["mean_direction_cosine", "critic_explained_variance_measured"]
+        values += [cell(row, field) + mark for field in fields]
+        values += [fmt(row["critic_explained_variance_logged"])]
+        c = cell(row, "c") if row["scale_fallback"] and row["K"] else fmt(row["c"])
+        values += [c + mark + "; " + str(row["c_source"])]
+        lines.append("| " + " | ".join(values) + " |")
+    lines += ["", "As-run norm/trace use training-loss units/squared units; paper-form norm/trace use paper units/squared units; B is in episodes. "
+              "Exact logged c and logged EV are fixed reference values without sampling intervals. Measured EV uses DPPO's scaled-reward GAE targets. "
+              "The final policy has no next training rollout, so its logged EV is unavailable. Selected jobs and normalization are in [render_record.json](render_record.json)."]
+    (output / "points_table.md").write_text("\n".join(lines) + "\n")
+
+
+def write_note(rewards, stats, rows, output):
+    missing = [str(x) for name, x in zip(POINTS, UPDATES) if name not in stats["points"]]
+    lines = ["# Clean figures, version 5", "",
+             ("Reward figures are complete; gradient measurements are pending at updates " + ", ".join(missing) + ".") if missing else
+             "All five checkpoints have 500 measured batches. Both gradient figures use exactly the same checkpoints, critics, scales and batches.", "",
+             "Checkpoint state_0/35/70/105/139 contains 0/32/63/95/126 actor updates, verified from native counters and save order. "
+             "The final evaluation is iteration130, 117 updates, 9.36M training env steps. DPPO uses the original Stage-1 seed0 run.", "",
+             "Final seed0 evaluation matches each native log: " + "; ".join(m + " " + fmt(rewards["curves"][m]["eval"][-1]["reward"], 9) for m, _ in METHODS) + ". "
+             "Each curve starts from its own saved evaluation or first-training mean (80 episodes), without pooling. "
+             "Episode spreads were not saved, so the requested starting-point standard errors are unavailable. " +
+             "DPPO retains its original ±3σ truncation of nominal Gaussian noise.", "",
+             "The critic has no warm-up. Scales come from the next training iteration's start log; the final scale uses the authorized through-origin least-squares fit over five fresh batches. "
+             "The native initial c is 1.000000005 (nominal1 plus the scaler epsilon). All final-point estimates are marked †. "
+             "Legacy V2 used clipped scaled returns; this collection explicitly uses raw Monte Carlo returns minus c times the frozen critic.", "",
+             "CPU gates and normalization checks: [gate record](../runs/clean_v5_20261012/gate_cpu/) and "
+             "[collection record](../runs/clean_v5_20261012/). F3 uses the approved identical-input old/new CPU replay with identical provenance. "
+             "Each plotted point requires ten complete50-batch jobs. No unfinished groups or older warmed-critic data enter these figures.", "",
+             "| Updates | Predicted consecutive-gradient cosine | Logged mean ± s.e. | Logged n | Measured critic EV | Logged critic EV |",
+             "|---:|---:|---:|---:|---:|---:|"]
+    for name, itr, update in zip(POINTS, ITRS, UPDATES):
+        p = stats["points"].get(name)
+        logged = rewards["checkpoints"][str(itr)]
+        cosine = logged["grad_cos_prev_window"]
+        mark = "†" if p and itr == 139 else ""
+        lines.append("| %d | %s | %s ± %s | %d | %s | %s |" %
+                     (update, metric_cell(p["predicted_consecutive_cos"] if p else UNAVAILABLE) + mark, fmt(cosine["mean"]),
+                      fmt(cosine["sample_se"]), cosine["n"], metric_cell(p["explained_var"] if p else UNAVAILABLE) + mark,
+                      fmt(logged["logged_explained_var"]["value"])))
+    lines += ["", "The prediction is 1/(1+B_as_run/80). Log windows include ±10 pre-rollout update indices; endpoints are truncated to available data. "
+              "The logged standard error is descriptive: successive gradients can be dependent and training changes the policy and critic. "
+              "Fresh-batch EV uses the same GAE-target definition as training; update126 has no matching logged rollout.", "",
+              "| Updates | K | m | Jobs used |", "|---:|---:|---:|---|"]
+    for row in rows:
+        lines.append("| %d | %d | %d | %s |" % (row["update_number"], row["K"], row["m"], row["selected_jobs"] or "pending"))
+    metadata = stats.get("runmetadata", {})
+    gate = metadata.get("gate", {})
+    comparison = metadata.get("normalization_check", {})
+    if gate.get("passed"):
+        lines += ["", "F1–F3 passed on CPU: checkpoint critic and supplied scales are exact; old/new final states and frozen-file bytes agree. "
+                  "Native quarter-gradient relative L2 difference: " + fmt(gate.get("quarter_native_gradient", {}).get("relative_l2"), 8) + "."]
+    if comparison.get("rows"):
+        lines += ["", "Normalization selected **" + str(comparison.get("selected_normalization")) + "**: " +
+                  "; ".join("batch%d cosine %s, quarter/full norm ratio %s" %
+                            (r["batch"], fmt(r["cosine"], 9), fmt(r["quarter_over_full_norm"], 9)) for r in comparison["rows"]) + "."]
+    lines += ["", "The superseded warmed-critic collection finished its already-running work: nine middle-checkpoint groups (450 batches) and two preparations. "
+              "Those results remain separate and are not used here. No further jobs from that plan are launched. "
+              "Earlier figures remain preserved in the figures history; curated artifacts are unchanged.", "",
+              "[Evaluation](eval_reward.png) · [Training](train_reward.png) · [As run](gradient_noise_as_run.png) · "
+              "[Paper form](gradient_noise_paper_form.png) · [Table](points_table.md). Captions accompany each figure."]
+    (output / "NOTE.md").write_text("\n".join(lines) + "\n")
+
+
+def publish(candidates, output):
+    output.mkdir(parents=True, exist_ok=True)
+    existing = [p for p in output.iterdir() if p.is_file()]
+    if existing:
+        archive = output / "history" / datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ")
+        archive.mkdir(parents=True)
+        for path in existing:
+            shutil.copy2(str(path), str(archive / path.name))
+    for path in candidates.iterdir():
+        if path.is_file():
+            shutil.copy2(str(path), str(output / path.name))
+
+
+def main(args):
+    if args.reward_seeds == 3:
+        return render_three_seed_rewards(args)
+    if args.rewards_only:
+        return render_rewards_only(args)
+    root = args.root.resolve(); project = root.parents[2]
+    rewards = load_reward_data(project)
+    stats = build_statistics(root, analysis_source=args.analysis_source)
+    if any(p["K"] != 500 or p["groups"] != 10 for p in stats["points"].values()):
+        raise ValueError("Every rendered point must contain exactly10x50 complete batches")
+    run = root / "runs" / ("clean_v5_render_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    candidates = run / "candidates"; candidates.mkdir(parents=True)
+    sources = [Path(__file__)] + [Path(__file__).with_name(name) for name in
+              ("clean_v5_stats.py", "clean_v5_rewards.py", "clean_v3_stats.py", "clean_v3_rewards.py")]
+    for path in sources:
+        shutil.copy2(str(path), str(run / path.name))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "pdf.fonttype": 42,
+                         "savefig.facecolor": "white", "axes.spines.top": False, "axes.spines.right": False})
+    plot_rewards(rewards, candidates, plt)
+    for variant in ("V2", "V6"):
+        plot_noise(stats, variant, candidates, plt)
+    rows = build_table(stats, rewards)
+    write_tables(rows, candidates)
+    write_note(rewards, stats, rows, candidates)
+    missing = [name for name in POINTS if name not in stats["points"]]
+    record = {"version": 5, "status": "interim" if missing else "complete", "utc": datetime.now(timezone.utc).isoformat(),
+              "command": sys.argv, "run": str(run), "rewards": rewards, "statistics": stats,
+              "pending_points": missing, "curated": False, "simulation_launched_by_renderer": False,
+              "parent_revision": subprocess.check_output(["git", "-C", str(project), "rev-parse", "HEAD"], universal_newlines=True).strip(),
+              "render_source_snapshot": [str(run / path.name) for path in sources]}
+    (candidates / "render_record.json").write_text(json.dumps(json_safe(record), indent=2, allow_nan=False) + "\n")
+    output = args.output.resolve() if args.output else root / "figs_clean"
+    if not args.candidates_only:
+        publish(candidates, output)
+    print(json.dumps({"status": record["status"], "output": str(output), "run": str(run), "pending_points": missing}, indent=2))
+
+
+if __name__ == "__main__":
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--root", type=Path, default=Path("/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean"))
+    parser.add_argument("--output", type=Path)
+    parser.add_argument("--analysis-source", type=Path)
+    parser.add_argument("--candidates-only", action="store_true")
+    parser.add_argument("--rewards-only", action="store_true", help="Render only the two reward figures from existing runs")
+    parser.add_argument("--reward-seeds", type=int, choices=(1, 3), default=1, help="Use 3 to render only new three-seed reward files")
+    parser.add_argument("--after-finalizer", type=Path, help="Require a successful finalizer record before a reward-only refresh")
+    main(parser.parse_args())

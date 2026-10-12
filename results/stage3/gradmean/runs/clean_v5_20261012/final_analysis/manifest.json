@@ -1,0 +1,1618 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-12T20:11:59.173969+00:00",
+  "job_id": "17828506",
+  "scientific_jobs_launched": false,
+  "gpu_count": 0,
+  "curated": false,
+  "source_provenance": {
+    "gate_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_summary.json",
+    "cpu_gate_job_id": "17825755",
+    "source_repository": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5/results/stage3_gradmean/dppo",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+    "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+    "current_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+    "files_compared": 405,
+    "stage": "v5"
+  },
+  "ledger": {
+    "base_gpu_seconds": 252254,
+    "new_actual_gpu_seconds": 37230,
+    "outstanding_reserved_gpu_seconds": 0,
+    "aggregate_actual_plus_reserved": 289484,
+    "aggregate_gpu_seconds_cap": 450000
+  },
+  "normalization": "full",
+  "artifacts_scope": "gradient figures and table only",
+  "protected_files": [
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/INDEX.md",
+      "bytes": 8721
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/evaluation-reward-three-seeds.caption.md",
+      "bytes": 250
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/evaluation-reward-three-seeds.pdf",
+      "bytes": 15754
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/evaluation-reward-three-seeds.png",
+      "bytes": 190403
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/reward-three-seed-note.md",
+      "bytes": 3561
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/training-reward-three-seeds.caption.md",
+      "bytes": 204
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/training-reward-three-seeds.pdf",
+      "bytes": 22144
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-3seed/training-reward-three-seeds.png",
+      "bytes": 290672
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.caption.md",
+      "bytes": 237
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.pdf",
+      "bytes": 14281
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/eval_reward.png",
+      "bytes": 153292
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.caption.md",
+      "bytes": 226
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.pdf",
+      "bytes": 15975
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-own-starts/train_reward.png",
+      "bytes": 225074
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.caption.md",
+      "bytes": 354
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.pdf",
+      "bytes": 14530
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.png",
+      "bytes": 152537
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/train_reward.caption.md",
+      "bytes": 405
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/train_reward.pdf",
+      "bytes": 16644
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/clean-v5-rewards/train_reward.png",
+      "bytes": 256313
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/eval_reward.caption.md",
+      "bytes": 708
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/eval_reward.pdf",
+      "bytes": 15846
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/eval_reward.png",
+      "bytes": 188475
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V4.caption.md",
+      "bytes": 1453
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V4.pdf",
+      "bytes": 22997
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V4.png",
+      "bytes": 272527
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V5.caption.md",
+      "bytes": 1466
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V5.pdf",
+      "bytes": 23108
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V5.png",
+      "bytes": 266904
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V6.caption.md",
+      "bytes": 1982
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V6.pdf",
+      "bytes": 25761
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/gradient_noise_V6.png",
+      "bytes": 294380
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/points_table.csv",
+      "bytes": 14253
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/points_table.md",
+      "bytes": 5423
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-analysis.md",
+      "bytes": 3985
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-estimates.caption.md",
+      "bytes": 923
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-estimates.csv",
+      "bytes": 3521
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-signal-and-noise.caption.md",
+      "bytes": 1183
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-signal-and-noise.pdf",
+      "bytes": 29262
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/round2-gradient-signal-and-noise.png",
+      "bytes": 251027
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/train_reward.caption.md",
+      "bytes": 724
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/train_reward.pdf",
+      "bytes": 21950
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/curated/train_reward.png",
+      "bytes": 270118
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/REWARD_3SEED_NOTE.md",
+      "bytes": 3753
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/REWARD_NOTE.md",
+      "bytes": 1723
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward.caption.md",
+      "bytes": 237
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward.pdf",
+      "bytes": 14281
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward.png",
+      "bytes": 153292
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward_3seed.caption.md",
+      "bytes": 250
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward_3seed.pdf",
+      "bytes": 15754
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/eval_reward_3seed.png",
+      "bytes": 190403
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/eval_reward.caption.md",
+      "bytes": 708
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/eval_reward.pdf",
+      "bytes": 15846
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/eval_reward.png",
+      "bytes": 188475
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/train_reward.caption.md",
+      "bytes": 724
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/train_reward.pdf",
+      "bytes": 21950
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152614.075512Z/train_reward.png",
+      "bytes": 270118
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/eval_reward.caption.md",
+      "bytes": 708
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/eval_reward.pdf",
+      "bytes": 15846
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/eval_reward.png",
+      "bytes": 188475
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/train_reward.caption.md",
+      "bytes": 724
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/train_reward.pdf",
+      "bytes": 21950
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152704.663199Z/train_reward.png",
+      "bytes": 270118
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/eval_reward.caption.md",
+      "bytes": 708
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/eval_reward.pdf",
+      "bytes": 15846
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/eval_reward.png",
+      "bytes": 188475
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/train_reward.caption.md",
+      "bytes": 724
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/train_reward.pdf",
+      "bytes": 21950
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T152759.832279Z/train_reward.png",
+      "bytes": 270118
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/eval_reward.caption.md",
+      "bytes": 708
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/eval_reward.pdf",
+      "bytes": 15846
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/eval_reward.png",
+      "bytes": 188475
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/train_reward.caption.md",
+      "bytes": 724
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/train_reward.pdf",
+      "bytes": 21950
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T161233.062570Z/train_reward.png",
+      "bytes": 270118
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/eval_reward.caption.md",
+      "bytes": 1063
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/eval_reward.pdf",
+      "bytes": 15385
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/eval_reward.png",
+      "bytes": 164740
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/train_reward.caption.md",
+      "bytes": 936
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/train_reward.pdf",
+      "bytes": 17151
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/20261012T164911.828420Z/train_reward.png",
+      "bytes": 257238
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/eval_reward.caption.md",
+      "bytes": 354
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/eval_reward.pdf",
+      "bytes": 14530
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/eval_reward.png",
+      "bytes": 152537
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/train_reward.caption.md",
+      "bytes": 405
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/train_reward.pdf",
+      "bytes": 16644
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/reward_own_starts_20261012T180453.171077Z/train_reward.png",
+      "bytes": 256313
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/reward_3seed_record.json",
+      "bytes": 87820
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/reward_render_record.json",
+      "bytes": 88452
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward.caption.md",
+      "bytes": 226
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward.pdf",
+      "bytes": 15975
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward.png",
+      "bytes": 225074
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward_3seed.caption.md",
+      "bytes": 204
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward_3seed.pdf",
+      "bytes": 22144
+    },
+    {
+      "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/train_reward_3seed.png",
+      "bytes": 290672
+    }
+  ],
+  "recovery_finalizer": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/recovery_controller_17826164/code/finalize_gradients_v5.py",
+  "verified_jobs": [
+    {
+      "run_id": "prepare_W0_000",
+      "job_id": "17825857",
+      "scheduler": {
+        "job_id": "17825857",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 34,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 34,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.235448+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_000/grad_mean.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_000/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "prepare_W0_035",
+      "job_id": "17825858",
+      "scheduler": {
+        "job_id": "17825858",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 34,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 34,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.286637+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_035/grad_mean.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_035/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "prepare_W0_070",
+      "job_id": "17825859",
+      "scheduler": {
+        "job_id": "17825859",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 34,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 34,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.336870+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_070/grad_mean.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_070/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "prepare_W0_105",
+      "job_id": "17825860",
+      "scheduler": {
+        "job_id": "17825860",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 34,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 34,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.378617+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_105/grad_mean.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_105/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "prepare_W0_139",
+      "job_id": "17825861",
+      "scheduler": {
+        "job_id": "17825861",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 97,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 97,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.421637+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_139/grad_mean.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_139/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "norm_W0_000",
+      "job_id": "17825869",
+      "scheduler": {
+        "job_id": "17825869",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 49,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 49,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.465151+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000/normalization_check.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j00",
+      "job_id": "17825895",
+      "scheduler": {
+        "job_id": "17825895",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 725,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 725,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.749468+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j01",
+      "job_id": "17825896",
+      "scheduler": {
+        "job_id": "17825896",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 725,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 725,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.803458+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j02",
+      "job_id": "17825897",
+      "scheduler": {
+        "job_id": "17825897",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.861642+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j03",
+      "job_id": "17825898",
+      "scheduler": {
+        "job_id": "17825898",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 784,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 784,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.926637+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j04",
+      "job_id": "17825899",
+      "scheduler": {
+        "job_id": "17825899",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 712,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 712,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:11:59.997858+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j05",
+      "job_id": "17826170",
+      "scheduler": {
+        "job_id": "17826170",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.073552+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j05/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j05/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j06",
+      "job_id": "17826171",
+      "scheduler": {
+        "job_id": "17826171",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 725,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 725,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.153038+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j06/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j06/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j07",
+      "job_id": "17826172",
+      "scheduler": {
+        "job_id": "17826172",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.231432+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j07/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j07/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j08",
+      "job_id": "17826173",
+      "scheduler": {
+        "job_id": "17826173",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 800,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 800,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.312554+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j08/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j08/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j09",
+      "job_id": "17826174",
+      "scheduler": {
+        "job_id": "17826174",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 712,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 712,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.396062+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j09/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j09/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j00",
+      "job_id": "17826379",
+      "scheduler": {
+        "job_id": "17826379",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 724,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 724,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.481167+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j00/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j01",
+      "job_id": "17826382",
+      "scheduler": {
+        "job_id": "17826382",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 729,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 729,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.566712+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j01/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j02",
+      "job_id": "17826385",
+      "scheduler": {
+        "job_id": "17826385",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 738,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 738,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.649822+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j02/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j03",
+      "job_id": "17826386",
+      "scheduler": {
+        "job_id": "17826386",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 711,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 711,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.736552+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j03/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j04",
+      "job_id": "17826392",
+      "scheduler": {
+        "job_id": "17826392",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 815,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 815,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.803216+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j04/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j05",
+      "job_id": "17826556",
+      "scheduler": {
+        "job_id": "17826556",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 725,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 725,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.880719+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j05/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j05/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j06",
+      "job_id": "17826558",
+      "scheduler": {
+        "job_id": "17826558",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 725,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 725,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:00.964586+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j06/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j06/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j07",
+      "job_id": "17826559",
+      "scheduler": {
+        "job_id": "17826559",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 696,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 696,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.050676+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j07/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j07/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j08",
+      "job_id": "17826572",
+      "scheduler": {
+        "job_id": "17826572",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.138243+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j08/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j08/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_035_j09",
+      "job_id": "17826615",
+      "scheduler": {
+        "job_id": "17826615",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 784,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 784,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.223346+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j09/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_035_j09/cleanup.json",
+        "external_point_id": "W0_035",
+        "collector_point": "D1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_35.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j00",
+      "job_id": "17826855",
+      "scheduler": {
+        "job_id": "17826855",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 696,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 696,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.309714+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j00/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j01",
+      "job_id": "17826886",
+      "scheduler": {
+        "job_id": "17826886",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 726,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 726,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.397096+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j01/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j02",
+      "job_id": "17826887",
+      "scheduler": {
+        "job_id": "17826887",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 726,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 726,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.483405+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j02/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j03",
+      "job_id": "17826898",
+      "scheduler": {
+        "job_id": "17826898",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 754,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 754,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.568625+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j03/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j04",
+      "job_id": "17826914",
+      "scheduler": {
+        "job_id": "17826914",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 846,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 846,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.643971+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j04/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j05",
+      "job_id": "17827019",
+      "scheduler": {
+        "job_id": "17827019",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 711,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 711,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.727272+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j05/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j05/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j06",
+      "job_id": "17827033",
+      "scheduler": {
+        "job_id": "17827033",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 740,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 740,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.809633+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j06/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j06/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j07",
+      "job_id": "17827034",
+      "scheduler": {
+        "job_id": "17827034",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 740,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 740,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.896763+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j07/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j07/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j08",
+      "job_id": "17827042",
+      "scheduler": {
+        "job_id": "17827042",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:01.984393+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j08/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j08/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_070_j09",
+      "job_id": "17827118",
+      "scheduler": {
+        "job_id": "17827118",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 814,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 814,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.073016+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j09/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_070_j09/cleanup.json",
+        "external_point_id": "W0_070",
+        "collector_point": "D2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j00",
+      "job_id": "17827206",
+      "scheduler": {
+        "job_id": "17827206",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 696,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 696,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.160859+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j00/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j01",
+      "job_id": "17827253",
+      "scheduler": {
+        "job_id": "17827253",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 724,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 724,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.250936+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j01/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j02",
+      "job_id": "17827254",
+      "scheduler": {
+        "job_id": "17827254",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 724,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 724,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.341987+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j02/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j03",
+      "job_id": "17827263",
+      "scheduler": {
+        "job_id": "17827263",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 754,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 754,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.434320+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j03/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j04",
+      "job_id": "17827350",
+      "scheduler": {
+        "job_id": "17827350",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 814,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 814,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.527027+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j04/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j05",
+      "job_id": "17827407",
+      "scheduler": {
+        "job_id": "17827407",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 697,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 697,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.619581+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j05/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j05/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j06",
+      "job_id": "17827430",
+      "scheduler": {
+        "job_id": "17827430",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 726,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 726,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.709910+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j06/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j06/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j07",
+      "job_id": "17827431",
+      "scheduler": {
+        "job_id": "17827431",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 726,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 726,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.800056+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j07/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j07/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j08",
+      "job_id": "17827434",
+      "scheduler": {
+        "job_id": "17827434",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 739,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 739,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.891787+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j08/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j08/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_105_j09",
+      "job_id": "17827553",
+      "scheduler": {
+        "job_id": "17827553",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 829,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 829,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:02.984447+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j09/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_105_j09/cleanup.json",
+        "external_point_id": "W0_105",
+        "collector_point": "N1",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_105.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j00",
+      "job_id": "17827554",
+      "scheduler": {
+        "job_id": "17827554",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 695,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 695,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.076379+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j00/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j01",
+      "job_id": "17827617",
+      "scheduler": {
+        "job_id": "17827617",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 724,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 724,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.166518+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j01/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j02",
+      "job_id": "17827618",
+      "scheduler": {
+        "job_id": "17827618",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 724,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 724,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.257291+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j02/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j03",
+      "job_id": "17827627",
+      "scheduler": {
+        "job_id": "17827627",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 775,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 775,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.347956+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j03/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j04",
+      "job_id": "17827724",
+      "scheduler": {
+        "job_id": "17827724",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 695,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 695,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.443750+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j04/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j05",
+      "job_id": "17827762",
+      "scheduler": {
+        "job_id": "17827762",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 800,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 800,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.536789+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j05/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j05/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j06",
+      "job_id": "17827787",
+      "scheduler": {
+        "job_id": "17827787",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 695,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 695,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.630032+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j06/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j06/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j07",
+      "job_id": "17827788",
+      "scheduler": {
+        "job_id": "17827788",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 709,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 709,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.722100+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j07/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j07/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j08",
+      "job_id": "17828461",
+      "scheduler": {
+        "job_id": "17828461",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 712,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 712,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.812986+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j08/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j08/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    },
+    {
+      "run_id": "W0_139_j09",
+      "job_id": "17828462",
+      "scheduler": {
+        "job_id": "17828462",
+        "scheduler_state": "COMPLETED",
+        "elapsed_seconds": 712,
+        "gpu_count": 1,
+        "allocated_gpu_seconds": 712,
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "exit_code": "0:0"
+      },
+      "native": {
+        "verified_utc": "2026-10-12T20:12:03.902714+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j09/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_139_j09/cleanup.json",
+        "external_point_id": "W0_139",
+        "collector_point": "N2",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt"
+      }
+    }
+  ],
+  "analysis_source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/source",
+  "candidate_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_gradient_final_20261012T201214.011889Z/candidates",
+  "previous_gradient_archive": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean/history/gradient_v5_final_20261012T201224.411308Z",
+  "preservation_check": {
+    "passed": true,
+    "files": 95,
+    "method": "direct byte comparison",
+    "scope": "all existing reward files including history, and every curated file"
+  },
+  "artifacts": [
+    "gradient_noise_as_run.png",
+    "gradient_noise_as_run.pdf",
+    "gradient_noise_as_run.caption.md",
+    "gradient_noise_paper_form.png",
+    "gradient_noise_paper_form.pdf",
+    "gradient_noise_paper_form.caption.md",
+    "points_table.csv",
+    "points_table.md",
+    "NOTE.md",
+    "render_record.json"
+  ],
+  "published_directory": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/figs_clean",
+  "artifact_check": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/artifact_check.json",
+  "completed_catalog": "/soalnas/share/data/zbao7/diffusion_policy/complete_experiment.md",
+  "completed_utc": "2026-10-12T20:12:24.564693+00:00",
+  "presentation_revision": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/final_analysis/layout_review.json",
+  "final_scheduler_state": "COMPLETED",
+  "final_scheduler_exit_code": "0:0",
+  "final_scheduler_elapsed_seconds": 28
+}

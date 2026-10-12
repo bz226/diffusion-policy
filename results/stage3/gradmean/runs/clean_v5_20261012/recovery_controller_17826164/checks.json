@@ -1,0 +1,18 @@
+{
+  "passed": true,
+  "checks": [
+    "python38_compile",
+    "preserves_all_54_entries",
+    "reject_wrong_failure",
+    "reject_pending_submission",
+    "reject_lost_prior_recovery",
+    "reject_changed_plan",
+    "reject_scientific_failure",
+    "exact_last_two_specs_and_seeds",
+    "transient_read_retried",
+    "persistent_read_stops_after_three",
+    "submission_never_retried"
+  ],
+  "scientific_jobs_launched": false,
+  "scientific_source_changed": false
+}

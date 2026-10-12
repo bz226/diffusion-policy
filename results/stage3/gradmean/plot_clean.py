@@ -185,6 +185,197 @@ def render_rewards_only(args):
     print(json.dumps({"status": "complete", "scope": "reward figures only", "run": str(run), "output": str(output)}, indent=2))
 
 
+def load_three_seed_rewards(project):
+    """Require nine complete original runs before computing seed summaries."""
+    import pickle
+    import re
+    from clean_v3_rewards import _config_number
+    references = json.loads((project / "results/stage3/analysis_record.json").read_text())["reference_sources"]
+    paths = {"DPPO": references["Stage 1 DPPO"],
+             "without_PPO": references["Stage 2 NC4 1e-4"],
+             "without_PPO_and_GAE": [str(project / ("results/stage3/e1c/E1C_seed%d/result.pkl" % seed)) for seed in range(3)]}
+    data = {"runs": {}, "curves": {}, "summary": {}, "comparisons": []}
+    for method, _ in METHODS:
+        if len(paths[method]) != 3:
+            raise ValueError("Exactly three original seeds are required: " + method)
+        samples = {"eval": [], "train": []}
+        data["runs"][method] = []
+        for seed, name in enumerate(paths[method]):
+            path = Path(name)
+            if method == "DPPO":
+                manifest_path = project / "results/repro_halfcheetah/runs" / ("seed0_handoff" if seed == 0 else "seed%d" % seed) / "manifest.json"
+            elif method == "without_PPO":
+                manifest_path = path.parent.parent / "manifest.json"
+            else:
+                manifest_path = project / ("results/stage3/e1c/runs/E1C_seed%d/manifest.json" % seed)
+            manifest = json.loads(manifest_path.read_text())
+            if manifest.get("status") != "complete" or Path(manifest["logdir"]).resolve() != path.parent.resolve():
+                raise ValueError("Run is missing, unfinished or misidentified: %s seed%d" % (method, seed))
+            with path.open("rb") as stream:
+                rows = pickle.load(stream)
+            if [row["itr"] for row in rows] != list(range(140)) or not (path.parent / "checkpoint/state_139.pt").is_file():
+                raise ValueError("Run does not contain all 140 iterations and its final checkpoint: " + str(path))
+            config = (path.parent / ".hydra/config.yaml").read_text()
+            for key, expected in (("seed", seed), ("n_envs", 40), ("n_steps", 500), ("val_freq", 10), ("max_episode_steps", 1000)):
+                if _config_number(config, key) != expected:
+                    raise ValueError("Unexpected native configuration: " + key)
+            log = (path.parent / "run.log").read_text()
+            curves = {"eval": [], "train": []}
+            for row in rows:
+                itr = int(row["itr"])
+                kind = "eval" if itr % 10 == 0 else "train"
+                update = sum(j % 10 != 0 for j in range(itr))
+                value = float(row[kind + "_episode_reward"])
+                if (not math.isfinite(value) or row["step"] != (update + int(kind == "train")) * 80000 or
+                        row.get("episode_count", 80) != 80):
+                    raise ValueError("Invalid native reward, episode count or step mapping")
+                curves[kind].append({"itr": itr, "update": update, "env_steps": update * 80000, "reward": value})
+            for kind, count in (("eval", 14), ("train", 126)):
+                if kind == "eval":
+                    logged = [float(x) for x in re.findall(r"eval:.*?avg episode reward\s+([-+0-9.eE]+)", log)]
+                else:
+                    entries = re.findall(r" - (\d+): step\s+(\d+).*?\| reward\s+([-+0-9.eE]+)", log)
+                    expected = [(row["itr"], row["env_steps"] + 80000) for row in curves[kind]]
+                    if [(int(itr), int(step)) for itr, step, _ in entries] != expected:
+                        raise ValueError("Native training log iterations or steps differ from saved results")
+                    logged = [float(value) for _, _, value in entries]
+                values = [row["reward"] for row in curves[kind]]
+                if len(logged) != count or not np.allclose(logged, values, rtol=0, atol=.00005001):
+                    raise ValueError("Saved reward curve differs from native logs: %s seed%d %s" % (method, seed, kind))
+                samples[kind].append(curves[kind])
+            data["runs"][method].append({"seed": seed, "directory": str(path.parent), "result": str(path),
+                                        "completion_manifest": str(manifest_path), "iterations": 140, "all_rewards_match_log": True})
+        data["curves"][method] = {}
+        for kind in ("eval", "train"):
+            x = [row["env_steps"] / 1e6 for row in samples[kind][0]]
+            if any([row["env_steps"] / 1e6 for row in sample] != x for sample in samples[kind]):
+                raise ValueError("Seed curves are not aligned at identical training steps")
+            values = np.asarray([[row["reward"] for row in sample] for sample in samples[kind]], dtype=np.float64)
+            data["curves"][method][kind] = {"x_millions": x, "per_seed": values.tolist(),
+                                           "mean": values.mean(axis=0).tolist(), "sd": values.std(axis=0, ddof=1).tolist()}
+        if data["curves"][method]["eval"]["x_millions"][-1] != 9.36:
+            raise ValueError("Final evaluation must be at 9.36M training steps")
+        metrics = {"eval_final": [sample[-1]["reward"] for sample in samples["eval"]],
+                   "train_last10": [float(np.mean([row["reward"] for row in sample[-10:]])) for sample in samples["train"]],
+                   "eval_initial": [sample[0]["reward"] for sample in samples["eval"]],
+                   "train_initial": [sample[0]["reward"] for sample in samples["train"]]}
+        data["summary"][method] = {key: {"per_seed": values, "mean": float(np.mean(values)), "sd": float(np.std(values, ddof=1))}
+                                   for key, values in metrics.items()}
+    dppo = data["summary"]["DPPO"]["eval_final"]
+    if ([round(x) for x in dppo["per_seed"]] != [4636, 4796, 4843] or
+            round(dppo["mean"]) != 4758 or round(dppo["sd"]) != 108):
+        raise ValueError("The original DPPO final-evaluation sanity check failed")
+    for i, (first, _) in enumerate(METHODS):
+        for second, _ in METHODS[i + 1:]:
+            pair = {"first": first, "second": second, "direction": "second minus first"}
+            for metric in ("eval_final", "train_last10"):
+                a, b = data["summary"][first][metric], data["summary"][second][metric]
+                pooled = math.sqrt((a["sd"] ** 2 + b["sd"] ** 2) / 2)
+                pair[metric] = {"difference": b["mean"] - a["mean"], "pooled_sd": pooled, "se": pooled * math.sqrt(2.0 / 3.0)}
+            data["comparisons"].append(pair)
+    return data
+
+
+def plot_three_seed_rewards(data, output, plt):
+    for kind, ylabel in (("eval", "Evaluation reward (episode return)"), ("train", "Training reward (episode return)")):
+        fig, ax = plt.subplots(figsize=(4.8, 3.3))
+        for method, color in METHODS:
+            curve = data["curves"][method][kind]
+            mean, sd = np.asarray(curve["mean"]), np.asarray(curve["sd"])
+            ax.fill_between(curve["x_millions"], mean - sd, mean + sd, color=color, alpha=.16, linewidth=0)
+            ax.plot(curve["x_millions"], mean, color=color, lw=1.1, label=method,
+                    marker="o" if kind == "eval" else None, ms=3)
+        style_axes(ax)
+        ax.set_xlabel("Training env steps (millions)")
+        ax.set_ylabel(ylabel)
+        ax.set_xlim(-.22, 10.2)
+        ax.set_xticks([0, 2.5, 5, 7.5, 10])
+        ax.legend(frameon=False, fontsize=8.5, loc="best")
+        fig.tight_layout()
+        caption = "Mean over 3 seeds; band: ±1 sd across seeds; 80 episodes per point per seed. "
+        if kind == "eval":
+            caption += ("Evaluation keeps the DDPM's noise at every denoising step except the last. "
+                        "All runs start from the same pretrained policy; values at x = 0 differ only by evaluation noise.")
+        else:
+            caption += "Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns."
+        save_figure(fig, output, kind + "_reward_3seed", caption, plt)
+
+
+def write_three_seed_note(data, output):
+    def cell(metric):
+        return "%.2f ± %.2f<br>[%s]" % (metric["mean"], metric["sd"], ", ".join("%.2f" % x for x in metric["per_seed"]))
+    lines = ["# Three-seed reward comparison", "",
+             "Each cell is mean ± sample sd (ddof = 1); brackets give seed 0, 1, 2. "
+             "Each method retains its own mean at x = 0. Training is averaged within each seed over its last ten training updates "
+             "(iterations 129 and 131–139), then summarized across seeds. No smoothing is applied.", "",
+             "| Method | Evaluation at 9.36M | Last-ten-update training | Initial evaluation | Initial training |",
+             "|---|---:|---:|---:|---:|"]
+    for method, _ in METHODS:
+        lines.append("| " + method + " | " + " | ".join(cell(data["summary"][method][key]) for key in
+                     ("eval_final", "train_last10", "eval_initial", "train_initial")) + " |")
+    lines += ["", "DPPO matches the required 4,758 ± 108 check. All nine original runs finished 140 iterations, "
+              "and all 1,260 reward means match their native logs. The final evaluation is iteration 130, after 117 updates = 9.36M training steps.", "",
+              "| Difference (second minus first) | Evaluation difference ± s.e. | Last-ten-training difference ± s.e. |",
+              "|---|---:|---:|"]
+    for pair in data["comparisons"]:
+        lines.append("| %s − %s | %+.2f ± %.2f | %+.2f ± %.2f |" %
+                     (pair["second"], pair["first"], pair["eval_final"]["difference"], pair["eval_final"]["se"],
+                      pair["train_last10"]["difference"], pair["train_last10"]["se"]))
+    lines += ["", "The difference s.e. is sd_pooled × √(2/3), where sd_pooled² = (sd_first² + sd_second²)/2. "
+              "These are the requested unpaired seed-level standard errors, not episode-level errors or confidence intervals; only three seeds are available.", "",
+              "| Method | Seed 0 run directory | Seed 1 run directory | Seed 2 run directory |", "|---|---|---|---|"]
+    for method, _ in METHODS:
+        links = ["[seed %d](%s/)" % (row["seed"], row["directory"]) for row in data["runs"][method]]
+        lines.append("| " + method + " | " + " | ".join(links) + " |")
+    lines += ["", "Original Stage-1 runs are used, including seed 0's successfully completed watchdog handoff; it did not restart training. "
+              "No requested run was missing or replaced. DPPO retains its original ±3σ truncation of nominal Gaussian noise. "
+              "The single-seed PNGs, PDFs and captions passed before/after SHA-256 equality checks. No training, gradient analysis or running-job change was performed.", "",
+              "[Evaluation PNG](eval_reward_3seed.png) · [PDF](eval_reward_3seed.pdf) · [Training PNG](train_reward_3seed.png) · "
+              "[PDF](train_reward_3seed.pdf) · [Exact inputs, values and checks](reward_3seed_record.json)."]
+    (output / "REWARD_3SEED_NOTE.md").write_text("\n".join(lines) + "\n")
+
+
+def render_three_seed_rewards(args):
+    import hashlib
+    root = args.root.resolve()
+    project = root.parents[2]
+    output = args.output.resolve() if args.output else root / "figs_clean"
+    single_names = [base + suffix for base in ("eval_reward", "train_reward") for suffix in (".png", ".pdf", ".caption.md")]
+    before = {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}
+    data = load_three_seed_rewards(project)
+    run = root / "runs" / ("clean_rewards_3seed_" + datetime.now(timezone.utc).strftime("%Y%m%dT%H%M%S.%fZ"))
+    candidates = run / "candidates"
+    candidates.mkdir(parents=True)
+    for name in ("plot_clean.py", "clean_v5_rewards.py", "clean_v5_stats.py", "clean_v3_rewards.py", "clean_v3_stats.py"):
+        shutil.copy2(str(Path(__file__).with_name(name)), str(run / name))
+    import matplotlib
+    matplotlib.use("Agg")
+    from matplotlib import pyplot as plt
+    plt.rcParams.update({"font.family": "DejaVu Sans", "font.size": 10, "pdf.fonttype": 42,
+                         "savefig.facecolor": "white", "axes.spines.top": False, "axes.spines.right": False})
+    plot_three_seed_rewards(data, candidates, plt)
+    write_three_seed_note(data, candidates)
+    after = {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}
+    if before != after:
+        raise ValueError("Single-seed outputs changed during rendering; refusing publication")
+    record = {"status": "complete", "run": str(run), "command": sys.argv,
+              "utc": datetime.now(timezone.utc).isoformat(), "data": data,
+              "single_seed_sha256_before": before, "single_seed_sha256_after": after,
+              "single_seed_byte_identical": True, "sampling_performed": False, "curated": False,
+              "parent_revision": subprocess.check_output(["git", "-C", str(project), "rev-parse", "HEAD"], universal_newlines=True).strip()}
+    (candidates / "reward_3seed_record.json").write_text(json.dumps(json_safe(record), indent=2, allow_nan=False) + "\n")
+    if not args.candidates_only:
+        output.mkdir(parents=True, exist_ok=True)
+        for path in candidates.iterdir():
+            if (output / path.name).exists():
+                raise ValueError("Three-seed output already exists; preserve it before publishing a revision")
+        for path in candidates.iterdir():
+            shutil.copy2(str(path), str(output / path.name))
+        if before != {name: hashlib.sha256((root / "figs_clean" / name).read_bytes()).hexdigest() for name in single_names}:
+            raise ValueError("Single-seed outputs changed during publication")
+    print(json.dumps({"status": "complete", "scope": "three-seed rewards only", "run": str(run), "output": str(output)}, indent=2))
+
+
 def error_point(ax, x, metric):
     value = metric.get("value")
     if not finite(value) or value <= 0:
@@ -381,6 +572,8 @@ def publish(candidates, output):
 
 
 def main(args):
+    if args.reward_seeds == 3:
+        return render_three_seed_rewards(args)
     if args.rewards_only:
         return render_rewards_only(args)
     root = args.root.resolve(); project = root.parents[2]
@@ -425,5 +618,6 @@ if __name__ == "__main__":
     parser.add_argument("--analysis-source", type=Path)
     parser.add_argument("--candidates-only", action="store_true")
     parser.add_argument("--rewards-only", action="store_true", help="Render only the two reward figures from existing runs")
+    parser.add_argument("--reward-seeds", type=int, choices=(1, 3), default=1, help="Use 3 to render only new three-seed reward files")
     parser.add_argument("--after-finalizer", type=Path, help="Require a successful finalizer record before a reward-only refresh")
     main(parser.parse_args())

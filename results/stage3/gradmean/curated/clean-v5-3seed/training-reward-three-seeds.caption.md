@@ -1,0 +1,1 @@
+Mean over 3 seeds; band: ±1 sd across seeds; 80 episodes per point per seed. Training adds N(0, 0.1²) noise to every action at the last denoising step, so training returns sit below evaluation returns.

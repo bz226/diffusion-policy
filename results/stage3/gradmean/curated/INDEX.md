@@ -1,5 +1,37 @@
 # Curated results
 
+## Clean figures v5: gradient noise
+
+How do the as-run and paper-form gradient estimators compare along without_PPO_and_GAE, using the same checkpoints, critic, reward scale and measurement batches?
+
+User-approved selection: both gradient-figure bundles, the estimates table and the note ("keep in curated"), under the proposed names in `clean-v5-gradient-noise/`.
+
+| Artifact | Files |
+|---|---|
+| As-run gradient noise | [PNG](clean-v5-gradient-noise/gradient-noise-as-run.png), [PDF](clean-v5-gradient-noise/gradient-noise-as-run.pdf), [caption](clean-v5-gradient-noise/gradient-noise-as-run.caption.md) |
+| Paper-form gradient noise | [PNG](clean-v5-gradient-noise/gradient-noise-paper-form.png), [PDF](clean-v5-gradient-noise/gradient-noise-paper-form.pdf), [caption](clean-v5-gradient-noise/gradient-noise-paper-form.caption.md) |
+| Estimates and limitations | [CSV](clean-v5-gradient-noise/gradient-noise-estimates.csv), [table](clean-v5-gradient-noise/gradient-noise-estimates.md), [note](clean-v5-gradient-noise/gradient-noise-estimates-note.md) |
+
+Every checkpoint uses 500 batches (40,000 episodes), with 90% delete-one-group jackknife intervals using t(9) quantiles. Each estimator uses its own mean-gradient estimate. Only relative variance B is comparable between the two forms' units. Three of five squared-mean signals remain unresolved for each form; open triangles are plug-in lower bounds rather than confidence limits. The final reward scale is fitted, and gradient intervals condition on it. All measurements concern one training seed; earlier curated results remain preserved.
+
+[Analysis record](../runs/clean_v5_20261012/final_analysis/manifest.json) · [Saved statistics](../runs/clean_v5_gradient_final_20261012T201214.011889Z/candidates/render_record.json) · [Independent checks](../runs/clean_v5_20261012/final_analysis/artifact_check.json) · [Plot source](../runs/clean_v5_20261012/final_analysis/source/plot_clean.py) · [Layout source and review](../runs/clean_v5_20261012/final_analysis/layout_review.json) · [Methods](../methods.md#clean-figures-version-5) · [Curation record](../runs/curation_gradient_noise_v5_20261012T202235Z/manifest.json).
+
+## Three-seed reward comparison
+
+How do evaluation and training rewards compare across three seeds for DPPO, without_PPO and without_PPO_and_GAE?
+
+User-approved selection: both three-seed plot bundles and their statistics note ("keep in curated"), using the proposed names under `clean-v5-3seed/`.
+
+| Artifact | Files |
+|---|---|
+| Evaluation reward | [PNG](clean-v5-3seed/evaluation-reward-three-seeds.png), [PDF](clean-v5-3seed/evaluation-reward-three-seeds.pdf), [caption](clean-v5-3seed/evaluation-reward-three-seeds.caption.md) |
+| Training reward | [PNG](clean-v5-3seed/training-reward-three-seeds.png), [PDF](clean-v5-3seed/training-reward-three-seeds.pdf), [caption](clean-v5-3seed/training-reward-three-seeds.caption.md) |
+| Statistics and source runs | [Note](clean-v5-3seed/reward-three-seed-note.md) |
+
+Lines are means over seeds 0–2; bands show ±1 sample SD (ddof = 1), not confidence intervals. Each seed contributes 80 episodes per point. The x-axis is training environment steps in millions, and each method starts from its own three-seed mean. Original Stage-1 runs are used; DPPO's final evaluation is 4,758 ± 108. All nine runs are complete. These are three-seed comparisons only; the single-seed figures and earlier curated versions remain preserved.
+
+[Original candidate note](../runs/clean_rewards_3seed_20261012T193300.153408Z/candidates/REWARD_3SEED_NOTE.md) · [Exact inputs and checks](../runs/clean_rewards_3seed_20261012T193300.153408Z/candidates/reward_3seed_record.json) · [Plot source snapshot](../runs/clean_rewards_3seed_20261012T193300.153408Z/plot_clean.py) · [Artifact review](../runs/clean_rewards_3seed_20261012T193300.153408Z/artifact_review.json) · [Curation record](../runs/curation_rewards_three_seed_20261012T193616Z/manifest.json).
+
 ## Clean figures v5: individual starting values
 
 How do evaluation and training rewards compare for DPPO, without_PPO and without_PPO_and_GAE when each curve starts from its own run's value?
