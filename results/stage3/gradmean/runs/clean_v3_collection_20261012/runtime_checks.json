@@ -1,0 +1,206 @@
+{
+  "passed": true,
+  "checks": [
+    "exact_twenty_two_run_ids",
+    "reject_other_checkpoint_C1",
+    "reject_original_D_frozen_path_C1",
+    "reject_other_checkpoint_C2",
+    "reject_original_D_frozen_path_C2",
+    "unique_seeds",
+    "nonoverlapping_environment_ranges",
+    "external_internal_aliases",
+    "separate_C_output_paths",
+    "native_label_matches_alias",
+    "fifty_batches_per_collect",
+    "five_critic_warmups",
+    "no_optional_score_sampling",
+    "V6_and_wandb_disabled",
+    "initial_full_reservation_under_budget",
+    "only_prepares_admitted_first",
+    "collect_exact_fixed_order",
+    "failed_prepare_does_not_admit_dependents",
+    "reject_original_point_admission",
+    "disjoint_from_existing_environment_streams"
+  ],
+  "check_count": 20,
+  "python38_compatible": true,
+  "configs": [
+    {
+      "run_id": "prepare_C1",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 159000,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j00",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150000,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j01",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150100,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j02",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150200,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j03",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150300,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j04",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150400,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j05",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150500,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j06",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150600,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j07",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150700,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j08",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150800,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "C1_j09",
+      "point": "C1",
+      "collector_point": "D1",
+      "seed": 150900,
+      "checkpoint_itr": 70,
+      "update_number": 63
+    },
+    {
+      "run_id": "prepare_C2",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 169000,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j00",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160000,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j01",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160100,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j02",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160200,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j03",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160300,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j04",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160400,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j05",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160500,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j06",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160600,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j07",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160700,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j08",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160800,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    },
+    {
+      "run_id": "C2_j09",
+      "point": "C2",
+      "collector_point": "D2",
+      "seed": 160900,
+      "checkpoint_itr": 139,
+      "update_number": 126
+    }
+  ],
+  "total_collect_batches": 1000
+}

@@ -1,0 +1,19 @@
+{
+  "passed": true,
+  "checks": [
+    "reject_missing_campaign",
+    "reject_partial_job_set",
+    "accept_exact_complete_bounded_set",
+    "reject_unfinished_normcheck",
+    "reject_source_mismatch",
+    "reject_over_budget",
+    "sixteen_unique_required_artifacts",
+    "nine_pinned_analysis_files_present",
+    "all_pinned_analysis_python38_syntax",
+    "completed_status_preserves_older_markers",
+    "pinned_statistics_reader_omits_uncollected_points"
+  ],
+  "check_count": 11,
+  "python38_compatible": true,
+  "scientific_sampling_performed": false
+}

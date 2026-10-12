@@ -1,0 +1,60 @@
+{
+  "status": "submitted by root; scientific admissions remain gated",
+  "requires": "CPU F1-F3 pass, successful CPU scheduler exit, source commit created and exact gated source verified",
+  "source_commit_placeholder": "<COMMIT_AFTER_GATE>",
+  "validate": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/queue_v5.py",
+    "validate",
+    "--commit",
+    "<COMMIT_AFTER_GATE>"
+  ],
+  "controller": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/controller-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_controller_v5.sh",
+    "--commit",
+    "<COMMIT_AFTER_GATE>"
+  ],
+  "ordering": "Five zero-warm-up preparations, then one two-batch normalization comparison at state_0. Only after verifying and freezing its choice may the 50 collection groups be admitted.",
+  "worker_resources": {
+    "gpu": "a6000:1",
+    "cpus": 40,
+    "memory_gib": 64,
+    "hard_cap_minutes": 30,
+    "max_parallel": 5
+  },
+  "controller_resources": {
+    "cpus": 2,
+    "memory_gib": 8,
+    "hard_cap_hours": 4
+  },
+  "monitor_interval_minutes": 30,
+  "prepared_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/submission_v5_prepared.json",
+  "submission_events": [
+    {
+      "job_id": "17825855",
+      "kind": "controller",
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scheduler_submit_local": "2026-10-12T10:02:40",
+      "scheduler_start_local": "2026-10-12T10:03:04",
+      "scheduler_timezone": "America/Los_Angeles",
+      "exact_scheduler_submit_line": "sbatch --parsable --export=PATH,HOME,USER,LOGNAME,LANG --output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/controller-%j.out /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_controller_v5.sh --commit 30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/controller-%j.out",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_controller_v5.sh",
+        "--commit",
+        "30b5956e113ae0b392daf6056f03d8a894a99f73"
+      ],
+      "scheduler_evidence": "sacct allocation SubmitLine",
+      "recorded_utc": "2026-10-12T17:03:38.391071+00:00",
+      "submitted_by": "root agent; recording only"
+    }
+  ]
+}

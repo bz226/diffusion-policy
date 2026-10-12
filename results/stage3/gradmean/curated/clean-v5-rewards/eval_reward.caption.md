@@ -1,0 +1,1 @@
+One seed per method (seed 0), 80 episodes per point; the shared starting point pools 240 original episodes. Evaluation keeps the DDPM's noise at every denoising step except the last. DPPO retains its ±3σ truncation of this nominal Gaussian noise. The pooled starting-point standard error is unavailable because original episode spreads were not saved.

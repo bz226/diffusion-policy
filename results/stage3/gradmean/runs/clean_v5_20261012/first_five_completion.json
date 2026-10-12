@@ -1,0 +1,95 @@
+{
+  "checked_utc": "2026-10-12T17:21:40.930933+00:00",
+  "verified_collect_jobs": 5,
+  "total_collect_jobs": 50,
+  "batches": 250,
+  "episodes": 20000,
+  "workers": [
+    {
+      "run_id": "W0_000_j00",
+      "scheduler_job_id": "17825895",
+      "status": "complete",
+      "batches": 50,
+      "subprocess_exitcode": 0,
+      "cleanup_status": "passed",
+      "all_children_exited": true,
+      "verification": {
+        "verified_utc": "2026-10-12T17:19:06.260814+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j00/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j01",
+      "scheduler_job_id": "17825896",
+      "status": "complete",
+      "batches": 50,
+      "subprocess_exitcode": 0,
+      "cleanup_status": "passed",
+      "all_children_exited": true,
+      "verification": {
+        "verified_utc": "2026-10-12T17:19:06.251139+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j01/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j02",
+      "scheduler_job_id": "17825897",
+      "status": "complete",
+      "batches": 50,
+      "subprocess_exitcode": 0,
+      "cleanup_status": "passed",
+      "all_children_exited": true,
+      "verification": {
+        "verified_utc": "2026-10-12T17:19:20.205638+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j02/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j03",
+      "scheduler_job_id": "17825898",
+      "status": "complete",
+      "batches": 50,
+      "subprocess_exitcode": 0,
+      "cleanup_status": "passed",
+      "all_children_exited": true,
+      "verification": {
+        "verified_utc": "2026-10-12T17:20:05.322930+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j03/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    },
+    {
+      "run_id": "W0_000_j04",
+      "scheduler_job_id": "17825899",
+      "status": "complete",
+      "batches": 50,
+      "subprocess_exitcode": 0,
+      "cleanup_status": "passed",
+      "all_children_exited": true,
+      "verification": {
+        "verified_utc": "2026-10-12T17:18:53.124956+00:00",
+        "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04/meta.json",
+        "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/collect/W0_000_j04/cleanup.json",
+        "external_point_id": "W0_000",
+        "collector_point": "P0",
+        "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt"
+      }
+    }
+  ],
+  "controller_failure": "Progress polling: OSError [Errno 116] Stale file handle; remaining admissions paused pending administrative recovery."
+}

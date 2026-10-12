@@ -1,0 +1,376 @@
+{
+  "format_version": 1,
+  "mode": "grad_mean",
+  "step": "prepare",
+  "point": "D1",
+  "seed": 4900000,
+  "settings": {
+    "mode": "grad_mean",
+    "gm_step": "prepare",
+    "gm_point": "D1",
+    "gm_warmup_batches": 0,
+    "gm_batches": 50,
+    "gm_frozen_path": null,
+    "gm_frozen_sha256": null,
+    "gm_score_sample": 0,
+    "gm_include_critic": true,
+    "gm_parent_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+    "seed": 4900000,
+    "environment_seeds": [
+      4900000,
+      4900001,
+      4900002,
+      4900003,
+      4900004,
+      4900005,
+      4900006,
+      4900007,
+      4900008,
+      4900009,
+      4900010,
+      4900011,
+      4900012,
+      4900013,
+      4900014,
+      4900015,
+      4900016,
+      4900017,
+      4900018,
+      4900019,
+      4900020,
+      4900021,
+      4900022,
+      4900023,
+      4900024,
+      4900025,
+      4900026,
+      4900027,
+      4900028,
+      4900029,
+      4900030,
+      4900031,
+      4900032,
+      4900033,
+      4900034,
+      4900035,
+      4900036,
+      4900037,
+      4900038,
+      4900039
+    ],
+    "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+    "gradient_sign": "ascent = negative inherited Phase1 loss gradient",
+    "stored_vector": "float32 group SUM after float64 accumulation; not a mean",
+    "model_parameter_dtype": "float32",
+    "statistics_dtype": "float64",
+    "gm_warmup": 0,
+    "gm_scaler_c": 1.000000005,
+    "gm_v2_raw": true,
+    "gm_normalization": "full"
+  },
+  "variant_order": [
+    "nc4",
+    "mc_critic",
+    "mc_loo",
+    "theory_loo",
+    "theory_nobase"
+  ],
+  "variant_ids": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "parameter_specs": [
+    {
+      "name": "time_embedding.1.weight",
+      "shape": [
+        32,
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.1.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 32
+    },
+    {
+      "name": "time_embedding.3.weight",
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.3.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 16
+    },
+    {
+      "name": "mlp_mean.layers.0.weight",
+      "shape": [
+        512,
+        57
+      ],
+      "dtype": "torch.float32",
+      "numel": 29184
+    },
+    {
+      "name": "mlp_mean.layers.0.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.2.weight",
+      "shape": [
+        24,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 12288
+    },
+    {
+      "name": "mlp_mean.layers.2.bias",
+      "shape": [
+        24
+      ],
+      "dtype": "torch.float32",
+      "numel": 24
+    }
+  ],
+  "parameter_count": 568392,
+  "parent_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+  "source_checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+  "config": {
+    "_target_": "agent.finetune.train_ppo_diffusion_agent.TrainPPODiffusionAgent",
+    "name": "halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10",
+    "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/features",
+    "base_policy_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+    "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+    "seed": 4900000,
+    "device": "cpu",
+    "env_name": "halfcheetah-medium-v2",
+    "obs_dim": 17,
+    "action_dim": 6,
+    "denoising_steps": 20,
+    "ft_denoising_steps": 10,
+    "cond_steps": 1,
+    "horizon_steps": 4,
+    "act_steps": 4,
+    "env": {
+      "n_envs": 40,
+      "name": "halfcheetah-medium-v2",
+      "max_episode_steps": 1000,
+      "reset_at_iteration": false,
+      "save_video": false,
+      "best_reward_threshold_for_success": 3,
+      "wrappers": {
+        "mujoco_locomotion_lowdim": {
+          "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz"
+        },
+        "multi_step": {
+          "n_obs_steps": 1,
+          "n_action_steps": 4,
+          "max_episode_steps": 1000,
+          "reset_within_step": true
+        }
+      }
+    },
+    "wandb": null,
+    "train": {
+      "n_train_itr": 140,
+      "n_critic_warmup_itr": 0,
+      "n_steps": 500,
+      "gamma": 0.99,
+      "actor_lr": 0.0001,
+      "actor_weight_decay": 0,
+      "actor_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.0001
+      },
+      "critic_lr": 0.001,
+      "critic_weight_decay": 0,
+      "critic_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.001
+      },
+      "save_model_freq": 35,
+      "val_freq": 10,
+      "render": {
+        "freq": 1,
+        "num": 0
+      },
+      "reward_scale_running": true,
+      "reward_scale_const": 1.0,
+      "gae_lambda": 0.95,
+      "batch_size": 50000,
+      "update_epochs": 5,
+      "vf_coef": 0.5,
+      "target_kl": 1,
+      "mode": "grad_mean",
+      "gm_step": "prepare",
+      "gm_point": "D1",
+      "gm_parent_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+      "gm_warmup_batches": 5,
+      "gm_batches": 50,
+      "gm_score_sample": 0,
+      "gm_include_critic": true,
+      "gm_frozen_path": null,
+      "gm_frozen_sha256": null,
+      "gm_warmup": 0,
+      "gm_scaler_c": 1.000000005,
+      "gm_v2_raw": true,
+      "gm_normalization": "full"
+    },
+    "model": {
+      "_target_": "model.diffusion.diffusion_ppo.PPODiffusion",
+      "gamma_denoising": 0.99,
+      "clip_ploss_coef": 0.01,
+      "clip_ploss_coef_base": 0.01,
+      "clip_ploss_coef_rate": 3,
+      "randn_clip_value": 100,
+      "min_sampling_denoising_std": 0.1,
+      "min_logprob_denoising_std": 0.1,
+      "network_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+      "actor": {
+        "_target_": "model.diffusion.mlp_diffusion.DiffusionMLP",
+        "time_dim": 16,
+        "mlp_dims": [
+          512,
+          512,
+          512
+        ],
+        "activation_type": "ReLU",
+        "residual_style": true,
+        "cond_dim": 17,
+        "horizon_steps": 4,
+        "action_dim": 6
+      },
+      "critic": {
+        "_target_": "model.common.critic.CriticObs",
+        "cond_dim": 17,
+        "mlp_dims": [
+          256,
+          256,
+          256
+        ],
+        "activation_type": "Mish",
+        "residual_style": true
+      },
+      "ft_denoising_steps": 10,
+      "horizon_steps": 4,
+      "obs_dim": 17,
+      "action_dim": 6,
+      "denoising_steps": 20,
+      "device": "cpu",
+      "clamp_logprob": false,
+      "actor_loss": "score"
+    }
+  },
+  "gradient_units": "CODE ASCENT = -inherited Phase1 loss gradient; V4=-native E2 loss gradient",
+  "theory_multiplier_V4_V5": 2500,
+  "group_vector_kind": "sum",
+  "group_accumulation_dtype": "float64",
+  "stored_vector_dtype": "float32",
+  "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+  "pairs_per_batch": 200000,
+  "episodes_per_batch": 80,
+  "decisions_per_episode": 250,
+  "critic_and_scaler_frozen_during_collection": true,
+  "policy_rng": "run seed initializes global Torch once; preparation RNG is never restored",
+  "environment_seeding": "explicit grad_mean-only hook seeds private Gym and action-space RNGs with run seed+i",
+  "diagnostic_rng": "owned CPU generators from SeedSequence; no global RNG consumption",
+  "actor_optimizer_steps": 0,
+  "status": "completed",
+  "completed_warmup_batches": 0,
+  "warmup": [],
+  "critic_optimizer_steps": 0,
+  "actor_before_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+  "critic_before_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+  "scaler_before_sha256": "da947af4b3a84f9f296ed583e7d1cfb7486ac2159561d384bc583d2325b0a5b7",
+  "scaler_fit_batches": [],
+  "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/features/frozen_D1.pt",
+  "frozen_sha256": "165df6e4f4b2bffd1697915cd39acac09dedf732d4c1c855a26064caa4776ad5",
+  "actor_after_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+  "scaler_after_sha256": "70bc7098edf87ed768738d2a25ea9f6b29171b9b6e5e4d39dc00f3d68b9de674",
+  "actor_sha256": "323efb4a91899170c55451d58d4c9ba496f4880be9306c714c214cf54fd28cf2",
+  "critic_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+  "scaler_sha256": "70bc7098edf87ed768738d2a25ea9f6b29171b9b6e5e4d39dc00f3d68b9de674",
+  "effective_scaler_c": 1.000000005,
+  "scaler_c_source": "provided",
+  "scaler_c_fallback_batches": 0,
+  "scaler_c_fit_definition": null,
+  "critic_after_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+  "frozen_ev_batch": {
+    "batch": 0,
+    "n_episodes": 80,
+    "return_mean": 3852.5852846890616,
+    "return_se": 90.12370410201885,
+    "return_sum": 308206.8227751249,
+    "return_sumsq": 1238725892.563767,
+    "J_disc_mean": 1386.0564722531933,
+    "J_disc_se": 25.868032351030173,
+    "J_disc_sum": 110884.51778025547,
+    "J_disc_sumsq": 157921263.7595495,
+    "max_abs_reward": 27.465285827539514,
+    "max_abs_R": 27.465285827539514,
+    "explained_variance": -0.0006250791512965037,
+    "x0_sat_frac_mean": 0.06525740837914432,
+    "x0_sat_frac_last": 0.021771579665643127,
+    "x0_sat_pairs": 20000,
+    "x0_sat_last_pairs": 1954,
+    "action_oor_frac": 0.13738958333333334,
+    "policy_action_oor_frac": 0.13741666666666666
+  },
+  "elapsed_seconds": 0.5492468811571598
+}

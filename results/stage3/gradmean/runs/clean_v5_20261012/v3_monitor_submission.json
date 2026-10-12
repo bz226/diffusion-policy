@@ -1,0 +1,12 @@
+{
+  "status": "prepared_not_submitted",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/v3-monitor-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_v3_monitor.sh"
+  ],
+  "read_only": true,
+  "gpu_count": 0
+}

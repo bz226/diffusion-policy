@@ -1,0 +1,50 @@
+{
+  "points": {},
+  "availability": {
+    "W0_000": {
+      "complete_groups": 0,
+      "complete_batches": 0,
+      "status": "pending"
+    },
+    "W0_035": {
+      "complete_groups": 0,
+      "complete_batches": 0,
+      "status": "pending"
+    },
+    "W0_070": {
+      "complete_groups": 0,
+      "complete_batches": 0,
+      "status": "pending"
+    },
+    "W0_105": {
+      "complete_groups": 0,
+      "complete_batches": 0,
+      "status": "pending"
+    },
+    "W0_139": {
+      "complete_groups": 0,
+      "complete_batches": 0,
+      "status": "pending"
+    }
+  },
+  "inventory": [],
+  "K": 500,
+  "m": 40000,
+  "interval": {
+    "level": 0.9,
+    "method": "delete-one-50-batch-group Student-t",
+    "groups": 10,
+    "df": 9,
+    "critical": 1.8331129326536335,
+    "bound_note": "Unresolved B uses trace divided by the upper own-signal limit; a plug-in bound, not a joint confidence limit."
+  },
+  "runmetadata": {
+    "campaign": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/campaign.json",
+    "status": "not_started",
+    "analysis_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean",
+    "log_audit": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+    "normalization_selection": {},
+    "source_provenance": {},
+    "scientific_sampling_performed_by_analysis": false
+  }
+}

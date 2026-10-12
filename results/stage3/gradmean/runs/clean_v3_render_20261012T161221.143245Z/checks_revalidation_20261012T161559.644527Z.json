@@ -1,0 +1,165 @@
+{
+  "compared_numeric_cells": 720,
+  "max_relative_difference": 6.204418380419517e-14,
+  "worst": [
+    "N1",
+    "B_ep",
+    "_lo"
+  ],
+  "passed": true,
+  "checked_utc": "2026-10-12T16:16:09.864809+00:00",
+  "render": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates",
+  "version": 3,
+  "completed_points": [
+    "P0",
+    "D1",
+    "D2",
+    "N1",
+    "N2"
+  ],
+  "rows": 21,
+  "completed_point_rows": 15,
+  "method": "Independent float64 recomputation of pairwise U signal, trace, joint t jackknife ratios, same-batch-excluded cosines, and grouped rewards; no analysis/statistics helpers imported.",
+  "comparisons": "Main CSV values and intervals, paired variance ratios, own-mean trained estimators, unresolved-signal bounds.",
+  "source_files": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/render_record.json",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/points_table.csv"
+  ],
+  "source_groups": {
+    "P0": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j82",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j84",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j83",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j85",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j86",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j87",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j89",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j91",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j88",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/P0_j92"
+    ],
+    "D1": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j82",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j84",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j83",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j85",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j86",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j88",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j89",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j87",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j91",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D1_j92"
+    ],
+    "D2": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j83",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j82",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j84",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j85",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j86",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j87",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j89",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j88",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j91",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j92"
+    ],
+    "N1": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j84",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j82",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j83",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j85",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j86",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j87",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j88",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j89",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j91",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N1_j92"
+    ],
+    "N2": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j83",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j84",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j82",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j85",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j86",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j87",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j88",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j89",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j91",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/N2_j92"
+    ]
+  },
+  "files_per_group": [
+    "meta.json",
+    "batches.csv",
+    "sums_V1.npy",
+    "sums_V2.npy",
+    "sums_V3.npy",
+    "sums_V4.npy",
+    "sums_V5.npy",
+    "sums_V6.npy"
+  ],
+  "tolerance": "abs difference / max(abs reference,1) < 2e-8",
+  "no_simulation": true,
+  "source_script": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/check_clean_v3_outputs.py",
+  "require_all": false,
+  "artifact_files": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/eval_reward.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/eval_reward.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/eval_reward.caption.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/train_reward.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/train_reward.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/train_reward.caption.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V6.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V6.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V6.caption.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V4.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V4.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V4.caption.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V5.png",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V5.pdf",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/gradient_noise_V5.caption.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/points_table.csv",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/points_table.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/NOTE.md",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v3_render_20261012T161221.143245Z/candidates/render_record.json"
+  ],
+  "png_dpi": 300,
+  "native_checkpoint_checks": [
+    {
+      "point": "D1",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+      "updates": 63,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl"
+    },
+    {
+      "point": "D2",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_139.pt",
+      "updates": 126,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/result.pkl"
+    },
+    {
+      "point": "N1",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+      "updates": 63,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl"
+    },
+    {
+      "point": "N2",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+      "updates": 126,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/result.pkl"
+    },
+    {
+      "point": "C1",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_70.pt",
+      "updates": 63,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl"
+    },
+    {
+      "point": "C2",
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt",
+      "updates": 126,
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/result.pkl"
+    }
+  ],
+  "independent_recompute_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/check_clean_v3_render.py"
+}

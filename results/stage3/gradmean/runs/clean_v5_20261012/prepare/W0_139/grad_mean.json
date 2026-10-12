@@ -1,0 +1,396 @@
+{
+  "format_version": 1,
+  "mode": "grad_mean",
+  "step": "prepare",
+  "point": "N2",
+  "seed": 219000,
+  "settings": {
+    "mode": "grad_mean",
+    "gm_step": "prepare",
+    "gm_point": "N2",
+    "gm_warmup_batches": 0,
+    "gm_batches": 50,
+    "gm_frozen_path": null,
+    "gm_frozen_sha256": null,
+    "gm_score_sample": 0,
+    "gm_include_critic": true,
+    "gm_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+    "seed": 219000,
+    "environment_seeds": [
+      219000,
+      219001,
+      219002,
+      219003,
+      219004,
+      219005,
+      219006,
+      219007,
+      219008,
+      219009,
+      219010,
+      219011,
+      219012,
+      219013,
+      219014,
+      219015,
+      219016,
+      219017,
+      219018,
+      219019,
+      219020,
+      219021,
+      219022,
+      219023,
+      219024,
+      219025,
+      219026,
+      219027,
+      219028,
+      219029,
+      219030,
+      219031,
+      219032,
+      219033,
+      219034,
+      219035,
+      219036,
+      219037,
+      219038,
+      219039
+    ],
+    "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+    "gradient_sign": "ascent = negative inherited Phase1 loss gradient",
+    "stored_vector": "float32 group SUM after float64 accumulation; not a mean",
+    "model_parameter_dtype": "float32",
+    "statistics_dtype": "float64",
+    "gm_warmup": 0,
+    "gm_scaler_c": null,
+    "gm_v2_raw": true,
+    "gm_normalization": "full"
+  },
+  "variant_order": [
+    "nc4",
+    "mc_critic",
+    "mc_loo",
+    "theory_loo",
+    "theory_nobase"
+  ],
+  "variant_ids": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5"
+  ],
+  "parameter_specs": [
+    {
+      "name": "time_embedding.1.weight",
+      "shape": [
+        32,
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.1.bias",
+      "shape": [
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 32
+    },
+    {
+      "name": "time_embedding.3.weight",
+      "shape": [
+        16,
+        32
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "time_embedding.3.bias",
+      "shape": [
+        16
+      ],
+      "dtype": "torch.float32",
+      "numel": 16
+    },
+    {
+      "name": "mlp_mean.layers.0.weight",
+      "shape": [
+        512,
+        57
+      ],
+      "dtype": "torch.float32",
+      "numel": 29184
+    },
+    {
+      "name": "mlp_mean.layers.0.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l1.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.weight",
+      "shape": [
+        512,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 262144
+    },
+    {
+      "name": "mlp_mean.layers.1.l2.bias",
+      "shape": [
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 512
+    },
+    {
+      "name": "mlp_mean.layers.2.weight",
+      "shape": [
+        24,
+        512
+      ],
+      "dtype": "torch.float32",
+      "numel": 12288
+    },
+    {
+      "name": "mlp_mean.layers.2.bias",
+      "shape": [
+        24
+      ],
+      "dtype": "torch.float32",
+      "numel": 24
+    }
+  ],
+  "parameter_count": 568392,
+  "parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+  "source_checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt",
+  "config": {
+    "_target_": "agent.finetune.train_ppo_diffusion_agent.TrainPPODiffusionAgent",
+    "name": "halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10",
+    "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_139",
+    "base_policy_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt",
+    "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz",
+    "seed": 219000,
+    "device": "cuda:0",
+    "env_name": "halfcheetah-medium-v2",
+    "obs_dim": 17,
+    "action_dim": 6,
+    "denoising_steps": 20,
+    "ft_denoising_steps": 10,
+    "cond_steps": 1,
+    "horizon_steps": 4,
+    "act_steps": 4,
+    "env": {
+      "n_envs": 40,
+      "name": "halfcheetah-medium-v2",
+      "max_episode_steps": 1000,
+      "reset_at_iteration": false,
+      "save_video": false,
+      "best_reward_threshold_for_success": 3,
+      "wrappers": {
+        "mujoco_locomotion_lowdim": {
+          "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz"
+        },
+        "multi_step": {
+          "n_obs_steps": 1,
+          "n_action_steps": 4,
+          "max_episode_steps": 1000,
+          "reset_within_step": true
+        }
+      }
+    },
+    "wandb": null,
+    "train": {
+      "n_train_itr": 140,
+      "n_critic_warmup_itr": 0,
+      "n_steps": 500,
+      "gamma": 0.99,
+      "actor_lr": 0.0001,
+      "actor_weight_decay": 0,
+      "actor_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.0001
+      },
+      "critic_lr": 0.001,
+      "critic_weight_decay": 0,
+      "critic_lr_scheduler": {
+        "first_cycle_steps": 1000,
+        "warmup_steps": 10,
+        "min_lr": 0.001
+      },
+      "save_model_freq": 35,
+      "val_freq": 10,
+      "render": {
+        "freq": 1,
+        "num": 0
+      },
+      "reward_scale_running": true,
+      "reward_scale_const": 1.0,
+      "gae_lambda": 0.95,
+      "batch_size": 50000,
+      "update_epochs": 5,
+      "vf_coef": 0.5,
+      "target_kl": 1,
+      "mode": "grad_mean",
+      "gm_step": "prepare",
+      "gm_point": "N2",
+      "gm_parent_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "gm_include_critic": true,
+      "gm_warmup": 0,
+      "gm_scaler_c": null,
+      "gm_v2_raw": true,
+      "gm_normalization": "full"
+    },
+    "model": {
+      "_target_": "model.diffusion.diffusion_ppo.PPODiffusion",
+      "gamma_denoising": 0.99,
+      "clip_ploss_coef": 0.01,
+      "clip_ploss_coef_base": 0.01,
+      "clip_ploss_coef_rate": 3,
+      "randn_clip_value": 100,
+      "min_sampling_denoising_std": 0.1,
+      "min_logprob_denoising_std": 0.1,
+      "network_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_139.pt",
+      "actor": {
+        "_target_": "model.diffusion.mlp_diffusion.DiffusionMLP",
+        "time_dim": 16,
+        "mlp_dims": [
+          512,
+          512,
+          512
+        ],
+        "activation_type": "ReLU",
+        "residual_style": true,
+        "cond_dim": 17,
+        "horizon_steps": 4,
+        "action_dim": 6
+      },
+      "critic": {
+        "_target_": "model.common.critic.CriticObs",
+        "cond_dim": 17,
+        "mlp_dims": [
+          256,
+          256,
+          256
+        ],
+        "activation_type": "Mish",
+        "residual_style": true
+      },
+      "ft_denoising_steps": 10,
+      "horizon_steps": 4,
+      "obs_dim": 17,
+      "action_dim": 6,
+      "denoising_steps": 20,
+      "device": "cuda:0",
+      "clamp_logprob": false
+    }
+  },
+  "gradient_units": "CODE ASCENT = -inherited Phase1 loss gradient; V4=-native E2 loss gradient",
+  "theory_multiplier_V4_V5": 2500,
+  "group_vector_kind": "sum",
+  "group_accumulation_dtype": "float64",
+  "stored_vector_dtype": "float32",
+  "normalization": "full 200000-pair batch, unbiased SD, before environment selection",
+  "pairs_per_batch": 200000,
+  "episodes_per_batch": 80,
+  "decisions_per_episode": 250,
+  "critic_and_scaler_frozen_during_collection": true,
+  "policy_rng": "run seed initializes global Torch once; preparation RNG is never restored",
+  "environment_seeding": "explicit grad_mean-only hook seeds private Gym and action-space RNGs with run seed+i",
+  "diagnostic_rng": "owned CPU generators from SeedSequence; no global RNG consumption",
+  "actor_optimizer_steps": 0,
+  "status": "completed",
+  "completed_warmup_batches": 0,
+  "warmup": [],
+  "critic_optimizer_steps": 0,
+  "actor_before_sha256": "9af91876fad1959e00f9992206d215f43a301f7e4947196d39045f4377a23b70",
+  "critic_before_sha256": "9ca1146c7f5bfe2f87d84c733b9ae314cf3eee0105aa565420ec6ec35b9bc67f",
+  "scaler_before_sha256": "da947af4b3a84f9f296ed583e7d1cfb7486ac2159561d384bc583d2325b0a5b7",
+  "scaler_fit_batches": [
+    {
+      "batch": 0,
+      "sum_VG": 56118813.66849072,
+      "sum_V2": 127350.03450683216
+    },
+    {
+      "batch": 1,
+      "sum_VG": 54016020.19659864,
+      "sum_V2": 124058.60328717309
+    },
+    {
+      "batch": 2,
+      "sum_VG": 55905966.16175693,
+      "sum_V2": 127533.3619096973
+    },
+    {
+      "batch": 3,
+      "sum_VG": 56356816.02400175,
+      "sum_V2": 128018.45801031185
+    },
+    {
+      "batch": 4,
+      "sum_VG": 56443102.765020266,
+      "sum_V2": 128536.48549068454
+    }
+  ],
+  "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/prepare/W0_139/frozen_N2.pt",
+  "frozen_sha256": "55283ad24bc0c437cc76f287f28753c4861d9b8dbf31ca0db69321c4078316e9",
+  "actor_after_sha256": "9af91876fad1959e00f9992206d215f43a301f7e4947196d39045f4377a23b70",
+  "scaler_after_sha256": "da2d802b7c56c0b95d22292ce28a42125cbf7703a47e2c6984fc203816843d28",
+  "actor_sha256": "9af91876fad1959e00f9992206d215f43a301f7e4947196d39045f4377a23b70",
+  "critic_sha256": "9ca1146c7f5bfe2f87d84c733b9ae314cf3eee0105aa565420ec6ec35b9bc67f",
+  "scaler_sha256": "da2d802b7c56c0b95d22292ce28a42125cbf7703a47e2c6984fc203816843d28",
+  "effective_scaler_c": 438.77586162684565,
+  "scaler_c_source": "least_squares_five_batches",
+  "scaler_c_fallback_batches": 5,
+  "scaler_c_fit_definition": "sum(V*raw_MC_G)/sum(V^2), through origin",
+  "critic_after_sha256": "9ca1146c7f5bfe2f87d84c733b9ae314cf3eee0105aa565420ec6ec35b9bc67f",
+  "frozen_ev_batch": {
+    "batch": 5,
+    "n_episodes": 80,
+    "return_mean": 4193.186777861492,
+    "return_se": 61.473637521884164,
+    "return_sum": 335454.94222891936,
+    "return_sumsq": 1430508559.5788822,
+    "J_disc_mean": 1483.4988462457957,
+    "J_disc_se": 14.406955975232314,
+    "J_disc_sum": 118679.90769966366,
+    "J_disc_sumsq": 177373287.74959344,
+    "max_abs_reward": 28.457217431510436,
+    "max_abs_R": 28.457217431510436,
+    "explained_variance": 0.43405230159739394,
+    "x0_sat_frac_mean": 0.12976560283754887,
+    "x0_sat_frac_last": 0.05777893277893278,
+    "x0_sat_pairs": 20000,
+    "x0_sat_last_pairs": 1924,
+    "action_oor_frac": 0.161,
+    "policy_action_oor_frac": 0.16102291666666665
+  },
+  "elapsed_seconds": 79.41776728350669
+}

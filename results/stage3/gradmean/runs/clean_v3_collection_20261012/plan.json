@@ -1,0 +1,76 @@
+{
+  "version": 3,
+  "source_commit": "ce909d3b356fd7754963d4ec3f6bf38619022853",
+  "source_path": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3_gradmean/dppo",
+  "scientific_source_unchanged": true,
+  "points": {
+    "C1": {
+      "collector_point": "D1",
+      "point_index": 5,
+      "itr": 70,
+      "updates": 63
+    },
+    "C2": {
+      "collector_point": "D2",
+      "point_index": 6,
+      "itr": 139,
+      "updates": 126
+    }
+  },
+  "run_ids": [
+    "prepare_C1",
+    "prepare_C2",
+    "C1_j00",
+    "C1_j01",
+    "C1_j02",
+    "C1_j03",
+    "C1_j04",
+    "C1_j05",
+    "C1_j06",
+    "C1_j07",
+    "C1_j08",
+    "C1_j09",
+    "C2_j00",
+    "C2_j01",
+    "C2_j02",
+    "C2_j03",
+    "C2_j04",
+    "C2_j05",
+    "C2_j06",
+    "C2_j07",
+    "C2_j08",
+    "C2_j09"
+  ],
+  "prepare_warmup_batches": 5,
+  "collect_jobs_per_point": 10,
+  "batches_per_job": 50,
+  "episodes_per_batch": 80,
+  "variants": [
+    "V1",
+    "V2",
+    "V3",
+    "V4",
+    "V5",
+    "V6"
+  ],
+  "cap_seconds_per_job": 3600,
+  "max_parallel": 5,
+  "base_gpu_seconds": 244995,
+  "aggregate_gpu_seconds_cap": 450000,
+  "maximum_initial_reserved_gpu_seconds": 79200,
+  "automatic_retries": false,
+  "no_actor_updates": true,
+  "monitor_interval_seconds": 1800,
+  "controller_timeout_seconds": 10800,
+  "estimate_gpu_hours": [
+    4.2,
+    4.5
+  ],
+  "estimate_wall_minutes": [
+    60,
+    70
+  ],
+  "estimate_basis": "50 completed V6 jobs: mean724.88s; five-batch preparations297-317s; five parallel GPUs",
+  "internal_alias_explanation": "C1->D1 and C2->D2 reuse administrative labels accepted by the unchanged collector; original D checkpoint/data paths are never used.",
+  "authorization": "Clean figures version3 section6: two new checkpoint points, five critic warmup batches each, ten50-batch V1-V6 groups per point; existing125GPU-hour aggregate cap retained."
+}

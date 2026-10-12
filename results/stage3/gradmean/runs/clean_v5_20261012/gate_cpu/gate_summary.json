@@ -1,0 +1,254 @@
+{
+  "passed": true,
+  "status": "passed",
+  "device": "cpu",
+  "base_commit": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+  "slurm_job_id": "17825755",
+  "expected_gpu_count": 0,
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+  "saved_batch_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+  "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+  "seed": 4900000,
+  "F3_protocol": "identical saved CPU batch/model/optimizer/scheduler/scaler/RNG and identical provenance; exact old/new frozen-file bytes",
+  "workers": [
+    {
+      "name": "old",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+        "--worker",
+        "old",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/reference_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+        "--checkpoint",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "--batch",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old",
+        "--divisor-audit",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+        "--base-commit",
+        "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+        "--seed",
+        "4900000"
+      ]
+    },
+    {
+      "name": "new",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+        "--worker",
+        "new",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+        "--checkpoint",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "--batch",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/new",
+        "--divisor-audit",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+        "--base-commit",
+        "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+        "--seed",
+        "4900000",
+        "--initial",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old/initial.pt"
+      ]
+    },
+    {
+      "name": "features",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/gate_v5.py",
+        "--worker",
+        "features",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/source_snapshot",
+        "--prepare",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/prepare/D1/grad_mean.json",
+        "--checkpoint",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1c/E1C_seed0/checkpoint/state_0.pt",
+        "--batch",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_v6/old/saved_batch.pt",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/features",
+        "--divisor-audit",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/log_audit.json",
+        "--base-commit",
+        "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+        "--seed",
+        "4900000"
+      ]
+    }
+  ],
+  "source_files": 405,
+  "reference_files": 404,
+  "F3": {
+    "passed": true,
+    "identical_saved_inputs": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 1847374,
+      "tensors": 76,
+      "first_failure": null
+    },
+    "final_states": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 2256729,
+      "tensors": 108,
+      "first_failure": null
+    },
+    "frozen_files_byte_identical": true,
+    "frozen_file_bytes": 5105459,
+    "old_frozen": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/old/frozen_D1.pt",
+    "new_frozen": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/gate_cpu/new/frozen_D1.pt",
+    "warmup_batches": 5,
+    "critic_steps": 100
+  },
+  "F1": {
+    "passed": true,
+    "checkpoint_critic": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 136449,
+      "tensors": 8,
+      "first_failure": null
+    },
+    "frozen_critic": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 136449,
+      "tensors": 8,
+      "first_failure": null
+    },
+    "critic_optimizer_steps": 0,
+    "completed_warmup_batches": 0
+  },
+  "F2": {
+    "passed": true,
+    "requested": 1.000000005,
+    "effective": 1.000000005,
+    "supplied_divisors": [
+      {
+        "checkpoint_itr": 0,
+        "requested": 1.000000005,
+        "effective": 1.000000005,
+        "passed": true
+      },
+      {
+        "checkpoint_itr": 35,
+        "requested": 476.76547228150207,
+        "effective": 476.76547228150207,
+        "passed": true
+      },
+      {
+        "checkpoint_itr": 70,
+        "requested": 480.3848633341828,
+        "effective": 480.3848633341828,
+        "passed": true
+      },
+      {
+        "checkpoint_itr": 105,
+        "requested": 481.72847498236365,
+        "effective": 481.72847498236365,
+        "passed": true
+      }
+    ],
+    "synthetic_fitted_divisor": 512.25,
+    "synthetic_fit_exact": true
+  },
+  "quarter_native_gradient": {
+    "passed": true,
+    "relative_l2": 3.0337205680327193e-07,
+    "max_abs": 3.2014213502407074e-10,
+    "pairs": 200000,
+    "chunk_size": 50000,
+    "definition": "four native model.loss score terms weighted by chunk_size/full_size",
+    "inert": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 1847374,
+      "tensors": 76,
+      "first_failure": null
+    }
+  },
+  "raw_V2_definition": {
+    "passed": true,
+    "max_abs": 0.0,
+    "relative_l2": 0.0,
+    "definition": "float64 raw MC return - frozen divisor * pre-update V"
+  },
+  "other_estimators_unchanged": {
+    "passed": true,
+    "comparisons": {
+      "V1": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "V3": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "V4": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "V5": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "V6": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 1,
+        "first_failure": null
+      }
+    }
+  },
+  "seconds": 821.782994334586
+}

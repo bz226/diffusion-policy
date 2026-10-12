@@ -1,0 +1,32 @@
+{
+  "recorded_utc": "2026-10-12T17:22:46.732772+00:00",
+  "recovery_controller_job": "17826164",
+  "reason": "Original17825855 failed during progress read with transient ESTALE; scientific workers all completed successfully. Only remaining45 approved jobs are admitted.",
+  "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+  "original_controller": "17825855",
+  "original_finalizer": "17825856",
+  "original_finalizer_state": "CANCELLED without starting",
+  "scientific_jobs_retried": 0,
+  "settings_changed": false,
+  "commands": [
+    [
+      "sbatch",
+      "--parsable",
+      "--export=PATH,HOME,USER,LOGNAME,LANG",
+      "--output=results/stage3/gradmean/runs/clean_v5_20261012/logs/recovery-controller-%j.out",
+      "results/stage3/gradmean/runs/clean_v5_20261012/recovery_controller_17825855/code/run_recovery.sh"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--dependency=afterok:17826164",
+      "--kill-on-invalid-dep=yes",
+      "--export=PATH,HOME,USER,LOGNAME,LANG",
+      "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/finalizer-recovery-%j.out",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_finalizer_v5.sh",
+      "--commit",
+      "30b5956e113ae0b392daf6056f03d8a894a99f73"
+    ]
+  ],
+  "replacement_finalizer_job": "17826166"
+}

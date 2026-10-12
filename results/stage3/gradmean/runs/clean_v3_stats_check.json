@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": [
+    "t90 df9 critical",
+    "literal t jackknife width",
+    "undefined replicate is unavailable interval",
+    "pairwise U-statistic excludes same-batch products",
+    "batch variance direct recomputation",
+    "theory squared scaling and episode factor",
+    "joint deletion of V6 numerator and V4 denominator",
+    "B per-update scales value and interval by80",
+    "trained V2 uses its own mean",
+    "trained cosine excludes same-batch cross products",
+    "variance comparison uses paired trace cohort",
+    "reward group jackknife uses t90",
+    "nonpositive full signal reports bound without sqrt",
+    "bound uses t upper signal limit",
+    "negative full signal norm is unavailable",
+    "negative deleted signal leaves norm interval unavailable",
+    "metric schema strict JSON",
+    "C controller schema and internal alias accepted",
+    "native completion alone cannot admit unfinished scheduler job",
+    "selection follows actual launch instead of name"
+  ],
+  "count": 20,
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v6/results/stage3/gradmean",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "synthetic_only": true,
+  "rollouts": 0
+}

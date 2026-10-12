@@ -1,0 +1,21 @@
+{
+  "job_id": "17825768",
+  "target_gate_job_id": "17825755",
+  "kind": "read_only_cpu_gate_monitor",
+  "interval_seconds": 1800,
+  "cap_seconds": 7800,
+  "gpu_count": 0,
+  "scientific_jobs_launched": false,
+  "job_changes_permitted": false,
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/gate-monitor-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_gate_monitor_v5.sh"
+  ],
+  "recorded_utc": "2026-10-12T16:50:50.314362+00:00",
+  "scheduler_submit_local": "2026-10-12T09:48:43",
+  "scheduler_start_local": "2026-10-12T09:49:01",
+  "scheduler_timezone": "America/Los_Angeles"
+}

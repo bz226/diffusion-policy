@@ -1,0 +1,21 @@
+{
+  "status": "prepared, not submitted",
+  "requires": "All56 jobs verified complete, source gate pass, frozen normalization, independent artifact checks before publication",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:<V5_CONTROLLER_JOB>",
+    "--kill-on-invalid-dep=yes",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/finalizer-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_finalizer_v5.sh",
+    "--commit",
+    "<COMMIT_AFTER_GATE>"
+  ],
+  "cpu_count": 4,
+  "memory_gib": 64,
+  "cap_minutes": 30,
+  "gpu_count": 0,
+  "pinned_analysis_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/finalize_source_snapshot",
+  "curation": false
+}

@@ -1,0 +1,139 @@
+{
+  "utc": "2026-10-12T17:07:48.095964+00:00",
+  "passed": true,
+  "kind": "read_only_initial_admission_audit",
+  "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+  "controller_job_id": "17825855",
+  "finalizer_job_id": "17825856",
+  "prepares": [
+    {
+      "run_id": "prepare_W0_000",
+      "job_id": "17825857",
+      "status": "complete",
+      "scheduler_state": "COMPLETED",
+      "exit_code": "0:0"
+    },
+    {
+      "run_id": "prepare_W0_035",
+      "job_id": "17825858",
+      "status": "complete",
+      "scheduler_state": "COMPLETED",
+      "exit_code": "0:0"
+    },
+    {
+      "run_id": "prepare_W0_070",
+      "job_id": "17825859",
+      "status": "complete",
+      "scheduler_state": "COMPLETED",
+      "exit_code": "0:0"
+    },
+    {
+      "run_id": "prepare_W0_105",
+      "job_id": "17825860",
+      "status": "complete",
+      "scheduler_state": "COMPLETED",
+      "exit_code": "0:0"
+    },
+    {
+      "run_id": "prepare_W0_139",
+      "job_id": "17825861",
+      "status": "complete",
+      "scheduler_state": "COMPLETED",
+      "exit_code": "0:0"
+    }
+  ],
+  "normalization_job_id": "17825869",
+  "normalization_rows": [
+    {
+      "batch": 0,
+      "cosine": 0.9999912421997208,
+      "quarter_over_full_norm": 1.0001758172653916,
+      "full_norm": 0.007696436817842617,
+      "quarter_norm": 0.0076977899843171885,
+      "full_acceptable": true,
+      "state_and_rng_unchanged": true
+    },
+    {
+      "batch": 1,
+      "cosine": 0.9999940305844568,
+      "quarter_over_full_norm": 0.9999304964568113,
+      "full_norm": 0.007778429564336639,
+      "quarter_norm": 0.007777888935921474,
+      "full_acceptable": true,
+      "state_and_rng_unchanged": true
+    }
+  ],
+  "normalization": {
+    "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+    "selected_normalization": "full",
+    "comparison_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/normalization/norm_W0_000/normalization_check.json",
+    "scheduler_job_id": "17825869",
+    "frozen_before_first_collect": true,
+    "comparison_seed": 179100,
+    "comparison_batches": 2
+  },
+  "initial_collects": [
+    {
+      "run_id": "W0_000_j00",
+      "job_id": "17825895",
+      "worker_started_utc": "2026-10-12T17:07:03.710104+00:00",
+      "native_status": "running",
+      "completed_batches": 2,
+      "seed": 170000,
+      "six_estimators": true,
+      "settings_and_frozen_identity_verified": true,
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scientific_source_changed": false
+    },
+    {
+      "run_id": "W0_000_j01",
+      "job_id": "17825896",
+      "worker_started_utc": "2026-10-12T17:07:03.713604+00:00",
+      "native_status": "running",
+      "completed_batches": 2,
+      "seed": 170100,
+      "six_estimators": true,
+      "settings_and_frozen_identity_verified": true,
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scientific_source_changed": false
+    },
+    {
+      "run_id": "W0_000_j02",
+      "job_id": "17825897",
+      "worker_started_utc": "2026-10-12T17:07:03.709454+00:00",
+      "native_status": "running",
+      "completed_batches": 2,
+      "seed": 170200,
+      "six_estimators": true,
+      "settings_and_frozen_identity_verified": true,
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scientific_source_changed": false
+    },
+    {
+      "run_id": "W0_000_j03",
+      "job_id": "17825898",
+      "worker_started_utc": "2026-10-12T17:07:03.711681+00:00",
+      "native_status": "running",
+      "completed_batches": 2,
+      "seed": 170300,
+      "six_estimators": true,
+      "settings_and_frozen_identity_verified": true,
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scientific_source_changed": false
+    },
+    {
+      "run_id": "W0_000_j04",
+      "job_id": "17825899",
+      "worker_started_utc": "2026-10-12T17:07:04.313912+00:00",
+      "native_status": "running",
+      "completed_batches": 2,
+      "seed": 170400,
+      "six_estimators": true,
+      "settings_and_frozen_identity_verified": true,
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scientific_source_changed": false
+    }
+  ],
+  "additional_jobs_launched": false,
+  "retries_performed": false
+}

@@ -1,0 +1,19 @@
+{
+  "status": "Authorized design recorded before any new version 5 data",
+  "version3": "The middle and final checkpoints used their own critics after 5 warm-up batches. New admissions stopped after the user superseded that plan. Nine middle-checkpoint groups and two preparations finished; their outputs remain preserved and excluded from version 5 figures.",
+  "version5": "Five own-critic checkpoints at iterations 0, 35, 70, 105 and 139. W=0; V2 uses raw Monte Carlo return minus the critic. The first four points use the logged reward divisor. The final point uses the authorized five-batch through-origin least-squares fit. A two-batch comparison at the first point selects full or quarter normalization before all 50 collection groups.",
+  "new_point_ids": [
+    "W0_000",
+    "W0_035",
+    "W0_070",
+    "W0_105",
+    "W0_139"
+  ],
+  "sample_plan": "500 batches per point; 50 batches per group; 80 episodes per batch; exactly 10 groups per point.",
+  "source_branch": "stage3-gradmean-v5",
+  "base_revision": "eabff898011503ad2635b0efdbc59e0b90c8dc5c",
+  "default_code_paths": "F3 CPU exact replay must pass before any new production job.",
+  "no_automatic_retries": true,
+  "no_old_campaign_restart": true,
+  "existing_curated_outputs": "Preserved; new outputs are candidates until explicit user selection."
+}

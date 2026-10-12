@@ -1,0 +1,47 @@
+{
+  "status": "submitted by root; scientific admissions remain gated",
+  "requires": "All56 jobs verified complete, source gate pass, frozen normalization, independent artifact checks before publication",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--dependency=afterok:<V5_CONTROLLER_JOB>",
+    "--kill-on-invalid-dep=yes",
+    "--export=PATH,HOME,USER,LOGNAME,LANG",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/finalizer-%j.out",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_finalizer_v5.sh",
+    "--commit",
+    "<COMMIT_AFTER_GATE>"
+  ],
+  "cpu_count": 4,
+  "memory_gib": 64,
+  "cap_minutes": 30,
+  "gpu_count": 0,
+  "pinned_analysis_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/finalize_source_snapshot",
+  "curation": false,
+  "prepared_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/finalizer_submission_prepared.json",
+  "submission_events": [
+    {
+      "job_id": "17825856",
+      "kind": "finalizer",
+      "source_commit": "30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "scheduler_submit_local": "2026-10-12T10:02:49",
+      "scheduler_start_local": null,
+      "scheduler_timezone": "America/Los_Angeles",
+      "exact_scheduler_submit_line": "sbatch --parsable --dependency=afterok:17825855 --kill-on-invalid-dep=yes --export=PATH,HOME,USER,LOGNAME,LANG --output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/finalizer-%j.out /soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_finalizer_v5.sh --commit 30b5956e113ae0b392daf6056f03d8a894a99f73",
+      "command": [
+        "sbatch",
+        "--parsable",
+        "--dependency=afterok:17825855",
+        "--kill-on-invalid-dep=yes",
+        "--export=PATH,HOME,USER,LOGNAME,LANG",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/logs/finalizer-%j.out",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_20261012/code/run_finalizer_v5.sh",
+        "--commit",
+        "30b5956e113ae0b392daf6056f03d8a894a99f73"
+      ],
+      "scheduler_evidence": "sacct allocation SubmitLine",
+      "recorded_utc": "2026-10-12T17:03:38.399126+00:00",
+      "submitted_by": "root agent; recording only"
+    }
+  ]
+}

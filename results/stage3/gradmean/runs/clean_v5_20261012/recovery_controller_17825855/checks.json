@@ -1,0 +1,22 @@
+{
+  "passed": true,
+  "checks": [
+    "preserve_all_eleven_admissions_without_mutating_original",
+    "reject_pending_intent",
+    "reject_wrong_failure_origin",
+    "reject_scientific_failure",
+    "reject_scientific_scheduler_failure",
+    "reject_prior_recovery",
+    "reject_missing_admission",
+    "reject_wrong_source",
+    "reject_changed_budget",
+    "one_transient_ESTale_reopens_and_succeeds",
+    "bounded_ESTale_three_attempts",
+    "non_ESTale_not_retried",
+    "only_the_forty_five_unadmitted_jobs_remain"
+  ],
+  "count": 13,
+  "scientific_jobs_launched": false,
+  "scientific_source_changed": false,
+  "original_controller_files_changed": false
+}

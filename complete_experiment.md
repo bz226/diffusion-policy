@@ -64,6 +64,12 @@
 
 ## Comparison analyses
 
+### DPPO, without_PPO and without_PPO_and_GAE: seed-0 rewards
+
+- Analysis folder: [Verified reward comparison](./results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/)
+- Analysis design: [Reward comparison methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
+- Curated results: [Evaluation and training plots](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-three-method-reward-curves)
+
 ### DPPO and without_PPO: returns and gradient noise
 
 - Analysis folder: [Clean figures and tables](./results/stage3/gradmean/figs_clean/)

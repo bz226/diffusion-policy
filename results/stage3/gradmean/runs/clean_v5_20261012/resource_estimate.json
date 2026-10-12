@@ -1,0 +1,33 @@
+{
+  "status": "resource estimate only; source/normalization verification and root review precede any new science",
+  "base_accounting": {
+    "base_gpu_seconds": 244995,
+    "v3_actual_gpu_seconds_as_observed": 4976,
+    "aggregate_actual_gpu_seconds_as_observed": 249971,
+    "aggregate_completed_plus_full_running_reservations": 263773,
+    "aggregate_gpu_seconds_cap": 450000,
+    "remaining_gpu_seconds_after_observed_actual": 200029,
+    "is_final": false
+  },
+  "old_aggregate_upper_bound_gpu_hours": 73.27027777777778,
+  "remaining_at_old_upper_bound_gpu_hours": 51.72972222222222,
+  "candidate_reservations": {
+    "fifty_collect_jobs_30min_gpu_hours": 25,
+    "five_W0_prepare_jobs_30min_gpu_hours": 2.5,
+    "two_normalization_batch_jobs_30min_gpu_hours": 1,
+    "cpu_gates_gpu_hours": 0,
+    "total_gpu_hours": 28.5
+  },
+  "candidate_aggregate_upper_bound_gpu_hours": 101.77027777777778,
+  "max_parallel": 5,
+  "historical_50batch_V6_job_seconds": {
+    "mean": 724.8805543118483,
+    "min": 667.7788897836581,
+    "max": 826.1611422490096
+  },
+  "thirty_minute_collect_cap_margin_over_observed_max": 2.1787517082926056,
+  "expected_collect_gpu_hours": 10.067785476553448,
+  "expected_wall_hours_at_five_parallel_excluding_gates_and_queue": 2.0135570953106896,
+  "normalization_change_runtime_not_yet_measured": true,
+  "scope_changes_require_root_review": true
+}

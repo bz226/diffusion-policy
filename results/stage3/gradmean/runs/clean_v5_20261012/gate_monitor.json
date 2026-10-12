@@ -1,0 +1,52 @@
+{
+  "utc": "2026-10-12T17:19:02.377393+00:00",
+  "gate_job_id": "17825755",
+  "scheduler_state": "COMPLETED",
+  "elapsed_seconds": 825,
+  "allocated_tres": "billing=40,cpu=40,mem=64G,node=1",
+  "gpu_count": 0,
+  "exit_code": "0:0",
+  "gate_passed": true,
+  "gate_status": "passed",
+  "gate_error": null,
+  "completed_worker_reports": [
+    "features",
+    "new",
+    "old"
+  ],
+  "log_bytes": {
+    "features.out": 1341,
+    "new.out": 1341,
+    "old.out": 1341
+  },
+  "counter": [
+    [
+      "features",
+      "new",
+      "old"
+    ],
+    [
+      [
+        "features.out",
+        1341
+      ],
+      [
+        "new.out",
+        1341
+      ],
+      [
+        "old.out",
+        1341
+      ]
+    ],
+    true,
+    "passed"
+  ],
+  "unchanged_checks": 0,
+  "suspected_stall_confirmed": false,
+  "monitor_interval_seconds": 1800,
+  "jobs_modified": false,
+  "new_science_launched": false,
+  "monitor_status": "paused",
+  "verified_success": true
+}

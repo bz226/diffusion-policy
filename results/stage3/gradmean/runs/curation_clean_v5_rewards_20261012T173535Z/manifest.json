@@ -1,0 +1,51 @@
+{
+  "status": "complete",
+  "curated_utc": "2026-10-12T17:35:35.601569+00:00",
+  "user_approval": "keep this two plot in curated",
+  "scope": [
+    "version5 evaluation reward",
+    "version5 training reward"
+  ],
+  "formats": [
+    "PNG",
+    "PDF",
+    "caption Markdown"
+  ],
+  "source_run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z",
+  "validation_record": "results/stage3/gradmean/runs/clean_v5_20261012/initial_artifact_check.json",
+  "files": [
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/eval_reward.png",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.png",
+      "bytes": 152537
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/eval_reward.pdf",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.pdf",
+      "bytes": 14530
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/eval_reward.caption.md",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/eval_reward.caption.md",
+      "bytes": 354
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/train_reward.png",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/train_reward.png",
+      "bytes": 256313
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/train_reward.pdf",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/train_reward.pdf",
+      "bytes": 16644
+    },
+    {
+      "source": "results/stage3/gradmean/runs/clean_v5_render_20261012T164704.933028Z/candidates/train_reward.caption.md",
+      "curated": "results/stage3/gradmean/curated/clean-v5-rewards/train_reward.caption.md",
+      "bytes": 405
+    }
+  ],
+  "copies_verified_byte_equal": true,
+  "existing_artifacts_preserved": true,
+  "new_sampling": false
+}

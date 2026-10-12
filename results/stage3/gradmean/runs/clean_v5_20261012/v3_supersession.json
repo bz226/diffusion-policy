@@ -1,0 +1,56 @@
+{
+  "recorded_utc": "2026-10-12T16:34:00.831286+00:00",
+  "user_decision": "Latest clean figures version5 supersedes version3; stop new version3 admissions and let already-running workers finish unchanged. No version5 scientific jobs launched by this audit.",
+  "action_by_root": {
+    "controller_job": "17825414",
+    "action": "SIGTERM to batch controller after process inspection confirmed no worker children",
+    "controller_exit": "FAILED1:0 as expected after administrative stop",
+    "pending_only_cancellation_attempts": [
+      "17825583",
+      "17825582",
+      "17825578",
+      "17825457"
+    ]
+  },
+  "observed_outcomes": {
+    "cancelled_pending_final_plot": "17825457; zero elapsed and no GPU",
+    "protected_workers_already_running": [
+      "17825578",
+      "17825582",
+      "17825583"
+    ],
+    "other_running_workers_at_first_audit": [
+      "17825571",
+      "17825444"
+    ],
+    "later_completed_untouched": "17825444",
+    "still_running_at_record": [
+      "17825571",
+      "17825578",
+      "17825582",
+      "17825583"
+    ]
+  },
+  "admitted_v3_preparations": 2,
+  "admitted_v3_collect_groups": 9,
+  "possible_completed_v3_C1_batches": 450,
+  "possible_completed_v3_C2_batches": 0,
+  "unsubmitted_and_withheld": [
+    "C1_j09",
+    "C2_j00",
+    "C2_j01",
+    "C2_j02",
+    "C2_j03",
+    "C2_j04",
+    "C2_j05",
+    "C2_j06",
+    "C2_j07",
+    "C2_j08",
+    "C2_j09"
+  ],
+  "preserve_existing_outputs": true,
+  "old_campaign_restarted": false,
+  "read_only_winddown_monitor": "code/monitor_v3.py",
+  "monitor_interval_seconds": 1800,
+  "new_scientific_work_launched": false
+}
