@@ -118,10 +118,10 @@
     "stage": "full"
   },
   "gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json",
-  "status": "running",
+  "status": "complete",
   "started_utc": "2026-10-12T05:41:57.067478+00:00",
   "scheduler_job_id": "17819411",
-  "monitor_status": "active",
+  "monitor_status": "paused",
   "environment": {
     "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
     "executable": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
@@ -134,12 +134,46 @@
   },
   "gpu_inventory": "NVIDIA RTX A6000, 580.82.07, 49140 MiB\n",
   "last_observation": {
-    "utc": "2026-10-12T05:41:57.107027+00:00",
-    "progress": {},
-    "status": null,
+    "utc": "2026-10-12T05:54:14.693749+00:00",
+    "progress": {
+      "mode": "grad_mean",
+      "step": "collect",
+      "phase": "completed",
+      "substage": "completed",
+      "completed": 50,
+      "done": 50,
+      "target": 50,
+      "total": 50,
+      "status": "complete",
+      "elapsed_seconds": 722.6537993699312
+    },
+    "status": "completed",
     "error": null,
-    "completed_batches": 0,
-    "meta_nonfinite": false,
-    "suspected_stall_confirmed": false
+    "completed_batches": 50,
+    "meta_nonfinite": false
+  },
+  "subprocess_exitcode": 0,
+  "subprocess_pid": 2530842,
+  "remaining_process_group_members": [],
+  "verification": {
+    "verified_utc": "2026-10-12T05:54:14.691094+00:00",
+    "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j61/cleanup.json",
+    "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j61/meta.json"
+  },
+  "ended_utc": "2026-10-12T05:54:14.691622+00:00",
+  "elapsed_seconds": 737.6209497710224,
+  "final_verification": {
+    "verified_utc": "2026-10-12T05:54:20.333878+00:00",
+    "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j61/cleanup.json",
+    "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j61/meta.json"
+  },
+  "scheduler_observation": {
+    "job_id": "17819411",
+    "scheduler_state": "COMPLETED",
+    "elapsed_seconds": 740,
+    "gpu_count": 1,
+    "allocated_gpu_seconds": 740,
+    "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+    "exit_code": "0:0"
   }
 }

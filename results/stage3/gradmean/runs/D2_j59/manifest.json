@@ -161,5 +161,19 @@
     "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j59/meta.json"
   },
   "ended_utc": "2026-10-12T05:50:43.889061+00:00",
-  "elapsed_seconds": 706.5811184737831
+  "elapsed_seconds": 706.5811184737831,
+  "final_verification": {
+    "verified_utc": "2026-10-12T05:51:21.266549+00:00",
+    "cleanup_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j59/cleanup.json",
+    "metadata_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/collect/D2_j59/meta.json"
+  },
+  "scheduler_observation": {
+    "job_id": "17819408",
+    "scheduler_state": "COMPLETED",
+    "elapsed_seconds": 709,
+    "gpu_count": 1,
+    "allocated_gpu_seconds": 709,
+    "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+    "exit_code": "0:0"
+  }
 }
