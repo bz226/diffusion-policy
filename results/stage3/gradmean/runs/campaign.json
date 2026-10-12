@@ -1,6 +1,6 @@
 {
   "created_utc": "2026-10-11T20:55:24.992576+00:00",
-  "status": "running",
+  "status": "blocked",
   "submitted": [
     {
       "run_id": "prepare_P0",
@@ -12954,9 +12954,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 691,
+      "elapsed_seconds": 737,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 691,
+      "allocated_gpu_seconds": 737,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13000,9 +13000,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 372,
+      "elapsed_seconds": 418,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 372,
+      "allocated_gpu_seconds": 418,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13046,9 +13046,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 296,
+      "elapsed_seconds": 342,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 296,
+      "allocated_gpu_seconds": 342,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13092,9 +13092,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 296,
+      "elapsed_seconds": 342,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 296,
+      "allocated_gpu_seconds": 342,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13138,9 +13138,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 296,
+      "elapsed_seconds": 342,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 296,
+      "allocated_gpu_seconds": 342,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13184,9 +13184,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 116,
+      "elapsed_seconds": 162,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 116,
+      "allocated_gpu_seconds": 162,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -13230,9 +13230,9 @@
         "files_compared": 404,
         "stage": "full"
       },
-      "elapsed_seconds": 56,
+      "elapsed_seconds": 102,
       "gpu_count": 1,
-      "allocated_gpu_seconds": 56,
+      "allocated_gpu_seconds": 102,
       "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
       "exit_code": "0:0"
     },
@@ -21910,8 +21910,8 @@
     "stage": "full"
   },
   "gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json",
-  "monitor_status": "active",
-  "updated_utc": "2026-10-12T05:56:04.889491+00:00",
+  "monitor_status": "paused",
+  "updated_utc": "2026-10-12T05:56:36.886757+00:00",
   "ledger": {
     "actual_gpu_seconds": 195077,
     "outstanding_reserved_gpu_seconds": 32400,
@@ -21919,5 +21919,7 @@
     "budget_gpu_seconds": 450000,
     "remaining_unreserved_gpu_seconds": 222523
   },
-  "controller_job_id": "17812492"
+  "controller_job_id": "17812492",
+  "failure_reason": "ValueError: Parent branch must be stage3-gradmean",
+  "ended_utc": "2026-10-12T05:56:35.628822+00:00"
 }

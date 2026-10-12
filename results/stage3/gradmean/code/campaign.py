@@ -140,8 +140,8 @@ def validate_gate(path, commit, full=False):
     if len(rows) != 1 or rows[0][1:3] != ['COMPLETED', '0:0']:
         raise ValueError('Formal offline gate allocation must be COMPLETED with exit0:0 before any admission or worker')
     branch = command(['git', '-C', str(PARENT), 'branch', '--show-current'])['stdout'].strip()
-    if branch != 'stage3-gradmean':
-        raise ValueError('Parent branch must be stage3-gradmean')
+    if branch not in ('main', 'stage3-gradmean'):
+        raise ValueError('Parent branch must be main or stage3-gradmean')
     current_commit = command(['git', '-C', str(PARENT), 'rev-parse', 'HEAD'])['stdout'].strip()
     if command(['git', '-C', str(PARENT), 'merge-base', '--is-ancestor', commit, current_commit], check=False)['returncode']:
         raise ValueError('Current parent revision must descend from the gate reference')

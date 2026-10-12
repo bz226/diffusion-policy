@@ -19,7 +19,18 @@ from urllib.parse import urlsplit, urlunsplit
 
 
 SNAPSHOT_IGNORES = """# Ordinary source snapshot; original upstream rules are in ../provenance/.
-# Keep source, result.pkl, run.log, and Hydra configurations versionable.
+# Keep source, measurements, result.pkl, and Hydra configurations versionable.
+# Runtime logs and command/monitor transcripts stay local.
+*.log
+*.log.*
+*.out
+*.err
+commands.jsonl
+*_commands.jsonl
+monitor_history.jsonl
+*_monitor_history.jsonl
+*_monitor.jsonl
+events.jsonl
 __pycache__/
 *.py[cod]
 .pytest_cache/

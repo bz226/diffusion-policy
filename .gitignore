@@ -34,3 +34,16 @@ __pycache__/
 /results/repro_halfcheetah/conda_envs/
 
 # Keep reports, curated plots/tables, run metadata and result.pkl versionable.
+
+# Runtime logs stay local. Keep scientific JSONL measurements, metrics, and
+# concise manifests versionable; do not ignore entire log/ directories.
+/results/**/*.log
+/results/**/*.log.*
+/results/**/*.out
+/results/**/*.err
+/results/**/commands.jsonl
+/results/**/*_commands.jsonl
+/results/**/monitor_history.jsonl
+/results/**/*_monitor_history.jsonl
+/results/**/*_monitor.jsonl
+/results/**/events.jsonl

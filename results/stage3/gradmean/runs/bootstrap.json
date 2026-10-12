@@ -2,13 +2,13 @@
   "formal_job": "17812451",
   "offline_gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_offline_G1/gate_summary.json",
   "started_utc": "2026-10-11T20:50:51.428645+00:00",
-  "status": "production",
+  "status": "blocked",
   "monitor_status": "paused",
   "controller_cap_seconds": 86400,
   "monitor_interval_seconds": 1800,
-  "phase": "full_campaign_controller_active",
-  "detail": {
-    "full_gate": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/gradmean/runs/gate_live_G1/gate_summary.json"
-  },
-  "updated_utc": "2026-10-11T21:29:02.538573+00:00"
+  "phase": "stopped",
+  "detail": null,
+  "updated_utc": "2026-10-12T05:56:36.874086+00:00",
+  "ended_utc": "2026-10-12T05:56:36.874051+00:00",
+  "error": "ValueError: Parent branch must be stage3-gradmean"
 }

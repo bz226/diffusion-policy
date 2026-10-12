@@ -132,24 +132,34 @@ class RuntimeTests(unittest.TestCase):
                 path.chmod(0o770)
             gate = root / 'gate.json'
             c.atomic(gate, dict(passed=True, stage='offline', parent_commit='reference', source_snapshot=str(snapshot), slurm_job_id='123'))
+            branch, ancestor = 'stage3-gradmean', True
             def fake_command(argv, check=True):
                 if argv[0] == 'sacct':
                     output = '123|COMPLETED|0:0|\n'
                 elif 'branch' in argv:
-                    output = 'stage3-gradmean\n'
+                    output = branch + '\n'
                 elif 'rev-parse' in argv:
                     output = 'later-docs-commit\n'
                 elif 'ls-tree' in argv:
                     output = '100755 blob old-blob\tsource/script.sh\0'
                 else:
                     output = ''
-                return dict(stdout=output, returncode=0)
+                return dict(stdout=output, returncode=1 if 'merge-base' in argv and not ancestor else 0)
             payload = b'echo fixture\n'
             binary = b'old-blob blob ' + str(len(payload)).encode() + b'\n' + payload + b'\n'
             with patch.object(c, 'PARENT', parent), patch.object(c, 'ROOT', root), patch.object(c, 'SOURCE', source), \
                     patch.object(c, 'command', side_effect=fake_command), \
                     patch.object(c.subprocess, 'run', return_value=SimpleNamespace(returncode=0, stdout=binary)):
-                self.assertEqual(c.validate_gate(gate, 'reference')['current_parent_commit'], 'later-docs-commit')
+                for branch in ('stage3-gradmean', 'main'):
+                    with self.subTest(branch=branch):
+                        self.assertEqual(c.validate_gate(gate, 'reference')['current_parent_commit'], 'later-docs-commit')
+                branch = 'unrelated-branch'
+                with self.assertRaisesRegex(ValueError, 'Parent branch must'):
+                    c.validate_gate(gate, 'reference')
+                branch, ancestor = 'main', False
+                with self.assertRaisesRegex(ValueError, 'must descend from the gate reference'):
+                    c.validate_gate(gate, 'reference')
+                ancestor = True
                 (source / 'script.sh').write_bytes(b'changed\n')
                 with self.assertRaises(ValueError):
                     c.validate_gate(gate, 'reference')

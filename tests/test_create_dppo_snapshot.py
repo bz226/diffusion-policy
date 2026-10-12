@@ -161,7 +161,7 @@ class CreateDppoSnapshotTests(unittest.TestCase):
         self.run_helper()
         run = self.destination / "log/gym-finetune/run1"
         (run / ".hydra").mkdir(parents=True)
-        selected = ["result.pkl", "run.log", ".hydra/config.yaml",
+        selected = ["result.pkl", ".hydra/config.yaml",
                     ".hydra/hydra.yaml", ".hydra/overrides.yaml"]
         for name in selected:
             (run / name).write_text("small selected result\n", encoding="utf-8")
@@ -191,6 +191,37 @@ class CreateDppoSnapshotTests(unittest.TestCase):
             self.assertNotIn(prefix + name, entries)
         self.assertNotIn("160000", entries.values())
         self.assertFalse(any("/.git/" in name for name in entries))
+
+    def test_plain_staging_keeps_runtime_logs_local_and_measurements_versionable(self):
+        self.run_helper()
+        runtime_logs = [
+            "run.log", "run.log.1", "console.out", "console.err", "commands.jsonl",
+            "bootstrap_commands.jsonl", "campaign_commands.jsonl", "monitor_history.jsonl",
+            "gate_monitor_history.jsonl", "campaign_monitor.jsonl", "events.jsonl",
+        ]
+        measurements = [
+            "replicates.jsonl", "runtime_estimates.jsonl", "result.pkl", "metrics.csv",
+            "summary.json", ".hydra/config.yaml", "logging.py",
+        ]
+        paths = []
+        for directory in (self.destination, self.destination / "log/gym-finetune/run1"):
+            for name in runtime_logs + measurements:
+                path = directory / name
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.write_bytes(b"preserve local content\n")
+                paths.append((path, name in runtime_logs))
+
+        self.git(self.root, "add", "-A")
+
+        entries = self.index_entries()
+        for path, is_runtime_log in paths:
+            with self.subTest(path=path.relative_to(self.destination).as_posix()):
+                self.assertEqual(path.read_bytes(), b"preserve local content\n")
+                relative = path.relative_to(self.root).as_posix()
+                if is_runtime_log:
+                    self.assertNotIn(relative, entries)
+                else:
+                    self.assertIn(relative, entries)
 
     def test_accepts_archived_git_metadata_without_source_worktree(self):
         archive = self.temporary / "archived-history"

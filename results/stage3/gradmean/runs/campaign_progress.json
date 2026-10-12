@@ -1,14 +1,14 @@
 {
-  "utc": "2026-10-12T05:26:53.748642+00:00",
-  "reason": "round boundary P0 3200",
-  "status": "running",
-  "monitor_status": "active",
+  "utc": "2026-10-12T05:56:37.404136+00:00",
+  "reason": "bootstrap stopped",
+  "status": "blocked",
+  "monitor_status": "paused",
   "ledger": {
-    "actual_gpu_seconds": 183408,
-    "outstanding_reserved_gpu_seconds": 28800,
-    "actual_plus_reserved_gpu_seconds": 212208,
+    "actual_gpu_seconds": 195077,
+    "outstanding_reserved_gpu_seconds": 32400,
+    "actual_plus_reserved_gpu_seconds": 227477,
     "budget_gpu_seconds": 450000,
-    "remaining_unreserved_gpu_seconds": 237792
+    "remaining_unreserved_gpu_seconds": 222523
   },
   "points": {
     "P0": {
@@ -864,7 +864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.595163+00:00",
+        "utc": "2026-10-12T05:56:36.937139+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "prepare",
@@ -889,7 +889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.596823+00:00",
+        "utc": "2026-10-12T05:56:36.938616+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -914,7 +914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.598610+00:00",
+        "utc": "2026-10-12T05:56:36.940366+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -939,7 +939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.601075+00:00",
+        "utc": "2026-10-12T05:56:36.941888+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "prepare",
@@ -964,7 +964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.604177+00:00",
+        "utc": "2026-10-12T05:56:36.943018+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "prepare",
@@ -989,7 +989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.607215+00:00",
+        "utc": "2026-10-12T05:56:36.944224+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "prepare",
@@ -1014,7 +1014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.609983+00:00",
+        "utc": "2026-10-12T05:56:36.945389+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "prepare",
@@ -1039,7 +1039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.611775+00:00",
+        "utc": "2026-10-12T05:56:36.946746+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1064,7 +1064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.613635+00:00",
+        "utc": "2026-10-12T05:56:36.948510+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1089,7 +1089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.615416+00:00",
+        "utc": "2026-10-12T05:56:36.950257+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1114,7 +1114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.617167+00:00",
+        "utc": "2026-10-12T05:56:36.952041+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1139,7 +1139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.619232+00:00",
+        "utc": "2026-10-12T05:56:36.953808+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1164,7 +1164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.621052+00:00",
+        "utc": "2026-10-12T05:56:36.955575+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1189,7 +1189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.622827+00:00",
+        "utc": "2026-10-12T05:56:36.957348+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1214,7 +1214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.624555+00:00",
+        "utc": "2026-10-12T05:56:36.959116+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1239,7 +1239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.628098+00:00",
+        "utc": "2026-10-12T05:56:36.960888+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1264,7 +1264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.631671+00:00",
+        "utc": "2026-10-12T05:56:36.962657+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1289,7 +1289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.635215+00:00",
+        "utc": "2026-10-12T05:56:36.964418+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1314,7 +1314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.638586+00:00",
+        "utc": "2026-10-12T05:56:36.966178+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1339,7 +1339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.642125+00:00",
+        "utc": "2026-10-12T05:56:36.967931+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1364,7 +1364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.645585+00:00",
+        "utc": "2026-10-12T05:56:36.969703+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1389,7 +1389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.648886+00:00",
+        "utc": "2026-10-12T05:56:36.971426+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1414,7 +1414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.652167+00:00",
+        "utc": "2026-10-12T05:56:36.973181+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1439,7 +1439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.655468+00:00",
+        "utc": "2026-10-12T05:56:36.974862+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1464,7 +1464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.658931+00:00",
+        "utc": "2026-10-12T05:56:36.976571+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1489,7 +1489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.662430+00:00",
+        "utc": "2026-10-12T05:56:36.978265+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1514,7 +1514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.665853+00:00",
+        "utc": "2026-10-12T05:56:36.979956+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1539,7 +1539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.669409+00:00",
+        "utc": "2026-10-12T05:56:36.981618+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1564,7 +1564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.672719+00:00",
+        "utc": "2026-10-12T05:56:36.983234+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1589,7 +1589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.675937+00:00",
+        "utc": "2026-10-12T05:56:36.984859+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1614,7 +1614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.679489+00:00",
+        "utc": "2026-10-12T05:56:36.986496+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1639,7 +1639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.682683+00:00",
+        "utc": "2026-10-12T05:56:36.988138+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1664,7 +1664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.686102+00:00",
+        "utc": "2026-10-12T05:56:36.989875+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1689,7 +1689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.689686+00:00",
+        "utc": "2026-10-12T05:56:36.991511+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1714,7 +1714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.693720+00:00",
+        "utc": "2026-10-12T05:56:36.993153+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1739,7 +1739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.697246+00:00",
+        "utc": "2026-10-12T05:56:36.994773+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1764,7 +1764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.700751+00:00",
+        "utc": "2026-10-12T05:56:36.996411+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1789,7 +1789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.704422+00:00",
+        "utc": "2026-10-12T05:56:36.998049+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1814,7 +1814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.707787+00:00",
+        "utc": "2026-10-12T05:56:36.999668+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1839,7 +1839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.711439+00:00",
+        "utc": "2026-10-12T05:56:37.001297+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1864,7 +1864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.715724+00:00",
+        "utc": "2026-10-12T05:56:37.002924+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1889,7 +1889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.719543+00:00",
+        "utc": "2026-10-12T05:56:37.004565+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1914,7 +1914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.723680+00:00",
+        "utc": "2026-10-12T05:56:37.006199+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1939,7 +1939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.727591+00:00",
+        "utc": "2026-10-12T05:56:37.007826+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1964,7 +1964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.731613+00:00",
+        "utc": "2026-10-12T05:56:37.009458+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -1989,7 +1989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.735580+00:00",
+        "utc": "2026-10-12T05:56:37.011090+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2014,7 +2014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.739603+00:00",
+        "utc": "2026-10-12T05:56:37.012710+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2039,7 +2039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.743554+00:00",
+        "utc": "2026-10-12T05:56:37.014343+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2064,7 +2064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.747619+00:00",
+        "utc": "2026-10-12T05:56:37.015970+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2089,7 +2089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.751296+00:00",
+        "utc": "2026-10-12T05:56:37.017618+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2114,7 +2114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.755337+00:00",
+        "utc": "2026-10-12T05:56:37.019246+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2139,7 +2139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.759171+00:00",
+        "utc": "2026-10-12T05:56:37.020865+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2164,7 +2164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.762978+00:00",
+        "utc": "2026-10-12T05:56:37.022501+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2189,7 +2189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.766810+00:00",
+        "utc": "2026-10-12T05:56:37.024100+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2214,7 +2214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.770766+00:00",
+        "utc": "2026-10-12T05:56:37.025712+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2239,7 +2239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.773100+00:00",
+        "utc": "2026-10-12T05:56:37.027344+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2264,7 +2264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.775411+00:00",
+        "utc": "2026-10-12T05:56:37.028971+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2289,7 +2289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.777682+00:00",
+        "utc": "2026-10-12T05:56:37.030596+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2314,7 +2314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.780116+00:00",
+        "utc": "2026-10-12T05:56:37.032224+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2339,7 +2339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.782520+00:00",
+        "utc": "2026-10-12T05:56:37.033843+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2364,7 +2364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.784862+00:00",
+        "utc": "2026-10-12T05:56:37.035467+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2389,7 +2389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.787115+00:00",
+        "utc": "2026-10-12T05:56:37.037112+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2414,7 +2414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.789526+00:00",
+        "utc": "2026-10-12T05:56:37.038732+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2439,7 +2439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.791951+00:00",
+        "utc": "2026-10-12T05:56:37.040364+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2464,7 +2464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.794357+00:00",
+        "utc": "2026-10-12T05:56:37.041979+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2489,7 +2489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.796715+00:00",
+        "utc": "2026-10-12T05:56:37.043603+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2514,7 +2514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.799103+00:00",
+        "utc": "2026-10-12T05:56:37.045214+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2539,7 +2539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.801439+00:00",
+        "utc": "2026-10-12T05:56:37.046839+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2564,7 +2564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.803808+00:00",
+        "utc": "2026-10-12T05:56:37.048479+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2589,7 +2589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.806283+00:00",
+        "utc": "2026-10-12T05:56:37.050104+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2614,7 +2614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.808701+00:00",
+        "utc": "2026-10-12T05:56:37.051715+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2639,7 +2639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.811144+00:00",
+        "utc": "2026-10-12T05:56:37.053349+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2664,7 +2664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.813460+00:00",
+        "utc": "2026-10-12T05:56:37.054978+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2689,7 +2689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.817425+00:00",
+        "utc": "2026-10-12T05:56:37.056606+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2714,7 +2714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.821007+00:00",
+        "utc": "2026-10-12T05:56:37.058248+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2739,7 +2739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.824946+00:00",
+        "utc": "2026-10-12T05:56:37.059856+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2764,7 +2764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.829045+00:00",
+        "utc": "2026-10-12T05:56:37.061478+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2789,7 +2789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.832846+00:00",
+        "utc": "2026-10-12T05:56:37.063102+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2814,7 +2814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.836954+00:00",
+        "utc": "2026-10-12T05:56:37.064725+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2839,7 +2839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.840860+00:00",
+        "utc": "2026-10-12T05:56:37.066359+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2864,7 +2864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.844879+00:00",
+        "utc": "2026-10-12T05:56:37.067979+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2889,7 +2889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.848880+00:00",
+        "utc": "2026-10-12T05:56:37.069569+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2914,7 +2914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.852751+00:00",
+        "utc": "2026-10-12T05:56:37.071197+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2939,7 +2939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.856622+00:00",
+        "utc": "2026-10-12T05:56:37.072823+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2964,7 +2964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.860619+00:00",
+        "utc": "2026-10-12T05:56:37.074460+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -2989,7 +2989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.865507+00:00",
+        "utc": "2026-10-12T05:56:37.076092+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3014,7 +3014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.869959+00:00",
+        "utc": "2026-10-12T05:56:37.077711+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3039,7 +3039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.874648+00:00",
+        "utc": "2026-10-12T05:56:37.079350+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3064,7 +3064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.878893+00:00",
+        "utc": "2026-10-12T05:56:37.080973+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3089,7 +3089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.883472+00:00",
+        "utc": "2026-10-12T05:56:37.082603+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3114,7 +3114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.888085+00:00",
+        "utc": "2026-10-12T05:56:37.084259+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3139,7 +3139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.893201+00:00",
+        "utc": "2026-10-12T05:56:37.085878+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3164,7 +3164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.897574+00:00",
+        "utc": "2026-10-12T05:56:37.087504+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3189,7 +3189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.901977+00:00",
+        "utc": "2026-10-12T05:56:37.089137+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3214,7 +3214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.906274+00:00",
+        "utc": "2026-10-12T05:56:37.090746+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3239,7 +3239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.910475+00:00",
+        "utc": "2026-10-12T05:56:37.092387+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3264,7 +3264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.915078+00:00",
+        "utc": "2026-10-12T05:56:37.094020+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3289,7 +3289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.919445+00:00",
+        "utc": "2026-10-12T05:56:37.095649+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3314,7 +3314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.923869+00:00",
+        "utc": "2026-10-12T05:56:37.097292+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3339,7 +3339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.928229+00:00",
+        "utc": "2026-10-12T05:56:37.098922+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3364,7 +3364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.932535+00:00",
+        "utc": "2026-10-12T05:56:37.100550+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3389,7 +3389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.936803+00:00",
+        "utc": "2026-10-12T05:56:37.102173+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3414,7 +3414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.941104+00:00",
+        "utc": "2026-10-12T05:56:37.103777+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3439,7 +3439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.945936+00:00",
+        "utc": "2026-10-12T05:56:37.105411+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3464,7 +3464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.950557+00:00",
+        "utc": "2026-10-12T05:56:37.107042+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3489,7 +3489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.955314+00:00",
+        "utc": "2026-10-12T05:56:37.108666+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3514,7 +3514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.960058+00:00",
+        "utc": "2026-10-12T05:56:37.110305+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3539,7 +3539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.964620+00:00",
+        "utc": "2026-10-12T05:56:37.111918+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3564,7 +3564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.969455+00:00",
+        "utc": "2026-10-12T05:56:37.113540+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3589,7 +3589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.975298+00:00",
+        "utc": "2026-10-12T05:56:37.115161+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3614,7 +3614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.980456+00:00",
+        "utc": "2026-10-12T05:56:37.116783+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3639,7 +3639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.985156+00:00",
+        "utc": "2026-10-12T05:56:37.118420+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3664,7 +3664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.990224+00:00",
+        "utc": "2026-10-12T05:56:37.120061+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3689,7 +3689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.994878+00:00",
+        "utc": "2026-10-12T05:56:37.121687+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3714,7 +3714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:52.999700+00:00",
+        "utc": "2026-10-12T05:56:37.123311+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3739,7 +3739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.004532+00:00",
+        "utc": "2026-10-12T05:56:37.124930+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3764,7 +3764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.009440+00:00",
+        "utc": "2026-10-12T05:56:37.126560+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3789,7 +3789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.014531+00:00",
+        "utc": "2026-10-12T05:56:37.128264+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3814,7 +3814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.019374+00:00",
+        "utc": "2026-10-12T05:56:37.129886+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3839,7 +3839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.024242+00:00",
+        "utc": "2026-10-12T05:56:37.131506+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3864,7 +3864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.028827+00:00",
+        "utc": "2026-10-12T05:56:37.133191+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3889,7 +3889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.033583+00:00",
+        "utc": "2026-10-12T05:56:37.134813+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3914,7 +3914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.038342+00:00",
+        "utc": "2026-10-12T05:56:37.136441+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3939,7 +3939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.043221+00:00",
+        "utc": "2026-10-12T05:56:37.138080+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3964,7 +3964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.047964+00:00",
+        "utc": "2026-10-12T05:56:37.139696+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -3989,7 +3989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.052816+00:00",
+        "utc": "2026-10-12T05:56:37.141346+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4014,7 +4014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.057679+00:00",
+        "utc": "2026-10-12T05:56:37.142967+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4039,7 +4039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.062734+00:00",
+        "utc": "2026-10-12T05:56:37.144607+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4064,7 +4064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.067508+00:00",
+        "utc": "2026-10-12T05:56:37.146245+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4089,7 +4089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.072561+00:00",
+        "utc": "2026-10-12T05:56:37.147869+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4114,7 +4114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.077892+00:00",
+        "utc": "2026-10-12T05:56:37.149497+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4139,7 +4139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.083208+00:00",
+        "utc": "2026-10-12T05:56:37.151125+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4164,7 +4164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.088305+00:00",
+        "utc": "2026-10-12T05:56:37.152748+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4189,7 +4189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.093464+00:00",
+        "utc": "2026-10-12T05:56:37.154396+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4214,7 +4214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.098579+00:00",
+        "utc": "2026-10-12T05:56:37.156031+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4239,7 +4239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.103887+00:00",
+        "utc": "2026-10-12T05:56:37.157652+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4264,7 +4264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.109237+00:00",
+        "utc": "2026-10-12T05:56:37.159274+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4289,7 +4289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.114249+00:00",
+        "utc": "2026-10-12T05:56:37.160906+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4314,7 +4314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.119025+00:00",
+        "utc": "2026-10-12T05:56:37.162532+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4339,7 +4339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.124147+00:00",
+        "utc": "2026-10-12T05:56:37.164170+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4364,7 +4364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.129234+00:00",
+        "utc": "2026-10-12T05:56:37.165784+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4389,7 +4389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.134398+00:00",
+        "utc": "2026-10-12T05:56:37.167415+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4414,7 +4414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.139953+00:00",
+        "utc": "2026-10-12T05:56:37.169043+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4439,7 +4439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.145360+00:00",
+        "utc": "2026-10-12T05:56:37.170665+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4464,7 +4464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.150145+00:00",
+        "utc": "2026-10-12T05:56:37.172296+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4489,7 +4489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.153574+00:00",
+        "utc": "2026-10-12T05:56:37.173904+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4514,7 +4514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.156888+00:00",
+        "utc": "2026-10-12T05:56:37.175530+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4539,7 +4539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.160223+00:00",
+        "utc": "2026-10-12T05:56:37.177148+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4564,7 +4564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.163652+00:00",
+        "utc": "2026-10-12T05:56:37.178753+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4589,7 +4589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.167040+00:00",
+        "utc": "2026-10-12T05:56:37.180381+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4614,7 +4614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.170438+00:00",
+        "utc": "2026-10-12T05:56:37.182002+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4639,7 +4639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.173768+00:00",
+        "utc": "2026-10-12T05:56:37.183629+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4664,7 +4664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.177272+00:00",
+        "utc": "2026-10-12T05:56:37.185215+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4689,7 +4689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.180715+00:00",
+        "utc": "2026-10-12T05:56:37.186835+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4714,7 +4714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.184199+00:00",
+        "utc": "2026-10-12T05:56:37.188458+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4739,7 +4739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.187500+00:00",
+        "utc": "2026-10-12T05:56:37.190077+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4764,7 +4764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.190942+00:00",
+        "utc": "2026-10-12T05:56:37.191687+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4789,7 +4789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.194363+00:00",
+        "utc": "2026-10-12T05:56:37.193333+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4814,7 +4814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.197762+00:00",
+        "utc": "2026-10-12T05:56:37.194945+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4839,7 +4839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.201419+00:00",
+        "utc": "2026-10-12T05:56:37.196612+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4864,7 +4864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.205114+00:00",
+        "utc": "2026-10-12T05:56:37.198243+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4889,7 +4889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.208733+00:00",
+        "utc": "2026-10-12T05:56:37.199875+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4914,7 +4914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.212358+00:00",
+        "utc": "2026-10-12T05:56:37.201504+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4939,7 +4939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.217830+00:00",
+        "utc": "2026-10-12T05:56:37.203127+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4964,7 +4964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.223366+00:00",
+        "utc": "2026-10-12T05:56:37.204749+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -4989,7 +4989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.229152+00:00",
+        "utc": "2026-10-12T05:56:37.206368+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5014,7 +5014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.234351+00:00",
+        "utc": "2026-10-12T05:56:37.207981+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5039,7 +5039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.239644+00:00",
+        "utc": "2026-10-12T05:56:37.209625+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5064,7 +5064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.244670+00:00",
+        "utc": "2026-10-12T05:56:37.211219+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5089,7 +5089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.249375+00:00",
+        "utc": "2026-10-12T05:56:37.212845+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5114,7 +5114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.254422+00:00",
+        "utc": "2026-10-12T05:56:37.214472+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5139,7 +5139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.259563+00:00",
+        "utc": "2026-10-12T05:56:37.216095+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5164,7 +5164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.264374+00:00",
+        "utc": "2026-10-12T05:56:37.217710+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5189,7 +5189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.269421+00:00",
+        "utc": "2026-10-12T05:56:37.219335+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5214,7 +5214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.274674+00:00",
+        "utc": "2026-10-12T05:56:37.220965+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5239,7 +5239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.279738+00:00",
+        "utc": "2026-10-12T05:56:37.222594+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5264,7 +5264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.285271+00:00",
+        "utc": "2026-10-12T05:56:37.224212+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5289,7 +5289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.290468+00:00",
+        "utc": "2026-10-12T05:56:37.225835+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5314,7 +5314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.295693+00:00",
+        "utc": "2026-10-12T05:56:37.227472+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5339,7 +5339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.300606+00:00",
+        "utc": "2026-10-12T05:56:37.229103+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5364,7 +5364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.306067+00:00",
+        "utc": "2026-10-12T05:56:37.230736+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5389,7 +5389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.311459+00:00",
+        "utc": "2026-10-12T05:56:37.232378+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5414,7 +5414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.316622+00:00",
+        "utc": "2026-10-12T05:56:37.234019+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5439,7 +5439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.322156+00:00",
+        "utc": "2026-10-12T05:56:37.235647+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5464,7 +5464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.328139+00:00",
+        "utc": "2026-10-12T05:56:37.237309+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5489,7 +5489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.333431+00:00",
+        "utc": "2026-10-12T05:56:37.238948+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5514,7 +5514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.338843+00:00",
+        "utc": "2026-10-12T05:56:37.240600+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5539,7 +5539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.344223+00:00",
+        "utc": "2026-10-12T05:56:37.242247+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5564,7 +5564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.349375+00:00",
+        "utc": "2026-10-12T05:56:37.243892+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5589,7 +5589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.354379+00:00",
+        "utc": "2026-10-12T05:56:37.245527+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5614,7 +5614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.359570+00:00",
+        "utc": "2026-10-12T05:56:37.247149+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5639,7 +5639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.364478+00:00",
+        "utc": "2026-10-12T05:56:37.248775+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5664,7 +5664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.369612+00:00",
+        "utc": "2026-10-12T05:56:37.250412+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5689,7 +5689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.374570+00:00",
+        "utc": "2026-10-12T05:56:37.252025+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5714,7 +5714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.379612+00:00",
+        "utc": "2026-10-12T05:56:37.253641+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5739,7 +5739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.384755+00:00",
+        "utc": "2026-10-12T05:56:37.255264+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5764,7 +5764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.389454+00:00",
+        "utc": "2026-10-12T05:56:37.256877+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5789,7 +5789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.394380+00:00",
+        "utc": "2026-10-12T05:56:37.258532+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5814,7 +5814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.399370+00:00",
+        "utc": "2026-10-12T05:56:37.260171+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5839,7 +5839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.404450+00:00",
+        "utc": "2026-10-12T05:56:37.261780+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5864,7 +5864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.409522+00:00",
+        "utc": "2026-10-12T05:56:37.263421+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5889,7 +5889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.414650+00:00",
+        "utc": "2026-10-12T05:56:37.265043+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5914,7 +5914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.419564+00:00",
+        "utc": "2026-10-12T05:56:37.266652+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5939,7 +5939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.424648+00:00",
+        "utc": "2026-10-12T05:56:37.268353+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5964,7 +5964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.429577+00:00",
+        "utc": "2026-10-12T05:56:37.269977+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -5989,7 +5989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.434686+00:00",
+        "utc": "2026-10-12T05:56:37.271592+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6014,7 +6014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.439889+00:00",
+        "utc": "2026-10-12T05:56:37.273213+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6039,7 +6039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.444963+00:00",
+        "utc": "2026-10-12T05:56:37.274827+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6064,7 +6064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.450028+00:00",
+        "utc": "2026-10-12T05:56:37.276454+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6089,7 +6089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.455026+00:00",
+        "utc": "2026-10-12T05:56:37.278079+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6114,7 +6114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.460170+00:00",
+        "utc": "2026-10-12T05:56:37.279696+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6139,7 +6139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.465258+00:00",
+        "utc": "2026-10-12T05:56:37.281322+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6164,7 +6164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.470324+00:00",
+        "utc": "2026-10-12T05:56:37.283161+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6189,7 +6189,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.475537+00:00",
+        "utc": "2026-10-12T05:56:37.284783+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6214,7 +6214,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.481367+00:00",
+        "utc": "2026-10-12T05:56:37.286420+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6239,7 +6239,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.486899+00:00",
+        "utc": "2026-10-12T05:56:37.288037+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6264,7 +6264,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.492227+00:00",
+        "utc": "2026-10-12T05:56:37.289654+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6289,7 +6289,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.497667+00:00",
+        "utc": "2026-10-12T05:56:37.291279+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6314,7 +6314,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.503194+00:00",
+        "utc": "2026-10-12T05:56:37.292904+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6339,7 +6339,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.508855+00:00",
+        "utc": "2026-10-12T05:56:37.294531+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6364,7 +6364,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.514585+00:00",
+        "utc": "2026-10-12T05:56:37.296155+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6389,7 +6389,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.520166+00:00",
+        "utc": "2026-10-12T05:56:37.297768+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6414,7 +6414,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.525673+00:00",
+        "utc": "2026-10-12T05:56:37.299399+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6439,7 +6439,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.531488+00:00",
+        "utc": "2026-10-12T05:56:37.301039+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6464,7 +6464,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.537071+00:00",
+        "utc": "2026-10-12T05:56:37.302648+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6489,7 +6489,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.542537+00:00",
+        "utc": "2026-10-12T05:56:37.304286+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6514,7 +6514,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.548174+00:00",
+        "utc": "2026-10-12T05:56:37.305916+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6539,7 +6539,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.553691+00:00",
+        "utc": "2026-10-12T05:56:37.307556+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6564,7 +6564,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.559253+00:00",
+        "utc": "2026-10-12T05:56:37.309194+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6589,7 +6589,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.565088+00:00",
+        "utc": "2026-10-12T05:56:37.310811+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6614,7 +6614,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.570763+00:00",
+        "utc": "2026-10-12T05:56:37.312433+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6639,7 +6639,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.576525+00:00",
+        "utc": "2026-10-12T05:56:37.314052+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6664,7 +6664,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.582555+00:00",
+        "utc": "2026-10-12T05:56:37.315674+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6689,7 +6689,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.588861+00:00",
+        "utc": "2026-10-12T05:56:37.317307+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6714,7 +6714,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.595495+00:00",
+        "utc": "2026-10-12T05:56:37.318930+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6739,7 +6739,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.600516+00:00",
+        "utc": "2026-10-12T05:56:37.320561+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6764,7 +6764,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.625660+00:00",
+        "utc": "2026-10-12T05:56:37.322192+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6789,7 +6789,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.631106+00:00",
+        "utc": "2026-10-12T05:56:37.323818+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6814,7 +6814,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.635887+00:00",
+        "utc": "2026-10-12T05:56:37.325461+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6839,7 +6839,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.640809+00:00",
+        "utc": "2026-10-12T05:56:37.327088+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6864,7 +6864,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.645880+00:00",
+        "utc": "2026-10-12T05:56:37.328709+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6889,7 +6889,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.650860+00:00",
+        "utc": "2026-10-12T05:56:37.330344+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6914,7 +6914,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.655939+00:00",
+        "utc": "2026-10-12T05:56:37.331964+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6939,7 +6939,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.661019+00:00",
+        "utc": "2026-10-12T05:56:37.333604+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6964,7 +6964,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.666058+00:00",
+        "utc": "2026-10-12T05:56:37.335231+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -6989,7 +6989,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.671106+00:00",
+        "utc": "2026-10-12T05:56:37.336857+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7014,7 +7014,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.675808+00:00",
+        "utc": "2026-10-12T05:56:37.338497+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7039,7 +7039,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.680675+00:00",
+        "utc": "2026-10-12T05:56:37.340125+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7064,7 +7064,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.685497+00:00",
+        "utc": "2026-10-12T05:56:37.341740+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7089,7 +7089,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.690155+00:00",
+        "utc": "2026-10-12T05:56:37.343373+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7114,7 +7114,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.694511+00:00",
+        "utc": "2026-10-12T05:56:37.344993+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7139,7 +7139,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.698948+00:00",
+        "utc": "2026-10-12T05:56:37.346647+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7164,7 +7164,7 @@
       "scheduler_state": "COMPLETED",
       "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.703492+00:00",
+        "utc": "2026-10-12T05:56:37.348293+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
@@ -7186,160 +7186,585 @@
     {
       "run_id": "D2_j46",
       "job_id": "17819143",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.710356+00:00",
+        "utc": "2026-10-12T05:56:37.350693+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 45,
-          "done": 45,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 639.2885981630534
+          "status": "complete",
+          "elapsed_seconds": 711.0016116800252
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 45,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j47",
       "job_id": "17819144",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.717047+00:00",
+        "utc": "2026-10-12T05:56:37.352945+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 46,
-          "done": 46,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 641.4756583990529
+          "status": "complete",
+          "elapsed_seconds": 699.2774572307244
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 46,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j48",
       "job_id": "17819150",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.723531+00:00",
+        "utc": "2026-10-12T05:56:37.355121+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 35,
-          "done": 35,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 538.9879750115797
+          "status": "complete",
+          "elapsed_seconds": 784.4842959623784
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 35,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j49",
       "job_id": "17819151",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.729964+00:00",
+        "utc": "2026-10-12T05:56:37.357374+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 7,
-          "done": 7,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 96.2634989330545
+          "status": "complete",
+          "elapsed_seconds": 688.5122570639942
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 7,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j50",
       "job_id": "17819170",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.736987+00:00",
+        "utc": "2026-10-12T05:56:37.359545+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 3,
-          "done": 3,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 40.76873486896511
+          "status": "complete",
+          "elapsed_seconds": 674.9401688879589
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 3,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j51",
       "job_id": "17819235",
-      "scheduler_state": "RUNNING",
-      "run_status": null,
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
       "observation": {
-        "utc": "2026-10-12T05:26:53.743735+00:00",
+        "utc": "2026-10-12T05:56:37.361784+00:00",
         "progress": {
           "mode": "grad_mean",
           "step": "collect",
-          "phase": "collect",
-          "substage": "collect",
-          "completed": 3,
-          "done": 3,
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
           "target": 50,
           "total": 50,
-          "status": "running",
-          "elapsed_seconds": 44.24211443029344
+          "status": "complete",
+          "elapsed_seconds": 686.7068906556815
         },
-        "status": "running",
+        "status": "completed",
         "error": null,
-        "completed_batches": 3,
+        "completed_batches": 50,
         "meta_nonfinite": false
       }
     },
     {
       "run_id": "D2_j52",
       "job_id": "17819239",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.363940+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 685.1684849942103
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j53",
+      "job_id": "17819240",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.366134+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 708.4320864006877
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j54",
+      "job_id": "17819330",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.368383+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 706.8074015809689
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j55",
+      "job_id": "17819345",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.370626+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 766.6981260934845
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j56",
+      "job_id": "17819346",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.372825+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 706.1431943959324
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j57",
+      "job_id": "17819355",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.375025+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 701.9842130450998
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j58",
+      "job_id": "17819405",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.377180+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 704.7432531137019
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j59",
+      "job_id": "17819408",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.379263+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 682.2402790039778
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j60",
+      "job_id": "17819409",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.381415+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 708.5436127660796
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j61",
+      "job_id": "17819411",
+      "scheduler_state": "COMPLETED",
+      "run_status": "complete",
+      "observation": {
+        "utc": "2026-10-12T05:56:37.383643+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "completed",
+          "substage": "completed",
+          "completed": 50,
+          "done": 50,
+          "target": 50,
+          "total": 50,
+          "status": "complete",
+          "elapsed_seconds": 722.6537993699312
+        },
+        "status": "completed",
+        "error": null,
+        "completed_batches": 50,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j62",
+      "job_id": "17819422",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.386217+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 47,
+          "done": 47,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 724.9236923269928
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 47,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "D2_j63",
+      "job_id": "17819426",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.388849+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 28,
+          "done": 28,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 394.79531765391584
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 28,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j46",
+      "job_id": "17819445",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.391665+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 23,
+          "done": 23,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 324.8528278640006
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 23,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j47",
+      "job_id": "17819529",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.394171+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 24,
+          "done": 24,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 329.61247620079666
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 24,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j48",
+      "job_id": "17819573",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.396827+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 23,
+          "done": 23,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 322.95863859914243
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 23,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j49",
+      "job_id": "17819574",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.399503+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 10,
+          "done": 10,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 145.065937734209
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 10,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j50",
+      "job_id": "17819729",
+      "scheduler_state": "RUNNING",
+      "run_status": null,
+      "observation": {
+        "utc": "2026-10-12T05:56:37.402052+00:00",
+        "progress": {
+          "mode": "grad_mean",
+          "step": "collect",
+          "phase": "collect",
+          "substage": "collect",
+          "completed": 6,
+          "done": 6,
+          "target": 50,
+          "total": 50,
+          "status": "running",
+          "elapsed_seconds": 87.01016561500728
+        },
+        "status": "running",
+        "error": null,
+        "completed_batches": 6,
+        "meta_nonfinite": false
+      }
+    },
+    {
+      "run_id": "N2_j51",
+      "job_id": "17819739",
       "scheduler_state": "PENDING",
       "run_status": null,
       "observation": {
-        "utc": "2026-10-12T05:26:53.746755+00:00",
+        "utc": "2026-10-12T05:56:37.403295+00:00",
         "progress": {},
         "status": null,
         "error": null,
@@ -7348,12 +7773,12 @@
       }
     },
     {
-      "run_id": "D2_j53",
-      "job_id": "17819240",
+      "run_id": "N2_j52",
+      "job_id": "17819750",
       "scheduler_state": "PENDING",
       "run_status": null,
       "observation": {
-        "utc": "2026-10-12T05:26:53.748603+00:00",
+        "utc": "2026-10-12T05:56:37.404115+00:00",
         "progress": {},
         "status": null,
         "error": null,
@@ -15072,5 +15497,5 @@
     }
   ],
   "analysis_failures": [],
-  "next_step": "Complete admitted groups and evaluate the next approved round boundary"
+  "next_step": "Review terminal records; no automatic expansion"
 }

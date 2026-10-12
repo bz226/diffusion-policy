@@ -11,9 +11,9 @@
 **Next step.** Continue the approved collection and stopping checks at round boundaries. Round 2 artifacts are curated; retain this snapshot separately from later rounds. The critic study remains paused at the user's request.
 
 <!-- gradmean-bootstrap-start -->
-Gate transition monitor: 2026-10-11T21:29:02.538573+00:00. **production**; phase: full_campaign_controller_active. Monitor paused.
+Gate transition monitor: 2026-10-12T05:56:36.874086+00:00. **blocked**; phase: stopped. Monitor paused.
 <!-- gradmean-bootstrap-end -->
 
 <!-- gradmean-status-start -->
-Last monitor: 2026-10-12T05:26:53.748642+00:00. **running**. P0: closed_rho, 3200 batches; D1: open, 2300 batches; D2: open, 2300 batches; N1: open, 2300 batches; N2: open, 2300 batches. GPU hours used: 50.947; outstanding reserved: 8.000; cap:125. Monitor active. Next: Complete admitted groups and evaluate the next approved round boundary.
+Last monitor: 2026-10-12T05:56:37.404136+00:00. **blocked**. P0: closed_rho, 3200 batches; D1: open, 2300 batches; D2: open, 3100 batches; N1: open, 2300 batches; N2: open, 2300 batches. GPU hours used: 54.188; outstanding reserved: 9.000; cap:125. Monitor paused. Next: Review terminal records; no automatic expansion.
 <!-- gradmean-status-end -->

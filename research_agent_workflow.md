@@ -117,7 +117,7 @@ experiments/<study>/
     config.json
     manifest.json
     metrics.*
-    logs/
+    logs/               # Local runtime diagnostics; not versioned
     candidates/
   curated/
     INDEX.md
@@ -132,7 +132,11 @@ Track experiment source and selected results as ordinary files in this repositor
 
 Design new preflight and provenance checks for these ordinary snapshots. The imported revision describes the initial source; later edits must be captured by the parent repository's revision and relevant diff or a per-run source snapshot. Address the parent repository explicitly, and never interpret a parent commit discovered from inside `dppo/` as an independent DPPO commit. Keep run outputs outside the source directory. Before the first commit, verify that source contains no nested `.git` and that all intended source is versionable. New snapshots support ordinary `git add -A`.
 
-**While legacy nested checkouts remain, stage repository-wide updates with `python3 scripts/git_add_all.py`; use `--dry-run` to preview.** The helper replaces accidental repository links in the parent index with ordinary source files, preserves nested Git history, and then runs `git add -A`. This compatibility command does not authorize new nested checkouts. An optional shortcut, installed from a normal terminal with `git config alias.stage-all '!python3 scripts/git_add_all.py'`, makes the same command available as `git stage-all`.
+**Stage repository-wide updates with `python3 scripts/git_add_all.py`; use `--dry-run` to preview.** The helper replaces accidental repository links in the parent index with ordinary source files, preserves nested Git history, untracks runtime logs without deleting local files, and stages updates with explicit log exclusions. This compatibility command does not authorize new nested checkouts. An optional shortcut, installed from a normal terminal with `git config alias.stage-all '!python3 scripts/git_add_all.py'`, makes the same command available as `git stage-all`.
+
+Continue using that staging helper for its log policy and file-size check after nested checkouts are gone. Keep runtime logs, console and scheduler output, command transcripts, and monitor/event histories local under the explicit patterns in `.gitignore` and `AGENTS.md`. Record reproducibility details in concise manifests and configurations. Keep scientific measurements (including `replicates.jsonl` and `result.pkl`), reports, source, and concise provenance versionable; do not blanket-ignore JSONL files or whole `log/` directories. Do not force-add runtime logs or edit frozen source snapshots to change their ignore rules.
+
+Files larger than 100 MiB must remain local under explicit ignore rules or use a separately chosen storage mechanism. Never truncate an active command journal to make a push succeed. Removing a tracked oversized file from future snapshots also requires untracking it, and rejected commits containing oversized blobs require an unpublished-history repair with local backup refs. Such repairs must preserve working files and approved source revisions.
 
 When all runs, verification, and final analysis are finished, move any nested DPPO `.git` directory into an ignored backup under `.codex-runtime/git-backups/`. Record its original URL, revision, local changes, and backup location in the study's provenance. Before moving it, make sure the parent repository tracks all intended source files, including upstream-tracked scripts that match the nested ignore rules. Preserve Git-based provenance checks by pointing them explicitly to the archived metadata; fail clearly if that metadata is unavailable, rather than allowing Git to discover the parent repository. Datasets, checkpoints, and caches remain excluded.
 

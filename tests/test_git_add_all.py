@@ -11,6 +11,7 @@ import unittest
 
 
 HELPER = Path(__file__).resolve().parents[1] / "scripts" / "git_add_all.py"
+MAX_FILE_BYTES = 100 * 1024 * 1024
 
 
 class GitAddAllTests(unittest.TestCase):
@@ -138,15 +139,23 @@ class GitAddAllTests(unittest.TestCase):
             if path.is_symlink():
                 snapshot[relative] = ("symlink", mode, os.readlink(path))
             elif path.is_file():
-                snapshot[relative] = ("file", mode, path.read_bytes())
+                info = path.stat()
+                if info.st_size > 1024 * 1024:
+                    # Sparse oversized fixtures should not consume their apparent
+                    # size in memory; size and timestamps still detect writes.
+                    snapshot[relative] = ("large-file", mode, info.st_size,
+                                          info.st_mtime_ns, info.st_ctime_ns)
+                else:
+                    snapshot[relative] = ("file", mode, path.read_bytes())
             elif path.is_dir():
                 snapshot[relative] = ("directory", mode)
         return snapshot
 
     def assert_run_staged(self, entries, run):
-        for name in ("result.pkl", "run.log", ".hydra/config.yaml",
+        for name in ("result.pkl", ".hydra/config.yaml",
                      ".hydra/hydra.yaml", ".hydra/overrides.yaml"):
             self.assertEqual(entries[self.rel(run / name)][0], "100644")
+        self.assertNotIn(self.rel(run / "run.log"), entries)
         self.assertNotIn(self.rel(run / "weights.pt"), entries)
         self.assertNotIn(self.rel(run / ".hydra/notes.txt"), entries)
 
@@ -221,12 +230,209 @@ class GitAddAllTests(unittest.TestCase):
         self.assertTrue(result.stdout.strip(), "dry-run should print its plan")
         self.assertEqual(self.tree_snapshot(), before)
 
-    def assert_rejected_without_mutation(self):
+    def assert_rejected_without_mutation(self, *args):
         before = self.tree_snapshot()
-        result = self.run_helper(check=False)
+        result = self.run_helper(*args, check=False)
         self.assertNotEqual(result.returncode, 0)
         self.assertTrue((result.stdout + result.stderr).strip())
         self.assertEqual(self.tree_snapshot(), before)
+        return result
+
+    def make_large_file(self, path, size=MAX_FILE_BYTES + 1):
+        path.parent.mkdir(parents=True, exist_ok=True)
+        with path.open("wb") as stream:
+            stream.truncate(size)
+        return path
+
+    def assert_size_rejected(self, path, *args):
+        result = self.assert_rejected_without_mutation(*args)
+        self.assertIn(b"100 MiB per-file limit", result.stderr)
+        self.assertIn(repr(self.rel(path)).encode(), result.stderr)
+        return result
+
+    def test_rejects_untracked_large_file_before_any_mutation(self):
+        self.prepare_valid_child_before_invalid()
+        path = self.make_large_file(self.root / "results/replicates.jsonl")
+
+        self.assert_size_rejected(path)
+
+    def test_dry_run_rejects_large_file_without_any_mutation(self):
+        self.prepare_valid_child_before_invalid()
+        path = self.make_large_file(self.root / "results/replicates.jsonl")
+
+        self.assert_size_rejected(path, "--dry-run")
+
+    def test_rejects_tracked_large_file_with_and_without_ignore_rule(self):
+        path = self.root / "commands.jsonl"
+        path.write_text("small original log\n", encoding="utf-8")
+        self.git(self.root, "add", "--", self.rel(path))
+        self.git(self.root, "commit", "-qm", "Track log")
+        self.make_large_file(path)
+
+        self.assert_size_rejected(path)
+
+        with (self.root / ".gitignore").open("a", encoding="utf-8") as stream:
+            stream.write("/commands.jsonl\n")
+
+        self.assert_size_rejected(path)
+
+    def test_rejects_large_nested_source_before_replacing_gitlink(self):
+        child = self.make_child()
+        self.git(self.root, "add", "--", self.rel(child))
+        # setup.sh is tracked in the child but covered by its ignore rules.
+        path = self.make_large_file(child / "setup.sh")
+
+        self.assert_size_rejected(path)
+
+    def test_rejects_large_selected_nested_result(self):
+        child = self.make_child()
+        run = self.make_run(child)
+        path = self.make_large_file(run / "result.pkl")
+
+        self.assert_size_rejected(path)
+
+    def test_ignores_untracked_generated_large_files_and_symlink_targets(self):
+        child = self.make_child()
+        generated = self.make_large_file(child / "checkpoint/weights.pt")
+        external_generated = self.make_large_file(self.root / "data/generated.bin")
+        link = self.root / "large-target-link"
+        link.symlink_to(external_generated.relative_to(self.root))
+
+        self.run_helper()
+
+        entries = self.index_entries()
+        self.assertNotIn(self.rel(generated), entries)
+        self.assertNotIn(self.rel(external_generated), entries)
+        self.assertEqual(entries[self.rel(link)][0], "120000")
+
+    def test_large_child_source_excluded_by_parent_is_not_a_candidate(self):
+        child = self.make_child()
+        path = self.make_large_file(child / "source.py")
+        with (self.root / ".gitignore").open("a", encoding="utf-8") as stream:
+            stream.write(f"/{self.rel(path)}\n")
+
+        self.run_helper()
+
+        self.assertNotIn(self.rel(path), self.index_entries())
+
+    def test_exact_size_limit_is_allowed_in_dry_run(self):
+        self.make_large_file(self.root / "at-limit.bin", MAX_FILE_BYTES)
+        before = self.tree_snapshot()
+
+        self.run_helper("--dry-run")
+
+        self.assertEqual(self.tree_snapshot(), before)
+
+    def test_untracks_all_runtime_log_patterns_without_deleting_local_files(self):
+        logs = [
+            "run.log", "run.log.1", "scheduler.out", "scheduler.err", "commands.jsonl",
+            "bootstrap_commands.jsonl", "monitor_history.jsonl",
+            "campaign_monitor_history.jsonl", "campaign_revised_monitor.jsonl", "events.jsonl",
+        ]
+        directory = self.root / "results/study [1]*/runs/space and\nnewline"
+        directory.mkdir(parents=True)
+        paths = [directory / name for name in logs]
+        # Cover the zero-directory case in results/**/<pattern> as well.
+        paths.append(self.root / "results/commands.jsonl")
+        for path in paths:
+            path.write_bytes(b"original local log\n")
+        self.git(self.root, "add", "--", "results")
+        self.git(self.root, "commit", "-qm", "Legacy logs")
+        paths[0].write_bytes(b"current local log, including unstaged changes\n")
+        before = {path: path.read_bytes() for path in paths}
+
+        result = self.run_helper()
+
+        self.assertIn(f"Untracking {len(paths)} runtime log files".encode(), result.stdout)
+        entries = self.index_entries()
+        for path, contents in before.items():
+            self.assertNotIn(self.rel(path), entries)
+            self.assertEqual(path.read_bytes(), contents)
+        deletions = self.git(self.root, "diff", "--cached", "--name-only", "--diff-filter=D", "-z")
+        self.assertEqual(set(deletions.stdout.rstrip(b"\0").split(b"\0")),
+                         {os.fsencode(self.rel(path)) for path in paths})
+        self.run_helper()
+        self.assertEqual(self.index_entries(), entries)
+
+    def test_untracks_large_runtime_log_and_leaves_contents_and_timestamps_unchanged(self):
+        path = self.root / "results/study/runs/commands.jsonl"
+        path.parent.mkdir(parents=True)
+        path.write_text("initial log\n", encoding="utf-8")
+        self.git(self.root, "add", "--", self.rel(path))
+        self.git(self.root, "commit", "-qm", "Track initial log")
+        self.make_large_file(path)
+        before = path.stat()
+
+        self.run_helper()
+
+        self.assertNotIn(self.rel(path), self.index_entries())
+        after = path.stat()
+        self.assertEqual((after.st_size, after.st_mtime_ns, after.st_ctime_ns),
+                         (before.st_size, before.st_mtime_ns, before.st_ctime_ns))
+
+    def test_dry_run_reports_runtime_log_removal_without_mutation(self):
+        path = self.root / "results/commands.jsonl"
+        path.parent.mkdir()
+        path.write_text("initial log\n", encoding="utf-8")
+        self.git(self.root, "add", "--", self.rel(path))
+        self.git(self.root, "commit", "-qm", "Track initial log")
+        self.make_large_file(path)
+        before = self.tree_snapshot()
+
+        result = self.run_helper("--dry-run")
+
+        self.assertIn(b"Would untrack 1 runtime log files", result.stdout)
+        self.assertEqual(self.tree_snapshot(), before)
+
+    def test_child_ignore_negations_cannot_reinclude_runtime_logs(self):
+        directory = self.root / "results/study [1]*/runs"
+        directory.mkdir(parents=True)
+        with (self.root / ".gitignore").open("a", encoding="utf-8") as stream:
+            stream.write("*.log\n*.out\n*.err\ncommands.jsonl\n")
+        (directory / ".gitignore").write_text("!*.log\n!*.out\n!*.err\n!commands.jsonl\n")
+        logs = [directory / name for name in ("console.log", "a.out", "a.err", "commands.jsonl")]
+        for path in logs:
+            self.make_large_file(path)
+        measurements = [directory / name for name in (
+            "replicates.jsonl", "runtime_estimates.jsonl", "metrics.csv", "result.pkl",
+            "config.yaml", "analyze.py",
+        )]
+        for path in measurements:
+            path.write_bytes(b"selected measurement or source\n")
+        # Scope is results/: fixtures with the same basenames elsewhere survive.
+        fixture = self.root / "tests/fixtures/commands.jsonl"
+        fixture.parent.mkdir(parents=True)
+        fixture.write_bytes(b"test fixture\n")
+        self.git(self.root, "add", "-f", "--", self.rel(fixture))
+
+        self.run_helper()
+
+        entries = self.index_entries()
+        for path in logs:
+            self.assertNotIn(self.rel(path), entries)
+            self.assertEqual(path.stat().st_size, MAX_FILE_BYTES + 1)
+        for path in measurements + [fixture]:
+            self.assertIn(self.rel(path), entries)
+
+    def test_filters_nested_tracked_and_untracked_logs_without_changing_child(self):
+        child = self.make_child("study [1]*")
+        tracked_log = child / "old.log"
+        tracked_log.write_bytes(b"nested log\n")
+        self.git(child, "add", "-f", "--", tracked_log.name)
+        self.git(child, "commit", "-qm", "Legacy nested log")
+        self.make_large_file(tracked_log)
+        new_log = self.make_large_file(child / "commands.jsonl")
+        run = self.make_run(child)
+        before = self.child_state(child)
+
+        self.run_helper()
+
+        entries = self.index_entries()
+        self.assertNotIn(self.rel(tracked_log), entries)
+        self.assertNotIn(self.rel(new_log), entries)
+        self.assertIn(self.rel(child / "source.py"), entries)
+        self.assert_run_staged(entries, run)
+        self.assert_child_unchanged(child, before)
 
     def prepare_valid_child_before_invalid(self):
         valid = self.make_child("a_valid")
