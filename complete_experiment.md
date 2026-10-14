@@ -68,6 +68,12 @@
 - Experiment design: [Version 5 methods](./results/stage3/gradmean/methods.md#clean-figures-version-5)
 - Curated results: [Gradient figures, estimates and limitations](./results/stage3/gradmean/curated/INDEX.md#clean-figures-v5-gradient-noise-point-estimates)
 
+### DPPO per-step gradient-noise measurements
+
+- Experiment folder: [DPPO per-step measurements](./results/stage3/ppo_steps/)
+- Experiment design: [Methods](./results/stage3/ppo_steps/methods.md)
+- Curated results: [Plots, table and limitations](./results/stage3/ppo_steps/curated/INDEX.md)
+
 ## Comparison analyses
 
 ### DPPO, without_PPO and without_PPO_and_GAE: rewards and exact-critic gradient noise

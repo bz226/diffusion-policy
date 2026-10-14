@@ -1,0 +1,79 @@
+{
+  "created_utc": "2026-10-14T21:36:00.629058+00:00",
+  "approval": "keep in curated",
+  "study_run_id": "dppo_ppo_steps_20261014",
+  "selected_files": [
+    {
+      "source": "candidates/layout_review/figs/dppo_per_step_noise.png",
+      "curated": "curated/dppo_per_step_noise.png",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/layout_review/figs/dppo_per_step_noise.pdf",
+      "curated": "curated/dppo_per_step_noise.pdf",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/layout_review/figs/dppo_per_step_noise.caption.md",
+      "curated": "curated/dppo_per_step_noise.caption.md",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_per_step_inactive.png",
+      "curated": "curated/dppo_per_step_inactive.png",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_per_step_inactive.pdf",
+      "curated": "curated/dppo_per_step_inactive.pdf",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_per_step_inactive.caption.md",
+      "curated": "curated/dppo_per_step_inactive.caption.md",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_rerun_sanity.png",
+      "curated": "curated/dppo_rerun_sanity.png",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_rerun_sanity.pdf",
+      "curated": "curated/dppo_rerun_sanity.pdf",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/figs/dppo_rerun_sanity.caption.md",
+      "curated": "curated/dppo_rerun_sanity.caption.md",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/ppo_steps_table.csv",
+      "curated": "curated/ppo_steps_table.csv",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/ppo_steps_table.md",
+      "curated": "curated/ppo_steps_table.md",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/rerun_evaluation_curve.csv",
+      "curated": "curated/rerun_evaluation_curve.csv",
+      "verification": "byte-identical copy"
+    },
+    {
+      "source": "candidates/final/NOTE.md",
+      "curated": "curated/NOTE.md",
+      "verification": "content preserved; relative links rebased"
+    }
+  ],
+  "omitted_artifact": "dppo_step1_noise",
+  "omission_reason": "Part A update95 squared-mean point estimate is nonpositive; all500 batches are present.",
+  "source_revision": "838189eac4794ac921217c50e133534ce95dc6ba",
+  "presentation_revision": "c798abef1ee0bb607956ea7b9962fac6119a3c3c",
+  "new_runs": false,
+  "new_estimates_or_rendering": false,
+  "original_outputs_changed": false
+}

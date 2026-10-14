@@ -1,0 +1,23 @@
+{
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/code/run_measure.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/C70_j07",
+    "--checkpoint",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/B_seed0/checkpoint/state_70.pt",
+    "--mode",
+    "C",
+    "--checkpoint-itr",
+    "70",
+    "--seed",
+    "2110700",
+    "--commit",
+    "838189eac4794ac921217c50e133534ce95dc6ba",
+    "--state",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/B_seed0/ppo_steps/full_state_70.pt"
+  ],
+  "commit": "838189eac4794ac921217c50e133534ce95dc6ba",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo"
+}

@@ -1,0 +1,72 @@
+{
+  "kind": "presentation_only",
+  "source_analysis_record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/candidates/final/analysis_record.json",
+  "source_renderer": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/analyze.py",
+  "same_renderer_copy": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/code/analyze.py",
+  "scientific_changes": false,
+  "estimator_recomputation": false,
+  "new_sampling": false,
+  "new_jobs": false,
+  "change": "Part-C noise figure height 3.4 to 3.9 inches; axes top 0.78 to 0.72 and bottom 0.21 to 0.18, separating legend from titles.",
+  "checks": {
+    "legend_title_disjoint": true,
+    "plotted_values_identical_to_final_rows": true,
+    "equal_log_span_decades": 3.5,
+    "legend_bbox": [
+      265.97916666666674,
+      338.2555555555556,
+      448.04166666666674,
+      18.888888888888914
+    ],
+    "title_bboxes": [
+      [
+        113.05878712871288,
+        286.1333333333333,
+        141.625,
+        14.0
+      ],
+      [
+        456.9000000000001,
+        286.1333333333333,
+        125.0,
+        30.19999999999999
+      ],
+      [
+        794.6787128712872,
+        286.1333333333333,
+        120.5,
+        30.19999999999999
+      ]
+    ]
+  },
+  "intended_replacement_files": [
+    "figs/dppo_per_step_noise.png",
+    "figs/dppo_per_step_noise.pdf"
+  ],
+  "captions_preserved": true,
+  "original_outputs_untouched": true,
+  "other_rendered_files": "The unchanged inactive figure was emitted by the shared renderer; it is not an intended replacement.",
+  "render": {
+    "created": [
+      "dppo_per_step_noise",
+      "dppo_per_step_inactive"
+    ],
+    "omitted": [
+      {
+        "figure": "dppo_step1_noise",
+        "reason": "Requires all three points, 500 observed gradients per step, and positive finite point estimates",
+        "available_rows": 3,
+        "invalid": [
+          [
+            95,
+            1
+          ]
+        ],
+        "partial": []
+      }
+    ],
+    "spans_decades": {
+      "dppo_per_step_noise": 3.5
+    }
+  }
+}

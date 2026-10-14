@@ -1,0 +1,1 @@
+DPPO rerun seed 0 with full-state saving, compared with the three original DPPO seeds. Each point is an 80-episode evaluation mean. A final evaluation more than 150 reward units outside the original seeds' range is flagged; this is a sanity check, not an exact-replay gate.

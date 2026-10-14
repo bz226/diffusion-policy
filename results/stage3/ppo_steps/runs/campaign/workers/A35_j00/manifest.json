@@ -1,0 +1,135 @@
+{
+  "child_processes_after": [],
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/code/run_measure.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00",
+    "--checkpoint",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+    "--mode",
+    "A",
+    "--checkpoint-itr",
+    "35",
+    "--seed",
+    "2000000",
+    "--commit",
+    "838189eac4794ac921217c50e133534ce95dc6ba",
+    "--state",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/prepare_A35/frozen.pt"
+  ],
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+  "elapsed_seconds": 1618.6520918399328,
+  "ended_utc": "2026-10-14T10:02:39.451647+00:00",
+  "exit_code": 0,
+  "id": "A35_j00",
+  "monitor_status": "paused",
+  "observed_utc": "2026-10-14T09:35:40.809995+00:00",
+  "progress": {},
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scheduler_job_id": "17862615",
+  "scientific_pid": 3172556,
+  "spec": {
+    "cap_seconds": 1800,
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/code/run_measure.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00",
+      "--checkpoint",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_35.pt",
+      "--mode",
+      "A",
+      "--checkpoint-itr",
+      "35",
+      "--seed",
+      "2000000",
+      "--commit",
+      "838189eac4794ac921217c50e133534ce95dc6ba",
+      "--state",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/prepare_A35/frozen.pt"
+    ],
+    "completion_checks": [
+      {
+        "equals": "completed",
+        "key": "status",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00/meta.json"
+      },
+      {
+        "equals": 50,
+        "key": "completed_batches",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00/meta.json"
+      }
+    ],
+    "completion_files": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00/sums_step01.npy",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00/sums_full.npy"
+    ],
+    "cpus": 40,
+    "cwd": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+    "depends_on": [
+      "prepare_A35"
+    ],
+    "env": {
+      "CUDA_CACHE_PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache/cuda",
+      "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache/d4rl",
+      "D4RL_SUPPRESS_IMPORT_ERROR": "1",
+      "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+      "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+      "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+      "MKL_NUM_THREADS": null,
+      "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache/matplotlib",
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin:/usr/local/bin:/usr/bin:/bin",
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONNOUSERSITE": "1",
+      "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+      "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/tmp",
+      "TORCH_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache/torch",
+      "TRITON_CACHE_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache/triton",
+      "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/cache"
+    },
+    "gpu_count": 1,
+    "id": "A35_j00",
+    "kind": "A",
+    "memory_gib": 64,
+    "monitor_seconds": 4800,
+    "progress_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/A35_j00/progress.json",
+    "progress_keys": [
+      "completed"
+    ],
+    "ready_checks": [
+      {
+        "equals": true,
+        "key": "critic_gate.passed",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/prepare_A35/prepare.json"
+      }
+    ],
+    "run_root": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/campaign",
+    "source_path": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+    "source_revision": "838189eac4794ac921217c50e133534ce95dc6ba",
+    "startup_checks": [
+      {
+        "equals": "passed",
+        "key": "status",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/gates/R1/capture_gate.json"
+      },
+      {
+        "equals": true,
+        "key": "critic_gate.passed",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/prepare_A35/prepare.json"
+      }
+    ]
+  },
+  "started_utc": "2026-10-14T09:35:40.797106+00:00",
+  "status": "complete",
+  "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/campaign/logs/A35_j00.out",
+  "worker_pid": 3172539
+}

@@ -1,0 +1,1 @@
+Each gradient DPPO passes to AdamW during one batch's 20 steps, from the run's own state at each checkpoint, in training-loss units. Points are estimates from one training seed; 90% intervals are in the table. Per-episode variance is 80 times the batch-gradient variance; for steps after the first this is a scaling convention.

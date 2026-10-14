@@ -1,0 +1,25 @@
+{
+  "source_revision": "838189eac4794ac921217c50e133534ce95dc6ba",
+  "base_revision": "44b2998228e1a93aaef544e8030c30640d17dc06",
+  "isolated_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+  "parent_workspace_branch": "main",
+  "approved_gpu_hour_cap": 80,
+  "approved_max_gpus": 9,
+  "controller_start_failure": {
+    "job_id": "17862541",
+    "error": "Slurm spool directory broke relative script path",
+    "gpu_jobs_launched": 0,
+    "gpu_hours": 0,
+    "fix": "Pass absolute Python entrypoints as wrapper argument3; preserve original logs"
+  },
+  "controller_job_id": "17862556",
+  "controller_cap_hours": 12,
+  "initial_jobs": {
+    "B_seed0": "17862569",
+    "prepare_A35": "17862570",
+    "prepare_A70": "17862571",
+    "prepare_A105": "17862572"
+  },
+  "presentation_revision": "c798abef1ee0bb607956ea7b9962fac6119a3c3c"
+}

@@ -1,0 +1,42 @@
+{
+  "status": "completed",
+  "critic_gate": {
+    "passed": true,
+    "checkpoint_critic_sha256": "c18ecd36f86018455625cd5ff4f5b5744d706473b02b0b5afd555aa6ca399ad0",
+    "frozen_critic_sha256": "c18ecd36f86018455625cd5ff4f5b5744d706473b02b0b5afd555aa6ca399ad0",
+    "warmup_batches": 0
+  },
+  "c": 448.5344921934367,
+  "c_source": "least_squares_five_batches_fixed",
+  "fit_batches": [
+    {
+      "batch": 0,
+      "sum_VG": 57509479.20685782,
+      "sum_V2": 129013.11614139543
+    },
+    {
+      "batch": 1,
+      "sum_VG": 58512700.79271317,
+      "sum_V2": 129352.13102956853
+    },
+    {
+      "batch": 2,
+      "sum_VG": 58439730.07487962,
+      "sum_V2": 129851.22463195972
+    },
+    {
+      "batch": 3,
+      "sum_VG": 57668759.446413286,
+      "sum_V2": 128426.18174259784
+    },
+    {
+      "batch": 4,
+      "sum_VG": 57455052.31883721,
+      "sum_V2": 128983.7740310076
+    }
+  ],
+  "seed": 2019000,
+  "commit": "838189eac4794ac921217c50e133534ce95dc6ba",
+  "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-finetune/halfcheetah-medium-v2_ppo_diffusion_mlp_ta4_td20_tdf10/2026-10-08_20-01-32_0/checkpoint/state_70.pt",
+  "limitation": "Original scaler mean/count were not saved; fixed fitted scaling cannot replay the native current-batch running-scaler update."
+}

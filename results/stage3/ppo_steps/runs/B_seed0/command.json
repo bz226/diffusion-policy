@@ -1,0 +1,21 @@
+{
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/code/run_measure.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/runs/B_seed0",
+    "--checkpoint",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log/gym-pretrain/halfcheetah-medium-v2_pre_diffusion_mlp_ta4_td20/2024-06-12_23-04-42/checkpoint/state_3000.pt",
+    "--mode",
+    "train",
+    "--checkpoint-itr",
+    "35",
+    "--seed",
+    "0",
+    "--commit",
+    "838189eac4794ac921217c50e133534ce95dc6ba"
+  ],
+  "commit": "838189eac4794ac921217c50e133534ce95dc6ba",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo"
+}

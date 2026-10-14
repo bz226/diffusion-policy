@@ -1,0 +1,1 @@
+Fraction of DPPO minibatch pairs whose actor contribution is switched off by PPO clipping: positive adjusted advantage with ratio above 1 + ε, or negative adjusted advantage below 1 − ε. Each point averages 500 batches at one checkpoint of one training seed.

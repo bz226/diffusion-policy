@@ -1,0 +1,41 @@
+{
+  "utc": "2026-10-14T21:32:38.718710+00:00",
+  "type": "manual_monitor",
+  "sampling_status": "complete",
+  "part_A_jobs": 30,
+  "part_C_jobs": 30,
+  "batches_per_checkpoint_per_part": 500,
+  "rerun_iterations": 140,
+  "gpu_hours": 57.382777777777775,
+  "scientific_run_failures": 0,
+  "KL_early_stops": 0,
+  "monitor_status": "paused",
+  "analysis_status": "blocked_nonpositive_signal",
+  "unresolved_point": {
+    "part": "A",
+    "updates": 95,
+    "step": 1,
+    "u_sq": -3.3257957702045056e-08,
+    "se": 2.812779448717883e-08,
+    "ci90": [
+      -8.481938154351615e-08,
+      1.8303466139426035e-08
+    ]
+  },
+  "verification": "All60groups completed50batches; table63rows eachK500/10groups. Negative estimate independently recomputed from group Gram matrix and scalar sums.",
+  "rerun_eval": 4708.145700066682,
+  "R2_max_relative": 0.0,
+  "S1_max_relative": 0.0,
+  "created_figures": [
+    "dppo_per_step_noise",
+    "dppo_per_step_inactive",
+    "dppo_rerun_sanity"
+  ],
+  "omitted_figure": "dppo_step1_noise",
+  "new_sampling_or_job_changes": false,
+  "presentation_review": {
+    "noise_plot": "candidates/layout_review/figs/dppo_per_step_noise.png",
+    "same_plotted_values": true,
+    "legend_overlap_fixed": true
+  }
+}

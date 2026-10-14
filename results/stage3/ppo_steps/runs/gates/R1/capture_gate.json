@@ -1,0 +1,24 @@
+{
+  "status": "passed",
+  "gate": "R1",
+  "baseline_source": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3_gradmean/dppo",
+  "edited_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-ppo-steps/results/stage3/ppo_steps/dppo",
+  "native_AST_identical_after_removing_only_capture_guards": true,
+  "native_update_AST_compiles": true,
+  "snapshot_and_serialization_preserve_global_RNG": true,
+  "optimizer_integer_keys_preserved": true,
+  "full_state_roundtrip": {
+    "max_abs": 0.0,
+    "max_relative": 0.0,
+    "bitwise_equal": true,
+    "finite": true,
+    "coordinates": 10775,
+    "structural_mismatches": []
+  },
+  "snapshot_independent_of_live_mutation": true,
+  "default_restore_preserves_collection_RNG": true,
+  "environment_created": false,
+  "scientific_sampling": false,
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "torch": "2.4.0+cu121"
+}

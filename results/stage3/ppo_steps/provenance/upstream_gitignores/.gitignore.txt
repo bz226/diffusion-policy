@@ -1,0 +1,33 @@
+# Ordinary source snapshot; original upstream rules are in ../provenance/.
+# Keep source, result.pkl, run.log, and Hydra configurations versionable.
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+venv/
+.env
+.env.*
+!.env.example
+wandb/
+build/
+dist/
+*.egg-info/
+.tox/
+.nox/
+cache/
+.cache/
+checkpoint/
+checkpoints/
+data/
+datasets/
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.onnx
+*.h5
+*.hdf5
+*.zarr/
+*.zarr.zip
