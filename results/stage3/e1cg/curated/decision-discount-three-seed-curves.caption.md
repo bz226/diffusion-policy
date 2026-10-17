@@ -1,0 +1,3 @@
+Mean over three seeds per method; 80 episodes per point per seed. The two runs differ only in weighting decision k's advantage by γ^k. J_disc is the training batch's mean of Σ_k 0.99^k R_k, using raw rewards. Evaluation keeps the DDPM's noise at every denoising step except the last. Only available common iterations are shown; uncertainty is not plotted.
+
+[Source figure](../figs/e1cg_curves_3seed.png) · [Run record](../analysis_record.json) · [Methods](decision-discount-methods.md).

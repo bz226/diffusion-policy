@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-17T09:20:11.087340+00:00",
+  "status": "submitted",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/controller.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/controller.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_controller.sh",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/campaign.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/plan.json"
+  ],
+  "approved_gpu_hours": 32,
+  "returncode": 0,
+  "stdout": "17922557",
+  "stderr": ""
+}

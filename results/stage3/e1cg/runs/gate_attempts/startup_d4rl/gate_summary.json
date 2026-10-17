@@ -1,0 +1,29 @@
+{
+  "status": "failed",
+  "passed": false,
+  "reference_commit": "b459412cfc272a7b8830c77925271843c27222b2",
+  "fixture_note": "Reuses the saved NC4 batch previously used for E1C A1/A3, evaluating mc_critic coefficients; not an original completed-E1C rollout.",
+  "cpu_only": true,
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "results/stage3/e1cg/code/gate_e1cg.py",
+      "--worker",
+      "features",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/gates/features",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{\"model.actor_loss\": \"score\", \"train.adv_estimator\": \"mc_critic\", \"train.baseline_diag\": true, \"train.stage3_diag\": false, \"train.decision_discount\": true, \"train.decision_discount_post_norm\": true}"
+    ]
+  ],
+  "checks": {},
+  "active": "features",
+  "elapsed_seconds": 31.019190474413335,
+  "error": "Gate worker failed: features",
+  "traceback": "Traceback (most recent call last):\n  File \"results/stage3/e1cg/code/gate_e1cg.py\", line 278, in main\n    feature = run('features', 'features', EDITED, overrides=flags(True, False))\n  File \"results/stage3/e1cg/code/gate_e1cg.py\", line 266, in run\n    require(result.returncode == 0, 'Gate worker failed: ' + name)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/critic/code/gate_common.py\", line 14, in require\n    raise AssertionError(message)\nAssertionError: Gate worker failed: features\n"
+}

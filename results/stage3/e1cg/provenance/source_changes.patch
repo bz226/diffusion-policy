@@ -1,0 +1,255 @@
+--- E1C/agent/finetune/critic_baseline.py
++++ E1CG/agent/finetune/critic_baseline.py
+@@ -108,7 +108,7 @@
+         elif agent.adv_estimator != "mc_none":
+             raise ValueError("unsupported calibration advantage estimator")
+     coefficients = torch.as_tensor(advantages, device=agent.device, dtype=torch.float32).reshape(-1)
+-    if agent.decision_discount:
++    if agent.decision_discount and not agent.decision_discount_post_norm:
+         weights = torch.as_tensor(agent.gamma ** episode_indices(batch["firsts"]),
+                                   device=agent.device, dtype=coefficients.dtype).reshape(-1)
+         coefficients = coefficients * weights
+@@ -132,6 +132,10 @@
+     values = torch.as_tensor(batch["values"], device=agent.device, dtype=torch.float32).reshape(-1)
+     gradient = torch.zeros(sum(p.numel() for p in parameters), device=agent.device,
+                            dtype=parameters[0].dtype)
++    decision_weights = None
++    if agent.decision_discount_post_norm:
++        decision_weights = torch.as_tensor(agent.gamma ** episode_indices(batch["firsts"]),
++                                          device=agent.device, dtype=coefficients.dtype).reshape(-1)
+     for start in range(0, total, agent.batch_size):
+         pairs = permutation[start:start + agent.batch_size]
+         decisions, steps = torch.unravel_index(pairs, (batch["chains_k"].shape[0],
+@@ -141,7 +145,8 @@
+             batch["chains_k"][decisions, steps], batch["chains_k"][decisions, steps + 1],
+             steps, returns[decisions], values[decisions], coefficients[decisions],
+             batch["oldlogprobs"][decisions, steps], use_bc_loss=agent.use_bc_loss,
+-            reward_horizon=agent.reward_horizon)
++            reward_horizon=agent.reward_horizon,
++            **({"decision_weights": decision_weights[decisions]} if decision_weights is not None else {}))
+         loss = (losses[0] + losses[1] * agent.ent_coef + losses[6] * agent.bc_loss_coeff)
+         chunks = torch.autograd.grad(loss * (len(pairs) / total), parameters, allow_unused=True)
+         offset = 0
+--- E1C/agent/finetune/stage3_math.py
++++ E1CG/agent/finetune/stage3_math.py
+@@ -176,7 +176,7 @@
+ 
+ 
+ def actor_gradient(agent, batch, advantages, reduce="sum", gamma_denoising=1.0,
+-                   normalize=False, env_indices=None, clamp=False):
++                   normalize=False, env_indices=None, clamp=False, decision_weights=None):
+     """Return a loss gradient without touching .grad, RNG, or model state.
+ 
+     Normalization uses the entire pair batch before selecting environments.
+@@ -199,6 +199,11 @@
+         count = adv.numel() * denoising
+         std = torch.sqrt(((adv - mean) ** 2).sum() * denoising / (count - 1))
+         adv = (adv - mean) / (std + 1e-8)
++    if decision_weights is not None:
++        weights = torch.as_tensor(decision_weights, device=device, dtype=dtype).reshape(-1)
++        if weights.shape != adv.shape:
++            raise ValueError("one decision weight per decision is required")
++        adv = adv * weights
+     decisions = torch.arange(total_decisions, device=device)
+     if env_indices is not None:
+         environments = torch.as_tensor(env_indices, device=device, dtype=torch.long)
+--- E1C/agent/finetune/stage3_modes.py
++++ E1CG/agent/finetune/stage3_modes.py
+@@ -397,17 +397,27 @@
+ 
+ def run_ckpt_eval(agent):
+     repeats = int(agent.cfg.train.get("ckpt_eval_repeats", 1))
+-    if repeats not in (1, 3):
+-        raise ValueError("ckpt_eval_repeats must be 1 (final checkpoint) or 3 (pretrained)")
++    segments = agent.cfg.train.get("ckpt_segments", False)
++    sampler_choice = agent.cfg.train.get("ckpt_samplers", "both")
++    allowed_repeats = (1, 2, 3, 6) if segments else (1, 3)
++    if repeats not in allowed_repeats:
++        raise ValueError("ckpt_eval_repeats must be 1 or 3 (2 and 6 additionally require ckpt_segments)")
++    sampler_modes = [("train", False), ("eval", True)]
++    if sampler_choice != "both":
++        if not segments or sampler_choice not in ("train", "eval"):
++            raise ValueError("sampler selection requires ckpt_segments=true")
++        sampler_modes = [item for item in sampler_modes if item[0] == sampler_choice]
++    sampler_names = [item[0] for item in sampler_modes]
++    segment_episodes = {sampler: [] for sampler in sampler_names}
+     directory = Path(agent.logdir)
+     started = time.monotonic()
+     rows, pooled = [], {}
+     origin = _flat_parameters(agent.model)
+-    collected = {sampler: {"returns": [], "discounted": []} for sampler in ("train", "eval")}
++    collected = {sampler: {"returns": [], "discounted": []} for sampler in sampler_names}
+     # Interleave samplers so pretrained repeat 0 has the same policy-RNG prefix
+     # as every one-repeat final-checkpoint job, without reseeding global RNG.
+     for repetition in range(repeats):
+-        for sampler, deterministic in (("train", False), ("eval", True)):
++        for sampler, deterministic in sampler_modes:
+             batch_started = time.monotonic()
+             batch = agent._stage3_collect(deterministic=deterministic, n_steps=500, update_scaler=False)
+             rewards = as_episodes(batch["raw_rewards"], batch["firsts"])
+@@ -424,12 +434,18 @@
+                    **action_metrics,
+                    "episode_returns": undiscounted.tolist(), "episode_J_disc": discounted.tolist(),
+                    "seconds": time.monotonic() - batch_started}
++            if segments:
++                bin_values = rewards.reshape(len(rewards), 5, 50).mean(axis=2)
++                row["reward_segments"] = [dict(k_start=50 * i, k_end=50 * (i + 1),
++                                               **mean_se(bin_values[:, i])) for i in range(5)]
++                row["episode_segment_rewards"] = bin_values.tolist()
++                segment_episodes[sampler].extend(bin_values.tolist())
+             rows.append(row)
+             collected[sampler]["returns"].extend(undiscounted.tolist())
+             collected[sampler]["discounted"].extend(discounted.tolist())
+             _write_json(directory / "ckpt_eval_rollouts.json", rows)
+             _record_progress(agent, "ckpt_eval", sampler, repetition + 1, repeats, started)
+-    for sampler in ("train", "eval"):
++    for sampler in sampler_names:
+         selected = [row for row in rows if row["sampler"] == sampler]
+         pooled[sampler] = {"undiscounted_return": mean_se(collected[sampler]["returns"]),
+                            "J_disc": mean_se(collected[sampler]["discounted"]),
+@@ -437,6 +453,11 @@
+                            "x0_sat_frac_last": float(np.mean([row["x0_sat_frac_last"] for row in selected])),
+                            "action_oor_frac": float(np.mean([row["action_oor_frac"] for row in selected])),
+                            "policy_action_oor_frac": float(np.mean([row["policy_action_oor_frac"] for row in selected]))}
++    if segments:
++        for sampler in sampler_names:
++            values = np.asarray(segment_episodes[sampler], dtype=np.float64)
++            pooled[sampler]["reward_segments"] = [dict(k_start=50 * i, k_end=50 * (i + 1),
++                                                       **mean_se(values[:, i])) for i in range(5)]
+     if not torch.equal(origin, _flat_parameters(agent.model)):
+         raise RuntimeError("checkpoint evaluation changed the actor")
+     summary = {"mode": "ckpt_eval", "status": "completed", "seed": agent.seed,
+@@ -445,6 +466,16 @@
+                "sampling_note": "Seed initialized once; each repeat collects train then eval, with continuous policy RNG across repeats. Pretrained repeat 0 has the same policy-RNG prefix as each one-repeat checkpoint job. DDPM deterministic=True still adds noise at t>0, and zero noise at t=0. Seed 5000 aligns policy RNG streams across checkpoints, but the existing wrapper does not seed Gym's underlying np_random generator, so initial environment states are not fully paired; environment seeding remains unchanged.",
+                "uncertainty": "Episode standard error uses sample SD (ddof=1)/sqrt(n); pretrained pooled summaries contain 240 episodes per sampler, each final checkpoint 80.",
+                "action_units": "action_oor_frac uses physical actions sent to Gym after the wrapper's float32 affine unnormalization; policy_action_oor_frac separately uses normalized policy coordinates."}
++    if segments:
++        summary["ckpt_segments"] = True
++        summary["ckpt_samplers"] = sampler_choice
++        if repeats not in (1, 3) or sampler_choice != "both":
++            summary["uncertainty"] = "Episode standard error uses sample SD (ddof=1)/sqrt(n); %d episodes per selected sampler." % (80 * repeats)
++        summary["segment_units"] = "Mean raw decision reward within each 50-decision bin; standard error is over episode bin means."
++        if sampler_choice != "both":
++            summary["sampling_note"] = ("Seed initialized once; %s sampler only, with continuous policy RNG across repeats. "
++                "Seed 5000 aligns policy RNG streams across checkpoints, but the existing wrapper does not seed "
++                "Gym np_random, so initial environment states are not fully paired; environment seeding remains unchanged." % sampler_choice)
+     _write_json(directory / "ckpt_eval.json", summary)
+     _write_csv(directory / "ckpt_eval.csv", [{"sampler": key,
+                 "undiscounted_mean": values["undiscounted_return"]["mean"],
+@@ -462,7 +493,7 @@
+                       values["J_disc"]["mean"], values["J_disc"]["se"], values["x0_sat_frac"]))
+     lines.extend(["", summary["sampling_note"], "", summary["uncertainty"], "", summary["action_units"]])
+     (directory / "SUMMARY.md").write_text("\n".join(lines) + "\n")
+-    _record_progress(agent, "ckpt_eval", "completed", 2 * repeats, 2 * repeats, started)
++    _record_progress(agent, "ckpt_eval", "completed", len(sampler_modes) * repeats, len(sampler_modes) * repeats, started)
+     return summary
+ 
+ 
+--- E1C/agent/finetune/stage3_support.py
++++ E1CG/agent/finetune/stage3_support.py
+@@ -29,6 +29,9 @@
+         self.stage3_cfg = cfg
+         self.adv_estimator = cfg.train.get("adv_estimator", "gae")
+         self.decision_discount = cfg.train.get("decision_discount", False)
++        self.decision_discount_post_norm = cfg.train.get("decision_discount_post_norm", False)
++        self.ckpt_segments = cfg.train.get("ckpt_segments", False)
++        self.ckpt_samplers = cfg.train.get("ckpt_samplers", "both")
+         self.proj_radius = cfg.train.get("proj_radius", None)
+         self.stage3_diag = cfg.train.get("stage3_diag", False)
+         self.stage3_mode = cfg.train.get("mode", "train")
+@@ -42,8 +45,14 @@
+             raise ValueError("invalid Stage-3 mode")
+         if self.frs_active and not self.actor_single_step:
+             raise ValueError("sgd_diag requires actor_single_step=true")
+-        if self.decision_discount and self.model.norm_adv:
++        if self.decision_discount_post_norm and not (self.decision_discount and self.model.norm_adv):
++            raise ValueError("decision_discount_post_norm requires decision_discount=true and norm_adv=true")
++        if self.decision_discount and self.model.norm_adv and not self.decision_discount_post_norm:
+             raise ValueError("decision_discount is incompatible with norm_adv=true")
++        if self.ckpt_samplers not in ("both", "train", "eval"):
++            raise ValueError("ckpt_samplers must be both, train or eval")
++        if self.ckpt_samplers != "both" and not self.ckpt_segments:
++            raise ValueError("sampler selection requires ckpt_segments=true")
+         if self.proj_radius is not None and (
+             not math.isfinite(float(self.proj_radius)) or float(self.proj_radius) < 0
+         ):
+@@ -70,6 +79,8 @@
+         settings = {
+             "actor_loss": self.model.actor_loss, "adv_estimator": self.adv_estimator,
+             "decision_discount": self.decision_discount,
++            "decision_discount_post_norm": self.decision_discount_post_norm,
++            "ckpt_segments": self.ckpt_segments, "ckpt_samplers": self.ckpt_samplers,
+             "gamma_denoising": self.model.gamma_denoising,
+             "logprob_reduce": self.model.logprob_reduce, "norm_adv": self.model.norm_adv,
+             "clamp_logprob": self.model.clamp_logprob,
+@@ -195,12 +206,17 @@
+             # Form the finite-horizon decision coefficient before the loss pass.
+             weights = torch.as_tensor(self.gamma ** indices, device=self.device,
+                                       dtype=advantages_k.dtype).reshape(-1)
+-            advantages_k = advantages_k * weights
++            if self.decision_discount_post_norm:
++                self._stage3_decision_weights = weights
++            else:
++                advantages_k = advantages_k * weights
+         batch = {"raw_rewards": raw_reward_trajs, "firsts": firsts_trajs,
+                  "terminated": terminated_trajs, "actions": action_trajs,
+                  "obs_k": obs_k, "chains_k": chains_k, "oldlogprobs": logprobs_k,
+                  "returns_k": returns_k, "values_k": values_k,
+                  "actor_advantages": advantages_k, "scaled_rewards": scaled_rewards}
++        if self.decision_discount_post_norm:
++            batch["decision_weights"] = self._stage3_decision_weights
+         self._stage3_batch = batch
+         if self.critic_baseline_active:
+             batch["critic_baseline_audit"] = dict(self._critic_baseline_audit)
+@@ -217,6 +233,8 @@
+         kwargs = dict(reduce=self.model.logprob_reduce,
+                       gamma_denoising=self.model.gamma_denoising,
+                       normalize=self.model.norm_adv, clamp=self.model.clamp_logprob)
++        if self.decision_discount_post_norm:
++            kwargs["decision_weights"] = batch["decision_weights"]
+         gradients = [actor_gradient(self, batch, batch["actor_advantages"],
+                                     env_indices=range(start, start + half), **kwargs).double()
+                      for start in (0, half)]
+--- E1C/agent/finetune/train_ppo_diffusion_agent.py
++++ E1CG/agent/finetune/train_ppo_diffusion_agent.py
+@@ -93,6 +93,8 @@
+                 logprobs_k[batch_inds_b, denoising_inds_b],
+                 use_bc_loss=self.use_bc_loss,
+                 reward_horizon=self.reward_horizon,
++                **({"decision_weights": self._stage3_decision_weights[batch_inds_b]}
++                   if self.decision_discount_post_norm else {}),
+             )
+             actor_loss = (
+                 pg_loss + entropy_loss * self.ent_coef + bc_loss * self.bc_loss_coeff
+@@ -488,6 +490,8 @@
+                             logprobs_b,
+                             use_bc_loss=self.use_bc_loss,
+                             reward_horizon=self.reward_horizon,
++                            **({"decision_weights": self._stage3_decision_weights[batch_inds_b]}
++                               if self.decision_discount_post_norm else {}),
+                         )
+                         loss = (
+                             pg_loss
+--- E1C/model/diffusion/diffusion_ppo.py
++++ E1CG/model/diffusion/diffusion_ppo.py
+@@ -77,6 +77,7 @@
+         oldlogprobs,
+         use_bc_loss=False,
+         reward_horizon=4,
++        decision_weights=None,
+     ):
+         """
+         PPO loss
+@@ -150,6 +151,12 @@
+         advantage_max = torch.quantile(advantages, self.clip_advantage_upper_quantile)
+         advantages = advantages.clamp(min=advantage_min, max=advantage_max)
+ 
++        # Optional time weights preserve the preceding normalization statistics.
++        if decision_weights is not None:
++            if decision_weights.shape != advantages.shape:
++                raise ValueError("one decision weight per pair is required")
++            advantages = advantages * decision_weights
++
+         # denoising discount
+         discount = torch.tensor(
+             [

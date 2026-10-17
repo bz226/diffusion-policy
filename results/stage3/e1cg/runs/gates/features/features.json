@@ -1,0 +1,89 @@
+{
+  "G1": {
+    "passed": true,
+    "update_chunks": [
+      {
+        "max_abs": 3.6306483441883586e-07,
+        "relative_l2": 2.177988365224223e-07
+      },
+      {
+        "max_abs": 2.8145421460124e-07,
+        "relative_l2": 8.79359007739134e-08
+      },
+      {
+        "max_abs": 2.620527888019808e-07,
+        "relative_l2": 9.184762636117397e-08
+      },
+      {
+        "max_abs": 4.0867533690480684e-07,
+        "relative_l2": 2.3140384174812836e-07
+      }
+    ],
+    "split_chunks": [
+      {
+        "max_abs": 3.3199972437891745e-07,
+        "relative_l2": 1.4917406508478062e-07
+      },
+      {
+        "max_abs": 3.127714622852551e-07,
+        "relative_l2": 1.4927636834688999e-07
+      },
+      {
+        "max_abs": 3.4277282723316205e-07,
+        "relative_l2": 1.4000378103838294e-07
+      },
+      {
+        "max_abs": 2.866287736047468e-07,
+        "relative_l2": 1.505405221787635e-07
+      }
+    ],
+    "update_normalization": "per shuffled 50000-pair chunk; ddof=1; epsilon=1e-8",
+    "split_normalization": "full 200000-pair statistics before environment selection, unchanged from E1C",
+    "configured_gradient": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 568392,
+      "tensors": 1,
+      "first_failure": null
+    }
+  },
+  "G2": {
+    "passed": true,
+    "time_indices_exact": true,
+    "misalignment_raises": true
+  },
+  "G4": {
+    "passed": true,
+    "comparison": {
+      "max_abs": 3.410605131648481e-12,
+      "relative_l2": 6.563489522604066e-16
+    },
+    "definition": "explicit float64 V6; exact E1C source predates V6"
+  },
+  "C1": {
+    "passed": true,
+    "comparison": {
+      "max_abs": 3.865352482534945e-12,
+      "relative_l2": 5.876020558220972e-16
+    },
+    "optional_E2C": true,
+    "configured_float32": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 20000,
+      "tensors": 1,
+      "first_failure": null
+    },
+    "settings": {
+      "decision_discount": true,
+      "decision_discount_post_norm": false,
+      "norm_adv": false,
+      "gamma_denoising": 1.0,
+      "logprob_reduce": "sum"
+    }
+  }
+}

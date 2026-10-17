@@ -1,0 +1,1 @@
+Change in mean reward per decision from the pretrained policy, by episode segment, at the final checkpoint; training sampler, 160 episodes per point. γ^k puts half its weight on the first 61 decisions. The shared pretrained reference uses 480 episodes. Points are estimates; uncertainty is not plotted.

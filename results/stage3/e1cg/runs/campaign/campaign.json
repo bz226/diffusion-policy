@@ -1,0 +1,1834 @@
+{
+  "actual_gpu_hours": 7.529444444444445,
+  "campaign_id": "e1cg",
+  "controller_job_id": "17922557",
+  "ended_utc": "2026-10-17T14:25:06.403031+00:00",
+  "final_analysis": {
+    "cap_seconds": 600,
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/analyze.py",
+      "--root",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg",
+      "--final"
+    ],
+    "ended_utc": "2026-10-17T14:25:06.400617+00:00",
+    "returncode": 0,
+    "started_utc": "2026-10-17T14:24:58.050127+00:00",
+    "status": "complete",
+    "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/final_analysis.out"
+  },
+  "interim_analysis": {
+    "cap_seconds": 600,
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/analyze.py",
+      "--root",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg"
+    ],
+    "ended_utc": "2026-10-17T10:33:51.392119+00:00",
+    "returncode": 0,
+    "started_utc": "2026-10-17T10:33:40.727452+00:00",
+    "status": "complete",
+    "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/interim_analysis.out"
+  },
+  "itr70_note_ready": true,
+  "jobs": {
+    "E1CG_seed0": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=e1cg-E1CG_seed0",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed0.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed0.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed0/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 8617,
+      "ended_utc": "2026-10-17T11:45:16.080699+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "last_counter": {
+        "itr": 115
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T11:45:16.047370+00:00",
+      "progress": {
+        "J_disc_train": 1504.5647435695423,
+        "estimated_finish_utc": "2026-10-17T11:45:16.077968+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.0004925682695227468,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 63.973313093185425,
+        "step": 10080000,
+        "train_episode_reward": 4275.257720512622
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 8617,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17922559",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed0/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T09:20:24.302363+00:00",
+      "unchanged_checks": 0
+    },
+    "E1CG_seed1": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=e1cg-E1CG_seed1",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed1.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed1.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed1/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 8708,
+      "ended_utc": "2026-10-17T11:46:46.567612+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "last_counter": {
+        "itr": 114
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T11:46:46.543640+00:00",
+      "progress": {
+        "J_disc_train": 1448.3435363968752,
+        "estimated_finish_utc": "2026-10-17T11:46:46.566223+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.00042911136036484135,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 68.16326057910919,
+        "step": 10080000,
+        "train_episode_reward": 4081.97646129949
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 8708,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17922560",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed1/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T09:20:24.366089+00:00",
+      "unchanged_checks": 0
+    },
+    "E1CG_seed2": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=e1cg-E1CG_seed2",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed2.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/E1CG_seed2.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed2/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 8654,
+      "ended_utc": "2026-10-17T14:09:53.330693+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "last_counter": {
+        "itr": 122
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:09:53.307044+00:00",
+      "progress": {
+        "J_disc_train": 1474.242403591273,
+        "estimated_finish_utc": "2026-10-17T14:09:53.328583+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.00040199113883723027,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 66.79391360282898,
+        "step": 10080000,
+        "train_episode_reward": 4202.088486296569
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 8654,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17922561",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/E1CG_seed2/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T09:20:24.422549+00:00",
+      "unchanged_checks": 0
+    },
+    "E2C_seed0": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "E2C_seed1": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "E2C_seed2": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "final_E2C_seed0": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "final_E2C_seed1": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "final_E2C_seed2": {
+      "reason": "skipped_no_three_extra_slots_while_all_primary_running",
+      "status": "skipped"
+    },
+    "segments_E1CG_s0_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s0_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 34,
+      "ended_utc": "2026-10-17T14:18:56.299463+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:18:56.294140+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 24.969437124207616,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 34,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924640",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:14:24.909744+00:00"
+    },
+    "segments_E1CG_s0_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s0_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 62,
+      "ended_utc": "2026-10-17T14:19:26.469935+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:19:26.464683+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.033688738942146,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 62,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924641",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:14:24.963439+00:00"
+    },
+    "segments_E1CG_s0_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s0_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:17:25.849809+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:17:25.845916+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.187700823880732,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924627",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:12:24.418092+00:00"
+    },
+    "segments_E1CG_s0_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s0_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s0_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 37,
+      "ended_utc": "2026-10-17T14:18:26.138352+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:18:26.132258+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.402263547293842,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 37,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924637",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s0_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:13:24.665979+00:00"
+    },
+    "segments_E1CG_s1_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s1_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:20:57.292335+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:20:57.287677+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.988873331807554,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924646",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:16:25.529029+00:00"
+    },
+    "segments_E1CG_s1_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s1_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 63,
+      "ended_utc": "2026-10-17T14:21:27.382150+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:21:27.377789+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.20796995051205,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 63,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924647",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:16:25.602987+00:00"
+    },
+    "segments_E1CG_s1_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s1_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:19:57.095673+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:19:57.089988+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.852132498286664,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924643",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:14:55.110403+00:00"
+    },
+    "segments_E1CG_s1_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s1_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s1_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 35,
+      "ended_utc": "2026-10-17T14:20:27.198500+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:20:27.192964+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.93688289541751,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 35,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924644",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s1_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:15:25.268646+00:00"
+    },
+    "segments_E1CG_s2_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s2_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:22:57.690409+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:22:57.687400+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.05262615159154,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924651",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:18:26.148815+00:00"
+    },
+    "segments_E1CG_s2_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s2_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 63,
+      "ended_utc": "2026-10-17T14:24:27.952459+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:24:27.946867+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 54.62265348713845,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 63,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924653",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:18:56.313648+00:00"
+    },
+    "segments_E1CG_s2_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s2_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 37,
+      "ended_utc": "2026-10-17T14:22:27.593037+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "last_counter": {
+        "completed": 2,
+        "done": 2,
+        "phase": "completed",
+        "substage": "completed"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:22:27.588623+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.945554337464273,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 37,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924648",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:17:25.858881+00:00",
+      "unchanged_checks": 0
+    },
+    "segments_E1CG_s2_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1CG_s2_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:22:57.685883+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:22:57.680818+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.820098288357258,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924649",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1CG_s2_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:17:25.928119+00:00"
+    },
+    "segments_E1C_s0_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s0_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:12:24.328326+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:12:24.322953+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 27.834976248443127,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924606",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.483724+00:00"
+    },
+    "segments_E1C_s0_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s0_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 62,
+      "ended_utc": "2026-10-17T14:12:24.334136+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:12:24.330706+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.392138618044555,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 62,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924607",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.534410+00:00"
+    },
+    "segments_E1C_s0_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s0_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 44,
+      "ended_utc": "2026-10-17T14:11:24.022038+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:11:24.018297+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.283733914606273,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 44,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924604",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.343779+00:00"
+    },
+    "segments_E1C_s0_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s0_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s0_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 44,
+      "ended_utc": "2026-10-17T14:11:24.026260+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:11:24.023560+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.09753887075931,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 44,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924605",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s0_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.410030+00:00"
+    },
+    "segments_E1C_s1_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s1_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 38,
+      "ended_utc": "2026-10-17T14:14:24.898125+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:14:24.895135+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.01628375146538,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 38,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924610",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.657809+00:00"
+    },
+    "segments_E1C_s1_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s1_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 60,
+      "ended_utc": "2026-10-17T14:15:25.260507+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:15:25.254742+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 51.83499492891133,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 60,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924611",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.695436+00:00"
+    },
+    "segments_E1C_s1_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s1_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 39,
+      "ended_utc": "2026-10-17T14:13:24.654821+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:13:24.649544+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 28.64946389105171,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 39,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924608",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.583781+00:00"
+    },
+    "segments_E1C_s1_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s1_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s1_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:14:24.893271+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:14:24.887780+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.259793418459594,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924609",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s1_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.621874+00:00"
+    },
+    "segments_E1C_s2_i105": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s2_i105",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i105.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i105.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i105/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 37,
+      "ended_utc": "2026-10-17T14:16:25.521219+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:16:25.517125+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.603908765129745,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 37,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924619",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i105/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:11:24.098538+00:00"
+    },
+    "segments_E1C_s2_i139": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s2_i139",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i139.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i139.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i139/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 61,
+      "ended_utc": "2026-10-17T14:17:25.843460+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:17:25.836776+00:00",
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 50.70896457415074,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 61,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924626",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i139/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:12:24.345490+00:00"
+    },
+    "segments_E1C_s2_i35": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s2_i35",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i35.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i35.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i35/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 35,
+      "ended_utc": "2026-10-17T14:14:55.099663+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:14:55.095515+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.580583655275404,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 35,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924612",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i35/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:09:53.732776+00:00"
+    },
+    "segments_E1C_s2_i70": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=5",
+        "--job-name=e1cg-segments_E1C_s2_i70",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i70.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1C_s2_i70.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i70/spec.json"
+      ],
+      "cap_seconds": 300,
+      "elapsed_seconds": 36,
+      "ended_utc": "2026-10-17T14:16:25.515056+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:16:25.509880+00:00",
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.92383516021073,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 36,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924618",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_E1C_s2_i70/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:11:24.035378+00:00"
+    },
+    "segments_theta0": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=10",
+        "--job-name=e1cg-segments_theta0",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_theta0.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_theta0.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_theta0/spec.json"
+      ],
+      "cap_seconds": 600,
+      "elapsed_seconds": 88,
+      "ended_utc": "2026-10-17T14:24:58.040642+00:00",
+      "ever_running": true,
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "missing_scheduler_checks": 0,
+      "observed_utc": "2026-10-17T14:24:58.037659+00:00",
+      "progress": {
+        "completed": 6,
+        "done": 6,
+        "elapsed_seconds": 79.6804513828829,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 6,
+        "total": 6
+      },
+      "scheduler": {
+        "allocated_tres": "billing=40,cpu=40,gres/gpu:a6000=1,gres/gpu=1,mem=64G,node=1",
+        "elapsed_seconds": 88,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17924655",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign/workers/segments_theta0/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-17T14:19:26.480143+00:00"
+    }
+  },
+  "monitor_status": "paused",
+  "notifications": [
+    {
+      "detail": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/interim_analysis.out",
+      "kind": "interim_analysis_ready",
+      "utc": "2026-10-17T10:33:51.392240+00:00"
+    },
+    {
+      "detail": "E1CG_seed0",
+      "kind": "job_complete",
+      "utc": "2026-10-17T11:45:16.080721+00:00"
+    },
+    {
+      "detail": "skipped_no_three_extra_slots_while_all_primary_running",
+      "kind": "optional_skipped",
+      "utc": "2026-10-17T11:45:16.113875+00:00"
+    },
+    {
+      "detail": "E1CG_seed1",
+      "kind": "job_complete",
+      "utc": "2026-10-17T11:46:46.567627+00:00"
+    },
+    {
+      "detail": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/itr70_comparison.json",
+      "kind": "interim_ready",
+      "utc": "2026-10-17T12:57:38.374848+00:00"
+    },
+    {
+      "detail": "E1CG_seed2",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:09:53.330714+00:00"
+    },
+    {
+      "detail": "segments_E1C_s0_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:11:24.022057+00:00"
+    },
+    {
+      "detail": "segments_E1C_s0_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:11:24.026276+00:00"
+    },
+    {
+      "detail": "segments_E1C_s0_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:12:24.328351+00:00"
+    },
+    {
+      "detail": "segments_E1C_s0_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:12:24.334159+00:00"
+    },
+    {
+      "detail": "segments_E1C_s1_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:13:24.654841+00:00"
+    },
+    {
+      "detail": "segments_E1C_s1_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:14:24.893291+00:00"
+    },
+    {
+      "detail": "segments_E1C_s1_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:14:24.898138+00:00"
+    },
+    {
+      "detail": "segments_E1C_s2_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:14:55.099709+00:00"
+    },
+    {
+      "detail": "segments_E1C_s1_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:15:25.260550+00:00"
+    },
+    {
+      "detail": "segments_E1C_s2_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:16:25.515091+00:00"
+    },
+    {
+      "detail": "segments_E1C_s2_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:16:25.521247+00:00"
+    },
+    {
+      "detail": "segments_E1C_s2_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:17:25.843491+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s0_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:17:25.849837+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s0_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:18:26.138380+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s0_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:18:56.299497+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s0_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:19:26.469969+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s1_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:19:57.095704+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s1_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:20:27.198536+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s1_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:20:57.292377+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s1_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:21:27.382169+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s2_i35",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:22:27.593058+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s2_i70",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:22:57.685903+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s2_i105",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:22:57.690422+00:00"
+    },
+    {
+      "detail": "segments_E1CG_s2_i139",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:24:27.952479+00:00"
+    },
+    {
+      "detail": "segments_theta0",
+      "kind": "job_complete",
+      "utc": "2026-10-17T14:24:58.040662+00:00"
+    },
+    {
+      "detail": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/final_analysis.out",
+      "kind": "final_analysis_ready",
+      "utc": "2026-10-17T14:25:06.400740+00:00"
+    },
+    {
+      "detail": "All admitted outputs verified; no further sampling",
+      "kind": "campaign_complete",
+      "utc": "2026-10-17T14:25:06.403065+00:00"
+    }
+  ],
+  "optional_decision": "skipped_no_three_extra_slots_while_all_primary_running",
+  "plan_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/plan.json",
+  "remaining_unreserved_gpu_hours": 24.470555555555556,
+  "reserved_gpu_hours": 0.0,
+  "source_provenance": {
+    "branch": "stage3-e1cg",
+    "revision": "03f82611746954839169a64305777c3d7f91b139",
+    "snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/provenance/source_snapshot",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+    "source_relative": "results/stage3/e1cg/dppo",
+    "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg"
+  },
+  "started_utc": "2026-10-17T09:20:24.280753+00:00",
+  "status": "complete",
+  "updated_utc": "2026-10-17T14:25:06.404817+00:00"
+}

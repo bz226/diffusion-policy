@@ -1,0 +1,17 @@
+{
+  "staging_helper": "current parent scripts/git_add_all.py applied to isolated worktree",
+  "other_historical_log_index_changes_restored_before_commit": 801,
+  "runtime_logs_untracked_by_helper_in_committed_revision": [
+    "results/repro_halfcheetah/runs/seed0_handoff/original_controller_console_tail.log",
+    "results/repro_halfcheetah/setup/20261009T023733.073303Z_inspect_loop_logging.log",
+    "results/repro_halfcheetah/setup/20261009T023837.037322Z_install_mujoco.log",
+    "results/repro_halfcheetah/setup/20261009T024151.189893Z_syntax_shells.log",
+    "results/repro_halfcheetah/setup/20261009T024515.061593Z_pinned_instructions.log",
+    "results/repro_halfcheetah/setup/20261009T024628.135946Z_source_status_after_base_build.log",
+    "results/repro_halfcheetah/setup/20261009T024801.632858Z_verify_batch_shell.log",
+    "results/repro_halfcheetah/setup/20261009T032935.383477Z_native_logging_inspection.log"
+  ],
+  "all_local_log_contents_equal_to_parent_revision": true,
+  "scientific_source_changes_outside_new_study": false,
+  "note": "These historical runtime logs are local and unchanged. Only their index entries were removed in the isolated branch, consistent with the repository runtime-log policy. Main and other worktrees were unchanged."
+}

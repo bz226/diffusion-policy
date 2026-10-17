@@ -1,0 +1,3 @@
+Cosine between the mean gradient of without_PPO_and_GAE (no γ^k) and ∇J_H (the paper's estimator with the same critic baseline), at the run's own checkpoints, 500 batches per point. Points are estimates; 90% intervals are in [alignment table](decision-discount-gradient-alignment-table.md). Estimates above 1 are retained, so the approved vertical range extends above 1; they reflect estimation uncertainty, not population cosines. Unresolved cosines or failed common-mean checks are omitted. The final scale was fitted; full-batch normalization is a checked training proxy.
+
+[Source figure](../figs/e1cg_alignment.png) · [Run record](../runs/part_a/candidates/alignment_record.json) · [Methods](decision-discount-methods.md).

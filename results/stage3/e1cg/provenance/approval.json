@@ -1,0 +1,50 @@
+{
+  "status": "approved",
+  "approved_utc": "2026-10-17T09:05:22.096197+00:00",
+  "approval_text": "approve",
+  "approved_gpu_hours": 32,
+  "training_hours_per_seed_cap": 4,
+  "cpu_gate_hours_cap": 1,
+  "primary_conditions": {
+    "E1CG": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "iterations": 140,
+      "save_model_freq": 35
+    }
+  },
+  "optional_conditions": {
+    "E2C": {
+      "seeds": [
+        0,
+        1,
+        2
+      ],
+      "iterations": 140,
+      "condition": "Only when three additional A6000 slots are free after E1CG has started."
+    }
+  },
+  "source_revision": "b459412cfc272a7b8830c77925271843c27222b2",
+  "parent_main_revision_at_approval": "595cedd79c7dfcb69526806b36558ed1de9c59ef",
+  "source_branch": "stage3-e1cg",
+  "isolated_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg",
+  "source_subtree": "results/stage3/e1cg/dppo",
+  "monitor_interval_seconds": 1800,
+  "runtime_estimate_seconds_per_seed": [
+    8756,
+    8513,
+    8774
+  ],
+  "runtime_estimate_source": "results/stage3/e1c/runs/campaign.json",
+  "reporting_amendments": [
+    "Resolved alignment estimates above one are shown without clipping.",
+    "Use Student t with actual group count minus one; nine-group cohort uses t8.",
+    "Preserve per-chunk training and full-batch split diagnostic normalization conventions.",
+    "Checkpoint evaluation accepts required repeat counts and sampler selection only under the new segment flag."
+  ],
+  "existing_untracked_logs": "Four Stage-1 run.log files were untracked before this study; they are left untouched.",
+  "curation_approved": false
+}

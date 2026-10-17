@@ -1,0 +1,6 @@
+{
+  "classification": "harness_environment",
+  "reason": "D4RL import attempted read-only ~/.d4rl before scientific checks; no gate computations or rollouts reached",
+  "fix": "Redirect D4RL_DATASET_DIR and caches/temp to study directory",
+  "algorithm_changed": false
+}

@@ -1,0 +1,273 @@
+{
+  "verified_utc": "2026-10-17T17:15:30.855456+00:00",
+  "status": "complete",
+  "monitor_status": "paused",
+  "gpu_hours": 7.529444444444445,
+  "completed_jobs": 28,
+  "skipped_optional_jobs": 6,
+  "training": [
+    {
+      "seed": 0,
+      "iterations": 140,
+      "updates": 126,
+      "env_steps": 10080000,
+      "eval_itr130": 4552.749540206341,
+      "collapse_by_eval": false,
+      "seconds_per_training_iteration_median": 66.79040610790253,
+      "checkpoints": [
+        "results/stage3/e1cg/E1CG_seed0/checkpoint/state_0.pt",
+        "results/stage3/e1cg/E1CG_seed0/checkpoint/state_35.pt",
+        "results/stage3/e1cg/E1CG_seed0/checkpoint/state_70.pt",
+        "results/stage3/e1cg/E1CG_seed0/checkpoint/state_105.pt",
+        "results/stage3/e1cg/E1CG_seed0/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "seed": 1,
+      "iterations": 140,
+      "updates": 126,
+      "env_steps": 10080000,
+      "eval_itr130": 4467.630232454076,
+      "collapse_by_eval": false,
+      "seconds_per_training_iteration_median": 68.09950137138367,
+      "checkpoints": [
+        "results/stage3/e1cg/E1CG_seed1/checkpoint/state_0.pt",
+        "results/stage3/e1cg/E1CG_seed1/checkpoint/state_35.pt",
+        "results/stage3/e1cg/E1CG_seed1/checkpoint/state_70.pt",
+        "results/stage3/e1cg/E1CG_seed1/checkpoint/state_105.pt",
+        "results/stage3/e1cg/E1CG_seed1/checkpoint/state_139.pt"
+      ]
+    },
+    {
+      "seed": 2,
+      "iterations": 140,
+      "updates": 126,
+      "env_steps": 10080000,
+      "eval_itr130": 4470.123355688544,
+      "collapse_by_eval": false,
+      "seconds_per_training_iteration_median": 66.98344480991364,
+      "checkpoints": [
+        "results/stage3/e1cg/E1CG_seed2/checkpoint/state_0.pt",
+        "results/stage3/e1cg/E1CG_seed2/checkpoint/state_35.pt",
+        "results/stage3/e1cg/E1CG_seed2/checkpoint/state_70.pt",
+        "results/stage3/e1cg/E1CG_seed2/checkpoint/state_105.pt",
+        "results/stage3/e1cg/E1CG_seed2/checkpoint/state_139.pt"
+      ]
+    }
+  ],
+  "jobs": [
+    {
+      "job": "E1CG_seed0",
+      "scheduler_job_id": "17922559",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 8617
+    },
+    {
+      "job": "E1CG_seed1",
+      "scheduler_job_id": "17922560",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 8708
+    },
+    {
+      "job": "E1CG_seed2",
+      "scheduler_job_id": "17922561",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 8654
+    },
+    {
+      "job": "segments_E1CG_s0_i105",
+      "scheduler_job_id": "17924640",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 34
+    },
+    {
+      "job": "segments_E1CG_s0_i139",
+      "scheduler_job_id": "17924641",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 62
+    },
+    {
+      "job": "segments_E1CG_s0_i35",
+      "scheduler_job_id": "17924627",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1CG_s0_i70",
+      "scheduler_job_id": "17924637",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 37
+    },
+    {
+      "job": "segments_E1CG_s1_i105",
+      "scheduler_job_id": "17924646",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1CG_s1_i139",
+      "scheduler_job_id": "17924647",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 63
+    },
+    {
+      "job": "segments_E1CG_s1_i35",
+      "scheduler_job_id": "17924643",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1CG_s1_i70",
+      "scheduler_job_id": "17924644",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 35
+    },
+    {
+      "job": "segments_E1CG_s2_i105",
+      "scheduler_job_id": "17924651",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1CG_s2_i139",
+      "scheduler_job_id": "17924653",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 63
+    },
+    {
+      "job": "segments_E1CG_s2_i35",
+      "scheduler_job_id": "17924648",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 37
+    },
+    {
+      "job": "segments_E1CG_s2_i70",
+      "scheduler_job_id": "17924649",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1C_s0_i105",
+      "scheduler_job_id": "17924606",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1C_s0_i139",
+      "scheduler_job_id": "17924607",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 62
+    },
+    {
+      "job": "segments_E1C_s0_i35",
+      "scheduler_job_id": "17924604",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 44
+    },
+    {
+      "job": "segments_E1C_s0_i70",
+      "scheduler_job_id": "17924605",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 44
+    },
+    {
+      "job": "segments_E1C_s1_i105",
+      "scheduler_job_id": "17924610",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 38
+    },
+    {
+      "job": "segments_E1C_s1_i139",
+      "scheduler_job_id": "17924611",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 60
+    },
+    {
+      "job": "segments_E1C_s1_i35",
+      "scheduler_job_id": "17924608",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 39
+    },
+    {
+      "job": "segments_E1C_s1_i70",
+      "scheduler_job_id": "17924609",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_E1C_s2_i105",
+      "scheduler_job_id": "17924619",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 37
+    },
+    {
+      "job": "segments_E1C_s2_i139",
+      "scheduler_job_id": "17924626",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 61
+    },
+    {
+      "job": "segments_E1C_s2_i35",
+      "scheduler_job_id": "17924612",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 35
+    },
+    {
+      "job": "segments_E1C_s2_i70",
+      "scheduler_job_id": "17924618",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 36
+    },
+    {
+      "job": "segments_theta0",
+      "scheduler_job_id": "17924655",
+      "status": "complete",
+      "exit_code": 0,
+      "elapsed_seconds": 88
+    }
+  ],
+  "final_analysis": {
+    "cap_seconds": 600,
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/analyze.py",
+      "--root",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg",
+      "--final"
+    ],
+    "ended_utc": "2026-10-17T14:25:06.400617+00:00",
+    "returncode": 0,
+    "started_utc": "2026-10-17T14:24:58.050127+00:00",
+    "status": "complete",
+    "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/final_analysis.out"
+  },
+  "curated": false
+}

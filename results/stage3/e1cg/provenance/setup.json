@@ -1,0 +1,49 @@
+{
+  "recorded_utc": "2026-10-17T09:08:58.760090+00:00",
+  "commands": [
+    [
+      "git",
+      "worktree",
+      "add",
+      "-b",
+      "stage3-e1cg",
+      ".codex-runtime/worktrees/stage3-e1cg",
+      "b459412cfc272a7b8830c77925271843c27222b2"
+    ],
+    [
+      "python3",
+      "scripts/create_dppo_snapshot.py",
+      "--source",
+      ".git",
+      "--revision",
+      "b459412cfc272a7b8830c77925271843c27222b2",
+      "--subdir",
+      "results/stage3_e1c/dppo",
+      "--study",
+      "stage3_e1cg"
+    ]
+  ],
+  "source_relocation": {
+    "from": "results/stage3_e1cg",
+    "to": "results/stage3/e1cg",
+    "reason": "Snapshot helper accepts a single new study name; user requested the existing Stage-3 study layout."
+  },
+  "worktree_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+  "existing_worktrees_untouched": true,
+  "source_review": {
+    "files_changed": [
+      "model/diffusion/diffusion_ppo.py",
+      "agent/finetune/stage3_math.py",
+      "agent/finetune/critic_baseline.py",
+      "agent/finetune/stage3_support.py",
+      "agent/finetune/train_ppo_diffusion_agent.py",
+      "agent/finetune/stage3_modes.py"
+    ],
+    "default_behavior": "Must pass saved-batch CPU gates before launch",
+    "fixed_variant_note": "Explicit fixed-estimator definitions in noise_scale/grad_mean remain unchanged; the configurable actor-gradient path used in calibration carries the new post-normalization weights."
+  },
+  "staging_preview": {
+    "helper": "scripts/git_add_all.py at parent main, evaluated for the isolated worktree",
+    "result": "Dry run only; found 809 historical runtime logs eligible for index removal. Those inherited records will not be included in the study commit; local files remain untouched."
+  }
+}

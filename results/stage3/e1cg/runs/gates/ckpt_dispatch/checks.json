@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "scope": "synthetic saved-reward dispatch, no environment or rollout, existing numerical modes mocked only saturation",
+  "repeat_cases": [
+    {
+      "repeats": 2,
+      "samplers": "train",
+      "calls": [
+        false,
+        false
+      ],
+      "episodes_per_sampler": 160,
+      "passed": true
+    },
+    {
+      "repeats": 2,
+      "samplers": "eval",
+      "calls": [
+        true,
+        true
+      ],
+      "episodes_per_sampler": 160,
+      "passed": true
+    },
+    {
+      "repeats": 2,
+      "samplers": "both",
+      "calls": [
+        false,
+        true,
+        false,
+        true
+      ],
+      "episodes_per_sampler": 160,
+      "passed": true
+    },
+    {
+      "repeats": 6,
+      "samplers": "train",
+      "calls": [
+        false,
+        false,
+        false,
+        false,
+        false,
+        false
+      ],
+      "episodes_per_sampler": 480,
+      "passed": true
+    }
+  ],
+  "invalid_flag_combinations": [
+    {
+      "post_norm": true,
+      "decision_discount": false,
+      "norm_adv": true,
+      "message": "decision_discount_post_norm requires decision_discount=true and norm_adv=true",
+      "passed": true
+    },
+    {
+      "post_norm": true,
+      "decision_discount": true,
+      "norm_adv": false,
+      "message": "decision_discount_post_norm requires decision_discount=true and norm_adv=true",
+      "passed": true
+    },
+    {
+      "post_norm": false,
+      "decision_discount": true,
+      "norm_adv": true,
+      "message": "decision_discount is incompatible with norm_adv=true",
+      "passed": true
+    }
+  ]
+}

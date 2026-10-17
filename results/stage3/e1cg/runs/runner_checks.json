@@ -1,0 +1,21 @@
+{
+  "status": "passed",
+  "utc": "2026-10-17T09:08:01.257569+00:00",
+  "python": "3.8.20",
+  "scope": "Mechanical queue, budget, output and syntax checks; no training or rollouts executed",
+  "checks": {
+    "python38_parse": true,
+    "jobs_total": 34,
+    "required_train_rollouts": 54,
+    "required_eval_rollouts": 12,
+    "optional_final_rollouts": 12,
+    "first_attempt_cap_gpu_hours": 26.416666666666668,
+    "approved_gpu_hours": 32,
+    "ledger_completed_plus_full_active_caps": true,
+    "missing_theta0_rejected": true,
+    "capacity_gpu_cpu_memory_parser": true,
+    "existing_e1c_native_output_readonly_validation": true
+  },
+  "worker_reuse": "Owned-child process supervision adapted from completed DPPO per-step campaign; no other job cancellation paths",
+  "controller_side_effects": "No submissions in mechanical checks; build/run requires source revision and explicit gate greenlight"
+}

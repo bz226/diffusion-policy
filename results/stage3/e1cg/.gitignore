@@ -1,0 +1,19 @@
+# Keep ordinary source, configurations, metrics and selected scientific artifacts.
+# Checkpoints, saved replay tensors and local runtime output are not published.
+*.pt
+*.pth
+*.ckpt
+*.log
+*.log.*
+*.out
+*.err
+commands.jsonl
+*_commands.jsonl
+monitor_history.jsonl
+*_monitor_history.jsonl
+*_monitor.jsonl
+events.jsonl
+__pycache__/
+*.pyc
+cache/
+tmp/

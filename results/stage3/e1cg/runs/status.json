@@ -1,0 +1,609 @@
+{
+  "actual_gpu_hours": 7.529444444444445,
+  "error": null,
+  "itr70_note_ready": true,
+  "jobs": {
+    "E1CG_seed0": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "J_disc_train": 1504.5647435695423,
+        "estimated_finish_utc": "2026-10-17T11:45:16.077968+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.0004925682695227468,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 63.973313093185425,
+        "step": 10080000,
+        "train_episode_reward": 4275.257720512622
+      },
+      "scheduler_job_id": "17922559",
+      "status": "complete"
+    },
+    "E1CG_seed1": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "J_disc_train": 1448.3435363968752,
+        "estimated_finish_utc": "2026-10-17T11:46:46.566223+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.00042911136036484135,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 68.16326057910919,
+        "step": 10080000,
+        "train_episode_reward": 4081.97646129949
+      },
+      "scheduler_job_id": "17922560",
+      "status": "complete"
+    },
+    "E1CG_seed2": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "J_disc_train": 1474.242403591273,
+        "estimated_finish_utc": "2026-10-17T14:09:53.328583+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.00040199113883723027,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 66.79391360282898,
+        "step": 10080000,
+        "train_episode_reward": 4202.088486296569
+      },
+      "scheduler_job_id": "17922561",
+      "status": "complete"
+    },
+    "E2C_seed0": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "E2C_seed1": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "E2C_seed2": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "final_E2C_seed0": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "final_E2C_seed1": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "final_E2C_seed2": {
+      "hardware": null,
+      "progress": null,
+      "scheduler_job_id": null,
+      "status": "skipped"
+    },
+    "segments_E1CG_s0_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 24.969437124207616,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924640",
+      "status": "complete"
+    },
+    "segments_E1CG_s0_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.033688738942146,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924641",
+      "status": "complete"
+    },
+    "segments_E1CG_s0_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.187700823880732,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924627",
+      "status": "complete"
+    },
+    "segments_E1CG_s0_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.402263547293842,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924637",
+      "status": "complete"
+    },
+    "segments_E1CG_s1_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.988873331807554,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924646",
+      "status": "complete"
+    },
+    "segments_E1CG_s1_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.20796995051205,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924647",
+      "status": "complete"
+    },
+    "segments_E1CG_s1_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.852132498286664,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924643",
+      "status": "complete"
+    },
+    "segments_E1CG_s1_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.93688289541751,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924644",
+      "status": "complete"
+    },
+    "segments_E1CG_s2_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.05262615159154,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924651",
+      "status": "complete"
+    },
+    "segments_E1CG_s2_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 54.62265348713845,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924653",
+      "status": "complete"
+    },
+    "segments_E1CG_s2_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.945554337464273,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924648",
+      "status": "complete"
+    },
+    "segments_E1CG_s2_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.820098288357258,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924649",
+      "status": "complete"
+    },
+    "segments_E1C_s0_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 27.834976248443127,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924606",
+      "status": "complete"
+    },
+    "segments_E1C_s0_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 53.392138618044555,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924607",
+      "status": "complete"
+    },
+    "segments_E1C_s0_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.283733914606273,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924604",
+      "status": "complete"
+    },
+    "segments_E1C_s0_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.09753887075931,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924605",
+      "status": "complete"
+    },
+    "segments_E1C_s1_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.01628375146538,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924610",
+      "status": "complete"
+    },
+    "segments_E1C_s1_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 51.83499492891133,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924611",
+      "status": "complete"
+    },
+    "segments_E1C_s1_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 28.64946389105171,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924608",
+      "status": "complete"
+    },
+    "segments_E1C_s1_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.259793418459594,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924609",
+      "status": "complete"
+    },
+    "segments_E1C_s2_i105": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.603908765129745,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924619",
+      "status": "complete"
+    },
+    "segments_E1C_s2_i139": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 4,
+        "done": 4,
+        "elapsed_seconds": 50.70896457415074,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 4,
+        "total": 4
+      },
+      "scheduler_job_id": "17924626",
+      "status": "complete"
+    },
+    "segments_E1C_s2_i35": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 26.580583655275404,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924612",
+      "status": "complete"
+    },
+    "segments_E1C_s2_i70": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 2,
+        "done": 2,
+        "elapsed_seconds": 25.92383516021073,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 2,
+        "total": 2
+      },
+      "scheduler_job_id": "17924618",
+      "status": "complete"
+    },
+    "segments_theta0": {
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+        "node": "soal-11"
+      },
+      "progress": {
+        "completed": 6,
+        "done": 6,
+        "elapsed_seconds": 79.6804513828829,
+        "mode": "ckpt_eval",
+        "phase": "completed",
+        "status": "complete",
+        "substage": "completed",
+        "target": 6,
+        "total": 6
+      },
+      "scheduler_job_id": "17924655",
+      "status": "complete"
+    }
+  },
+  "monitor_status": "paused",
+  "optional_decision": "skipped_no_three_extra_slots_while_all_primary_running",
+  "remaining_unreserved_gpu_hours": 24.470555555555556,
+  "reserved_gpu_hours": 0.0,
+  "status": "complete",
+  "updated_utc": "2026-10-17T14:25:06.404817+00:00"
+}

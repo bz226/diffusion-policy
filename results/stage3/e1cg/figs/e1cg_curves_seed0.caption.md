@@ -1,0 +1,1 @@
+One seed per method, 80 episodes per point. The two runs differ only in weighting decision k's advantage by γ^k. J_disc is the training batch's mean of Σ_k 0.99^k R_k, using raw rewards. Evaluation keeps the DDPM's noise at every denoising step except the last. Only available common iterations are shown; uncertainty is not plotted.

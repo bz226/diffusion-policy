@@ -1,0 +1,237 @@
+{
+  "child_processes_after": [],
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/entrypoint.py",
+    "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo/cfg/gym/finetune/halfcheetah-v2",
+    "--config-name=ft_ppo_diffusion_mlp",
+    "train.n_train_itr=140",
+    "train.save_model_freq=35",
+    "wandb=null",
+    "seed=5000",
+    "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105",
+    "model.clip_ploss_coef=1e6",
+    "model.clip_ploss_coef_base=1e6",
+    "train.target_kl=null",
+    "+model.clamp_logprob=false",
+    "model.randn_clip_value=100",
+    "+train.actor_single_step=true",
+    "+model.actor_loss=score",
+    "+train.stage3_diag=true",
+    "+train.adv_estimator=mc_critic",
+    "+train.baseline_diag=true",
+    "+train.decision_discount=true",
+    "+train.decision_discount_post_norm=true",
+    "+train.mode=ckpt_eval",
+    "+train.ckpt_segments=true",
+    "+train.ckpt_eval_repeats=2",
+    "+train.ckpt_samplers=train",
+    "base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/E1CG_seed2/checkpoint/state_105.pt"
+  ],
+  "cwd": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+  "elapsed_seconds": 36.213187143206596,
+  "ended_utc": "2026-10-17T14:22:57.533731+00:00",
+  "environment": {
+    "CUDA_CACHE_PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/cuda",
+    "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/d4rl",
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "E1CG_SOURCE": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "MKL_NUM_THREADS": null,
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/matplotlib",
+    "OMP_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null,
+    "PYTHONDONTWRITEBYTECODE": "1",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+    "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/tmp",
+    "TORCH_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/torch",
+    "TRITON_CACHE_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/triton",
+    "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache"
+  },
+  "exit_code": 0,
+  "hardware": {
+    "cpu_affinity": 40,
+    "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+    "node": "soal-11"
+  },
+  "id": "segments_E1CG_s2_i105",
+  "monitor_status": "paused",
+  "observed_utc": "2026-10-17T14:22:22.078792+00:00",
+  "progress": {
+    "console_tail": [],
+    "progress": {},
+    "utc": "2026-10-17T14:22:22.078649+00:00"
+  },
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "scheduler_job_id": "17924651",
+  "scientific_pid": 2343732,
+  "scientific_validation": {
+    "repeats": 2,
+    "rollouts": 2,
+    "samplers": [
+      "train"
+    ]
+  },
+  "source_after": {
+    "files_compared": 405,
+    "identical": true,
+    "revision": "03f82611746954839169a64305777c3d7f91b139"
+  },
+  "source_before": {
+    "files_compared": 405,
+    "identical": true,
+    "revision": "03f82611746954839169a64305777c3d7f91b139"
+  },
+  "spec": {
+    "cap_seconds": 300,
+    "checkpoint_itr": 105,
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/code/entrypoint.py",
+      "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo/cfg/gym/finetune/halfcheetah-v2",
+      "--config-name=ft_ppo_diffusion_mlp",
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=5000",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105",
+      "model.clip_ploss_coef=1e6",
+      "model.clip_ploss_coef_base=1e6",
+      "train.target_kl=null",
+      "+model.clamp_logprob=false",
+      "model.randn_clip_value=100",
+      "+train.actor_single_step=true",
+      "+model.actor_loss=score",
+      "+train.stage3_diag=true",
+      "+train.adv_estimator=mc_critic",
+      "+train.baseline_diag=true",
+      "+train.decision_discount=true",
+      "+train.decision_discount_post_norm=true",
+      "+train.mode=ckpt_eval",
+      "+train.ckpt_segments=true",
+      "+train.ckpt_eval_repeats=2",
+      "+train.ckpt_samplers=train",
+      "base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/E1CG_seed2/checkpoint/state_105.pt"
+    ],
+    "completion_checks": [
+      {
+        "equals": "completed",
+        "key": "status",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/ckpt_eval.json"
+      },
+      {
+        "equals": 2,
+        "key": "repeats_per_sampler",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/ckpt_eval.json"
+      },
+      {
+        "equals": 160,
+        "key": "samplers.train.J_disc.n",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/ckpt_eval.json"
+      }
+    ],
+    "completion_files": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/ckpt_eval.json",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/ckpt_eval_rollouts.json"
+    ],
+    "condition": "E1CG",
+    "cpus": 40,
+    "cwd": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+    "depends_on": [
+      "E1CG_seed0",
+      "E1CG_seed1",
+      "E1CG_seed2"
+    ],
+    "env": {
+      "CUDA_CACHE_PATH": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/cuda",
+      "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/d4rl",
+      "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+      "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+      "E1CG_SOURCE": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+      "MKL_NUM_THREADS": null,
+      "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/matplotlib",
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "PYTHONDONTWRITEBYTECODE": "1",
+      "PYTHONNOUSERSITE": "1",
+      "PYTHONPATH": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/tmp",
+      "TORCH_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/torch",
+      "TRITON_CACHE_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache/triton",
+      "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/cache"
+    },
+    "estimate_seconds": 80,
+    "gpu_count": 1,
+    "id": "segments_E1CG_s2_i105",
+    "logdir": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105",
+    "memory_gib": 64,
+    "mode": "ckpt_eval",
+    "monitor_seconds": 1800,
+    "optional": false,
+    "overrides": [
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=5000",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105",
+      "model.clip_ploss_coef=1e6",
+      "model.clip_ploss_coef_base=1e6",
+      "train.target_kl=null",
+      "+model.clamp_logprob=false",
+      "model.randn_clip_value=100",
+      "+train.actor_single_step=true",
+      "+model.actor_loss=score",
+      "+train.stage3_diag=true",
+      "+train.adv_estimator=mc_critic",
+      "+train.baseline_diag=true",
+      "+train.decision_discount=true",
+      "+train.decision_discount_post_norm=true",
+      "+train.mode=ckpt_eval",
+      "+train.ckpt_segments=true",
+      "+train.ckpt_eval_repeats=2",
+      "+train.ckpt_samplers=train",
+      "base_policy_path=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/E1CG_seed2/checkpoint/state_105.pt"
+    ],
+    "progress_file": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/evaluations/segments_E1CG_s2_i105/stage3_progress.json",
+    "ready_files": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/E1CG_seed2/checkpoint/state_105.pt"
+    ],
+    "repeats": 2,
+    "run_root": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/campaign",
+    "samplers": [
+      "train"
+    ],
+    "seed": 5000,
+    "source_provenance": {
+      "branch": "stage3-e1cg",
+      "revision": "03f82611746954839169a64305777c3d7f91b139",
+      "snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/provenance/source_snapshot",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "source_relative": "results/stage3/e1cg/dppo",
+      "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg"
+    },
+    "source_seed": 2,
+    "startup_checks": [
+      {
+        "equals": true,
+        "key": "passed",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/gates/gate_summary.json"
+      },
+      {
+        "equals": true,
+        "key": "approved",
+        "path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/gates/launch_greenlight.json"
+      }
+    ],
+    "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i105.out"
+  },
+  "started_utc": "2026-10-17T14:22:21.317681+00:00",
+  "status": "complete",
+  "stdout": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg/runs/logs/segments_E1CG_s2_i105.out",
+  "worker_pid": 2343670
+}

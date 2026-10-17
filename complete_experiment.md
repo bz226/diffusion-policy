@@ -50,6 +50,12 @@
 - Experiment design: [Methods and execution protocol](./results/stage3/e1c/methods.md).
 - Curated: —
 
+### Stage 3 post-normalization decision discount (E1CG)
+
+- Experiment folder: [Decision-discount experiment](./results/stage3/e1cg/).
+- Experiment design: [Methods and execution protocol](./results/stage3/e1cg/curated/decision-discount-methods.md).
+- Curated: [Report, plots, tables and captions](./results/stage3/e1cg/curated/INDEX.md).
+
 ### Stage 3 gradient-mean measurements along DPPO and without_PPO paths
 
 - Experiment folder: [Gradient-mean measurements](./results/stage3/gradmean/)

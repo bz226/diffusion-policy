@@ -1,0 +1,2 @@
+# Optional: only after all three E1CG seeds are running and three extra A6000 slots are free.
+E2C 0,1,2 +train.adv_estimator=mc_critic +train.baseline_diag=true +train.decision_discount=true model.gamma_denoising=1.0 +model.logprob_reduce=sum +model.norm_adv=false

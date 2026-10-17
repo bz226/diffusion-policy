@@ -1,0 +1,46 @@
+{
+  "comparison": "eval at 70; most recent training rollout at 69",
+  "per_seed": [
+    {
+      "seed": 0,
+      "without_PPO_and_GAE": {
+        "J_disc_train_itr69": 1449.8491168769563,
+        "eval_itr70": 4494.664635761044,
+        "train_itr69": 4178.887011135488
+      },
+      "without_PPO_and_GAE + gamma^k": {
+        "J_disc_train_itr69": 1447.7019496387145,
+        "eval_itr70": 4457.540608054128,
+        "train_itr69": 4143.789339536774
+      }
+    },
+    {
+      "seed": 1,
+      "without_PPO_and_GAE": {
+        "J_disc_train_itr69": 1427.4028604848775,
+        "eval_itr70": 4379.195543219908,
+        "train_itr69": 4057.5244614758967
+      },
+      "without_PPO_and_GAE + gamma^k": {
+        "J_disc_train_itr69": 1459.5766561995083,
+        "eval_itr70": 4459.678891756159,
+        "train_itr69": 4151.154610370613
+      }
+    },
+    {
+      "seed": 2,
+      "without_PPO_and_GAE": {
+        "J_disc_train_itr69": 1463.4448445900696,
+        "eval_itr70": 4443.927863928999,
+        "train_itr69": 4077.311989696068
+      },
+      "without_PPO_and_GAE + gamma^k": {
+        "J_disc_train_itr69": 1428.4863873628601,
+        "eval_itr70": 4355.249595110645,
+        "train_itr69": 4085.9950241798215
+      }
+    }
+  ],
+  "status": "ready",
+  "utc": "2026-10-17T12:57:38.372136+00:00"
+}
