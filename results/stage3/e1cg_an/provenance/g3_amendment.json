@@ -1,0 +1,34 @@
+{
+  "approved": true,
+  "name": "AN amended G3, then continue",
+  "approved_utc": "2026-10-18T10:20:33.069230+00:00",
+  "source_revision": "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+  "d_star": 0.00263955,
+  "b0": 3.22129e-06,
+  "eta_by_condition": {
+    "AN1": 0.00263955,
+    "AN3": 0.00791865,
+    "AN10": 0.0263955
+  },
+  "reuse_checks": [
+    "G1",
+    "G2",
+    "G4"
+  ],
+  "reuse_calibration": "cal_seed3000/calibration.json",
+  "replaces_gate": "G3",
+  "prior_failed_gate": "runs/gates/calibrated/gate_summary.json",
+  "prior_cpu_gate_seconds": 740.0639064861462,
+  "cpu_gate_seconds_cap": 7200,
+  "gpu_hours_cap": 40,
+  "prior_gpu_hours": 0.03166666666666667,
+  "G3a_relative_tolerance": 1e-10,
+  "G3b_update_norm_relative_tolerance": 1e-06,
+  "G3b_coordinate_bound": "abs(actual parameter displacement - pre-add update) <= abs(np.spacing(float32 theta_after))",
+  "expected_relative_norm_rounding": "sqrt(sum(u_c^2 * spacing_c^2 / 12)) / norm(u)^2",
+  "G5": "unchanged full12CPUiterations",
+  "no_recalibration": true,
+  "seed_order": "AN1/AN3/AN10 seed0, then seed1, then seed2",
+  "conservative_prior_cpu_wall_seconds": 759.9507804671302,
+  "prior_wall_basis": "Preliminary aggregate plus full28-second prior calibrated-gate CPUallocation, including startup/supervisor overhead; raw internal740.063906s retained."
+}

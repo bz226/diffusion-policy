@@ -1,0 +1,99 @@
+{
+  "status": "passed",
+  "passed": true,
+  "checks": {
+    "G3a": {
+      "passed": true,
+      "parameter_dtype": "float64",
+      "gradient_dtype": "float64",
+      "accumulator_dtype": "torch.float64",
+      "measured_displacement": 0.0026395484468681335,
+      "formula_displacement": 0.0026395484468681382,
+      "absolute_error": 4.7704895589362195e-18,
+      "relative_error": 1.8073127487379417e-15,
+      "relative_tolerance": 1e-10,
+      "b_after": 0.002969447643882213,
+      "rng_unchanged": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 5681,
+        "tensors": 3,
+        "first_failure": null
+      }
+    },
+    "G3b": {
+      "passed": true,
+      "parameter_dtype": "float32",
+      "gradient_dtype": "float32",
+      "accumulator_dtype": "torch.float64",
+      "alpha_python_float64": -0.8889026905182577,
+      "alpha_native_float32_as_float64": -0.8889026641845703,
+      "implicit_update_definition": "float64 product of the native float32 alpha operand and native float32 gradient; no separately rounded float32 update tensor",
+      "implicit_update_norm": 0.0026395483686716746,
+      "formula_displacement": 0.0026395484468681382,
+      "implicit_update_relative_error": 2.9624939720267686e-08,
+      "norm_relative_tolerance": 1e-06,
+      "b_after": 0.002969447643882213,
+      "predicted_b_equal": true,
+      "coordinate_rounding_bound": "abs(float64(theta_after)-float64(theta_before)-u) <= abs(np.spacing(theta_after.float32))",
+      "coordinate_count": 568392,
+      "coordinate_violations": 0,
+      "max_absolute_coordinate_error": 4.643934734813778e-07,
+      "max_coordinate_error_in_ulps": 0.4999998527364369,
+      "actual_float32_parameter_displacement": 0.0026395543956186313,
+      "actual_norm_relative_error_diagnostic_only": 2.2537000599960273e-06,
+      "expected_relative_RMS_norm_rounding": 2.0764630605838753e-06,
+      "RMS_formula": "sqrt(sum(u_i^2 * abs(spacing(theta_after_i.float32))^2 / 12)) / sum(u_i^2)",
+      "RMS_assumption": "Independent zero-mean uniform coordinate rounding; an approximation, not a deterministic bound.",
+      "previous_failed_relative_norm_error": 2.308655985808447e-06,
+      "previous_eta": 0.002639548322140887,
+      "previous_b0": 3.2212902344925517e-06,
+      "rng_unchanged": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 5681,
+        "tensors": 3,
+        "first_failure": null
+      }
+    }
+  },
+  "cpu_only": true,
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+  "scientific_source_revision": "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+  "preliminary": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/preliminary_retry",
+  "previous_failed_G3": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/calibrated",
+  "eta": 0.00263955,
+  "b0": 3.22129e-06,
+  "prior_gate_seconds": 759.9507804671302,
+  "previous_internal_aggregate_seconds": 740.0639064861462,
+  "prior_accounting": "Conservative prior wall time: 731.9507804671302 s preliminary plus 28 s complete prior G3 Slurm allocation.",
+  "cap_seconds": 7200.0,
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_g3_amended.py",
+      "--eta",
+      "0.00263955",
+      "--b0",
+      "0.00000322129",
+      "--prior-seconds",
+      "759.9507804671302"
+    ]
+  ],
+  "note": "G1/G2/G4 and calibration reused; only authorized amended G3a/G3b are executed. G5 is not launched.",
+  "input": {
+    "evidence": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/preliminary_retry/adagrad_update/evidence.pt",
+    "parameters": 568392,
+    "parameter_tensors": 12,
+    "native_parameter_dtype": "float32",
+    "native_gradient_dtype": "float32",
+    "actor_gradient_G2_bitwise_certified": true
+  },
+  "gradient_norm": 0.0029694458966360083,
+  "formula_displacement": 0.0026395484468681382,
+  "elapsed_seconds": 1.8385223648510873,
+  "aggregate_gate_seconds": 761.7893028319813
+}

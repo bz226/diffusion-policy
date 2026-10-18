@@ -1,0 +1,1268 @@
+{
+  "status": "preliminary_passed",
+  "passed": false,
+  "cpu_only": true,
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/default_old",
+      "--fixture",
+      "default",
+      "--overrides",
+      "{}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/default_new",
+      "--fixture",
+      "default",
+      "--overrides",
+      "{}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/nc4_old",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/nc4_new",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/e1cg_old",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{\"model.actor_loss\": \"score\", \"train.adv_estimator\": \"mc_critic\", \"train.baseline_diag\": true, \"train.stage3_diag\": true, \"train.decision_discount\": true, \"train.decision_discount_post_norm\": true}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/e1cg_new",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{\"model.actor_loss\": \"score\", \"train.adv_estimator\": \"mc_critic\", \"train.baseline_diag\": true, \"train.stage3_diag\": true, \"train.decision_discount\": true, \"train.decision_discount_post_norm\": true}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "replay",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--output",
+      "results/stage3/e1cg_an/runs/gates/preliminary_retry/adagrad_update",
+      "--fixture",
+      "nc4",
+      "--overrides",
+      "{\"model.actor_loss\": \"score\", \"train.adv_estimator\": \"mc_critic\", \"train.baseline_diag\": true, \"train.stage3_diag\": true, \"train.decision_discount\": true, \"train.decision_discount_post_norm\": true, \"train.actor_optimizer\": \"adagrad_norm\", \"train.actor_lr\": 0.01, \"train.actor_lr_scheduler.min_lr\": 0.01, \"train.adagrad_norm_b0\": 0.001}",
+      "--eta",
+      "0.01",
+      "--b0",
+      "0.001",
+      "--threads",
+      "2"
+    ]
+  ],
+  "checks": {
+    "G1": {
+      "passed": true,
+      "P": 1000,
+      "steps": 20,
+      "cases": [
+        {
+          "b0": 0.001,
+          "b0_exceeds_first_gradient_norm": false,
+          "steps": [
+            {
+              "step": 1,
+              "max_abs_parameter_error": 1.1724028192716673e-07,
+              "relative_L2_parameter_error": 2.4956048557168996e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 2,
+              "max_abs_parameter_error": 1.8922030342594098e-07,
+              "relative_L2_parameter_error": 3.485389591628996e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 3,
+              "max_abs_parameter_error": 2.4017898114792047e-07,
+              "relative_L2_parameter_error": 4.15265391135553e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 4,
+              "max_abs_parameter_error": 3.1664664312813784e-07,
+              "relative_L2_parameter_error": 4.754567017202963e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 5,
+              "max_abs_parameter_error": 2.802694023529284e-07,
+              "relative_L2_parameter_error": 5.37172052083741e-08,
+              "relative_b_error": 2.0237047094543694e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 6,
+              "max_abs_parameter_error": 3.824400649499182e-07,
+              "relative_L2_parameter_error": 6.193663354269055e-08,
+              "relative_b_error": 1.8471621176403125e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 7,
+              "max_abs_parameter_error": 4.626365561755108e-07,
+              "relative_L2_parameter_error": 6.633042318645324e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 8,
+              "max_abs_parameter_error": 5.035793080310214e-07,
+              "relative_L2_parameter_error": 7.138997461429166e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 9,
+              "max_abs_parameter_error": 4.76121615022862e-07,
+              "relative_L2_parameter_error": 7.426866560424119e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 10,
+              "max_abs_parameter_error": 5.167145964435349e-07,
+              "relative_L2_parameter_error": 7.676885980495041e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 11,
+              "max_abs_parameter_error": 6.04514338142792e-07,
+              "relative_L2_parameter_error": 7.997899853784297e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 12,
+              "max_abs_parameter_error": 4.868001148849999e-07,
+              "relative_L2_parameter_error": 8.113302841507713e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 13,
+              "max_abs_parameter_error": 5.957114539434372e-07,
+              "relative_L2_parameter_error": 8.478678167708118e-08,
+              "relative_b_error": 1.2539011837719277e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 14,
+              "max_abs_parameter_error": 6.906145522123097e-07,
+              "relative_L2_parameter_error": 8.807821724215638e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 15,
+              "max_abs_parameter_error": 6.518373205643968e-07,
+              "relative_L2_parameter_error": 9.250567207185546e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 16,
+              "max_abs_parameter_error": 7.316393322298609e-07,
+              "relative_L2_parameter_error": 9.627957503731701e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 17,
+              "max_abs_parameter_error": 7.710509022373913e-07,
+              "relative_L2_parameter_error": 9.95338693670139e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 18,
+              "max_abs_parameter_error": 7.177515830569803e-07,
+              "relative_L2_parameter_error": 1.0298367100506632e-07,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 19,
+              "max_abs_parameter_error": 8.13702336177613e-07,
+              "relative_L2_parameter_error": 1.0870527934601702e-07,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 20,
+              "max_abs_parameter_error": 8.899188324029694e-07,
+              "relative_L2_parameter_error": 1.1043677753144014e-07,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            }
+          ],
+          "state_roundtrip": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 3,
+            "tensors": 3,
+            "first_failure": null
+          }
+        },
+        {
+          "b0": 302.65961385378966,
+          "b0_exceeds_first_gradient_norm": true,
+          "steps": [
+            {
+              "step": 1,
+              "max_abs_parameter_error": 1.1856292481127184e-07,
+              "relative_L2_parameter_error": 2.59465675465881e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 2,
+              "max_abs_parameter_error": 2.2487458650743974e-07,
+              "relative_L2_parameter_error": 3.444874978832026e-08,
+              "relative_b_error": 0.0,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 3,
+              "max_abs_parameter_error": 2.247243475750338e-07,
+              "relative_L2_parameter_error": 4.039323085098787e-08,
+              "relative_b_error": 1.8487429839704275e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 4,
+              "max_abs_parameter_error": 2.5076497589537894e-07,
+              "relative_L2_parameter_error": 4.402533721646071e-08,
+              "relative_b_error": 1.8391969603308252e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 5,
+              "max_abs_parameter_error": 2.5692198013516077e-07,
+              "relative_L2_parameter_error": 4.942827526105141e-08,
+              "relative_b_error": 1.8295324281476788e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 6,
+              "max_abs_parameter_error": 3.445522946954327e-07,
+              "relative_L2_parameter_error": 5.722173073157671e-08,
+              "relative_b_error": 1.8202447558656167e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 7,
+              "max_abs_parameter_error": 4.399824375944661e-07,
+              "relative_L2_parameter_error": 6.37626638479419e-08,
+              "relative_b_error": 3.6228170372605317e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 8,
+              "max_abs_parameter_error": 4.6456739122291424e-07,
+              "relative_L2_parameter_error": 6.830566971894818e-08,
+              "relative_b_error": 3.604105101025706e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 9,
+              "max_abs_parameter_error": 4.971049252233684e-07,
+              "relative_L2_parameter_error": 7.296106492305963e-08,
+              "relative_b_error": 3.5874728160318615e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 10,
+              "max_abs_parameter_error": 5.469647494926733e-07,
+              "relative_L2_parameter_error": 8.075303322137363e-08,
+              "relative_b_error": 5.354658695616346e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 11,
+              "max_abs_parameter_error": 5.610279778522909e-07,
+              "relative_L2_parameter_error": 8.550899457244536e-08,
+              "relative_b_error": 5.326883646897747e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 12,
+              "max_abs_parameter_error": 5.781715990416103e-07,
+              "relative_L2_parameter_error": 8.945822764655987e-08,
+              "relative_b_error": 5.302506144224701e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 13,
+              "max_abs_parameter_error": 5.594296932365239e-07,
+              "relative_L2_parameter_error": 9.169854151092063e-08,
+              "relative_b_error": 5.27658526587808e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 14,
+              "max_abs_parameter_error": 5.645383440722185e-07,
+              "relative_L2_parameter_error": 9.375876734135702e-08,
+              "relative_b_error": 7.003088369250896e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 15,
+              "max_abs_parameter_error": 5.001915179825289e-07,
+              "relative_L2_parameter_error": 9.66193002091889e-08,
+              "relative_b_error": 6.967751159438141e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 16,
+              "max_abs_parameter_error": 5.666664586456704e-07,
+              "relative_L2_parameter_error": 9.748056574757628e-08,
+              "relative_b_error": 6.933051501859006e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 17,
+              "max_abs_parameter_error": 5.59732361793408e-07,
+              "relative_L2_parameter_error": 1.0012149980125639e-07,
+              "relative_b_error": 6.900949401281392e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 18,
+              "max_abs_parameter_error": 5.212958411604518e-07,
+              "relative_L2_parameter_error": 1.0279982630785343e-07,
+              "relative_b_error": 8.587501801581645e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 19,
+              "max_abs_parameter_error": 5.395163973354045e-07,
+              "relative_L2_parameter_error": 1.0673316316347968e-07,
+              "relative_b_error": 8.55092067515138e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            },
+            {
+              "step": 20,
+              "max_abs_parameter_error": 6.06289672244742e-07,
+              "relative_L2_parameter_error": 1.0980896953514683e-07,
+              "relative_b_error": 8.509704733396138e-16,
+              "gradient_unchanged": true,
+              "rng_unchanged": true
+            }
+          ],
+          "state_roundtrip": {
+            "passed": true,
+            "bitwise_equal": true,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "elements": 3,
+            "tensors": 3,
+            "first_failure": null
+          }
+        }
+      ]
+    },
+    "G4": {
+      "passed": true,
+      "cases": {
+        "default": {
+          "passed": true,
+          "comparisons": {
+            "initial_rng": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "initial_model": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "initial_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "initial_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "constructor_critic_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "input_batch": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "loss_components": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 140,
+              "tensors": 140,
+              "first_failure": null
+            },
+            "actor_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 11367840,
+              "tensors": 240,
+              "first_failure": null
+            },
+            "critic_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 2728980,
+              "tensors": 160,
+              "first_failure": null
+            },
+            "permutations": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1000000,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "actor_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 12,
+              "first_failure": null
+            },
+            "critic_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 136449,
+              "tensors": 8,
+              "first_failure": null
+            },
+            "model_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "actor_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1136801,
+              "tensors": 41,
+              "first_failure": null
+            },
+            "critic_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 272911,
+              "tensors": 29,
+              "first_failure": null
+            },
+            "actor_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "critic_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "rng_after_update": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "diagnostic_generator_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5056,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "logged_values": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 33,
+              "tensors": 33,
+              "first_failure": null
+            },
+            "sampling": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 62242,
+              "tensors": 30,
+              "first_failure": null
+            },
+            "input_batch_after": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "scientific_stage3_metrics": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 0,
+              "tensors": 0,
+              "first_failure": null
+            }
+          }
+        },
+        "nc4": {
+          "passed": true,
+          "comparisons": {
+            "initial_rng": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "initial_model": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "initial_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "initial_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "constructor_critic_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "input_batch": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "loss_components": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 168,
+              "tensors": 168,
+              "first_failure": null
+            },
+            "actor_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 12,
+              "first_failure": null
+            },
+            "critic_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 2728980,
+              "tensors": 160,
+              "first_failure": null
+            },
+            "permutations": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1000000,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "actor_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 12,
+              "first_failure": null
+            },
+            "critic_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 136449,
+              "tensors": 8,
+              "first_failure": null
+            },
+            "model_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "actor_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1136801,
+              "tensors": 41,
+              "first_failure": null
+            },
+            "critic_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 272911,
+              "tensors": 29,
+              "first_failure": null
+            },
+            "actor_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "critic_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "rng_after_update": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "diagnostic_generator_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5056,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "logged_values": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 31,
+              "tensors": 31,
+              "first_failure": null
+            },
+            "sampling": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 62242,
+              "tensors": 30,
+              "first_failure": null
+            },
+            "input_batch_after": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "scientific_stage3_metrics": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 0,
+              "tensors": 0,
+              "first_failure": null
+            }
+          }
+        },
+        "e1cg": {
+          "passed": true,
+          "comparisons": {
+            "initial_rng": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "initial_model": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "initial_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "initial_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_critic_optimizer": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "constructor_actor_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "constructor_critic_scheduler": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "input_batch": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "loss_components": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 168,
+              "tensors": 168,
+              "first_failure": null
+            },
+            "actor_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 12,
+              "first_failure": null
+            },
+            "critic_gradients": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 2728980,
+              "tensors": 160,
+              "first_failure": null
+            },
+            "permutations": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1000000,
+              "tensors": 5,
+              "first_failure": null
+            },
+            "actor_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 568392,
+              "tensors": 12,
+              "first_failure": null
+            },
+            "critic_parameters": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 136449,
+              "tensors": 8,
+              "first_failure": null
+            },
+            "model_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1841625,
+              "tensors": 44,
+              "first_failure": null
+            },
+            "actor_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1136801,
+              "tensors": 41,
+              "first_failure": null
+            },
+            "critic_optimizer_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 272911,
+              "tensors": 29,
+              "first_failure": null
+            },
+            "actor_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "critic_scheduler_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 6,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "rng_after_update": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5681,
+              "tensors": 3,
+              "first_failure": null
+            },
+            "diagnostic_generator_state": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 5056,
+              "tensors": 1,
+              "first_failure": null
+            },
+            "logged_values": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 31,
+              "tensors": 31,
+              "first_failure": null
+            },
+            "sampling": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 62242,
+              "tensors": 30,
+              "first_failure": null
+            },
+            "input_batch_after": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 10480000,
+              "tensors": 6,
+              "first_failure": null
+            },
+            "scientific_stage3_metrics": {
+              "passed": true,
+              "bitwise_equal": true,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "elements": 1055,
+              "tensors": 1055,
+              "first_failure": null
+            }
+          }
+        }
+      }
+    },
+    "G2": {
+      "passed": true,
+      "incoming_gradients": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 568392,
+        "tensors": 12,
+        "first_failure": null
+      },
+      "scope": "gradient captured immediately before each native optimizer.step"
+    },
+    "G3": {
+      "passed": false,
+      "status": "pending_calibrated_eta_b0"
+    },
+    "G5": {
+      "passed": false,
+      "status": "pending_calibrated_eta_b0"
+    }
+  },
+  "reference_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg/results/stage3/e1cg/dppo",
+  "edited_source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+  "reference_revision": "03f8261",
+  "eta_gate": 0.01,
+  "b0_gate": 0.001,
+  "cap_seconds": 7200.0,
+  "prior_gate_seconds": 11.31318662292324,
+  "fixture": "Existing full Stage-3 saved batch, pre-update model/optimizer/RNG state; same accepted CPU log-probs for both versions.",
+  "elapsed_seconds": 720.637593844207,
+  "aggregate_gate_seconds": 731.9507804671302,
+  "active": "adagrad_update",
+  "preliminary_passed": true
+}

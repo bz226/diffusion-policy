@@ -1,0 +1,192 @@
+[
+  {
+    "batch": 0,
+    "eta0": 2.155278213039377,
+    "kl_eta0": 0.0019612546224179856,
+    "kl_10eta0": 0.18641938737898212,
+    "exponent": 1.9779570962691029,
+    "eta_b": 1.1766168049961128,
+    "eta_theory_b": null,
+    "kl_eta_b": 0.0005853349133968935,
+    "gradient_norm": 0.0032212902344925516,
+    "theta0_norm": 694.2776660278302,
+    "seconds": 20.390349440276623,
+    "trials": [
+      {
+        "eta": 21.55278213039377,
+        "kl": 0.18641938737898212,
+        "label": "initial"
+      },
+      {
+        "eta": 2.155278213039377,
+        "kl": 0.0019612546224179856,
+        "label": "bracket"
+      },
+      {
+        "eta": 21.55278213039377,
+        "kl": 0.18641938737898212,
+        "label": "exponent_probe"
+      },
+      {
+        "eta": 1.1766168049961128,
+        "kl": 0.0005853349133968935,
+        "label": "quadratic_prediction"
+      }
+    ],
+    "warnings": [],
+    "permutation_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration_permutation_0.npy"
+  },
+  {
+    "batch": 1,
+    "eta0": 0.19720743822322762,
+    "kl_eta0": 0.0001312460122987062,
+    "kl_10eta0": 0.01330263151248955,
+    "exponent": 2.0058514442090383,
+    "eta_b": 0.416177820252445,
+    "eta_theory_b": null,
+    "kl_eta_b": 0.0005852717274478047,
+    "gradient_norm": 0.003520545027525521,
+    "theta0_norm": 694.2776660278302,
+    "seconds": 19.751536794006824,
+    "trials": [
+      {
+        "eta": 19.72074382232276,
+        "kl": 1.1464350602255522,
+        "label": "initial"
+      },
+      {
+        "eta": 1.9720743822322762,
+        "kl": 0.01330263151248955,
+        "label": "bracket"
+      },
+      {
+        "eta": 0.19720743822322762,
+        "kl": 0.0001312460122987062,
+        "label": "bracket"
+      },
+      {
+        "eta": 1.9720743822322762,
+        "kl": 0.01330263151248955,
+        "label": "exponent_probe"
+      },
+      {
+        "eta": 0.416177820252445,
+        "kl": 0.0005852717274478047,
+        "label": "quadratic_prediction"
+      }
+    ],
+    "warnings": [],
+    "permutation_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration_permutation_1.npy"
+  },
+  {
+    "batch": 2,
+    "eta0": 2.227196003816269,
+    "kl_eta0": 0.004096305285035863,
+    "kl_10eta0": 0.3324257432102363,
+    "exponent": 1.9093023325828655,
+    "eta_b": 0.8413195463073039,
+    "eta_theory_b": null,
+    "kl_eta_b": 0.0005909229932808507,
+    "gradient_norm": 0.0031172724126578683,
+    "theta0_norm": 694.2776660278302,
+    "seconds": 20.14601713232696,
+    "trials": [
+      {
+        "eta": 22.271960038162685,
+        "kl": 0.3324257432102363,
+        "label": "initial"
+      },
+      {
+        "eta": 2.227196003816269,
+        "kl": 0.004096305285035863,
+        "label": "bracket"
+      },
+      {
+        "eta": 22.27196003816269,
+        "kl": 0.3324257432102363,
+        "label": "exponent_probe"
+      },
+      {
+        "eta": 0.8413195463073039,
+        "kl": 0.0005909229932808507,
+        "label": "quadratic_prediction"
+      }
+    ],
+    "warnings": [],
+    "permutation_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration_permutation_2.npy"
+  },
+  {
+    "batch": 3,
+    "eta0": 2.128950947048739,
+    "kl_eta0": 0.002626854962058404,
+    "kl_10eta0": 0.2675366030638645,
+    "exponent": 2.007947113976874,
+    "eta_b": 1.0042603260105385,
+    "eta_theory_b": null,
+    "kl_eta_b": 0.0005834447819211235,
+    "gradient_norm": 0.0032611257060209562,
+    "theta0_norm": 694.2776660278302,
+    "seconds": 21.09597614686936,
+    "trials": [
+      {
+        "eta": 21.28950947048739,
+        "kl": 0.2675366030638645,
+        "label": "initial"
+      },
+      {
+        "eta": 2.128950947048739,
+        "kl": 0.002626854962058404,
+        "label": "bracket"
+      },
+      {
+        "eta": 21.289509470487392,
+        "kl": 0.2675366030638645,
+        "label": "exponent_probe"
+      },
+      {
+        "eta": 1.0042603260105385,
+        "kl": 0.0005834447819211235,
+        "label": "quadratic_prediction"
+      }
+    ],
+    "warnings": [],
+    "permutation_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration_permutation_3.npy"
+  },
+  {
+    "batch": 4,
+    "eta0": 2.223403896357318,
+    "kl_eta0": 0.004043938590140984,
+    "kl_10eta0": 0.33055510921351144,
+    "exponent": 1.9124393222837937,
+    "eta_b": 0.8453076213222475,
+    "eta_theory_b": null,
+    "kl_eta_b": 0.0005917477414088261,
+    "gradient_norm": 0.003122589049903574,
+    "theta0_norm": 694.2776660278302,
+    "seconds": 20.364667831920087,
+    "trials": [
+      {
+        "eta": 22.234038963573177,
+        "kl": 0.33055510921351144,
+        "label": "initial"
+      },
+      {
+        "eta": 2.223403896357318,
+        "kl": 0.004043938590140984,
+        "label": "bracket"
+      },
+      {
+        "eta": 22.23403896357318,
+        "kl": 0.33055510921351144,
+        "label": "exponent_probe"
+      },
+      {
+        "eta": 0.8453076213222475,
+        "kl": 0.0005917477414088261,
+        "label": "quadratic_prediction"
+      }
+    ],
+    "warnings": [],
+    "permutation_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration_permutation_4.npy"
+  }
+]

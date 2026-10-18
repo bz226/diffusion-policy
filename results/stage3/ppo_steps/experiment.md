@@ -20,3 +20,5 @@ See the [analysis note](curated/NOTE.md), [methods](methods.md), [exact job plan
 Total GPU use was 57.38 hours of the approved 80. Collection and analysis stopped before the controller's 12-hour deadline. The initial 6–8-hour estimate underestimated per-step measurement cost; the controller ran approximately 11h 51m. One initial CPU-only launcher failed before scientific execution because Slurm spooled its relative path; the corrected absolute-path launcher and its revision are recorded in provenance.
 
 The approved plots, table and note are saved in the [curated index](curated/INDEX.md). No additional sampling is scheduled. The remaining decision is how to present the unresolved first-step point; the saved signed estimate and interval are preserved.
+
+The [three per-checkpoint figures and grid](curated/INDEX.md#per-checkpoint-views), approved on 2026-10-18, show the existing Part C estimates on common four-decade axes. Their [note](curated/dppo-per-step-noise-checkpoint-views-note.md) records the limits and verification. The original combined figure is unchanged; no additional measurements or statistics were produced.

@@ -80,6 +80,18 @@
 - Experiment design: [Methods](./results/stage3/ppo_steps/methods.md)
 - Curated results: [Plots, table and limitations](./results/stage3/ppo_steps/curated/INDEX.md)
 
+#### Analysis: per-checkpoint views of DPPO's per-step gradient noise
+
+- Analysis folder: [Checkpoint views](./results/stage3/ppo_steps/candidates/checkpoint_views_20261018/)
+- Analysis design: [Methods](./results/stage3/ppo_steps/methods.md), [shared axes and preserved estimates](./results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-views-note.md)
+- Curated results: [Three checkpoint figures and grid](./results/stage3/ppo_steps/curated/INDEX.md#per-checkpoint-views)
+
+### Stage 3 AdaGrad-Norm on the discounted critic-baseline estimator
+
+- Experiment folder: [AdaGrad-Norm experiment](./results/stage3/e1cg_an/)
+- Experiment design: [Methods and execution protocol](./results/stage3/e1cg_an/methods.md)
+- Curated: [Report, plots, table and captions](./results/stage3/e1cg_an/curated/INDEX.md)
+
 ## Comparison analyses
 
 ### DPPO, without_PPO and without_PPO_and_GAE: rewards and exact-critic gradient noise

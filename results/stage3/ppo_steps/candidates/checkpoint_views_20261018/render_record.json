@@ -1,0 +1,74 @@
+{
+  "status": "complete",
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "table": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/candidates/final/ppo_steps_table.csv",
+  "columns": [
+    "u_norm",
+    "trace_ep",
+    "B"
+  ],
+  "checkpoints": [
+    [
+      35,
+      32
+    ],
+    [
+      70,
+      63
+    ],
+    [
+      105,
+      95
+    ]
+  ],
+  "K": 500,
+  "groups": 10,
+  "color": "#004d7a",
+  "span_decades": 4.0,
+  "ylimits": {
+    "u_norm": [
+      4.321233722185715e-06,
+      0.043212337221857154
+    ],
+    "trace_ep": [
+      0.00015831335618878448,
+      1.5831335618878448
+    ],
+    "B": [
+      921.8156916907501,
+      9218156.9169075
+    ]
+  },
+  "xticks": [
+    1,
+    5,
+    9,
+    13,
+    17
+  ],
+  "figures": [
+    "dppo_per_step_noise_u32",
+    "dppo_per_step_noise_u63",
+    "dppo_per_step_noise_u95",
+    "dppo_per_step_noise_grid"
+  ],
+  "original_figure_hashes_before": {
+    "curated/dppo_per_step_noise.png": "d5673f9235dda304141cf124a6ea14cf272d4a101836406f32cb41aed2f0f4c5",
+    "curated/dppo_per_step_noise.pdf": "a1820decfff48f682c93b482285d7d549404d81174dc70e2d4c66ab424c0df18"
+  },
+  "original_figure_hashes_after": {
+    "curated/dppo_per_step_noise.png": "d5673f9235dda304141cf124a6ea14cf272d4a101836406f32cb41aed2f0f4c5",
+    "curated/dppo_per_step_noise.pdf": "a1820decfff48f682c93b482285d7d549404d81174dc70e2d4c66ab424c0df18"
+  },
+  "old_figure_copies_byte_identical": 8,
+  "table_byte_identical": true,
+  "drawn_values_equal_saved_points": true,
+  "jobs_launched": false,
+  "statistics_recomputed": false,
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "results/stage3/ppo_steps/code/plot_per_checkpoint.py",
+    "--output-dir",
+    "results/stage3/ppo_steps/candidates/checkpoint_views_20261018"
+  ]
+}

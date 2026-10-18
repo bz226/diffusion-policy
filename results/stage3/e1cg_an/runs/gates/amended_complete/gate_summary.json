@@ -1,0 +1,1901 @@
+{
+  "aggregate_gate_seconds": 2129.3644979614764,
+  "amended_G3": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/amended_G3/gate_summary.json",
+  "amended_G3_process_timing": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/amended_G3/process_timing.json",
+  "amendment_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/provenance/g3_amendment.json",
+  "b0": 3.22129e-06,
+  "cap_seconds": 7200.0,
+  "checks": {
+    "G1": {
+      "P": 1000,
+      "cases": [
+        {
+          "b0": 0.001,
+          "b0_exceeds_first_gradient_norm": false,
+          "state_roundtrip": {
+            "bitwise_equal": true,
+            "elements": 3,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "steps": [
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 1.1724028192716673e-07,
+              "relative_L2_parameter_error": 2.4956048557168996e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 1
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 1.8922030342594098e-07,
+              "relative_L2_parameter_error": 3.485389591628996e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 2
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.4017898114792047e-07,
+              "relative_L2_parameter_error": 4.15265391135553e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 3
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 3.1664664312813784e-07,
+              "relative_L2_parameter_error": 4.754567017202963e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 4
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.802694023529284e-07,
+              "relative_L2_parameter_error": 5.37172052083741e-08,
+              "relative_b_error": 2.0237047094543694e-16,
+              "rng_unchanged": true,
+              "step": 5
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 3.824400649499182e-07,
+              "relative_L2_parameter_error": 6.193663354269055e-08,
+              "relative_b_error": 1.8471621176403125e-16,
+              "rng_unchanged": true,
+              "step": 6
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.626365561755108e-07,
+              "relative_L2_parameter_error": 6.633042318645324e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 7
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.035793080310214e-07,
+              "relative_L2_parameter_error": 7.138997461429166e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 8
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.76121615022862e-07,
+              "relative_L2_parameter_error": 7.426866560424119e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 9
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.167145964435349e-07,
+              "relative_L2_parameter_error": 7.676885980495041e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 10
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 6.04514338142792e-07,
+              "relative_L2_parameter_error": 7.997899853784297e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 11
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.868001148849999e-07,
+              "relative_L2_parameter_error": 8.113302841507713e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 12
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.957114539434372e-07,
+              "relative_L2_parameter_error": 8.478678167708118e-08,
+              "relative_b_error": 1.2539011837719277e-16,
+              "rng_unchanged": true,
+              "step": 13
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 6.906145522123097e-07,
+              "relative_L2_parameter_error": 8.807821724215638e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 14
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 6.518373205643968e-07,
+              "relative_L2_parameter_error": 9.250567207185546e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 15
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 7.316393322298609e-07,
+              "relative_L2_parameter_error": 9.627957503731701e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 16
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 7.710509022373913e-07,
+              "relative_L2_parameter_error": 9.95338693670139e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 17
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 7.177515830569803e-07,
+              "relative_L2_parameter_error": 1.0298367100506632e-07,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 18
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 8.13702336177613e-07,
+              "relative_L2_parameter_error": 1.0870527934601702e-07,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 19
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 8.899188324029694e-07,
+              "relative_L2_parameter_error": 1.1043677753144014e-07,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 20
+            }
+          ]
+        },
+        {
+          "b0": 302.65961385378966,
+          "b0_exceeds_first_gradient_norm": true,
+          "state_roundtrip": {
+            "bitwise_equal": true,
+            "elements": 3,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "steps": [
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 1.1856292481127184e-07,
+              "relative_L2_parameter_error": 2.59465675465881e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 1
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.2487458650743974e-07,
+              "relative_L2_parameter_error": 3.444874978832026e-08,
+              "relative_b_error": 0.0,
+              "rng_unchanged": true,
+              "step": 2
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.247243475750338e-07,
+              "relative_L2_parameter_error": 4.039323085098787e-08,
+              "relative_b_error": 1.8487429839704275e-16,
+              "rng_unchanged": true,
+              "step": 3
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.5076497589537894e-07,
+              "relative_L2_parameter_error": 4.402533721646071e-08,
+              "relative_b_error": 1.8391969603308252e-16,
+              "rng_unchanged": true,
+              "step": 4
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 2.5692198013516077e-07,
+              "relative_L2_parameter_error": 4.942827526105141e-08,
+              "relative_b_error": 1.8295324281476788e-16,
+              "rng_unchanged": true,
+              "step": 5
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 3.445522946954327e-07,
+              "relative_L2_parameter_error": 5.722173073157671e-08,
+              "relative_b_error": 1.8202447558656167e-16,
+              "rng_unchanged": true,
+              "step": 6
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.399824375944661e-07,
+              "relative_L2_parameter_error": 6.37626638479419e-08,
+              "relative_b_error": 3.6228170372605317e-16,
+              "rng_unchanged": true,
+              "step": 7
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.6456739122291424e-07,
+              "relative_L2_parameter_error": 6.830566971894818e-08,
+              "relative_b_error": 3.604105101025706e-16,
+              "rng_unchanged": true,
+              "step": 8
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 4.971049252233684e-07,
+              "relative_L2_parameter_error": 7.296106492305963e-08,
+              "relative_b_error": 3.5874728160318615e-16,
+              "rng_unchanged": true,
+              "step": 9
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.469647494926733e-07,
+              "relative_L2_parameter_error": 8.075303322137363e-08,
+              "relative_b_error": 5.354658695616346e-16,
+              "rng_unchanged": true,
+              "step": 10
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.610279778522909e-07,
+              "relative_L2_parameter_error": 8.550899457244536e-08,
+              "relative_b_error": 5.326883646897747e-16,
+              "rng_unchanged": true,
+              "step": 11
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.781715990416103e-07,
+              "relative_L2_parameter_error": 8.945822764655987e-08,
+              "relative_b_error": 5.302506144224701e-16,
+              "rng_unchanged": true,
+              "step": 12
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.594296932365239e-07,
+              "relative_L2_parameter_error": 9.169854151092063e-08,
+              "relative_b_error": 5.27658526587808e-16,
+              "rng_unchanged": true,
+              "step": 13
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.645383440722185e-07,
+              "relative_L2_parameter_error": 9.375876734135702e-08,
+              "relative_b_error": 7.003088369250896e-16,
+              "rng_unchanged": true,
+              "step": 14
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.001915179825289e-07,
+              "relative_L2_parameter_error": 9.66193002091889e-08,
+              "relative_b_error": 6.967751159438141e-16,
+              "rng_unchanged": true,
+              "step": 15
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.666664586456704e-07,
+              "relative_L2_parameter_error": 9.748056574757628e-08,
+              "relative_b_error": 6.933051501859006e-16,
+              "rng_unchanged": true,
+              "step": 16
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.59732361793408e-07,
+              "relative_L2_parameter_error": 1.0012149980125639e-07,
+              "relative_b_error": 6.900949401281392e-16,
+              "rng_unchanged": true,
+              "step": 17
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.212958411604518e-07,
+              "relative_L2_parameter_error": 1.0279982630785343e-07,
+              "relative_b_error": 8.587501801581645e-16,
+              "rng_unchanged": true,
+              "step": 18
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 5.395163973354045e-07,
+              "relative_L2_parameter_error": 1.0673316316347968e-07,
+              "relative_b_error": 8.55092067515138e-16,
+              "rng_unchanged": true,
+              "step": 19
+            },
+            {
+              "gradient_unchanged": true,
+              "max_abs_parameter_error": 6.06289672244742e-07,
+              "relative_L2_parameter_error": 1.0980896953514683e-07,
+              "relative_b_error": 8.509704733396138e-16,
+              "rng_unchanged": true,
+              "step": 20
+            }
+          ]
+        }
+      ],
+      "passed": true,
+      "steps": 20
+    },
+    "G2": {
+      "incoming_gradients": {
+        "bitwise_equal": true,
+        "elements": 568392,
+        "first_failure": null,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "passed": true,
+        "tensors": 12
+      },
+      "passed": true,
+      "scope": "gradient captured immediately before each native optimizer.step"
+    },
+    "G3": {
+      "amendment": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/amended_G3/gate_summary.json",
+      "definition": "Approved G3a and G3b both passed",
+      "passed": true
+    },
+    "G3a": {
+      "absolute_error": 4.7704895589362195e-18,
+      "accumulator_dtype": "torch.float64",
+      "b_after": 0.002969447643882213,
+      "formula_displacement": 0.0026395484468681382,
+      "gradient_dtype": "float64",
+      "measured_displacement": 0.0026395484468681335,
+      "parameter_dtype": "float64",
+      "passed": true,
+      "relative_error": 1.8073127487379417e-15,
+      "relative_tolerance": 1e-10,
+      "rng_unchanged": {
+        "bitwise_equal": true,
+        "elements": 5681,
+        "first_failure": null,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "passed": true,
+        "tensors": 3
+      }
+    },
+    "G3b": {
+      "RMS_assumption": "Independent zero-mean uniform coordinate rounding; an approximation, not a deterministic bound.",
+      "RMS_formula": "sqrt(sum(u_i^2 * abs(spacing(theta_after_i.float32))^2 / 12)) / sum(u_i^2)",
+      "accumulator_dtype": "torch.float64",
+      "actual_float32_parameter_displacement": 0.0026395543956186313,
+      "actual_norm_relative_error_diagnostic_only": 2.2537000599960273e-06,
+      "alpha_native_float32_as_float64": -0.8889026641845703,
+      "alpha_python_float64": -0.8889026905182577,
+      "b_after": 0.002969447643882213,
+      "coordinate_count": 568392,
+      "coordinate_rounding_bound": "abs(float64(theta_after)-float64(theta_before)-u) <= abs(np.spacing(theta_after.float32))",
+      "coordinate_violations": 0,
+      "expected_relative_RMS_norm_rounding": 2.0764630605838753e-06,
+      "formula_displacement": 0.0026395484468681382,
+      "gradient_dtype": "float32",
+      "implicit_update_definition": "float64 product of the native float32 alpha operand and native float32 gradient; no separately rounded float32 update tensor",
+      "implicit_update_norm": 0.0026395483686716746,
+      "implicit_update_relative_error": 2.9624939720267686e-08,
+      "max_absolute_coordinate_error": 4.643934734813778e-07,
+      "max_coordinate_error_in_ulps": 0.4999998527364369,
+      "norm_relative_tolerance": 1e-06,
+      "parameter_dtype": "float32",
+      "passed": true,
+      "predicted_b_equal": true,
+      "previous_b0": 3.2212902344925517e-06,
+      "previous_eta": 0.002639548322140887,
+      "previous_failed_relative_norm_error": 2.308655985808447e-06,
+      "rng_unchanged": {
+        "bitwise_equal": true,
+        "elements": 5681,
+        "first_failure": null,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "passed": true,
+        "tensors": 3
+      }
+    },
+    "G4": {
+      "cases": {
+        "default": {
+          "comparisons": {
+            "actor_gradients": {
+              "bitwise_equal": true,
+              "elements": 11367840,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 240
+            },
+            "actor_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 1136801,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 41
+            },
+            "actor_parameters": {
+              "bitwise_equal": true,
+              "elements": 568392,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 12
+            },
+            "actor_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_actor_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_critic_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "critic_gradients": {
+              "bitwise_equal": true,
+              "elements": 2728980,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 160
+            },
+            "critic_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 272911,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 29
+            },
+            "critic_parameters": {
+              "bitwise_equal": true,
+              "elements": 136449,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 8
+            },
+            "critic_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "diagnostic_generator_state": {
+              "bitwise_equal": true,
+              "elements": 5056,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 1
+            },
+            "initial_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_model": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "initial_rng": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "input_batch": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "input_batch_after": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "logged_values": {
+              "bitwise_equal": true,
+              "elements": 33,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 33
+            },
+            "loss_components": {
+              "bitwise_equal": true,
+              "elements": 140,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 140
+            },
+            "model_state": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "permutations": {
+              "bitwise_equal": true,
+              "elements": 1000000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "rng_after_update": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "sampling": {
+              "bitwise_equal": true,
+              "elements": 62242,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 30
+            },
+            "scientific_stage3_metrics": {
+              "bitwise_equal": true,
+              "elements": 0,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 0
+            }
+          },
+          "passed": true
+        },
+        "e1cg": {
+          "comparisons": {
+            "actor_gradients": {
+              "bitwise_equal": true,
+              "elements": 568392,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 12
+            },
+            "actor_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 1136801,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 41
+            },
+            "actor_parameters": {
+              "bitwise_equal": true,
+              "elements": 568392,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 12
+            },
+            "actor_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_actor_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_critic_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "critic_gradients": {
+              "bitwise_equal": true,
+              "elements": 2728980,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 160
+            },
+            "critic_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 272911,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 29
+            },
+            "critic_parameters": {
+              "bitwise_equal": true,
+              "elements": 136449,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 8
+            },
+            "critic_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "diagnostic_generator_state": {
+              "bitwise_equal": true,
+              "elements": 5056,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 1
+            },
+            "initial_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_model": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "initial_rng": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "input_batch": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "input_batch_after": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "logged_values": {
+              "bitwise_equal": true,
+              "elements": 31,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 31
+            },
+            "loss_components": {
+              "bitwise_equal": true,
+              "elements": 168,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 168
+            },
+            "model_state": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "permutations": {
+              "bitwise_equal": true,
+              "elements": 1000000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "rng_after_update": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "sampling": {
+              "bitwise_equal": true,
+              "elements": 62242,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 30
+            },
+            "scientific_stage3_metrics": {
+              "bitwise_equal": true,
+              "elements": 1055,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 1055
+            }
+          },
+          "passed": true
+        },
+        "nc4": {
+          "comparisons": {
+            "actor_gradients": {
+              "bitwise_equal": true,
+              "elements": 568392,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 12
+            },
+            "actor_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 1136801,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 41
+            },
+            "actor_parameters": {
+              "bitwise_equal": true,
+              "elements": 568392,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 12
+            },
+            "actor_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_actor_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "constructor_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "constructor_critic_scheduler": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "critic_gradients": {
+              "bitwise_equal": true,
+              "elements": 2728980,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 160
+            },
+            "critic_optimizer_state": {
+              "bitwise_equal": true,
+              "elements": 272911,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 29
+            },
+            "critic_parameters": {
+              "bitwise_equal": true,
+              "elements": 136449,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 8
+            },
+            "critic_scheduler_state": {
+              "bitwise_equal": true,
+              "elements": 6,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "diagnostic_generator_state": {
+              "bitwise_equal": true,
+              "elements": 5056,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 1
+            },
+            "initial_actor_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_critic_optimizer": {
+              "bitwise_equal": true,
+              "elements": 5,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "initial_model": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "initial_rng": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "input_batch": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "input_batch_after": {
+              "bitwise_equal": true,
+              "elements": 10480000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 6
+            },
+            "logged_values": {
+              "bitwise_equal": true,
+              "elements": 31,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 31
+            },
+            "loss_components": {
+              "bitwise_equal": true,
+              "elements": 168,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 168
+            },
+            "model_state": {
+              "bitwise_equal": true,
+              "elements": 1841625,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 44
+            },
+            "permutations": {
+              "bitwise_equal": true,
+              "elements": 1000000,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 5
+            },
+            "rng_after_update": {
+              "bitwise_equal": true,
+              "elements": 5681,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 3
+            },
+            "sampling": {
+              "bitwise_equal": true,
+              "elements": 62242,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 30
+            },
+            "scientific_stage3_metrics": {
+              "bitwise_equal": true,
+              "elements": 0,
+              "first_failure": null,
+              "max_abs": 0.0,
+              "max_rel": 0.0,
+              "passed": true,
+              "tensors": 0
+            }
+          },
+          "passed": true
+        }
+      },
+      "passed": true
+    },
+    "G5": {
+      "batch_settings_unchanged": true,
+      "checkpoints": [
+        {
+          "actor_updates": 0,
+          "b": 3.22129e-06,
+          "dtype": "torch.float64",
+          "itr": 0
+        },
+        {
+          "actor_updates": 10,
+          "b": 0.010216174192298597,
+          "dtype": "torch.float64",
+          "itr": 11
+        }
+      ],
+      "cleanup": {
+        "actions": [],
+        "all_children_exited": true,
+        "close_timeout_seconds": 10.0,
+        "direct_children_before": [
+          {
+            "parent_pid": 2847701,
+            "pid": 2847781,
+            "start_ticks": 833118936,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847783,
+            "start_ticks": 833118937,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847785,
+            "start_ticks": 833118938,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847787,
+            "start_ticks": 833118940,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847789,
+            "start_ticks": 833118941,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847791,
+            "start_ticks": 833118942,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847793,
+            "start_ticks": 833118942,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847795,
+            "start_ticks": 833118944,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847797,
+            "start_ticks": 833118945,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847799,
+            "start_ticks": 833118946,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847801,
+            "start_ticks": 833118946,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847803,
+            "start_ticks": 833118947,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847805,
+            "start_ticks": 833118948,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847807,
+            "start_ticks": 833118949,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847809,
+            "start_ticks": 833118950,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847811,
+            "start_ticks": 833118951,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847813,
+            "start_ticks": 833118952,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847815,
+            "start_ticks": 833118952,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847817,
+            "start_ticks": 833118955,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847819,
+            "start_ticks": 833118955,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847821,
+            "start_ticks": 833118956,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847823,
+            "start_ticks": 833118957,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847825,
+            "start_ticks": 833118958,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847827,
+            "start_ticks": 833118958,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847829,
+            "start_ticks": 833118959,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847831,
+            "start_ticks": 833118960,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847833,
+            "start_ticks": 833118961,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847835,
+            "start_ticks": 833118962,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847837,
+            "start_ticks": 833118963,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847839,
+            "start_ticks": 833118963,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847841,
+            "start_ticks": 833118964,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847843,
+            "start_ticks": 833118965,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847845,
+            "start_ticks": 833118966,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847847,
+            "start_ticks": 833118967,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847849,
+            "start_ticks": 833118968,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847851,
+            "start_ticks": 833118968,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847853,
+            "start_ticks": 833118969,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847855,
+            "start_ticks": 833118970,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847857,
+            "start_ticks": 833118971,
+            "state": "S"
+          },
+          {
+            "parent_pid": 2847701,
+            "pid": 2847859,
+            "start_ticks": 833118973,
+            "state": "S"
+          }
+        ],
+        "elapsed_seconds": 0.07310679741203785,
+        "ended_unix": 1792320370.9688575,
+        "errors": [],
+        "join_timeout_seconds": 5.0,
+        "parent_pid": 2847701,
+        "primary_error": null,
+        "remaining_active_children": [],
+        "remaining_direct_children": [],
+        "started_unix": 1792320370.895782,
+        "status": "passed",
+        "worker_pids_before": [
+          2847781,
+          2847783,
+          2847785,
+          2847787,
+          2847789,
+          2847791,
+          2847793,
+          2847795,
+          2847797,
+          2847799,
+          2847801,
+          2847803,
+          2847805,
+          2847807,
+          2847809,
+          2847811,
+          2847813,
+          2847815,
+          2847817,
+          2847819,
+          2847821,
+          2847823,
+          2847825,
+          2847827,
+          2847829,
+          2847831,
+          2847833,
+          2847835,
+          2847837,
+          2847839,
+          2847841,
+          2847843,
+          2847845,
+          2847847,
+          2847849,
+          2847851,
+          2847853,
+          2847855,
+          2847857,
+          2847859
+        ],
+        "workers": [
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847781
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847783
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847785
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847787
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847789
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847791
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847793
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847795
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847797
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847799
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847801
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847803
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847805
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847807
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847809
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847811
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847813
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847815
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847817
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847819
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847821
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847823
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847825
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847827
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847829
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847831
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847833
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847835
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847837
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847839
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847841
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847843
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847845
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847847
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847849
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847851
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847853
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847855
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847857
+          },
+          {
+            "alive": false,
+            "exitcode": 0,
+            "pid": 2847859
+          }
+        ]
+      },
+      "iterations": [
+        {
+          "actor_updates_end": 0,
+          "actor_updates_start": 0,
+          "b_end": 3.22129e-06,
+          "b_start": 3.22129e-06,
+          "eval_mode": true,
+          "itr": 0,
+          "logged_b": 3.22129e-06,
+          "logged_effective_lr": 819.4077527946878,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 1,
+          "actor_updates_start": 0,
+          "b_end": 0.003151099704359547,
+          "b_start": 3.22129e-06,
+          "eval_mode": false,
+          "itr": 1,
+          "logged_b": 0.003151099704359547,
+          "logged_effective_lr": 0.8376599433995002,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 2,
+          "actor_updates_start": 1,
+          "b_end": 0.0045437161555039966,
+          "b_start": 0.003151099704359547,
+          "eval_mode": false,
+          "itr": 2,
+          "logged_b": 0.0045437161555039966,
+          "logged_effective_lr": 0.5809231716207891,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 3,
+          "actor_updates_start": 2,
+          "b_end": 0.005635553885044241,
+          "b_start": 0.0045437161555039966,
+          "eval_mode": false,
+          "itr": 3,
+          "logged_b": 0.005635553885044241,
+          "logged_effective_lr": 0.4683745473545905,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 4,
+          "actor_updates_start": 3,
+          "b_end": 0.006565764955643894,
+          "b_start": 0.005635553885044241,
+          "eval_mode": false,
+          "itr": 4,
+          "logged_b": 0.006565764955643894,
+          "logged_effective_lr": 0.4020171324791421,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 5,
+          "actor_updates_start": 4,
+          "b_end": 0.007267526462751667,
+          "b_start": 0.006565764955643894,
+          "eval_mode": false,
+          "itr": 5,
+          "logged_b": 0.007267526462751667,
+          "logged_effective_lr": 0.36319785191406107,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 6,
+          "actor_updates_start": 5,
+          "b_end": 0.008028762658991717,
+          "b_start": 0.007267526462751667,
+          "eval_mode": false,
+          "itr": 6,
+          "logged_b": 0.008028762658991717,
+          "logged_effective_lr": 0.32876174226471466,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 7,
+          "actor_updates_start": 6,
+          "b_end": 0.00865210669930502,
+          "b_start": 0.008028762658991717,
+          "eval_mode": false,
+          "itr": 7,
+          "logged_b": 0.00865210669930502,
+          "logged_effective_lr": 0.30507598804947955,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 8,
+          "actor_updates_start": 7,
+          "b_end": 0.009251059743758063,
+          "b_start": 0.00865210669930502,
+          "eval_mode": false,
+          "itr": 8,
+          "logged_b": 0.009251059743758063,
+          "logged_effective_lr": 0.28532406806484795,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 9,
+          "actor_updates_start": 8,
+          "b_end": 0.00972479197608273,
+          "b_start": 0.009251059743758063,
+          "eval_mode": false,
+          "itr": 9,
+          "logged_b": 0.00972479197608273,
+          "logged_effective_lr": 0.2714248290854695,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 9,
+          "actor_updates_start": 9,
+          "b_end": 0.00972479197608273,
+          "b_start": 0.00972479197608273,
+          "eval_mode": true,
+          "itr": 10,
+          "logged_b": 0.00972479197608273,
+          "logged_effective_lr": 0.2714248290854695,
+          "lr": 0.00263955
+        },
+        {
+          "actor_updates_end": 10,
+          "actor_updates_start": 9,
+          "b_end": 0.010216174192298597,
+          "b_start": 0.00972479197608273,
+          "eval_mode": false,
+          "itr": 11,
+          "logged_b": 0.010216174192298597,
+          "logged_effective_lr": 0.25836971358513144,
+          "lr": 0.00263955
+        }
+      ],
+      "passed": true,
+      "rollouts": "actual CPU MuJoCo; no saved-rollout substitution",
+      "steps": [
+        {
+          "b_after": 0.003151099704359547,
+          "b_before": 3.22129e-06,
+          "grad_norm": 0.0031510980578372434,
+          "itr": 1,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.0045437161555039966,
+          "b_before": 0.003151099704359547,
+          "grad_norm": 0.0032735190781440805,
+          "itr": 2,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.005635553885044241,
+          "b_before": 0.0045437161555039966,
+          "grad_norm": 0.0033337832997136015,
+          "itr": 3,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.006565764955643894,
+          "b_before": 0.005635553885044241,
+          "grad_norm": 0.0033689466991219026,
+          "itr": 4,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.007267526462751667,
+          "b_before": 0.006565764955643894,
+          "grad_norm": 0.0031157136315833668,
+          "itr": 5,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.008028762658991717,
+          "b_before": 0.007267526462751667,
+          "grad_norm": 0.003412343615116174,
+          "itr": 6,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.00865210669930502,
+          "b_before": 0.008028762658991717,
+          "grad_norm": 0.0032245806706824977,
+          "itr": 7,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.009251059743758063,
+          "b_before": 0.00865210669930502,
+          "grad_norm": 0.003274623038827872,
+          "itr": 8,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.00972479197608273,
+          "b_before": 0.009251059743758063,
+          "grad_norm": 0.002998244919198925,
+          "itr": 9,
+          "lr": 0.00263955
+        },
+        {
+          "b_after": 0.010216174192298597,
+          "b_before": 0.00972479197608273,
+          "grad_norm": 0.003130277327858496,
+          "itr": 11,
+          "lr": 0.00263955
+        }
+      ]
+    }
+  },
+  "conservative_prior_cpu_wall_seconds": 764.7201463161036,
+  "elapsed_seconds": 1364.6443490469828,
+  "eta": 0.00263955,
+  "passed": true,
+  "preliminary": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/preliminary_retry/gate_summary.json",
+  "prior_gate_seconds": 764.7201463161036,
+  "raw_internal_amended_gate_aggregate_seconds": 761.7893028319813,
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+  "source_revision": "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+  "status": "passed"
+}

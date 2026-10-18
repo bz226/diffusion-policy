@@ -1,0 +1,99 @@
+{
+  "amended_G3_full_process_seconds": 4.769365848973393,
+  "amendment_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/provenance/g3_amendment.json",
+  "calibration": {
+    "amendment_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/provenance/g3_amendment.json",
+    "b0": 3.22129e-06,
+    "calibration_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration.json",
+    "d_b": [
+      0.0037902242236738048,
+      0.001465172755656155,
+      0.0026226222119335924,
+      0.003275019164689953,
+      0.002639548322140887
+    ],
+    "d_star": 0.00263955,
+    "eta_by_condition": {
+      "AN1": 0.00263955,
+      "AN10": 0.0263955,
+      "AN3": 0.00791865
+    },
+    "kl_target": 0.000584517336086918,
+    "median_gradient_norm": 0.0032212902344925516,
+    "raw_calibrated_b0": 3.2212902344925517e-06,
+    "raw_calibrated_d_star": 0.002639548322140887,
+    "run_values_source": "User-approved exact values in the G3 amendment; calibration not rerun.",
+    "spread": 2.586878720643704
+  },
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_adagrad_norm.py",
+      "--worker",
+      "smoke",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/amended_complete/live_smoke_12itr",
+      "--eta",
+      "0.00263955",
+      "--b0",
+      "3.22129e-06",
+      "--threads",
+      "2"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/campaign.py",
+      "build-training",
+      "--revision",
+      "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+      "--gate",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/amended_complete/gate_summary.json",
+      "--calibration",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration.json",
+      "--amendment",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/provenance/g3_amendment.json"
+    ],
+    [
+      "sbatch",
+      "--parsable",
+      "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/logs/controller_training.out",
+      "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/logs/controller_training.err",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/run_controller.sh",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/campaign.py",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/plan_training.json"
+    ]
+  ],
+  "completed_cpu_smoke_iterations": 0,
+  "conservative_overhead_charge_seconds": 2.930843484122306,
+  "conservative_previous_cpu_wall_seconds": 759.9507804671302,
+  "cpu_accounting_basis": "Previous 731.9507804671302s gates + 28s failed-gate CPU allocation; amended G3 full process; this supervisor from module entry.",
+  "cpu_gate_cap_seconds": 7200.0,
+  "detail": "Training controller 17940712 owns nine runs, evaluations and monitors.",
+  "ended_utc": "2026-10-18T10:46:13.521009+00:00",
+  "full_gate_passed": true,
+  "gate_pid": 2847701,
+  "gate_returncode": 0,
+  "internal_amended_gate_aggregate_seconds": 761.7893028319813,
+  "monitor_seconds": 1800,
+  "monitor_status": "paused",
+  "pid": 2847676,
+  "prior_gate_seconds": 764.7201463161036,
+  "revision": "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+  "scheduler_job_id": "17940478",
+  "started_utc": "2026-10-18T10:23:27.313194+00:00",
+  "status": "handed_off",
+  "supervisor_elapsed_seconds": 1366.290109762922,
+  "training_controller_job_id": "17940712",
+  "training_submission_attempted": true,
+  "training_submission_response": {
+    "returncode": 0,
+    "stderr": "",
+    "stdout": "17940712\n"
+  },
+  "updated_utc": "2026-10-18T10:46:13.521034+00:00"
+}

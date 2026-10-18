@@ -1,0 +1,20 @@
+{
+  "failed_attempt": "preliminary",
+  "failed_stage": "default_old worker construction, before any numerical comparison",
+  "reason": "D4RL_DATASET_DIR was unset; importing d4rl tried to create read-only /sailhome/zbao7/.d4rl",
+  "workaround": "Set D4RL_DATASET_DIR and package cache variables to this study's cache directory; no source, input, threshold or hyperparameter changed",
+  "retry": "preliminary_retry",
+  "prior_elapsed_seconds_charged": 11.31318662292324,
+  "reused_passed_check": "preliminary/optimizer_math/math.json",
+  "cpu_device": "CUDA_VISIBLE_DEVICES is empty; two torch CPU threads",
+  "environment": {
+    "LD_LIBRARY_PATH": "/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia",
+    "DPPO_DATA_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data",
+    "DPPO_LOG_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/log",
+    "D4RL_DATASET_DIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cache/d4rl",
+    "XDG_CACHE_HOME": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cache",
+    "TMPDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/tmp",
+    "PYTHONNOUSERSITE": "1",
+    "PYTHONDONTWRITEBYTECODE": "1"
+  }
+}

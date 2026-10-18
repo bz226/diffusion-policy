@@ -1,0 +1,39 @@
+{
+  "status": "approved",
+  "approval_text": "approve",
+  "utc": "2026-10-18T09:39:07.630447+00:00",
+  "gpu_hour_cap": 40,
+  "cpu_gate_wall_seconds_cap": 7200,
+  "training_cap_seconds": 14400,
+  "calibration_cap_seconds": 3600,
+  "ckpt_eval_cap_seconds": 600,
+  "max_parallel_gpus": 9,
+  "source_revision": "03f82611746954839169a64305777c3d7f91b139",
+  "branch": "stage3-e1cg-an",
+  "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an",
+  "conditions": [
+    "AN1",
+    "AN3",
+    "AN10"
+  ],
+  "seeds": [
+    0,
+    1,
+    2
+  ],
+  "iterations": 140,
+  "save_model_freq": 35,
+  "calibration_seed": 3000,
+  "calibration_batches": 5,
+  "eval_seed": 5000,
+  "eval_repeats_per_sampler": 2,
+  "retry_limit_per_failed_job": 1,
+  "retry_budget": "remaining cap only, after diagnosis/fix",
+  "monitor_interval_seconds": 1800,
+  "snapshot_relocation": {
+    "from": "results/stage3_e1cg_an",
+    "to": "results/stage3/e1cg_an",
+    "reason": "helper accepts single study basename; user specifies Stage3 layout"
+  },
+  "curation_approved": false
+}

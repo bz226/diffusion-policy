@@ -1,0 +1,58 @@
+{
+  "calibration": {
+    "b0": 3.2212902344925517e-06,
+    "calibration_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/cal_seed3000/calibration.json",
+    "d_b": [
+      0.0037902242236738048,
+      0.001465172755656155,
+      0.0026226222119335924,
+      0.003275019164689953,
+      0.002639548322140887
+    ],
+    "d_star": 0.002639548322140887,
+    "kl_target": 0.000584517336086918,
+    "median_gradient_norm": 0.0032212902344925516,
+    "spread": 2.586878720643704
+  },
+  "child_processes_after": [],
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/gate_complete.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1cg-an/results/stage3/e1cg_an/dppo",
+      "--preliminary",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/preliminary_retry",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/runs/gates/calibrated",
+      "--eta",
+      "0.002639548322140887",
+      "--b0",
+      "3.2212902344925517e-06",
+      "--cap-seconds",
+      "7200",
+      "--threads",
+      "2"
+    ]
+  ],
+  "completed_cpu_smoke_iterations": 0,
+  "cpu_gate_cap_seconds": 7200.0,
+  "detail": "Calibration verified; running strict G3 and the complete 12-iteration CPU G5.",
+  "ended_utc": "2026-10-18T09:59:54.833140+00:00",
+  "error": "Calibrated CPU gate failed: G3 actual float32 parameter displacement fails strict relative 1e-6 (G3 relative error 2.30865599e-06; required <= 1e-6).",
+  "gate_pid": 2847348,
+  "gate_returncode": 1,
+  "monitor_seconds": 1800,
+  "monitor_status": "paused",
+  "pid": 2847323,
+  "prior_gate_seconds": 731.9507804671302,
+  "revision": "2acb18e9629c577474ee7f1652c7cc6f5a3829ac",
+  "scheduler_job_id": "17940191",
+  "started_utc": "2026-10-18T09:59:27.280995+00:00",
+  "status": "blocked",
+  "supervisor_cap_seconds": 7200.0,
+  "supervisor_elapsed_seconds": 27.552113783545792,
+  "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/e1cg_an/code/continue_after_calibration.py\", line 217, in main\n    raise RuntimeError('Calibrated CPU gate failed: ' + detail)\nRuntimeError: Calibrated CPU gate failed: G3 actual float32 parameter displacement fails strict relative 1e-6 (G3 relative error 2.30865599e-06; required <= 1e-6).\n",
+  "updated_utc": "2026-10-18T09:59:54.833162+00:00"
+}

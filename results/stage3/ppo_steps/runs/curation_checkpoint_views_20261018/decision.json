@@ -1,0 +1,92 @@
+{
+  "recorded_at_utc": "2026-10-18T08:45:20.567558+00:00",
+  "approval": "keep curated",
+  "selection": [
+    "A",
+    "B",
+    "C",
+    "D"
+  ],
+  "artifact_review": "results/stage3/ppo_steps/candidates/checkpoint_views_20261018/ARTIFACT_REVIEW.md",
+  "files": [
+    {
+      "artifact": "A",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u32.png",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-32-updates.png",
+      "byte_identical": true
+    },
+    {
+      "artifact": "A",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u32.pdf",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-32-updates.pdf",
+      "byte_identical": true
+    },
+    {
+      "artifact": "A",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u32.caption.md",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-32-updates.caption.md",
+      "byte_identical": true
+    },
+    {
+      "artifact": "B",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u63.png",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-63-updates.png",
+      "byte_identical": true
+    },
+    {
+      "artifact": "B",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u63.pdf",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-63-updates.pdf",
+      "byte_identical": true
+    },
+    {
+      "artifact": "B",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u63.caption.md",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-63-updates.caption.md",
+      "byte_identical": true
+    },
+    {
+      "artifact": "C",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u95.png",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-95-updates.png",
+      "byte_identical": true
+    },
+    {
+      "artifact": "C",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u95.pdf",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-95-updates.pdf",
+      "byte_identical": true
+    },
+    {
+      "artifact": "C",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_u95.caption.md",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-95-updates.caption.md",
+      "byte_identical": true
+    },
+    {
+      "artifact": "D",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_grid.png",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-grid.png",
+      "byte_identical": true
+    },
+    {
+      "artifact": "D",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_grid.pdf",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-grid.pdf",
+      "byte_identical": true
+    },
+    {
+      "artifact": "D",
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_grid.caption.md",
+      "curated": "results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-grid.caption.md",
+      "byte_identical": true
+    }
+  ],
+  "note": "results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-views-note.md",
+  "validation": {
+    "all_copies_byte_identical": true,
+    "existing_curated_files_unchanged_before_index_update": true,
+    "new_runs": 0,
+    "new_statistics": false
+  }
+}

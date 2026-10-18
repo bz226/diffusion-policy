@@ -1,0 +1,388 @@
+"""One bounded scientific command in its own process group (Python 3.8)."""
+import argparse
+import ctypes
+import json
+import math
+import os
+import pickle
+import numbers
+from pathlib import Path
+import signal
+import subprocess
+import sys
+import time
+from datetime import datetime, timezone
+
+
+def utc():
+    return datetime.now(timezone.utc).isoformat()
+
+
+def read_json(path, default=None):
+    try:
+        with open(str(path)) as handle:
+            return json.load(handle)
+    except FileNotFoundError:
+        return default
+
+
+def atomic_json(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    temporary = path.with_name(path.name + '.tmp.%d' % os.getpid())
+    with temporary.open('w') as handle:
+        json.dump(value, handle, indent=2, sort_keys=True, allow_nan=False)
+        handle.write('\n')
+    os.replace(str(temporary), str(path))
+
+
+def append_json(path, value):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open('a') as handle:
+        handle.write(json.dumps(value, sort_keys=True, allow_nan=False) + '\n')
+
+
+def descendants(parent):
+    """Read only our descendant process IDs; unrelated processes are excluded."""
+    relations = {}
+    for entry in Path('/proc').iterdir():
+        if not entry.name.isdigit():
+            continue
+        try:
+            raw = (entry / 'stat').read_text()
+            fields = raw[raw.rfind(')') + 2:].split()
+            relations[int(entry.name)] = int(fields[1])
+        except (FileNotFoundError, ProcessLookupError, PermissionError, ValueError, IndexError):
+            continue
+    found, frontier = set(), {parent}
+    while frontier:
+        frontier = {pid for pid, ppid in relations.items() if ppid in frontier and pid not in found}
+        found.update(frontier)
+    return sorted(found)
+
+
+def reap():
+    while True:
+        try:
+            pid, _ = os.waitpid(-1, os.WNOHANG)
+        except ChildProcessError:
+            return
+        if pid == 0:
+            return
+
+
+def stop_owned(process):
+    """Cleanup only this command's group and this worker's adopted children."""
+    for signum, grace in ((signal.SIGTERM, 15.0), (signal.SIGKILL, 5.0)):
+        if process is not None:
+            try:
+                os.killpg(process.pid, signum)
+            except ProcessLookupError:
+                pass
+        for pid in descendants(os.getpid()):
+            try:
+                os.kill(pid, signum)
+            except ProcessLookupError:
+                pass
+        deadline = time.monotonic() + grace
+        while time.monotonic() < deadline:
+            if process is not None:
+                process.poll()
+            reap()
+            if not descendants(os.getpid()):
+                return []
+            time.sleep(0.2)
+    return descendants(os.getpid())
+
+
+def json_check(check):
+    """Return (ready, detail); missing paths are readiness waits, not success."""
+    path = Path(check['path'])
+    if not path.is_file():
+        return False, 'missing ' + str(path)
+    try:
+        value = read_json(path)
+        for key in check.get('key', '').split('.'):
+            if key:
+                value = value[int(key)] if isinstance(value, list) else value[key]
+        expected = check.get('equals', True)
+        return value == expected, '%s:%s = %r (wanted %r)' % (path, check.get('key', ''), value, expected)
+    except (ValueError, KeyError, TypeError, IndexError) as error:
+        return False, '%s: %s' % (path, error)
+
+
+def source_files(directory):
+    directory = Path(directory)
+    return {str(p.relative_to(directory)): p for p in directory.rglob('*')
+            if p.is_file() and not {'.git', '__pycache__', '.pytest_cache'}.intersection(p.relative_to(directory).parts)
+            and p.suffix != '.pyc'}
+
+
+def verify_source(provenance):
+    """Scientific contents plus explicit parent revision, without checksums."""
+    out = subprocess.run(['git', '-C', provenance['worktree'], 'rev-parse', 'HEAD'],
+                         stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                         universal_newlines=True, timeout=30, check=True)
+    if out.stdout.strip() != provenance['revision']:
+        raise RuntimeError('Source worktree revision changed')
+    dirty = subprocess.run(['git', '-C', provenance['worktree'], 'status', '--porcelain',
+                            '--untracked-files=no', '--', provenance['source_relative']],
+                           stdout=subprocess.PIPE, stderr=subprocess.PIPE,
+                           universal_newlines=True, timeout=30, check=True)
+    if dirty.stdout.strip():
+        raise RuntimeError('Scientific source differs from its committed revision: ' + dirty.stdout)
+    actual, saved = source_files(provenance['source']), source_files(provenance['snapshot'])
+    tracked_result = subprocess.run(['git', '-C', provenance['worktree'], 'ls-files', '-z', '--', provenance['source_relative']],
+                                    stdout=subprocess.PIPE, stderr=subprocess.PIPE, timeout=30, check=True)
+    prefix = provenance['source_relative'].rstrip('/') + '/'
+    tracked = {name[len(prefix):] for name in tracked_result.stdout.decode('utf-8').split('\0')
+               if name.startswith(prefix)}
+    if not set(actual).issubset(tracked):
+        raise RuntimeError('Scientific source contains files absent from the committed revision: ' +
+                           ', '.join(sorted(set(actual) - tracked)[:10]))
+    if set(actual) != set(saved):
+        raise RuntimeError('Scientific source file list differs from gate snapshot')
+    changed = [name for name in actual if actual[name].read_bytes() != saved[name].read_bytes()]
+    if changed:
+        raise RuntimeError('Scientific source contents changed: ' + ', '.join(changed))
+    return dict(revision=provenance['revision'], files_compared=len(actual), identical=True)
+
+
+def nonfinite(value, path=''):
+    if isinstance(value, dict):
+        return [item for key, val in value.items() for item in nonfinite(val, path + '.' + str(key))]
+    if isinstance(value, (list, tuple)):
+        return [item for idx, val in enumerate(value) for item in nonfinite(val, path + '[%d]' % idx)]
+    if isinstance(value, numbers.Real) and not math.isfinite(float(value)):
+        return [path]
+    return []
+
+
+def observe(spec):
+    directory = Path(spec['logdir'])
+    result = dict(utc=utc())
+    if spec['mode'] == 'train' and (directory / 'result.pkl').exists():
+        try:
+            with (directory / 'result.pkl').open('rb') as handle:
+                rows = pickle.load(handle)
+            result.update(rows=len(rows), last_itr=rows[-1]['itr'] if rows else None,
+                          nonfinite_paths=nonfinite(rows))
+            if rows:
+                result['last'] = {key: rows[-1][key] for key in
+                                 ('itr', 'step', 'train_episode_reward', 'eval_episode_reward', 'J_disc_train')
+                                 if key in rows[-1]}
+        except (EOFError, pickle.UnpicklingError):
+            result['write_in_progress'] = True
+    else:
+        try:
+            result['progress'] = read_json(spec['progress_file'], {})
+        except json.JSONDecodeError:
+            result['write_in_progress'] = True
+    if (directory / 'failure.json').is_file():
+        result['failure'] = read_json(directory / 'failure.json')
+    output = Path(spec['stdout'])
+    if output.is_file():
+        with output.open('rb') as handle:
+            handle.seek(max(0, output.stat().st_size - 16000))
+            result['console_tail'] = handle.read().decode('utf-8', errors='replace').splitlines()[-15:]
+    return result
+
+
+def validate_scientific_output(spec):
+    directory = Path(spec['logdir'])
+    cleanup = read_json(directory / 'cleanup.json', {})
+    if cleanup.get('status') != 'passed' or not cleanup.get('all_children_exited'):
+        raise RuntimeError('Explicit vector-environment cleanup was not verified')
+    if spec['mode'] == 'train':
+        with (directory / 'result.pkl').open('rb') as handle:
+            rows = pickle.load(handle)
+        if len(rows) != 140 or [int(r['itr']) for r in rows] != list(range(140)):
+            raise RuntimeError('Training did not save all 140 iteration records')
+        bad = nonfinite(rows)
+        if bad:
+            raise RuntimeError('Non-finite training output: ' + ', '.join(bad[:10]))
+        train = [r for r in rows if 'train_episode_reward' in r]
+        evaluations = [r for r in rows if 'eval_episode_reward' in r]
+        if len(train) != 126 or len(evaluations) != 14:
+            raise RuntimeError('Incorrect train/evaluation iteration counts')
+        if any(r.get('actor_optimizer_steps') != 1 for r in train):
+            raise RuntimeError('Each training iteration must use one actor update')
+        if any(r.get('actor_lr') != spec['actor_lr'] for r in train):
+            raise RuntimeError('Actor learning rate changed from the approved constant')
+        for itr in (0, 35, 70, 105, 139):
+            if not (directory / 'checkpoint' / ('state_%d.pt' % itr)).is_file():
+                raise RuntimeError('Missing requested checkpoint %d' % itr)
+        import torch
+        checkpoint_updates = {0: 0, 35: 32, 70: 63, 105: 95, 139: 126}
+        for itr, count in checkpoint_updates.items():
+            checkpoint = torch.load(str(directory / 'checkpoint' / ('state_%d.pt' % itr)), map_location='cpu', weights_only=False)
+            accumulator = checkpoint.get('adagrad_b')
+            saved = checkpoint.get('adagrad_norm_optimizer', {}).get('adagrad_norm', {})
+            if not isinstance(accumulator, torch.Tensor) or accumulator.dtype != torch.float64 or accumulator.numel() != 1:
+                raise RuntimeError('Checkpoint accumulator must be one float64 scalar')
+            if saved.get('actor_updates') != count or saved.get('b0') != spec['adagrad_norm_b0']:
+                raise RuntimeError('Checkpoint optimizer update count or initial accumulator differs')
+            if not torch.equal(accumulator, saved.get('b')):
+                raise RuntimeError('Checkpoint optimizer and top-level accumulators differ')
+            if count == 0 and accumulator.item() != spec['adagrad_norm_b0']:
+                raise RuntimeError('Evaluation iteration changed the initial accumulator')
+            if count and accumulator.item() != float(train[count - 1]['adagrad_b']):
+                raise RuntimeError('Checkpoint accumulator differs from the matching training log')
+        for key in ('adagrad_b', 'adagrad_effective_lr', 'update_norm', 'grad_norm', 'kl_true_per_action', 'theta_dist', 'J_disc_train'):
+            if any(key not in row for row in train):
+                raise RuntimeError('Missing AdaGrad-Norm diagnostic ' + key)
+        bs = [float(row['adagrad_b']) for row in train]
+        if bs[0] <= spec['adagrad_norm_b0'] or any(b < a for a, b in zip(bs, bs[1:])):
+            raise RuntimeError('AdaGrad-Norm accumulator must increase on actor updates')
+        for row in train:
+            if not math.isclose(float(row['adagrad_effective_lr']), spec['actor_lr'] / float(row['adagrad_b']), rel_tol=1e-12):
+                raise RuntimeError('Incorrect effective learning rate')
+        first = evaluations[0]['eval_episode_reward']
+        return dict(training_iterations=126, evaluation_iterations=14,
+                    collapse_eval_iterations=[r['itr'] for r in evaluations if r['eval_episode_reward'] < 0.5 * first])
+    if spec['mode'] == 'calibrate':
+        summary = read_json(directory / 'calibration.json')
+        if summary.get('status') != 'completed' or len(summary.get('batches', [])) != 5:
+            raise RuntimeError('Calibration must complete exactly five batches')
+        if summary.get('seed') != 3000 or summary.get('kl_target') != spec['kl_target']:
+            raise RuntimeError('Calibration seed or target changed')
+        if nonfinite(summary):
+            raise RuntimeError('Non-finite calibration output')
+        for row in summary['batches']:
+            if float(row['eta_b']) <= 0 or float(row['gradient_norm']) <= 0:
+                raise RuntimeError('Calibration requires positive step and gradient norms')
+        return dict(batches=5, seed=3000, kl_target=summary['kl_target'])
+    summary = read_json(directory / 'ckpt_eval.json')
+    if nonfinite(summary):
+        raise RuntimeError('Non-finite checkpoint evaluation output')
+    if set(summary['samplers']) != set(spec['samplers']):
+        raise RuntimeError('Checkpoint sampler selection does not match the approved plan')
+    if len(summary['rollouts']) != spec['repeats'] * len(spec['samplers']):
+        raise RuntimeError('Unexpected checkpoint-evaluation rollout count')
+    for sampler in spec['samplers']:
+        if summary['samplers'][sampler]['J_disc']['n'] != 80 * spec['repeats']:
+            raise RuntimeError('Unexpected checkpoint evaluation episode count')
+    return dict(rollouts=len(summary['rollouts']), samplers=spec['samplers'], repeats=spec['repeats'])
+
+
+def run(spec_path):
+    spec = read_json(spec_path)
+    root = Path(spec['run_root'])
+    directory = root / 'workers' / spec['id']
+    manifest_path = directory / 'manifest.json'
+    existing = read_json(manifest_path, {})
+    if existing.get('status'):
+        raise RuntimeError('Refusing to restart an existing worker: ' + str(manifest_path))
+    directory.mkdir(parents=True, exist_ok=True)
+    # Reparent grandchildren to this supervisor so clean exits are checkable.
+    libc = ctypes.CDLL(None, use_errno=True)
+    if libc.prctl(36, 1, 0, 0, 0) != 0:  # PR_SET_CHILD_SUBREAPER
+        raise OSError(ctypes.get_errno(), 'Cannot enable child subreaper')
+    interrupted = []
+
+    def on_signal(signum, frame):
+        interrupted.append(signum)
+
+    for signum in (signal.SIGTERM, signal.SIGINT, signal.SIGHUP):
+        signal.signal(signum, on_signal)
+    manifest = dict(spec=spec, id=spec['id'], status='starting', started_utc=utc(),
+                    scheduler_job_id=os.environ.get('SLURM_JOB_ID'), worker_pid=os.getpid(),
+                    python=sys.version, command=spec['command'], cwd=spec['cwd'])
+    atomic_json(manifest_path, manifest)
+    started = time.monotonic()
+    process, result = None, 1
+    try:
+        for check in spec.get('startup_checks', []):
+            okay, detail = json_check(check)
+            if not okay:
+                raise RuntimeError('Startup check failed: ' + detail)
+        manifest['source_before'] = verify_source(spec['source_provenance'])
+        if Path(spec['logdir']).exists():
+            raise RuntimeError('Refusing to reuse an existing scientific output directory')
+        env = os.environ.copy()
+        for key, value in spec.get('env', {}).items():
+            if value is None:
+                env.pop(key, None)
+            else:
+                env[str(key)] = str(value)
+        for name in ('TMPDIR', 'XDG_CACHE_HOME', 'MPLCONFIGDIR', 'TORCH_HOME', 'TRITON_CACHE_DIR', 'CUDA_CACHE_PATH', 'D4RL_DATASET_DIR'):
+            if env.get(name):
+                Path(env[name]).mkdir(parents=True, exist_ok=True)
+        gpu = subprocess.run(['nvidia-smi', '--query-gpu=name,uuid,driver_version,memory.total', '--format=csv,noheader'], stdout=subprocess.PIPE, stderr=subprocess.PIPE, universal_newlines=True, timeout=20, check=True)
+        manifest['hardware'] = dict(gpu=gpu.stdout.strip(), node=os.environ.get('SLURMD_NODENAME'), cpu_affinity=len(os.sched_getaffinity(0)))
+        manifest['environment'] = {key: env.get(key) for key in spec.get('env', {})}
+        output = Path(spec.get('stdout', str(root / 'logs' / (spec['id'] + '.out'))))
+        output.parent.mkdir(parents=True, exist_ok=True)
+        if output.exists():
+            raise RuntimeError('Refusing to overwrite console output: ' + str(output))
+        with output.open('x') as handle:
+            process = subprocess.Popen(spec['command'], cwd=spec['cwd'], env=env,
+                                       stdout=handle, stderr=subprocess.STDOUT,
+                                       start_new_session=True)
+            manifest.update(status='running', scientific_pid=process.pid, stdout=str(output))
+            atomic_json(manifest_path, manifest)
+            next_monitor, next_health = 0.0, 0.0
+            # Leave cleanup time before the scheduler's hard job deadline.
+            cap = max(1.0, float(spec['cap_seconds']) - 25.0)
+            while process.poll() is None:
+                elapsed = time.monotonic() - started
+                if interrupted:
+                    raise RuntimeError('Worker received signal %d' % interrupted[0])
+                if elapsed >= cap:
+                    raise RuntimeError('Scientific-command wall cap reached')
+                if time.monotonic() >= next_health:
+                    health = observe(spec)
+                    if health.get('nonfinite_paths') or health.get('failure'):
+                        raise RuntimeError('Scientific non-finite values or recorded failure: %r' % health)
+                    next_health = time.monotonic() + 60.0
+                if time.monotonic() >= next_monitor:
+                    progress = observe(spec)
+                    manifest.update(elapsed_seconds=elapsed, observed_utc=utc(), progress=progress)
+                    atomic_json(manifest_path, manifest)
+                    append_json(directory / 'monitor_history.jsonl',
+                                dict(utc=utc(), elapsed_seconds=elapsed, progress=progress))
+                    next_monitor = time.monotonic() + float(spec.get('monitor_seconds', 3600))
+                time.sleep(1.0)
+            returncode = process.returncode
+        # A successful scientific program must close and join all workers itself.
+        deadline = time.monotonic() + 5.0
+        while time.monotonic() < deadline:
+            reap()
+            if not descendants(os.getpid()):
+                break
+            time.sleep(0.1)
+        remaining = descendants(os.getpid())
+        if returncode != 0:
+            raise RuntimeError('Scientific command exited with code %d' % returncode)
+        if remaining:
+            raise RuntimeError('Scientific command left child processes: %r' % remaining)
+        for path in spec.get('completion_files', []):
+            if not Path(path).is_file():
+                raise RuntimeError('Required completed output is missing: ' + path)
+        for check in spec.get('completion_checks', []):
+            okay, detail = json_check(check)
+            if not okay:
+                raise RuntimeError('Completion check failed: ' + detail)
+        manifest['scientific_validation'] = validate_scientific_output(spec)
+        manifest['source_after'] = verify_source(spec['source_provenance'])
+        manifest.update(status='complete', exit_code=0, child_processes_after=[])
+        result = 0
+    except BaseException as error:
+        remaining = stop_owned(process)
+        manifest.update(status='failed', error='%s: %s' % (type(error).__name__, error),
+                        exit_code=process.returncode if process is not None else None,
+                        child_processes_after=remaining)
+        print(manifest['error'], file=sys.stderr, flush=True)
+    finally:
+        manifest.update(ended_utc=utc(), elapsed_seconds=time.monotonic() - started,
+                        monitor_status='paused')
+        atomic_json(manifest_path, manifest)
+    return result
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser()
+    parser.add_argument('spec')
+    args = parser.parse_args()
+    sys.exit(run(args.spec))

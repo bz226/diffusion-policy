@@ -1,0 +1,11 @@
+{
+  "os": "Linux-6.8.0-137-generic-x86_64-with-glibc2.39",
+  "python_executable": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+  "python": "3.8.20",
+  "torch": "2.4.0",
+  "mujoco": "2.1.0",
+  "packages": "pip_freeze.txt",
+  "training_thread_overrides": "OMP_NUM_THREADS, MKL_NUM_THREADS, OPENBLAS_NUM_THREADS unset as reference",
+  "cpu_gate_torch_threads": 2,
+  "gate_config": "full 40 envs, 500 decisions, 50000 pair chunks, 5 critic epochs"
+}

@@ -1,0 +1,49 @@
+{
+  "reference_revision": "03f82611746954839169a64305777c3d7f91b139",
+  "branch": "stage3-e1cg-an",
+  "commands": [
+    [
+      "python3",
+      "scripts/create_dppo_snapshot.py",
+      "--source",
+      ".git",
+      "--revision",
+      "03f82611746954839169a64305777c3d7f91b139",
+      "--subdir",
+      "results/stage3/e1cg/dppo",
+      "--study",
+      "stage3_e1cg_an"
+    ],
+    [
+      "mv",
+      "results/stage3_e1cg_an",
+      "results/stage3/e1cg_an"
+    ],
+    [
+      "git",
+      "worktree",
+      "add",
+      "-b",
+      "stage3-e1cg-an",
+      ".codex-runtime/worktrees/stage3-e1cg-an",
+      "03f82611746954839169a64305777c3d7f91b139"
+    ]
+  ],
+  "git_permission_note": "Creation first encountered sandbox read-only main .git; the same approved worktree action succeeded with tool escalation. Main and other worktrees were not switched.",
+  "source_creation": "Snapshot helper ran before creating the study; ordinary source copied to isolated worktree, no nested .git.",
+  "installation_workarounds": [
+    "Gate startup uses study-local D4RL_DATASET_DIR because the inherited default home cache is read-only. The failed startup record is preserved; no numeric comparison had executed."
+  ],
+  "staging": {
+    "utc": "2026-10-18T09:51:05.662128+00:00",
+    "helper": "scripts/git_add_all.py from parent main, executed against isolated worktree",
+    "inherited_runtime_log_entries_untracked": 801,
+    "working_files_preserved": true,
+    "main_index_unchanged": true
+  },
+  "literature_check": {
+    "source": "https://www.jmlr.org/papers/volume21/18-352/18-352.pdf",
+    "checked": "Algorithm 1/global norm recurrence and stochastic theorem assumptions",
+    "date": "2026-10-18"
+  }
+}

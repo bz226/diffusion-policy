@@ -1,0 +1,172 @@
+--- reference/agent/finetune/adagrad_norm.py
++++ adagrad_norm/agent/finetune/adagrad_norm.py
+@@ -0,0 +1,89 @@
++"""AdaGrad-Norm with one float64 accumulator for the entire actor.
++
++The gradient is left unchanged. Each step first updates b with the squared
++L2 norm of all parameter gradients, then subtracts (lr / b) times the gradient.
++There is no momentum, weight decay, per-coordinate scaling or clipping.
++"""
++import math
++
++import torch
++
++
++class AdaGradNorm(torch.optim.Optimizer):
++    def __init__(self, params, lr, b0):
++        if b0 is None or not math.isfinite(float(b0)) or float(b0) <= 0:
++            raise ValueError("adagrad_norm_b0 must be explicitly set, finite and positive")
++        if not math.isfinite(float(lr)) or float(lr) <= 0:
++            raise ValueError("AdaGrad-Norm lr must be finite and positive")
++        super().__init__(params, {"lr": float(lr)})
++        if len(self.param_groups) != 1 or not self.param_groups[0]["params"]:
++            raise ValueError("AdaGrad-Norm requires one nonempty actor parameter group")
++        self.b0 = float(b0)
++        self.b = torch.tensor(self.b0, dtype=torch.float64,
++                              device=self.param_groups[0]["params"][0].device)
++        self.actor_updates = 0
++
++    @torch.no_grad()
++    def step(self, closure=None):
++        loss = None
++        if closure is not None:
++            with torch.enable_grad():
++                loss = closure()
++        group = self.param_groups[0]
++        squared_norm = torch.zeros((), dtype=torch.float64, device=self.b.device)
++        for parameter in group["params"]:
++            if parameter.grad is not None:
++                if parameter.grad.is_sparse:
++                    raise RuntimeError("AdaGrad-Norm requires dense actor gradients")
++                gradient = parameter.grad.detach().to(dtype=torch.float64)
++                squared_norm.add_(torch.sum(gradient * gradient))
++        next_b = torch.sqrt(self.b * self.b + squared_norm)
++        if not bool(torch.isfinite(next_b)) or float(next_b.item()) <= 0:
++            raise FloatingPointError("nonfinite AdaGrad-Norm accumulator")
++        lr = float(group["lr"])
++        if not math.isfinite(lr) or lr <= 0:
++            raise ValueError("AdaGrad-Norm lr must remain finite and positive")
++        self.b.copy_(next_b)
++        scale = -lr / self.b.item()
++        for parameter in group["params"]:
++            if parameter.grad is not None:
++                parameter.add_(parameter.grad, alpha=scale)
++        self.actor_updates += 1
++        return loss
++
++    def metrics(self):
++        """Read-only scalar values for the effective current step size."""
++        value = self.b.item()
++        return {"adagrad_b": value,
++                "adagrad_effective_lr": float(self.param_groups[0]["lr"]) / value,
++                "adagrad_actor_updates": self.actor_updates}
++
++    def state_dict(self):
++        payload = super().state_dict()
++        # Keep global state separate from per-parameter optimizer state: torch's
++        # default loader otherwise casts floating state to the parameter dtype.
++        payload["adagrad_norm"] = {"version": 1, "b": self.b.detach().cpu().clone(),
++                                    "b0": self.b0, "actor_updates": self.actor_updates}
++        return payload
++
++    def load_state_dict(self, state_dict):
++        metadata = state_dict.get("adagrad_norm")
++        if metadata is None or metadata.get("version") != 1:
++            raise ValueError("optimizer state lacks supported AdaGrad-Norm scalar state")
++        value = metadata.get("b")
++        if (not torch.is_tensor(value) or value.dtype != torch.float64
++                or value.numel() != 1 or not bool(torch.isfinite(value).all())
++                or float(value.item()) <= 0):
++            raise ValueError("saved AdaGrad-Norm b must be a positive float64 scalar")
++        b0 = float(metadata["b0"])
++        updates = metadata["actor_updates"]
++        if not math.isfinite(b0) or b0 <= 0 or not isinstance(updates, int) or updates < 0:
++            raise ValueError("invalid saved AdaGrad-Norm initial state or update count")
++        base_state = {key: value for key, value in state_dict.items() if key != "adagrad_norm"}
++        super().load_state_dict(base_state)
++        if len(self.param_groups) != 1:
++            raise ValueError("saved AdaGrad-Norm state must have one actor parameter group")
++        self.b = value.detach().reshape(()).to(
++            device=self.param_groups[0]["params"][0].device, dtype=torch.float64).clone()
++        self.b0 = b0
++        self.actor_updates = updates
+--- reference/agent/finetune/train_ppo_agent.py
++++ adagrad_norm/agent/finetune/train_ppo_agent.py
+@@ -56,8 +56,16 @@
+                 rescale_path=cfg.train.get("rescale_path", None),
+                 floor=cfg.train.get("rescale_floor", 1e-3),
+             )
++        elif actor_optimizer == "adagrad_norm":
++            from agent.finetune.adagrad_norm import AdaGradNorm
++            if float(cfg.train.actor_lr_scheduler.min_lr) != float(cfg.train.actor_lr):
++                raise ValueError("adagrad_norm requires equal actor_lr and scheduler min_lr")
++            self.actor_optimizer = AdaGradNorm(
++                self.model.actor_ft.parameters(), lr=cfg.train.actor_lr,
++                b0=cfg.train.get("adagrad_norm_b0", None),
++            )
+         else:
+-            raise ValueError("actor_optimizer must be 'adamw', 'sgd' or 'sgd_diag'")
++            raise ValueError("actor_optimizer must be 'adamw', 'sgd', 'sgd_diag' or 'adagrad_norm'")
+         # use cosine scheduler with linear warmup
+         self.actor_lr_scheduler = CosineAnnealingWarmupRestarts(
+             self.actor_optimizer,
+--- reference/agent/finetune/train_agent.py
++++ adagrad_norm/agent/finetune/train_agent.py
+@@ -129,6 +129,9 @@
+             "itr": self.itr,
+             "model": self.model.state_dict(),
+         }  # right now `model` includes weights for `network`, `actor`, `actor_ft`. Weights for `network` is redundant, and we can use `actor` weights as the base policy (earlier denoising steps) and `actor_ft` weights as the fine-tuned policy (later denoising steps) during evaluation.
++        if self.cfg.train.get("actor_optimizer", "adamw") == "adagrad_norm":
++            data["adagrad_norm_optimizer"] = self.actor_optimizer.state_dict()
++            data["adagrad_b"] = self.actor_optimizer.b.detach().cpu().clone()
+         savepath = os.path.join(self.checkpoint_dir, f"state_{self.itr}.pt")
+         torch.save(data, savepath)
+         log.info(f"Saved model to {savepath}")
+@@ -142,6 +145,8 @@
+ 
+         self.itr = data["itr"]
+         self.model.load_state_dict(data["model"])
++        if self.cfg.train.get("actor_optimizer", "adamw") == "adagrad_norm":
++            self.actor_optimizer.load_state_dict(data["adagrad_norm_optimizer"])
+ 
+     def reset_env_all(self, verbose=False, options_venv=None, **kwargs):
+         if options_venv is None:
+--- reference/agent/finetune/stage3_support.py
++++ adagrad_norm/agent/finetune/stage3_support.py
+@@ -39,12 +39,15 @@
+         self.critic_init_path = cfg.train.get("critic_init_path", None)
+         self.critic_baseline_active = bool(self.baseline_diag or self.adv_estimator == "mc_critic")
+         self.frs_active = cfg.train.get("actor_optimizer", "adamw") == "sgd_diag"
++        self.adagrad_norm_active = cfg.train.get("actor_optimizer", "adamw") == "adagrad_norm"
+         if self.adv_estimator not in ("gae", "mc_loo", "mc_none", "mc_critic"):
+             raise ValueError("adv_estimator must be gae, mc_loo, mc_none or mc_critic")
+         if self.stage3_mode not in ("train", "noise_scale", "calibrate", "ckpt_eval", "rescale_stats", "grad_mean"):
+             raise ValueError("invalid Stage-3 mode")
+         if self.frs_active and not self.actor_single_step:
+             raise ValueError("sgd_diag requires actor_single_step=true")
++        if self.adagrad_norm_active and (not self.actor_single_step or self.max_grad_norm is not None):
++            raise ValueError("adagrad_norm requires actor_single_step=true and no gradient clipping")
+         if self.decision_discount_post_norm and not (self.decision_discount and self.model.norm_adv):
+             raise ValueError("decision_discount_post_norm requires decision_discount=true and norm_adv=true")
+         if self.decision_discount and self.model.norm_adv and not self.decision_discount_post_norm:
+@@ -106,6 +109,9 @@
+             "rescale_floor": cfg.train.get("rescale_floor", 1e-3),
+             "rescale_stats_source": cfg.train.get("rescale_stats_source", None),
+         }
++        if self.adagrad_norm_active:
++            settings.update(adagrad_norm_b0=self.actor_optimizer.b0,
++                            adagrad_b=self.actor_optimizer.b.item())
+         log.info("STAGE3_SETTINGS " + json.dumps(settings, sort_keys=True))
+         if self.stage3_mode == "grad_mean":
+             from agent.finetune.grad_mean import settings as grad_mean_settings
+@@ -341,7 +347,9 @@
+             raise FloatingPointError("nonfinite Stage-3 update: " + repr(bad))
+ 
+     def _stage3_record(self, record, eval_mode):
+-        if self.stage3_diag or self.baseline_diag:
++        if self.adagrad_norm_active:
++            self._stage3_metrics.update(self.actor_optimizer.metrics())
++        if self.stage3_diag or self.baseline_diag or self.adagrad_norm_active:
+             if eval_mode:
+                 self._stage3_metrics.update(diagnostics_seconds=self._stage3_diag_seconds, update_seconds=0.0)
+             record.update(self._stage3_metrics)

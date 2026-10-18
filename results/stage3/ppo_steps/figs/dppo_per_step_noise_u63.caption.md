@@ -1,0 +1,1 @@
+DPPO's gradient at each of the 20 PPO steps on one batch, from the run's own state after 63 updates. 500 batches of 80 episodes per checkpoint (10 groups), in training-loss units. Points are estimates; 90% intervals are in ppo_steps_table.
