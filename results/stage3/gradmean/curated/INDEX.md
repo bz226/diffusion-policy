@@ -111,3 +111,17 @@ User-approved selection: both artifacts A and B, with the proposed names ("keep 
 Source run: [round2_review_20261012](../runs/analyses/round2_review_20261012/manifest.json), from [round_1400](../runs/analyses/round_1400/candidates/REPORT.md). [Original candidates](../runs/analyses/round2_review_20261012/candidates/round2_analysis.md) · [Methods](../methods.md) · [Study status](../experiment.md).
 
 The intervals describe sampling uncertainty at seed-0 checkpoints. Mean-direction accuracy remains below 0.9; V5's signal remains unresolved. Curation preserves these limitations and does not mark the study complete.
+
+## Per-optimizer-gradient comparison
+
+What is the covariance of one gradient passed to AdamW, without the per-episode factor of 80? The user approved this view and the five matching DPPO views ("keep in curated"). Mean norms are unchanged; covariance traces and relative variances are divided by 80. The full selection is indexed in the [DPPO comparison section](../../ppo_steps/curated/INDEX.md#per-optimizer-gradient-comparison).
+
+| Artifact | Files | Source |
+|---|---|---|
+| without_PPO_and_GAE, as run | [PNG](without_ppo_and_gae_noise_actual.png) · [PDF](without_ppo_and_gae_noise_actual.pdf) · [Caption](without_ppo_and_gae_noise_actual.caption.md) | [Original figure](../figs_clean/without_ppo_and_gae_noise_actual.png) |
+| Both methods, 65 estimates | [Markdown](noise_actual_table.md) · [CSV](noise_actual_table.csv) | [Original table](../figs_clean/noise_actual_table.md) |
+| Rescaling and limitations | [Note](NOISE_ACTUAL_NOTE.md) | [Original note](../figs_clean/NOISE_ACTUAL_NOTE.md) |
+
+All five points retain 500 batches and ten groups. Means at updates 32, 95 and 126 are unresolved; the table keeps ratio estimates, joint intervals and the requested plug-in bounds distinct. The update-126 fitted reward scale and full-batch normalization approximation remain disclosed. This comparison uses different policies at matched update counts; it does not isolate the effect of minibatch size.
+
+[Analysis record](../../ppo_steps/runs/noise_actual_20261019T172317Z/experiment.md) · [Sources and verification](../../ppo_steps/runs/noise_actual_20261019T172317Z/render_record.json) · [Curation decision](../../ppo_steps/runs/noise_actual_20261019T172317Z/curation.json). Original outputs and existing curated artifacts are preserved.

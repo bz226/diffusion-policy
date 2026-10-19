@@ -1,0 +1,107 @@
+{
+  "approved_utc": "2026-10-19T17:29:25.647974+00:00",
+  "user_reply": "keep in curated",
+  "scope": "All six figure sets, captions, combined table and note under requested filenames",
+  "source_run": "noise_actual_20261019T172317Z",
+  "new_sampling": false,
+  "rerendered": false,
+  "copies": [
+    {
+      "source": "results/stage3/gradmean/figs_clean/without_ppo_and_gae_noise_actual.png",
+      "destination": "results/stage3/gradmean/curated/without_ppo_and_gae_noise_actual.png"
+    },
+    {
+      "source": "results/stage3/gradmean/figs_clean/without_ppo_and_gae_noise_actual.pdf",
+      "destination": "results/stage3/gradmean/curated/without_ppo_and_gae_noise_actual.pdf"
+    },
+    {
+      "source": "results/stage3/gradmean/figs_clean/without_ppo_and_gae_noise_actual.caption.md",
+      "destination": "results/stage3/gradmean/curated/without_ppo_and_gae_noise_actual.caption.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid.png",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid.png"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid.pdf",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid.pdf"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid.caption.md",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid.caption.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u32.png",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u32.png"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u32.pdf",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u32.pdf"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u32.caption.md",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u32.caption.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u63.png",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u63.png"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u63.pdf",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u63.pdf"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u63.caption.md",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u63.caption.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u95.png",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u95.png"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u95.pdf",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u95.pdf"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_u95.caption.md",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_u95.caption.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid_ref.png",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid_ref.png"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid_ref.pdf",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid_ref.pdf"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/dppo_per_step_noise_actual_grid_ref.caption.md",
+      "destination": "results/stage3/ppo_steps/curated/dppo_per_step_noise_actual_grid_ref.caption.md"
+    },
+    {
+      "source": "results/stage3/gradmean/figs_clean/noise_actual_table.csv",
+      "destination": "results/stage3/gradmean/curated/noise_actual_table.csv"
+    },
+    {
+      "source": "results/stage3/gradmean/figs_clean/noise_actual_table.md",
+      "destination": "results/stage3/gradmean/curated/noise_actual_table.md"
+    },
+    {
+      "source": "results/stage3/gradmean/figs_clean/NOISE_ACTUAL_NOTE.md",
+      "destination": "results/stage3/gradmean/curated/NOISE_ACTUAL_NOTE.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/noise_actual_table.csv",
+      "destination": "results/stage3/ppo_steps/curated/noise_actual_table.csv"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/noise_actual_table.md",
+      "destination": "results/stage3/ppo_steps/curated/noise_actual_table.md"
+    },
+    {
+      "source": "results/stage3/ppo_steps/figs/NOISE_ACTUAL_NOTE.md",
+      "destination": "results/stage3/ppo_steps/curated/NOISE_ACTUAL_NOTE.md"
+    }
+  ],
+  "verification": "Every curated artifact is byte-identical to its published source; no hashes calculated during curation."
+}

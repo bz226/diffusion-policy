@@ -100,6 +100,12 @@
 
 ## Comparison analyses
 
+### Gradient noise per optimizer gradient
+
+- Analysis folder: [Gradient noise per optimizer gradient](./results/stage3/ppo_steps/runs/noise_actual_20261019T172317Z/)
+- Analysis design: [Definitions and unit conversion](./results/stage3/ppo_steps/figs/NOISE_ACTUAL_NOTE.md)
+- Curated: [Per-optimizer-gradient comparison](./results/stage3/ppo_steps/curated/INDEX.md#per-optimizer-gradient-comparison)
+
 ### PPO pieces and advantage estimator: two-by-two comparison
 
 - Analysis folder: [Original references and without_GAE comparison](./results/stage3/dl1/)
