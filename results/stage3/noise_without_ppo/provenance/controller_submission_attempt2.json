@@ -1,0 +1,25 @@
+{
+  "utc": "2026-10-19T18:15:58.526573+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=8G",
+    "--time=12:00:00",
+    "--no-requeue",
+    "--job-name=wpnoise-controller",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/logs/controller.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/logs/controller.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/run_admin.sh",
+    "controller"
+  ],
+  "status": "submitted",
+  "returncode": 0,
+  "stdout": "17965202\n",
+  "stderr": "",
+  "job_id": "17965202"
+}

@@ -86,6 +86,12 @@
 - Analysis design: [Methods](./results/stage3/ppo_steps/methods.md), [shared axes and preserved estimates](./results/stage3/ppo_steps/curated/dppo-per-step-noise-checkpoint-views-note.md)
 - Curated results: [Three checkpoint figures and grid](./results/stage3/ppo_steps/curated/INDEX.md#per-checkpoint-views)
 
+#### Analysis: clipping timing and the extra mean gradient in DPPO
+
+- Analysis folder: [Clip timing](./results/stage3/ppo_steps/clip_timing/)
+- Analysis design: [Methods](./results/stage3/ppo_steps/clip_timing/methods.md)
+- Curated: [Figures, table and report](./results/stage3/ppo_steps/clip_timing/curated/INDEX.md)
+
 ### Stage 3 AdaGrad-Norm on the discounted critic-baseline estimator
 
 - Experiment folder: [AdaGrad-Norm experiment](./results/stage3/e1cg_an/)

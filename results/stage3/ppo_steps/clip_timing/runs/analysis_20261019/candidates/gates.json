@@ -1,0 +1,1901 @@
+{
+  "G1": {
+    "details": [
+      {
+        "K": 500,
+        "fallback": null,
+        "group_sums": true,
+        "groups": 10,
+        "native_signal_sq_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 1.6940658945086007e-20,
+          "max_relative_error": 4.897967880870196e-15,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "native_variance_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 5.421010862427522e-20,
+          "max_relative_error": 3.08596212859012e-16,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "per_batch_scalars": true,
+        "update": 32
+      },
+      {
+        "K": 500,
+        "fallback": null,
+        "group_sums": true,
+        "groups": 10,
+        "native_signal_sq_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 1.5246593050577406e-20,
+          "max_relative_error": 5.578426330830905e-14,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "native_variance_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 5.421010862427522e-20,
+          "max_relative_error": 2.9895420987938947e-16,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "per_batch_scalars": true,
+        "update": 63
+      },
+      {
+        "K": 500,
+        "fallback": null,
+        "group_sums": true,
+        "groups": 10,
+        "native_signal_sq_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 1.1858461261560205e-20,
+          "max_relative_error": 2.2458824220779543e-14,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "native_variance_table_agreement": {
+          "atol": 0.0,
+          "max_absolute_error": 8.131516293641283e-20,
+          "max_relative_error": 4.245840369531418e-16,
+          "passed": true,
+          "rtol": 1e-08
+        },
+        "per_batch_scalars": true,
+        "update": 95
+      }
+    ],
+    "passed": true
+  },
+  "G2": {
+    "details": [
+      {
+        "f1_max": 0.0,
+        "f1_mean": 0.0,
+        "max_batch_abs_ratio1": 0.0,
+        "mean_abs_ratio1": 0.0,
+        "passed": true,
+        "update": 32
+      },
+      {
+        "f1_max": 0.0,
+        "f1_mean": 0.0,
+        "max_batch_abs_ratio1": 0.0,
+        "mean_abs_ratio1": 0.0,
+        "passed": true,
+        "update": 63
+      },
+      {
+        "f1_max": 0.0,
+        "f1_mean": 0.0,
+        "max_batch_abs_ratio1": 0.0,
+        "mean_abs_ratio1": 0.0,
+        "passed": true,
+        "update": 95
+      }
+    ],
+    "passed": true
+  },
+  "G3": {
+    "details": [
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.000534514442950253,
+          "hi": 0.0008470981950577268,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.8570568972241933e-07,
+          "hi": 7.175753520700586e-07,
+          "lo": -1.4616397262521994e-07,
+          "se": 2.355935930921944e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 1,
+        "stored_mean_norm": 0.0005495220336783141,
+        "stored_norm_interval": [
+          0.0,
+          0.0008361964435004666
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0003424272981503065,
+          "hi": 0.0005345286112273789,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 1.1725645451851889e-07,
+          "hi": 2.857208362206703e-07,
+          "lo": -5.120792718363254e-08,
+          "se": 9.190071091707407e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 2,
+        "stored_mean_norm": 0.00033688125285095787,
+        "stored_norm_interval": [
+          0.0,
+          0.0005061663342691423
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0005140427784065505,
+          "hi": 0.0005958798870366671,
+          "lo": 0.00041642180092908303,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.64239978031926e-07,
+          "hi": 3.5507283977483116e-07,
+          "lo": 1.7340711628902083e-07,
+          "se": 4.9551154282357593e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 3,
+        "stored_mean_norm": 0.0005109831360250831,
+        "stored_norm_interval": [
+          0.00040965365438469487,
+          0.0005953078313388143
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0005304870033657014,
+          "hi": 0.000643022996349383,
+          "lo": 0.00038646390212502993,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.814164607399217e-07,
+          "hi": 4.134785738341387e-07,
+          "lo": 1.4935434764570472e-07,
+          "se": 7.204254071954122e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 4,
+        "stored_mean_norm": 0.0005267562591134248,
+        "stored_norm_interval": [
+          0.000393275647861486,
+          0.0006326757288133215
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0006162675181078214,
+          "hi": 0.0007811234654334121,
+          "lo": 0.0003865455206037773,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.79785653874774e-07,
+          "hi": 6.101538682507028e-07,
+          "lo": 1.494174394988452e-07,
+          "se": 1.2567049758491714e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 5,
+        "stored_mean_norm": 0.000638705450114101,
+        "stored_norm_interval": [
+          0.0004495722557951399,
+          0.0007834373560344068
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.000830370023778497,
+          "hi": 0.000948331229843876,
+          "lo": 0.0006926013509101791,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.895143763899016e-07,
+          "hi": 8.993321214971982e-07,
+          "lo": 4.79696631282605e-07,
+          "se": 1.1445980297763883e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 6,
+        "stored_mean_norm": 0.0008271105997761826,
+        "stored_norm_interval": [
+          0.0006891767625339224,
+          0.0009451239487535456
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.001369849912001333,
+          "hi": 0.0014623880876281957,
+          "lo": 0.0012705898803245946,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 1.8764887814100597e-06,
+          "hi": 2.1385789188368513e-06,
+          "lo": 1.6143986439832678e-06,
+          "se": 1.4297544507930962e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 7,
+        "stored_mean_norm": 0.001368591523561948,
+        "stored_norm_interval": [
+          0.001268457855492973,
+          0.0014618824116766015
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0020057222608771495,
+          "hi": 0.0021050260973707346,
+          "lo": 0.0019012387290775516,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.022921787778144e-06,
+          "hi": 4.4311348706118656e-06,
+          "lo": 3.6147087049444232e-06,
+          "se": 2.2268845282913778e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 8,
+        "stored_mean_norm": 0.002007348444892577,
+        "stored_norm_interval": [
+          0.001902132882073529,
+          0.0021073172654728447
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0026787457705026926,
+          "hi": 0.0028424447649651446,
+          "lo": 0.0025043692946716887,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 7.175678902986065e-06,
+          "hi": 8.079492241877757e-06,
+          "lo": 6.271865564094372e-06,
+          "se": 4.930483675020083e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 9,
+        "stored_mean_norm": 0.002682406180203981,
+        "stored_norm_interval": [
+          0.002515628588014197,
+          0.002839404627445466
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0028423013601792764,
+          "hi": 0.002961005906496882,
+          "lo": 0.002718418302219971,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 8.078677022076965e-06,
+          "hi": 8.767555978309421e-06,
+          "lo": 7.38979806584451e-06,
+          "se": 3.757973357567377e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 10,
+        "stored_mean_norm": 0.002847745772692514,
+        "stored_norm_interval": [
+          0.002719504761846704,
+          0.002970455490672983
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002601729703670747,
+          "hi": 0.0027502556585397454,
+          "lo": 0.002444194901106591,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.768997450962673e-06,
+          "hi": 7.563906187329888e-06,
+          "lo": 5.974088714595458e-06,
+          "se": 4.3363871489166603e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 11,
+        "stored_mean_norm": 0.0026020082240296102,
+        "stored_norm_interval": [
+          0.002447505371561246,
+          0.0027478375228558
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00230551493709806,
+          "hi": 0.0023531418856604495,
+          "lo": 0.002256883141927142,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.315399125182271e-06,
+          "hi": 5.537276734049616e-06,
+          "lo": 5.093521516314927e-06,
+          "se": 1.210387013887641e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 12,
+        "stored_mean_norm": 0.0023048652736193634,
+        "stored_norm_interval": [
+          0.0022576306671509513,
+          0.002351151128662825
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.001922260667941198,
+          "hi": 0.00202745374396705,
+          "lo": 0.0018109675499857732,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.695086075513741e-06,
+          "hi": 4.110568683926009e-06,
+          "lo": 3.2796034671014736e-06,
+          "se": 2.2665412534666416e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 13,
+        "stored_mean_norm": 0.0019277656378667216,
+        "stored_norm_interval": [
+          0.0018221235136039327,
+          0.00202791188424227
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0016408236320189428,
+          "hi": 0.0017468760019001318,
+          "lo": 0.0015274254864866832,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.692302191391835e-06,
+          "hi": 3.051575766014589e-06,
+          "lo": 2.333028616769081e-06,
+          "se": 1.9599096608994297e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 14,
+        "stored_mean_norm": 0.001642774935033826,
+        "stored_norm_interval": [
+          0.001536319337451078,
+          0.001742739759035945
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0015960181417272149,
+          "hi": 0.0016694736237787508,
+          "lo": 0.0015190146928031445,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.5472739087223924e-06,
+          "hi": 2.7871421804929538e-06,
+          "lo": 2.307405636951831e-06,
+          "se": 1.3085297010224316e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 15,
+        "stored_mean_norm": 0.0015938806637345124,
+        "stored_norm_interval": [
+          0.001517702336526237,
+          0.0016665805585558539
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0016214193924694133,
+          "hi": 0.001686450969236568,
+          "lo": 0.0015536681823712564,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.6290008462758816e-06,
+          "hi": 2.8441168716389596e-06,
+          "lo": 2.4138848209128037e-06,
+          "se": 1.173501214961555e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 16,
+        "stored_mean_norm": 0.0016178285793155094,
+        "stored_norm_interval": [
+          0.0015514782828374531,
+          0.0016815628926637937
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0018873964844136654,
+          "hi": 0.0019556821763357856,
+          "lo": 0.0018165456790063528,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.5622654893770633e-06,
+          "hi": 3.824692774837475e-06,
+          "lo": 3.2998382039166514e-06,
+          "se": 1.431593661174598e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 17,
+        "stored_mean_norm": 0.0018836515575374154,
+        "stored_norm_interval": [
+          0.001812352339781317,
+          0.0019523486822070097
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0019349948010651493,
+          "hi": 0.002022007968966386,
+          "lo": 0.00184388002151299,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.744204880149157e-06,
+          "hi": 4.088516226563569e-06,
+          "lo": 3.3998935337347443e-06,
+          "se": 1.8782876945610974e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 18,
+        "stored_mean_norm": 0.0019376011654825764,
+        "stored_norm_interval": [
+          0.0018468444207165664,
+          0.0020242930219281415
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0019441250889779497,
+          "hi": 0.0020445523563859176,
+          "lo": 0.001838219351759695,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.7796223615935205e-06,
+          "hi": 4.180194338003208e-06,
+          "lo": 3.379050385183833e-06,
+          "se": 2.1852007548155547e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 19,
+        "stored_mean_norm": 0.001954877176434504,
+        "stored_norm_interval": [
+          0.0018465813139880022,
+          0.002057480741275461
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0018579203265984795,
+          "hi": 0.001968494302095594,
+          "lo": 0.0017403350432008144,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.4518679399878003e-06,
+          "hi": 3.874969817382819e-06,
+          "lo": 3.028766062592781e-06,
+          "se": 2.3081058993050291e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 20,
+        "stored_mean_norm": 0.00185348206116692,
+        "stored_norm_interval": [
+          0.0017368771162102278,
+          0.001963173294775678
+        ],
+        "update": 32
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 8.033473691504292e-05,
+          "hi": 0.0003419520599518798,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.453669955209159e-09,
+          "hi": 1.16931211305334e-07,
+          "lo": -1.0402387139491569e-07,
+          "se": 6.026772239842114e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 1,
+        "stored_mean_norm": 6.315685018900297e-05,
+        "stored_norm_interval": [
+          0.0,
+          0.0003338505504064479
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00023949564181044268,
+          "hi": 0.00040436162026661064,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.735816244619586e-08,
+          "hi": 1.6350831994463862e-07,
+          "lo": -4.8791995052246904e-08,
+          "se": 5.790704740966433e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 2,
+        "stored_mean_norm": 0.0002018888971133201,
+        "stored_norm_interval": [
+          0.0,
+          0.0003575844912023805
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00018916659780440038,
+          "hi": 0.0004171618649712976,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.578400172489178e-08,
+          "hi": 1.7402402158633113e-07,
+          "lo": -1.0245601813654757e-07,
+          "se": 7.541271320437505e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 3,
+        "stored_mean_norm": 0.0001966639363551476,
+        "stored_norm_interval": [
+          0.0,
+          0.00044686292277670804
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0001600423940563462,
+          "hi": 0.0003559313328561698,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.5613567895286794e-08,
+          "hi": 1.2668711370876952e-07,
+          "lo": -7.545997791819593e-08,
+          "se": 5.5137653558074896e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 4,
+        "stored_mean_norm": 0.0001456986441060703,
+        "stored_norm_interval": [
+          0.0,
+          0.00032545781634175767
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0002824108979232039,
+          "hi": 0.00042350962747551895,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 7.975591526579031e-08,
+          "hi": 1.7936040456445283e-07,
+          "lo": -1.9848574032872208e-08,
+          "se": 5.4336253661401e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 5,
+        "stored_mean_norm": 0.0002810710605286802,
+        "stored_norm_interval": [
+          0.0,
+          0.00041357826551746007
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.000762361344592828,
+          "hi": 0.000897247448422455,
+          "lo": 0.0005977764262315497,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.811948197293847e-07,
+          "hi": 8.050529837006061e-07,
+          "lo": 3.5733665575816335e-07,
+          "se": 1.2211913406074875e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 6,
+        "stored_mean_norm": 0.0007633322429592031,
+        "stored_norm_interval": [
+          0.0006052244034533907,
+          0.0008938991261583957
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0014476233122934197,
+          "hi": 0.0016174608829672503,
+          "lo": 0.001255008685492474,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.095613254295372e-06,
+          "hi": 2.616179707929197e-06,
+          "lo": 1.5750468006615472e-06,
+          "se": 2.839794779475193e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 7,
+        "stored_mean_norm": 0.0014559268496555438,
+        "stored_norm_interval": [
+          0.0012557809263491551,
+          0.0016317047061626963
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0021590941484460743,
+          "hi": 0.0022510851750533836,
+          "lo": 0.002063005239538435,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.661687541854078e-06,
+          "hi": 5.067384465345122e-06,
+          "lo": 4.255990618363034e-06,
+          "se": 2.2131583726473002e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 8,
+        "stored_mean_norm": 0.0021614871749205304,
+        "stored_norm_interval": [
+          0.002064285470638579,
+          0.0022545019650473436
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0025695194626657552,
+          "hi": 0.0026401405486912947,
+          "lo": 0.0024969017644257156,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.602430269018111e-06,
+          "hi": 6.970342116843972e-06,
+          "lo": 6.234518421192251e-06,
+          "se": 2.007033179855793e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 9,
+        "stored_mean_norm": 0.0025664941624640287,
+        "stored_norm_interval": [
+          0.00249254133142849,
+          0.00263837493223472
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002442972118590748,
+          "hi": 0.0025054025754586012,
+          "lo": 0.002378903839861743,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.968112772211768e-06,
+          "hi": 6.2770420651145915e-06,
+          "lo": 5.659183479308945e-06,
+          "se": 1.6852714712759873e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 10,
+        "stored_mean_norm": 0.00244111535736355,
+        "stored_norm_interval": [
+          0.002376007895641248,
+          0.0025045308654042964
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0021517580954620048,
+          "hi": 0.00225688771479564,
+          "lo": 0.0020412211162872725,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.630062901386273e-06,
+          "hi": 5.093542157195487e-06,
+          "lo": 4.16658364557706e-06,
+          "se": 2.5283726253476165e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 11,
+        "stored_mean_norm": 0.002151840397124926,
+        "stored_norm_interval": [
+          0.002039881138170227,
+          0.0022582557719476467
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002097053189655359,
+          "hi": 0.0022467186935091264,
+          "lo": 0.0019358510461097134,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.397632080243714e-06,
+          "hi": 5.047744887763356e-06,
+          "lo": 3.7475192727240714e-06,
+          "se": 3.54649621383955e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 12,
+        "stored_mean_norm": 0.0020989007982491073,
+        "stored_norm_interval": [
+          0.0019378102484315068,
+          0.0022484796113941756
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002212400268076404,
+          "hi": 0.0023950907300037522,
+          "lo": 0.0020131990183335532,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.8947149461845445e-06,
+          "hi": 5.736459604949906e-06,
+          "lo": 4.0529702874191825e-06,
+          "se": 4.59188653230897e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 13,
+        "stored_mean_norm": 0.002212885853437936,
+        "stored_norm_interval": [
+          0.002013409004838675,
+          0.002395811298897729
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002193350807325318,
+          "hi": 0.0023627228807691107,
+          "lo": 0.002009755238002719,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.8107877639946246e-06,
+          "hi": 5.582459411309884e-06,
+          "lo": 4.039116116679365e-06,
+          "se": 4.2096241511873454e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 14,
+        "stored_mean_norm": 0.0021932330472945157,
+        "stored_norm_interval": [
+          0.0020111371779553897,
+          0.0023613279422679107
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002424701591415436,
+          "hi": 0.0025583543623382992,
+          "lo": 0.002283238614672083,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.879177807412549e-06,
+          "hi": 6.5451770432954056e-06,
+          "lo": 5.213178571529693e-06,
+          "se": 3.6331598780373517e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 15,
+        "stored_mean_norm": 0.002422467285626798,
+        "stored_norm_interval": [
+          0.0022797583455856263,
+          0.0025572245473553593
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0022580256252217883,
+          "hi": 0.0024465022955295545,
+          "lo": 0.002052312346180551,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.098679724158248e-06,
+          "hi": 5.985373482031379e-06,
+          "lo": 4.211985966285118e-06,
+          "se": 4.837092914889553e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 16,
+        "stored_mean_norm": 0.0022578433903223975,
+        "stored_norm_interval": [
+          0.002053097099381884,
+          0.002445507278859495
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0021110499671114042,
+          "hi": 0.0022084338872085827,
+          "lo": 0.0020089508936534293,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.456531963641061e-06,
+          "hi": 4.8771802341712105e-06,
+          "lo": 4.035883693110912e-06,
+          "se": 2.294720980017389e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 17,
+        "stored_mean_norm": 0.0021099770249764383,
+        "stored_norm_interval": [
+          0.0020070203925736415,
+          0.0022081384095319727
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.001976628385004027,
+          "hi": 0.00202367419812558,
+          "lo": 0.0019284351906787142,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.907059772403629e-06,
+          "hi": 4.095257260159209e-06,
+          "lo": 3.7188622846480485e-06,
+          "se": 1.026655174393121e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 18,
+        "stored_mean_norm": 0.001975552686776947,
+        "stored_norm_interval": [
+          0.0019266037829246008,
+          0.002023317745704774
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0020988689895665076,
+          "hi": 0.0022418322007562892,
+          "lo": 0.0019454280902619038,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.405251035363932e-06,
+          "hi": 5.025811616347787e-06,
+          "lo": 3.784690454380078e-06,
+          "se": 3.3852828700822287e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 19,
+        "stored_mean_norm": 0.0021021448957226014,
+        "stored_norm_interval": [
+          0.0019480398381665994,
+          0.0022456996936681055
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002068335750188827,
+          "hi": 0.00232239330263328,
+          "lo": 0.0017783461133599504,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.2780127755091776e-06,
+          "hi": 5.393510652115913e-06,
+          "lo": 3.1625148989024414e-06,
+          "se": 6.085265434202844e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 20,
+        "stored_mean_norm": 0.0020741923760388497,
+        "stored_norm_interval": [
+          0.0017707519712170695,
+          0.002338586214375309
+        ],
+        "update": 63
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0002118686383322004,
+          "hi": 0.00032644945557327103,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.488831990874074e-08,
+          "hi": 1.0656924704408508e-07,
+          "lo": -1.6792607226603595e-08,
+          "se": 3.364818721018698e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 1,
+        "stored_mean_norm": 0.0001857997327966554,
+        "stored_norm_interval": [
+          0.0,
+          0.0002819405905981672
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00018756137129249563,
+          "hi": 0.0003531952990397641,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.5179268001121405e-08,
+          "hi": 1.2474691926378837e-07,
+          "lo": -5.438838326154555e-08,
+          "se": 4.8860956500376596e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 2,
+        "stored_mean_norm": 0.00017152526037859993,
+        "stored_norm_interval": [
+          0.0,
+          0.00032418758718761063
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00022921545186002496,
+          "hi": 0.0003932103053137999,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.2539723371395427e-08,
+          "hi": 1.5461434420497174e-07,
+          "lo": -4.95348974621809e-08,
+          "se": 5.5683760130267606e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 3,
+        "stored_mean_norm": 0.00020761155056751098,
+        "stored_norm_interval": [
+          0.0,
+          0.00036343248629375734
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.00017788158119028295,
+          "hi": 0.00031243156833508446,
+          "lo": 0.0,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.1641856926755225e-08,
+          "hi": 9.761348489232054e-08,
+          "lo": -3.4329771038810084e-08,
+          "se": 3.598885087241411e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 4,
+        "stored_mean_norm": 0.00014102741495609022,
+        "stored_norm_interval": [
+          0.0,
+          0.0002757408803851788
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0005116909018909021,
+          "hi": 0.0006020878194576024,
+          "lo": 0.00040142921644623606,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 2.6182757907792477e-07,
+          "hi": 3.625097423392105e-07,
+          "lo": 1.6114541581663905e-07,
+          "se": 5.492414649845776e-08,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 5,
+        "stored_mean_norm": 0.0005217872672630759,
+        "stored_norm_interval": [
+          0.00042643441400798073,
+          0.0006022271955876847
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0011655783431981045,
+          "hi": 0.0012470009473380804,
+          "lo": 0.0010780233696923304,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 1.3585728741324383e-06,
+          "hi": 1.5550113626620698e-06,
+          "lo": 1.1621343856028068e-06,
+          "se": 1.0716114922895944e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 6,
+        "stored_mean_norm": 0.0011731079494872916,
+        "stored_norm_interval": [
+          0.0010881548713941752,
+          0.001252311262490952
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0021097983312119346,
+          "hi": 0.0022066535162057277,
+          "lo": 0.0020082774350637486,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.451248998384665e-06,
+          "hi": 4.869319740583101e-06,
+          "lo": 4.033178256186228e-06,
+          "se": 2.280660044186329e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 7,
+        "stored_mean_norm": 0.0021091583679045275,
+        "stored_norm_interval": [
+          0.002005251545013534,
+          0.00220818121607449
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0027339364069891943,
+          "hi": 0.0028945203407322946,
+          "lo": 0.002563312027828249,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 7.474408277460985e-06,
+          "hi": 8.378248002912999e-06,
+          "lo": 6.5705685520089714e-06,
+          "se": 4.930627619017479e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 8,
+        "stored_mean_norm": 0.0027322134007434014,
+        "stored_norm_interval": [
+          0.0025610714156643045,
+          0.0028932496156175123
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002956372632947907,
+          "hi": 0.003042892648386993,
+          "lo": 0.0028672430347075686,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 8.740139144843338e-06,
+          "hi": 9.259195669607608e-06,
+          "lo": 8.221082620079069e-06,
+          "se": 2.831557813586953e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 9,
+        "stored_mean_norm": 0.0029566168714674755,
+        "stored_norm_interval": [
+          0.002866658641565758,
+          0.003043917686473898
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002551533815692538,
+          "hi": 0.0026865770183011335,
+          "lo": 0.0024089320351519342,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.510324812622524e-06,
+          "hi": 7.21769607526381e-06,
+          "lo": 5.802953549981239e-06,
+          "se": 3.858852610991551e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 10,
+        "stored_mean_norm": 0.0025583704397328325,
+        "stored_norm_interval": [
+          0.0024223678711336218,
+          0.00268749930431565
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002078476226476987,
+          "hi": 0.0022052383419565794,
+          "lo": 0.001943463584229102,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.320063424030015e-06,
+          "hi": 4.863076144835403e-06,
+          "lo": 3.777050703224628e-06,
+          "se": 2.962243684677499e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 11,
+        "stored_mean_norm": 0.002085838633982424,
+        "stored_norm_interval": [
+          0.0019484185015811843,
+          0.0022147485086852323
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.001834981870923395,
+          "hi": 0.001955513599387127,
+          "lo": 0.0017059553030038773,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.3671584666175235e-06,
+          "hi": 3.824033437387996e-06,
+          "lo": 2.9102834958470506e-06,
+          "se": 2.492344921210587e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 12,
+        "stored_mean_norm": 0.0018377465985460462,
+        "stored_norm_interval": [
+          0.0017245329613694079,
+          0.001944379383270041
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0022738624364197955,
+          "hi": 0.002343502354003427,
+          "lo": 0.0022020212252161263,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.170450379760968e-06,
+          "hi": 5.492003283219605e-06,
+          "lo": 4.848897476302331e-06,
+          "se": 1.754135807623996e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 13,
+        "stored_mean_norm": 0.0022720678906848566,
+        "stored_norm_interval": [
+          0.0022001070411442137,
+          0.002341818525691075
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0026324705795717877,
+          "hi": 0.0027363606829278377,
+          "lo": 0.002524308403810585,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.929901352311023e-06,
+          "hi": 7.4876697870733015e-06,
+          "lo": 6.372132917548745e-06,
+          "se": 3.0427390742088506e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 14,
+        "stored_mean_norm": 0.0026324250244153455,
+        "stored_norm_interval": [
+          0.002527945667959785,
+          0.002732913046216367
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002621029388650434,
+          "hi": 0.002736372487015985,
+          "lo": 0.0025003711173824743,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 6.8697950561692665e-06,
+          "hi": 7.487734387698049e-06,
+          "lo": 6.251855724640484e-06,
+          "se": 3.3709834267234515e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 15,
+        "stored_mean_norm": 0.0026236730123073053,
+        "stored_norm_interval": [
+          0.002503549395155769,
+          0.0027385325590605202
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002210392424193686,
+          "hi": 0.0022845985198471854,
+          "lo": 0.0021336070259018484,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.88583466893284e-06,
+          "hi": 5.2193903968879496e-06,
+          "lo": 4.55227894097773e-06,
+          "se": 1.8196136310720982e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 16,
+        "stored_mean_norm": 0.002212473704798956,
+        "stored_norm_interval": [
+          0.0021329623280708847,
+          0.0022892250863303216
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0019950336243283896,
+          "hi": 0.0020949458828824134,
+          "lo": 0.001889846573718556,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.98015916220087e-06,
+          "hi": 4.388798252205974e-06,
+          "lo": 3.5715200721957662e-06,
+          "se": 2.229208483154137e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 17,
+        "stored_mean_norm": 0.001997303831332447,
+        "stored_norm_interval": [
+          0.0018923794346239007,
+          0.0020969848031693193
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.001950142067716119,
+          "hi": 0.002040656467329808,
+          "lo": 0.0018552167935034516,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 3.8030540842761e-06,
+          "hi": 4.164278817654972e-06,
+          "lo": 3.4418293508972283e-06,
+          "se": 1.9705536246256205e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 18,
+        "stored_mean_norm": 0.001950481863256975,
+        "stored_norm_interval": [
+          0.001855808985748756,
+          0.0020407675042010483
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.002098581759435756,
+          "hi": 0.0021762880090053787,
+          "lo": 0.0020178853545066307,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 4.404045401036473e-06,
+          "hi": 4.736229498140595e-06,
+          "lo": 4.07186130393235e-06,
+          "se": 1.812131108710522e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 19,
+        "stored_mean_norm": 0.00210068783669829,
+        "stored_norm_interval": [
+          0.002024512909154727,
+          0.0021741955420730096
+        ],
+        "update": 95
+      },
+      {
+        "between_group_mean_norm": {
+          "estimate": 0.0023065676003746686,
+          "hi": 0.002377756572316064,
+          "lo": 0.0022331103584471764,
+          "se": null,
+          "status": "sqrt_transform_of_signed_interval",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "between_group_signal_sq": {
+          "estimate": 5.320254095098157e-06,
+          "hi": 5.653726317192237e-06,
+          "lo": 4.986781873004078e-06,
+          "se": 1.8191580897928744e-07,
+          "status": "ok",
+          "total_replicates": 10,
+          "valid_replicates": 10
+        },
+        "passed": true,
+        "reason": "intervals_overlap",
+        "step": 20,
+        "stored_mean_norm": 0.0023051617656614522,
+        "stored_norm_interval": [
+          0.002230325038725911,
+          0.0023776441603753726
+        ],
+        "update": 95
+      }
+    ],
+    "passed": true
+  },
+  "G3_definition": "Between-group sqrt interval (transformed signed Mss t9 interval) overlaps stored norm interval; full Mss must be positive.",
+  "G4": {
+    "details": {
+      "computed": [
+        0.0,
+        0.0,
+        0.0,
+        0.0,
+        0.22622499999999995,
+        0.30360249999999994,
+        0.37324224999999994,
+        0.435918025,
+        0.7185512224999999,
+        0.8466961002499998,
+        0.9620264902249998,
+        1.0658238412024998,
+        1.3854664570822497,
+        1.5469198113740248,
+        1.6922278302366223,
+        1.82300504721296,
+        2.166929542491664,
+        2.350236588242497,
+        2.5152129294182477,
+        2.6636916364764227
+      ],
+      "expected_rounded": [
+        0,
+        0,
+        0,
+        0,
+        0.226,
+        0.304,
+        0.373,
+        0.436,
+        0.719,
+        0.847,
+        0.962,
+        1.066,
+        1.385,
+        1.547,
+        1.692,
+        1.823,
+        2.167,
+        2.35,
+        2.515,
+        2.664
+      ]
+    },
+    "passed": true
+  },
+  "G5": {
+    "status": "performed_by_driver_after_all_outputs"
+  },
+  "passed": true
+}

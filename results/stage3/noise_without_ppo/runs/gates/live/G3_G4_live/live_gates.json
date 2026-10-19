@@ -1,0 +1,205 @@
+{
+  "passed": true,
+  "checks": {
+    "G3": {
+      "passed": true,
+      "points": [
+        {
+          "point": "WP000",
+          "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+          "critic_checkpoint_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+          "critic_bitwise_equal": true,
+          "warmup_batches": 0,
+          "scaler_c": 1.000000005,
+          "scaler_c_source": "exact_initial_scaler_state_updated_per_measurement_batch",
+          "scaler_approximation": false,
+          "historical_running_state_available": true,
+          "all_children_exited": true
+        },
+        {
+          "point": "WP035",
+          "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt",
+          "critic_checkpoint_sha256": "d4090e0a8b32408a794a35bd957417150b95e0619716004e9da7184058706df5",
+          "critic_bitwise_equal": true,
+          "warmup_batches": 0,
+          "scaler_c": 440.46220237184485,
+          "scaler_c_source": "least_squares_five_fresh_batches_frozen_critic_through_origin",
+          "scaler_approximation": true,
+          "historical_running_state_available": false,
+          "all_children_exited": true
+        },
+        {
+          "point": "WP070",
+          "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+          "critic_checkpoint_sha256": "55b1d04e23658ee264f3e5d57b8172ea97cd3e1e15835a9e6a4338f3ad44d653",
+          "critic_bitwise_equal": true,
+          "warmup_batches": 0,
+          "scaler_c": 445.88537780926777,
+          "scaler_c_source": "least_squares_five_fresh_batches_frozen_critic_through_origin",
+          "scaler_approximation": true,
+          "historical_running_state_available": false,
+          "all_children_exited": true
+        },
+        {
+          "point": "WP105",
+          "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_105.pt",
+          "critic_checkpoint_sha256": "ec5c98d24f78d421722ad3d75168e17d7994a1ce47fc4fb9cb7b1408b9e1d319",
+          "critic_bitwise_equal": true,
+          "warmup_batches": 0,
+          "scaler_c": 443.25999700446636,
+          "scaler_c_source": "least_squares_five_fresh_batches_frozen_critic_through_origin",
+          "scaler_approximation": true,
+          "historical_running_state_available": false,
+          "all_children_exited": true
+        },
+        {
+          "point": "WP139",
+          "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+          "critic_checkpoint_sha256": "12895baea7c57244dba118ea3bf223e6088b3f6cd9d001adb02469483eb6debf",
+          "critic_bitwise_equal": true,
+          "warmup_batches": 0,
+          "scaler_c": 447.77737775199387,
+          "scaler_c_source": "least_squares_five_fresh_batches_frozen_critic_through_origin",
+          "scaler_approximation": true,
+          "historical_running_state_available": false,
+          "all_children_exited": true
+        }
+      ],
+      "limitation": "Only update 0 has exact historical running-scaler state; later fitted divisors are frozen approximations."
+    },
+    "G4": {
+      "passed": true,
+      "namespace": {
+        "passed": true,
+        "production_jobs": 50,
+        "production_batches": 2500,
+        "preparation_batches": 20,
+        "live_gate_batches": 2,
+        "distinct_seed_values": 110968,
+        "minimum_seed": 50000000,
+        "maximum_seed": 54990453,
+        "seed_types": [
+          "40 private environment/reset streams",
+          "diffusion",
+          "permutation",
+          "Python",
+          "NumPy"
+        ]
+      },
+      "live_directories": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/live/G3_G4_live/collect_gate_j97",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/live/G3_G4_live/collect_gate_j98"
+      ],
+      "live_seeds": [
+        {
+          "environment_seeds": [
+            50970000,
+            50970001,
+            50970002,
+            50970003,
+            50970004,
+            50970005,
+            50970006,
+            50970007,
+            50970008,
+            50970009,
+            50970010,
+            50970011,
+            50970012,
+            50970013,
+            50970014,
+            50970015,
+            50970016,
+            50970017,
+            50970018,
+            50970019,
+            50970020,
+            50970021,
+            50970022,
+            50970023,
+            50970024,
+            50970025,
+            50970026,
+            50970027,
+            50970028,
+            50970029,
+            50970030,
+            50970031,
+            50970032,
+            50970033,
+            50970034,
+            50970035,
+            50970036,
+            50970037,
+            50970038,
+            50970039
+          ],
+          "diffusion_seed": 50970050,
+          "permutation_seed": 50970051,
+          "python_seed": 50970052,
+          "numpy_seed": 50970053
+        },
+        {
+          "environment_seeds": [
+            50980000,
+            50980001,
+            50980002,
+            50980003,
+            50980004,
+            50980005,
+            50980006,
+            50980007,
+            50980008,
+            50980009,
+            50980010,
+            50980011,
+            50980012,
+            50980013,
+            50980014,
+            50980015,
+            50980016,
+            50980017,
+            50980018,
+            50980019,
+            50980020,
+            50980021,
+            50980022,
+            50980023,
+            50980024,
+            50980025,
+            50980026,
+            50980027,
+            50980028,
+            50980029,
+            50980030,
+            50980031,
+            50980032,
+            50980033,
+            50980034,
+            50980035,
+            50980036,
+            50980037,
+            50980038,
+            50980039
+          ],
+          "diffusion_seed": 50980050,
+          "permutation_seed": 50980051,
+          "python_seed": 50980052,
+          "numpy_seed": 50980053
+        }
+      ],
+      "live_first_batch_return_means": [
+        3894.9575628638804,
+        3886.898811047218
+      ],
+      "identical_cross_job_episode_returns": 0,
+      "initial_observations_differ": true,
+      "exit_codes": [
+        0,
+        0
+      ],
+      "all_children_exited": true,
+      "environment_seeding": "Production seeded_batch requires acknowledgments that private MuJoCo/reset and action-space RNGs were seeded before every batch."
+    }
+  }
+}

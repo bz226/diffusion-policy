@@ -1,0 +1,22 @@
+{
+  "render_attempts": [
+    {
+      "mode": "all",
+      "status": "refused before saving",
+      "reason": "resolved negative cosines conflict with cosine axis starting at zero"
+    },
+    {
+      "mode": "timing-only",
+      "status": "verification false positive before saving",
+      "reason": "generated off-axis log tick labels are not drawn by Matplotlib"
+    },
+    {
+      "mode": "timing-only",
+      "status": "passed",
+      "visual_inspection": "readable labels, fixed limits, all sixty stored points retained"
+    }
+  ],
+  "shape_status": "passed after explicit cosine-axis approval",
+  "curated": false,
+  "shape_visual_inspection": "all resolved negative cosines visible, same limits across checkpoints, unresolved points listed in caption"
+}

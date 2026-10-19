@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-19T18:15:14.742749+00:00",
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=8G",
+    "--time=12:00:00",
+    "--no-requeue",
+    "--job-name=wpnoise-controller",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/logs/controller.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/logs/controller.err",
+    "bash",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/run_admin.sh",
+    "controller"
+  ],
+  "status": "rejected_no_job_created",
+  "returncode": 1,
+  "stdout": "",
+  "stderr": "sbatch: error: This does not look like a batch script.  The first\nsbatch: error: line must start with #! followed by the path to an interpreter.\nsbatch: error: For instance: #!/bin/sh\n",
+  "diagnosis": "sbatch received bash executable as batch-script path; use the shebang script directly"
+}

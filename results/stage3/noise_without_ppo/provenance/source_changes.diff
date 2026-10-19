@@ -1,0 +1,45 @@
+commit d3d13dde1de1f981f4fec8b15d3dfa7d17689e35
+Author:     Zhen Bao <zbao7@soal-10.stanford.edu>
+AuthorDate: Mon Oct 19 11:14:25 2026 -0700
+Commit:     Zhen Bao <zbao7@soal-10.stanford.edu>
+CommitDate: Mon Oct 19 11:14:25 2026 -0700
+
+    Finalize bounded measurement runtime and baseline environment
+
+diff --git a/results/stage3/noise_without_ppo/code/campaign.py b/results/stage3/noise_without_ppo/code/campaign.py
+index c3cf500..80950bc 100644
+--- a/results/stage3/noise_without_ppo/code/campaign.py
++++ b/results/stage3/noise_without_ppo/code/campaign.py
+@@ -71,7 +71,8 @@ def build():
+     if sum(j['cap_seconds'] * j['gpu_count'] for j in jobs.values()) > CAP:
+         raise RuntimeError('Complete approved plan cannot fit its reservation cap')
+     write(RUN / 'plan.json', plan)
+-    write(STUDY / 'runs/runtime_estimates.jsonl', plan['estimate_basis'])
++    append(STUDY / 'runs/runtime_estimates.jsonl', dict(utc=utc(), expected_gpu_hours=10.5,
++            expected_collection_hours=2.5, monitor_seconds=1800, basis=plan['estimate_basis']))
+     return plan
+ 
+ 
+@@ -283,7 +284,8 @@ def controller():
+                 counter = [(name, state['jobs'][name]['status'],
+                             state['jobs'][name].get('progress', {}).get('completed'),
+                             state['jobs'][name].get('progress', {}).get('active_worker')) for name in sorted(state['jobs'])]
+-                stagnant = stagnant + 1 if counter == last_counter and active else 0
++                running = [name for name in active if state['jobs'][name]['status'] == 'running']
++                stagnant = stagnant + 1 if counter == last_counter and running else 0
+                 last_counter = counter
+                 if stagnant >= 2:
+                     state['detail'] = 'Possible stall: no progress across two scheduled checks; inspect active logs.'
+diff --git a/results/stage3/noise_without_ppo/code/runtime.py b/results/stage3/noise_without_ppo/code/runtime.py
+index e1c87eb..b9f425f 100644
+--- a/results/stage3/noise_without_ppo/code/runtime.py
++++ b/results/stage3/noise_without_ppo/code/runtime.py
+@@ -58,7 +58,7 @@ def environment():
+     env = os.environ.copy()
+     env.update(PYTHONPATH=str(SOURCE), PYTHONNOUSERSITE='1', PYTHONDONTWRITEBYTECODE='1',
+                DPPO_DATA_DIR=str(PROJECT / 'results/repro_halfcheetah/dppo/data'),
+-               DPPO_LOG_DIR=str(STUDY / 'runs/native_logs'),
++               DPPO_LOG_DIR=str(PROJECT / 'results/repro_halfcheetah/dppo/log'),
+                LD_LIBRARY_PATH='/sailhome/zbao7/.mujoco/mujoco210/bin:/usr/lib/nvidia')
+     env['PATH'] = str(PYTHON.parent) + ':' + env.get('PATH', '')
+     for key, name in [('TMPDIR', 'tmp'), ('XDG_CACHE_HOME', 'cache'),

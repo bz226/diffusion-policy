@@ -1,0 +1,49 @@
+{
+  "date": "2026-10-19",
+  "approval": "keep curated",
+  "artifacts": [
+    "A",
+    "B",
+    "C"
+  ],
+  "source_results_commit": "69b2ab2c1b5d71614a6382f511b8c81d67c1e55b",
+  "copies": [
+    {
+      "source": "figs/dppo_clip_timing_grid.png",
+      "curated": "curated/dppo-clip-timing.png"
+    },
+    {
+      "source": "figs/dppo_clip_timing_grid.pdf",
+      "curated": "curated/dppo-clip-timing.pdf"
+    },
+    {
+      "source": "figs/dppo_clip_timing_grid.caption.md",
+      "curated": "curated/dppo-clip-timing.caption.md"
+    },
+    {
+      "source": "figs/dppo_reuse_mean_shape_grid.png",
+      "curated": "curated/dppo-reuse-mean-shape-and-direction.png"
+    },
+    {
+      "source": "figs/dppo_reuse_mean_shape_grid.pdf",
+      "curated": "curated/dppo-reuse-mean-shape-and-direction.pdf"
+    },
+    {
+      "source": "figs/dppo_reuse_mean_shape_grid.caption.md",
+      "curated": "curated/dppo-reuse-mean-shape-and-direction.caption.md"
+    },
+    {
+      "source": "clip_timing_table.csv",
+      "curated": "curated/dppo-clip-timing-table.csv"
+    },
+    {
+      "source": "clip_timing_table.md",
+      "curated": "curated/dppo-clip-timing-table.md"
+    },
+    {
+      "source": "REPORT.md",
+      "curated": "curated/dppo-clip-timing-report.md"
+    }
+  ],
+  "verification": "Figure, caption and table bytes match source; report links/status adapted without scientific changes."
+}

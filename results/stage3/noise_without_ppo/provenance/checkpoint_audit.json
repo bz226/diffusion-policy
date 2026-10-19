@@ -1,0 +1,65 @@
+{
+  "run": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native",
+  "rows": 140,
+  "training_updates": 126,
+  "checkpoints": [
+    {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+      "itr": 0,
+      "updates": 0,
+      "logged_training_steps": 0,
+      "checkpoint_keys": [
+        "itr",
+        "model"
+      ],
+      "has_scaler": false
+    },
+    {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt",
+      "itr": 35,
+      "updates": 32,
+      "logged_training_steps": 2560000,
+      "checkpoint_keys": [
+        "itr",
+        "model"
+      ],
+      "has_scaler": false
+    },
+    {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+      "itr": 70,
+      "updates": 63,
+      "logged_training_steps": 5040000,
+      "checkpoint_keys": [
+        "itr",
+        "model"
+      ],
+      "has_scaler": false
+    },
+    {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_105.pt",
+      "itr": 105,
+      "updates": 95,
+      "logged_training_steps": 7600000,
+      "checkpoint_keys": [
+        "itr",
+        "model"
+      ],
+      "has_scaler": false
+    },
+    {
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+      "itr": 139,
+      "updates": 126,
+      "logged_training_steps": 10080000,
+      "checkpoint_keys": [
+        "itr",
+        "model"
+      ],
+      "has_scaler": false
+    }
+  ],
+  "last_eval_step": 9360000,
+  "last_eval_reward": 4624.0873515240455,
+  "original_reset_at_iteration": false
+}

@@ -1,0 +1,27 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-19T18:17:42.705222+00:00",
+  "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/workers/gate_cpu/spec.json",
+  "revision": "84a756a8280ced629b005b6d08499e1e8e7075f7",
+  "job_id": "17965209",
+  "host": "soal-4.stanford.edu",
+  "cuda_visible_devices": "",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/gate_noise.py",
+    "--phase",
+    "cpu",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+    "--parent-source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5/results/stage3_gradmean/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu"
+  ],
+  "cap_seconds": 7200,
+  "exit_code": 0,
+  "children_remaining": [],
+  "ended_utc": "2026-10-19T18:23:29.149926+00:00",
+  "elapsed_seconds": 346.44151200540364
+}

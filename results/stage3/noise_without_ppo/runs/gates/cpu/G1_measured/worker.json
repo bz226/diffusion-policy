@@ -1,0 +1,117 @@
+{
+  "passed": true,
+  "status": "passed",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/gate_noise_worker.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu/G1_measured",
+    "--kind",
+    "measured",
+    "--estimator",
+    "V1",
+    "--reference",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu/G1_native/identity.pt"
+  ],
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 8,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+  "kind": "measured",
+  "estimator": "V1",
+  "slurm_job_id": "17965209",
+  "gradient_comparison": {
+    "relative_l2": 0.0,
+    "max_abs": 0.0,
+    "reference_norm": 0.007062014870785972,
+    "measured_norm": 0.007062014870785972,
+    "bitwise_equal": true
+  },
+  "advantages_bitwise": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 20000,
+    "tensors": 1,
+    "first_failure": null
+  },
+  "inert_checks": {
+    "model": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 1841625,
+      "tensors": 44,
+      "first_failure": null
+    },
+    "optimizer": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 10,
+      "tensors": 10,
+      "first_failure": null
+    },
+    "global_rng": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 5681,
+      "tensors": 3,
+      "first_failure": null
+    }
+  },
+  "metrics": {
+    "ratio": 1.0,
+    "clipfrac": 0.0,
+    "approx_kl": 0.0,
+    "pg_loss": 2.76793571174494e-07,
+    "chunk_sizes": [
+      50000,
+      50000,
+      50000,
+      50000
+    ],
+    "actor_loss": "ratio"
+  },
+  "reference": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu/G1_native/identity.pt",
+  "pairs": 200000,
+  "normalization": "four independently normalized native 50000-pair chunks",
+  "running_scaler_saved_batch_checks": {
+    "scaled_rewards": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 20000,
+      "tensors": 1,
+      "first_failure": null
+    },
+    "state_after_current_batch": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 46,
+      "tensors": 7,
+      "first_failure": null
+    }
+  },
+  "all_children_exited": true,
+  "elapsed_seconds": 14.86247636564076
+}

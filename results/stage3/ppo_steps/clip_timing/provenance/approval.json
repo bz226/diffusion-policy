@@ -1,0 +1,27 @@
+{
+  "approval": "approve",
+  "approved_utc": "2026-10-19T21:19:54.199831+00:00",
+  "branch": "analysis-dppo-clip-timing",
+  "parent_revision": "afa826275b328f1b852e52c47b2beaff8ffe7b00",
+  "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-clip-timing",
+  "max_local_computation_seconds": 1800,
+  "cpu_threads": 4,
+  "ram_gib": 8,
+  "gpu_allowed": false,
+  "scheduler_jobs_allowed": false,
+  "new_rollouts_or_gradients_allowed": false,
+  "checkpoints_updates": [
+    32,
+    63,
+    95
+  ],
+  "groups_per_checkpoint": 10,
+  "batches_per_group": 50,
+  "ppo_steps": 20,
+  "outputs": [
+    "two figures in PNG/PDF",
+    "per-step and summary table",
+    "REPORT.md with Q1-Q5 and verdicts"
+  ],
+  "curation_approved": false
+}

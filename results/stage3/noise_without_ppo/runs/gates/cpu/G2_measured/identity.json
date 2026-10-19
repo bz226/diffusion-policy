@@ -1,0 +1,66 @@
+{
+  "passed": true,
+  "gradient_comparison": {
+    "relative_l2": 0.0,
+    "max_abs": 0.0,
+    "reference_norm": 0.006970139371908217,
+    "measured_norm": 0.006970139371908217,
+    "bitwise_equal": true
+  },
+  "advantages_bitwise": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 20000,
+    "tensors": 1,
+    "first_failure": null
+  },
+  "inert_checks": {
+    "model": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 1841625,
+      "tensors": 44,
+      "first_failure": null
+    },
+    "optimizer": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 10,
+      "tensors": 10,
+      "first_failure": null
+    },
+    "global_rng": {
+      "passed": true,
+      "bitwise_equal": true,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "elements": 5681,
+      "tensors": 3,
+      "first_failure": null
+    }
+  },
+  "metrics": {
+    "ratio": 1.0,
+    "clipfrac": 0.0,
+    "approx_kl": 0.0,
+    "pg_loss": -0.00037917945883236825,
+    "chunk_sizes": [
+      50000,
+      50000,
+      50000,
+      50000
+    ],
+    "actor_loss": "score"
+  },
+  "estimator": "V2",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+  "reference": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu/G2_native/identity.pt",
+  "pairs": 200000,
+  "normalization": "four independently normalized native 50000-pair chunks"
+}

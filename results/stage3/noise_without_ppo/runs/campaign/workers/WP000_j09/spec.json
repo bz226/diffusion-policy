@@ -1,0 +1,16 @@
+{
+  "id": "WP000_j09",
+  "phase": "collect",
+  "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j09",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "-m",
+    "agent.finetune.noise_without_ppo",
+    "--spec",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j09.json"
+  ],
+  "cap_seconds": 1800,
+  "gpu_count": 1,
+  "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j09.json"
+}

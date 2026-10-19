@@ -1,0 +1,39 @@
+{
+  "branch": "analysis-dppo-clip-timing",
+  "parent_revision": "afa826275b328f1b852e52c47b2beaff8ffe7b00",
+  "source_worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/dppo-clip-timing",
+  "scripts": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/analyze_clip_timing.py",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/plot_clip_timing.py"
+  ],
+  "scope": "stored statistics only; no models/samplers/gradients",
+  "gate_wall_cap_seconds": 1200,
+  "memory_address_space_bytes": 8589934592,
+  "CPU_threads": 4,
+  "CUDA_VISIBLE_DEVICES": "",
+  "status": "complete",
+  "statistics_commands": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/analyze_clip_timing.py --root /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps --output /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates --phase gates",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/analyze_clip_timing.py --root /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps --output /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates --phase analyze"
+  ],
+  "plot_commands": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/plot_clip_timing.py --analysis /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates/analysis.json --output /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates --timing-only",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/code/plot_clip_timing.py --analysis /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates/analysis.json --output /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/analysis_20261019/candidates/render_shape --shape-only"
+  ],
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "PYTHONNOUSERSITE": "1",
+    "MPLCONFIGDIR": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/clip_timing/runs/matplotlib"
+  },
+  "address_space_limit_bytes": 8589934592,
+  "timeouts_seconds": {
+    "gate": 1200,
+    "analysis": 300,
+    "each_render": 180
+  },
+  "scientific_recomputations": "Stored float64 sums and scalar products only; no gradients, rollouts, GPUs or scheduler jobs.",
+  "render_attempts": "See render_status.json; no failed attempt produced figures."
+}

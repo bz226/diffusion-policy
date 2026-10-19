@@ -1,0 +1,981 @@
+{
+  "revision": "84a756a8280ced629b005b6d08499e1e8e7075f7",
+  "max_parallel": 5,
+  "gpu_seconds_cap": 108000,
+  "monitor_seconds": 1800,
+  "poll_seconds": 30,
+  "points": [
+    {
+      "point": "WP000",
+      "point_index": 0,
+      "checkpoint_itr": 0,
+      "updates": 0,
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+      "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP000/prepare.json"
+    },
+    {
+      "point": "WP035",
+      "point_index": 1,
+      "checkpoint_itr": 35,
+      "updates": 32,
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_35.pt",
+      "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP035/prepare.json"
+    },
+    {
+      "point": "WP070",
+      "point_index": 2,
+      "checkpoint_itr": 70,
+      "updates": 63,
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_70.pt",
+      "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP070/prepare.json"
+    },
+    {
+      "point": "WP105",
+      "point_index": 3,
+      "checkpoint_itr": 105,
+      "updates": 95,
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_105.pt",
+      "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP105/prepare.json"
+    },
+    {
+      "point": "WP139",
+      "point_index": 4,
+      "checkpoint_itr": 139,
+      "updates": 126,
+      "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_139.pt",
+      "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP139/prepare.json"
+    }
+  ],
+  "jobs": {
+    "prepare_WP000": {
+      "id": "prepare_WP000",
+      "phase": "prepare",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP000",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP000.json"
+      ],
+      "cap_seconds": 600,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP000.json"
+    },
+    "WP000_j00": {
+      "id": "WP000_j00",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j00",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j00.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j00.json"
+    },
+    "WP000_j01": {
+      "id": "WP000_j01",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j01",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j01.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j01.json"
+    },
+    "WP000_j02": {
+      "id": "WP000_j02",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j02",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j02.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j02.json"
+    },
+    "WP000_j03": {
+      "id": "WP000_j03",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j03",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j03.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j03.json"
+    },
+    "WP000_j04": {
+      "id": "WP000_j04",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j04",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j04.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j04.json"
+    },
+    "WP000_j05": {
+      "id": "WP000_j05",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j05",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j05.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j05.json"
+    },
+    "WP000_j06": {
+      "id": "WP000_j06",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j06",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j06.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j06.json"
+    },
+    "WP000_j07": {
+      "id": "WP000_j07",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j07",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j07.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j07.json"
+    },
+    "WP000_j08": {
+      "id": "WP000_j08",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j08",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j08.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j08.json"
+    },
+    "WP000_j09": {
+      "id": "WP000_j09",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP000_j09",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j09.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP000_j09.json"
+    },
+    "prepare_WP035": {
+      "id": "prepare_WP035",
+      "phase": "prepare",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP035",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP035.json"
+      ],
+      "cap_seconds": 600,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP035.json"
+    },
+    "WP035_j00": {
+      "id": "WP035_j00",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j00",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j00.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j00.json"
+    },
+    "WP035_j01": {
+      "id": "WP035_j01",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j01",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j01.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j01.json"
+    },
+    "WP035_j02": {
+      "id": "WP035_j02",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j02",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j02.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j02.json"
+    },
+    "WP035_j03": {
+      "id": "WP035_j03",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j03",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j03.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j03.json"
+    },
+    "WP035_j04": {
+      "id": "WP035_j04",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j04",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j04.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j04.json"
+    },
+    "WP035_j05": {
+      "id": "WP035_j05",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j05",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j05.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j05.json"
+    },
+    "WP035_j06": {
+      "id": "WP035_j06",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j06",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j06.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j06.json"
+    },
+    "WP035_j07": {
+      "id": "WP035_j07",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j07",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j07.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j07.json"
+    },
+    "WP035_j08": {
+      "id": "WP035_j08",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j08",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j08.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j08.json"
+    },
+    "WP035_j09": {
+      "id": "WP035_j09",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP035_j09",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j09.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP035_j09.json"
+    },
+    "prepare_WP070": {
+      "id": "prepare_WP070",
+      "phase": "prepare",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP070",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP070.json"
+      ],
+      "cap_seconds": 600,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP070.json"
+    },
+    "WP070_j00": {
+      "id": "WP070_j00",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j00",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j00.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j00.json"
+    },
+    "WP070_j01": {
+      "id": "WP070_j01",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j01",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j01.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j01.json"
+    },
+    "WP070_j02": {
+      "id": "WP070_j02",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j02",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j02.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j02.json"
+    },
+    "WP070_j03": {
+      "id": "WP070_j03",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j03",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j03.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j03.json"
+    },
+    "WP070_j04": {
+      "id": "WP070_j04",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j04",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j04.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j04.json"
+    },
+    "WP070_j05": {
+      "id": "WP070_j05",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j05",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j05.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j05.json"
+    },
+    "WP070_j06": {
+      "id": "WP070_j06",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j06",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j06.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j06.json"
+    },
+    "WP070_j07": {
+      "id": "WP070_j07",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j07",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j07.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j07.json"
+    },
+    "WP070_j08": {
+      "id": "WP070_j08",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j08",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j08.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j08.json"
+    },
+    "WP070_j09": {
+      "id": "WP070_j09",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP070_j09",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j09.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j09.json"
+    },
+    "prepare_WP105": {
+      "id": "prepare_WP105",
+      "phase": "prepare",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP105",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP105.json"
+      ],
+      "cap_seconds": 600,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP105.json"
+    },
+    "WP105_j00": {
+      "id": "WP105_j00",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j00",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j00.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j00.json"
+    },
+    "WP105_j01": {
+      "id": "WP105_j01",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j01",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j01.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j01.json"
+    },
+    "WP105_j02": {
+      "id": "WP105_j02",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j02",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j02.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j02.json"
+    },
+    "WP105_j03": {
+      "id": "WP105_j03",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j03",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j03.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j03.json"
+    },
+    "WP105_j04": {
+      "id": "WP105_j04",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j04",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j04.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j04.json"
+    },
+    "WP105_j05": {
+      "id": "WP105_j05",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j05",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j05.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j05.json"
+    },
+    "WP105_j06": {
+      "id": "WP105_j06",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j06",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j06.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j06.json"
+    },
+    "WP105_j07": {
+      "id": "WP105_j07",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j07",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j07.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j07.json"
+    },
+    "WP105_j08": {
+      "id": "WP105_j08",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j08",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j08.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j08.json"
+    },
+    "WP105_j09": {
+      "id": "WP105_j09",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP105_j09",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j09.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP105_j09.json"
+    },
+    "prepare_WP139": {
+      "id": "prepare_WP139",
+      "phase": "prepare",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP139",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP139.json"
+      ],
+      "cap_seconds": 600,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP139.json"
+    },
+    "WP139_j00": {
+      "id": "WP139_j00",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j00",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j00.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j00.json"
+    },
+    "WP139_j01": {
+      "id": "WP139_j01",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j01",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j01.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j01.json"
+    },
+    "WP139_j02": {
+      "id": "WP139_j02",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j02",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j02.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j02.json"
+    },
+    "WP139_j03": {
+      "id": "WP139_j03",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j03",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j03.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j03.json"
+    },
+    "WP139_j04": {
+      "id": "WP139_j04",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j04",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j04.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j04.json"
+    },
+    "WP139_j05": {
+      "id": "WP139_j05",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j05",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j05.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j05.json"
+    },
+    "WP139_j06": {
+      "id": "WP139_j06",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j06",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j06.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j06.json"
+    },
+    "WP139_j07": {
+      "id": "WP139_j07",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j07",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j07.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j07.json"
+    },
+    "WP139_j08": {
+      "id": "WP139_j08",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j08",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j08.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j08.json"
+    },
+    "WP139_j09": {
+      "id": "WP139_j09",
+      "phase": "collect",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/collect/WP139_j09",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "-m",
+        "agent.finetune.noise_without_ppo",
+        "--spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j09.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1,
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j09.json"
+    },
+    "gate_cpu": {
+      "id": "gate_cpu",
+      "phase": "gate_cpu",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/gate_noise.py",
+        "--phase",
+        "cpu",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+        "--parent-source",
+        "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5/results/stage3_gradmean/dppo",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu"
+      ],
+      "cap_seconds": 7200,
+      "gpu_count": 0
+    },
+    "gate_live": {
+      "id": "gate_live",
+      "phase": "gate_live",
+      "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/live",
+      "command": [
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "-B",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/code/gate_noise.py",
+        "--phase",
+        "live",
+        "--source",
+        "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/noise-without-ppo/results/stage3/noise_without_ppo/dppo",
+        "--parent-source",
+        "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-gradmean-v5/results/stage3_gradmean/dppo",
+        "--output",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/live",
+        "--cpu-result",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/gates/cpu/gate_summary.json",
+        "--study-spec",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/study_spec.json"
+      ],
+      "cap_seconds": 1800,
+      "gpu_count": 1
+    }
+  },
+  "expected_gpu_hours": 10.5,
+  "expected_collection_hours": 2.5,
+  "estimate_basis": "50 preceding clean-v5 jobs: mean735.84s/job; total10.22GPUh; rollouts dominate.",
+  "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/source_snapshot",
+  "automatic_retries": false,
+  "bounded_retry_policy": "Only after a documented cause fix, new seeds, remaining cap; no silent rerun."
+}

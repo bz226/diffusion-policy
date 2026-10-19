@@ -1,0 +1,32 @@
+{
+  "status": "completed",
+  "operation": "prepare",
+  "spec": {
+    "point": "WP000",
+    "point_index": 0,
+    "checkpoint_itr": 0,
+    "updates": 0,
+    "checkpoint": "/soalnas/share/data/zbao7/diffusion_policy/results/stage2_noclip/runs/NC4_lr1e-4_seed0/native/checkpoint/state_0.pt",
+    "frozen_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP000/prepare.json",
+    "operation": "prepare",
+    "job_index": 99,
+    "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP000",
+    "batches": 50,
+    "seed_base": 50000000,
+    "device": "cuda:0",
+    "parent_revision": "84a756a8280ced629b005b6d08499e1e8e7075f7",
+    "normalization_path": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo/data/gym/halfcheetah-medium-v2/normalization.npz"
+  },
+  "critic_checkpoint_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+  "warmup_batches": 0,
+  "actor_optimizer_steps": 0,
+  "critic_optimizer_steps": 0,
+  "fit_batches": [],
+  "scaler_c": 1.000000005,
+  "scaler_c_source": "exact_initial_scaler_state_updated_per_measurement_batch",
+  "scaler_approximation": false,
+  "critic_after_sha256": "89befa45ff67000a92ccdd76598eb6be127dc4ea7d22d71da329405b1a529a32",
+  "actor_and_critic_unchanged": true,
+  "elapsed_seconds": 4.4906960260123014,
+  "clean_exit": true
+}

@@ -1,0 +1,16 @@
+{
+  "id": "prepare_WP105",
+  "phase": "prepare",
+  "out": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/prepare/WP105",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "-m",
+    "agent.finetune.noise_without_ppo",
+    "--spec",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP105.json"
+  ],
+  "cap_seconds": 600,
+  "gpu_count": 1,
+  "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/prepare_WP105.json"
+}
