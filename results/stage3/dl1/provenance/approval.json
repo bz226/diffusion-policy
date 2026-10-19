@@ -1,0 +1,23 @@
+{
+  "approved": true,
+  "user_reply": "approve",
+  "approved_utc": "2026-10-19T09:26:43.963333+00:00",
+  "scope": "DL1: DPPO with raw MC critic actor advantages; G1-G6; seeds0,1,2 140iterations; requested analysis only",
+  "budget_gpu_hours": 16,
+  "training_attempt_cap_seconds": 14400,
+  "gpu_gate_cap_seconds": 3600,
+  "aggregate_cpu_gate_wall_cap_seconds": 7200,
+  "max_parallel_training": 3,
+  "cpus_per_training_job": 40,
+  "memory_gib": 64,
+  "gpu": "A6000",
+  "monitor_seconds": 1800,
+  "automatic_retries": false,
+  "max_reviewed_same_seed_retries": 1,
+  "retry_requires": "Diagnosed cause, explicit record, and full retry reservation within remaining cap. No scientific changes or extra sampling.",
+  "no_reference_reruns": true,
+  "new_checkpoint_evaluations": false,
+  "curation_approved": false,
+  "base_revision": "35cb89ba46236860cc01738942d7e5d2dbad74e3",
+  "parent_revision_at_start": "6729850a099744bbdec571e57a2262c498013b3b"
+}

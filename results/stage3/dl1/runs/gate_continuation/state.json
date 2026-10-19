@@ -1,0 +1,43 @@
+{
+  "controller_job_id": "17959886",
+  "cpu_job": "17959858",
+  "detail": "Training and its requested final analysis finished; see campaign status.",
+  "ended_utc": "2026-10-19T11:48:24.312367+00:00",
+  "gate_status": "passed",
+  "live_job": "17959918",
+  "live_submission_command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--gres=gpu:a6000:1",
+    "--time=60",
+    "--no-requeue",
+    "--job-name=dl1-live-gate",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/live_gate.scheduler.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/live_gate.scheduler.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/run_gate.sh",
+    "live"
+  ],
+  "monitor_seconds": 1800,
+  "monitor_status": "paused",
+  "scheduler": {
+    "elapsed_seconds": 81,
+    "exit_code": "0:0",
+    "gpu_count": 1,
+    "state": "COMPLETED"
+  },
+  "started_utc": "2026-10-19T09:33:34.468428+00:00",
+  "status": "complete",
+  "training_controller_command": [
+    "bash",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/run_queue.sh",
+    "run",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/plan_training.json"
+  ],
+  "updated_utc": "2026-10-19T11:48:24.312427+00:00"
+}

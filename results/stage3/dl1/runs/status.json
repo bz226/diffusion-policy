@@ -1,0 +1,262 @@
+{
+  "actual_gpu_hours": 6.294444444444444,
+  "analysis_status": "complete",
+  "campaign_id": "dl1_training",
+  "controller_job_id": "17959886",
+  "ended_utc": "2026-10-19T11:48:11.303262+00:00",
+  "final_analysis": {
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/analyze.py",
+      "--root",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1",
+      "--final"
+    ],
+    "ended_utc": "2026-10-19T11:48:24.243788+00:00",
+    "output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/final_analysis.out",
+    "returncode": 0
+  },
+  "interim_analysis": {
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/analyze.py",
+      "--root",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1",
+      "--interim",
+      "--target-itr",
+      "70"
+    ],
+    "ended_utc": "2026-10-19T10:44:54.495195+00:00",
+    "output": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/interim_analysis.out",
+    "returncode": 0
+  },
+  "itr70_note_ready": true,
+  "jobs": {
+    "DL1_seed0": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=dl1-DL1_seed0",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed0.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed0.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed0/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 7569,
+      "ended_utc": "2026-10-19T11:48:11.268769+00:00",
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-3682bd5c-3f3a-46c3-f3aa-303045ccf55d, 580.82.07, 49140 MiB",
+        "node": "soal-10"
+      },
+      "last_counter": {
+        "itr": 132
+      },
+      "missing_checks": 0,
+      "observed_utc": "2026-10-19T11:48:11.239983+00:00",
+      "progress": {
+        "J_disc_train": 1507.408552292796,
+        "estimated_finish_utc": "2026-10-19T11:48:11.262851+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.07965934643303114,
+        "ppo_step_count": 20,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 60.250746965408325,
+        "step": 10080000,
+        "train_episode_reward": 4372.511362029203
+      },
+      "scheduler": {
+        "elapsed_seconds": 7569,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17959932",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed0/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-19T09:41:14.151102+00:00",
+      "unchanged_checks": 0
+    },
+    "DL1_seed1": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=dl1-DL1_seed1",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed1.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed1.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed1/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 7421,
+      "ended_utc": "2026-10-19T11:45:40.606657+00:00",
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-592bcec5-b313-adef-6efd-48801e6391c0, 580.82.07, 49140 MiB",
+        "node": "soal-10"
+      },
+      "last_counter": {
+        "itr": 135
+      },
+      "missing_checks": 0,
+      "observed_utc": "2026-10-19T11:45:40.576667+00:00",
+      "progress": {
+        "J_disc_train": 1519.41031913136,
+        "estimated_finish_utc": "2026-10-19T11:45:40.601437+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.08710358276946847,
+        "ppo_step_count": 20,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 57.38215947151184,
+        "step": 10080000,
+        "train_episode_reward": 4342.849647665554
+      },
+      "scheduler": {
+        "elapsed_seconds": 7421,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17959933",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed1/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-19T09:41:14.234336+00:00",
+      "unchanged_checks": 0
+    },
+    "DL1_seed2": {
+      "argv": [
+        "sbatch",
+        "--parsable",
+        "--account=soal",
+        "--partition=soal",
+        "--nodes=1",
+        "--ntasks=1",
+        "--cpus-per-task=40",
+        "--mem=64G",
+        "--gres=gpu:a6000:1",
+        "--no-requeue",
+        "--time=240",
+        "--job-name=dl1-DL1_seed2",
+        "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed2.scheduler.out",
+        "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/DL1_seed2.scheduler.err",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/run_worker.sh",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/worker.py",
+        "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed2/spec.json"
+      ],
+      "cap_seconds": 14400,
+      "elapsed_seconds": 7589,
+      "ended_utc": "2026-10-19T11:48:11.301661+00:00",
+      "gpu_count": 1,
+      "hardware": {
+        "cpu_affinity": 40,
+        "gpu": "NVIDIA RTX A6000, GPU-700af187-4695-9790-fafb-9a86d62a3011, 580.82.07, 49140 MiB",
+        "node": "soal-10"
+      },
+      "last_counter": {
+        "itr": 131
+      },
+      "missing_checks": 0,
+      "observed_utc": "2026-10-19T11:48:11.270956+00:00",
+      "progress": {
+        "J_disc_train": 1478.4218281382111,
+        "estimated_finish_utc": "2026-10-19T11:48:11.296651+00:00",
+        "itr": 139,
+        "kl_true_per_action": 0.07570142944892587,
+        "ppo_step_count": 20,
+        "remaining_seconds_estimate": 0,
+        "rows": 140,
+        "seconds_per_training_iteration": 52.33404338359833,
+        "step": 10080000,
+        "train_episode_reward": 4233.3743947897165
+      },
+      "scheduler": {
+        "elapsed_seconds": 7589,
+        "exit_code": "0:0",
+        "gpu_count": 1,
+        "state": "COMPLETED"
+      },
+      "scheduler_job_id": "17959934",
+      "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/campaign_training/workers/DL1_seed2/spec.json",
+      "status": "complete",
+      "submitted_utc": "2026-10-19T09:41:14.287722+00:00",
+      "unchanged_checks": 0
+    }
+  },
+  "monitor_status": "paused",
+  "notifications": [
+    {
+      "detail": "Seed 0 reached evaluation iteration 70",
+      "kind": "interim_ready",
+      "utc": "2026-10-19T10:44:27.738983+00:00"
+    },
+    {
+      "detail": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/logs/interim_analysis.out",
+      "kind": "interim_analysis_ready",
+      "utc": "2026-10-19T10:44:54.495466+00:00"
+    },
+    {
+      "detail": "DL1_seed1",
+      "kind": "job_complete",
+      "utc": "2026-10-19T11:45:40.606736+00:00"
+    },
+    {
+      "detail": "DL1_seed0",
+      "kind": "job_complete",
+      "utc": "2026-10-19T11:48:11.268857+00:00"
+    },
+    {
+      "detail": "DL1_seed2",
+      "kind": "job_complete",
+      "utc": "2026-10-19T11:48:11.301718+00:00"
+    },
+    {
+      "detail": "All admitted outputs verified; monitor paused",
+      "kind": "campaign_complete",
+      "utc": "2026-10-19T11:48:24.255868+00:00"
+    }
+  ],
+  "plan_path": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/plan_training.json",
+  "remaining_unreserved_gpu_hours": 9.705555555555556,
+  "reserved_gpu_hours": 0.0,
+  "source_provenance": {
+    "branch": "stage3-dl1",
+    "revision": "9c51cd209aba253fcd611e169f4c21615e37ef95",
+    "snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/provenance/source_snapshot",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+    "source_relative": "results/stage3/dl1/dppo",
+    "worktree": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1"
+  },
+  "started_utc": "2026-10-19T09:41:14.141809+00:00",
+  "status": "complete",
+  "updated_utc": "2026-10-19T11:48:24.257936+00:00"
+}

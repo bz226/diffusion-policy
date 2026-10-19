@@ -1,0 +1,23 @@
+{
+  "python": "3.8.20 | packaged by conda-forge | (default, Sep 30 2024, 17:52:49) \n[GCC 13.3.0]",
+  "python_executable": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+  "packages": {
+    "torch": "2.4.0",
+    "numpy": "1.24.4",
+    "gym": "0.22.0",
+    "d4rl": "1.1",
+    "mujoco-py": "2.1.2.14",
+    "hydra-core": "1.3.2",
+    "omegaconf": "2.3.0"
+  },
+  "os": "Linux-6.8.0-134-generic-x86_64-with-glibc2.17",
+  "machine": "x86_64",
+  "mujoco_binary_directory": "/sailhome/zbao7/.mujoco/mujoco210",
+  "mujoco_version": "2.1.0",
+  "OMP_NUM_THREADS": "unset for scientific runs; CPU replay workers use two torch threads",
+  "MKL_NUM_THREADS": "unset",
+  "OPENBLAS_NUM_THREADS": "unset",
+  "environment_setup": "code/environment.sh",
+  "installation_changes": [],
+  "reference_environment": "../e1cg_an/provenance/environment.json"
+}

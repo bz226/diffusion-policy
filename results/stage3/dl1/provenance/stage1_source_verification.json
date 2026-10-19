@@ -1,0 +1,28 @@
+{
+  "revision": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "archived_git": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/git-backups/stage2_noclip-dppo-ab46b150/.git",
+  "checked_paths": [
+    "agent",
+    "model",
+    "env",
+    "util",
+    "cfg/gym/finetune/halfcheetah-v2/ft_ppo_diffusion_mlp.yaml"
+  ],
+  "command": [
+    "git",
+    "--git-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/git-backups/stage2_noclip-dppo-ab46b150/.git",
+    "--work-tree=/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+    "diff",
+    "--exit-code",
+    "cc7234a",
+    "--",
+    "agent",
+    "model",
+    "env",
+    "util",
+    "cfg/gym/finetune/halfcheetah-v2/ft_ppo_diffusion_mlp.yaml"
+  ],
+  "identical": true,
+  "comparison": "Git diff of archived committed source against original Stage-1 working files; no checksums"
+}

@@ -1,0 +1,294 @@
+[
+  {
+    "method": "DPPO",
+    "eval_936M": null,
+    "eval_936M_sd": null,
+    "eval_936M_seeds": [
+      null,
+      null,
+      null
+    ],
+    "eval_last5": null,
+    "eval_last5_sd": null,
+    "eval_last5_seeds": [
+      null,
+      null,
+      null
+    ],
+    "train_last10": null,
+    "train_last10_sd": null,
+    "train_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": null,
+    "theta_dist_final_sd": null,
+    "theta_dist_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_kl_true_per_action": null,
+    "mean_kl_true_per_action_sd": null,
+    "mean_kl_true_per_action_seeds": [
+      null,
+      null,
+      null
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "method": "without_PPO",
+    "eval_936M": null,
+    "eval_936M_sd": null,
+    "eval_936M_seeds": [
+      null,
+      null,
+      null
+    ],
+    "eval_last5": null,
+    "eval_last5_sd": null,
+    "eval_last5_seeds": [
+      null,
+      null,
+      null
+    ],
+    "train_last10": null,
+    "train_last10_sd": null,
+    "train_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": null,
+    "theta_dist_final_sd": null,
+    "theta_dist_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_kl_true_per_action": null,
+    "mean_kl_true_per_action_sd": null,
+    "mean_kl_true_per_action_seeds": [
+      null,
+      null,
+      null
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "method": "without_PPO_and_GAE",
+    "eval_936M": null,
+    "eval_936M_sd": null,
+    "eval_936M_seeds": [
+      null,
+      null,
+      null
+    ],
+    "eval_last5": null,
+    "eval_last5_sd": null,
+    "eval_last5_seeds": [
+      null,
+      null,
+      null
+    ],
+    "train_last10": null,
+    "train_last10_sd": null,
+    "train_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": null,
+    "theta_dist_final_sd": null,
+    "theta_dist_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_kl_true_per_action": null,
+    "mean_kl_true_per_action_sd": null,
+    "mean_kl_true_per_action_seeds": [
+      null,
+      null,
+      null
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "method": "without_GAE",
+    "eval_936M": null,
+    "eval_936M_sd": null,
+    "eval_936M_seeds": [
+      null,
+      null,
+      null
+    ],
+    "eval_last5": null,
+    "eval_last5_sd": null,
+    "eval_last5_seeds": [
+      null,
+      null,
+      null
+    ],
+    "train_last10": null,
+    "train_last10_sd": null,
+    "train_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": null,
+    "theta_dist_final_sd": null,
+    "theta_dist_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_kl_true_per_action": null,
+    "mean_kl_true_per_action_sd": null,
+    "mean_kl_true_per_action_seeds": [
+      null,
+      null,
+      null
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  }
+]

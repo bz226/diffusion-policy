@@ -1,0 +1,29 @@
+{
+  "passed": true,
+  "raw_comparison": {
+    "max_abs": 3.637978807091713e-12,
+    "relative_l2": 6.012207763975761e-16
+  },
+  "native_float32_cast": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 20000,
+    "tensors": 1,
+    "first_failure": null
+  },
+  "bruteforce_float32_cast_diagnostic": {
+    "passed": true,
+    "bitwise_equal": true,
+    "max_abs": 0.0,
+    "max_rel": 0.0,
+    "elements": 20000,
+    "tensors": 1,
+    "first_failure": null
+  },
+  "normalization": "unchanged native per-minibatch normalization",
+  "divisor": 1.000000005,
+  "profile": "e1c",
+  "pairs": 200000
+}

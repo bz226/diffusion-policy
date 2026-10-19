@@ -1,0 +1,13 @@
+method,seed,status,last_itr,eval_936M,eval_last5,train_last10,J_disc_gain_last10,theta_dist_final,mean_kl_true_per_action,saturation_final,mean_clipfrac,mean_switched_off_fraction,mean_approx_kl,initial_J_disc_train
+DPPO,0,complete,70,,,,,,,,,,,
+DPPO,1,complete,70,,,,,,,,,,,
+DPPO,2,complete,70,,,,,,,,,,,
+without_PPO,0,complete,70,,,,,,,,,,,
+without_PPO,1,complete,70,,,,,,,,,,,
+without_PPO,2,complete,70,,,,,,,,,,,
+without_PPO_and_GAE,0,complete,70,,,,,,,,,,,1403.098178314858
+without_PPO_and_GAE,1,complete,70,,,,,,,,,,,1418.9736735859974
+without_PPO_and_GAE,2,complete,70,,,,,,,,,,,1394.6781503762247
+without_GAE,0,partial,70,,,,,,,,,,,1363.850987991977
+without_GAE,1,partial,70,,,,,,,,,,,1384.1267779735015
+without_GAE,2,partial,68,,,,,,,,,,,1346.3617041217872

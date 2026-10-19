@@ -1,0 +1,16 @@
+contrast,metric,metric_key,difference,pooled_seed_sd,difference_se,reading,formula
+GAE under reuse,Last five evals,eval_last5,,,,not logged,+1 × DPPO + -1 × without_GAE
+GAE under reuse,Train last 10 updates,train_last10,,,,not logged,+1 × DPPO + -1 × without_GAE
+GAE under reuse,"J_disc gain, last 10",J_disc_gain_last10,,,,not logged,+1 × DPPO + -1 × without_GAE
+GAE without reuse,Last five evals,eval_last5,,,,not logged,+1 × without_PPO + -1 × without_PPO_and_GAE
+GAE without reuse,Train last 10 updates,train_last10,,,,not logged,+1 × without_PPO + -1 × without_PPO_and_GAE
+GAE without reuse,"J_disc gain, last 10",J_disc_gain_last10,,,,not logged,+1 × without_PPO + -1 × without_PPO_and_GAE
+reuse under GAE,Last five evals,eval_last5,,,,not logged,+1 × DPPO + -1 × without_PPO
+reuse under GAE,Train last 10 updates,train_last10,,,,not logged,+1 × DPPO + -1 × without_PPO
+reuse under GAE,"J_disc gain, last 10",J_disc_gain_last10,,,,not logged,+1 × DPPO + -1 × without_PPO
+reuse under Monte Carlo,Last five evals,eval_last5,,,,not logged,+1 × without_GAE + -1 × without_PPO_and_GAE
+reuse under Monte Carlo,Train last 10 updates,train_last10,,,,not logged,+1 × without_GAE + -1 × without_PPO_and_GAE
+reuse under Monte Carlo,"J_disc gain, last 10",J_disc_gain_last10,,,,not logged,+1 × without_GAE + -1 × without_PPO_and_GAE
+interaction,Last five evals,eval_last5,,,,not logged,+1 × DPPO + -1 × without_PPO + -1 × without_GAE + +1 × without_PPO_and_GAE
+interaction,Train last 10 updates,train_last10,,,,not logged,+1 × DPPO + -1 × without_PPO + -1 × without_GAE + +1 × without_PPO_and_GAE
+interaction,"J_disc gain, last 10",J_disc_gain_last10,,,,not logged,+1 × DPPO + -1 × without_PPO + -1 × without_GAE + +1 × without_PPO_and_GAE

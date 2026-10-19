@@ -1,0 +1,161 @@
+method,aggregation,metric,value,sd,seed0,seed1,seed2,status
+DPPO,seed 0,Eval at 9.36M,4636.273298273394,,,,,available
+DPPO,seed 0,Last five evals,4636.718800652148,,,,,available
+DPPO,seed 0,Train last 10 updates,4378.4577225126795,,,,,available
+DPPO,seed 0,"J_disc gain, last 10",,,,,,not logged
+DPPO,seed 0,Final distance from own start,6.8584590635539,,,,,available
+DPPO,seed 0,Mean true-KL diagnostic per update,,,,,,not logged
+DPPO,seed 0,Final rollout saturation,,,,,,not logged
+DPPO,seed 0,Mean clipfrac,,,,,,not logged
+DPPO,seed 0,Mean switched-off fraction,,,,,,not logged
+DPPO,seed 0,Mean PPO approximate KL per update,7.439318106851005e-06,,,,,available
+DPPO,seed 1,Eval at 9.36M,4796.043488648042,,,,,available
+DPPO,seed 1,Last five evals,4760.300075776581,,,,,available
+DPPO,seed 1,Train last 10 updates,4502.904832279016,,,,,available
+DPPO,seed 1,"J_disc gain, last 10",,,,,,not logged
+DPPO,seed 1,Final distance from own start,6.935898417571767,,,,,available
+DPPO,seed 1,Mean true-KL diagnostic per update,,,,,,not logged
+DPPO,seed 1,Final rollout saturation,,,,,,not logged
+DPPO,seed 1,Mean clipfrac,,,,,,not logged
+DPPO,seed 1,Mean switched-off fraction,,,,,,not logged
+DPPO,seed 1,Mean PPO approximate KL per update,7.635655467290514e-06,,,,,available
+DPPO,seed 2,Eval at 9.36M,4842.7955079947105,,,,,available
+DPPO,seed 2,Last five evals,4747.339343085625,,,,,available
+DPPO,seed 2,Train last 10 updates,4547.761512855938,,,,,available
+DPPO,seed 2,"J_disc gain, last 10",,,,,,not logged
+DPPO,seed 2,Final distance from own start,6.948820395760214,,,,,available
+DPPO,seed 2,Mean true-KL diagnostic per update,,,,,,not logged
+DPPO,seed 2,Final rollout saturation,,,,,,not logged
+DPPO,seed 2,Mean clipfrac,,,,,,not logged
+DPPO,seed 2,Mean switched-off fraction,,,,,,not logged
+DPPO,seed 2,Mean PPO approximate KL per update,8.368511397087333e-06,,,,,available
+DPPO,three-seed mean,Eval at 9.36M,4758.370764972049,108.2925729628751,4636.273298273394,4796.043488648042,4842.7955079947105,available
+DPPO,three-seed mean,Last five evals,4714.786073171452,67.91810824017385,4636.718800652148,4760.300075776581,4747.339343085625,available
+DPPO,three-seed mean,Train last 10 updates,4476.374689215878,87.71447841925215,4378.4577225126795,4502.904832279016,4547.761512855938,available
+DPPO,three-seed mean,"J_disc gain, last 10",,,,,,not logged
+DPPO,three-seed mean,Final distance from own start,6.9143926256286266,0.048868874601848675,6.8584590635539,6.935898417571767,6.948820395760214,available
+DPPO,three-seed mean,Mean true-KL diagnostic per update,,,,,,not logged
+DPPO,three-seed mean,Final rollout saturation,,,,,,not logged
+DPPO,three-seed mean,Mean clipfrac,,,,,,not logged
+DPPO,three-seed mean,Mean switched-off fraction,,,,,,not logged
+DPPO,three-seed mean,Mean PPO approximate KL per update,7.814494990409618e-06,4.897322982274646e-07,7.439318106851005e-06,7.635655467290514e-06,8.368511397087333e-06,available
+without_PPO,seed 0,Eval at 9.36M,4624.0873515240455,,,,,available
+without_PPO,seed 0,Last five evals,4558.129765276053,,,,,available
+without_PPO,seed 0,Train last 10 updates,4303.546177789967,,,,,available
+without_PPO,seed 0,"J_disc gain, last 10",,,,,,not logged
+without_PPO,seed 0,Final distance from own start,0.9097471263900015,,,,,available
+without_PPO,seed 0,Mean true-KL diagnostic per update,0.0006684696990395558,,,,,available
+without_PPO,seed 0,Final rollout saturation,,,,,,not logged
+without_PPO,seed 0,Mean clipfrac,,,,,,not logged
+without_PPO,seed 0,Mean switched-off fraction,,,,,,not logged
+without_PPO,seed 0,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO,seed 1,Eval at 9.36M,4586.218975028707,,,,,available
+without_PPO,seed 1,Last five evals,4557.466256378103,,,,,available
+without_PPO,seed 1,Train last 10 updates,4323.575436383592,,,,,available
+without_PPO,seed 1,"J_disc gain, last 10",,,,,,not logged
+without_PPO,seed 1,Final distance from own start,0.8784519424117898,,,,,available
+without_PPO,seed 1,Mean true-KL diagnostic per update,0.0006744350169008126,,,,,available
+without_PPO,seed 1,Final rollout saturation,,,,,,not logged
+without_PPO,seed 1,Mean clipfrac,,,,,,not logged
+without_PPO,seed 1,Mean switched-off fraction,,,,,,not logged
+without_PPO,seed 1,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO,seed 2,Eval at 9.36M,4600.264927409581,,,,,available
+without_PPO,seed 2,Last five evals,4587.163819411975,,,,,available
+without_PPO,seed 2,Train last 10 updates,4306.686115061187,,,,,available
+without_PPO,seed 2,"J_disc gain, last 10",,,,,,not logged
+without_PPO,seed 2,Final distance from own start,0.895192129917268,,,,,available
+without_PPO,seed 2,Mean true-KL diagnostic per update,0.0007429169936445965,,,,,available
+without_PPO,seed 2,Final rollout saturation,,,,,,not logged
+without_PPO,seed 2,Mean clipfrac,,,,,,not logged
+without_PPO,seed 2,Mean switched-off fraction,,,,,,not logged
+without_PPO,seed 2,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO,three-seed mean,Eval at 9.36M,4603.5237513207785,19.143365288300707,4624.0873515240455,4586.218975028707,4600.264927409581,available
+without_PPO,three-seed mean,Last five evals,4567.586613688711,16.957602983991702,4558.129765276053,4557.466256378103,4587.163819411975,available
+without_PPO,three-seed mean,Train last 10 updates,4311.269243078249,10.772492597730523,4303.546177789967,4323.575436383592,4306.686115061187,available
+without_PPO,three-seed mean,"J_disc gain, last 10",,,,,,not logged
+without_PPO,three-seed mean,Final distance from own start,0.8944637329063531,0.015660301935520354,0.9097471263900015,0.8784519424117898,0.895192129917268,available
+without_PPO,three-seed mean,Mean true-KL diagnostic per update,0.0006952739031949883,4.1367793088205954e-05,0.0006684696990395558,0.0006744350169008126,0.0007429169936445965,available
+without_PPO,three-seed mean,Final rollout saturation,,,,,,not logged
+without_PPO,three-seed mean,Mean clipfrac,,,,,,not logged
+without_PPO,three-seed mean,Mean switched-off fraction,,,,,,not logged
+without_PPO,three-seed mean,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO_and_GAE,seed 0,Eval at 9.36M,4490.688112242096,,,,,available
+without_PPO_and_GAE,seed 0,Last five evals,4514.490896414677,,,,,available
+without_PPO_and_GAE,seed 0,Train last 10 updates,4217.930809768567,,,,,available
+without_PPO_and_GAE,seed 0,"J_disc gain, last 10",80.33971805046872,,,,,available
+without_PPO_and_GAE,seed 0,Final distance from own start,0.8546440815153131,,,,,available
+without_PPO_and_GAE,seed 0,Mean true-KL diagnostic per update,0.000615275749674402,,,,,available
+without_PPO_and_GAE,seed 0,Final rollout saturation,0.1302036030516586,,,,,available
+without_PPO_and_GAE,seed 0,Mean clipfrac,,,,,,not logged
+without_PPO_and_GAE,seed 0,Mean switched-off fraction,,,,,,not logged
+without_PPO_and_GAE,seed 0,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO_and_GAE,seed 1,Eval at 9.36M,4517.40750394154,,,,,available
+without_PPO_and_GAE,seed 1,Last five evals,4501.639454620772,,,,,available
+without_PPO_and_GAE,seed 1,Train last 10 updates,4249.92208752576,,,,,available
+without_PPO_and_GAE,seed 1,"J_disc gain, last 10",75.65993769760462,,,,,available
+without_PPO_and_GAE,seed 1,Final distance from own start,0.8443542353834035,,,,,available
+without_PPO_and_GAE,seed 1,Mean true-KL diagnostic per update,0.0005560434908248493,,,,,available
+without_PPO_and_GAE,seed 1,Final rollout saturation,0.1393950324773227,,,,,available
+without_PPO_and_GAE,seed 1,Mean clipfrac,,,,,,not logged
+without_PPO_and_GAE,seed 1,Mean switched-off fraction,,,,,,not logged
+without_PPO_and_GAE,seed 1,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO_and_GAE,seed 2,Eval at 9.36M,4503.550925011731,,,,,available
+without_PPO_and_GAE,seed 2,Last five evals,4436.328261148085,,,,,available
+without_PPO_and_GAE,seed 2,Train last 10 updates,4154.778271096589,,,,,available
+without_PPO_and_GAE,seed 2,"J_disc gain, last 10",72.01181042492931,,,,,available
+without_PPO_and_GAE,seed 2,Final distance from own start,0.8347559979845237,,,,,available
+without_PPO_and_GAE,seed 2,Mean true-KL diagnostic per update,0.0006017505989151611,,,,,available
+without_PPO_and_GAE,seed 2,Final rollout saturation,0.0820961176974302,,,,,available
+without_PPO_and_GAE,seed 2,Mean clipfrac,,,,,,not logged
+without_PPO_and_GAE,seed 2,Mean switched-off fraction,,,,,,not logged
+without_PPO_and_GAE,seed 2,Mean PPO approximate KL per update,,,,,,not logged
+without_PPO_and_GAE,three-seed mean,Eval at 9.36M,4503.8821803984565,13.362775564810713,4490.688112242096,4517.40750394154,4503.550925011731,available
+without_PPO_and_GAE,three-seed mean,Last five evals,4484.152870727845,41.9128244113642,4514.490896414677,4501.639454620772,4436.328261148085,available
+without_PPO_and_GAE,three-seed mean,Train last 10 updates,4207.543722796972,48.414926758113815,4217.930809768567,4249.92208752576,4154.778271096589,available
+without_PPO_and_GAE,three-seed mean,"J_disc gain, last 10",76.00382205766755,4.17459024273057,80.33971805046872,75.65993769760462,72.01181042492931,available
+without_PPO_and_GAE,three-seed mean,Final distance from own start,0.8445847716277468,0.009946045789753897,0.8546440815153131,0.8443542353834035,0.8347559979845237,available
+without_PPO_and_GAE,three-seed mean,Mean true-KL diagnostic per update,0.0005910232798048042,3.103903435316047e-05,0.000615275749674402,0.0005560434908248493,0.0006017505989151611,available
+without_PPO_and_GAE,three-seed mean,Final rollout saturation,0.11723158440880384,0.030773305956482398,0.1302036030516586,0.1393950324773227,0.0820961176974302,available
+without_PPO_and_GAE,three-seed mean,Mean clipfrac,,,,,,not logged
+without_PPO_and_GAE,three-seed mean,Mean switched-off fraction,,,,,,not logged
+without_PPO_and_GAE,three-seed mean,Mean PPO approximate KL per update,,,,,,not logged
+without_GAE,seed 0,Eval at 9.36M,4620.909125747501,,,,,available
+without_GAE,seed 0,Last five evals,4594.46988924591,,,,,available
+without_GAE,seed 0,Train last 10 updates,4366.222041983676,,,,,available
+without_GAE,seed 0,"J_disc gain, last 10",156.10025930381244,,,,,available
+without_GAE,seed 0,Final distance from own start,6.901969190673034,,,,,available
+without_GAE,seed 0,Mean true-KL diagnostic per update,0.07945109155574821,,,,,available
+without_GAE,seed 0,Final rollout saturation,0.21315281131003033,,,,,available
+without_GAE,seed 0,Mean clipfrac,0.024487523213160566,,,,,available
+without_GAE,seed 0,Mean switched-off fraction,0.01475702344305896,,,,,available
+without_GAE,seed 0,Mean PPO approximate KL per update,7.388916622741613e-06,,,,,available
+without_GAE,seed 1,Eval at 9.36M,4639.671581743581,,,,,available
+without_GAE,seed 1,Last five evals,4587.214417464548,,,,,available
+without_GAE,seed 1,Train last 10 updates,4313.641672269669,,,,,available
+without_GAE,seed 1,"J_disc gain, last 10",126.33710816807775,,,,,available
+without_GAE,seed 1,Final distance from own start,6.914591490138275,,,,,available
+without_GAE,seed 1,Mean true-KL diagnostic per update,0.09641209855704452,,,,,available
+without_GAE,seed 1,Final rollout saturation,0.2043724649486679,,,,,available
+without_GAE,seed 1,Mean clipfrac,0.023780864486702954,,,,,available
+without_GAE,seed 1,Mean switched-off fraction,0.014426602802695782,,,,,available
+without_GAE,seed 1,Mean PPO approximate KL per update,1.562283605728457e-05,,,,,available
+without_GAE,seed 2,Eval at 9.36M,4602.555173768317,,,,,available
+without_GAE,seed 2,Last five evals,4577.845189753765,,,,,available
+without_GAE,seed 2,Train last 10 updates,4207.106283907067,,,,,available
+without_GAE,seed 2,"J_disc gain, last 10",128.29297922792125,,,,,available
+without_GAE,seed 2,Final distance from own start,6.995070234286396,,,,,available
+without_GAE,seed 2,Mean true-KL diagnostic per update,0.08235484639357031,,,,,available
+without_GAE,seed 2,Final rollout saturation,0.1826163876961753,,,,,available
+without_GAE,seed 2,Mean clipfrac,0.02349440418119994,,,,,available
+without_GAE,seed 2,Mean switched-off fraction,0.01422807106212401,,,,,available
+without_GAE,seed 2,Mean PPO approximate KL per update,7.4811283568574305e-06,,,,,available
+without_GAE,three-seed mean,Eval at 9.36M,4621.045293753133,18.558578650879166,4620.909125747501,4639.671581743581,4602.555173768317,available
+without_GAE,three-seed mean,Last five evals,4586.509832154741,8.334715870689717,4594.46988924591,4587.214417464548,4577.845189753765,available
+without_GAE,three-seed mean,Train last 10 updates,4295.656666053471,81.06819014583314,4366.222041983676,4313.641672269669,4207.106283907067,available
+without_GAE,three-seed mean,"J_disc gain, last 10",136.91011556660382,16.647899879315975,156.10025930381244,126.33710816807775,128.29297922792125,available
+without_GAE,three-seed mean,Final distance from own start,6.937210305032568,0.05050405103445669,6.901969190673034,6.914591490138275,6.995070234286396,available
+without_GAE,three-seed mean,Mean true-KL diagnostic per update,0.08607267883545434,0.009071143708152225,0.07945109155574821,0.09641209855704452,0.08235484639357031,available
+without_GAE,three-seed mean,Final rollout saturation,0.2000472213182912,0.01572097615060167,0.21315281131003033,0.2043724649486679,0.1826163876961753,available
+without_GAE,three-seed mean,Mean clipfrac,0.023920930627021154,0.0005111606847737125,0.024487523213160566,0.023780864486702954,0.02349440418119994,available
+without_GAE,three-seed mean,Mean switched-off fraction,0.014470565769292917,0.00026720256763026074,0.01475702344305896,0.014426602802695782,0.01422807106212401,available
+without_GAE,three-seed mean,Mean PPO approximate KL per update,1.0164293678961203e-05,4.727461202690218e-06,7.388916622741613e-06,1.562283605728457e-05,7.4811283568574305e-06,available

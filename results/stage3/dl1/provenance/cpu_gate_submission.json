@@ -1,0 +1,8 @@
+{
+  "job_id": "17959858",
+  "phase": "cpu",
+  "cpu_cap_seconds": 7200,
+  "gpu_count": 0,
+  "submitted_utc": "2026-10-19T09:31:11.777576+00:00",
+  "command": "sbatch --account=soal --partition=soal --cpus-per-task=4 --mem=64G --time=120 --no-requeue code/run_gate.sh cpu"
+}

@@ -1,0 +1,11 @@
+--- Stage-1 DPPO
++++ DL1
+@@ -63,6 +63,8 @@
+   update_epochs: 5
+   vf_coef: 0.5
+   target_kl: 1
++  adv_estimator: mc_critic
++  baseline_diag: true
+ model:
+   _target_: model.diffusion.diffusion_ppo.PPODiffusion
+   gamma_denoising: 0.99

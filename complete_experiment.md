@@ -92,7 +92,19 @@
 - Experiment design: [Methods and execution protocol](./results/stage3/e1cg_an/methods.md)
 - Curated: [Report, plots, table and captions](./results/stage3/e1cg_an/curated/INDEX.md)
 
+### DPPO with Monte Carlo critic advantages (without_GAE)
+
+- Experiment folder: [without_GAE](./results/stage3/dl1/)
+- Experiment design: [Methods and execution protocol](./results/stage3/dl1/methods.md)
+- Curated results: [Report, plots, table and captions](./results/stage3/dl1/curated/INDEX.md)
+
 ## Comparison analyses
+
+### PPO pieces and advantage estimator: two-by-two comparison
+
+- Analysis folder: [Original references and without_GAE comparison](./results/stage3/dl1/)
+- Analysis design: [Comparison methods](./results/stage3/dl1/methods.md)
+- Curated results: [Report, plots, table and captions](./results/stage3/dl1/curated/INDEX.md)
 
 ### DPPO, without_PPO and without_PPO_and_GAE: rewards and exact-critic gradient noise
 

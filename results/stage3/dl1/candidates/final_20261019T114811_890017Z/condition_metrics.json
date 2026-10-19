@@ -1,0 +1,294 @@
+[
+  {
+    "method": "DPPO",
+    "eval_936M": 4758.370764972049,
+    "eval_936M_sd": 108.2925729628751,
+    "eval_936M_seeds": [
+      4636.273298273394,
+      4796.043488648042,
+      4842.7955079947105
+    ],
+    "eval_last5": 4714.786073171452,
+    "eval_last5_sd": 67.91810824017385,
+    "eval_last5_seeds": [
+      4636.718800652148,
+      4760.300075776581,
+      4747.339343085625
+    ],
+    "train_last10": 4476.374689215878,
+    "train_last10_sd": 87.71447841925215,
+    "train_last10_seeds": [
+      4378.4577225126795,
+      4502.904832279016,
+      4547.761512855938
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": 6.9143926256286266,
+    "theta_dist_final_sd": 0.048868874601848675,
+    "theta_dist_final_seeds": [
+      6.8584590635539,
+      6.935898417571767,
+      6.948820395760214
+    ],
+    "mean_kl_true_per_action": null,
+    "mean_kl_true_per_action_sd": null,
+    "mean_kl_true_per_action_seeds": [
+      null,
+      null,
+      null
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": 7.814494990409618e-06,
+    "mean_approx_kl_sd": 4.897322982274646e-07,
+    "mean_approx_kl_seeds": [
+      7.439318106851005e-06,
+      7.635655467290514e-06,
+      8.368511397087333e-06
+    ]
+  },
+  {
+    "method": "without_PPO",
+    "eval_936M": 4603.5237513207785,
+    "eval_936M_sd": 19.143365288300707,
+    "eval_936M_seeds": [
+      4624.0873515240455,
+      4586.218975028707,
+      4600.264927409581
+    ],
+    "eval_last5": 4567.586613688711,
+    "eval_last5_sd": 16.957602983991702,
+    "eval_last5_seeds": [
+      4558.129765276053,
+      4557.466256378103,
+      4587.163819411975
+    ],
+    "train_last10": 4311.269243078249,
+    "train_last10_sd": 10.772492597730523,
+    "train_last10_seeds": [
+      4303.546177789967,
+      4323.575436383592,
+      4306.686115061187
+    ],
+    "J_disc_gain_last10": null,
+    "J_disc_gain_last10_sd": null,
+    "J_disc_gain_last10_seeds": [
+      null,
+      null,
+      null
+    ],
+    "theta_dist_final": 0.8944637329063531,
+    "theta_dist_final_sd": 0.015660301935520354,
+    "theta_dist_final_seeds": [
+      0.9097471263900015,
+      0.8784519424117898,
+      0.895192129917268
+    ],
+    "mean_kl_true_per_action": 0.0006952739031949883,
+    "mean_kl_true_per_action_sd": 4.1367793088205954e-05,
+    "mean_kl_true_per_action_seeds": [
+      0.0006684696990395558,
+      0.0006744350169008126,
+      0.0007429169936445965
+    ],
+    "saturation_final": null,
+    "saturation_final_sd": null,
+    "saturation_final_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "method": "without_PPO_and_GAE",
+    "eval_936M": 4503.8821803984565,
+    "eval_936M_sd": 13.362775564810713,
+    "eval_936M_seeds": [
+      4490.688112242096,
+      4517.40750394154,
+      4503.550925011731
+    ],
+    "eval_last5": 4484.152870727845,
+    "eval_last5_sd": 41.9128244113642,
+    "eval_last5_seeds": [
+      4514.490896414677,
+      4501.639454620772,
+      4436.328261148085
+    ],
+    "train_last10": 4207.543722796972,
+    "train_last10_sd": 48.414926758113815,
+    "train_last10_seeds": [
+      4217.930809768567,
+      4249.92208752576,
+      4154.778271096589
+    ],
+    "J_disc_gain_last10": 76.00382205766755,
+    "J_disc_gain_last10_sd": 4.17459024273057,
+    "J_disc_gain_last10_seeds": [
+      80.33971805046872,
+      75.65993769760462,
+      72.01181042492931
+    ],
+    "theta_dist_final": 0.8445847716277468,
+    "theta_dist_final_sd": 0.009946045789753897,
+    "theta_dist_final_seeds": [
+      0.8546440815153131,
+      0.8443542353834035,
+      0.8347559979845237
+    ],
+    "mean_kl_true_per_action": 0.0005910232798048042,
+    "mean_kl_true_per_action_sd": 3.103903435316047e-05,
+    "mean_kl_true_per_action_seeds": [
+      0.000615275749674402,
+      0.0005560434908248493,
+      0.0006017505989151611
+    ],
+    "saturation_final": 0.11723158440880384,
+    "saturation_final_sd": 0.030773305956482398,
+    "saturation_final_seeds": [
+      0.1302036030516586,
+      0.1393950324773227,
+      0.0820961176974302
+    ],
+    "mean_clipfrac": null,
+    "mean_clipfrac_sd": null,
+    "mean_clipfrac_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_switched_off_fraction": null,
+    "mean_switched_off_fraction_sd": null,
+    "mean_switched_off_fraction_seeds": [
+      null,
+      null,
+      null
+    ],
+    "mean_approx_kl": null,
+    "mean_approx_kl_sd": null,
+    "mean_approx_kl_seeds": [
+      null,
+      null,
+      null
+    ]
+  },
+  {
+    "method": "without_GAE",
+    "eval_936M": 4621.045293753133,
+    "eval_936M_sd": 18.558578650879166,
+    "eval_936M_seeds": [
+      4620.909125747501,
+      4639.671581743581,
+      4602.555173768317
+    ],
+    "eval_last5": 4586.509832154741,
+    "eval_last5_sd": 8.334715870689717,
+    "eval_last5_seeds": [
+      4594.46988924591,
+      4587.214417464548,
+      4577.845189753765
+    ],
+    "train_last10": 4295.656666053471,
+    "train_last10_sd": 81.06819014583314,
+    "train_last10_seeds": [
+      4366.222041983676,
+      4313.641672269669,
+      4207.106283907067
+    ],
+    "J_disc_gain_last10": 136.91011556660382,
+    "J_disc_gain_last10_sd": 16.647899879315975,
+    "J_disc_gain_last10_seeds": [
+      156.10025930381244,
+      126.33710816807775,
+      128.29297922792125
+    ],
+    "theta_dist_final": 6.937210305032568,
+    "theta_dist_final_sd": 0.05050405103445669,
+    "theta_dist_final_seeds": [
+      6.901969190673034,
+      6.914591490138275,
+      6.995070234286396
+    ],
+    "mean_kl_true_per_action": 0.08607267883545434,
+    "mean_kl_true_per_action_sd": 0.009071143708152225,
+    "mean_kl_true_per_action_seeds": [
+      0.07945109155574821,
+      0.09641209855704452,
+      0.08235484639357031
+    ],
+    "saturation_final": 0.2000472213182912,
+    "saturation_final_sd": 0.01572097615060167,
+    "saturation_final_seeds": [
+      0.21315281131003033,
+      0.2043724649486679,
+      0.1826163876961753
+    ],
+    "mean_clipfrac": 0.023920930627021154,
+    "mean_clipfrac_sd": 0.0005111606847737125,
+    "mean_clipfrac_seeds": [
+      0.024487523213160566,
+      0.023780864486702954,
+      0.02349440418119994
+    ],
+    "mean_switched_off_fraction": 0.014470565769292917,
+    "mean_switched_off_fraction_sd": 0.00026720256763026074,
+    "mean_switched_off_fraction_seeds": [
+      0.01475702344305896,
+      0.014426602802695782,
+      0.01422807106212401
+    ],
+    "mean_approx_kl": 1.0164293678961203e-05,
+    "mean_approx_kl_sd": 4.727461202690218e-06,
+    "mean_approx_kl_seeds": [
+      7.388916622741613e-06,
+      1.562283605728457e-05,
+      7.4811283568574305e-06
+    ]
+  }
+]

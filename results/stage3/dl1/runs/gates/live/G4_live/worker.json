@@ -1,0 +1,51 @@
+{
+  "passed": true,
+  "status": "passed",
+  "kind": "live",
+  "profile": "dl1_on",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+    "--kind",
+    "live",
+    "--profile",
+    "dl1_on",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/live/G4_live"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "slurm_job_id": "17959918",
+  "actor_steps": 20,
+  "critic_steps": 20,
+  "minibatch_size": 50000,
+  "baseline_preparations": 1,
+  "record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/live/G4_live/G4.json",
+  "all_children_exited": true,
+  "elapsed_seconds": 75.90062235598452,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

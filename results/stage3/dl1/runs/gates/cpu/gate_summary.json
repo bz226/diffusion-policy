@@ -1,0 +1,704 @@
+{
+  "passed": true,
+  "status": "passed",
+  "phase": "cpu",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+  "original_source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "original_upstream_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "e1c_reference": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+  "checks": {
+    "G1": {
+      "passed": true,
+      "differences": [
+        {
+          "key": "train.adv_estimator",
+          "old": "<absent>",
+          "new": "mc_critic"
+        },
+        {
+          "key": "train.baseline_diag",
+          "old": "<absent>",
+          "new": true
+        }
+      ],
+      "resolved_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/resolved_config.diff",
+      "common_overrides": [
+        "train.n_train_itr=140",
+        "train.save_model_freq=35",
+        "seed=0",
+        "wandb=null"
+      ],
+      "paths_normalized_to_same_absolute_assets_and_output": true,
+      "stage1_source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+      "reference_upstream_commit": "cc7234a"
+    },
+    "G2": {
+      "passed": true,
+      "e1c_comparison": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 40007,
+        "tensors": 9,
+        "first_failure": null
+      },
+      "e1c_formula": {
+        "passed": true,
+        "raw_comparison": {
+          "max_abs": 3.637978807091713e-12,
+          "relative_l2": 6.012207763975761e-16
+        },
+        "native_float32_cast": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 20000,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "bruteforce_float32_cast_diagnostic": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 20000,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "normalization": "unchanged native per-minibatch normalization",
+        "divisor": 1.000000005,
+        "profile": "e1c",
+        "pairs": 200000
+      },
+      "dl1_formula": {
+        "passed": true,
+        "raw_comparison": {
+          "max_abs": 3.637978807091713e-12,
+          "relative_l2": 6.012207763975761e-16
+        },
+        "native_float32_cast": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 20000,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "bruteforce_float32_cast_diagnostic": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 20000,
+          "tensors": 1,
+          "first_failure": null
+        },
+        "normalization": "unchanged native per-minibatch normalization",
+        "divisor": 1.000000005,
+        "profile": "dl1_on",
+        "pairs": 200000
+      }
+    },
+    "G5": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 140,
+          "tensors": 140,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 11367840,
+          "tensors": 240,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "rng_after_iteration": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 28,
+          "tensors": 28,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62242,
+          "tensors": 30,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "bitwise_required": true,
+      "comparison_scope": "direct cc7234a native update, end-of-iteration schedulers/model step, fixed-noise sampling, parameters/optimizer/global RNG"
+    },
+    "G6": {
+      "passed": true,
+      "comparisons": {
+        "initial_rng": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "initial_model": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "initial_actor_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "initial_critic_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "input_batch": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "loss_components": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 140,
+          "tensors": 140,
+          "first_failure": null
+        },
+        "actor_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 11367840,
+          "tensors": 240,
+          "first_failure": null
+        },
+        "critic_gradients": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 2728980,
+          "tensors": 160,
+          "first_failure": null
+        },
+        "permutations": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1000000,
+          "tensors": 5,
+          "first_failure": null
+        },
+        "actor_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 568392,
+          "tensors": 12,
+          "first_failure": null
+        },
+        "critic_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "model_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1841625,
+          "tensors": 44,
+          "first_failure": null
+        },
+        "actor_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 1136801,
+          "tensors": 41,
+          "first_failure": null
+        },
+        "critic_optimizer_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        },
+        "actor_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "critic_scheduler_state": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 6,
+          "tensors": 6,
+          "first_failure": null
+        },
+        "rng_after_update": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "rng_after_iteration": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 5681,
+          "tensors": 3,
+          "first_failure": null
+        },
+        "logged_values": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 28,
+          "tensors": 28,
+          "first_failure": null
+        },
+        "sampling": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 62242,
+          "tensors": 30,
+          "first_failure": null
+        },
+        "input_batch_after": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 10480000,
+          "tensors": 6,
+          "first_failure": null
+        }
+      },
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "bitwise_required": true,
+      "prepared_batch": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 10480000,
+        "tensors": 6,
+        "first_failure": null
+      }
+    },
+    "G3": {
+      "passed": true,
+      "comparisons": {
+        "critic_first_step_parameters": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 136449,
+          "tensors": 8,
+          "first_failure": null
+        },
+        "critic_first_step_optimizer": {
+          "passed": true,
+          "bitwise_equal": true,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "elements": 272911,
+          "tensors": 29,
+          "first_failure": null
+        }
+      },
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "bitwise_required": true,
+      "targets": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 20000,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "returns_trajs": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 20000,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "same_native_gae_statements": true,
+      "first_minibatch_gradient": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 136449,
+        "tensors": 8,
+        "first_failure": null
+      },
+      "first_permutation": {
+        "passed": true,
+        "bitwise_equal": true,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "elements": 200000,
+        "tensors": 1,
+        "first_failure": null
+      },
+      "gae_lambda": 0.95
+    }
+  },
+  "commands": [
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-e1c/results/stage3_e1c/dppo",
+      "--kind",
+      "features",
+      "--profile",
+      "e1c",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G2_e1c"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+      "--kind",
+      "features",
+      "--profile",
+      "dl1_on",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G2_dl1"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+      "--kind",
+      "replay",
+      "--profile",
+      "default",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G5_stage1"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+      "--kind",
+      "replay",
+      "--profile",
+      "default",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G5_dl1_defaults"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+      "--kind",
+      "replay",
+      "--profile",
+      "dl1_off",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G6_diag_off"
+    ],
+    [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/code/gate_dl1_worker.py",
+      "--source",
+      "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-dl1/results/stage3/dl1/dppo",
+      "--kind",
+      "replay",
+      "--profile",
+      "dl1_on",
+      "--output",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/dl1/runs/gates/cpu/G6_diag_on"
+    ]
+  ],
+  "slurm_job_id": "17959858",
+  "numeric_settings": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 4,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "cpu_gate_seconds": 434.3302493940573,
+  "gpu_gate_seconds": 0.0,
+  "workers": [
+    {
+      "name": "G2_e1c",
+      "seconds": 25.990343317156658,
+      "exit_code": 0
+    },
+    {
+      "name": "G2_dl1",
+      "seconds": 6.59755890397355,
+      "exit_code": 0
+    },
+    {
+      "name": "G5_stage1",
+      "seconds": 91.26630602404475,
+      "exit_code": 0
+    },
+    {
+      "name": "G5_dl1_defaults",
+      "seconds": 92.57452978310175,
+      "exit_code": 0
+    },
+    {
+      "name": "G6_diag_off",
+      "seconds": 90.20547468797304,
+      "exit_code": 0
+    },
+    {
+      "name": "G6_diag_on",
+      "seconds": 99.63741084001958,
+      "exit_code": 0
+    }
+  ],
+  "elapsed_seconds": 434.3302493940573
+}
