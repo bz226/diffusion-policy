@@ -1,0 +1,1 @@
+Seed 0. J_disc against each run's distance from its own starting parameters: runs on the same curve differ only in how far they moved. Distances correspond to the policy before the plotted rollout. DPPO and without_PPO lack J_disc and are omitted; their checkpoints alone cannot reconstruct this comparison. New runs log distances every iteration. No uncertainty is shown.

@@ -1,0 +1,23 @@
+{
+  "approved": true,
+  "user_reply": "approve",
+  "approved_utc": "2026-10-21T03:58:02.796685+00:00",
+  "scope": "EP: actor epochs1/2 same and matched lr; G1-G5; four seed0 runs140iterations; requested analysis only",
+  "budget_gpu_hours": 20,
+  "training_attempt_cap_seconds": 14400,
+  "gpu_gate_cap_seconds": 3600,
+  "aggregate_cpu_gate_wall_cap_seconds": 7200,
+  "max_parallel_training": 4,
+  "cpus_per_training_job": 40,
+  "memory_gib": 64,
+  "gpu": "A6000",
+  "monitor_seconds": 1800,
+  "automatic_retries": false,
+  "max_reviewed_same_seed_retries": 1,
+  "retry_requires": "Diagnosed cause, record, full attempt reservation within remaining cap; no scientific changes",
+  "no_reference_reruns": true,
+  "new_checkpoint_evaluations": false,
+  "curation_approved": false,
+  "base_revision": "9c51cd209aba253fcd611e169f4c21615e37ef95",
+  "parent_revision_at_start": "a428d582ae05133f8026b81a35a699b6f07ebfac"
+}

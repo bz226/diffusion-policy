@@ -1,0 +1,40 @@
+{
+  "utc": "2026-10-22T04:32:35.476076+00:00",
+  "user_instruction": "save in curated",
+  "scope": "Completed EP report, all three PNG/PDF figure sets and captions, numeric tables, and methods",
+  "source": "results/stage3/epochs",
+  "destination": "results/stage3/epochs/curated",
+  "files": [
+    "REPORT.md",
+    "methods.md",
+    "epochs_table.md",
+    "epochs_table.csv",
+    "gaps_to_dppo.csv",
+    "checkpoint_distances.csv",
+    "figs/epochs_curves_seed0.png",
+    "figs/epochs_curves_seed0.pdf",
+    "figs/epochs_curves_seed0.caption.md",
+    "figs/epochs_distance_seed0.png",
+    "figs/epochs_distance_seed0.pdf",
+    "figs/epochs_distance_seed0.caption.md",
+    "figs/epochs_ppo_diagnostics_seed0.png",
+    "figs/epochs_ppo_diagnostics_seed0.pdf",
+    "figs/epochs_ppo_diagnostics_seed0.caption.md",
+    "INDEX.md"
+  ],
+  "names": "Existing artifact names retained",
+  "markdown_adjusted": [
+    "REPORT.md",
+    "epochs_table.md"
+  ],
+  "changes": "Relative report links and escaped Markdown table header only; no numeric changes",
+  "new_scientific_work": false,
+  "verification": {
+    "unchanged_copy_count": 13,
+    "all_local_markdown_links_resolve": true,
+    "markdown_table_columns_consistent": true,
+    "curated_files_versionable": true,
+    "source_artifacts_preserved": true,
+    "largest_file_bytes": 871698
+  }
+}

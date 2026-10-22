@@ -1,0 +1,22 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--gres=gpu:a6000:1",
+    "--time=60",
+    "--no-requeue",
+    "--job-name=epochs-live-gate",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/live_gate.scheduler.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/live_gate.scheduler.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/run_gate.sh",
+    "live"
+  ],
+  "job_id": "18001600",
+  "utc": "2026-10-21T06:04:50.965085+00:00"
+}

@@ -1,0 +1,170 @@
+[
+  {
+    "method": "DPPO, 1 epoch",
+    "scheduler_job_id": "18011574",
+    "node": "soal-11",
+    "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+    "cpu_affinity": 40,
+    "started_utc": "2026-10-21T23:18:34.537921+00:00",
+    "ended_utc": "2026-10-22T01:24:10.195093+00:00",
+    "wall_seconds": 7535.654675690457,
+    "seconds_per_iteration_wall": 53.82610482636041,
+    "median_training_iteration_seconds": 58.53312027454376,
+    "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41",
+    "branch": "stage3-epochs",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source_snapshot",
+    "relevant_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source.diff",
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/entrypoint.py",
+      "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo/cfg/gym/finetune/halfcheetah-v2",
+      "--config-name=ft_ppo_diffusion_mlp",
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=0",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/EP1_seed0",
+      "+train.actor_update_epochs=1"
+    ],
+    "worker_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/campaign_training/workers/EP1_seed0/manifest.json",
+    "source_before": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    },
+    "source_after": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    }
+  },
+  {
+    "method": "DPPO, 1 epoch, lr 5e-4",
+    "scheduler_job_id": "18011572",
+    "node": "soal-10",
+    "gpu": "NVIDIA RTX A6000, GPU-1c51726c-a302-832d-3799-f0058093bc2e, 580.82.07, 49140 MiB",
+    "cpu_affinity": 40,
+    "started_utc": "2026-10-21T23:18:33.838325+00:00",
+    "ended_utc": "2026-10-22T01:24:54.725471+00:00",
+    "wall_seconds": 7580.884331888054,
+    "seconds_per_iteration_wall": 54.14917379920038,
+    "median_training_iteration_seconds": 59.45259940624237,
+    "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41",
+    "branch": "stage3-epochs",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source_snapshot",
+    "relevant_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source.diff",
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/entrypoint.py",
+      "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo/cfg/gym/finetune/halfcheetah-v2",
+      "--config-name=ft_ppo_diffusion_mlp",
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=0",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/EP1M_seed0",
+      "+train.actor_update_epochs=1",
+      "train.actor_lr=5e-4",
+      "train.actor_lr_scheduler.min_lr=5e-4"
+    ],
+    "worker_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/campaign_training/workers/EP1M_seed0/manifest.json",
+    "source_before": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    },
+    "source_after": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    }
+  },
+  {
+    "method": "DPPO, 2 epochs",
+    "scheduler_job_id": "18011575",
+    "node": "soal-11",
+    "gpu": "NVIDIA RTX A6000, GPU-be228b2b-3a73-0c6f-6357-051ecb8223b9, 580.82.07, 49140 MiB",
+    "cpu_affinity": 40,
+    "started_utc": "2026-10-22T02:01:01.904808+00:00",
+    "ended_utc": "2026-10-22T04:09:02.703652+00:00",
+    "wall_seconds": 7680.795976554975,
+    "seconds_per_iteration_wall": 54.86282840396411,
+    "median_training_iteration_seconds": 59.39300870895386,
+    "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41",
+    "branch": "stage3-epochs",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source_snapshot",
+    "relevant_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source.diff",
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/entrypoint.py",
+      "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo/cfg/gym/finetune/halfcheetah-v2",
+      "--config-name=ft_ppo_diffusion_mlp",
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=0",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/EP2_seed0",
+      "+train.actor_update_epochs=2"
+    ],
+    "worker_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/campaign_training/workers/EP2_seed0/manifest.json",
+    "source_before": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    },
+    "source_after": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    }
+  },
+  {
+    "method": "DPPO, 2 epochs, lr 2.5e-4",
+    "scheduler_job_id": "18011573",
+    "node": "soal-11",
+    "gpu": "NVIDIA RTX A6000, GPU-f3cac257-2aee-5011-71a0-8ae778687f5d, 580.82.07, 49140 MiB",
+    "cpu_affinity": 40,
+    "started_utc": "2026-10-21T23:18:33.831626+00:00",
+    "ended_utc": "2026-10-22T01:24:34.139363+00:00",
+    "wall_seconds": 7560.304732050747,
+    "seconds_per_iteration_wall": 54.00217665750533,
+    "median_training_iteration_seconds": 58.2833514213562,
+    "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41",
+    "branch": "stage3-epochs",
+    "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "source_snapshot": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source_snapshot",
+    "relevant_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/provenance/source.diff",
+    "command": [
+      "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+      "-B",
+      "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/entrypoint.py",
+      "--config-dir=/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo/cfg/gym/finetune/halfcheetah-v2",
+      "--config-name=ft_ppo_diffusion_mlp",
+      "train.n_train_itr=140",
+      "train.save_model_freq=35",
+      "wandb=null",
+      "seed=0",
+      "logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/EP2M_seed0",
+      "+train.actor_update_epochs=2",
+      "train.actor_lr=2.5e-4",
+      "train.actor_lr_scheduler.min_lr=2.5e-4"
+    ],
+    "worker_manifest": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/campaign_training/workers/EP2M_seed0/manifest.json",
+    "source_before": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    },
+    "source_after": {
+      "files_compared": 405,
+      "identical": true,
+      "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+    }
+  }
+]

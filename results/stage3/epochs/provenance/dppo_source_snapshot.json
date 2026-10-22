@@ -1,0 +1,19 @@
+{
+  "format_version": 1,
+  "source_directory": "results/stage3/epochs/dppo",
+  "source_git_directory": "/soalnas/share/data/zbao7/diffusion_policy/.git",
+  "source_subdirectory": "results/stage3/dl1/dppo",
+  "upstream_url": "git@github.com:bz226/diffusion-policy.git",
+  "commit": "9c51cd209aba253fcd611e169f4c21615e37ef95",
+  "source_file_count": 405,
+  "snapshot_file_count": 405,
+  "upstream_gitignores": [
+    {
+      "source_path": ".gitignore",
+      "saved_path": "provenance/upstream_gitignores/.gitignore.txt"
+    }
+  ],
+  "note": "Initial committed source snapshot. Upstream ignore files are preserved separately and replaced with project exclusions. Later source edits belong to the parent repository; each run must record its parent revision and relevant diff or snapshot. No nested Git history is required or included.",
+  "scaffolding_command": "python3 scripts/create_dppo_snapshot.py --source .git --revision 9c51cd209aba253fcd611e169f4c21615e37ef95 --subdir results/stage3/dl1/dppo --study stage3_epochs",
+  "relocation": "Ordinary exported study renamed from results/stage3_epochs to requested results/stage3/epochs before editing."
+}

@@ -1,0 +1,27 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=8G",
+    "--time=3-00:00:00",
+    "--no-requeue",
+    "--job-name=epochs-controller",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/controller.scheduler.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/controller.scheduler.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/run_continuation.sh",
+    "--cpu-job",
+    "17999306"
+  ],
+  "utc": "2026-10-21T04:02:37.958487+00:00",
+  "status": "submitted",
+  "monitor_seconds": 1800,
+  "returncode": 0,
+  "stdout": "17999307\n",
+  "stderr": "",
+  "job_id": "17999307"
+}

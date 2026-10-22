@@ -1,0 +1,10 @@
+--- Stage-1 DPPO
++++ EP2
+@@ -63,6 +63,7 @@
+   update_epochs: 5
+   vf_coef: 0.5
+   target_kl: 1
++  actor_update_epochs: 2
+ model:
+   _target_: model.diffusion.diffusion_ppo.PPODiffusion
+   gamma_denoising: 0.99

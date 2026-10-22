@@ -1,0 +1,48 @@
+{
+  "passed": true,
+  "status": "passed",
+  "kind": "learning_rates",
+  "profile": "EP2",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/gate_epochs_worker.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "--kind",
+    "learning_rates",
+    "--profile",
+    "EP2",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/G5_lr_EP2"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "slurm_job_id": "17999306",
+  "record": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/G5_lr_EP2/G5.json",
+  "actor_lr": 0.0001,
+  "all_children_exited": true,
+  "elapsed_seconds": 678.4541977178305,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

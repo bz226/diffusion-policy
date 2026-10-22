@@ -1,0 +1,8 @@
+- train.n_train_itr=140
+- train.save_model_freq=35
+- wandb=null
+- seed=0
+- logdir=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/EP2M_seed0
+- +train.actor_update_epochs=2
+- train.actor_lr=2.5e-4
+- train.actor_lr_scheduler.min_lr=2.5e-4

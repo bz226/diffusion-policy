@@ -1,5 +1,5 @@
 {
-  "status": "running",
+  "status": "complete",
   "started_utc": "2026-10-19T21:04:26.261519+00:00",
   "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/workers/WP070_j03/spec.json",
   "revision": "84a756a8280ced629b005b6d08499e1e8e7075f7",
@@ -14,5 +14,9 @@
     "--spec",
     "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP070_j03.json"
   ],
-  "cap_seconds": 1800
+  "cap_seconds": 1800,
+  "exit_code": 0,
+  "children_remaining": [],
+  "ended_utc": "2026-10-19T21:32:17.817433+00:00",
+  "elapsed_seconds": 1671.5533518840093
 }

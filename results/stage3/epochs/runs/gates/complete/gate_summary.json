@@ -1,0 +1,6697 @@
+{
+  "checks": {
+    "G1": {
+      "common_overrides": [
+        "train.n_train_itr=140",
+        "train.save_model_freq=35",
+        "seed=0",
+        "wandb=null"
+      ],
+      "conditions": {
+        "EP1": {
+          "differences": [
+            {
+              "key": "train.actor_update_epochs",
+              "new": 1,
+              "old": "<absent>"
+            }
+          ],
+          "passed": true,
+          "resolved_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/EP1_resolved_config.diff"
+        },
+        "EP1M": {
+          "differences": [
+            {
+              "key": "train.actor_lr",
+              "new": 0.0005,
+              "old": 0.0001
+            },
+            {
+              "key": "train.actor_lr_scheduler.min_lr",
+              "new": 0.0005,
+              "old": 0.0001
+            },
+            {
+              "key": "train.actor_update_epochs",
+              "new": 1,
+              "old": "<absent>"
+            }
+          ],
+          "passed": true,
+          "resolved_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/EP1M_resolved_config.diff"
+        },
+        "EP2": {
+          "differences": [
+            {
+              "key": "train.actor_update_epochs",
+              "new": 2,
+              "old": "<absent>"
+            }
+          ],
+          "passed": true,
+          "resolved_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/EP2_resolved_config.diff"
+        },
+        "EP2M": {
+          "differences": [
+            {
+              "key": "train.actor_lr",
+              "new": 0.00025,
+              "old": 0.0001
+            },
+            {
+              "key": "train.actor_lr_scheduler.min_lr",
+              "new": 0.00025,
+              "old": 0.0001
+            },
+            {
+              "key": "train.actor_update_epochs",
+              "new": 2,
+              "old": "<absent>"
+            }
+          ],
+          "passed": true,
+          "resolved_diff": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/EP2M_resolved_config.diff"
+        }
+      },
+      "passed": true,
+      "paths_normalized_to_same_absolute_assets_and_output": true,
+      "reference_upstream_commit": "cc7234a",
+      "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+      "stage1_source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo"
+    },
+    "G2": {
+      "bitwise_required": true,
+      "comparison_scope": "direct cc7234a native update, schedulers/model step, fixed-noise sampling, parameters/optimizer/global RNG",
+      "comparisons": {
+        "actor_gradients": {
+          "bitwise_equal": true,
+          "elements": 11367840,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 240
+        },
+        "actor_optimizer_state": {
+          "bitwise_equal": true,
+          "elements": 1136801,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 41
+        },
+        "actor_parameters": {
+          "bitwise_equal": true,
+          "elements": 568392,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 12
+        },
+        "actor_scheduler_state": {
+          "bitwise_equal": true,
+          "elements": 6,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "critic_gradients": {
+          "bitwise_equal": true,
+          "elements": 2728980,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 160
+        },
+        "critic_optimizer_state": {
+          "bitwise_equal": true,
+          "elements": 272911,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 29
+        },
+        "critic_parameters": {
+          "bitwise_equal": true,
+          "elements": 136449,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 8
+        },
+        "critic_scheduler_state": {
+          "bitwise_equal": true,
+          "elements": 6,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "initial_actor_optimizer": {
+          "bitwise_equal": true,
+          "elements": 5,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 5
+        },
+        "initial_critic_optimizer": {
+          "bitwise_equal": true,
+          "elements": 5,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 5
+        },
+        "initial_model": {
+          "bitwise_equal": true,
+          "elements": 1841625,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 44
+        },
+        "initial_rng": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        },
+        "input_batch": {
+          "bitwise_equal": true,
+          "elements": 10480000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "input_batch_after": {
+          "bitwise_equal": true,
+          "elements": 10480000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "logged_values": {
+          "bitwise_equal": true,
+          "elements": 28,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 28
+        },
+        "loss_components": {
+          "bitwise_equal": true,
+          "elements": 140,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 140
+        },
+        "model_state": {
+          "bitwise_equal": true,
+          "elements": 1841625,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 44
+        },
+        "permutations": {
+          "bitwise_equal": true,
+          "elements": 1000000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 5
+        },
+        "rng_after_iteration": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        },
+        "rng_after_update": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        },
+        "sampling": {
+          "bitwise_equal": true,
+          "elements": 62242,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 30
+        }
+      },
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "passed": true
+    },
+    "G3": {
+      "conditions": {
+        "EP1": {
+          "G5_live_logged_lr_passed": true,
+          "actor_adam_counts": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "actor_lr": 0.0001,
+          "config": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/G3_live_EP1/config.yaml",
+          "critic_adam_counts": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "eval_result": {
+            "J_disc_eval": 1523.7361867223833,
+            "J_disc_eval_se": 13.714359132206996,
+            "action_oor_frac": 0.0,
+            "actor_adam_step_count": 0,
+            "actor_lr": 0.0001,
+            "actor_update_epochs": 1,
+            "diagnostics_seconds": 0.012957992032170296,
+            "episode_count": 80,
+            "eval_best_reward": 6.409554147834345,
+            "eval_episode_reward": 4302.409484860398,
+            "eval_success_rate": 1.0,
+            "itr": 0,
+            "policy_action_oor_frac": 0.0,
+            "ppo_kl_early_stop": false,
+            "ppo_steps": [],
+            "rollout_seconds": 12.533968306845054,
+            "step": 0,
+            "theta_dist": 0.0,
+            "theta_dist_before_update": 0.0,
+            "time": 12.567142724990845,
+            "update_seconds": 0.0
+          },
+          "gpu": "NVIDIA RTX A6000",
+          "max_grad_norm": null,
+          "observed": {
+            "actor_steps": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "critic_steps": 20,
+            "loss_sizes": [
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000
+            ],
+            "permutations": 5
+          },
+          "passed": true,
+          "profile": "EP1",
+          "reset_at_iteration": false,
+          "sampler_noise_clip": 3,
+          "steps": [
+            {
+              "approx_kl": 0.0,
+              "clipfrac": 0.0,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 1,
+              "switched_off_frac": 0.0
+            },
+            {
+              "approx_kl": 8.652044698465033e-07,
+              "clipfrac": 0.0002799999783746898,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.000935556017793715,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 2,
+              "switched_off_frac": 0.0001399999891873449
+            },
+            {
+              "approx_kl": 2.548072870922624e-06,
+              "clipfrac": 0.003759999992325902,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0015937578864395618,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 3,
+              "switched_off_frac": 0.00215999991632998
+            },
+            {
+              "approx_kl": 4.53050324722426e-06,
+              "clipfrac": 0.010900000110268593,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.002081020502373576,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 4,
+              "switched_off_frac": 0.005859999917447567
+            }
+          ],
+          "target_kl": 1,
+          "train_result": {
+            "J_disc_train": 1403.1473522696244,
+            "J_disc_train_se": 22.698039429883853,
+            "action_oor_frac": 0.139725,
+            "actor_adam_step_count": 4,
+            "actor_lr": 0.0001,
+            "actor_optimizer_steps": 4,
+            "actor_update_epochs": 1,
+            "adv_raw_mean": 0.5024327277638484,
+            "adv_raw_std": 0.20169799243124203,
+            "approx_kl": 6.269577170314733e-06,
+            "clamp_hit_frac": 0.0,
+            "clipfrac": 0.01503099971159827,
+            "critic_lr": 0.001,
+            "critic_optimizer_steps": 20,
+            "diagnostics_seconds": 0.06805019755847752,
+            "episode_count": 80,
+            "explained_var": -0.2095024585723877,
+            "explained_var_reason": null,
+            "itr": 1,
+            "kl_true_per_action": 0.03452132361471772,
+            "logratio_p99": 0.2903698682785018,
+            "policy_action_oor_frac": 0.13975208333333333,
+            "ppo_approx_kl_last": 4.53050324722426e-06,
+            "ppo_approx_kl_mean": 1.985945146998347e-06,
+            "ppo_clipfrac_last": 0.010900000110268593,
+            "ppo_clipfrac_mean": 0.003735000020242296,
+            "ppo_kl_early_stop": false,
+            "ppo_mean_abs_ratio_minus_one_last": 0.002081020502373576,
+            "ppo_mean_abs_ratio_minus_one_mean": 0.0011525836016517133,
+            "ppo_minibatch_size": 50000,
+            "ppo_step_count": 4,
+            "ppo_steps": [
+              {
+                "approx_kl": 0.0,
+                "clipfrac": 0.0,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 1,
+                "switched_off_frac": 0.0
+              },
+              {
+                "approx_kl": 8.652044698465033e-07,
+                "clipfrac": 0.0002799999783746898,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.000935556017793715,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 2,
+                "switched_off_frac": 0.0001399999891873449
+              },
+              {
+                "approx_kl": 2.548072870922624e-06,
+                "clipfrac": 0.003759999992325902,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0015937578864395618,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 3,
+                "switched_off_frac": 0.00215999991632998
+              },
+              {
+                "approx_kl": 4.53050324722426e-06,
+                "clipfrac": 0.010900000110268593,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.002081020502373576,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 4,
+                "switched_off_frac": 0.005859999917447567
+              }
+            ],
+            "ppo_switched_off_frac_last": 0.005859999917447567,
+            "ppo_switched_off_frac_mean": 0.002039999955741223,
+            "ratio": 0.9998615384101868,
+            "reward_clip_frac": 0.0,
+            "rollout_seconds": 12.729732061969116,
+            "step": 80000,
+            "theta_dist": 0.1536682492063326,
+            "theta_dist_before_update": 0.0,
+            "time": 58.95617389678955,
+            "train_episode_reward": 3935.5863389939514,
+            "update_norm": 0.1536682492063326,
+            "update_seconds": 46.132121198344976,
+            "x0_sat_frac_last": 0.021046228710462286,
+            "x0_sat_frac_mean": 0.0654363857755929
+          }
+        },
+        "EP1M": {
+          "G5_live_logged_lr_passed": true,
+          "actor_adam_counts": [
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4,
+            4
+          ],
+          "actor_lr": 0.0005,
+          "config": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/G3_live_EP1M/config.yaml",
+          "critic_adam_counts": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "eval_result": {
+            "J_disc_eval": 1533.736774599151,
+            "J_disc_eval_se": 13.92698902666627,
+            "action_oor_frac": 0.0,
+            "actor_adam_step_count": 0,
+            "actor_lr": 0.0005,
+            "actor_update_epochs": 1,
+            "diagnostics_seconds": 0.011818904895335436,
+            "episode_count": 80,
+            "eval_best_reward": 6.477013105594319,
+            "eval_episode_reward": 4311.96554940131,
+            "eval_success_rate": 1.0,
+            "itr": 0,
+            "policy_action_oor_frac": 0.0,
+            "ppo_kl_early_stop": false,
+            "ppo_steps": [],
+            "rollout_seconds": 12.969341647112742,
+            "step": 0,
+            "theta_dist": 0.0,
+            "theta_dist_before_update": 0.0,
+            "time": 13.018041610717773,
+            "update_seconds": 0.0
+          },
+          "gpu": "NVIDIA RTX A6000",
+          "max_grad_norm": null,
+          "observed": {
+            "actor_steps": [
+              1,
+              1,
+              1,
+              1
+            ],
+            "critic_steps": 20,
+            "loss_sizes": [
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000
+            ],
+            "permutations": 5
+          },
+          "passed": true,
+          "profile": "EP1M",
+          "reset_at_iteration": false,
+          "sampler_noise_clip": 3,
+          "steps": [
+            {
+              "approx_kl": 0.0,
+              "clipfrac": 0.0,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 1,
+              "switched_off_frac": 0.0
+            },
+            {
+              "approx_kl": 2.1392377675510943e-05,
+              "clipfrac": 0.11113999783992767,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.004713873378932476,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 2,
+              "switched_off_frac": 0.05385999754071236
+            },
+            {
+              "approx_kl": 1.574903762957547e-05,
+              "clipfrac": 0.06631999462842941,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0040434435941278934,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 3,
+              "switched_off_frac": 0.03452000021934509
+            },
+            {
+              "approx_kl": 2.041327752522193e-05,
+              "clipfrac": 0.09525999426841736,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.004579337779432535,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 4,
+              "switched_off_frac": 0.04795999825000763
+            }
+          ],
+          "target_kl": 1,
+          "train_result": {
+            "J_disc_train": 1415.462344461554,
+            "J_disc_train_se": 17.95281253225197,
+            "action_oor_frac": 0.14165208333333335,
+            "actor_adam_step_count": 4,
+            "actor_lr": 0.0005,
+            "actor_optimizer_steps": 4,
+            "actor_update_epochs": 1,
+            "adv_raw_mean": 0.5242313174191099,
+            "adv_raw_std": 0.1885392436242275,
+            "approx_kl": 2.26324573304737e-05,
+            "clamp_hit_frac": 0.0,
+            "clipfrac": 0.1040799967944622,
+            "critic_lr": 0.001,
+            "critic_optimizer_steps": 20,
+            "diagnostics_seconds": 0.07370352232828736,
+            "episode_count": 80,
+            "explained_var": -0.18676233291625977,
+            "explained_var_reason": null,
+            "itr": 1,
+            "kl_true_per_action": 0.12934216741898275,
+            "logratio_p99": 0.5175775182247148,
+            "policy_action_oor_frac": 0.14168333333333333,
+            "ppo_approx_kl_last": 2.041327752522193e-05,
+            "ppo_approx_kl_mean": 1.4388673207577085e-05,
+            "ppo_clipfrac_last": 0.09525999426841736,
+            "ppo_clipfrac_mean": 0.06817999668419361,
+            "ppo_kl_early_stop": false,
+            "ppo_mean_abs_ratio_minus_one_last": 0.004579337779432535,
+            "ppo_mean_abs_ratio_minus_one_mean": 0.003334163688123226,
+            "ppo_minibatch_size": 50000,
+            "ppo_step_count": 4,
+            "ppo_steps": [
+              {
+                "approx_kl": 0.0,
+                "clipfrac": 0.0,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 1,
+                "switched_off_frac": 0.0
+              },
+              {
+                "approx_kl": 2.1392377675510943e-05,
+                "clipfrac": 0.11113999783992767,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.004713873378932476,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 2,
+                "switched_off_frac": 0.05385999754071236
+              },
+              {
+                "approx_kl": 1.574903762957547e-05,
+                "clipfrac": 0.06631999462842941,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0040434435941278934,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 3,
+                "switched_off_frac": 0.03452000021934509
+              },
+              {
+                "approx_kl": 2.041327752522193e-05,
+                "clipfrac": 0.09525999426841736,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.004579337779432535,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 4,
+                "switched_off_frac": 0.04795999825000763
+              }
+            ],
+            "ppo_switched_off_frac_last": 0.04795999825000763,
+            "ppo_switched_off_frac_mean": 0.03408499900251627,
+            "ratio": 0.9994491338729858,
+            "reward_clip_frac": 0.0,
+            "rollout_seconds": 12.726275344844908,
+            "step": 80000,
+            "theta_dist": 0.7006789695414901,
+            "theta_dist_before_update": 0.0,
+            "time": 58.691386461257935,
+            "train_episode_reward": 4004.4808489104717,
+            "update_norm": 0.7006789695414901,
+            "update_seconds": 45.8616958395578,
+            "x0_sat_frac_last": 0.022100567721005677,
+            "x0_sat_frac_mean": 0.06627859654580631
+          }
+        },
+        "EP2": {
+          "G5_live_logged_lr_passed": true,
+          "actor_adam_counts": [
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "actor_lr": 0.0001,
+          "config": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/G3_live_EP2/config.yaml",
+          "critic_adam_counts": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "eval_result": {
+            "J_disc_eval": 1530.309115078444,
+            "J_disc_eval_se": 14.22291306469944,
+            "action_oor_frac": 0.0,
+            "actor_adam_step_count": 0,
+            "actor_lr": 0.0001,
+            "actor_update_epochs": 2,
+            "diagnostics_seconds": 0.011536906007677317,
+            "episode_count": 80,
+            "eval_best_reward": 6.471102177753387,
+            "eval_episode_reward": 4355.247834155094,
+            "eval_success_rate": 1.0,
+            "itr": 0,
+            "policy_action_oor_frac": 0.0,
+            "ppo_kl_early_stop": false,
+            "ppo_steps": [],
+            "rollout_seconds": 13.1042503870558,
+            "step": 0,
+            "theta_dist": 0.0,
+            "theta_dist_before_update": 0.0,
+            "time": 13.137513875961304,
+            "update_seconds": 0.0
+          },
+          "gpu": "NVIDIA RTX A6000",
+          "max_grad_norm": null,
+          "observed": {
+            "actor_steps": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "critic_steps": 20,
+            "loss_sizes": [
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000
+            ],
+            "permutations": 5
+          },
+          "passed": true,
+          "profile": "EP2",
+          "reset_at_iteration": false,
+          "sampler_noise_clip": 3,
+          "steps": [
+            {
+              "approx_kl": 0.0,
+              "clipfrac": 0.0,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 1,
+              "switched_off_frac": 0.0
+            },
+            {
+              "approx_kl": 7.511802664339484e-07,
+              "clipfrac": 0.0001399999891873449,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0008590842480771244,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 2,
+              "switched_off_frac": 9.999999747378752e-05
+            },
+            {
+              "approx_kl": 1.8846679950001999e-06,
+              "clipfrac": 0.0021199998445808887,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.001348354620859027,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 3,
+              "switched_off_frac": 0.001180000021122396
+            },
+            {
+              "approx_kl": 3.158119625368272e-06,
+              "clipfrac": 0.0064399996772408485,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0017145323799923062,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 4,
+              "switched_off_frac": 0.003619999857619405
+            },
+            {
+              "approx_kl": 4.4510879888548516e-06,
+              "clipfrac": 0.012000000104308128,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.0020032015163451433,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 5,
+              "switched_off_frac": 0.00791999977082014
+            },
+            {
+              "approx_kl": 5.9638127822836395e-06,
+              "clipfrac": 0.016759999096393585,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.002305389614775777,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 6,
+              "switched_off_frac": 0.010619999840855598
+            },
+            {
+              "approx_kl": 7.060294137772871e-06,
+              "clipfrac": 0.020519999787211418,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.002524134237319231,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 7,
+              "switched_off_frac": 0.012679999694228172
+            },
+            {
+              "approx_kl": 7.734630344202742e-06,
+              "clipfrac": 0.025119999423623085,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.0027088939677923918,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 8,
+              "switched_off_frac": 0.016200000420212746
+            }
+          ],
+          "target_kl": 1,
+          "train_result": {
+            "J_disc_train": 1394.5264551508685,
+            "J_disc_train_se": 25.425346736168294,
+            "action_oor_frac": 0.14016458333333334,
+            "actor_adam_step_count": 8,
+            "actor_lr": 0.0001,
+            "actor_optimizer_steps": 8,
+            "actor_update_epochs": 2,
+            "adv_raw_mean": 0.49751664593273454,
+            "adv_raw_std": 0.19977222225935476,
+            "approx_kl": 8.211577551264782e-06,
+            "clamp_hit_frac": 0.0,
+            "clipfrac": 0.02020799933670787,
+            "critic_lr": 0.001,
+            "critic_optimizer_steps": 20,
+            "diagnostics_seconds": 0.05834135785698891,
+            "episode_count": 80,
+            "explained_var": -0.19991016387939453,
+            "explained_var_reason": null,
+            "itr": 1,
+            "kl_true_per_action": 0.04610706174376731,
+            "logratio_p99": 0.3222349542379365,
+            "policy_action_oor_frac": 0.14018958333333334,
+            "ppo_approx_kl_last": 7.734630344202742e-06,
+            "ppo_approx_kl_mean": 3.8754741424895656e-06,
+            "ppo_clipfrac_last": 0.025119999423623085,
+            "ppo_clipfrac_mean": 0.010387499740318162,
+            "ppo_kl_early_stop": false,
+            "ppo_mean_abs_ratio_minus_one_last": 0.0027088939677923918,
+            "ppo_mean_abs_ratio_minus_one_mean": 0.001682948823145125,
+            "ppo_minibatch_size": 50000,
+            "ppo_step_count": 8,
+            "ppo_steps": [
+              {
+                "approx_kl": 0.0,
+                "clipfrac": 0.0,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 1,
+                "switched_off_frac": 0.0
+              },
+              {
+                "approx_kl": 7.511802664339484e-07,
+                "clipfrac": 0.0001399999891873449,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0008590842480771244,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 2,
+                "switched_off_frac": 9.999999747378752e-05
+              },
+              {
+                "approx_kl": 1.8846679950001999e-06,
+                "clipfrac": 0.0021199998445808887,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.001348354620859027,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 3,
+                "switched_off_frac": 0.001180000021122396
+              },
+              {
+                "approx_kl": 3.158119625368272e-06,
+                "clipfrac": 0.0064399996772408485,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0017145323799923062,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 4,
+                "switched_off_frac": 0.003619999857619405
+              },
+              {
+                "approx_kl": 4.4510879888548516e-06,
+                "clipfrac": 0.012000000104308128,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.0020032015163451433,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 5,
+                "switched_off_frac": 0.00791999977082014
+              },
+              {
+                "approx_kl": 5.9638127822836395e-06,
+                "clipfrac": 0.016759999096393585,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.002305389614775777,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 6,
+                "switched_off_frac": 0.010619999840855598
+              },
+              {
+                "approx_kl": 7.060294137772871e-06,
+                "clipfrac": 0.020519999787211418,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.002524134237319231,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 7,
+                "switched_off_frac": 0.012679999694228172
+              },
+              {
+                "approx_kl": 7.734630344202742e-06,
+                "clipfrac": 0.025119999423623085,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.0027088939677923918,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 8,
+                "switched_off_frac": 0.016200000420212746
+              }
+            ],
+            "ppo_switched_off_frac_last": 0.016200000420212746,
+            "ppo_switched_off_frac_mean": 0.006539999950291531,
+            "ratio": 0.9997982382774353,
+            "reward_clip_frac": 0.0,
+            "rollout_seconds": 12.761964986100793,
+            "step": 80000,
+            "theta_dist": 0.25555741216039113,
+            "theta_dist_before_update": 0.0,
+            "time": 57.016270875930786,
+            "train_episode_reward": 3932.374402182731,
+            "update_norm": 0.25555741216039113,
+            "update_seconds": 44.16873841825873,
+            "x0_sat_frac_last": 0.021776155717761557,
+            "x0_sat_frac_mean": 0.0662427862660336
+          }
+        },
+        "EP2M": {
+          "G5_live_logged_lr_passed": true,
+          "actor_adam_counts": [
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8,
+            8
+          ],
+          "actor_lr": 0.00025,
+          "config": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/G3_live_EP2M/config.yaml",
+          "critic_adam_counts": [
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20,
+            20
+          ],
+          "eval_result": {
+            "J_disc_eval": 1500.1754272035555,
+            "J_disc_eval_se": 17.630072922995137,
+            "action_oor_frac": 0.0,
+            "actor_adam_step_count": 0,
+            "actor_lr": 0.00025,
+            "actor_update_epochs": 2,
+            "diagnostics_seconds": 0.012117124861106277,
+            "episode_count": 80,
+            "eval_best_reward": 6.46346833330625,
+            "eval_episode_reward": 4248.903928737083,
+            "eval_success_rate": 1.0,
+            "itr": 0,
+            "policy_action_oor_frac": 0.0,
+            "ppo_kl_early_stop": false,
+            "ppo_steps": [],
+            "rollout_seconds": 12.99415401299484,
+            "step": 0,
+            "theta_dist": 0.0,
+            "theta_dist_before_update": 0.0,
+            "time": 13.026922702789307,
+            "update_seconds": 0.0
+          },
+          "gpu": "NVIDIA RTX A6000",
+          "max_grad_norm": null,
+          "observed": {
+            "actor_steps": [
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1,
+              1
+            ],
+            "critic_steps": 20,
+            "loss_sizes": [
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000,
+              50000
+            ],
+            "permutations": 5
+          },
+          "passed": true,
+          "profile": "EP2M",
+          "reset_at_iteration": false,
+          "sampler_noise_clip": 3,
+          "steps": [
+            {
+              "approx_kl": 0.0,
+              "clipfrac": 0.0,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.0,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 1,
+              "switched_off_frac": 0.0
+            },
+            {
+              "approx_kl": 4.668976089305943e-06,
+              "clipfrac": 0.01071999967098236,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.002120047574862838,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 2,
+              "switched_off_frac": 0.00571999978274107
+            },
+            {
+              "approx_kl": 1.0275271961290855e-05,
+              "clipfrac": 0.036979999393224716,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.003201152663677931,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 3,
+              "switched_off_frac": 0.019279999658465385
+            },
+            {
+              "approx_kl": 1.1847359928651713e-05,
+              "clipfrac": 0.04174000024795532,
+              "epoch": 0,
+              "mean_abs_ratio_minus_one": 0.003403276205062866,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 4,
+              "switched_off_frac": 0.02279999852180481
+            },
+            {
+              "approx_kl": 1.232966133102309e-05,
+              "clipfrac": 0.04569999873638153,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.0034616056364029646,
+              "minibatch": 0,
+              "minibatch_size": 50000,
+              "step": 5,
+              "switched_off_frac": 0.02897999994456768
+            },
+            {
+              "approx_kl": 1.3623783161165193e-05,
+              "clipfrac": 0.053519997745752335,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.003707556053996086,
+              "minibatch": 1,
+              "minibatch_size": 50000,
+              "step": 6,
+              "switched_off_frac": 0.0334399975836277
+            },
+            {
+              "approx_kl": 1.4588265912607312e-05,
+              "clipfrac": 0.061400000005960464,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.0038906042464077473,
+              "minibatch": 2,
+              "minibatch_size": 50000,
+              "step": 7,
+              "switched_off_frac": 0.03787999972701073
+            },
+            {
+              "approx_kl": 1.4571967767551541e-05,
+              "clipfrac": 0.061400000005960464,
+              "epoch": 1,
+              "mean_abs_ratio_minus_one": 0.003948137629777193,
+              "minibatch": 3,
+              "minibatch_size": 50000,
+              "step": 8,
+              "switched_off_frac": 0.03821999952197075
+            }
+          ],
+          "target_kl": 1,
+          "train_result": {
+            "J_disc_train": 1391.174080820509,
+            "J_disc_train_se": 23.262947067740964,
+            "action_oor_frac": 0.13950833333333335,
+            "actor_adam_step_count": 8,
+            "actor_lr": 0.00025,
+            "actor_optimizer_steps": 8,
+            "actor_update_epochs": 2,
+            "adv_raw_mean": 0.5062163359201499,
+            "adv_raw_std": 0.1996426128798169,
+            "approx_kl": 1.4577857655240223e-05,
+            "clamp_hit_frac": 0.0,
+            "clipfrac": 0.05364299900829792,
+            "critic_lr": 0.001,
+            "critic_optimizer_steps": 20,
+            "diagnostics_seconds": 0.055683194659650326,
+            "episode_count": 80,
+            "explained_var": -0.2056504487991333,
+            "explained_var_reason": null,
+            "itr": 1,
+            "kl_true_per_action": 0.0810927900484206,
+            "logratio_p99": 0.3871202492713877,
+            "policy_action_oor_frac": 0.13953333333333334,
+            "ppo_approx_kl_last": 1.4571967767551541e-05,
+            "ppo_approx_kl_mean": 1.0238160768949456e-05,
+            "ppo_clipfrac_last": 0.061400000005960464,
+            "ppo_clipfrac_mean": 0.03893249947577715,
+            "ppo_kl_early_stop": false,
+            "ppo_mean_abs_ratio_minus_one_last": 0.003948137629777193,
+            "ppo_mean_abs_ratio_minus_one_mean": 0.0029665475012734532,
+            "ppo_minibatch_size": 50000,
+            "ppo_step_count": 8,
+            "ppo_steps": [
+              {
+                "approx_kl": 0.0,
+                "clipfrac": 0.0,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.0,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 1,
+                "switched_off_frac": 0.0
+              },
+              {
+                "approx_kl": 4.668976089305943e-06,
+                "clipfrac": 0.01071999967098236,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.002120047574862838,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 2,
+                "switched_off_frac": 0.00571999978274107
+              },
+              {
+                "approx_kl": 1.0275271961290855e-05,
+                "clipfrac": 0.036979999393224716,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.003201152663677931,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 3,
+                "switched_off_frac": 0.019279999658465385
+              },
+              {
+                "approx_kl": 1.1847359928651713e-05,
+                "clipfrac": 0.04174000024795532,
+                "epoch": 0,
+                "mean_abs_ratio_minus_one": 0.003403276205062866,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 4,
+                "switched_off_frac": 0.02279999852180481
+              },
+              {
+                "approx_kl": 1.232966133102309e-05,
+                "clipfrac": 0.04569999873638153,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.0034616056364029646,
+                "minibatch": 0,
+                "minibatch_size": 50000,
+                "step": 5,
+                "switched_off_frac": 0.02897999994456768
+              },
+              {
+                "approx_kl": 1.3623783161165193e-05,
+                "clipfrac": 0.053519997745752335,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.003707556053996086,
+                "minibatch": 1,
+                "minibatch_size": 50000,
+                "step": 6,
+                "switched_off_frac": 0.0334399975836277
+              },
+              {
+                "approx_kl": 1.4588265912607312e-05,
+                "clipfrac": 0.061400000005960464,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.0038906042464077473,
+                "minibatch": 2,
+                "minibatch_size": 50000,
+                "step": 7,
+                "switched_off_frac": 0.03787999972701073
+              },
+              {
+                "approx_kl": 1.4571967767551541e-05,
+                "clipfrac": 0.061400000005960464,
+                "epoch": 1,
+                "mean_abs_ratio_minus_one": 0.003948137629777193,
+                "minibatch": 3,
+                "minibatch_size": 50000,
+                "step": 8,
+                "switched_off_frac": 0.03821999952197075
+              }
+            ],
+            "ppo_switched_off_frac_last": 0.03821999952197075,
+            "ppo_switched_off_frac_mean": 0.023289999342523515,
+            "ratio": 0.999643862247467,
+            "reward_clip_frac": 0.0,
+            "rollout_seconds": 12.17580309510231,
+            "step": 80000,
+            "theta_dist": 0.5889002519327206,
+            "theta_dist_before_update": 0.0,
+            "time": 54.39066958427429,
+            "train_episode_reward": 3902.195247294387,
+            "update_norm": 0.5889002519327206,
+            "update_seconds": 42.13294885423966,
+            "x0_sat_frac_last": 0.021066504460665044,
+            "x0_sat_frac_mean": 0.06524196172069638
+          }
+        }
+      },
+      "passed": true
+    },
+    "G4": {
+      "actor_steps": 4,
+      "bitwise_required": true,
+      "comparisons": {
+        "critic_gradients": {
+          "bitwise_equal": true,
+          "elements": 2728980,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 160
+        },
+        "critic_optimizer_state": {
+          "bitwise_equal": true,
+          "elements": 272911,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 29
+        },
+        "critic_parameters": {
+          "bitwise_equal": true,
+          "elements": 136449,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 8
+        },
+        "critic_scheduler_state": {
+          "bitwise_equal": true,
+          "elements": 6,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "initial_critic_optimizer": {
+          "bitwise_equal": true,
+          "elements": 5,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 5
+        },
+        "initial_model": {
+          "bitwise_equal": true,
+          "elements": 1841625,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 44
+        },
+        "initial_rng": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        },
+        "input_batch": {
+          "bitwise_equal": true,
+          "elements": 10480000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "input_batch_after": {
+          "bitwise_equal": true,
+          "elements": 10480000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 6
+        },
+        "permutations": {
+          "bitwise_equal": true,
+          "elements": 1000000,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 5
+        },
+        "rng_after_iteration": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        },
+        "rng_after_update": {
+          "bitwise_equal": true,
+          "elements": 5681,
+          "first_failure": null,
+          "max_abs": 0.0,
+          "max_rel": 0.0,
+          "passed": true,
+          "tensors": 3
+        }
+      },
+      "critic_steps": 20,
+      "gae_lambda": 0.95,
+      "max_abs": 0.0,
+      "max_rel": 0.0,
+      "passed": true,
+      "same_native_gae_statements": true,
+      "targets": {
+        "bitwise_equal": true,
+        "elements": 20000,
+        "first_failure": null,
+        "max_abs": 0.0,
+        "max_rel": 0.0,
+        "passed": true,
+        "tensors": 1
+      }
+    },
+    "G5": {
+      "conditions": {
+        "EP1": {
+          "actor_lr": 0.0001,
+          "iterations": [
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 0
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 1
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 2
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 3
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 4
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 5
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 6
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 7
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 8
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 9
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 10
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 11
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 12
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 13
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 14
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 15
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 16
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 17
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 18
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 19
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 20
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 21
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 22
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 23
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 24
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 25
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 26
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 27
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 28
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 29
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 30
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 31
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 32
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 33
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 34
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 35
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 36
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 37
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 38
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 39
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 40
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 41
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 42
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 43
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 44
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 45
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 46
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 47
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 48
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 49
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 50
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 51
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 52
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 53
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 54
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 55
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 56
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 57
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 58
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 59
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 60
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 61
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 62
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 63
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 64
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 65
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 66
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 67
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 68
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 69
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 70
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 71
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 72
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 73
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 74
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 75
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 76
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 77
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 78
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 79
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 80
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 81
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 82
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 83
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 84
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 85
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 86
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 87
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 88
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 89
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 90
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 91
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 92
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 93
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 94
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 95
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 96
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 97
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 98
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 99
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 100
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 101
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 102
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 103
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 104
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 105
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 106
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 107
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 108
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 109
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 110
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 111
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 112
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 113
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 114
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 115
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 116
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 117
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 118
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 119
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 120
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 121
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 122
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 123
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 124
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 125
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 126
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 127
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 128
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 129
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 130
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 131
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 132
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 133
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 134
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 135
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 136
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 137
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 138
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 139
+            }
+          ],
+          "passed": true,
+          "profile": "EP1",
+          "rng": {
+            "bitwise_equal": true,
+            "elements": 5681,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "scope": "native scheduler and assertion at each of 140 positions, no rollouts or gradients"
+        },
+        "EP1M": {
+          "actor_lr": 0.0005,
+          "iterations": [
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 0
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 1
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 2
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 3
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 4
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 5
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 6
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 7
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 8
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 9
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 10
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 11
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 12
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 13
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 14
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 15
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 16
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 17
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 18
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 19
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 20
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 21
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 22
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 23
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 24
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 25
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 26
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 27
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 28
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 29
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 30
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 31
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 32
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 33
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 34
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 35
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 36
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 37
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 38
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 39
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 40
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 41
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 42
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 43
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 44
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 45
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 46
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 47
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 48
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 49
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 50
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 51
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 52
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 53
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 54
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 55
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 56
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 57
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 58
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 59
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 60
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 61
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 62
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 63
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 64
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 65
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 66
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 67
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 68
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 69
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 70
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 71
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 72
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 73
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 74
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 75
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 76
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 77
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 78
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 79
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 80
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 81
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 82
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 83
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 84
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 85
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 86
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 87
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 88
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 89
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 90
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 91
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 92
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 93
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 94
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 95
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 96
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 97
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 98
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 99
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 100
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 101
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 102
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 103
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 104
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 105
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 106
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 107
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 108
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 109
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 110
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 111
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 112
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 113
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 114
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 115
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 116
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 117
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 118
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 119
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 120
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 121
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 122
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 123
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 124
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 125
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 126
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 127
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 128
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 129
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 130
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 131
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 132
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 133
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 134
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 135
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 136
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 137
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 138
+            },
+            {
+              "after": [
+                0.0005
+              ],
+              "before": [
+                0.0005
+              ],
+              "itr": 139
+            }
+          ],
+          "passed": true,
+          "profile": "EP1M",
+          "rng": {
+            "bitwise_equal": true,
+            "elements": 5681,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "scope": "native scheduler and assertion at each of 140 positions, no rollouts or gradients"
+        },
+        "EP2": {
+          "actor_lr": 0.0001,
+          "iterations": [
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 0
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 1
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 2
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 3
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 4
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 5
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 6
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 7
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 8
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 9
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 10
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 11
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 12
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 13
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 14
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 15
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 16
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 17
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 18
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 19
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 20
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 21
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 22
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 23
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 24
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 25
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 26
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 27
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 28
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 29
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 30
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 31
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 32
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 33
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 34
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 35
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 36
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 37
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 38
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 39
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 40
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 41
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 42
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 43
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 44
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 45
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 46
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 47
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 48
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 49
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 50
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 51
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 52
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 53
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 54
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 55
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 56
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 57
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 58
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 59
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 60
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 61
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 62
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 63
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 64
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 65
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 66
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 67
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 68
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 69
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 70
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 71
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 72
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 73
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 74
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 75
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 76
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 77
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 78
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 79
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 80
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 81
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 82
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 83
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 84
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 85
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 86
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 87
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 88
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 89
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 90
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 91
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 92
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 93
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 94
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 95
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 96
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 97
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 98
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 99
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 100
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 101
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 102
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 103
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 104
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 105
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 106
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 107
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 108
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 109
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 110
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 111
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 112
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 113
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 114
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 115
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 116
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 117
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 118
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 119
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 120
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 121
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 122
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 123
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 124
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 125
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 126
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 127
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 128
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 129
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 130
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 131
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 132
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 133
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 134
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 135
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 136
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 137
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 138
+            },
+            {
+              "after": [
+                0.0001
+              ],
+              "before": [
+                0.0001
+              ],
+              "itr": 139
+            }
+          ],
+          "passed": true,
+          "profile": "EP2",
+          "rng": {
+            "bitwise_equal": true,
+            "elements": 5681,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "scope": "native scheduler and assertion at each of 140 positions, no rollouts or gradients"
+        },
+        "EP2M": {
+          "actor_lr": 0.00025,
+          "iterations": [
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 0
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 1
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 2
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 3
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 4
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 5
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 6
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 7
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 8
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 9
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 10
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 11
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 12
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 13
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 14
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 15
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 16
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 17
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 18
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 19
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 20
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 21
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 22
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 23
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 24
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 25
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 26
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 27
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 28
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 29
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 30
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 31
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 32
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 33
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 34
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 35
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 36
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 37
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 38
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 39
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 40
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 41
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 42
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 43
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 44
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 45
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 46
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 47
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 48
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 49
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 50
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 51
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 52
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 53
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 54
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 55
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 56
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 57
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 58
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 59
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 60
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 61
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 62
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 63
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 64
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 65
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 66
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 67
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 68
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 69
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 70
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 71
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 72
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 73
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 74
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 75
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 76
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 77
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 78
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 79
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 80
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 81
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 82
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 83
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 84
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 85
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 86
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 87
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 88
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 89
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 90
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 91
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 92
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 93
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 94
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 95
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 96
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 97
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 98
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 99
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 100
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 101
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 102
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 103
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 104
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 105
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 106
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 107
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 108
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 109
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 110
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 111
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 112
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 113
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 114
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 115
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 116
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 117
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 118
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 119
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 120
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 121
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 122
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 123
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 124
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 125
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 126
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 127
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 128
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 129
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 130
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 131
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 132
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 133
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 134
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 135
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 136
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 137
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 138
+            },
+            {
+              "after": [
+                0.00025
+              ],
+              "before": [
+                0.00025
+              ],
+              "itr": 139
+            }
+          ],
+          "passed": true,
+          "profile": "EP2M",
+          "rng": {
+            "bitwise_equal": true,
+            "elements": 5681,
+            "first_failure": null,
+            "max_abs": 0.0,
+            "max_rel": 0.0,
+            "passed": true,
+            "tensors": 3
+          },
+          "scope": "native scheduler and assertion at each of 140 positions, no rollouts or gradients"
+        }
+      },
+      "passed": true,
+      "runtime_validation": "all 140 logged iteration LRs also checked when runs finish"
+    }
+  },
+  "commands": [],
+  "cpu_gate_seconds": 7078,
+  "finalized_utc": "2026-10-21T20:43:53.827953+00:00",
+  "finalizer": "code/finalize_passed_gates.py",
+  "fixture": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+  "gpu_gate_seconds": 322,
+  "original_source": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/dppo",
+  "original_upstream_commit": "cc7234ad7ff39a8f32de3af903606723a16f0648",
+  "passed": true,
+  "phase": "merge",
+  "phase_numeric_settings": {
+    "cpu": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "float32_matmul_precision": "highest",
+      "torch_num_threads": 2
+    },
+    "live": {
+      "MKL_NUM_THREADS": null,
+      "OMP_NUM_THREADS": null,
+      "OPENBLAS_NUM_THREADS": null,
+      "cuda_matmul_allow_tf32": false,
+      "cudnn_allow_tf32": true,
+      "cudnn_benchmark": false,
+      "cudnn_deterministic": false,
+      "deterministic_algorithms": false,
+      "float32_matmul_precision": "highest",
+      "torch_num_threads": 40
+    }
+  },
+  "phase_records": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/gate_summary.json",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/gate_summary.json"
+  ],
+  "phase_wall_seconds": {
+    "cpu": 6683.194212809205,
+    "gpu": 318.0387762419414
+  },
+  "scheduler_accounting": {
+    "cpu": {
+      "elapsed_seconds": 7078,
+      "exit_code": "0:0",
+      "gpu_count": 0,
+      "state": "COMPLETED"
+    },
+    "gpu": {
+      "elapsed_seconds": 322,
+      "exit_code": "0:0",
+      "gpu_count": 1,
+      "state": "COMPLETED"
+    }
+  },
+  "scientific_gates_rerun": false,
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+  "source_verification": {
+    "files_compared": 405,
+    "identical": true,
+    "revision": "e0db307b35debdb42762e0ef1b206def3e61ac41"
+  },
+  "status": "passed",
+  "worker_verification": {
+    "G2_epochs_defaults": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G2_stage1": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G3_live_EP1": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G3_live_EP1M": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G3_live_EP2": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G3_live_EP2M": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G4_epochs_k1": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G5_lr_EP1": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G5_lr_EP1M": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G5_lr_EP2": {
+      "all_children_exited": true,
+      "passed": true
+    },
+    "G5_lr_EP2M": {
+      "all_children_exited": true,
+      "passed": true
+    }
+  }
+}

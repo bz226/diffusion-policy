@@ -1,0 +1,25 @@
+--- Stage-1 DPPO
++++ EP2M
+@@ -39,12 +39,12 @@
+   n_critic_warmup_itr: 0
+   n_steps: 500
+   gamma: 0.99
+-  actor_lr: 0.0001
++  actor_lr: 0.00025
+   actor_weight_decay: 0
+   actor_lr_scheduler:
+     first_cycle_steps: 1000
+     warmup_steps: 10
+-    min_lr: 0.0001
++    min_lr: 0.00025
+   critic_lr: 0.001
+   critic_weight_decay: 0
+   critic_lr_scheduler:
+@@ -63,6 +63,7 @@
+   update_epochs: 5
+   vf_coef: 0.5
+   target_kl: 1
++  actor_update_epochs: 2
+ model:
+   _target_: model.diffusion.diffusion_ppo.PPODiffusion
+   gamma_denoising: 0.99

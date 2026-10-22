@@ -1,0 +1,38 @@
+{
+  "controller_job_id": "17999307",
+  "cpu_job": "17999306",
+  "detail": "Admission stopped. No scientific retry or configuration change was made.",
+  "error": "TimeoutExpired(['/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python', '-B', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/gate_epochs.py', '--phase', 'merge', '--source', '/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo', '--output', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/complete', '--cpu-result', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/gate_summary.json', '--live-result', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/gate_summary.json'], 119.99986943043768)",
+  "gate_status": "passed",
+  "live_job": "18001600",
+  "live_submission_command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=40",
+    "--mem=64G",
+    "--gres=gpu:a6000:1",
+    "--time=60",
+    "--no-requeue",
+    "--job-name=epochs-live-gate",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/live_gate.scheduler.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/live_gate.scheduler.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/run_gate.sh",
+    "live"
+  ],
+  "monitor_seconds": 1800,
+  "monitor_status": "paused",
+  "scheduler": {
+    "elapsed_seconds": 322,
+    "exit_code": "0:0",
+    "gpu_count": 1,
+    "state": "COMPLETED"
+  },
+  "started_utc": "2026-10-21T04:03:18.151044+00:00",
+  "status": "blocked",
+  "traceback": "Traceback (most recent call last):\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/continue_after_gates.py\", line 109, in main\n    subprocess.run(merge, check=True, timeout=120)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/subprocess.py\", line 495, in run\n    stdout, stderr = process.communicate(input, timeout=timeout)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/subprocess.py\", line 1028, in communicate\n    stdout, stderr = self._communicate(input, endtime, timeout)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/subprocess.py\", line 1910, in _communicate\n    self.wait(timeout=self._remaining_time(endtime))\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/subprocess.py\", line 1083, in wait\n    return self._wait(timeout=timeout)\n  File \"/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/lib/python3.8/subprocess.py\", line 1814, in _wait\n    raise TimeoutExpired(self.args, timeout)\nsubprocess.TimeoutExpired: Command '['/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python', '-B', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/gate_epochs.py', '--phase', 'merge', '--source', '/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo', '--output', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/complete', '--cpu-result', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/gate_summary.json', '--live-result', '/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/live/gate_summary.json']' timed out after 119.99986943043768 seconds\n",
+  "updated_utc": "2026-10-21T06:16:52.780865+00:00"
+}

@@ -1,0 +1,55 @@
+method,metric,difference_to_DPPO,dppo_seed_sd,reading
+without_PPO,eval_936M,-12.185946749348659,108.2925729628751,unresolved
+without_PPO,eval_last5,-78.58903537609513,67.91810824017385,unresolved
+without_PPO,train_last10,-74.91154472271228,87.71447841925215,unresolved
+without_PPO,J_disc_gain_last10,,,not logged
+without_PPO,theta_dist_final,-5.948711937163898,0.048868874601848675,exceeds twice the DPPO seed SD
+without_PPO,mean_last_actor_approx_kl,,1.9614395247194814e-06,not logged
+without_PPO,mean_last_actor_switched_off,,,not logged
+without_PPO,mean_last_actor_abs_ratio,,,not logged
+without_PPO,saturation_final,,,not logged
+"without_PPO, lr 1e-3",eval_936M,-1357.297404978177,108.2925729628751,exceeds twice the DPPO seed SD
+"without_PPO, lr 1e-3",eval_last5,-1217.6306516904692,67.91810824017385,exceeds twice the DPPO seed SD
+"without_PPO, lr 1e-3",train_last10,-1308.6312542339092,87.71447841925215,exceeds twice the DPPO seed SD
+"without_PPO, lr 1e-3",J_disc_gain_last10,,,not logged
+"without_PPO, lr 1e-3",theta_dist_final,1.1443162381325322,0.048868874601848675,exceeds twice the DPPO seed SD
+"without_PPO, lr 1e-3",mean_last_actor_approx_kl,,1.9614395247194814e-06,not logged
+"without_PPO, lr 1e-3",mean_last_actor_switched_off,,,not logged
+"without_PPO, lr 1e-3",mean_last_actor_abs_ratio,,,not logged
+"without_PPO, lr 1e-3",saturation_final,,,not logged
+"DPPO, 1 epoch",eval_936M,-119.07278852322634,108.2925729628751,unresolved
+"DPPO, 1 epoch",eval_last5,-173.58118626733085,67.91810824017385,exceeds twice the DPPO seed SD
+"DPPO, 1 epoch",train_last10,-112.30635689048813,87.71447841925215,unresolved
+"DPPO, 1 epoch",J_disc_gain_last10,,,not logged
+"DPPO, 1 epoch",theta_dist_final,-5.105896174142308,0.048868874601848675,exceeds twice the DPPO seed SD
+"DPPO, 1 epoch",mean_last_actor_approx_kl,-1.2813780542845931e-05,1.9614395247194814e-06,exceeds twice the DPPO seed SD
+"DPPO, 1 epoch",mean_last_actor_switched_off,,,not logged
+"DPPO, 1 epoch",mean_last_actor_abs_ratio,,,not logged
+"DPPO, 1 epoch",saturation_final,,,not logged
+"DPPO, 1 epoch, lr 5e-4",eval_936M,-27.51288019243475,108.2925729628751,unresolved
+"DPPO, 1 epoch, lr 5e-4",eval_last5,-35.31320724590478,67.91810824017385,unresolved
+"DPPO, 1 epoch, lr 5e-4",train_last10,-53.31939586232329,87.71447841925215,unresolved
+"DPPO, 1 epoch, lr 5e-4",J_disc_gain_last10,,,not logged
+"DPPO, 1 epoch, lr 5e-4",theta_dist_final,0.29959361336501455,0.048868874601848675,exceeds twice the DPPO seed SD
+"DPPO, 1 epoch, lr 5e-4",mean_last_actor_approx_kl,-1.3593714270211333e-06,1.9614395247194814e-06,unresolved
+"DPPO, 1 epoch, lr 5e-4",mean_last_actor_switched_off,,,not logged
+"DPPO, 1 epoch, lr 5e-4",mean_last_actor_abs_ratio,,,not logged
+"DPPO, 1 epoch, lr 5e-4",saturation_final,,,not logged
+"DPPO, 2 epochs",eval_936M,,108.2925729628751,not logged
+"DPPO, 2 epochs",eval_last5,,67.91810824017385,not logged
+"DPPO, 2 epochs",train_last10,,87.71447841925215,not logged
+"DPPO, 2 epochs",J_disc_gain_last10,,,not logged
+"DPPO, 2 epochs",theta_dist_final,,0.048868874601848675,not logged
+"DPPO, 2 epochs",mean_last_actor_approx_kl,,1.9614395247194814e-06,not logged
+"DPPO, 2 epochs",mean_last_actor_switched_off,,,not logged
+"DPPO, 2 epochs",mean_last_actor_abs_ratio,,,not logged
+"DPPO, 2 epochs",saturation_final,,,not logged
+"DPPO, 2 epochs, lr 2.5e-4",eval_936M,75.41783249887067,108.2925729628751,unresolved
+"DPPO, 2 epochs, lr 2.5e-4",eval_last5,105.50257108307324,67.91810824017385,unresolved
+"DPPO, 2 epochs, lr 2.5e-4",train_last10,74.03141340288494,87.71447841925215,unresolved
+"DPPO, 2 epochs, lr 2.5e-4",J_disc_gain_last10,,,not logged
+"DPPO, 2 epochs, lr 2.5e-4",theta_dist_final,0.12524069613212863,0.048868874601848675,exceeds twice the DPPO seed SD
+"DPPO, 2 epochs, lr 2.5e-4",mean_last_actor_approx_kl,-1.9776800241194732e-06,1.9614395247194814e-06,unresolved
+"DPPO, 2 epochs, lr 2.5e-4",mean_last_actor_switched_off,,,not logged
+"DPPO, 2 epochs, lr 2.5e-4",mean_last_actor_abs_ratio,,,not logged
+"DPPO, 2 epochs, lr 2.5e-4",saturation_final,,,not logged

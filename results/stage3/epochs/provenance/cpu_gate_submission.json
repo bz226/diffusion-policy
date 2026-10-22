@@ -1,0 +1,25 @@
+{
+  "command": [
+    "sbatch",
+    "--parsable",
+    "--account=soal",
+    "--partition=soal",
+    "--nodes=1",
+    "--ntasks=1",
+    "--cpus-per-task=2",
+    "--mem=32G",
+    "--time=120",
+    "--no-requeue",
+    "--job-name=epochs-cpu-gate",
+    "--output=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/cpu_gate.scheduler.out",
+    "--error=/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/logs/cpu_gate.scheduler.err",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/run_gate.sh",
+    "cpu"
+  ],
+  "utc": "2026-10-21T04:02:22.419651+00:00",
+  "status": "submitted",
+  "returncode": 0,
+  "stdout": "17999306\n",
+  "stderr": "",
+  "job_id": "17999306"
+}

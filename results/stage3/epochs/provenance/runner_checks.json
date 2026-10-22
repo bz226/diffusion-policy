@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-21T04:00:56.986501+00:00",
+  "python": "project Python3.8",
+  "syntax": "passed (ast.parse and bash -n)",
+  "job_plan": "passed: exactly EP1M,EP2M,EP1,EP2,seed0only,approvedoverrides",
+  "budget": "passed:20GPUhglobal,4hperattempt,gate<=1GPUh,max4allocations",
+  "mock_completion": "passed:140rows,126train14eval,504stepsforoneepochcondition,alliterationLR",
+  "negative_checks": [
+    "changed evaluation-iteration LR rejected",
+    "short loop without KL-stop flag rejected"
+  ],
+  "preserved_behavior": "explicit KL-stop flag allows shortening and records it",
+  "jobs_submitted": false,
+  "scientific_gates": "not performed by runner checks"
+}

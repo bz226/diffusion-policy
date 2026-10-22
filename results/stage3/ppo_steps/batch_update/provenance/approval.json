@@ -1,0 +1,26 @@
+{
+  "approval": "approve",
+  "approved_date": "2026-10-19",
+  "parent_revision": "a428d582ae05133f8026b81a35a699b6f07ebfac",
+  "branch": "main",
+  "max_local_compute_seconds": 1800,
+  "threads": 4,
+  "memory_gib": 8,
+  "gpu": false,
+  "scheduler_jobs": false,
+  "new_gradients": false,
+  "points": [
+    32,
+    63,
+    95
+  ],
+  "batches_per_point": 500,
+  "groups_per_point": 10,
+  "source_code_new_only": [
+    "code/analyze_batch_update.py",
+    "code/batch_update_inputs.py",
+    "code/plot_batch_update.py"
+  ],
+  "gate_failure": "stop and report",
+  "curation_approved": false
+}

@@ -13,9 +13,9 @@ The approved budget is 50 collection jobs, at most five concurrent GPUs, 30 minu
 Next: complete the 50 approved collection jobs, verify their saved statistics, and generate the requested analysis. The [methods](methods.md) specify statistics, state limitations and files. Deliverables are three candidate figure sets, a table and the requested Q1–Q3 report. Curation requires a separate decision.
 
 <!-- noise monitor -->
-**Execution status (2026-10-19T21:17:50.080524+00:00):** collecting; 23/50 collection jobs verified.
+**Execution status (2026-10-20T00:30:32.573993+00:00):** complete; 50/50 collection jobs verified.
 
-Completed allocations: 10.279 GPU-hours; reserved: 2.500; cap:30. Monitor:active.
+Completed allocations: 22.198 GPU-hours; reserved: 0.000; cap:30. Monitor:paused.
 
-[Current execution record](runs/campaign/state.json). 
+[Current execution record](runs/campaign/state.json). All50groups and candidate analysis verified. Curation awaits a separate decision.
 <!-- end noise monitor -->

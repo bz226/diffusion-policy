@@ -104,6 +104,12 @@
 - Experiment design: [Methods and execution protocol](./results/stage3/dl1/methods.md)
 - Curated results: [Report, plots, table and captions](./results/stage3/dl1/curated/INDEX.md)
 
+### DPPO actor epochs at fixed and matched learning rates
+
+- Experiment folder: [Actor-epoch comparison](./results/stage3/epochs/).
+- Experiment design: [Methods](./results/stage3/epochs/curated/methods.md).
+- Curated: [Report, figures, tables and captions](./results/stage3/epochs/curated/INDEX.md)
+
 ## Comparison analyses
 
 ### Gradient noise per optimizer gradient

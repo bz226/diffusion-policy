@@ -1,0 +1,5 @@
+# DPPO skeleton. Complete overrides for each seed; COMMON is not applied.
+EP1M 0 +train.actor_update_epochs=1 train.actor_lr=5e-4 train.actor_lr_scheduler.min_lr=5e-4
+EP2M 0 +train.actor_update_epochs=2 train.actor_lr=2.5e-4 train.actor_lr_scheduler.min_lr=2.5e-4
+EP1 0 +train.actor_update_epochs=1
+EP2 0 +train.actor_update_epochs=2

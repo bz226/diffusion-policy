@@ -1,0 +1,52 @@
+{
+  "passed": true,
+  "status": "passed",
+  "kind": "replay",
+  "profile": "EP1",
+  "source": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/code/gate_epochs_worker.py",
+    "--source",
+    "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo",
+    "--kind",
+    "replay",
+    "--profile",
+    "EP1",
+    "--output",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/epochs/runs/gates/cpu/G4_epochs_k1"
+  ],
+  "numeric_settings_before": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  },
+  "slurm_job_id": "17999306",
+  "actor_steps": 4,
+  "critic_steps": 20,
+  "epochs": 5,
+  "pairs_per_minibatch": 50000,
+  "fixed_inputs": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/runs/gate_capture/default/training_batch.pt",
+  "native_loop": "/soalnas/share/data/zbao7/diffusion_policy/.codex-runtime/worktrees/stage3-epochs/results/stage3/epochs/dppo/agent/finetune/train_ppo_diffusion_agent.py",
+  "all_children_exited": true,
+  "elapsed_seconds": 758.1512781307101,
+  "numeric_settings_after": {
+    "deterministic_algorithms": false,
+    "cudnn_deterministic": false,
+    "cudnn_benchmark": false,
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "torch_num_threads": 2,
+    "OMP_NUM_THREADS": null,
+    "MKL_NUM_THREADS": null,
+    "OPENBLAS_NUM_THREADS": null
+  }
+}

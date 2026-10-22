@@ -1,0 +1,23 @@
+{
+  "status": "stopped_gate_failure",
+  "exit_code": 2,
+  "failed_gate": "G3",
+  "command": "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python -B /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/batch_update/runs/analysis_20261019/source/batch_update_inputs.py --root /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps --output /soalnas/share/data/zbao7/diffusion_policy/results/stage3/ppo_steps/batch_update/runs/analysis_20261019/candidates",
+  "timeout_seconds": 1200,
+  "memory_address_space_bytes": 8589934592,
+  "environment": {
+    "CUDA_VISIBLE_DEVICES": "",
+    "OMP_NUM_THREADS": "4",
+    "MKL_NUM_THREADS": "4",
+    "OPENBLAS_NUM_THREADS": "4",
+    "PYTHONNOUSERSITE": "1"
+  },
+  "performed": "Raw stored-statistics gates only; frozen-Adam pass skipped after raw gate failure.",
+  "unexecuted": [
+    "analyze_batch_update.py",
+    "plot_batch_update.py"
+  ],
+  "implementation_note": "Unexecuted plotting reference mask should use R.mean_resolved when resumed, not R.resolved; no affected plot exists.",
+  "source_commit": "a428d582ae05133f8026b81a35a699b6f07ebfac",
+  "gate_failure_diagnosis": "Two covariance interval-overlap failures; no rerun or gate amendment."
+}

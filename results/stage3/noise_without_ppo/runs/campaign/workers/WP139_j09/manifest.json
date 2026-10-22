@@ -1,0 +1,22 @@
+{
+  "status": "complete",
+  "started_utc": "2026-10-20T00:02:54.061078+00:00",
+  "spec": "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/workers/WP139_j09/spec.json",
+  "revision": "84a756a8280ced629b005b6d08499e1e8e7075f7",
+  "job_id": "17971962",
+  "host": "soal-11.stanford.edu",
+  "cuda_visible_devices": "0",
+  "command": [
+    "/soalnas/share/data/zbao7/diffusion_policy/results/repro_halfcheetah/env/bin/python",
+    "-B",
+    "-m",
+    "agent.finetune.noise_without_ppo",
+    "--spec",
+    "/soalnas/share/data/zbao7/diffusion_policy/results/stage3/noise_without_ppo/runs/campaign/specs/WP139_j09.json"
+  ],
+  "cap_seconds": 1800,
+  "exit_code": 0,
+  "children_remaining": [],
+  "ended_utc": "2026-10-20T00:29:39.814662+00:00",
+  "elapsed_seconds": 1605.7508853971958
+}
